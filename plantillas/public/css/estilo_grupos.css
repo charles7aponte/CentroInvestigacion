@@ -36,10 +36,12 @@
 	margin: 0 auto;
 	line-height: 1.428em;
 	font-size: 0.875em;
+	overflow: hidden;
 }
 #cuadro{
 
 	word-wrap:break-word;
+
 }
 .envoltura-grupos{
 	width: 100%;
@@ -50,7 +52,8 @@
 	float: left;
 }
 .caja-grupos{
-	position: relative;
+	
+	display: box;
 	width: 211px;
 	height: 280px;
 	margin: 3px;
@@ -65,35 +68,32 @@
 }
 
 .titulo_1{
-	font-size: 19px;
+	font-size: 16px;
 	display: block;
 	font-family: "Trebuchet MS";
 	text-transform: uppercase;
 	color:#d82828;
 }
 .imagen{
-	margin: 20px;
+	margin-top: 3px;
+	width:150px;
+	height:auto;
 }
-.boton{
-    /*display: inline-block;*/
-    position: absolute;
-    bottom: 10px;
 
-    font-size:15px;
-    line-height: 20px;
-    padding: 5px; /*padding margenes o limites a cada lado*/
-    text-align: center;
-    background-image: linear-gradient(#fff, #ccc);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5efef', EndColorStr='#898585');
-    min-width: 70px;                                 /*propiedad para el ancho del boton*/
-    margin: 10px 0 5px 0;      
-    text-decoration: none;    /*propiedad para el margen del boton*/  
+.boton a{
+	color: black;
+	display: inline-block;
+	font-family: "Trebuchet MS";
+    font-size:12px; /*padding margenes o limites a cada lado*/
+    float: right;
+    min-width: 70px;                                 /*propiedad para el ancho del boton*/  
+       /*propiedad para el margen del boton*/  
 }
+
 .boton:hover{  /*propiedad efecto de los botones*/
-	background:red;
-	color: green;
+	background: #fff;
+	color: #1C1C1C;
 }
-
 #cc{
 	color:#1C1C1C;
 	font-family: "Trebuchet MS";
