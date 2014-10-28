@@ -16,5 +16,9 @@ Route::get('/', function()
 	return View::make('cuerpo');
 });
 
+Route::get('grupos', function()
+{
+	return View::make('hello');
+});
 
 //Route::get('');
