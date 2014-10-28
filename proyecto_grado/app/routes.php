@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('fecha');
+	return View::make('cuerpo');
 });
 
 
