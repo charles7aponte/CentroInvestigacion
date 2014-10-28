@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('grupos', function()
 {
-	return View::make('hello');
+	return View::make('grupos');
 });
 
 //Route::get('');

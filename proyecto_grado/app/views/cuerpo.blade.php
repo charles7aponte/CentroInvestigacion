@@ -6,6 +6,12 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
+	
+
+	@section('css')
+	
+	@show
+	
     <!-- scripts -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>

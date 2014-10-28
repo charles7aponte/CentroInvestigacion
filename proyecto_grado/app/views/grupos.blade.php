@@ -1,4 +1,15 @@
 @extends('cuerpo')
+
+
+{{-- seccion del csss --}} 
+@section('css')
+
+    <link rel="stylesheet" type="text/css" href="css/estilo_grupos.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+@stop
+
+
+{{-- la seccion de contenido --}}
 @section('contenido-grupos')
 <div id="cuerpo">
 	 	<div class="encabezado">
