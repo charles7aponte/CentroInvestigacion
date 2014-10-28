@@ -1,0 +1,343 @@
+/* ===================================
+General
+==================================== */
+* { margin: 0; padding: 0; outline: 0; }
+
+body, html { height: 100%; }
+
+body {
+    font-size: 12px;
+    line-height: 22px;
+    font-family: 'OpenSans-Light';
+    color: #797979;
+}
+
+header{
+    margin:0 auto;
+    display: block;
+
+}
+
+
+.body{
+    width: 960px; 
+    margin: 0 auto; 
+    background: #FBFBFB;
+}
+
+#cuadro{
+    work-break: break-all;
+    -ms-word-break: break-all;
+    word-break: break-word;  
+}
+
+.cl{  
+    display: block; 
+    height: 0; 
+    font-size: 0; 
+    line-height: 0; 
+    text-indent: -4000px; 
+    clear: both; 
+}
+/* ===================================
+Encabezado
+==================================== */
+.capa-cabeza{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #EBEBEB url(../images/header-bg.jpg) center top repeat-x;
+    color: #000;
+    height: 110px;
+    padding: 15px 15px 9px 15px;
+}
+
+.elementos-cabecera{
+    float: right;
+    text-align: left;
+    width: 44%;
+}
+
+#logo-encabezado{
+    color: #FFF;
+    float: left;
+}
+#logo-encabezado img{
+    margin: 5px 0;
+    padding-left: 18px;
+
+}
+#fecha-encabezado{
+    color: rgb(151, 151, 151);
+    clear: none;
+    font-size: 1.2em;
+    height: 20px;
+    text-align: right;
+}
+
+#redes-cabecera{
+    float: right;
+}
+
+#redes-cabecera ul{
+    float: left;
+    padding: 0;
+    margin-top: 35px;
+    list-style: none;
+}
+#redes-cabecera ul li{
+    float: left;
+}
+
+#redes-cabecera ul li a{
+    display: block;
+    width: 23px;
+    height: 21px;
+    margin: 0 2px; 
+}
+#redes-cabecera ul li a.facebook{
+    background: url(../images/facebook.png);
+}
+
+#redes-cabecera ul li a.twitter{
+    background: url(../images/twitter.png);
+}
+
+#redes-cabecera ul li a.googlemas{
+    background: url(../images/googlemas.png);
+}
+#ingreso-encabezado{
+    text-align: right;
+    margin-top: 60px;
+}
+
+#ingreso-encabezado a{
+    color: #2A0505;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px;
+    border-left: 1px solid #2A0505;
+}
+/* ===================================
+Menu de navegacion
+==================================== */
+#menu {  
+    text-align: center;
+    font-size: 13px;
+    width: 820px;
+    margin: 5px auto;
+    clear: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#menu ul { 
+    list-style-type: none;
+}
+
+#menu ul li.nivel1 { 
+    float: left;
+    width: 162px;
+    margin-right: 2px;
+}
+
+#menu ul li a {
+    border: 1px solid #D44040; /* Color del borde, debe ser más claro que fondo */
+    background:#D82828; /* Fondo */ 
+    box-shadow:inset 2px 2px 4px rgba(120, 120, 120, .4), inset -3px -3px 3px rgba(255,255,255,.4);
+    text-shadow: 1px 1px rgba(0,0,0,.3);  /* Sombra del texto */
+    text-align: center;  /* Alineación del texto */
+    color:#fff;   
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+}
+
+#menu ul li:hover {
+    position: relative;
+}
+
+#menu ul li a:hover, #menu ul li:hover a.nivel1 {
+    box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 2px 2px 10px rgba(0,0,0,.1);
+    border: 1px solid #9F4F4F; /* Borde */
+    background: #990F0F;  /* Fondo */
+    text-align: center;  /* Alineación del texto */
+    text-shadow: -1px -1px rgba(0,0,0,.2);  /* Sombra del texto */
+    color: white;  /* Color del texto */
+}
+
+#menu ul li a.nivel1 {display: block!important;display: none;
+position: relative;
+}
+#menu ul li ul {display: none;
+}
+#menu ul li a:hover ul, #menu ul li:hover ul {
+    display: block;
+    position: absolute;left: 0px;
+    z-index: 200;
+}
+#menu ul li ul li a {
+    width: 160px;
+    padding: 7px 1px 8px 0px;
+    border-top-color: #E65656;
+}
+#menu ul li ul li a:hover {
+    border-top-color: #E65656;
+    position: relative;
+}
+table.falsa {
+    border-collapse:collapse;
+    border:0px;
+    float: left;
+    position: relative;
+}
+
+/* ===================================
+Cuerpo
+==================================== */
+.content {
+    padding:10px 0 0 0;
+    font-family: Arial, Helvetica, sans-serif !important;
+
+}
+.content_resize {
+    margin:0 auto;
+    padding:0 10px;
+    width:930px;
+    background:#fff;
+    border:1px solid #C4B7B7;
+}
+.content .mainbar {
+
+    margin:0;
+    padding:0;
+    float:left;
+    width:620px;
+    background:repeat-x bottom;
+}
+.content .mainbar img {
+    float:left;
+    padding:4px;
+    margin:0 10px 0 0;
+    border:1px solid #eaecec;
+    background-color:#fff;
+}
+.content .mainbar .article {
+    margin:0;
+    padding:20px 0 0 0;
+}
+.content .mainbar .article span.butons a {
+    margin:0 5px 0 0;
+    float:right;
+    color:#9a9a9a;
+    padding:1px 10px;
+    text-decoration:none;
+    border:1px solid #ebe8e8;
+    background:#fbfbfc;
+}
+.content .mainbar .article span.butons a:hover {
+    border:1px solid #E4E1E1;
+    background:#40b5ff;
+    color:#fff;
+    text-decoration:none;
+}
+.content .mainbar .article span.butons a.active {
+    border:1px solid #ebe8e8;
+    background:#40b5ff;
+    color:#fff;
+    text-decoration:none;
+}
+.content .sidebar {
+    margin:20px 0 0 0;
+    padding:0;
+    float:right;
+    width:300px;
+}
+.content .sidebar .gadget {   
+    margin:0 0 10px 0;
+    padding:10px;
+    border:1px solid #C7C4C4;
+    border-radius: 6px;
+}
+
+ul.sb_menu, ul.list {
+    margin:0;
+    padding:0;
+    list-style:none;
+    color:#959595;
+
+}
+ul.sb_menu li, ul.list li {
+    margin:0;
+}
+ul.sb_menu li {
+    padding:4px 0 4px 12px;
+    width:220px;
+}
+ul.list li {
+    padding:4px 0 8px 12px;
+}
+ul.sb_menu li a, ul.list li a {
+    color:#959595;
+    text-decoration:none;
+    margin-left:-12px;
+    padding-left:12px;
+        
+
+}
+ul.sb_menu li a:hover, ul.list li a:hover {
+    color:#2cadff;
+    text-decoration:underline;
+}
+ul.sb_menu li a:hover {
+    text-decoration:underline;
+}
+ul.list li a:hover {
+    text-decoration:none;
+}
+.content .mainbar .comment {
+    margin:0;
+    padding:16px 0 0 0;
+}
+.content .mainbar .comment img.userpic {
+    border:1px solid #dedede;
+    margin:10px 16px 0 0;
+    padding:0;
+    float:left;
+}
+/**poner cuadro de color en noticias y convocatorias**/
+h2.star{ 
+    text-align: center;
+    background:#D82828;
+    padding:7px 0 5px 30px;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+/* ===================================
+Pie de pagina
+==================================== */
+#pie-pagina { 
+    padding: 10px 0 0 0;
+
+}
+
+#capa-pie{
+    background-color: #E12121;
+    color: #FFF;
+    margin: 0 0 10px 0;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+}
+
+#capa-pie p{
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
