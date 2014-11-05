@@ -16,7 +16,7 @@
                 Correo electronico: <input type="email" required="" id="email" /> 
                 <span class="form-required" title="Este campo es obligatorio.">*</span>
             </div> 
-            <div class="caja-login"><a href="login.php">Recordo su contraseña?</a></div>
+            <div class="caja-login"><a href="login.php">¿Recordo su contraseña?</a></div>
             <div> <input type="submit" value="Nueva Contraseña" /> </div> 
 </body> 
 </html>

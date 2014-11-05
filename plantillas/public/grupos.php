@@ -11,110 +11,128 @@
 	 	</div>
 	<section id="contenido">
       <div class="bg-1">
-      	<div class="principal-grupos">
         	<div class="principal-grupos">
         		<div class="caja-grupos fleft" id="cuadro">
-        		 	<span class="titulo_1"><strong>jshf los pollitos dicen pio pio pio cuando la gallina aaaaaaaaaaaaaa aaaaaaaaaaaafhBIOLOG&iacute;A EVOLUTIVA DE AVES NEOTROPICALES</strong></span>
+        		 	<span class="titulo_1"><strong>los pollito dicen pio pio pio cuando la gallina BIOLOG&iacute;A EVOLUTIVA DE AVES NEOTROPICALES</strong></span>
         		 	<figure class="imagen">
         		 		<img src="images/gitecx.png">
         		 	</figure>
-        		 	<i class="fa fa-plus-circle fa-2x"></i>leer
+        		 	<div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
         		</div>
         		<div class="caja-grupos fleft" id="cuadro">
         			<span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
         		 	<figure class="imagen">
         		 		<img src="images/macrypt.jpg">
         		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
         		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
+                <div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+                <div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
         	</div>
-      	</div>
     </section>
 
 	<section id="contenido">
       <div class="bg-1">
-      	<div class="principal-grupos">
+        	<div class="principal-grupos">
+        		<div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>jshf los pollitos dicen pio pio pio cuando la gallina aaaaaaaaaaaaaa aaaaaaaaaaaafhBIOLOG&iacute;A EVOLUTIVA DE AVES NEOTROPICALES</strong></span>
+                    <figure class="imagen">
+                        <img src="images/gitecx.png">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+        		<div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+        		<div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+        		<div class="caja-grupos fleft" id="cuadro">
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+        	</div>
+    </section>
+
+	<section id="contenido">
+      <div class="bg-1">
         	<div class="principal-grupos">
         		<div class="caja-grupos fleft" id="cuadro">
         		 	<span class="titulo_1"><strong>horizonte mediatico</strong></span>
         		 	<figure class="imagen">
         		 		<img src="images/gitecx.png">
         		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
+        		 	 <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
         		</div>
         		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
+                    <figure class="imagen">
+                        <img src="images/macrypt.jpg">
+                    </figure>
+                    <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
+                </div>
+        		<div class="caja-grupos fleft" id="cuadro">
+        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
         		 	<figure class="imagen">
         		 		<img src="images/gitecx.png">
         		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
+        		 	 <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
         		</div>
         		<div class="caja-grupos fleft" id="cuadro">
         			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
         		 	<figure class="imagen">
         		 		<img src="images/gitecx.png">
         		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
+        		 	 <div class="boton">
+                        <a href="#"><i class="fa fa-plus-circle fa-2x"></i>Ver grupo</a>
+                    </div>
         		</div>
         	</div>
-      	</div>
-    </section>
-
-	<section id="contenido">
-      <div class="bg-1">
-      	<div class="principal-grupos">
-        	<div class="principal-grupos">
-        		<div class="caja-grupos fleft" id="cuadro">
-        		 	<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>grupo de matematicas aplicadas a las ciencias de la computacion</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        		<div class="caja-grupos fleft" id="cuadro">
-        			<span class="titulo_1"><strong>horizonte mediatico</strong></span>
-        		 	<figure class="imagen">
-        		 		<img src="images/gitecx.png">
-        		 	</figure>
-        		 	<a class="boton" id="cc" href="">Leer mas</a>
-        		</div>
-        	</div>
-      	</div>
     </section>
     <div class="tabs">
 	    <ul class="paginacion" >

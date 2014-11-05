@@ -119,21 +119,17 @@
 			    <div class="content_resize">
 			        <div class="mainbar">
 			        	<div class="article">
-				         	<h2><span>Template License</span></h2>
-				          	<div class="clr"></div>
-				          	<p>Posted on 18. Sep, 2015 by Sara in Filed under templates, internet, with Comments 18</p>
-				          	<img src="images/img_1.jpg" width="202" height="147" alt="" class="fl" /> This is a free CSS website template by AtomicWebsiteTemplates.com. This work is distributed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, which means that you are free to use it for any personal or commercial purpose provided you credit me in the form of a link back to AtomicWebsiteTemplates.com.
-				          	<p>Maecenas dignissim mauris in arcu congue tincidunt. Vestibulum elit nunc, accumsan vitae faucibus vel, scelerisque a quam. Aenean at metus id elit bibendum faucibus. Curabitur ultrices ante nec neque consectetur a aliquet libero lobortis. Ut nibh sem, pellentesque in dictum eu, convallis blandit erat. Cras vehicula tellus nec purus sagittis id scelerisque risus congue. Quisque sed semper massa. Donec id lacus mauris, vitae pretium risus. Fusce sed tempor erat. </p>
-				          	<p><a href="#">Leer mas </a></p>
+				         	<h2><span>PARTE 1</span></h2>
+
+				          	<span class="mas"><a href="#">Leer mas..</a></span>
 			        	</div>
+
+
 				        <div class="article">
-				          	<h2><span>Aliquam Risus</span> Justo</h2>
+				          	<h2><span>PARTE 2</span></h2>
 				          	<div class="cl"></div>
-				          	<p>Posted on 18. Sep, 2015 by Sara in Filed under templates, internet, with Comments 18</p>
-				          	<img src="images/img_1.jpg" width="202" height="147" alt="" class="fl" />
-				          	<p>Pellentesque posuere enim et ipsum dignissim convallis. Proin quis molestie mauris. Nunc eget quam at nulla tempus tincidunt quis a mi. Aliquam ornare turpis non tellus molestie imperdiet. Phasellus sit amet neque vitae purus venenatis hendrerit. Phasellus non mi ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti. Aenean vel varius sapien. Etiam leo quam, sodales vel ullamcorper ut, viverra a risus.</p>
-				          	<p>Maecenas dignissim mauris in arcu congue tincidunt. Vestibulum elit nunc, accumsan vitae faucibus vel, scelerisque a quam. Aenean at metus id elit bibendum faucibus. Curabitur ultrices ante nec neque consectetur a aliquet libero lobortis. Ut nibh sem, pellentesque in dictum eu, convallis blandit erat. Cras vehicula tellus nec purus sagittis id scelerisque risus congue. Quisque sed semper massa. Donec id lacus mauris, vitae pretium risus. Fusce sed tempor erat. </p>
-				          	<p><a href="#">Leer mas </a></p>
+
+				          	<span class="mas"><a href="#">Leer mas..</a></span>
 				        </div>
 			        </div>
 
@@ -142,24 +138,24 @@
 							<div class="columna-abajo" id="cuadro">
 							<h2 class="star">Noticias</h2>
 						        <marquee  height="200px" direction="up" onmouseover="this.scrollAmount=0" onmouseout="this.scrollAmount=2.5" scrollamount="1.8" scrolldelay="0">
-						          	<ul class="list1 col3">
+						          	<ul class="list1">
 						            <li>
-						              	<a href="#">titulo noticia</a>
+						              	<a id="t-abajo" href="#">Notificaciones Judiciales</a>
+						                <span class="pnoticia-columna">El Departamento Administrativo de Ciencias, Tecnología e Innovación COLCIENCIAS informa:</span><br><br>
+						                <img src="#" width="200px" height="3px"><br><br>
+						            </li>
+						            <li>
+						              	<a id="t-abajo" href="#">titulo noticia</a>
 						                <span class="pnoticia-columna">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><br>
 						                <img src="#" width="200px" height="3px"><br><br>
 						            </li>
 						            <li>
-						              	<a href="#">titulo noticia</a>
+						              	<a id="t-abajo" href="#">titulo noticia</a>
 						                <span class="pnoticia-columna">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><br>
 						                <img src="#" width="200px" height="3px"><br><br>
 						            </li>
 						            <li>
-						              	<a href="#">titulo noticia</a>
-						                <span class="pnoticia-columna">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><br>
-						                <img src="#" width="200px" height="3px"><br><br>
-						            </li>
-						            <li>
-						              <a href="#">titulo noticia</a>
+						              <a id="t-abajo" href="#">titulo noticia</a>
 						                <span class="pnoticia-columna">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><br>
 						                <img src="#" width="200px" height="3px"><br><br>
 						            </li>
@@ -171,53 +167,30 @@
 			        	<div class="gadget">
 			        		<!--convocatorias-->
 			        		<h2 class="star"><span>Convocatorias</span></h2>
-			        		<ul class="list">
-						        <li>
-						        	<div class="date">
-							            <strong>01</strong>
-							            <span>2014</span>
-							            <em>Jun</em>
-						          	</div>
-						          	<div class="extra_wrapper">
-						            	<div class="col3"><a href="#">Convocatoria 1 </a></div>los pollitos dicen pio pio pio cuando tienen hambre cuando tienen frio, la gallina busca el maiz y el trigo les da la comida. 
-						          	</div>
-						        </li>
-						        <li>
-						        	<div class="date">
-							            <strong>01</strong>
-							            <span>2014</span>
-							            <em>Jun</em>
-						          	</div>
-						          	<div class="extra_wrapper">
-						            	<div class="col3"><a href="#">Convocatoria 1 </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
-						          	</div>
-						        </li>
-						        <li>
-						        	<div class="date">
-							            <strong>01</strong>
-							            <span>2014</span>
-							            <em>Jun</em>
-						          	</div>
-						          	<div class="extra_wrapper">
-						            	<div class="col3"><a href="#">Convocatoria 1 </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
-						          	</div>
-						        </li>
-						        <li>
-						        	<div class="date">
-							            <strong>01</strong>
-							            <span>2014</span>
-							            <em>Jun</em>
-						          	</div>
-						          	<div class="extra_wrapper">
-						            	<div class="col3"><a href="#">Convocatoria 1 </a></div>Rerna is sed feugiat. Cras pulvinar lorem sagi isallvestibulumnisi nec gravida. 
-						          	</div>
-						        </li>
-				      		</ul>
+			        		<article class="holder_news" id="cuadro">
+							   <h4><div id="t_conv">Convocatoria locomotora de la innovación para las empresas 2014</div>
+							   <span>10.09.2014</span></h4>
+							   <p>los pollitos dicen pio pio cuando tienen hambre cuando tienen frio, la gallina busca el maiz y el trigo les da la comida y les ofrece abrigo
+							   <span class="mas"><a href="#">Leer mas..</a></span></p>
+							</article>
 			        		
-						</div>
-					</div>
-			        	</div>
-			      	</div>  			<div class="cl">&nbsp;</div>	
+			        		<article class="holder_news" id="cuadro">
+							   <h4><div id="t_conv">Convocatoria locomotora de la innovación para las empresas 2014</div>
+							   <span>10.09.2014</span></h4>
+							   <p>los pollitos dicen pio pio cuando tienen hambre cuando tienen frio, la gallina busca el maiz y el trigo les da la comida y les ofrece abrigo
+							   <span class="mas"><a href="#">Leer mas..</a></span></p>
+							</article>
+			        		
+			        		<article class="holder_news" id="cuadro">
+							   <h4><div id="t_conv">Convocatoria locomotora de la innovación para las empresas 2014</div>
+							   <span>10.09.2014</span></h4>
+							   <p>los pollitos dicen pio pio cuando tienen hambre cuando tienen frio, la gallina busca el maiz y el trigo les da la comida y les ofrece abrigo
+							   <span class="mas"><a href="#">Leer mas..</a></span></p>
+							</article>
+			    		</div>
+			    	</div>  
+			    </div>				 			
+			    <div class="cl">&nbsp;</div>	
 			    <!-- Pie de Pagina-->
 				<div id="pie-pagina">
 					<div id="capa-pie">
