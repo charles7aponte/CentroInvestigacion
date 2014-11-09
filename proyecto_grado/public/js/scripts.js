@@ -50,19 +50,14 @@ $(function(){
   return false;
  });
  $(window).load(function(){
-  try{
   $.each(css_ims,function(){(new Image()).src=_siteRoot+'css/images/'+this;});
-  
   $.each(css_cims,function(){
    var css_im=this;
    $.each(['blue','purple','pink','red','grey','green','yellow','orange'],function(){
     (new Image()).src=_siteRoot+'css/'+this+'/'+css_im;
    });
   });
-  }catch(e){}
  }); 
-
-
  $('div.sc-large div.img:has(div.tml)').each(function(){
   $('div.tml',this).hide();
   $(this).append('<a href="#" class="tml_open">&nbsp;</a>').find('a').css({

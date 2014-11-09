@@ -101,8 +101,7 @@
 /* ----------------esta es la parte de paginacion------------------------------------- */
 .tabs{}
 .tabs ul.paginacion{
-	/*float: left;*/
-margin-bottom:10px; 
+	float: left;
 	padding-bottom:24px;
 	padding-left: 10px; 
 	list-style-type: none;  /*quitar las viñetas de la lista*/

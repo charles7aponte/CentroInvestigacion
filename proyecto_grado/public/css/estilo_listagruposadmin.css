@@ -1,0 +1,18 @@
+#capa{
+	background-color: #FAFAFA; /*color cuerpo*/
+	margin: 0 auto;
+	width: 960px;
+}
+
+.botones-convocatorias {
+	margin: 30px; 
+}
+
+.anterior{
+	text-decoration: none;
+}
+.siguiente{
+	float: right;
+	text-decoration: none;
+}
+
