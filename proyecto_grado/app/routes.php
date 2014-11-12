@@ -15,6 +15,7 @@ Route::get('/', function()
 {
 	return View::make('cuerpo');
 });
+
 Route::get('administrador', function()
 {
 	return View::make('panel_admin');
@@ -23,6 +24,7 @@ Route::get('formulariogrupos', function()
 {
 	return View::make('formulario_grupos');
 });
+
 Route::get('grupos', function()
 {
 	return View::make('grupos');

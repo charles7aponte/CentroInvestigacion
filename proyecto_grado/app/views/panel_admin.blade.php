@@ -24,7 +24,6 @@
 	<section id="secondary_bar">
 		<div class="user">
 			<p>Hola, Administrador</p>
-			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 	</section><!-- end of secondary bar -->
 	
@@ -32,7 +31,7 @@
 		<hr/>
 		<h3>Grupos</h3>
 		<ul class="toggle">
-			<li class=""><a href="">Agregar nuevo grupo</a></li>
+			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
 			<li class=""><a href="#">Editar grupos de estudio</a></li>
 			<li class=""><a href="#">Editar grupos de investigaci&oacute;n</a></li>
 		</ul>
