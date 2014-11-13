@@ -15,17 +15,11 @@ class CinvParticipacionProyectos extends Migration {
 		Schema::create('inv_participacion_proyectos', function($tabla){
 			$tabla->increments('id_participacion_proyectos');
 			$tabla->integer('inv_cod_proyecto')->unsigned();
-			$tabla->integer('id_cod_docente')->unsigned();
-			$tabla->bigInteger('id_ced_persona')->unsigned();
-			$tabla->integer('id_cod_estudiante')->unsigned();
-			$tabla->string('inv_identificacion_externo',20)->unsigned();
+			$tabla->bigInteger('cedula_persona')->unsigned();
 			$tabla->string('dedicacion_tiempo',10);
 			
 			$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');
-			$tabla->foreign('id_cod_docente')->references('cod_docente')->on('docentes');
-			$tabla->foreign('id_ced_persona')->references('cedula_persona')->on('personas');
-			$tabla->foreign('id_cod_estudiante')->references('cod_estudiante')->on('estudiantes');
-			$tabla->foreign('inv_identificacion_externo')->references('identificacion_externo')->on('inv_participantes_externos');
+			$tabla->foreign('cedula_persona')->references('cedula')->on('persona');
 	
 		});
 	}
