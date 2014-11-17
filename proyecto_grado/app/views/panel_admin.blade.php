@@ -4,10 +4,14 @@
 	<meta charset="utf-8"/>
 	<title>Panel</title>
 	
+	<!--css-->
 	<link rel="stylesheet" type="text/css" href="css/estilo_paneladmin.css">
-	<link rel="stylesheet" type="text/css" href="css/estilo_formulariogrupos.css">
-	<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+	<!--javascript-->
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="js/hideshow.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 
 </head>
 
