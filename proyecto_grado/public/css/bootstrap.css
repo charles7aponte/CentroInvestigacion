@@ -1779,7 +1779,7 @@ pre code {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: 14%;
   }
   .col-md-1 {
     width: 8.33333333%;
@@ -5540,7 +5540,7 @@ button.close {
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
 }
 .modal-header .close {
   margin-top: -2px;
