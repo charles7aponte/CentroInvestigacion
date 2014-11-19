@@ -91,7 +91,7 @@
 
         <!-- tabla de proyectos-->
         <div class="titulo-conv1" id="cuadro"> 
-            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-asterisk"></li>Aprobados</h2>
+            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-remove"></li>Aprobados</h2>
         </div>
         <table id="tabla_aprovados" class="tabla-conv">
             <thead>
@@ -118,7 +118,9 @@
                 </tr>
             </tbody>
         </table> 
-        
+        <div class="titulo-conv1" id="cuadro"> 
+            <h2 id="boton_rechazados"><li class="glyphicon glyphicon-remove"></li>Rechazados</h2>
+        </div>
         <table class="tabla-conv">
             <thead>
                 <tr>
@@ -143,7 +145,11 @@
                     <td id="col-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
-        </table>  
+        </table> 
+
+        <div class="titulo-conv1" id="cuadro"> 
+            <h2 id="boton_evaluacion"><li class="glyphicon glyphicon-remove"></li>Evaluacion</h2>
+        </div> 
 
         <table class="tabla-conv">
             <thead>

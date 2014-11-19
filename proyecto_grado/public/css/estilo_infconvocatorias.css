@@ -92,15 +92,15 @@ tbody tr.odd td {
 
 /******************TABLA DE PROYECTOS DE LAS CUANTIAS*****************************************/
 
-.titulo-infconv{
-    width: auto;
+.titulo-conv1{
+    width: 960px;
     margin:0;
 }
 
-.titulo-infconv h2{
+.titulo-conv1 h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: center;
-   color:;
+   text-align: left;
+   color:#1C7E8A;
    display: block;
    font-size:25px;
    text-transform: uppercase;
@@ -114,7 +114,7 @@ tbody tr.odd td {
 
 table.tabla-conv {
     font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     line-height: 20px;
     border-spacing: 1px;
@@ -123,4 +123,14 @@ table.tabla-conv {
     margin: 20px auto;
     width: 100%;
     color: #20B2AA;
+}
+.titulo-conv1 h2{
+    cursor: pointer;
+}
+.titulo-conv1 h2:hover{
+    background:#f3f3f3;
+}
+
+.titulo-conv1 h2 li:hover{
+    color:white;
 }
