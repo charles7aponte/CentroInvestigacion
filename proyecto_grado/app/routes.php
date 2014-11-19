@@ -20,18 +20,16 @@ Route::get('administrador', function()
 {
 	return View::make('panel_admin');
 });
+
 Route::get('formulariogrupos', function()
 {
 	return View::make('formulario_grupos');
 });
 
-Route::get('convocatoria', function()
+
+Route::get('grupos', function()
 {
-	return View::make('inf_convocatorias');
+	return View::make('grupos');
 });
 
-Route::get('formularioconvocatorias', function()
-{
-	return View::make('formulario_convocatorias');
-});
 //Route::get('');

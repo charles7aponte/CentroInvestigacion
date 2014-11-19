@@ -29,10 +29,10 @@ class CinvProyectos extends Migration {
 			$tabla->string('estado_financiamiento',50);
 			
 			
-			$tabla->foreign('inv_numero_convocatoria')->references('numero_convocatoria')->on('inv_convocatorias');
+			/*$tabla->foreign('inv_numero_convocatoria')->references('numero_convocatoria')->on('inv_convocatorias');
 			$tabla->foreign('inv_id_sublinea')->references('id_sublinea')->on('inv_sublineas');
 			$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
-	
+	*/
 		});
 	}
 

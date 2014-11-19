@@ -27,10 +27,10 @@ class CinvProductos extends Migration {
 			$tabla->date('fecha_producto')->nullable();
 			
 			
-			$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
+			/*$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
 			$tabla->foreign('inv_id_sublinea')->references('id_sublinea')->on('inv_sublineas');
 			$tabla->foreign('inv_subtipo_producto')->references('id_subtipo_producto')->on('inv_subtipo_productos');
-	
+	*/
 		});	
 	}
 

@@ -16,9 +16,11 @@ class CinvSublineaGrupos extends Migration {
 		$tabla->integer('inv_cod_grupo')->unsigned();
 		$tabla->integer('inv_id_sublinea')->unsigned();
 
-		$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
+		/*$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
 		$tabla->foreign('inv_id_sublinea')->references('id_sublinea')->on('inv_sublineas');
-	
+	*/
+
+		
 		});
 	}
 

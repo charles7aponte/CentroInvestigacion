@@ -19,7 +19,7 @@ class CinvSublineas extends Migration {
 			$tabla->text('descripcion_linea');
 			$tabla->string('estado',30);
 			
-			$tabla->foreign('inv_id_linea')->references('id_lineas')->on('inv_lineas');
+			//$tabla->foreign('inv_id_linea')->references('id_lineas')->on('inv_lineas');
 		});
 	}
 

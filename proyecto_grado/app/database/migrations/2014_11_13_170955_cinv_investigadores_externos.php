@@ -23,7 +23,7 @@ class CinvInvestigadoresExternos extends Migration {
 			$tabla->date('fecha_fin')->unsigned();
 
 			$tabla->primary('codinv_ext');
-			$tabla->foreign('cedula_persona')->references('cedula')->on('persona');
+			//$tabla->foreign('cedula_persona')->references('cedula')->on('persona');
 			
 		});
 	}

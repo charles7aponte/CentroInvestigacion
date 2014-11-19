@@ -31,7 +31,7 @@ class CinvGrupos extends Migration {
 			$tabla->text('foto1')->nullable();
 			$tabla->text('foto2')->nullable();	
 
-			$tabla->foreign('inv_tipo_grupos_id')->references('id_tipo')->on('inv_tipo_grupos');
+			//$tabla->foreign('inv_tipo_grupos_id')->references('id_tipo')->on('inv_tipo_grupos');
 		});
 	}
 

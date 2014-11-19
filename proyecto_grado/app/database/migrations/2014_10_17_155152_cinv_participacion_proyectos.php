@@ -18,9 +18,9 @@ class CinvParticipacionProyectos extends Migration {
 			$tabla->bigInteger('cedula_persona')->unsigned();
 			$tabla->string('dedicacion_tiempo',10);
 			
-			$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');
+			/*$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');
 			$tabla->foreign('cedula_persona')->references('cedula')->on('persona');
-	
+	*/
 		});
 	}
 

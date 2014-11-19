@@ -18,9 +18,9 @@ class CinvParticipacionGrupos extends Migration {
 			$tabla->bigInteger('cedula_persona')->unsigned();
 			
 			
-			$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
+			/*$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
 			$tabla->foreign('cedula_persona')->references('cedula')->on('persona');
-			
+			*/
 		});
 	}
 

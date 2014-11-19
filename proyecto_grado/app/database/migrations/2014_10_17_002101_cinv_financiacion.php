@@ -22,9 +22,9 @@ class CinvFinanciacion extends Migration {
 			$tabla->date('fecha');
 			
 			
-			$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');
+			/*$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');
 			$tabla->foreign('inv_nit_entidad')->references('nit_empresa')->on('inv_entidades');
-	
+		*/
 		});
 	}
 

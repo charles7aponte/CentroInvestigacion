@@ -18,7 +18,7 @@ class CinvSubtipoProductos extends Migration {
 		$tabla->string('nombre_subtipo_producto',100);
 		$tabla->text('descripcion_subtipo_producto')->nullable();
 
-		$tabla->foreign('inv_id_tipo_producto')->references('id_tipo_producto')->on('inv_tipo_productos');
+		//$tabla->foreign('inv_id_tipo_producto')->references('id_tipo_producto')->on('inv_tipo_productos');
 
 		});
 	}
