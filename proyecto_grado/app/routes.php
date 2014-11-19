@@ -30,4 +30,8 @@ Route::get('grupos', function()
 	return View::make('grupos');
 });
 
+Route::get('formularioconvocatorias', function()
+{
+	return View::make('formulario_convocatorias');
+});
 //Route::get('');

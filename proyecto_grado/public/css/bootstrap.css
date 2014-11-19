@@ -125,6 +125,12 @@ button,
 select {
   text-transform: none;
 }
+
+input [type="button"]{ 
+  border-width: 10px;
+  color: green;
+}
+
 button,
 html input[type="button"],
 input[type="reset"],

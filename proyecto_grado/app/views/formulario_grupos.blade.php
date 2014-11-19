@@ -24,7 +24,7 @@
                         <input type="text" id="direccion" name="direccion" value="" required="required"/>
                     </li>
                     <li><label for="creacion">Año de creaci&oacute;n:</label>
-                        <input type="date" id="creacion" name="creacion" value="" required="required" />
+                        <input type="" id="creacion" name="creacion" value="" required="required" />
                     </li>
                     <li><label for="unidad">Unidad acad&eacute;mica:</label>
                         <input type="text" id="unidad" name="unidad" value="" required="required"/>
@@ -43,29 +43,25 @@
             
                 <fieldset>                   
                     <div class="row">
-
-                        <div class="col-md-2"><label>Integrantes</label></div>
+                        <div class="col-md-2"><label>Integrantes: </label></div>
                         <div class="col-md-2"> 
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="botones-especiales">
-                                Agregar
-                            </button>
+                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar Integrantes">
                         </div>
                     </div>
                         <!--haciendo una modal para agregar integrantes-->
                         <!-- Modal -->
 
-
                     <div class="row">
-                        <div class="col-md-2"><label>L&iacute;neas</label></div>
+                        <div class="col-md-2"><label>L&iacute;neas: </label></div>
                         <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar integrantes">
+                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar L&iacute;neas">
                         </div>
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-2"><label>Subl&iacute;neas</label></div>
+                        <div class="col-md-2"><label>Subl&iacute;neas </label></div>
                         <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar integrantes">
+                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar Subl&iacute;neas">
                         </div>
                     </div>
 
