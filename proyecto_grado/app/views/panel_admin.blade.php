@@ -4,13 +4,23 @@
 	<meta charset="utf-8"/>
 	<title>Panel</title>
 	
+	<!--css-->
 	<link rel="stylesheet" type="text/css" href="css/estilo_paneladmin.css">
+
 	<link rel="stylesheet" type="text/css" href="css/estilo_formulariogrupos.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
 	@section("css-nuevos")
 	@show
 
 	<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
+
+	<!--javascript-->
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+
 	<script src="js/hideshow.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 
 </head>
 
@@ -44,7 +54,7 @@
 		</ul>
 		<h3>Convocatorias</h3>
 		<ul class="toggle">
-			<li class=""><a href="#">aaa</a></li>
+			<li class=""><a href="formularioconvocatorias">Crear nueva convocatoria</a></li>
 		</ul>
 		<h3>Proyectos</h3>
 		<ul class="toggle">

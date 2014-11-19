@@ -30,4 +30,8 @@ Route::get('convocatoria', function()
 	return View::make('inf_convocatorias');
 });
 
+Route::get('formularioconvocatorias', function()
+{
+	return View::make('formulario_convocatorias');
+});
 //Route::get('');

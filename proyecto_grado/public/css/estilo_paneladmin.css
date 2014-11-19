@@ -8,7 +8,7 @@ html, body {
 height: 100%;
 margin: 0;
 padding: 0;
-font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+font-family: sans-serif, Arial, Verdana, Helvetica;
 background: #F8F8F8;
 font-size: 12px;
 }
@@ -87,7 +87,7 @@ text-shadow: 0 -1px 0 #000;}
 background-position: 0 -27px;
 }
 
-/* Secondary Header Bar */
+/*** Bara secundaria ***/
 
 section#secondary_bar {
 height: 38px;
@@ -126,39 +126,39 @@ color: #666666}
 color: #77BACE;
 }
 
-/* Sidebar */
+/**parte del menu del administrador**/
 
 aside#sidebar {
-width: 23%;
-background: #1C8B85; 
-float: left;
-min-height: 100%;
-margin-top: -4px;
+	width: 23%;
+	background:#1A6D71; 
+	float: left;
+	min-height: 100%;
+	margin-top: -5px;
 }
 
 #sidebar hr {
-border: none;
-outline: none;
-display: block;
-width: 100%;
-height: 2px;
+	border: none;
+	outline: none;
+	display: block;
+	width: 100%;
+	height: 2px;
 }
 
 /* Sidebar Menu */
 
 #sidebar h3 {
-color: #FAFAFA;
-text-transform: uppercase;
-text-shadow: 0 1px 0 #2E2E2E;
-font-size: 13px;
-margin: 10px 0 10px 6%;
-display: block;
-float: left;
-width: 90%;
+	color: #FAF2F2;
+	text-transform: uppercase;
+	text-shadow: 1px 0 0 #2E2E2E;
+	font-size: 13px;
+	margin: 10px 0 10px 6%;
+	display: block;
+	float: left;
+	width: 90%;
 }
 
 .toggleLink {
-	color:pink;
+	color:#FAF2F2;
 	font-size: 7px;
 	text-decoration: none;
 	display: block;
@@ -183,13 +183,13 @@ width: 90%;
 }
 
 #sidebar li a {
-color: #CED7D0;
-padding-left: 25px;
-text-decoration: none;
-display: inline-block;
-height: 17px;
-line-height: 17px;
-margin: 2px 0;
+	color: #CED7D0;
+	padding-left: 25px;
+	text-decoration: none;
+	display: inline-block;
+	height: 17px;
+	line-height: 17px;
+	margin: 2px 0;
 }
 
 #sidebar li a:hover {
@@ -197,36 +197,208 @@ color: #444444;
 }
 
 #sidebar p {
-color: #B2B4B2;
-padding-left: 6%;
-text-shadow: 0 1px 0 #fff;
-margin: 10px 0 0 0;}
+	color: #B2B4B2;
+	padding-left: 6%;
+	text-shadow: 0 1px 0 #fff;
+	margin: 10px 0 0 0;
+}
 
 #sidebar a {
-color: #ffffff;
-text-decoration: none;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 #sidebar a:hover {
-text-decoration: underline;
+	text-decoration: underline;
 }
 
 
-/* Main Content */
+/* contenido del menu del administrador  */
 
 
 section#main {
-width: 77%;
-min-height: 100%;
-background: url(../images/sidebar_shadow.png) repeat-y left top;
-float: left;
-margin-top: -2px;
+	width: 77%;
+	min-height: 100%;
+	background: url(../images/sidebar_shadow.png) repeat-y left top;
+	float: left;
+	margin-top: -1px;
 }
 
 #main h3 {
-color: #1F1F20;
-text-transform: uppercase;
-text-shadow: 0 1px 0 #fff;
-font-size: 13px;
-margin: 8px 20px;
+	color: #1F1F20;
+	text-transform: uppercase;
+	text-shadow: 0 1px 0 #fff;
+	font-size: 13px;
+	margin: 8px 20px;
 }
+
+
+/**----------------------------------------------------------
+---------ESTILO DE FORMULARIO PARA AGREGAR <GRUPOS, CONVOCATORIAS> ------------------
+-------------------------------------------------------------
+-----------------------------------------------------------**/
+#form-grupos fieldset, 
+#form-convocatorias fieldset {
+	background-color: white;
+    border:1px solid #E1E1E1;
+    border-radius: 15px;
+    box-shadow:0 0 10px #E1E1E1;
+    margin: 18px;
+}
+
+#form-grupos ul, 
+#form-convocatorias ul {
+    width:100%;
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+}
+
+#form-grupos li, #form-convocatorias li{
+    padding:7px; 
+    position:relative;
+} 
+
+#form-grupos label,
+#form-convocatorias label {
+    color: #333;
+    display: inline-block;
+    float: left;
+    font-family: sans-serif, Arial, Verdana, Helvetica;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 3px;
+    padding: 3px;
+    width: 130px;
+}
+
+#form-grupos input, 
+#form-convocatorias input {
+    height:auto; 
+    width: 600px; 
+    padding:5px 5px;
+}
+
+#form-grupos textarea, 
+#form-convocatorias textarea {
+    padding:8px; 
+    width: 800px;
+    min-height: 150px;
+}
+#form-grupos button, 
+#form-convocatorias button{
+    margin-left:90px;
+}
+
+#form-grupos input, 
+#form-grupos textarea,
+#form-grupos select,
+#form-convocatorias input,
+#form-convocatorias textarea{ 
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    color: #535353;
+    font-size: 13px;
+    padding-right:30px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+#form-grupos input:focus,
+#form-convocatorias input:focus, 
+#form-grupos textarea:focus,
+#form-convocatorias textarea:focus {
+    background: #fff;  
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+    padding-right:80px;
+}
+
+#form-grupos input[type="file"],
+#form-convocatorias input[type="file"]
+{
+	width: 600px;
+}
+
+#form-grupos .requerido,
+#form-convocatorias .requerido  
+{
+    font-weight: bold;
+    color:#F00;   
+
+}
+
+/**---------------titulo de formularios---------------------**/
+#form-grupos #titulo, 
+#form-convocatorias #titulo {
+    width: auto;
+    margin: 0 5px 0 5px; 
+}
+
+#form-grupos #titulo h2, 
+#form-convocatorias #titulo h2 {
+    color: #1c7e84; /*tono verde de todo #20B2AA*/
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 28px;
+    margin: 10px;
+    text-shadow: 1px 1px 1px #AFEEEE;
+    background: none repeat scroll 0 0 #F3F3F3;
+    border-radius: 5px;
+    border-bottom: 1px solid #DCDCDC;
+    width: auto;
+}
+
+#form-grupos h2 img,
+#form-convocatorias h2 img{
+	margin-right: 5px;
+}
+
+
+#form-grupos input:required:valid, 
+#form-grupos textarea:required:valid, 
+#form-convocatorias input:required:valid,
+#form-convocatorias textarea:required:valid{
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+/***Boton de enviar -- reset***/
+#form-grupos #submit-button,#reset-button,
+#form-convocatorias #submit-button, #reset-button{
+   padding: 3px;
+   margin-top: 10px;
+   margin-bottom: 15px;
+   font-family: sans-serif, Arial, Verdana, Helvetica;
+   font-weight: bold;
+   color: #444;
+   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+   background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+   border: 1px solid #f1f1f1;
+   border-radius: 10px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+#form-grupos #submit-button,
+#form-convocatorias #submit-button{
+    display:block;
+    float: left;
+    margin-left: 100px;
+}
+
+#form-grupos #reset-button 
+#form-convocatorias #reset-button{
+    display:block;
+    float:right;
+    margin-right: 100px;
+}
+
+#reset-button:hover, #submit-button:hover {
+	text-decoration:underline;
+}
+
