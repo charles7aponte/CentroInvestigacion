@@ -4,6 +4,15 @@
 @section('css-nuevos')
 <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
 @stop
+
+
+
+@section('javascript-nuevos2')
+<script type="text/javascript" src="{{URL::to('/js')}}/js-infconvocatoria.js"></script>
+@stop
+
+
+
 @section('cuerpo')
 
 <div id="capa">
@@ -82,9 +91,9 @@
 
         <!-- tabla de proyectos-->
         <div class="titulo-conv1" id="cuadro"> 
-            <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Aprobados</h2>
+            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-asterisk"></li>Aprobados</h2>
         </div>
-        <table class="tabla-conv">
+        <table id="tabla_aprovados" class="tabla-conv">
             <thead>
                 <tr>
                     <td></td>
