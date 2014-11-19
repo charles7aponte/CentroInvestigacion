@@ -1,8 +1,126 @@
 #capa{
+    width: 960px;
+    position: relative;
+    background-color: white;
+    margin: 0 auto; 
+}
+.titulo-infconv{
+    width: auto;
+    margin:0;
+}
 
-	width: 960px;
-	position: relative;
-	background-color:white;
-	margin: 0 auto;
+.titulo-infconv h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align: center;
+   color:#1C7E8A;
+   display: block;
+   font-size:25px;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 1px #AFEEEE;
+   background: none repeat scroll 0 0 #f3f3f3;
+   border-radius: 5px;
+   border-bottom:  1px solid #DCDCDC;
+   width: auto;
 
+}
+
+.tabla-infconvocatorias{
+    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    border-spacing: 1px;
+    text-align: left;
+    font-style:normal;
+    margin: 20px auto;
+    width: 100%;
+    color:#1C7E8A;
+
+}
+
+.tabla-infconvocatorias th:first-child{
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.tabla-infconvocatorias thead{
+    cursor: pointer;
+}
+
+.tabla-infconvocatorias #fil-principal{
+    width: 150px;
+    padding:3px;
+    border:1px solid #fff;
+    border-width:0 1px 1px 0;
+}
+.tabla-infconvocatorias #col-principal{
+    width: 600px;
+    padding:3px;
+    border:1px solid #fff;
+    border-width:0 2px 2px 0;
+}
+
+thead th {
+    background:white;
+    padding-bottom: 10px
+}
+
+/*-----------------------------------------------------*/
+ /**color de la cabecera de la tabla **/           
+thead th[colspan],thead th[rowspan]{
+    background:#7BD2BB;
+    text-align: left;
+}
+/*-----------------------------------------------------*/
+ /**color de la colunma de los datos principales*  #EEFCF9*/            
+tbody th,tfoot th { 
+    text-align:left;
+    background:#F6FAF9;
+    margin: 30px;
+}
+        
+tbody td,tfoot td {
+    text-align:left;
+    background:#F6FAF9;
+    margin: 20px;
+}
+        
+tbody tr.odd td { 
+    background:#F6FAF9;
+}
+
+/******************TABLA DE PROYECTOS DE LAS CUANTIAS*****************************************/
+
+.titulo-infconv{
+    width: auto;
+    margin:0;
+}
+
+.titulo-infconv h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align: center;
+   color:;
+   display: block;
+   font-size:25px;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 1px #AFEEEE;
+   background: none repeat scroll 0 0 #f3f3f3;
+   border-radius: 5px;
+   border-bottom:  1px solid #DCDCDC;
+   width: auto;
+
+}
+
+table.tabla-conv {
+    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    border-spacing: 1px;
+    text-align: left;
+    font-style:normal;
+    margin: 20px auto;
+    width: 100%;
+    color: #20B2AA;
 }

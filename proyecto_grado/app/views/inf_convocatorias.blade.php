@@ -1,0 +1,165 @@
+
+
+@extends('panel_admin')
+@section('css-nuevos')
+<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
+@stop
+@section('cuerpo')
+
+<div id="capa">
+        <div class="titulo-infconv" id="cuadro"> 
+            <h2>Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria 
+            </h2>
+        </div>
+
+        <table class="tabla-infconvocatorias">
+
+            <thead>   
+             <tr>
+                <th scope="col" colspan="2">Informacion de la Convocatoria</th>
+             </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <th id="fil-principal">N&uacute;mero</th>
+                    <td  class="numero" id="col-principal" id="cuadro"></td>
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Estado</th>
+                    <td class="estado" id="col-principal" id="cuadro"></td>
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Descripci&oacute;n</th>
+                    <td class="descripcion" id="col-principal" id="cuadro">Facultad de ciencias basicas e ingenieria</td>
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Dirigida a</th>
+                    <td class="dirigida" id="col-principal" id="cuadro">D</td>
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Fecha Apertura</th>
+                    <td class="fecha-apertura" id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Fecha Cierre</th>
+                    <td class="fecha-cierre" id="col-principal" id="cuadro">xxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                </tr>
+        
+                <tr>
+                    <th id="fil-principal">Contacto de la Convocatoria</th>
+                    <td class="email" id="col-principal" id="cuadro">555555555</td>
+                </tr>
+
+                <tr>
+                    <th id="fil-principal">Tel&eacute;fono</th>
+                    <td class="telefono" id="col-principal" id="cuadro">rggrrggggggggggggdefffffffffffffffffffffffffffffffffffff</td>
+                </tr>
+
+                <tr>
+                    <th id="fil-principal">P&aacute;gina Web</th>
+                    <td class="pagina-conv" id="col-principal" id="cuadro">deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</td>
+                </tr>
+
+                <tr>
+                    <th id="fil-principal">Documento de la Convocatoria</th>
+                    <td class="documento-conv" id="col-principal" id="cuadro">wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</td>
+                </tr>
+
+                <tr>
+                    <th id="fil-principal">Cuant&iacute;a</th>
+                    <td class="cuantia" id="col-principal" id="cuadro">ddddddddddddddddddddddddddddddddddddddddddddddddddddddd</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- tabla de proyectos-->
+        <div class="titulo-conv1" id="cuadro"> 
+            <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Aprobados</h2>
+        </div>
+        <table class="tabla-conv">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>Efectivo</td>
+                    <td>Especie</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th id="fil-principal">Proyecto1</th>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+                <tr>
+                    <th id="fil-principal">Proyecto3</th>
+                    <td id="col-principal" id="cuadro">ffrrff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+            </tbody>
+        </table> 
+        
+        <table class="tabla-conv">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>Efectivo</td>
+                    <td>Especie</td>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                    <th id="fil-principal">Proyecto2</th>
+                    <td id="col-principal" id="cuadro">ffrrff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+
+                <tr>
+                    <th id="fil-principal">Proyecto3</th>
+                    <td id="col-principal" id="cuadro">ffrrff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+            </tbody>
+        </table>  
+
+        <table class="tabla-conv">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>Efectivo</td>
+                    <td>Especie</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th id="fil-principal">Proyecto3</th>
+                    <td id="col-principal" id="cuadro">ffrrff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+                <tr>
+                    <th id="fil-principal">Proyecto3</th>
+                    <td id="col-principal" id="cuadro">ffrrff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <td id="col-principal" id="cuadro">2222vfff</td>
+                </tr>
+            </tbody>
+        </table>        
+</div>
+
+@stop

@@ -25,9 +25,9 @@ Route::get('formulariogrupos', function()
 	return View::make('formulario_grupos');
 });
 
-Route::get('grupos', function()
+Route::get('convocatoria', function()
 {
-	return View::make('grupos');
+	return View::make('inf_convocatorias');
 });
 
 //Route::get('');
