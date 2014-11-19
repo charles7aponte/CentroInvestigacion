@@ -1,4 +1,9 @@
 @extends('panel_admin')
+
+
+
+
+
 @section('cuerpo')
 <div>  
     <form id="form-convocatorias" autocomplete="on"   action="" method="">

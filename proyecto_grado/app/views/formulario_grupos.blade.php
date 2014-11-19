@@ -1,4 +1,32 @@
 @extends('panel_admin')
+
+
+@section('css-nuevos')
+    {{-- datepicker --}}
+    <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">
+@stop
+
+
+
+@section('javascript-nuevos')
+   
+    <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
+
+@stop
+
+
+
+
+@section('javascript-nuevos2')
+    <script src="{{URL::to('js/')}}/formulario_grupos_.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+         $('.date').datepicker()
+    </script>
+@stop
+
+
+
 @section('cuerpo')
 <div>  
     <form id="form-grupos" autocomplete="on"   action="" method="">
@@ -6,6 +34,12 @@
             <ul>
                 <fieldset>  
                     <li><label for="nombre">Nombre del grupo:</label>
+
+  
+
+
+
+
                         <input type="text" id="nombre" name="nombre" value="" required="required"/>
                     </li>    
                     <li><label for="coord">Coordinador:</label>
@@ -24,7 +58,24 @@
                         <input type="text" id="direccion" name="direccion" value="" required="required"/>
                     </li>
                     <li><label for="creacion">Año de creaci&oacute;n:</label>
-                        <input type="" id="creacion" name="creacion" value="" required="required" />
+                        <div class="container">
+                            <div class="row">
+                                <div class='col-sm-5' style="padding:0px;">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type="" 
+                                            style="cursor:pointer"   
+                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+
                     </li>
                     <li><label for="unidad">Unidad acad&eacute;mica:</label>
                         <input type="text" id="unidad" name="unidad" value="" required="required"/>

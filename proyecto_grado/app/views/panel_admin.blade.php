@@ -21,6 +21,7 @@
 
 	<script src="js/hideshow.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
+
 	@section("javascript-nuevos")
 	@show
 
