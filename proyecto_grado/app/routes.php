@@ -53,7 +53,7 @@ Route::get('convocatoria', function()
 ****************/
 Route::get('usuarios/{nombre}',function($nombre){
 
-$personas= Persona::all();
+$personas= Persona::all("cedula");
 
 //$personas= array();
 	//return Response::json($personas);
