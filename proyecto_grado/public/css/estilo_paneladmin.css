@@ -126,6 +126,11 @@ color: #666666}
 color: #77BACE;
 }
 
+#fecha{
+	float: right;
+	margin-right: 20px;
+}
+
 /**parte del menu del administrador**/
 
 aside#sidebar {

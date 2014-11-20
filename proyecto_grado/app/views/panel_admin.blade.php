@@ -1,3 +1,37 @@
+<?php 
+/*fecha por defecto*/
+date_default_timezone_set("America/Bogota" ) ; 
+$tiempo = getdate(time()); 
+$dia = $tiempo['wday']; 
+$dia_mes=$tiempo['mday']; 
+$mes = $tiempo['mon']; 
+$year = $tiempo['year']; 
+
+switch ($dia){ 
+case "1": $dia_nombre="Lunes"; break; 
+case "2": $dia_nombre="Martes"; break; 
+case "3": $dia_nombre="Mi&eacute;rcoles"; break; 
+case "4": $dia_nombre="Jueves"; break; 
+case "5": $dia_nombre="Viernes"; break; 
+case "6": $dia_nombre="S&aacute;bado"; break; 
+case "0": $dia_nombre="Domingo"; break; 
+} 
+switch($mes){ 
+case "1": $mes_nombre="Enero"; break; 
+case "2": $mes_nombre="Febrero"; break; 
+case "3": $mes_nombre="Marzo"; break; 
+case "4": $mes_nombre="Abril"; break; 
+case "5": $mes_nombre="Mayo"; break; 
+case "6": $mes_nombre="Junio"; break; 
+case "7": $mes_nombre="Julio"; break; 
+case "8": $mes_nombre="Agosto"; break; 
+case "9": $mes_nombre="Septiembre"; break; 
+case "10": $mes_nombre="Octubre"; break; 
+case "11": $mes_nombre="Noviembre"; break; 
+case "12": $mes_nombre="Diciembre"; break; 
+} 
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,9 +40,7 @@
 	
 	<!--css-->
 	<link rel="stylesheet" type="text/css" href="css/estilo_paneladmin.css">
-
 	<link rel="stylesheet" type="text/css" href="css/estilo_formulariogrupos.css">
-	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 	@section("css-nuevos")
@@ -18,7 +50,6 @@
 
 	<!--javascript-->
 	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-
 	<script src="js/hideshow.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 
@@ -40,6 +71,9 @@
 	<section id="secondary_bar">
 		<div class="user">
 			<p>Hola, Administrador</p>
+		</div>
+		<div id="fecha">
+			{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
 		</div>
 	</section><!-- end of secondary bar -->
 	
