@@ -1,8 +1,24 @@
 @extends('panel_admin')
 
+@section('css-nuevos')
+    {{-- datepicker --}}
+    <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">
+@stop
 
+@section('javascript-nuevos')
+   
+    <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
 
+@stop
 
+@section('javascript-nuevos2')
+    <script src="{{URL::to('js/')}}/fechas_formularios.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+         $('.date').datepicker()
+    </script>
+@stop
 
 @section('cuerpo')
 <div>  
@@ -18,10 +34,38 @@
                         <input type="text" id="estado" name="estado" value="" required="required"/>
                     </li>    
                     <li><label for="fecha-apert">Fecha de apertura:</label>
-                        <input type="" id="fecha-apert" name="fecha-apert" value="" required="required" />
+                        <div class="container">
+                            <div class="row">
+                                <div class='col-sm-5' style="padding:0px;">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type="" style="cursor:pointer"   
+                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </div>    
                     </li>
                     <li><label for="fecha-cierre">Fecha de cierre:</label>
-                        <input type="" id="fecha-cierre" name="fecha-cierre" value=""  autofocus="autofocus" />
+                        <div class="container">
+                            <div class="row">
+                                <div class='col-sm-5' style="padding:0px;">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type="" 
+                                            style="cursor:pointer"   
+                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
                     </li>
                     <li><label for="telefono">Tel&eacute;fono:</label>
                         <input type="tel" id="telefono" name="telefono" value=""/>
@@ -38,8 +82,8 @@
                     <li><label for="desc-conv">Descripci&oacute;n:</label>
                         <textarea id="desc-conv" name="desc-conv" required="required"></textarea>
                     </li> 
-                    <li><label for="dirigida-conv">Cuant&iacute;a:</label>
-                        <input type="text" id="dirigida-conv" name="dirigida-conv" value="" required="required" />
+                    <li><label for="cuantia-conv">Cuant&iacute;a:</label>
+                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="" required="required" />
                     </li>
                 </fieldset>
             </ul>

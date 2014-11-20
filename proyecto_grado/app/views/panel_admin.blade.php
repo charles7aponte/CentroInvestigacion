@@ -66,16 +66,26 @@ case "12": $mes_nombre="Diciembre"; break;
 			<h1 class="site_title"><a href="index.html">Panel de administraci&oacute;n</a></h1>
 			<div class="btn_view_site"><a href="index.php">Ver sitio</a></div>
 		</hgroup>
-	</header> <!-- end of header bar -->
+	</header> <!--fin barra encabezado-->
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p>Hola, Administrador</p>
-		</div>
-		<div id="fecha">
-			{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
-		</div>
-	</section><!-- end of secondary bar -->
+			<div class="dropdown">
+			  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    	Hola, Administrador
+			    	<span class="caret"></span>
+			  	</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cerrar Sesi&oacute;n</a></li>
+				</ul>
+			</div>
+
+			<div id="fecha">
+				{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
+			</div>
+			
+		</div>	
+	</section><!-- fin de la barra secundaria-->
 	
 	<aside id="sidebar" class="column">
 		<hr/>

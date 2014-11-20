@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">
 @stop
 
-
-
 @section('javascript-nuevos')
    
     <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
@@ -15,16 +13,13 @@
 @stop
 
 
-
-
 @section('javascript-nuevos2')
-    <script src="{{URL::to('js/')}}/formulario_grupos_.js" type="text/javascript"></script>
+    <script src="{{URL::to('js/')}}/fechas_formularios.js" type="text/javascript"></script>
     
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
 @stop
-
 
 
 @section('cuerpo')
@@ -34,12 +29,6 @@
             <ul>
                 <fieldset>  
                     <li><label for="nombre">Nombre del grupo:</label>
-
-  
-
-
-
-
                         <input type="text" id="nombre" name="nombre" value="" required="required"/>
                     </li>    
                     <li><label for="coord">Coordinador:</label>
@@ -96,11 +85,11 @@
                     <div class="row">
                         <div class="col-md-2"><label>Integrantes: </label></div>
                         <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar/Ver Integrantes">
+                            <input type="button"  data-toggle="modal" data-target="#myModal-integrantes" id="botones-especiales" value="Agregar/Ver Integrantes">
                         </div>
                     </div>
                     <!--haciendo una modal para agregar integrantes-->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                    <div class="modal fade" id="myModal-integrantes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
                       <div class="modal-dialog"  style="width:960px">
                         <div class="modal-content">
                           
@@ -129,14 +118,14 @@
                                   <td>1121887678</td>
                                   <td>Pepito Perez Gonzalez</td>
                                   <td>
-                                    <a href="#" class="button">Eliminar</a>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td>1121889765</td>
                                   <td>Pepa Pombo</td>
                                   <td>
-                                    <a href="#" class="button">Eliminar</a>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                   </td>
                                 </tr>
                               </tbody>
@@ -153,17 +142,61 @@
                     <div class="row">
                         <div class="col-md-2"><label>L&iacute;neas: </label></div>
                         <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar/Ver L&iacute;neas">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-2"><label>Subl&iacute;neas </label></div>
-                        <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal" id="botones-especiales" value="Agregar/Ver Subl&iacute;neas">
+                            <input type="button"  data-toggle="modal" data-target="#myModal-lineas" id="botones-especiales" value="Agregar/Ver L&iacute;neas">
                         </div>
                     </div>
 
+                    <!--haciendo una modal para agregar Lineas-->
+                    <div class="modal fade" id="myModal-lineas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                      <div class="modal-dialog"  style="width:960px">
+                        <div class="modal-content">
+                          
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                            </button>
+                            <!--Agregando nuevas lineas-->
+                            <label  style="width:inherit">L&iacute;nea: </label>
+                             <input type="text" id="lineas-grupos" name="lineas-grupos" value="" required="required"/>
+                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                          </div>
+                          
+                          <div class="modal-body">
+                            <table id="tabla-lineas-grupos">
+                              <thead>
+                                <tr><th colspan="3">L&Iacute;NEAS DEL GRUPO</th></tr>
+                                <tr>
+                                  <th>C&oacute;digo</th>
+                                  <th colspan="2">Nombre de la L&iacute;nea</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                  <td>01</td>
+                                  <td>Teleinformatica</td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>02</td>
+                                  <td>Software</td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--*******************************************
+                    ******************-->
                 </fieldset>
             </ul> 
 
