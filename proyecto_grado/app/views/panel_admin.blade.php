@@ -70,21 +70,27 @@ case "12": $mes_nombre="Diciembre"; break;
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<div class="dropdown">
-			  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    	Hola, Administrador
-			    	<span class="caret"></span>
-			  	</button>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cerrar Sesi&oacute;n</a></li>
-				</ul>
-			</div>
-
+			<!-- Split button -->
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default" style="padding-bottom: 1px; /* width: 100px; */height: 34px; background-color: tr;">
+			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Administrador</span></p>
+			  </button>
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			    <span class="caret"></span>
+			    <span class="sr-only">Toggle Dropdown</span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a href="#">Action</a></li>
+			    <li><a href="#">Another action</a></li>
+			    <li><a href="#">Something else here</a></li>
+			    <li class="divider"></li>
+			    <li><a href="#">Separated link</a></li>
+			  </ul>
+			</div>		
+		</div>
 			<div id="fecha">
 				{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
-			</div>
-			
-		</div>	
+			</div>	
 	</section><!-- fin de la barra secundaria-->
 	
 	<aside id="sidebar" class="column">
