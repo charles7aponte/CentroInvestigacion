@@ -1,10 +1,5 @@
-#capa{
-    width: 960px;
-    position: relative;
-    background-color: white;
-    margin: 0 auto; 
-}
-.titulo-infconv{
+
+.titulo-infconv, .titulo-conv1{
     width: auto;
     margin:0;
 }
@@ -14,7 +9,7 @@
    text-align: center;
    color:#1C7E8A;
    display: block;
-   font-size:25px;
+   font-size:24px;
    text-transform: uppercase;
    text-shadow: 1px 1px 1px #AFEEEE;
    background: none repeat scroll 0 0 #f3f3f3;
@@ -24,7 +19,7 @@
 
 }
 
-.tabla-infconvocatorias{
+.tabla-infconvocatorias {
     font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
     font-size: 15px;
     font-weight: bold;
@@ -38,7 +33,7 @@
 
 }
 
-.tabla-infconvocatorias th:first-child{
+.tabla-infconvocatorias th:first-child {
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -62,25 +57,21 @@
 }
 
 thead th {
-    background:white;
     padding-bottom: 10px
 }
-
-/*-----------------------------------------------------*/
- /**color de la cabecera de la tabla **/           
-thead th[colspan],thead th[rowspan]{
+          
+thead th[colspan],thead th[rowspan]{             /*************color de la cabecera de la tabla **/ 
     background:#7BD2BB;
     text-align: left;
 }
-/*-----------------------------------------------------*/
- /**color de la colunma de los datos principales*  #EEFCF9*/            
-tbody th,tfoot th { 
+
+tbody th {                                      /**********color de la colunma de los datos principales*  #EEFCF9*/            
     text-align:left;
     background:#F6FAF9;
     margin: 30px;
 }
         
-tbody td,tfoot td {
+tbody td{
     text-align:left;
     background:#F6FAF9;
     margin: 20px;
@@ -92,45 +83,33 @@ tbody tr.odd td {
 
 /******************TABLA DE PROYECTOS DE LAS CUANTIAS*****************************************/
 
-.titulo-conv1{
-    width: 960px;
-    margin:0;
-}
-
 .titulo-conv1 h2{
-   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: left;
-   color:#1C7E8A;
-   display: block;
-   font-size:25px;
-   text-transform: uppercase;
-   text-shadow: 1px 1px 1px #AFEEEE;
-   background: none repeat scroll 0 0 #f3f3f3;
-   border-radius: 5px;
-   border-bottom:  1px solid #DCDCDC;
-   width: auto;
-
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  text-align: left;
+  color:#1C7E8A;
+  display: block;
+  font-size:24px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #AFEEEE;
+  background: none repeat scroll 0 0 #f3f3f3;
+  border-radius: 5px;
+  border-bottom:  1px solid #DCDCDC;
+  width: 210px;
+  cursor: pointer;
 }
 
-table.tabla-conv {
-    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 20px;
-    border-spacing: 1px;
-    text-align: left;
-    font-style:normal;
-    margin: 20px auto;
-    width: 100%;
-    color: #20B2AA;
-}
-.titulo-conv1 h2{
-    cursor: pointer;
-}
-.titulo-conv1 h2:hover{
-    background:#f3f3f3;
+.tabla-conv thead td{
+  padding-bottom: 10px;
+  background:#7BD2BB;
+  text-align: center;
+  border:1px solid #fff;
+  border-width:1px 1px 1px 1px;
 }
 
-.titulo-conv1 h2 li:hover{
-    color:white;
+.tabla-conv tbody th{
+  text-align:center;
+  background:#F6FAF9;
+  margin: 20px;
+  border:1px solid #fff;
+  border-width:1px 1px 1px 1px;
 }

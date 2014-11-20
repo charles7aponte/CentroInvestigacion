@@ -15,7 +15,6 @@
 
 @section('cuerpo')
 
-<div id="capa">
         <div class="titulo-infconv" id="cuadro"> 
             <h2>Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria 
             </h2>
@@ -91,7 +90,7 @@
 
         <!-- tabla de proyectos-->
         <div class="titulo-conv1" id="cuadro"> 
-            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-remove"></li>Aprobados</h2>
+            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Aprobados</h2>
         </div>
         <table id="tabla_aprovados" class="tabla-conv">
             <thead>
@@ -105,23 +104,23 @@
 
             <tbody>
                 <tr>
-                    <th id="fil-principal">Proyecto1</th>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto1</th>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
                 <tr>
-                    <th id="fil-principal">Proyecto3</th>
-                    <td id="col-principal" id="cuadro">ffrrff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto3</th>
+                    <td id="c-principal" id="cuadro">ffrrff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
         </table> 
         <div class="titulo-conv1" id="cuadro"> 
-            <h2 id="boton_rechazados"><li class="glyphicon glyphicon-remove"></li>Rechazados</h2>
+            <h2 id="boton_rechazados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Rechazados</h2>
         </div>
-        <table class="tabla-conv">
+        <table id="tabla_rechazados" class="tabla-conv">
             <thead>
                 <tr>
                     <td></td>
@@ -132,26 +131,26 @@
             </thead>
             <tbody>
                  <tr>
-                    <th id="fil-principal">Proyecto2</th>
-                    <td id="col-principal" id="cuadro">ffrrff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto2</th>
+                    <td id="c-principal" id="cuadro">ffrrff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
 
                 <tr>
-                    <th id="fil-principal">Proyecto3</th>
-                    <td id="col-principal" id="cuadro">ffrrff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto3</th>
+                    <td id="c-principal" id="cuadro">ffrrff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
         </table> 
 
         <div class="titulo-conv1" id="cuadro"> 
-            <h2 id="boton_evaluacion"><li class="glyphicon glyphicon-remove"></li>Evaluacion</h2>
+            <h2 id="boton_evaluacion"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Evaluacion</h2>
         </div> 
 
-        <table class="tabla-conv">
+        <table id="tabla_evaluacion" class="tabla-conv">
             <thead>
                 <tr>
                     <td></td>
@@ -162,19 +161,18 @@
             </thead>
             <tbody>
                 <tr>
-                    <th id="fil-principal">Proyecto3</th>
-                    <td id="col-principal" id="cuadro">ffrrff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto3</th>
+                    <td id="c-principal" id="cuadro">ffrrff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
                 <tr>
-                    <th id="fil-principal">Proyecto3</th>
-                    <td id="col-principal" id="cuadro">ffrrff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
-                    <td id="col-principal" id="cuadro">2222vfff</td>
+                    <th id="f-principal">Proyecto3</th>
+                    <td id="c-principal" id="cuadro">ffrrff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
+                    <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
         </table>        
-</div>
 
 @stop
