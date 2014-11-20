@@ -11,7 +11,7 @@
 @section('javascript-nuevos')
    
     <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
-
+    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
 @stop
 
 
