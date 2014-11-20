@@ -36,4 +36,20 @@ Route::get('grupos', function()
 	return View::make('grupos');
 });
 
-//Route::get('');
+
+
+
+
+
+/***************
+*** consultas de tipo json
+****************/
+Route::get('usuarios/{nombre}',function($nombre){
+
+$personas= Persona::all();
+
+//$personas= array();
+	//return Response::json($personas);
+
+
+});
