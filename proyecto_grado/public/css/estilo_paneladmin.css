@@ -1,4 +1,4 @@
-/* Essentials */
+/* basicos */
 
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
     display: block;  
@@ -90,40 +90,22 @@ background-position: 0 -27px;
 /*** Bara secundaria ***/
 
 section#secondary_bar {
-height: 38px;
+height: 40px;
 width: 100%;
 margin: 3px;
-background: #F1F1F4 url(../images/secondary_bar.png) repeat-x;
+background: #F1F1F4;
+border-bottom: 2px solid #E4E4E5;
 }
 
 section#secondary_bar .user {
-float: left;
-width: 23%;
-height: 38px;
+float: right;
+width: 100%;
+height: 20px;
 }
 
-.user p {
-margin: 0;
-padding: 0;
-color: #666666;
-font-weight: bold;
-display: block;
-float: left;
-width: 85%;
-height: 35px;
-line-height: 35px;
-text-indent: 25px;
-text-shadow: 0 1px 0 #fff;
-background: url(../images/icn_user.png) no-repeat center left;
-margin-left: 6%;
-}
-
-.user a {
-text-decoration: none;
-color: #666666}
-
-.user a:hover {
-color: #77BACE;
+#fecha{
+	float: right;
+	margin-right: 10px;
 }
 
 /**parte del menu del administrador**/
@@ -273,7 +255,9 @@ section#main {
 }
 
 #form-grupos input, 
-#form-convocatorias input {
+#form-convocatorias input,
+#form-grupos select,
+#form-convocatorias select{
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -282,7 +266,7 @@ section#main {
 #form-grupos textarea, 
 #form-convocatorias textarea {
     padding:8px; 
-    width: 800px;
+    width: 700px;
     min-height: 150px;
 }
 #form-grupos button, 
@@ -310,7 +294,8 @@ section#main {
 #form-grupos input:focus,
 #form-convocatorias input:focus, 
 #form-grupos textarea:focus,
-#form-convocatorias textarea:focus {
+#form-convocatorias textarea:focus,
+{
     background: #fff;  
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
@@ -402,15 +387,23 @@ section#main {
 	text-decoration:underline;
 }
 
+/*arreglar tamaño del input de ingresar valores*/
+input#cuantia-conv{
+	width: 585px;
+	display: table-cell;
+}
 /*---------------------
 modal-- <<Agregar integrantes, lineas y sublineas>>
 ------------------*/
-input#integrantes-grupos{
+input#integrantes-grupos, 
+input#lineas-grupos{
 	width: 300px;
 	margin-left:10px;
 }
 
-table#tabla-integrantes-grupos {
+table#tabla-integrantes-grupos, 
+table#tabla-lineas-grupos
+{
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -422,35 +415,47 @@ table#tabla-integrantes-grupos {
 	margin: 10px auto;
 }
 
- #tabla-integrantes-grupos thead tr:first-child {
+#tabla-integrantes-grupos thead tr:first-child,
+#tabla-lineas-grupos thead tr:first-child {
 	background: #1A6D71;
 	color: #fff;
 	border: none;
 }
 
- #tabla-integrantes-grupos th {font-weight: bold;}
- #tabla-integrantes-grupos th:first-child, td:first-child {padding: 0 15px 0 20px;}
+ #tabla-integrantes-grupos th,
+ #tabla-lineas-grupos th {
+ 	font-weight: bold;
+ }
 
- #tabla-integrantes-grupos thead tr:last-child th {border-bottom: 2px solid #ddd;}
+ #tabla-integrantes-grupos th:first-child, td:first-child, 
+ #tabla-lineas-grupos th:first-child, td:first-child{
+ 	padding: 0 15px 0 20px;
+ }
 
- #tabla-integrantes-grupos tbody tr:hover {background-color: #f0fbff;}
- #tabla-integrantes-grupos tbody tr:last-child td {border: none;}
- #tabla-integrantes-grupos tbody td {border-bottom: 1px solid #ddd;}
+ #tabla-integrantes-grupos thead tr:last-child th, #tabla-lineas-grupos thead tr:last-child th {border-bottom: 2px solid #ddd;}
 
- #tabla-integrantes-grupos td:last-child {
+ #tabla-integrantes-grupos tbody tr:hover, #tabla-lineas-grupos tbody tr:hover{background-color: #f0fbff;}
+ #tabla-integrantes-grupos tbody tr:last-child td, #tabla-lineas-grupos tbody tr:last-child td{border: none;}
+ #tabla-integrantes-grupos tbody td, #tabla-lineas-grupos tbody td{border-bottom: 1px solid #ddd;}
+
+ #tabla-integrantes-grupos td:last-child, 
+ #tabla-lineas-grupos td:last-child{
 	text-align: right;
 	padding-right: 10px;
 }
 
- #tabla-integrantes-grupos .button {
+ #tabla-integrantes-grupos .button, 
+ #tabla-lineas-grupos .button {
 	color: #1A6D71;
 	text-align: center;
 	text-decoration: none;
 	padding-left: 15px;
 }
 
- #tabla-integrantes-grupos .button:hover {
+ #tabla-integrantes-grupos .button:hover, 
+ #tabla-lineas-grupos .button:hover {
 	text-decoration: underline;
 	cursor: pointer;
-	background: #2C3333;
+	color: #2C3333;
 }
+

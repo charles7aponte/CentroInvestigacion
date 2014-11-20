@@ -7,6 +7,9 @@
 
 
 
+
+
+
 @section('javascript-nuevos2')
 <script type="text/javascript" src="{{URL::to('/js')}}/js-infconvocatoria.js"></script>
 @stop

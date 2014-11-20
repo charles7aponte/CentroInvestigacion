@@ -1,0 +1,1 @@
+$('.date').datepicker({language:"es"});

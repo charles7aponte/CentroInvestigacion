@@ -26,6 +26,10 @@ Route::get('formulariogrupos', function()
 	return View::make('formulario_grupos');
 });
 
+Route::get('formularioconvocatorias', function()
+{
+	return View::make('formulario_convocatorias');
+});
 
 Route::get('grupos', function()
 {
@@ -33,9 +37,27 @@ Route::get('grupos', function()
 });
 
 
+
 Route::get('convocatoria', function()
 {
 	return View::make('inf_convocatorias');
 });
 
-//Route::get('');
+
+
+
+
+
+/***************
+*** consultas de tipo json
+****************/
+Route::get('usuarios/{nombre}',function($nombre){
+
+$personas= Persona::all();
+
+//$personas= array();
+	//return Response::json($personas);
+
+
+});
+
