@@ -69,9 +69,9 @@ case "12": $mes_nombre="Diciembre"; break;
 	</header> <!--fin barra encabezado-->
 	
 	<section id="secondary_bar">
-		<div class="user">
+		<div class="user" >
 			<!-- Split button -->
-			<div class="btn-group">
+			<div class="btn-group" id="usuario-admin">
 			  <button type="button" class="btn btn-default" style="padding-bottom: 1px; /* width: 100px; */height: 34px; background-color: tr;">
 			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Administrador</span></p>
 			  </button>
@@ -80,11 +80,10 @@ case "12": $mes_nombre="Diciembre"; break;
 			    <span class="sr-only">Toggle Dropdown</span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="#">Action</a></li>
-			    <li><a href="#">Another action</a></li>
-			    <li><a href="#">Something else here</a></li>
+			    <li><a href="#">....</a></li>
+			    <li><a href="#">...</a></li>
 			    <li class="divider"></li>
-			    <li><a href="#">Separated link</a></li>
+			    <li><a href="#">Cerrar Sesi&oacute;n</a></li>
 			  </ul>
 			</div>		
 		</div>
