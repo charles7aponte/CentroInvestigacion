@@ -53,11 +53,16 @@ Route::get('convocatoria', function()
 ****************/
 Route::get('usuarios/{nombre}',function($nombre){
 
-$personas= Persona::all("cedula");
+$personas= Persona::all();
 
-//$personas= array();
-	//return Response::json($personas);
+$personas= array(
+	array("cedula"=>124243, "apellido1"=>"galgo",   "nombre1"=>"algo..." , "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
+	array("cedula"=>124241, "apellido1"=>"galgo2",  "nombre1"=>"algo...1", "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
+	array("cedula"=>124242, "apellido1"=>"galgo3",  "nombre1"=>"algo...2", "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
+	);
+	
 
+	return Response::json($personas);
 
 });
 
