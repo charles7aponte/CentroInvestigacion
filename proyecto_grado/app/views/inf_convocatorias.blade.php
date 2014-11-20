@@ -18,6 +18,9 @@
 
 @section('cuerpo')
 
+<div id="capa">
+    <form id="form-grupos">
+    <fieldset>
         <div class="titulo-infconv" id="cuadro"> 
             <h2>Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria 
             </h2>
@@ -90,8 +93,10 @@
 
             </tbody>
         </table>
+    </fieldset>
 
         <!-- tabla de proyectos-->
+    <fieldset>
         <div class="titulo-conv1" id="cuadro"> 
             <h2 id="boton_aprovados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Aprobados</h2>
         </div>
@@ -176,6 +181,9 @@
                     <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
-        </table>        
+        </table>
+    </fieldset>
+    </form> 
+</div>       
 
 @stop
