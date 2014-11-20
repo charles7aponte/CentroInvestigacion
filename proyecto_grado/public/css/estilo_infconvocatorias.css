@@ -4,6 +4,9 @@
     margin:0;
 }
 
+fieldset{
+  padding: 5px;
+}
 .titulo-infconv h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: center;
@@ -16,6 +19,7 @@
    border-radius: 5px;
    border-bottom:  1px solid #DCDCDC;
    width: auto;
+   padding:2px;
 
 }
 
@@ -29,8 +33,7 @@
     font-style:normal;
     margin: 20px auto;
     width: 100%;
-    color:#1C7E8A;
-
+    color:#333;
 }
 
 .tabla-infconvocatorias th:first-child {
@@ -48,6 +51,7 @@
     padding:3px;
     border:1px solid #fff;
     border-width:0 1px 1px 0;
+    padding-left: 10px;
 }
 .tabla-infconvocatorias #col-principal{
     width: 600px;
@@ -57,12 +61,14 @@
 }
 
 thead th {
-    padding-bottom: 10px
+    padding-bottom: 5px;
 }
           
 thead th[colspan],thead th[rowspan]{             /*************color de la cabecera de la tabla **/ 
-    background:#7BD2BB;
+    background:#1A6D71;
     text-align: left;
+    text-transform: uppercase;
+    padding-left: 10px;
 }
 
 tbody th {                                      /**********color de la colunma de los datos principales*  #EEFCF9*/            
@@ -82,6 +88,11 @@ tbody tr.odd td {
 }
 
 /******************TABLA DE PROYECTOS DE LAS CUANTIAS*****************************************/
+#capa{
+  width: 960px;
+  background: #fff;
+  margin: 0px; 
+}
 
 .titulo-conv1 h2{
   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
@@ -99,11 +110,15 @@ tbody tr.odd td {
 }
 
 .tabla-conv thead td{
-  padding-bottom: 10px;
-  background:#7BD2BB;
+  padding-bottom: 5px;
+  background:#1A6D71;
   text-align: center;
   border:1px solid #fff;
   border-width:1px 1px 1px 1px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align:middle;
 }
 
 .tabla-conv tbody th{
@@ -112,4 +127,16 @@ tbody tr.odd td {
   margin: 20px;
   border:1px solid #fff;
   border-width:1px 1px 1px 1px;
+  color: #333;
+  width: 960px;
+}
+
+.tabla-conv tbody td{
+  text-align:left;
+  background:#F6FAF9;
+  margin: 20px;
+  border:1px solid #fff;
+  border-width:1px 1px 1px 1px;
+  color: #333;
+  width: 960px;
 }
