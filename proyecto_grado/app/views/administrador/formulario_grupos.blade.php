@@ -1,4 +1,4 @@
-@extends('panel_admin')
+@extends('administrador.panel_admin')
 
 
 @section('css-nuevos')
@@ -64,7 +64,6 @@
                                
                             </div>
                         </div>
-
                     </li>
                     <li><label for="unidad">Unidad acad&eacute;mica:</label>
                         <input type="text" id="unidad" name="unidad" value="" required="required"/>

@@ -1,4 +1,4 @@
-@extends('panel_admin')
+@extends('administrador.panel_admin')
 
 @section('css-nuevos')
     {{-- datepicker --}}

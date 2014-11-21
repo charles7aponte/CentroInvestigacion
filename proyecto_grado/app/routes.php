@@ -15,28 +15,29 @@ Route::get('/', function()
 {
 	return View::make('cuerpo');
 });
-
+/*pagina del administrador*/
 Route::get('administrador', function()
 {
-	return View::make('panel_admin');
+	return View::make('administrador/panel_admin');
 });
 
+/*formularios*/
 Route::get('formulariogrupos', function()
 {
-	return View::make('formulario_grupos');
+	return View::make('administrador/formulario_grupos');
 });
 
 Route::get('formularioconvocatorias', function()
 {
-	return View::make('formulario_convocatorias');
+	return View::make('administrador/formulario_convocatorias');
 });
 
+
+/*principales por tema*/
 Route::get('grupos', function()
 {
 	return View::make('grupos');
 });
-
-
 
 Route::get('convocatoria', function()
 {
