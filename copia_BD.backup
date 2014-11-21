@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.3.4
 -- Dumped by pg_dump version 9.3.1
--- Started on 2014-11-21 00:32:12
+-- Started on 2014-11-21 00:33:26
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -35,7 +35,7 @@ COPY personaperfil (codperfil, cedula, clave, username, habilitado, tiempoextra)
 \.
 
 
--- Completed on 2014-11-21 00:32:14
+-- Completed on 2014-11-21 00:33:27
 
 --
 -- PostgreSQL database dump complete

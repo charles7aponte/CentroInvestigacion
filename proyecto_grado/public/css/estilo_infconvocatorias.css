@@ -88,11 +88,7 @@ tbody tr.odd td {
 }
 
 /******************TABLA DE PROYECTOS DE LAS CUANTIAS*****************************************/
-#capa{
-  width: 960px;
-  background: #fff;
-  margin: 0px; 
-}
+
 
 .titulo-conv1 h2{
   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
@@ -115,7 +111,7 @@ tbody tr.odd td {
   text-align: center;
   border:1px solid #fff;
   border-width:1px 1px 1px 1px;
-  color: #333;
+  color: #FFF;
   text-transform: uppercase;
   font-weight: bold;
   vertical-align:middle;
