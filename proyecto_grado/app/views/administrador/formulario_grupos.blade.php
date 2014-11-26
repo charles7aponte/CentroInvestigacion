@@ -83,7 +83,7 @@
                 <fieldset>                   
                     <div class="row">
                         <div class="col-md-2"><label>Integrantes: </label></div>
-                        <div class="col-md-2"> 
+                         <div class="col-md-2"> 
                             <input type="button"  data-toggle="modal" data-target="#myModal-integrantes" id="botones-especiales" value="Agregar/Ver Integrantes">
                         </div>
                     </div>
@@ -103,7 +103,8 @@
                           </div>
                           
                           <div class="modal-body">
-                            <table id="tabla-integrantes-grupos">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
+                            id="tabla-integrantes-grupos">
                               <thead>
                                 <tr><th colspan="3">INTEGRANTES DEL GRUPO</th></tr>
                                 <tr>
@@ -113,6 +114,20 @@
                               </thead>
 
                               <tbody>
+                                <tr>
+                                  <td>1121889765</td>
+                                  <td>Pepa Pombo</td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>1121889765</td>
+                                  <td>Pepa Pombo</td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
                                 <tr>
                                   <td>1121887678</td>
                                   <td>Pepito Perez Gonzalez</td>

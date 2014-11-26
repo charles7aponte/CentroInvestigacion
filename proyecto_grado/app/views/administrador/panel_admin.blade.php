@@ -41,8 +41,8 @@ switch($mes){
 	<title>Panel</title>
 	
 	<!--css-->
-	<link rel="stylesheet" type="text/css" href="css/estilo_paneladmin.css">
-	<link rel="stylesheet" type="text/css" href="css/estilo_formulariogrupos.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/estilo_paneladmin.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/estilo_formadmin.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 	@section("css-nuevos")
@@ -83,10 +83,10 @@ switch($mes){
 			    <span class="sr-only">Toggle Dropdown</span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="#">....</a></li>
+			    <li><a href="#">Registro de actividad</a></li>
 			    <li><a href="#">...</a></li>
 			    <li class="divider"></li>
-			    <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+			    <li><a href="#">Salir</a></li>
 			  </ul>
 			</div>		
 		</div>
@@ -114,11 +114,11 @@ switch($mes){
 		</ul>
 		<h3>Proyectos</h3>
 		<ul class="toggle">
-			<li class=""><a href="#">aaa</a></li>
+			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
 		</ul>
 		<h3>Productividad</h3>
 		<ul class="toggle">
-			<li class=""><a href="#">aaa</a></li>
+			<li class=""><a href="formularioproductos">Agregar nuevo producto</a></li>
 		</ul>
 		<h3>Reportes</h3>
 		<ul class="toggle">

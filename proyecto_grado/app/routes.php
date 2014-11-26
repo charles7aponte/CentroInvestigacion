@@ -32,6 +32,16 @@ Route::get('formularioconvocatorias', function()
 	return View::make('administrador/formulario_convocatorias');
 });
 
+Route::get('formularioproyectos', function()
+{
+	return View::make('administrador/formulario_proyectos');
+});
+
+Route::get('formularioproductos', function()
+{
+	return View::make('administrador/formulario_productos');
+});
+
 
 /*principales por tema*/
 Route::get('grupos', function()
