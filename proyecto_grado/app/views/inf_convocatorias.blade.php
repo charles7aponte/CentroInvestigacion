@@ -3,6 +3,7 @@
 @extends('administrador.panel_admin')
 @section('css-nuevos')
 <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infgrupos.css" />
 @stop
 
 
@@ -21,7 +22,7 @@
 <div id="capa">
     <form id="form-grupos">
     <fieldset>
-        <div class="titulo-infconv" id="cuadro"> 
+        <div id="titulo-infconv" id="cuadro"> 
             <h2>Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria 
             </h2>
         </div>
@@ -182,7 +183,7 @@
                 </tr>
             </tbody>
         </table>
-    </fieldset>
+        </fieldset>
     </form> 
 </div>       
 

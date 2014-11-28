@@ -46,14 +46,13 @@ Route::get('formularioproductos', function()
 /*principales por tema*/
 Route::get('grupos', function()
 {
-	return View::make('grupos');
+	return View::make('inf_grupos');
 });
 
 Route::get('convocatoria', function()
 {
 	return View::make('inf_convocatorias');
 });
-
 
 
 
