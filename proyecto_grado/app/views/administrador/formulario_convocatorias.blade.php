@@ -74,7 +74,7 @@
                         <input type="email" id="email-conv" name="email-conv" value="" required="required"/>
                     </li>
                     <li><label for="pag-conv">P&aacute;gina web:</label>
-                        <input type="text" id="pag-conv" name="pag-conv" value="" required="required"/>
+                        <input type="text" id="pag-conv" name="pag-conv" value=""/>
                     </li>
                     <li><label for="dirigida-conv">Dirigida a:</label>
                         <input type="text" id="dirigida-conv" name="dirigida-conv" value="" required="required" />
@@ -83,7 +83,7 @@
                         <textarea id="desc-conv" name="desc-conv" required="required"></textarea>
                     </li> 
                     <li><label for="cuantia-conv">Cuant&iacute;a:</label>
-                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="" required="required" />
+                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="" />
                     </li>
                 </fieldset>
             </ul>
@@ -94,14 +94,21 @@
                     </li>     
                 </fieldset> 
             </ul>   
-            <button id="submit-button" type="submit">
-                <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                Crear convocatoria
-            </button>
-            <button id="reset-button" type="reset">
-                    <img alt="mal" src="images/ml.png" width="16" height="16" />
-                    Borrar todo
-            </button>   
+            <table id="botones-formularios">
+                <thead>
+                    <th id="crear">
+                        <button id="crear-convocatoria" type="submit">
+                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                        Crear convocatoria
+                        </button>
+                    </th>
+                    <th id="borrar">
+                        <button id="reset-button" type="reset">
+                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        Borrar todo
+                    </th>
+                </thead>
+            </table>   
     </form>    
 </div>  
 @stop    

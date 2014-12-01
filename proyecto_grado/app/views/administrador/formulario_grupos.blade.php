@@ -41,7 +41,7 @@
                         <input type="text" id="pagina" name="pagina" value=""  autofocus="autofocus" />
                     </li>
                     <li><label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value="" required="required"/>
+                        <input type="tel" id="telefono" name="telefono" value=""/>
                     </li>
                     <li><label for="direccion">Direcci&oacute;n:</label>
                         <input type="text" id="direccion" name="direccion" value="" required="required"/>
@@ -72,7 +72,8 @@
                         <input type="text" id="categoria" name="categoria" value="" required="required"/>
                     </li>
                     <li><label for="tipo">Tipo:</label> 
-                        <select name="tipo">
+                        <select name="tipo" required="required">
+                            <option value=""></option>
                             <option value="inv">Investigaci&oacute;n</option>
                             <option value="estudio">Estudio</option>
                         </select>
@@ -236,14 +237,21 @@
                         </li>       
                 </fieldset> 
             </ul>   
-            <button id="submit-button" type="submit">
-                <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                Crear Grupo
-            </button>
-            <button id="reset-button" type="reset">
-                    <img alt="mal" src="images/ml.png" width="16" height="16" />
-                    Borrar todo
-            </button>   
+            <table id="botones-formularios">
+                <thead>
+                    <th id="crear">
+                        <button id="crear-grupo" type="submit" >
+                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                        Crear grupo
+                        </button>
+                    </th>
+                    <th id="borrar">
+                        <button id="reset-button" type="reset">
+                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        Borrar todo
+                    </th>
+                </thead>
+            </table> 
     </form>    
 </div>  
 @stop    

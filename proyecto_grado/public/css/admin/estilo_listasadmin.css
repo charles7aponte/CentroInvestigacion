@@ -1,0 +1,50 @@
+#tabla-listagrupos{
+  width: 100%;
+}
+
+table#listagrupos {
+  color: #333;
+  font-family: sans-serif;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 40px;
+  border-spacing: 0;
+  border: 1px solid #2FA6CA;
+  width: 980px;
+  margin: 20px auto;
+}
+
+table#listagrupos thead tr:first-child {
+  background: #2FA6CA;
+  color: #fff;
+  border: none;
+}
+
+table#listagrupos th {font-weight: bold;}
+table#listagrupos th:first-child, td:first-child {padding: 0 15px 0 20px;}
+
+table#listagrupos thead tr:last-child th {border-bottom: 2px solid #ddd;}
+
+table#listagrupos tbody tr:hover {background-color: #f0fbff;}
+table#listagrupos tbody tr:last-child td {border: none;}
+table#listagrupos tbody td {border-bottom: 1px solid #ddd;}
+
+table#listagrupos td:last-child {
+  text-align: right;
+  padding-right: 10px;
+  width: 400px;
+  word-wrap: normal;
+}
+
+.button {
+  color: #428bca;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 15px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

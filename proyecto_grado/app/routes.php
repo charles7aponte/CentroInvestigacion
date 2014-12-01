@@ -41,7 +41,21 @@ Route::get('formularioproductos', function()
 {
 	return View::make('administrador/formulario_productos');
 });
+Route::get('formulariofinanciamiento', function()
+{
+	return View::make('administrador/formulario_financiamiento');
+});
 
+
+/*listas de cada tema*/
+Route::get('listadegrupos', function()
+{
+	return View::make('administrador/lista_grupos');
+});
+Route::get('listadeconvocatorias', function()
+{
+	return View::make('administrador/lista_convocatorias');
+});
 
 /*principales por tema*/
 Route::get('grupos', function()

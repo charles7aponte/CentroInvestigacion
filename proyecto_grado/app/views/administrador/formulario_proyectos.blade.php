@@ -30,8 +30,13 @@
                     <li><label for="nombre-proyecto">Nombre del proyecto:</label>
                         <input type="text" id="nombre-proyecto" name="nombre-proyecto" value="" required="required"/> 
                     </li>   
-                    <li><label for="estado-proyecto">Estado:</label>
-                        <input type="text" id="estado-proyecto" name="estado-proyecto" value="" required="requerired"/>
+                    <li><label for="estado-proy">Estado:</label> 
+                        <select name="estado-proy" required="required">
+                            <option value=""></option>
+                            <option value="aprobado">Aprobado</option>
+                            <option value="rechazado">Rechazado</option>
+                            <option value="evaluacion">En evaluaci&oacute;n</option>
+                        </select>
                     </li>
                     <li><label for="fecha-proyecto">Fecha de inicio:</label>
                         <div class="container">
@@ -50,25 +55,29 @@
                         </div>    
                     </li>
                     <li><label for="convocatoria-proyecto">Convocatoria:</label> 
-                        <select name="convocatoria-proyecto" required="requerired">
+                        <select name="convocatoria-proyecto" required="required">
+                            <option value=""></option>
                             <option value="">Aaaaa</option>
                             <option value="">Bbbbbb</option>
                         </select>
                     </li> 
                     <li><label for="linea-proyecto">Linea del proyecto:</label> 
-                        <select name="linea-proyecto" required="requerired">
+                        <select name="linea-proyecto" required="required">
+                            <option value=""></option>
                             <option value="">Teleinformatica</option>
                             <option value="">Software</option>
                         </select>
                     </li> 
                     <li><label for="grupo1-proyecto">Grupo 1 del proyecto:</label> 
-                        <select name="grupo1-proyecto">
+                        <select name="grupo1-proyecto" required="required">
+                            <option value=""></option>
                             <option value="">Gitecx</option>
                             <option value="">Horizonte Mediatico</option>
                         </select>
                     </li> 
                     <li><label for="grupo2-proyecto">Grupo 2 del proyecto:</label> 
                         <select name="grupo2-proyecto">
+                            <option value=""></option>
                             <option value="">Gitecx</option>
                             <option value="">Horizonte Mediatico</option>
                         </select>
@@ -91,19 +100,22 @@
                     </li>      
                 </fieldset> 
             </ul>   
-            <ul>
-                <fieldset style="border-color:transparent">
-                   
-                </fieldset> 
-            </ul>  
-            <button id="submit-button" type="submit">
-                <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                Crear Proyecto
-            </button>
-            <button id="reset-button" type="reset">
-                    <img alt="mal" src="images/ml.png" width="16" height="16" />
-                    Borrar todo
-            </button>   
+
+            <table id="botones-formularios">
+                <thead>
+                    <th id="crear">
+                        <button id="crear-proyecto" type="submit" class="submit-button">
+                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                        Crear proyecto
+                        </button>
+                    </th>
+                    <th id="borrar">
+                        <button id="reset-button" type="reset">
+                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        Borrar todo
+                    </th>
+                </thead>
+            </table>  
     </form>    
 </div>  
 @stop    

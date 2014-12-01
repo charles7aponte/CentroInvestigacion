@@ -3,7 +3,6 @@
 -------------------------------------------------------------
 -----------------------------------------------------------**/
 #form-grupos fieldset, 
-#form-pruductos fieldset,
 #form-convocatorias fieldset,
 #form-proyectos fieldset{
 	background-color: white;
@@ -15,8 +14,7 @@
 
 #form-grupos ul, 
 #form-convocatorias ul,
-#form-proyectos ul,
-#form-pruductos ul{
+#form-proyectos ul{
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -25,8 +23,7 @@
 
 #form-grupos li, 
 #form-convocatorias li,
-#form-proyectos li,
-#form-pruductos li{
+#form-proyectos li{
     padding:7px; 
     position:relative;
 } 
@@ -44,8 +41,7 @@
     width: 130px;
 }
 
-#form-proyectos label,
-#form-pruductos label{
+#form-proyectos label{
 	color: #333;
     display: inline-block;
     float: left;
@@ -59,8 +55,7 @@
 
 #form-grupos input, #form-grupos select,
 #form-convocatorias input, #form-convocatorias select,
-#form-proyectos input, #form-proyectos select,
-#form-pruductos input, #form-pruductos select{
+#form-proyectos input, #form-proyectos select{
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -125,9 +120,6 @@
 #form-proyectos #titulo{
     margin: 0 5px 0 5px; 
 }
-#form-pruductos #titulo{
-    margin: 0 5px 0 5px;
-} 
 
 #form-grupos #titulo h2, 
 #form-convocatorias #titulo h2,

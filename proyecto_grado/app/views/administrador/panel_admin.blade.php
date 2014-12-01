@@ -43,6 +43,7 @@ switch($mes){
 	<!--css-->
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_paneladmin.css">
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_formadmin.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/estilo_listasadmin.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 	@section("css-nuevos")
@@ -66,7 +67,7 @@ switch($mes){
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title"><a href="index.html">Panel de administraci&oacute;n</a></h1>
-			<div class="btn_view_site"><a href="index.php">Ver sitio</a></div>
+			<a href="index.php" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
@@ -101,24 +102,39 @@ switch($mes){
 		<h3>Grupos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
-			<li class=""><a href="#">Editar grupos de estudio</a></li>
-			<li class=""><a href="#">Editar grupos de investigaci&oacute;n</a></li>
+			<li class=""><a href="listadegrupos">Ver/Editar grupos de estudio</a></li>
+			<li class=""><a href="listadegrupos">Ver/Editar grupos de investigaci&oacute;n</a></li>
 		</ul>
-		<h3>L&iacute;neas y Subl&iacute;neas</h3>
+		<span class="glyphicon glyphicon-circle-arrow-right"><h3>L&iacute;neas y Subl&iacute;neas</h3></span>
 		<ul class="toggle">
-			<li class=""><a href="#">aaa</a></li>
+			<li class=""><a href="#">Agregar nueva l&iacute;nea</a></li>
+			<li class=""><a href="#">Agregar nueva subl&iacute;nea</a></li>
+			<li class=""><a href="#">Ver/Editar una l&iacute;nea</a></li>
+			<li class=""><a href="#">Ver/Editar una subl&iacute;nea</a></li>
+		</ul>
+		<h3>Participantes</h3>
+		<ul class="toggle">
+			<li class=""><a href="">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
 		</ul>
 		<h3>Convocatorias</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioconvocatorias">Crear nueva convocatoria</a></li>
+			<li class=""><a href="listadeconvocatorias">Ver/Editar convocatorias</a></li>
 		</ul>
 		<h3>Proyectos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
+			<li class=""><a href="formulariofinanciamiento">Agregar/Ver Financiamiento de un proyecto</a></li>
+			<li class=""><a href="">Ver/Editar un proyecto</a></li>
 		</ul>
 		<h3>Productividad</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproductos">Agregar nuevo producto</a></li>
+			<li class=""><a href="">Ver/Editar un producto</a></li>
+		</ul>
+		<h3>Empresas Financiadoras</h3>
+		<ul class="toggle">
+			<li class=""><a href="">Agregar nueva empresa</a></li>
 		</ul>
 		<h3>Reportes</h3>
 		<ul class="toggle">
