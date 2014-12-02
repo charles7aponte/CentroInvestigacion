@@ -99,50 +99,52 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<h3>Grupos</h3></li>
+		<a href="administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>
+		
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
 			<li class=""><a href="listadegrupos">Ver/Editar grupos de estudio</a></li>
 			<li class=""><a href="listadegrupos">Ver/Editar grupos de investigaci&oacute;n</a></li>
-			<li class=""><a href="formulariotipogrupo">Agregar nuevo tipo de grupo</a></li>
+			<li class=""><a href="formulariotipogrupo">Agregar/Eliminar tipo de grupo</a></li>
 		</ul>
-		<h3>L&iacute;neas y Subl&iacute;neas</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
 			<li class=""><a href="#">Agregar nueva l&iacute;nea</a></li>
 			<li class=""><a href="#">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="#">Ver/Editar una l&iacute;nea</a></li>
 			<li class=""><a href="#">Ver/Editar una subl&iacute;nea</a></li>
 		</ul>
-		<h3>Participantes</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
 			<li class=""><a href="">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
 		</ul>
-		<h3>Convocatorias</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioconvocatorias">Crear nueva convocatoria</a></li>
 			<li class=""><a href="listadeconvocatorias">Ver/Editar convocatorias</a></li>
 		</ul>
-		<h3>Proyectos</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
 			<li class=""><a href="formulariofinanciamiento">Agregar/Ver Financiamiento de un proyecto</a></li>
 			<li class=""><a href="">Ver/Editar un proyecto</a></li>
 		</ul>
-		<h3>Productividad</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
-			<li class=""><a href="formularioproductos">Agregar nuevo producto</a></li>
+			<li class=""><a href="formularioproductos"> Agregar nuevo producto</a></li>
 			<li class=""><a href="">Ver/Editar un producto</a></li>
 		</ul>
-		<h3>Empresas Financiadoras</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">
 			<li class=""><a href="">Agregar nueva empresa</a></li>
 		</ul>
-		<h3>Reportes</h3>
+		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
 			<li class=""><a href="#"></a></li>
 		</ul>
 		
-		<h3>Noticias y eventos</h3>
+		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
 		<ul class="toggle">
 			<li class=""><a href="#">Agregar un evento</a></li>
 			<li class=""><a href="#">Agregar una noticia</a></li>	

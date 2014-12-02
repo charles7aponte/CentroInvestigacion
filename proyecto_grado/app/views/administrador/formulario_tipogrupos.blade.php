@@ -26,8 +26,6 @@
                 </thead>
             </table>
 
-
-
             <ul> 
                 <table id="tabla-tipo-grupos">
                   <thead>
@@ -58,10 +56,11 @@
                 </table>
                 </fieldset>
             </ul>
+
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="guardar-financiamiento" type="submit" class="submit-button">
+                        <button id="guardar-tipogrupo" type="submit">
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
                         Guardar 
                         </button>
