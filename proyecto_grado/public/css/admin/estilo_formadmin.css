@@ -6,7 +6,8 @@
 #form-convocatorias fieldset,
 #form-proyectos fieldset,
 #form-productos fieldset,
-#form-financiamiento-proyectos fieldset{
+#form-financiamiento-proyectos fieldset,
+#form-tipogrupo fieldset{
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;

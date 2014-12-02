@@ -41,9 +41,15 @@ Route::get('formularioproductos', function()
 {
 	return View::make('administrador/formulario_productos');
 });
+
 Route::get('formulariofinanciamiento', function()
 {
 	return View::make('administrador/formulario_financiamiento');
+});
+
+Route::get('formulariotipogrupo', function()
+{
+	return View::make('administrador/formulario_tipogrupos');
 });
 
 

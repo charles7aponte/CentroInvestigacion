@@ -99,13 +99,14 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<h3>Grupos</h3>
+		<h3>Grupos</h3></li>
 		<ul class="toggle">
 			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
 			<li class=""><a href="listadegrupos">Ver/Editar grupos de estudio</a></li>
 			<li class=""><a href="listadegrupos">Ver/Editar grupos de investigaci&oacute;n</a></li>
+			<li class=""><a href="formulariotipogrupo">Agregar nuevo tipo de grupo</a></li>
 		</ul>
-		<span class="glyphicon glyphicon-circle-arrow-right"><h3>L&iacute;neas y Subl&iacute;neas</h3></span>
+		<h3>L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
 			<li class=""><a href="#">Agregar nueva l&iacute;nea</a></li>
 			<li class=""><a href="#">Agregar nueva subl&iacute;nea</a></li>
