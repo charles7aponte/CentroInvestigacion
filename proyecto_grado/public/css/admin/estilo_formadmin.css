@@ -273,7 +273,8 @@ input#lineas-grupos{
 }
 
 table#tabla-integrantes-grupos, 
-table#tabla-lineas-grupos{
+table#tabla-lineas-grupos,
+table#tabla-tipo-grupos{
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -285,8 +286,8 @@ table#tabla-lineas-grupos{
 	margin: 10px auto;
 }
 
-table#tabla-financiamiento-grupos,
-table#tabla-tipo-grupos {
+table#tabla-financiamiento-grupos
+ {
     color: #333;
     font-size: .9em;
     font-weight: 300;
@@ -300,7 +301,8 @@ table#tabla-tipo-grupos {
 
 #tabla-integrantes-grupos thead tr:first-child,
 #tabla-lineas-grupos thead tr:first-child,
-#tabla-financiamiento-grupos thead tr:first-child {
+#tabla-financiamiento-grupos thead tr:first-child,
+#tabla-tipo-grupos thead tr:first-child {
 	background: #1A6D71;
 	color: #fff;
 	border: none;
@@ -308,45 +310,52 @@ table#tabla-tipo-grupos {
 
  #tabla-integrantes-grupos th,
  #tabla-lineas-grupos th,
- #tabla-financiamiento-grupos th {
+ #tabla-financiamiento-grupos th,
+ #tabla-tipo-grupos th {
  	font-weight: bold;
  }
 
  #tabla-integrantes-grupos th:first-child, td:first-child, 
  #tabla-lineas-grupos th:first-child, td:first-child,
- #tabla-financiamiento-grupos th:first-child, td:first-child{
+ #tabla-financiamiento-grupos th:first-child, td:first-child,
+ #tabla-tipo-grupos th:first-child, td:first-child  {
  	padding: 0 15px 0 20px;
  }
 
  #tabla-integrantes-grupos thead tr:last-child th, 
  #tabla-lineas-grupos thead tr:last-child th,
- #tabla-financiamiento-grupos thead tr:last-child th{
+ #tabla-financiamiento-grupos thead tr:last-child th,
+#tabla-tipo-grupos thead tr:last-child th {
     border-bottom: 2px solid #ddd;
 }
 
  #tabla-integrantes-grupos tbody tr:hover, 
  #tabla-lineas-grupos tbody tr:hover,
- #tabla-financiamiento-grupos tbody tr:hover{
+ #tabla-financiamiento-grupos tbody tr:hover, 
+ #tabla-tipo-grupos tbody tr:hover {
     background-color: #E5F7FE;
 }
  #tabla-integrantes-grupos tbody tr:last-child td, 
- #tabla-lineas-grupos tbody tr:last-child td{
+ #tabla-lineas-grupos tbody tr:last-child td,
+ #tabla-tipo-grupos tbody tr:last-child td{
     border: none;
 }
  #tabla-integrantes-grupos tbody td, 
  #tabla-lineas-grupos tbody td,
- #tabla-financiamiento-grupos tbody td {
+ #tabla-financiamiento-grupos tbody td,
+ #tabla-tipo-grupos tbody td{
     border-bottom: 1px solid #ddd;
 }
 
  #tabla-integrantes-grupos td:last-child, 
- #tabla-lineas-grupos td:last-child{
+ #tabla-lineas-grupos td:last-child,
+  #tabla-tipo-grupos td:last-child{
 	text-align: right;
 	padding-right: 10px;
 }
 
  #tabla-integrantes-grupos .button, 
- #tabla-lineas-grupos .button {
+ #tabla-lineas-grupos .button{
 	color: #1A6D71;
 	text-align: center;
 	text-decoration: none;
