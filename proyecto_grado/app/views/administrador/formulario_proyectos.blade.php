@@ -85,8 +85,97 @@
                     <li><label for="obj-proyecto">Objetivo general:</label>
                         <textarea id="obj-proyecto" name="obj-proyecto" required="required"></textarea>
                     </li>
+
+                    <div class="row">
+                        <li>
+                            <div class="col-md-2"><label>Integrantes: </label></div>
+                             <div class="col-md-2"> 
+                                <input style="margin-left: 24px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-proyecto" id="botones-especiales" value="Agregar/Ver Integrantes">
+                            </div>
+                        </li>
+                    </div>
+
+                    <!--haciendo una modal para agregar integrantes-->
+                    <div class="modal fade" id="myModal-integrantes-proyecto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                      <div class="modal-dialog"  style="width:960px">
+                        <div class="modal-content">
+                          
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                            </button>
+                            <!--Agregando nuevos integrantes-->
+                            <li style="margin-top: 15px;">
+                                <label  style="width:inherit">Integrante: </label>
+                                    <input type="text" id="integrantes-proyectos" name="integrantes-proyecto" value="" required="required"></br>
+                            </li>    
+                            <li>
+                                <label  style="width:inherit">Tiempo dedicado: </label>
+                                    <input type="text" id="tiempo-proyecto" name="tiempo-proyecto" value="" required="required">
+                            </li> 
+                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                          </div>
+                          
+                          <div class="modal-body">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
+                            id="tabla-integrantes-proyectos">
+                              <thead>
+                                <tr><th colspan="4">INTEGRANTES DEL GRUPO</th></tr>
+                                <tr>
+                                  <th>Documento</th>
+                                  <th colspan="2">Nombres y Apellidos</th>
+                                  <th>Tiempo dedicado</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                  <td>1121889765</td>
+                                  <td>Pepa Pombo</td>
+                                  <td></td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>1121889765</td>
+                                  <td>Pepa Pombo</td>
+                                  <td></td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>1121887678</td>
+                                  <td>Pepito Perez Gonzalez</td>
+                                  <td></td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>1121889765</td>
+                                  <td>Pepa Pombo</td>
+                                  <td></td>
+                                  <td>
+                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--*******************************************
+                    ******************-->
                 </fieldset>
             </ul>
+                
             <ul>
                 <fieldset>
                     <li><label for="actaini-proyectos">Archivo del Acta de inicio: </label>

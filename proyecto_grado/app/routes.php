@@ -27,6 +27,22 @@ Route::get('formulariogrupos', function()
 	return View::make('administrador/formulario_grupos');
 });
 
+Route::get('formulariotipogrupo', function()
+{
+	return View::make('administrador/formulario_tipogrupos');
+});
+
+Route::get('formulariolineas', function()
+{
+	return View::make('administrador/formulario_lineas');
+});
+
+Route::get('formulariosublineas', function()
+{
+	return View::make('administrador/formulario_sublineas');
+});
+
+
 Route::get('formularioconvocatorias', function()
 {
 	return View::make('administrador/formulario_convocatorias');
@@ -47,10 +63,7 @@ Route::get('formulariofinanciamiento', function()
 	return View::make('administrador/formulario_financiamiento');
 });
 
-Route::get('formulariotipogrupo', function()
-{
-	return View::make('administrador/formulario_tipogrupos');
-});
+
 
 
 /*listas de cada tema*/

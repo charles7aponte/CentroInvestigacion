@@ -7,7 +7,9 @@
 #form-proyectos fieldset,
 #form-productos fieldset,
 #form-financiamiento-proyectos fieldset,
-#form-tipogrupo fieldset{
+#form-tipogrupo fieldset,
+#form-lineas fieldset,
+#form-sublineas fieldset {
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -21,7 +23,9 @@
 #form-proyectos ul,
 #form-productos ul,
 #form-financiamiento-proyectos ul,
-#form-tipogrupo ul{
+#form-tipogrupo ul,
+#form-lineas ul,
+#form-sublineas ul{
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -33,7 +37,9 @@
 #form-proyectos li,
 #form-productos li,
 #form-financiamiento-proyectos li,
-#form-tipogrupo li {
+#form-tipogrupo li,
+#form-lineas li, 
+#form-sublineas li {
     padding:7px; 
     position:relative;
 } 
@@ -54,7 +60,9 @@
 
 #form-proyectos label,
 #form-productos label,
-#form-financiamiento-proyectos label {
+#form-financiamiento-proyectos label,
+#form-lineas label,
+#form-sublineas label {
 	color: #333;
     display: inline-block;
     float: left;
@@ -71,7 +79,9 @@
 #form-proyectos input, #form-proyectos select,
 #form-productos input, #form-productos select,
 #form-financiamiento-proyectos input, #form-financiamiento-proyectos select,
-#form-tipogrupo input {
+#form-tipogrupo input,
+#form-lineas input,
+#form-sublineas input, #form-sublineas select {
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -81,7 +91,9 @@
 #form-convocatorias textarea,
 #form-proyectos textarea,
 #form-productos textarea, 
-#form-financiamiento-proyectos textarea {
+#form-financiamiento-proyectos textarea,
+#form-lineas textarea,
+#form-sublineas textarea {
     padding:8px; 
     width: 700px;
     min-height: 150px;
@@ -92,7 +104,9 @@
 #form-proyectos input, #form-proyectos textarea, #form-proyectos select,
 #form-productos input, #form-productos textarea, #form-productos select,
 #form-financiamiento-proyectos input, #form-financiamiento-proyectos textarea, #form-financiamiento-proyectos select,
-#form-tipogrupo input { 
+#form-tipogrupo input,
+#form-lineas input, #form-lineas textarea,
+#form-sublineas input, #form-sublineas textarea, #form-sublineas select { 
     border: 1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -110,7 +124,9 @@
 #form-proyectos input:focus, #form-proyectos textarea:focus,
 #form-productos input:focus, #form-productos textarea:focus,
 #form-financiamiento-proyectos input:focus, #form-financiamiento-proyectos textarea:focus,
-#form-tipogrupo input:focus {
+#form-tipogrupo input:focus,
+#form-lineas input:focus, #form-lineas textarea:focus,
+#form-sublineas input:focus, #form-sublineas textarea:focus {
     background: #fff;  
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
@@ -120,7 +136,8 @@
 #form-grupos input[type="file"],
 #form-convocatorias input[type="file"],
 #form-proyectos input[type="file"],
-#form-productos input[type="file"]{
+#form-productos input[type="file"],
+#form-lineas input[type="file"] {
 	width: 600px;
 	padding-left: 5px; 
 }
@@ -131,7 +148,9 @@
 #form-proyectos #titulo,
 #form-productos #titulo,
 #form-financiamiento-proyectos #titulo,
-#form-tipogrupo #titulo {
+#form-tipogrupo #titulo,
+#form-lineas #titulo,
+#form-sublineas #titulo {
     width: auto;
     margin: 0 5px 0 5px; 
 }
@@ -141,7 +160,9 @@
 #form-proyectos #titulo h2,
 #form-productos #titulo h2,
 #form-financiamiento-proyectos #titulo h2,
-#form-tipogrupo #titulo h2 {
+#form-tipogrupo #titulo h2,
+#form-lineas #titulo h2,
+#form-sublineas #titulo h2 {
     color: #1c7e84; /*tono verde de todo #20B2AA*/
     display: block;
     text-transform: uppercase;
@@ -160,7 +181,9 @@
 #form-proyectos h2 img,
 #form-productos h2 img,
 #form-financiamiento-proyectos h2 img,
-#form-tipogrupo h2 img {
+#form-tipogrupo h2 img,
+#form-lineas h2 img,
+#form-sublineas h2 img {
 	margin-right: 5px;
 }
 
@@ -170,7 +193,9 @@
 #form-proyectos input:required:valid, #form-proyectos textarea:required:valid,
 #form-productos input:required:valid, #form-productos textarea:required:valid,
 #form-financiamiento-proyectos input:required:valid, #form-financiamiento-proyectos textarea:required:valid,
-#form-tipogrupo input:required:valid {
+#form-tipogrupo input:required:valid,
+#form-lineas input:required:valid, #form-lineas textarea:required:valid,
+#form-sublineas input:required:valid, #form-sublineas textarea:required:valid {
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
@@ -181,7 +206,9 @@
 #form-proyectos #crear-proyecto, #reset-button,
 #form-productos #crear-producto, #reset-button,
 #form-financiamiento-proyectos #agregar-financiamiento, #form-financiamiento-proyectos #guardar-financiamiento,
-#form-tipogrupo #crear-tipogrupo, #form-tipogrupo #guardar-tipogrupo {
+#form-tipogrupo #crear-tipogrupo, #form-tipogrupo #guardar-tipogrupo,
+#form-lineas #crear-linea,
+#form-sublineas #crear-sublinea {
 	background:#276B6F; 
     background-image: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
     background-image: -moz-linear-gradient(top,#276B6F,#5BA9AE);
@@ -219,7 +246,9 @@
 #form-grupos #reset-button:hover, 
 #form-convocatorias #reset-button:hover,
 #form-proyectos #reset-button:hover, 
-#form-productos #reset-button:hover {
+#form-productos #reset-button:hover,
+#form-lineas #reset-button:hover,
+#form-sublineas #reset-button:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -236,7 +265,9 @@
 #form-financiamiento-proyectos #guardar-financiamiento:hover,
 #form-financiamiento-proyectos #agregar-financiamiento:hover,
 #form-tipogrupo #crear-tipogrupo:hover,
-#form-tipogrupo #guardar-tipogrupo:hover {
+#form-tipogrupo #guardar-tipogrupo:hover,
+#form-lineas #crear-linea:hover,
+#form-sublineas #crear-sublinea:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -267,12 +298,14 @@ input#cuantia-conv{
 modal-- <<Agregar integrantes, lineas y sublineas>>
 ------------------*/
 input#integrantes-grupos, 
-input#lineas-grupos{
+input#lineas-grupos,
+input#integrantes-proyectos, 
+input#tiempo-proyecto{
 	width: 300px;
 	margin-left:10px;
 }
 
-table#tabla-integrantes-grupos, 
+table#tabla-integrantes-grupos,
 table#tabla-lineas-grupos,
 table#tabla-tipo-grupos{
 	color: #333;
@@ -286,7 +319,8 @@ table#tabla-tipo-grupos{
 	margin: 10px auto;
 }
 
-table#tabla-financiamiento-grupos
+table#tabla-financiamiento-grupos,
+table#tabla-integrantes-proyectos
  {
     color: #333;
     font-size: .9em;
@@ -300,6 +334,8 @@ table#tabla-financiamiento-grupos
 }
 
 #tabla-integrantes-grupos thead tr:first-child,
+#tabla-integrantes-proyectos thead tr:first-child,
+#tabla-integrantes-proyectos thead tr:first-child,
 #tabla-lineas-grupos thead tr:first-child,
 #tabla-financiamiento-grupos thead tr:first-child,
 #tabla-tipo-grupos thead tr:first-child {
@@ -309,6 +345,7 @@ table#tabla-financiamiento-grupos
 }
 
  #tabla-integrantes-grupos th,
+ #tabla-integrantes-proyectos th,
  #tabla-lineas-grupos th,
  #tabla-financiamiento-grupos th,
  #tabla-tipo-grupos th {
@@ -316,6 +353,7 @@ table#tabla-financiamiento-grupos
  }
 
  #tabla-integrantes-grupos th:first-child, td:first-child, 
+ #tabla-integrantes-proyectos th:first-child, td:first-child,
  #tabla-lineas-grupos th:first-child, td:first-child,
  #tabla-financiamiento-grupos th:first-child, td:first-child,
  #tabla-tipo-grupos th:first-child, td:first-child  {
@@ -323,13 +361,15 @@ table#tabla-financiamiento-grupos
  }
 
  #tabla-integrantes-grupos thead tr:last-child th, 
+ #tabla-integrantes-proyectos thead tr:last-child th,
  #tabla-lineas-grupos thead tr:last-child th,
  #tabla-financiamiento-grupos thead tr:last-child th,
-#tabla-tipo-grupos thead tr:last-child th {
+ #tabla-tipo-grupos thead tr:last-child th {
     border-bottom: 2px solid #ddd;
 }
 
  #tabla-integrantes-grupos tbody tr:hover, 
+ #tabla-integrantes-proyectos tbody tr:hover,
  #tabla-lineas-grupos tbody tr:hover,
  #tabla-financiamiento-grupos tbody tr:hover, 
  #tabla-tipo-grupos tbody tr:hover {
@@ -341,20 +381,23 @@ table#tabla-financiamiento-grupos
     border: none;
 }
  #tabla-integrantes-grupos tbody td, 
+ #tabla-integrantes-proyectos tbody td,
  #tabla-lineas-grupos tbody td,
  #tabla-financiamiento-grupos tbody td,
  #tabla-tipo-grupos tbody td{
     border-bottom: 1px solid #ddd;
 }
 
- #tabla-integrantes-grupos td:last-child, 
+ #tabla-integrantes-grupos td:last-child,
+ #tabla-integrantes-proyectos td:last-child, 
  #tabla-lineas-grupos td:last-child,
-  #tabla-tipo-grupos td:last-child{
+ #tabla-tipo-grupos td:last-child{
 	text-align: right;
 	padding-right: 10px;
 }
 
  #tabla-integrantes-grupos .button, 
+ #tabla-integrantes-proyectos .button,
  #tabla-lineas-grupos .button{
 	color: #1A6D71;
 	text-align: center;
@@ -363,6 +406,7 @@ table#tabla-financiamiento-grupos
 }
 
  #tabla-integrantes-grupos .button:hover, 
+ #tabla-integrantes-proyectos .button:hover,
  #tabla-lineas-grupos .button:hover {
 	text-decoration: underline;
 	cursor: pointer;

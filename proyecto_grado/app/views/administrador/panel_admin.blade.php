@@ -110,8 +110,8 @@ switch($mes){
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
-			<li class=""><a href="#">Agregar nueva l&iacute;nea</a></li>
-			<li class=""><a href="#">Agregar nueva subl&iacute;nea</a></li>
+			<li class=""><a href="formulariolineas">Agregar nueva l&iacute;nea</a></li>
+			<li class=""><a href="formulariosublineas">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="#">Ver/Editar una l&iacute;nea</a></li>
 			<li class=""><a href="#">Ver/Editar una subl&iacute;nea</a></li>
 		</ul>
