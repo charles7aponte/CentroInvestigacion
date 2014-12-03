@@ -10,13 +10,13 @@ table#listagrupos {
   text-align: left;
   line-height: 40px;
   border-spacing: 0;
-  border: 1px solid #2FA6CA;
+  border: 1px solid #36395B;
   width: 980px;
   margin: 20px auto;
 }
 
 table#listagrupos thead tr:first-child {
-  background: #2FA6CA;
+  background: #1D1F36;
   color: #fff;
   border: none;
 }
@@ -24,11 +24,17 @@ table#listagrupos thead tr:first-child {
 table#listagrupos th {font-weight: bold;}
 table#listagrupos th:first-child, td:first-child {padding: 0 15px 0 20px;}
 
-table#listagrupos thead tr:last-child th {border-bottom: 2px solid #ddd;}
+table#listagrupos thead tr:last-child th {
+  border-bottom: 2px solid #ddd; 
+  background: #F8F9FE;
+}
 
-table#listagrupos tbody tr:hover {background-color: #f0fbff;}
+table#listagrupos tbody tr:hover {background-color: #EFF0FB;}
 table#listagrupos tbody tr:last-child td {border: none;}
-table#listagrupos tbody td {border-bottom: 1px solid #ddd;}
+table#listagrupos tbody td {
+  border-bottom: 1px solid #ddd;
+}
+table#listagrupos tbody tr{background-color:#F8F9FE;}
 
 table#listagrupos td:last-child {
   text-align: right;

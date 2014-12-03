@@ -1,0 +1,3245 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.3.4
+-- Dumped by pg_dump version 9.3.1
+-- Started on 2014-12-03 12:01:00
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 248 (class 3079 OID 11750)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2373 (class 0 OID 0)
+-- Dependencies: 248
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 665 (class 1247 OID 86834)
+-- Name: codperfil; Type: DOMAIN; Schema: public; Owner: postgres
+--
+
+CREATE DOMAIN codperfil AS integer NOT NULL;
+
+
+ALTER DOMAIN public.codperfil OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = true;
+
+--
+-- TOC entry 170 (class 1259 OID 86835)
+-- Name: actas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE actas (
+    numero_acta integer NOT NULL,
+    nombre_comite text,
+    descrip_acta text,
+    fecha_acta date,
+    year character(4) NOT NULL,
+    lugar character(50),
+    hora character(10),
+    tipo character(20),
+    estado character(20),
+    codprograma integer NOT NULL,
+    orden_del_dia1 text,
+    orden_del_dia2 text,
+    orden_del_dia3 text,
+    orden_del_dia4 text,
+    orden_del_dia5 text,
+    orden_del_dia6 text,
+    orden_del_dia7 text,
+    orden_del_dia8 text,
+    orden_del_dia9 text,
+    orden_del_dia10 text,
+    orden_del_dia11 text,
+    orden_del_dia12 text,
+    nombre_area_complementaria text,
+    ced_area_complementaria bigint,
+    nombre_area_profesional text,
+    ced_area_profesional bigint,
+    nombre_director_programa text,
+    ced_director_programa bigint,
+    nombre_area_basicas text,
+    ced_area_basicas bigint,
+    nombre_area_profundizacion text,
+    ced_area_profundizacion bigint,
+    nombre_estudiantes text,
+    ced_estudiantes bigint,
+    nombre_invitado text,
+    ced_invitado bigint,
+    archivo text
+);
+
+
+ALTER TABLE public.actas OWNER TO postgres;
+
+--
+-- TOC entry 171 (class 1259 OID 86841)
+-- Name: areas_inv_codigo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE areas_inv_codigo_seq
+    START WITH 18
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.areas_inv_codigo_seq OWNER TO postgres;
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 86843)
+-- Name: areas_inv; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE areas_inv (
+    nombre character(50) NOT NULL,
+    codigo integer DEFAULT nextval('areas_inv_codigo_seq'::regclass) NOT NULL
+);
+
+
+ALTER TABLE public.areas_inv OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 86847)
+-- Name: asignacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE asignacion (
+    codhorario character(3) NOT NULL,
+    cedula bigint NOT NULL,
+    motivo character(45),
+    fecha date NOT NULL,
+    codubicacion integer NOT NULL
+);
+
+
+ALTER TABLE public.asignacion OWNER TO postgres;
+
+--
+-- TOC entry 2374 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: TABLE asignacion; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE asignacion IS 'Almacena las horas en que esta ocupada cada una de las salas';
+
+
+--
+-- TOC entry 2375 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN asignacion.codhorario; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN asignacion.codhorario IS 'Código del horario, con el se averiguan el día y la hora
+';
+
+
+--
+-- TOC entry 2376 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN asignacion.cedula; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN asignacion.cedula IS 'Cédula de quien solicita la sala, si es para una clase, el solicitante será el docente
+';
+
+
+--
+-- TOC entry 2377 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN asignacion.motivo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN asignacion.motivo IS 'Motivo por el cual es solicitada la sala 
+';
+
+
+--
+-- TOC entry 2378 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN asignacion.fecha; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN asignacion.fecha IS 'Fecha exacta en que la sala ha sido asignada. Si la fecha es 0000-00-00 indica que la sala será asignada todo el semestre con el motivo indicado
+';
+
+
+--
+-- TOC entry 2379 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN asignacion.codubicacion; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN asignacion.codubicacion IS 'Indica la sala asignada
+';
+
+
+SET default_with_oids = true;
+
+--
+-- TOC entry 174 (class 1259 OID 86850)
+-- Name: avances; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE avances (
+    cod_proyecto character(6) NOT NULL,
+    cod_avance integer NOT NULL,
+    fecha_avance date NOT NULL,
+    archivo_avance bytea
+);
+
+
+ALTER TABLE public.avances OWNER TO postgres;
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 175 (class 1259 OID 86856)
+-- Name: boletin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE boletin (
+    cod_bol integer NOT NULL,
+    titulo_bol text NOT NULL,
+    fecha_bol text NOT NULL,
+    resumen text NOT NULL,
+    key_word_bol text NOT NULL,
+    texto_bol text NOT NULL,
+    url_imagen_bol text,
+    id_usua bigint NOT NULL
+);
+
+
+ALTER TABLE public.boletin OWNER TO postgres;
+
+SET default_with_oids = true;
+
+--
+-- TOC entry 176 (class 1259 OID 86862)
+-- Name: campos_preguntas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE campos_preguntas (
+    cod_formato integer NOT NULL,
+    cod_pregunta integer NOT NULL,
+    cod_campo integer NOT NULL,
+    descrip_campo character(200)
+);
+
+
+ALTER TABLE public.campos_preguntas OWNER TO postgres;
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 177 (class 1259 OID 86865)
+-- Name: cargo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cargo (
+    codcargo integer NOT NULL,
+    desccargo text,
+    horas_cargo integer,
+    coddependencia integer NOT NULL,
+    cantidad integer,
+    nombrecargo character(50) NOT NULL
+);
+
+
+ALTER TABLE public.cargo OWNER TO postgres;
+
+--
+-- TOC entry 2380 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: TABLE cargo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE cargo IS 'Almacena el nombre y la descripcion de cada uno de los cargos existentes en la facultad de ciencias Básicas e Ingeniería';
+
+
+--
+-- TOC entry 2381 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN cargo.codcargo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN cargo.codcargo IS 'Código de los cargos de la facultad
+';
+
+
+--
+-- TOC entry 2382 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN cargo.desccargo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN cargo.desccargo IS 'Descripción del cargo
+';
+
+
+SET default_with_oids = true;
+
+--
+-- TOC entry 178 (class 1259 OID 86871)
+-- Name: carpeta_proyecto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE carpeta_proyecto (
+    cod_proyecto character(6) NOT NULL,
+    cod_archivo integer NOT NULL,
+    detalle_archivo character(100),
+    carpeta_archivo character(100)
+);
+
+
+ALTER TABLE public.carpeta_proyecto OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 86874)
+-- Name: linea_cod_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE linea_cod_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.linea_cod_seq OWNER TO postgres;
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 180 (class 1259 OID 86876)
+-- Name: categoria; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE categoria (
+    codigo integer DEFAULT nextval('linea_cod_seq'::regclass) NOT NULL,
+    descripcion text NOT NULL,
+    hojavida character(1),
+    nombre character(100)
+);
+
+
+ALTER TABLE public.categoria OWNER TO postgres;
+
+--
+-- TOC entry 181 (class 1259 OID 86883)
+-- Name: categoriaubicacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE categoriaubicacion (
+    categoria integer NOT NULL,
+    ubicacion integer NOT NULL
+);
+
+
+ALTER TABLE public.categoriaubicacion OWNER TO postgres;
+
+--
+-- TOC entry 182 (class 1259 OID 86886)
+-- Name: clasificados_codclasificado_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE clasificados_codclasificado_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.clasificados_codclasificado_seq OWNER TO postgres;
+
+--
+-- TOC entry 183 (class 1259 OID 86888)
+-- Name: clasificados; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE clasificados (
+    codclasificado integer DEFAULT nextval('clasificados_codclasificado_seq'::regclass) NOT NULL,
+    tituloclasificado character(100) NOT NULL,
+    clasificado text NOT NULL,
+    fechaclasificado date NOT NULL,
+    cedularesponsable bigint NOT NULL,
+    imagen character(100) DEFAULT 0 NOT NULL,
+    publicadoen text NOT NULL
+);
+
+
+ALTER TABLE public.clasificados OWNER TO postgres;
+
+--
+-- TOC entry 2383 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: TABLE clasificados; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE clasificados IS 'Almacena clasificados.';
+
+
+--
+-- TOC entry 2384 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.codclasificado; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.codclasificado IS 'Codigo del clasificado.';
+
+
+--
+-- TOC entry 2385 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.tituloclasificado; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.tituloclasificado IS 'Titulo del clasificado.';
+
+
+--
+-- TOC entry 2386 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.clasificado; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.clasificado IS 'Clasificado.';
+
+
+--
+-- TOC entry 2387 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.fechaclasificado; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.fechaclasificado IS 'Fecha de publicacion del clasificado.';
+
+
+--
+-- TOC entry 2388 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.cedularesponsable; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.cedularesponsable IS 'Numero de cedula del responsable del clasificado.';
+
+
+--
+-- TOC entry 2389 (class 0 OID 0)
+-- Dependencies: 183
+-- Name: COLUMN clasificados.imagen; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN clasificados.imagen IS 'Imagen o foto del clasificado.';
+
+
+--
+-- TOC entry 184 (class 1259 OID 86896)
+-- Name: convocatorias; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE convocatorias (
+    titulo text NOT NULL,
+    descripcion text NOT NULL,
+    documento text NOT NULL,
+    imagen text NOT NULL,
+    fechacierre date NOT NULL,
+    ident integer NOT NULL
+);
+
+
+ALTER TABLE public.convocatorias OWNER TO postgres;
+
+--
+-- TOC entry 185 (class 1259 OID 86902)
+-- Name: convocatorias_ident_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE convocatorias_ident_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.convocatorias_ident_seq OWNER TO postgres;
+
+--
+-- TOC entry 2390 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: convocatorias_ident_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE convocatorias_ident_seq OWNED BY convocatorias.ident;
+
+
+--
+-- TOC entry 186 (class 1259 OID 86904)
+-- Name: cursos_admin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cursos_admin (
+    cedula text NOT NULL,
+    nombre text NOT NULL,
+    usuario text NOT NULL,
+    passw text NOT NULL
+);
+
+
+ALTER TABLE public.cursos_admin OWNER TO postgres;
+
+--
+-- TOC entry 187 (class 1259 OID 86910)
+-- Name: cursos_area; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cursos_area (
+    cod_area text NOT NULL,
+    nom_area text NOT NULL
+);
+
+
+ALTER TABLE public.cursos_area OWNER TO postgres;
+
+--
+-- TOC entry 188 (class 1259 OID 86916)
+-- Name: cursos_extra; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cursos_extra (
+    codigo text NOT NULL,
+    nombre text NOT NULL,
+    activo smallint NOT NULL,
+    nivel text NOT NULL,
+    titulo text NOT NULL,
+    modalidad text NOT NULL,
+    metodologia text NOT NULL,
+    duracion text NOT NULL,
+    responsable text NOT NULL,
+    descripcion text,
+    direc text,
+    cod_area text NOT NULL
+);
+
+
+ALTER TABLE public.cursos_extra OWNER TO postgres;
+
+--
+-- TOC entry 189 (class 1259 OID 86922)
+-- Name: cursos_inscritos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cursos_inscritos (
+    cedula bigint NOT NULL,
+    nombre1 text NOT NULL,
+    nombre2 text,
+    apellido1 text NOT NULL,
+    apellido2 text NOT NULL,
+    celular text NOT NULL,
+    telefono text NOT NULL,
+    mail text NOT NULL,
+    profesion text NOT NULL,
+    fecha text,
+    codcurso text NOT NULL
+);
+
+
+ALTER TABLE public.cursos_inscritos OWNER TO postgres;
+
+--
+-- TOC entry 190 (class 1259 OID 86928)
+-- Name: cursos_titulo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cursos_titulo (
+    cod_titulo text NOT NULL,
+    nom_titulo text NOT NULL
+);
+
+
+ALTER TABLE public.cursos_titulo OWNER TO postgres;
+
+--
+-- TOC entry 191 (class 1259 OID 86934)
+-- Name: dadosdebaja_codigo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE dadosdebaja_codigo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.dadosdebaja_codigo_seq OWNER TO postgres;
+
+--
+-- TOC entry 192 (class 1259 OID 86936)
+-- Name: dadosdebaja; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE dadosdebaja (
+    codigo integer DEFAULT nextval('dadosdebaja_codigo_seq'::regclass) NOT NULL,
+    codigoelement integer,
+    categoria integer,
+    fechadebaja date,
+    descripcion text
+);
+
+
+ALTER TABLE public.dadosdebaja OWNER TO postgres;
+
+--
+-- TOC entry 193 (class 1259 OID 86943)
+-- Name: departamentos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE departamentos (
+    id_departamento integer NOT NULL,
+    departamento character(40) NOT NULL
+);
+
+
+ALTER TABLE public.departamentos OWNER TO postgres;
+
+--
+-- TOC entry 194 (class 1259 OID 86946)
+-- Name: dependencia; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE dependencia (
+    coddependencia integer NOT NULL,
+    nombredependencia character(50) NOT NULL,
+    descdependencia text,
+    codubicacion integer NOT NULL
+);
+
+
+ALTER TABLE public.dependencia OWNER TO postgres;
+
+--
+-- TOC entry 2391 (class 0 OID 0)
+-- Dependencies: 194
+-- Name: TABLE dependencia; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE dependencia IS 'Almacena el nombre y la descripcion de cada una de las dependecias existentes en la facultad de ciencias Básicas e Ingeniería';
+
+
+--
+-- TOC entry 2392 (class 0 OID 0)
+-- Dependencies: 194
+-- Name: COLUMN dependencia.coddependencia; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN dependencia.coddependencia IS 'Código de la dependencia de la facultad
+';
+
+
+--
+-- TOC entry 2393 (class 0 OID 0)
+-- Dependencies: 194
+-- Name: COLUMN dependencia.nombredependencia; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN dependencia.nombredependencia IS 'Nombre de la dependencia de la facultad
+';
+
+
+--
+-- TOC entry 2394 (class 0 OID 0)
+-- Dependencies: 194
+-- Name: COLUMN dependencia.descdependencia; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN dependencia.descdependencia IS 'Descripcion de la dependencia de la facultad
+';
+
+
+--
+-- TOC entry 195 (class 1259 OID 86952)
+-- Name: detalleprestamo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE detalleprestamo (
+    codigoparte character(10) NOT NULL,
+    cedula bigint NOT NULL,
+    fechaentrega date NOT NULL,
+    horaentrega time without time zone NOT NULL,
+    equipo boolean
+);
+
+
+ALTER TABLE public.detalleprestamo OWNER TO postgres;
+
+--
+-- TOC entry 2395 (class 0 OID 0)
+-- Dependencies: 195
+-- Name: TABLE detalleprestamo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE detalleprestamo IS 'Especifica las partes o equipos prestados';
+
+
+--
+-- TOC entry 196 (class 1259 OID 86955)
+-- Name: disponibilidad_docente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE disponibilidad_docente (
+    coddocente integer NOT NULL,
+    codhoras character(3) NOT NULL,
+    year character(4) NOT NULL,
+    periodo character(2) NOT NULL
+);
+
+
+ALTER TABLE public.disponibilidad_docente OWNER TO postgres;
+
+--
+-- TOC entry 197 (class 1259 OID 86958)
+-- Name: docente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE docente (
+    coddocente integer NOT NULL,
+    cedula bigint NOT NULL,
+    codubicacion integer NOT NULL,
+    pregrado1 character varying(100) DEFAULT 0,
+    uni_preg1 integer,
+    ano_preg1 integer,
+    pregrado2 character varying(100),
+    uni_preg2 integer,
+    ano_preg2 integer,
+    postgrado1 character varying(100),
+    uni_post1 integer,
+    ano_post1 integer,
+    postgrado2 character varying(100),
+    uni_post2 integer,
+    ano_post2 integer,
+    postgrado3 character varying(100),
+    uni_post3 integer,
+    ano_post3 integer,
+    nivel_post1 character varying(4),
+    nivel_post2 character varying(4),
+    nivel_post3 character varying(4),
+    codtipo_docente character(2),
+    estado boolean,
+    cvlac text,
+    perfil_corto character varying(512)
+);
+
+
+ALTER TABLE public.docente OWNER TO postgres;
+
+--
+-- TOC entry 2396 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: TABLE docente; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE docente IS 'Almacena los datos del docente';
+
+
+--
+-- TOC entry 2397 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: COLUMN docente.coddocente; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN docente.coddocente IS 'Código interno del docente
+';
+
+
+--
+-- TOC entry 2398 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: COLUMN docente.cedula; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN docente.cedula IS 'Cédula del docente
+';
+
+
+--
+-- TOC entry 2399 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: COLUMN docente.pregrado1; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN docente.pregrado1 IS 'titutlo de pregrado';
+
+
+--
+-- TOC entry 2400 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: COLUMN docente.nivel_post1; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN docente.nivel_post1 IS 'Nivel de postgrado (Maestria, especialización, Doctorado)';
+
+
+--
+-- TOC entry 198 (class 1259 OID 86965)
+-- Name: docenteMateria; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "docenteMateria" (
+    coddocente integer NOT NULL,
+    codmateria integer NOT NULL,
+    year character(4) NOT NULL,
+    periodo character(2) NOT NULL,
+    horas_teoricas integer NOT NULL,
+    horas_practicas integer NOT NULL,
+    seguimiento_asesoria numeric NOT NULL,
+    horas_preparacion numeric NOT NULL,
+    horas_total numeric NOT NULL,
+    codgrupo character(2) NOT NULL
+);
+
+
+ALTER TABLE public."docenteMateria" OWNER TO postgres;
+
+--
+-- TOC entry 2401 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: TABLE "docenteMateria"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE "docenteMateria" IS 'Almacena los datos de las mateias asignadas a los docentes';
+
+
+--
+-- TOC entry 2402 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".coddocente; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".coddocente IS 'Código del docente
+';
+
+
+--
+-- TOC entry 2403 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".codmateria; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".codmateria IS 'Código de la materia asignada al docente
+';
+
+
+--
+-- TOC entry 2404 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".year; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".year IS 'Año en el que la materia fue asignada al docente
+';
+
+
+--
+-- TOC entry 2405 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".periodo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".periodo IS 'periodo en el que fue asignada la materia al docente';
+
+
+--
+-- TOC entry 2406 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".horas_teoricas; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".horas_teoricas IS 'horas teoricas asignadas al docente';
+
+
+--
+-- TOC entry 2407 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".horas_practicas; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".horas_practicas IS 'horas practicas asignadas al docente';
+
+
+--
+-- TOC entry 2408 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".seguimiento_asesoria; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".seguimiento_asesoria IS 'horas de seguimiento asesoria asignadas al docente';
+
+
+--
+-- TOC entry 2409 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".horas_preparacion; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".horas_preparacion IS 'horas de  preparacion asignadas al docente';
+
+
+--
+-- TOC entry 2410 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".horas_total; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".horas_total IS 'total de horas de la materia asigandas al docente';
+
+
+--
+-- TOC entry 2411 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN "docenteMateria".codgrupo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "docenteMateria".codgrupo IS 'codigo del grupo de la materia';
+
+
+--
+-- TOC entry 199 (class 1259 OID 86971)
+-- Name: elementoshoja_codigo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE elementoshoja_codigo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.elementoshoja_codigo_seq OWNER TO postgres;
+
+--
+-- TOC entry 200 (class 1259 OID 86973)
+-- Name: elementoshoja; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE elementoshoja (
+    codigo integer DEFAULT nextval('elementoshoja_codigo_seq'::regclass) NOT NULL,
+    categoria integer NOT NULL,
+    ubicacion integer NOT NULL,
+    marca character(50),
+    nombre character(50),
+    modelo character(50),
+    serie character(50),
+    fechadecompra date,
+    valor integer,
+    tiempofinaldegarantia date,
+    estado integer,
+    tipoinv integer,
+    tipdoc integer,
+    tippro integer,
+    observaciones text,
+    tipo_frecuencia integer,
+    cantidad_horas integer
+);
+
+
+ALTER TABLE public.elementoshoja OWNER TO postgres;
+
+--
+-- TOC entry 201 (class 1259 OID 86980)
+-- Name: elementosinhoja_codigo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE elementosinhoja_codigo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.elementosinhoja_codigo_seq OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 86982)
+-- Name: elementosinhoja; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE elementosinhoja (
+    codigo integer DEFAULT nextval('elementosinhoja_codigo_seq'::regclass) NOT NULL,
+    categoria integer DEFAULT 0 NOT NULL,
+    ubicacion integer DEFAULT 0 NOT NULL,
+    fechaingreso date NOT NULL,
+    cantidad integer NOT NULL,
+    valor_unitario double precision NOT NULL,
+    referencia character(100),
+    buenos integer DEFAULT 0,
+    malos integer DEFAULT 0,
+    regulares integer DEFAULT 0,
+    nombre character(100) NOT NULL,
+    cantidaddebaja integer DEFAULT 0
+);
+
+
+ALTER TABLE public.elementosinhoja OWNER TO postgres;
+
+SET default_with_oids = true;
+
+--
+-- TOC entry 203 (class 1259 OID 86992)
+-- Name: empresa; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE empresa (
+    nit integer NOT NULL,
+    representante_legal character(50),
+    razon_social character(200),
+    direccion_empresa character(100),
+    telefono_empresa character(10),
+    email_contacto character(20)
+);
+
+
+ALTER TABLE public.empresa OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 86995)
+-- Name: encuestas_id_seq1; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE encuestas_id_seq1
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.encuestas_id_seq1 OWNER TO postgres;
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 205 (class 1259 OID 86997)
+-- Name: encuestas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE encuestas (
+    id integer DEFAULT nextval('encuestas_id_seq1'::regclass) NOT NULL,
+    titulo character(200) NOT NULL,
+    fecha timestamp without time zone NOT NULL,
+    publicadopor bigint NOT NULL,
+    activa character(5) DEFAULT 0 NOT NULL,
+    tipo character(20) DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.encuestas OWNER TO postgres;
+
+--
+-- TOC entry 2412 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: TABLE encuestas; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE encuestas IS 'Almacena las Encuestas de la Facultad de Ciencias Básicas';
+
+
+--
+-- TOC entry 2413 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: COLUMN encuestas.id; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN encuestas.id IS 'Identificador de la encuesta.';
+
+
+--
+-- TOC entry 2414 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: COLUMN encuestas.titulo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN encuestas.titulo IS 'Titulo de la enuesta.';
+
+
+--
+-- TOC entry 2415 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: COLUMN encuestas.fecha; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN encuestas.fecha IS 'Fecha de publicacion de la encuesta.';
+
+
+--
+-- TOC entry 2416 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: COLUMN encuestas.publicadopor; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN encuestas.publicadopor IS 'Cedula de la persona que publicó la encuesta.';
+
+
+--
+-- TOC entry 206 (class 1259 OID 87003)
+-- Name: encuestas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE encuestas_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.encuestas_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 207 (class 1259 OID 87005)
+-- Name: enlaces_idenlace_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE enlaces_idenlace_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.enlaces_idenlace_seq OWNER TO postgres;
+
+--
+-- TOC entry 208 (class 1259 OID 87007)
+-- Name: enlaces; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE enlaces (
+    idenlace integer DEFAULT nextval('enlaces_idenlace_seq'::regclass) NOT NULL,
+    enlace text NOT NULL,
+    destino text NOT NULL,
+    publicadopor bigint NOT NULL
+);
+
+
+ALTER TABLE public.enlaces OWNER TO postgres;
+
+--
+-- TOC entry 2417 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: TABLE enlaces; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE enlaces IS 'Almacena los enlaces a otros sitios web diferentes al portal de la F.C.B.I';
+
+
+--
+-- TOC entry 2418 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: COLUMN enlaces.idenlace; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN enlaces.idenlace IS 'Identificador del enlace.';
+
+
+--
+-- TOC entry 2419 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: COLUMN enlaces.enlace; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN enlaces.enlace IS 'Nombre del enlace.';
+
+
+--
+-- TOC entry 2420 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: COLUMN enlaces.destino; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN enlaces.destino IS 'URL destino del enlace.';
+
+
+--
+-- TOC entry 2421 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: COLUMN enlaces.publicadopor; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN enlaces.publicadopor IS 'Cedula de la persona que publica el enlace.';
+
+
+--
+-- TOC entry 209 (class 1259 OID 87014)
+-- Name: equipo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE equipo (
+    nombreequipo character(50),
+    codubicacion integer NOT NULL,
+    ip inet NOT NULL,
+    dirmac character(17) NOT NULL,
+    codequipo character(20) NOT NULL,
+    obsequipo text
+);
+
+
+ALTER TABLE public.equipo OWNER TO postgres;
+
+--
+-- TOC entry 2422 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: TABLE equipo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE equipo IS 'Almacena los datos de los equipos pertenecientes a la Facultad de Ciencias Básicas e Ingeniería';
+
+
+--
+-- TOC entry 2423 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: COLUMN equipo.nombreequipo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN equipo.nombreequipo IS 'Nombre del equipo asignado por el instituto de informática
+';
+
+
+--
+-- TOC entry 2424 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: COLUMN equipo.codubicacion; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN equipo.codubicacion IS 'Código de la ubicación del equipo
+';
+
+
+--
+-- TOC entry 2425 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: COLUMN equipo.ip; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN equipo.ip IS 'dirección ip del equipo asignada por el Instituto de Informática
+';
+
+
+--
+-- TOC entry 2426 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: COLUMN equipo.dirmac; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN equipo.dirmac IS 'Dirección MAC  del aquipo';
+
+
+--
+-- TOC entry 210 (class 1259 OID 87020)
+-- Name: estudiante; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE estudiante (
+    codestudiante integer NOT NULL,
+    cedula bigint NOT NULL,
+    mail character(50),
+    especialidad character(50),
+    otrosestudios character(50),
+    edad integer,
+    codprograma integer
+);
+
+
+ALTER TABLE public.estudiante OWNER TO postgres;
+
+--
+-- TOC entry 2427 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: TABLE estudiante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE estudiante IS 'Almacena los datos del estudiante ';
+
+
+--
+-- TOC entry 2428 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: COLUMN estudiante.codestudiante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN estudiante.codestudiante IS 'Código interno del estudiante
+';
+
+
+--
+-- TOC entry 2429 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: COLUMN estudiante.cedula; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN estudiante.cedula IS 'Cédula del estudiante
+';
+
+
+--
+-- TOC entry 211 (class 1259 OID 87023)
+-- Name: estudianteMateria; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "estudianteMateria" (
+    codestudiante integer NOT NULL,
+    codmateria integer NOT NULL,
+    year character(4) NOT NULL,
+    periodo boolean NOT NULL,
+    nota numeric(4,3)
+);
+
+
+ALTER TABLE public."estudianteMateria" OWNER TO postgres;
+
+--
+-- TOC entry 2430 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: TABLE "estudianteMateria"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE "estudianteMateria" IS 'Almacena cada una de las materias inscritas de un estudiante en un periodo determinado';
+
+
+--
+-- TOC entry 2431 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: COLUMN "estudianteMateria".codestudiante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "estudianteMateria".codestudiante IS 'Código del estudiante
+';
+
+
+--
+-- TOC entry 2432 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: COLUMN "estudianteMateria".codmateria; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "estudianteMateria".codmateria IS 'Código de la materia inscrita por el estudiante
+';
+
+
+--
+-- TOC entry 2433 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: COLUMN "estudianteMateria".year; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "estudianteMateria".year IS 'año
+';
+
+
+--
+-- TOC entry 2434 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: COLUMN "estudianteMateria".periodo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "estudianteMateria".periodo IS 'Periodo académico
+';
+
+
+--
+-- TOC entry 2435 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: COLUMN "estudianteMateria".nota; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN "estudianteMateria".nota IS 'Nota definitiva de la materia
+';
+
+
+--
+-- TOC entry 212 (class 1259 OID 87026)
+-- Name: evento_codEvento_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "evento_codEvento_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."evento_codEvento_seq" OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 87028)
+-- Name: evento; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE evento (
+    codevento integer DEFAULT nextval('"evento_codEvento_seq"'::regclass) NOT NULL,
+    tituloevento character(100) NOT NULL,
+    descevento text NOT NULL,
+    fechaevento date NOT NULL,
+    lugarevento character(50) NOT NULL,
+    organizadopor character(45) NOT NULL,
+    cedularesponsable bigint NOT NULL,
+    url character(100) DEFAULT 0 NOT NULL,
+    publicadoen text NOT NULL,
+    urlexterno text
+);
+
+
+ALTER TABLE public.evento OWNER TO postgres;
+
+--
+-- TOC entry 2436 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: TABLE evento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE evento IS 'Almacena los eventos publicados en los portales del instituto de informática y de F.C.B.I';
+
+
+--
+-- TOC entry 2437 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.codevento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.codevento IS 'Consecutivo de los eventos publicados
+';
+
+
+--
+-- TOC entry 2438 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.tituloevento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.tituloevento IS 'Título del evento';
+
+
+--
+-- TOC entry 2439 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.descevento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.descevento IS 'Descripción del evento';
+
+
+--
+-- TOC entry 2440 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.fechaevento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.fechaevento IS 'Fecha de realización del evento';
+
+
+--
+-- TOC entry 2441 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.lugarevento; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.lugarevento IS 'Lugar de realización del evento';
+
+
+--
+-- TOC entry 2442 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.organizadopor; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.organizadopor IS 'Entidad responsable de la realización del evento';
+
+
+--
+-- TOC entry 2443 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.cedularesponsable; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.cedularesponsable IS 'Cédula de la persona que ingresa los datos del evento';
+
+
+--
+-- TOC entry 2444 (class 0 OID 0)
+-- Dependencies: 213
+-- Name: COLUMN evento.url; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN evento.url IS 'Imagen o fotografía del Evento.';
+
+
+--
+-- TOC entry 214 (class 1259 OID 87036)
+-- Name: fabricante; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE fabricante (
+    codfabricante integer NOT NULL,
+    nombrefabricante character(30) NOT NULL
+);
+
+
+ALTER TABLE public.fabricante OWNER TO postgres;
+
+--
+-- TOC entry 2445 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: TABLE fabricante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE fabricante IS 'Almacena los datos de los fabricantes de hardware y software';
+
+
+--
+-- TOC entry 2446 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: COLUMN fabricante.codfabricante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN fabricante.codfabricante IS 'Código del fabricante
+';
+
+
+--
+-- TOC entry 2447 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: COLUMN fabricante.nombrefabricante; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN fabricante.nombrefabricante IS 'Nombre del fabricante
+';
+
+
+--
+-- TOC entry 215 (class 1259 OID 87039)
+-- Name: facultad; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE facultad (
+    nombrefacultad character(45) NOT NULL,
+    descfacultad text,
+    codfacultad integer NOT NULL
+);
+
+
+ALTER TABLE public.facultad OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 87976)
+-- Name: inv_convocatorias; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_convocatorias (
+    numero_convocatoria character varying(50) NOT NULL,
+    titulo_convocatoria text NOT NULL,
+    descripcion_convocatoria text NOT NULL,
+    telefono character varying(20),
+    email character varying(60),
+    pagina_convocatoria text NOT NULL,
+    archivo_convocatoria text NOT NULL,
+    estado character varying(20) NOT NULL,
+    convocatoria_dirigida text NOT NULL,
+    fecha_apertura date NOT NULL,
+    fecha_cierre date,
+    total_recursos real NOT NULL
+);
+
+
+ALTER TABLE public.inv_convocatorias OWNER TO postgres;
+
+--
+-- TOC entry 231 (class 1259 OID 88014)
+-- Name: inv_entidades; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_entidades (
+    nit_empresa character varying(30) NOT NULL,
+    nombre_empresa text NOT NULL,
+    representante_legal character varying(50) NOT NULL,
+    descripcion_empresa text NOT NULL,
+    pagina_web text,
+    email character varying(60) NOT NULL,
+    telefono character varying(20),
+    celular character varying(20),
+    foto text
+);
+
+
+ALTER TABLE public.inv_entidades OWNER TO postgres;
+
+--
+-- TOC entry 228 (class 1259 OID 87994)
+-- Name: inv_evento_noticias; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_evento_noticias (
+    id_evento integer NOT NULL,
+    titulo_evento character varying(150) NOT NULL,
+    descripcion text NOT NULL,
+    enlace_documentos text NOT NULL
+);
+
+
+ALTER TABLE public.inv_evento_noticias OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 87992)
+-- Name: inv_evento_noticias_id_evento_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_evento_noticias_id_evento_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_evento_noticias_id_evento_seq OWNER TO postgres;
+
+--
+-- TOC entry 2448 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: inv_evento_noticias_id_evento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_evento_noticias_id_evento_seq OWNED BY inv_evento_noticias.id_evento;
+
+
+--
+-- TOC entry 232 (class 1259 OID 88022)
+-- Name: inv_financiacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_financiacion (
+    inv_cod_proyecto integer NOT NULL,
+    inv_nit_entidad character varying(30) NOT NULL,
+    descripcion_financiamiento text NOT NULL,
+    valor_financiado real NOT NULL,
+    fecha date NOT NULL
+);
+
+
+ALTER TABLE public.inv_financiacion OWNER TO postgres;
+
+--
+-- TOC entry 247 (class 1259 OID 88090)
+-- Name: inv_investigadores_externos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_investigadores_externos (
+    codinv_ext integer NOT NULL,
+    cedula_persona bigint NOT NULL,
+    profesion character varying(100) NOT NULL,
+    codconvocatoria integer NOT NULL,
+    nombreconvocatoria text NOT NULL,
+    numerocontrato character varying(100) NOT NULL,
+    fecha_inicio date NOT NULL,
+    fecha_fin date NOT NULL
+);
+
+
+ALTER TABLE public.inv_investigadores_externos OWNER TO postgres;
+
+--
+-- TOC entry 246 (class 1259 OID 88088)
+-- Name: inv_investigadores_externos_codinv_ext_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_investigadores_externos_codinv_ext_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_investigadores_externos_codinv_ext_seq OWNER TO postgres;
+
+--
+-- TOC entry 2449 (class 0 OID 0)
+-- Dependencies: 246
+-- Name: inv_investigadores_externos_codinv_ext_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_investigadores_externos_codinv_ext_seq OWNED BY inv_investigadores_externos.codinv_ext;
+
+
+--
+-- TOC entry 221 (class 1259 OID 87956)
+-- Name: inv_lineas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_lineas (
+    id_lineas integer NOT NULL,
+    nombre_linea character varying(100) NOT NULL,
+    definicion_linea text NOT NULL,
+    objetivos text NOT NULL,
+    objeto_estudio text NOT NULL,
+    coordinador_linea character varying(100) NOT NULL,
+    ruta_archivo text
+);
+
+
+ALTER TABLE public.inv_lineas OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 87954)
+-- Name: inv_lineas_id_lineas_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_lineas_id_lineas_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_lineas_id_lineas_seq OWNER TO postgres;
+
+--
+-- TOC entry 2450 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: inv_lineas_id_lineas_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_lineas_id_lineas_seq OWNED BY inv_lineas.id_lineas;
+
+
+--
+-- TOC entry 243 (class 1259 OID 88074)
+-- Name: inv_participacion_grupos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_participacion_grupos (
+    id_participacion_grupos integer NOT NULL,
+    inv_cod_grupo integer NOT NULL,
+    cedula_persona bigint NOT NULL
+);
+
+
+ALTER TABLE public.inv_participacion_grupos OWNER TO postgres;
+
+--
+-- TOC entry 242 (class 1259 OID 88072)
+-- Name: inv_participacion_grupos_id_participacion_grupos_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_participacion_grupos_id_participacion_grupos_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_participacion_grupos_id_participacion_grupos_seq OWNER TO postgres;
+
+--
+-- TOC entry 2451 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: inv_participacion_grupos_id_participacion_grupos_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_participacion_grupos_id_participacion_grupos_seq OWNED BY inv_participacion_grupos.id_participacion_grupos;
+
+
+--
+-- TOC entry 245 (class 1259 OID 88082)
+-- Name: inv_participacion_productos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_participacion_productos (
+    id_participacion_productos integer NOT NULL,
+    inv_cod_grupo integer NOT NULL,
+    inv_cod_producto integer NOT NULL,
+    cedula_persona bigint NOT NULL
+);
+
+
+ALTER TABLE public.inv_participacion_productos OWNER TO postgres;
+
+--
+-- TOC entry 244 (class 1259 OID 88080)
+-- Name: inv_participacion_productos_id_participacion_productos_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_participacion_productos_id_participacion_productos_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_participacion_productos_id_participacion_productos_seq OWNER TO postgres;
+
+--
+-- TOC entry 2452 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: inv_participacion_productos_id_participacion_productos_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_participacion_productos_id_participacion_productos_seq OWNED BY inv_participacion_productos.id_participacion_productos;
+
+
+--
+-- TOC entry 241 (class 1259 OID 88066)
+-- Name: inv_participacion_proyectos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_participacion_proyectos (
+    id_participacion_proyectos integer NOT NULL,
+    inv_cod_proyecto integer NOT NULL,
+    cedula_persona bigint NOT NULL,
+    dedicacion_tiempo character varying(10) NOT NULL
+);
+
+
+ALTER TABLE public.inv_participacion_proyectos OWNER TO postgres;
+
+--
+-- TOC entry 240 (class 1259 OID 88064)
+-- Name: inv_participacion_proyectos_id_participacion_proyectos_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_participacion_proyectos_id_participacion_proyectos_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_participacion_proyectos_id_participacion_proyectos_seq OWNER TO postgres;
+
+--
+-- TOC entry 2453 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: inv_participacion_proyectos_id_participacion_proyectos_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_participacion_proyectos_id_participacion_proyectos_seq OWNED BY inv_participacion_proyectos.id_participacion_proyectos;
+
+
+--
+-- TOC entry 226 (class 1259 OID 87986)
+-- Name: inv_periodos_academicos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_periodos_academicos (
+    codigo_periodo integer NOT NULL,
+    ano character varying(4) NOT NULL,
+    periodo character varying(2) NOT NULL,
+    fecha_inicio date NOT NULL,
+    fecha_fin date NOT NULL
+);
+
+
+ALTER TABLE public.inv_periodos_academicos OWNER TO postgres;
+
+--
+-- TOC entry 225 (class 1259 OID 87984)
+-- Name: inv_periodos_academicos_codigo_periodo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_periodos_academicos_codigo_periodo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_periodos_academicos_codigo_periodo_seq OWNER TO postgres;
+
+--
+-- TOC entry 2454 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: inv_periodos_academicos_codigo_periodo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_periodos_academicos_codigo_periodo_seq OWNED BY inv_periodos_academicos.codigo_periodo;
+
+
+--
+-- TOC entry 239 (class 1259 OID 88055)
+-- Name: inv_productos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_productos (
+    codigo_producto integer NOT NULL,
+    inv_cod_grupo integer NOT NULL,
+    inv_id_sublinea integer NOT NULL,
+    inv_subtipo_producto integer NOT NULL,
+    nombre_producto text NOT NULL,
+    observaciones_producto text NOT NULL,
+    reconocimiento_producto character varying(100) NOT NULL,
+    soporte_producto text,
+    tipo_soporte character varying(50),
+    observaciones_soporte text,
+    entidad character varying(100) NOT NULL,
+    fecha_producto date
+);
+
+
+ALTER TABLE public.inv_productos OWNER TO postgres;
+
+--
+-- TOC entry 238 (class 1259 OID 88053)
+-- Name: inv_productos_codigo_producto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_productos_codigo_producto_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_productos_codigo_producto_seq OWNER TO postgres;
+
+--
+-- TOC entry 2455 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: inv_productos_codigo_producto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_productos_codigo_producto_seq OWNED BY inv_productos.codigo_producto;
+
+
+--
+-- TOC entry 230 (class 1259 OID 88005)
+-- Name: inv_proyectos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_proyectos (
+    codigo_proyecto integer NOT NULL,
+    inv_numero_convocatoria character varying(255) NOT NULL,
+    inv_id_sublinea integer NOT NULL,
+    inv_cod_grupo integer NOT NULL,
+    nombre_proyecto text NOT NULL,
+    objetivo_general character varying(150) NOT NULL,
+    archivo_propuesta text NOT NULL,
+    archivo_acta_inicio text NOT NULL,
+    archivo_informe_final text,
+    fecha_proyecto date,
+    sublinea_auxiliar text,
+    grupo_auxiliar text,
+    estado_proyecto character varying(30),
+    estado_financiamiento character varying(50) NOT NULL
+);
+
+
+ALTER TABLE public.inv_proyectos OWNER TO postgres;
+
+--
+-- TOC entry 229 (class 1259 OID 88003)
+-- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_proyectos_codigo_proyecto_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_proyectos_codigo_proyecto_seq OWNER TO postgres;
+
+--
+-- TOC entry 2456 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_proyectos_codigo_proyecto_seq OWNED BY inv_proyectos.codigo_proyecto;
+
+
+--
+-- TOC entry 233 (class 1259 OID 88028)
+-- Name: inv_sublinea_grupos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_sublinea_grupos (
+    inv_cod_grupo integer NOT NULL,
+    inv_id_sublinea integer NOT NULL
+);
+
+
+ALTER TABLE public.inv_sublinea_grupos OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 87967)
+-- Name: inv_sublineas; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_sublineas (
+    id_sublinea integer NOT NULL,
+    inv_id_linea integer NOT NULL,
+    nombre_sublinea text NOT NULL,
+    descripcion_linea text NOT NULL,
+    estado character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public.inv_sublineas OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 87965)
+-- Name: inv_sublineas_id_sublinea_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_sublineas_id_sublinea_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_sublineas_id_sublinea_seq OWNER TO postgres;
+
+--
+-- TOC entry 2457 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: inv_sublineas_id_sublinea_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_sublineas_id_sublinea_seq OWNED BY inv_sublineas.id_sublinea;
+
+
+--
+-- TOC entry 237 (class 1259 OID 88044)
+-- Name: inv_subtipo_productos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_subtipo_productos (
+    id_subtipo_producto integer NOT NULL,
+    inv_id_tipo_producto integer NOT NULL,
+    nombre_subtipo_producto character varying(100) NOT NULL,
+    descripcion_subtipo_producto text
+);
+
+
+ALTER TABLE public.inv_subtipo_productos OWNER TO postgres;
+
+--
+-- TOC entry 236 (class 1259 OID 88042)
+-- Name: inv_subtipo_productos_id_subtipo_producto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_subtipo_productos_id_subtipo_producto_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_subtipo_productos_id_subtipo_producto_seq OWNER TO postgres;
+
+--
+-- TOC entry 2458 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: inv_subtipo_productos_id_subtipo_producto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_subtipo_productos_id_subtipo_producto_seq OWNED BY inv_subtipo_productos.id_subtipo_producto;
+
+
+--
+-- TOC entry 235 (class 1259 OID 88033)
+-- Name: inv_tipo_productos; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE inv_tipo_productos (
+    id_tipo_producto integer NOT NULL,
+    nombre_tipo_producto text NOT NULL,
+    descripcion_producto text
+);
+
+
+ALTER TABLE public.inv_tipo_productos OWNER TO postgres;
+
+--
+-- TOC entry 234 (class 1259 OID 88031)
+-- Name: inv_tipo_productos_id_tipo_producto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_tipo_productos_id_tipo_producto_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.inv_tipo_productos_id_tipo_producto_seq OWNER TO postgres;
+
+--
+-- TOC entry 2459 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: inv_tipo_productos_id_tipo_producto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE inv_tipo_productos_id_tipo_producto_seq OWNED BY inv_tipo_productos.id_tipo_producto;
+
+
+--
+-- TOC entry 219 (class 1259 OID 87488)
+-- Name: migrations; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE migrations (
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
+
+ALTER TABLE public.migrations OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 87266)
+-- Name: perfil; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE perfil (
+    codperfil integer NOT NULL,
+    nombreperfil character(30) NOT NULL,
+    descperfil text NOT NULL
+);
+
+
+ALTER TABLE public.perfil OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 87258)
+-- Name: persona; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE persona (
+    cedula bigint NOT NULL,
+    nombre1 character varying(15) NOT NULL,
+    direccion character(100),
+    telefono character(10) DEFAULT 0,
+    celular character(10) DEFAULT 0,
+    apellido1 character(15) NOT NULL,
+    nombre2 character varying(15),
+    apellido2 character(15),
+    mail character(50),
+    clavep character varying(40),
+    fecha_perfil timestamp without time zone,
+    foto text
+);
+
+
+ALTER TABLE public.persona OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 87272)
+-- Name: personaperfil; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE personaperfil (
+    codperfil integer NOT NULL,
+    cedula bigint NOT NULL,
+    clave character(40) NOT NULL,
+    username character(20) NOT NULL,
+    habilitado boolean NOT NULL,
+    tiempoextra integer DEFAULT 0
+);
+
+
+ALTER TABLE public.personaperfil OWNER TO postgres;
+
+--
+-- TOC entry 2144 (class 2604 OID 87997)
+-- Name: id_evento; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_evento_noticias ALTER COLUMN id_evento SET DEFAULT nextval('inv_evento_noticias_id_evento_seq'::regclass);
+
+
+--
+-- TOC entry 2152 (class 2604 OID 88093)
+-- Name: codinv_ext; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_investigadores_externos ALTER COLUMN codinv_ext SET DEFAULT nextval('inv_investigadores_externos_codinv_ext_seq'::regclass);
+
+
+--
+-- TOC entry 2141 (class 2604 OID 87959)
+-- Name: id_lineas; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_lineas ALTER COLUMN id_lineas SET DEFAULT nextval('inv_lineas_id_lineas_seq'::regclass);
+
+
+--
+-- TOC entry 2150 (class 2604 OID 88077)
+-- Name: id_participacion_grupos; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_participacion_grupos ALTER COLUMN id_participacion_grupos SET DEFAULT nextval('inv_participacion_grupos_id_participacion_grupos_seq'::regclass);
+
+
+--
+-- TOC entry 2151 (class 2604 OID 88085)
+-- Name: id_participacion_productos; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_participacion_productos ALTER COLUMN id_participacion_productos SET DEFAULT nextval('inv_participacion_productos_id_participacion_productos_seq'::regclass);
+
+
+--
+-- TOC entry 2149 (class 2604 OID 88069)
+-- Name: id_participacion_proyectos; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_participacion_proyectos ALTER COLUMN id_participacion_proyectos SET DEFAULT nextval('inv_participacion_proyectos_id_participacion_proyectos_seq'::regclass);
+
+
+--
+-- TOC entry 2143 (class 2604 OID 87989)
+-- Name: codigo_periodo; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_periodos_academicos ALTER COLUMN codigo_periodo SET DEFAULT nextval('inv_periodos_academicos_codigo_periodo_seq'::regclass);
+
+
+--
+-- TOC entry 2148 (class 2604 OID 88058)
+-- Name: codigo_producto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_productos ALTER COLUMN codigo_producto SET DEFAULT nextval('inv_productos_codigo_producto_seq'::regclass);
+
+
+--
+-- TOC entry 2145 (class 2604 OID 88008)
+-- Name: codigo_proyecto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_proyectos ALTER COLUMN codigo_proyecto SET DEFAULT nextval('inv_proyectos_codigo_proyecto_seq'::regclass);
+
+
+--
+-- TOC entry 2142 (class 2604 OID 87970)
+-- Name: id_sublinea; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_sublineas ALTER COLUMN id_sublinea SET DEFAULT nextval('inv_sublineas_id_sublinea_seq'::regclass);
+
+
+--
+-- TOC entry 2147 (class 2604 OID 88047)
+-- Name: id_subtipo_producto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_subtipo_productos ALTER COLUMN id_subtipo_producto SET DEFAULT nextval('inv_subtipo_productos_id_subtipo_producto_seq'::regclass);
+
+
+--
+-- TOC entry 2146 (class 2604 OID 88036)
+-- Name: id_tipo_producto; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY inv_tipo_productos ALTER COLUMN id_tipo_producto SET DEFAULT nextval('inv_tipo_productos_id_tipo_producto_seq'::regclass);
+
+
+--
+-- TOC entry 2288 (class 0 OID 86835)
+-- Dependencies: 170
+-- Data for Name: actas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY actas (numero_acta, nombre_comite, descrip_acta, fecha_acta, year, lugar, hora, tipo, estado, codprograma, orden_del_dia1, orden_del_dia2, orden_del_dia3, orden_del_dia4, orden_del_dia5, orden_del_dia6, orden_del_dia7, orden_del_dia8, orden_del_dia9, orden_del_dia10, orden_del_dia11, orden_del_dia12, nombre_area_complementaria, ced_area_complementaria, nombre_area_profesional, ced_area_profesional, nombre_director_programa, ced_director_programa, nombre_area_basicas, ced_area_basicas, nombre_area_profundizacion, ced_area_profundizacion, nombre_estudiantes, ced_estudiantes, nombre_invitado, ced_invitado, archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2290 (class 0 OID 86843)
+-- Dependencies: 172
+-- Data for Name: areas_inv; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY areas_inv (nombre, codigo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2460 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: areas_inv_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('areas_inv_codigo_seq', 18, false);
+
+
+--
+-- TOC entry 2291 (class 0 OID 86847)
+-- Dependencies: 173
+-- Data for Name: asignacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY asignacion (codhorario, cedula, motivo, fecha, codubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2292 (class 0 OID 86850)
+-- Dependencies: 174
+-- Data for Name: avances; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY avances (cod_proyecto, cod_avance, fecha_avance, archivo_avance) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2293 (class 0 OID 86856)
+-- Dependencies: 175
+-- Data for Name: boletin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY boletin (cod_bol, titulo_bol, fecha_bol, resumen, key_word_bol, texto_bol, url_imagen_bol, id_usua) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2294 (class 0 OID 86862)
+-- Dependencies: 176
+-- Data for Name: campos_preguntas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY campos_preguntas (cod_formato, cod_pregunta, cod_campo, descrip_campo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2295 (class 0 OID 86865)
+-- Dependencies: 177
+-- Data for Name: cargo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cargo (codcargo, desccargo, horas_cargo, coddependencia, cantidad, nombrecargo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2296 (class 0 OID 86871)
+-- Dependencies: 178
+-- Data for Name: carpeta_proyecto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY carpeta_proyecto (cod_proyecto, cod_archivo, detalle_archivo, carpeta_archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2298 (class 0 OID 86876)
+-- Dependencies: 180
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoria (codigo, descripcion, hojavida, nombre) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2299 (class 0 OID 86883)
+-- Dependencies: 181
+-- Data for Name: categoriaubicacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoriaubicacion (categoria, ubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2301 (class 0 OID 86888)
+-- Dependencies: 183
+-- Data for Name: clasificados; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY clasificados (codclasificado, tituloclasificado, clasificado, fechaclasificado, cedularesponsable, imagen, publicadoen) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2461 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: clasificados_codclasificado_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('clasificados_codclasificado_seq', 8, true);
+
+
+--
+-- TOC entry 2302 (class 0 OID 86896)
+-- Dependencies: 184
+-- Data for Name: convocatorias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY convocatorias (titulo, descripcion, documento, imagen, fechacierre, ident) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2462 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: convocatorias_ident_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('convocatorias_ident_seq', 6, true);
+
+
+--
+-- TOC entry 2304 (class 0 OID 86904)
+-- Dependencies: 186
+-- Data for Name: cursos_admin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_admin (cedula, nombre, usuario, passw) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2305 (class 0 OID 86910)
+-- Dependencies: 187
+-- Data for Name: cursos_area; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_area (cod_area, nom_area) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2306 (class 0 OID 86916)
+-- Dependencies: 188
+-- Data for Name: cursos_extra; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_extra (codigo, nombre, activo, nivel, titulo, modalidad, metodologia, duracion, responsable, descripcion, direc, cod_area) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2307 (class 0 OID 86922)
+-- Dependencies: 189
+-- Data for Name: cursos_inscritos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_inscritos (cedula, nombre1, nombre2, apellido1, apellido2, celular, telefono, mail, profesion, fecha, codcurso) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2308 (class 0 OID 86928)
+-- Dependencies: 190
+-- Data for Name: cursos_titulo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_titulo (cod_titulo, nom_titulo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2310 (class 0 OID 86936)
+-- Dependencies: 192
+-- Data for Name: dadosdebaja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY dadosdebaja (codigo, codigoelement, categoria, fechadebaja, descripcion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2463 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: dadosdebaja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('dadosdebaja_codigo_seq', 1, true);
+
+
+--
+-- TOC entry 2311 (class 0 OID 86943)
+-- Dependencies: 193
+-- Data for Name: departamentos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY departamentos (id_departamento, departamento) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2312 (class 0 OID 86946)
+-- Dependencies: 194
+-- Data for Name: dependencia; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY dependencia (coddependencia, nombredependencia, descdependencia, codubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2313 (class 0 OID 86952)
+-- Dependencies: 195
+-- Data for Name: detalleprestamo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY detalleprestamo (codigoparte, cedula, fechaentrega, horaentrega, equipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2314 (class 0 OID 86955)
+-- Dependencies: 196
+-- Data for Name: disponibilidad_docente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY disponibilidad_docente (coddocente, codhoras, year, periodo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2315 (class 0 OID 86958)
+-- Dependencies: 197
+-- Data for Name: docente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY docente (coddocente, cedula, codubicacion, pregrado1, uni_preg1, ano_preg1, pregrado2, uni_preg2, ano_preg2, postgrado1, uni_post1, ano_post1, postgrado2, uni_post2, ano_post2, postgrado3, uni_post3, ano_post3, nivel_post1, nivel_post2, nivel_post3, codtipo_docente, estado, cvlac, perfil_corto) FROM stdin;
+1120571636	1120571636	1	sistemas	1	2012	electronica	2	2011	ffff	3	2014	rrr	5	2011	eeee	2	2013	03	03	03	01	t	ggggffrrrrrrrrrrrrrrrrrrr	gggggggggggggggggggggg
+1121456734	1121456734	2	electronica	2	2011	fffdd	2	2012	rewwff	4	2013	rdderr	5	2010	buuuu	2	2013	02	02	02	03	t	gggggffrrrrrrrrrrrrrrrrrrr	ggggggggrrrgggggggggggggg
+1121345678	1121345678	3	electronicfffa	2	2011	fffdggd	2	2012	reeeewwff	4	2013	rddeeerr	5	2010	bueeeuuu	2	2013	02	02	02	03	t	gggeeeggffrrrrrrrrrrrrrrrrrrr	ggggggggrrrgggggggggggggg
+\.
+
+
+--
+-- TOC entry 2316 (class 0 OID 86965)
+-- Dependencies: 198
+-- Data for Name: docenteMateria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "docenteMateria" (coddocente, codmateria, year, periodo, horas_teoricas, horas_practicas, seguimiento_asesoria, horas_preparacion, horas_total, codgrupo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2318 (class 0 OID 86973)
+-- Dependencies: 200
+-- Data for Name: elementoshoja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY elementoshoja (codigo, categoria, ubicacion, marca, nombre, modelo, serie, fechadecompra, valor, tiempofinaldegarantia, estado, tipoinv, tipdoc, tippro, observaciones, tipo_frecuencia, cantidad_horas) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2464 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: elementoshoja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('elementoshoja_codigo_seq', 75, true);
+
+
+--
+-- TOC entry 2320 (class 0 OID 86982)
+-- Dependencies: 202
+-- Data for Name: elementosinhoja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY elementosinhoja (codigo, categoria, ubicacion, fechaingreso, cantidad, valor_unitario, referencia, buenos, malos, regulares, nombre, cantidaddebaja) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2465 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: elementosinhoja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('elementosinhoja_codigo_seq', 1, true);
+
+
+--
+-- TOC entry 2321 (class 0 OID 86992)
+-- Dependencies: 203
+-- Data for Name: empresa; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY empresa (nit, representante_legal, razon_social, direccion_empresa, telefono_empresa, email_contacto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2323 (class 0 OID 86997)
+-- Dependencies: 205
+-- Data for Name: encuestas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY encuestas (id, titulo, fecha, publicadopor, activa, tipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2466 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: encuestas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('encuestas_id_seq', 4, true);
+
+
+--
+-- TOC entry 2467 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: encuestas_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('encuestas_id_seq1', 20, true);
+
+
+--
+-- TOC entry 2326 (class 0 OID 87007)
+-- Dependencies: 208
+-- Data for Name: enlaces; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY enlaces (idenlace, enlace, destino, publicadopor) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2468 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: enlaces_idenlace_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('enlaces_idenlace_seq', 11, true);
+
+
+--
+-- TOC entry 2327 (class 0 OID 87014)
+-- Dependencies: 209
+-- Data for Name: equipo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY equipo (nombreequipo, codubicacion, ip, dirmac, codequipo, obsequipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2328 (class 0 OID 87020)
+-- Dependencies: 210
+-- Data for Name: estudiante; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY estudiante (codestudiante, cedula, mail, especialidad, otrosestudios, edad, codprograma) FROM stdin;
+1121868384	1121868384	andreak91@hotmail.com                             	automatizacion                                    	 no se sabe                                       	21	160002304
+1121861059	1121861059	tanialopez@hotmail.com                            	sotfware                                          	 no se sabe nada                                  	25	160002314
+1123456432	1123456432	njulietg@hotmail.com                              	automatizacion                                    	 no se sabe nada                                  	23	160002311
+120654321	120654321	betancourt@gmail.com                              	automatizacion                                    	 no se sabe nada                                  	21	160002310
+\.
+
+
+--
+-- TOC entry 2329 (class 0 OID 87023)
+-- Dependencies: 211
+-- Data for Name: estudianteMateria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "estudianteMateria" (codestudiante, codmateria, year, periodo, nota) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2331 (class 0 OID 87028)
+-- Dependencies: 213
+-- Data for Name: evento; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY evento (codevento, tituloevento, descevento, fechaevento, lugarevento, organizadopor, cedularesponsable, url, publicadoen, urlexterno) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2469 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: evento_codEvento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"evento_codEvento_seq"', 34, true);
+
+
+--
+-- TOC entry 2332 (class 0 OID 87036)
+-- Dependencies: 214
+-- Data for Name: fabricante; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY fabricante (codfabricante, nombrefabricante) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2333 (class 0 OID 87039)
+-- Dependencies: 215
+-- Data for Name: facultad; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY facultad (nombrefacultad, descfacultad, codfacultad) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2342 (class 0 OID 87976)
+-- Dependencies: 224
+-- Data for Name: inv_convocatorias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_convocatorias (numero_convocatoria, titulo_convocatoria, descripcion_convocatoria, telefono, email, pagina_convocatoria, archivo_convocatoria, estado, convocatoria_dirigida, fecha_apertura, fecha_cierre, total_recursos) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2349 (class 0 OID 88014)
+-- Dependencies: 231
+-- Data for Name: inv_entidades; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_entidades (nit_empresa, nombre_empresa, representante_legal, descripcion_empresa, pagina_web, email, telefono, celular, foto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2346 (class 0 OID 87994)
+-- Dependencies: 228
+-- Data for Name: inv_evento_noticias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_evento_noticias (id_evento, titulo_evento, descripcion, enlace_documentos) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2470 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: inv_evento_noticias_id_evento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_evento_noticias_id_evento_seq', 1, false);
+
+
+--
+-- TOC entry 2350 (class 0 OID 88022)
+-- Dependencies: 232
+-- Data for Name: inv_financiacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_financiacion (inv_cod_proyecto, inv_nit_entidad, descripcion_financiamiento, valor_financiado, fecha) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2365 (class 0 OID 88090)
+-- Dependencies: 247
+-- Data for Name: inv_investigadores_externos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_investigadores_externos (codinv_ext, cedula_persona, profesion, codconvocatoria, nombreconvocatoria, numerocontrato, fecha_inicio, fecha_fin) FROM stdin;
+1121656789	1121656789	profesional	2345	frrdeswsswwwwwwwwwwwwwwww	e3de4r5tt4	2010-02-10	2010-04-15
+1204456765	1204456765	investigador	234534322	frrdeswdeddswwssswwwwwwwwwwwwwwww	3456tr321	2012-06-15	2012-09-30
+1121322111	1121322111	ingeniero	2344322	frrdedfdddddddddswdeddswwssswwwwwwwwwwwwwwww	35456t21	2014-07-12	2014-12-30
+\.
+
+
+--
+-- TOC entry 2471 (class 0 OID 0)
+-- Dependencies: 246
+-- Name: inv_investigadores_externos_codinv_ext_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_investigadores_externos_codinv_ext_seq', 1, false);
+
+
+--
+-- TOC entry 2339 (class 0 OID 87956)
+-- Dependencies: 221
+-- Data for Name: inv_lineas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_lineas (id_lineas, nombre_linea, definicion_linea, objetivos, objeto_estudio, coordinador_linea, ruta_archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2472 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: inv_lineas_id_lineas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_lineas_id_lineas_seq', 1, false);
+
+
+--
+-- TOC entry 2361 (class 0 OID 88074)
+-- Dependencies: 243
+-- Data for Name: inv_participacion_grupos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_grupos (id_participacion_grupos, inv_cod_grupo, cedula_persona) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2473 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: inv_participacion_grupos_id_participacion_grupos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_grupos_id_participacion_grupos_seq', 1, false);
+
+
+--
+-- TOC entry 2363 (class 0 OID 88082)
+-- Dependencies: 245
+-- Data for Name: inv_participacion_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_productos (id_participacion_productos, inv_cod_grupo, inv_cod_producto, cedula_persona) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2474 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: inv_participacion_productos_id_participacion_productos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_productos_id_participacion_productos_seq', 1, false);
+
+
+--
+-- TOC entry 2359 (class 0 OID 88066)
+-- Dependencies: 241
+-- Data for Name: inv_participacion_proyectos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_proyectos (id_participacion_proyectos, inv_cod_proyecto, cedula_persona, dedicacion_tiempo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2475 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: inv_participacion_proyectos_id_participacion_proyectos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_proyectos_id_participacion_proyectos_seq', 1, false);
+
+
+--
+-- TOC entry 2344 (class 0 OID 87986)
+-- Dependencies: 226
+-- Data for Name: inv_periodos_academicos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_periodos_academicos (codigo_periodo, ano, periodo, fecha_inicio, fecha_fin) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2476 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: inv_periodos_academicos_codigo_periodo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_periodos_academicos_codigo_periodo_seq', 1, false);
+
+
+--
+-- TOC entry 2357 (class 0 OID 88055)
+-- Dependencies: 239
+-- Data for Name: inv_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_productos (codigo_producto, inv_cod_grupo, inv_id_sublinea, inv_subtipo_producto, nombre_producto, observaciones_producto, reconocimiento_producto, soporte_producto, tipo_soporte, observaciones_soporte, entidad, fecha_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2477 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: inv_productos_codigo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2348 (class 0 OID 88005)
+-- Dependencies: 230
+-- Data for Name: inv_proyectos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_sublinea, inv_cod_grupo, nombre_proyecto, objetivo_general, archivo_propuesta, archivo_acta_inicio, archivo_informe_final, fecha_proyecto, sublinea_auxiliar, grupo_auxiliar, estado_proyecto, estado_financiamiento) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2478 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 1, false);
+
+
+--
+-- TOC entry 2351 (class 0 OID 88028)
+-- Dependencies: 233
+-- Data for Name: inv_sublinea_grupos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_sublinea_grupos (inv_cod_grupo, inv_id_sublinea) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2341 (class 0 OID 87967)
+-- Dependencies: 223
+-- Data for Name: inv_sublineas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_sublineas (id_sublinea, inv_id_linea, nombre_sublinea, descripcion_linea, estado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2479 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: inv_sublineas_id_sublinea_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_sublineas_id_sublinea_seq', 1, false);
+
+
+--
+-- TOC entry 2355 (class 0 OID 88044)
+-- Dependencies: 237
+-- Data for Name: inv_subtipo_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_subtipo_productos (id_subtipo_producto, inv_id_tipo_producto, nombre_subtipo_producto, descripcion_subtipo_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2480 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: inv_subtipo_productos_id_subtipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_subtipo_productos_id_subtipo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2353 (class 0 OID 88033)
+-- Dependencies: 235
+-- Data for Name: inv_tipo_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_tipo_productos (id_tipo_producto, nombre_tipo_producto, descripcion_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2481 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: inv_tipo_productos_id_tipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_tipo_productos_id_tipo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2482 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: linea_cod_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('linea_cod_seq', 96, true);
+
+
+--
+-- TOC entry 2337 (class 0 OID 87488)
+-- Dependencies: 219
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY migrations (migration, batch) FROM stdin;
+2014_10_16_163046_cinv_tipo_grupos	1
+2014_10_16_164557_cinv_grupos	1
+2014_10_16_195953_cinv_lineas	2
+2014_10_16_201227_cinv_sublineas	2
+2014_10_16_203854_cinv_convocatorias	2
+2014_10_16_214304_cinv_periodos_academicos	2
+2014_10_16_214904_cinv_evento_noticias	2
+2014_10_16_215820_cinv_proyectos	2
+2014_10_17_000336_cinv_entidades	2
+2014_10_17_002101_cinv_financiacion	2
+2014_10_17_010230_cinv_sublinea_grupos	2
+2014_10_17_011420_cinv_tipo_productos	2
+2014_10_17_012336_cinv_subtipo_productos	2
+2014_10_17_013427_cinv_productos	2
+2014_10_17_155152_cinv_participacion_proyectos	2
+2014_10_17_162750_cinv_participacion_grupos	2
+2014_10_17_163446_cinv_participacion_productos	2
+2014_11_13_170955_cinv_investigadores_externos	2
+\.
+
+
+--
+-- TOC entry 2335 (class 0 OID 87266)
+-- Dependencies: 217
+-- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY perfil (codperfil, nombreperfil, descperfil) FROM stdin;
+1	joven investigador            	ffrfffffffffffffffffffffffffffw
+2	investigador epi              	blablablablablablablalblalaldla
+3	investigador colciencias      	blablabjujujujulablablablablalblalaldla
+4	auxiliar docente              	blablabjujufifififjujulablablablablalblalaldla
+5	investigador                  	blablabjujufifrdefififjujulablablablablalblalaldla
+\.
+
+
+--
+-- TOC entry 2334 (class 0 OID 87258)
+-- Dependencies: 216
+-- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY persona (cedula, nombre1, direccion, telefono, celular, apellido1, nombre2, apellido2, mail, clavep, fecha_perfil, foto) FROM stdin;
+1121868384	andrea	bario billa maria                                                                                   	66666666  	3105165543	camargo        	jully	murillo        	andreakamargo                                     	andreak_91@hotmail.com	2012-11-20 10:51:51	hhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121861059	tania	bario macunaima                                                                                     	44444446  	3214037703	lopez          	maria	beltran        	anfffrffgttgdee                                   	tanialopez@hotmail.com	2013-11-20 11:51:51	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1120571636	elizabeth	bario macunaima                                                                                     	44453446  	3114790331	maldonado      	 	triana         	afjdkjfekjfkejfke                                 	elisk123@hotmail.com	2014-01-02 09:42:11	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1123456432	julieth	bario manantial                                                                                     	422223446 	3114790351	rodriguez      	nubia 	rincon         	addddddsswdftre                                   	njulietg@hotmail.com	2014-02-10 08:42:11	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121345678	jennifer	bario estero                                                                                        	56784333  	3113456789	rincon         	 	cardozo        	adddgjgjrgjdddsswdftre                            	jenniffer@hotmail.com	2014-07-16 04:35:11	hgfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121322111	sebastian	bario grama                                                                                         	564456664 	311344389 	perez          	juan 	gonzales       	addfrgtgtyyhtre                                   	sebastian@gmail.com	2014-10-04 06:35:11	hgfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+120654321	edward	bario popular                                                                                       	564453324 	3105168834	ladino         	alexis	betancourt     	addfrggrgrtgtyyhtre                               	betancourt@gmail.com	2014-01-10 06:35:11	hgrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1204456765	maria	bario hacaritama                                                                                    	56445388  	3105783834	gonzales       	paula	niño           	adfrffssaswdgryyhtre                              	maria@gmail.com	2011-09-15 03:20:55	hghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121456789	mauricio	bario viscaya                                                                                       	564453488 	3105383834	pinzon         	 	restrepo       	adfrfderyyhtre                                    	pinzon@hotmail.com	2012-09-30 03:20:55	hfghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121456734	vanesa	bario morichal                                                                                      	5623      	310534564 	poveda         	 angie	betancourt     	adfrftgyhderyyhtre                                	vanessa1@hotmail.com	2012-10-08 07:20:55	hrfghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+\.
+
+
+--
+-- TOC entry 2336 (class 0 OID 87272)
+-- Dependencies: 218
+-- Data for Name: personaperfil; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY personaperfil (codperfil, cedula, clave, username, habilitado, tiempoextra) FROM stdin;
+1	1121868384	andrea12345                             	andrea              	t	20
+1	1121861059	tanialopez                              	ltania              	f	20
+2	1120571636	eliza1991                               	eliza91             	t	20
+2	1123456432	julieth                                 	juieth              	t	20
+3	1121345678	jjeniffer                               	jjenifer02          	t	20
+3	1121322111	sebastian                               	sebastian           	t	20
+4	120654321	edward2345                              	edwardb             	t	20
+4	1204456765	maria123                                	maria02             	t	20
+5	1121656789	mauricio02                              	mauricio            	t	20
+5	1121456734	vanessa12                               	vanessa             	t	20
+\.
+
+
+--
+-- TOC entry 2158 (class 2606 OID 87983)
+-- Name: inv_convocatorias_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_convocatorias
+    ADD CONSTRAINT inv_convocatorias_pkey PRIMARY KEY (numero_convocatoria);
+
+
+--
+-- TOC entry 2166 (class 2606 OID 88021)
+-- Name: inv_entidades_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_entidades
+    ADD CONSTRAINT inv_entidades_pkey PRIMARY KEY (nit_empresa);
+
+
+--
+-- TOC entry 2162 (class 2606 OID 88002)
+-- Name: inv_evento_noticias_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_evento_noticias
+    ADD CONSTRAINT inv_evento_noticias_pkey PRIMARY KEY (id_evento);
+
+
+--
+-- TOC entry 2180 (class 2606 OID 88098)
+-- Name: inv_investigadores_externos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_investigadores_externos
+    ADD CONSTRAINT inv_investigadores_externos_pkey PRIMARY KEY (codinv_ext);
+
+
+--
+-- TOC entry 2154 (class 2606 OID 87964)
+-- Name: inv_lineas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_lineas
+    ADD CONSTRAINT inv_lineas_pkey PRIMARY KEY (id_lineas);
+
+
+--
+-- TOC entry 2176 (class 2606 OID 88079)
+-- Name: inv_participacion_grupos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_participacion_grupos
+    ADD CONSTRAINT inv_participacion_grupos_pkey PRIMARY KEY (id_participacion_grupos);
+
+
+--
+-- TOC entry 2178 (class 2606 OID 88087)
+-- Name: inv_participacion_productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_participacion_productos
+    ADD CONSTRAINT inv_participacion_productos_pkey PRIMARY KEY (id_participacion_productos);
+
+
+--
+-- TOC entry 2174 (class 2606 OID 88071)
+-- Name: inv_participacion_proyectos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_participacion_proyectos
+    ADD CONSTRAINT inv_participacion_proyectos_pkey PRIMARY KEY (id_participacion_proyectos);
+
+
+--
+-- TOC entry 2160 (class 2606 OID 87991)
+-- Name: inv_periodos_academicos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_periodos_academicos
+    ADD CONSTRAINT inv_periodos_academicos_pkey PRIMARY KEY (codigo_periodo);
+
+
+--
+-- TOC entry 2172 (class 2606 OID 88063)
+-- Name: inv_productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_productos
+    ADD CONSTRAINT inv_productos_pkey PRIMARY KEY (codigo_producto);
+
+
+--
+-- TOC entry 2164 (class 2606 OID 88013)
+-- Name: inv_proyectos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_proyectos
+    ADD CONSTRAINT inv_proyectos_pkey PRIMARY KEY (codigo_proyecto);
+
+
+--
+-- TOC entry 2156 (class 2606 OID 87975)
+-- Name: inv_sublineas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_sublineas
+    ADD CONSTRAINT inv_sublineas_pkey PRIMARY KEY (id_sublinea);
+
+
+--
+-- TOC entry 2170 (class 2606 OID 88052)
+-- Name: inv_subtipo_productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_subtipo_productos
+    ADD CONSTRAINT inv_subtipo_productos_pkey PRIMARY KEY (id_subtipo_producto);
+
+
+--
+-- TOC entry 2168 (class 2606 OID 88041)
+-- Name: inv_tipo_productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_tipo_productos
+    ADD CONSTRAINT inv_tipo_productos_pkey PRIMARY KEY (id_tipo_producto);
+
+
+--
+-- TOC entry 2372 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2014-12-03 12:01:01
+
+--
+-- PostgreSQL database dump complete
+--
+
