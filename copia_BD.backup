@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.3.4
 -- Dumped by pg_dump version 9.3.1
--- Started on 2014-11-21 00:33:26
+-- Started on 2014-12-03 10:29:35
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -16,7 +16,797 @@ SET client_min_messages = warning;
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 2171 (class 0 OID 87272)
+-- TOC entry 2288 (class 0 OID 86835)
+-- Dependencies: 170
+-- Data for Name: actas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY actas (numero_acta, nombre_comite, descrip_acta, fecha_acta, year, lugar, hora, tipo, estado, codprograma, orden_del_dia1, orden_del_dia2, orden_del_dia3, orden_del_dia4, orden_del_dia5, orden_del_dia6, orden_del_dia7, orden_del_dia8, orden_del_dia9, orden_del_dia10, orden_del_dia11, orden_del_dia12, nombre_area_complementaria, ced_area_complementaria, nombre_area_profesional, ced_area_profesional, nombre_director_programa, ced_director_programa, nombre_area_basicas, ced_area_basicas, nombre_area_profundizacion, ced_area_profundizacion, nombre_estudiantes, ced_estudiantes, nombre_invitado, ced_invitado, archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2290 (class 0 OID 86843)
+-- Dependencies: 172
+-- Data for Name: areas_inv; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY areas_inv (nombre, codigo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2370 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: areas_inv_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('areas_inv_codigo_seq', 18, false);
+
+
+--
+-- TOC entry 2291 (class 0 OID 86847)
+-- Dependencies: 173
+-- Data for Name: asignacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY asignacion (codhorario, cedula, motivo, fecha, codubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2292 (class 0 OID 86850)
+-- Dependencies: 174
+-- Data for Name: avances; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY avances (cod_proyecto, cod_avance, fecha_avance, archivo_avance) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2293 (class 0 OID 86856)
+-- Dependencies: 175
+-- Data for Name: boletin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY boletin (cod_bol, titulo_bol, fecha_bol, resumen, key_word_bol, texto_bol, url_imagen_bol, id_usua) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2294 (class 0 OID 86862)
+-- Dependencies: 176
+-- Data for Name: campos_preguntas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY campos_preguntas (cod_formato, cod_pregunta, cod_campo, descrip_campo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2295 (class 0 OID 86865)
+-- Dependencies: 177
+-- Data for Name: cargo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cargo (codcargo, desccargo, horas_cargo, coddependencia, cantidad, nombrecargo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2296 (class 0 OID 86871)
+-- Dependencies: 178
+-- Data for Name: carpeta_proyecto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY carpeta_proyecto (cod_proyecto, cod_archivo, detalle_archivo, carpeta_archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2298 (class 0 OID 86876)
+-- Dependencies: 180
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoria (codigo, descripcion, hojavida, nombre) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2299 (class 0 OID 86883)
+-- Dependencies: 181
+-- Data for Name: categoriaubicacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoriaubicacion (categoria, ubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2301 (class 0 OID 86888)
+-- Dependencies: 183
+-- Data for Name: clasificados; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY clasificados (codclasificado, tituloclasificado, clasificado, fechaclasificado, cedularesponsable, imagen, publicadoen) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2371 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: clasificados_codclasificado_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('clasificados_codclasificado_seq', 8, true);
+
+
+--
+-- TOC entry 2302 (class 0 OID 86896)
+-- Dependencies: 184
+-- Data for Name: convocatorias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY convocatorias (titulo, descripcion, documento, imagen, fechacierre, ident) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2372 (class 0 OID 0)
+-- Dependencies: 185
+-- Name: convocatorias_ident_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('convocatorias_ident_seq', 6, true);
+
+
+--
+-- TOC entry 2304 (class 0 OID 86904)
+-- Dependencies: 186
+-- Data for Name: cursos_admin; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_admin (cedula, nombre, usuario, passw) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2305 (class 0 OID 86910)
+-- Dependencies: 187
+-- Data for Name: cursos_area; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_area (cod_area, nom_area) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2306 (class 0 OID 86916)
+-- Dependencies: 188
+-- Data for Name: cursos_extra; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_extra (codigo, nombre, activo, nivel, titulo, modalidad, metodologia, duracion, responsable, descripcion, direc, cod_area) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2307 (class 0 OID 86922)
+-- Dependencies: 189
+-- Data for Name: cursos_inscritos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_inscritos (cedula, nombre1, nombre2, apellido1, apellido2, celular, telefono, mail, profesion, fecha, codcurso) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2308 (class 0 OID 86928)
+-- Dependencies: 190
+-- Data for Name: cursos_titulo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cursos_titulo (cod_titulo, nom_titulo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2310 (class 0 OID 86936)
+-- Dependencies: 192
+-- Data for Name: dadosdebaja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY dadosdebaja (codigo, codigoelement, categoria, fechadebaja, descripcion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2373 (class 0 OID 0)
+-- Dependencies: 191
+-- Name: dadosdebaja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('dadosdebaja_codigo_seq', 1, true);
+
+
+--
+-- TOC entry 2311 (class 0 OID 86943)
+-- Dependencies: 193
+-- Data for Name: departamentos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY departamentos (id_departamento, departamento) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2312 (class 0 OID 86946)
+-- Dependencies: 194
+-- Data for Name: dependencia; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY dependencia (coddependencia, nombredependencia, descdependencia, codubicacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2313 (class 0 OID 86952)
+-- Dependencies: 195
+-- Data for Name: detalleprestamo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY detalleprestamo (codigoparte, cedula, fechaentrega, horaentrega, equipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2314 (class 0 OID 86955)
+-- Dependencies: 196
+-- Data for Name: disponibilidad_docente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY disponibilidad_docente (coddocente, codhoras, year, periodo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2315 (class 0 OID 86958)
+-- Dependencies: 197
+-- Data for Name: docente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY docente (coddocente, cedula, codubicacion, pregrado1, uni_preg1, ano_preg1, pregrado2, uni_preg2, ano_preg2, postgrado1, uni_post1, ano_post1, postgrado2, uni_post2, ano_post2, postgrado3, uni_post3, ano_post3, nivel_post1, nivel_post2, nivel_post3, codtipo_docente, estado, cvlac, perfil_corto) FROM stdin;
+1120571636	1120571636	1	sistemas	1	2012	electronica	2	2011	ffff	3	2014	rrr	5	2011	eeee	2	2013	03	03	03	01	t	ggggffrrrrrrrrrrrrrrrrrrr	gggggggggggggggggggggg
+1121456734	1121456734	2	electronica	2	2011	fffdd	2	2012	rewwff	4	2013	rdderr	5	2010	buuuu	2	2013	02	02	02	03	t	gggggffrrrrrrrrrrrrrrrrrrr	ggggggggrrrgggggggggggggg
+1121345678	1121345678	3	electronicfffa	2	2011	fffdggd	2	2012	reeeewwff	4	2013	rddeeerr	5	2010	bueeeuuu	2	2013	02	02	02	03	t	gggeeeggffrrrrrrrrrrrrrrrrrrr	ggggggggrrrgggggggggggggg
+\.
+
+
+--
+-- TOC entry 2316 (class 0 OID 86965)
+-- Dependencies: 198
+-- Data for Name: docenteMateria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "docenteMateria" (coddocente, codmateria, year, periodo, horas_teoricas, horas_practicas, seguimiento_asesoria, horas_preparacion, horas_total, codgrupo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2318 (class 0 OID 86973)
+-- Dependencies: 200
+-- Data for Name: elementoshoja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY elementoshoja (codigo, categoria, ubicacion, marca, nombre, modelo, serie, fechadecompra, valor, tiempofinaldegarantia, estado, tipoinv, tipdoc, tippro, observaciones, tipo_frecuencia, cantidad_horas) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2374 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: elementoshoja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('elementoshoja_codigo_seq', 75, true);
+
+
+--
+-- TOC entry 2320 (class 0 OID 86982)
+-- Dependencies: 202
+-- Data for Name: elementosinhoja; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY elementosinhoja (codigo, categoria, ubicacion, fechaingreso, cantidad, valor_unitario, referencia, buenos, malos, regulares, nombre, cantidaddebaja) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2375 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: elementosinhoja_codigo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('elementosinhoja_codigo_seq', 1, true);
+
+
+--
+-- TOC entry 2321 (class 0 OID 86992)
+-- Dependencies: 203
+-- Data for Name: empresa; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY empresa (nit, representante_legal, razon_social, direccion_empresa, telefono_empresa, email_contacto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2323 (class 0 OID 86997)
+-- Dependencies: 205
+-- Data for Name: encuestas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY encuestas (id, titulo, fecha, publicadopor, activa, tipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2376 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: encuestas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('encuestas_id_seq', 4, true);
+
+
+--
+-- TOC entry 2377 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: encuestas_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('encuestas_id_seq1', 20, true);
+
+
+--
+-- TOC entry 2326 (class 0 OID 87007)
+-- Dependencies: 208
+-- Data for Name: enlaces; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY enlaces (idenlace, enlace, destino, publicadopor) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2378 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: enlaces_idenlace_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('enlaces_idenlace_seq', 11, true);
+
+
+--
+-- TOC entry 2327 (class 0 OID 87014)
+-- Dependencies: 209
+-- Data for Name: equipo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY equipo (nombreequipo, codubicacion, ip, dirmac, codequipo, obsequipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2328 (class 0 OID 87020)
+-- Dependencies: 210
+-- Data for Name: estudiante; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY estudiante (codestudiante, cedula, mail, especialidad, otrosestudios, edad, codprograma) FROM stdin;
+1121868384	1121868384	andreak91@hotmail.com                             	automatizacion                                    	 no se sabe                                       	21	160002304
+1121861059	1121861059	tanialopez@hotmail.com                            	sotfware                                          	 no se sabe nada                                  	25	160002314
+1123456432	1123456432	njulietg@hotmail.com                              	automatizacion                                    	 no se sabe nada                                  	23	160002311
+120654321	120654321	betancourt@gmail.com                              	automatizacion                                    	 no se sabe nada                                  	21	160002310
+\.
+
+
+--
+-- TOC entry 2329 (class 0 OID 87023)
+-- Dependencies: 211
+-- Data for Name: estudianteMateria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "estudianteMateria" (codestudiante, codmateria, year, periodo, nota) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2331 (class 0 OID 87028)
+-- Dependencies: 213
+-- Data for Name: evento; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY evento (codevento, tituloevento, descevento, fechaevento, lugarevento, organizadopor, cedularesponsable, url, publicadoen, urlexterno) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2379 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: evento_codEvento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"evento_codEvento_seq"', 34, true);
+
+
+--
+-- TOC entry 2332 (class 0 OID 87036)
+-- Dependencies: 214
+-- Data for Name: fabricante; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY fabricante (codfabricante, nombrefabricante) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2333 (class 0 OID 87039)
+-- Dependencies: 215
+-- Data for Name: facultad; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY facultad (nombrefacultad, descfacultad, codfacultad) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2342 (class 0 OID 87976)
+-- Dependencies: 224
+-- Data for Name: inv_convocatorias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_convocatorias (numero_convocatoria, titulo_convocatoria, descripcion_convocatoria, telefono, email, pagina_convocatoria, archivo_convocatoria, estado, convocatoria_dirigida, fecha_apertura, fecha_cierre, total_recursos) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2349 (class 0 OID 88014)
+-- Dependencies: 231
+-- Data for Name: inv_entidades; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_entidades (nit_empresa, nombre_empresa, representante_legal, descripcion_empresa, pagina_web, email, telefono, celular, foto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2346 (class 0 OID 87994)
+-- Dependencies: 228
+-- Data for Name: inv_evento_noticias; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_evento_noticias (id_evento, titulo_evento, descripcion, enlace_documentos) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2380 (class 0 OID 0)
+-- Dependencies: 227
+-- Name: inv_evento_noticias_id_evento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_evento_noticias_id_evento_seq', 1, false);
+
+
+--
+-- TOC entry 2350 (class 0 OID 88022)
+-- Dependencies: 232
+-- Data for Name: inv_financiacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_financiacion (inv_cod_proyecto, inv_nit_entidad, descripcion_financiamiento, valor_financiado, fecha) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2365 (class 0 OID 88090)
+-- Dependencies: 247
+-- Data for Name: inv_investigadores_externos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_investigadores_externos (codinv_ext, cedula_persona, profesion, codconvocatoria, nombreconvocatoria, numerocontrato, fecha_inicio, fecha_fin) FROM stdin;
+1121656789	1121656789	profesional	2345	frrdeswsswwwwwwwwwwwwwwww	e3de4r5tt4	2010-02-10	2010-04-15
+1204456765	1204456765	investigador	234534322	frrdeswdeddswwssswwwwwwwwwwwwwwww	3456tr321	2012-06-15	2012-09-30
+1121322111	1121322111	ingeniero	2344322	frrdedfdddddddddswdeddswwssswwwwwwwwwwwwwwww	35456t21	2014-07-12	2014-12-30
+\.
+
+
+--
+-- TOC entry 2381 (class 0 OID 0)
+-- Dependencies: 246
+-- Name: inv_investigadores_externos_codinv_ext_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_investigadores_externos_codinv_ext_seq', 1, false);
+
+
+--
+-- TOC entry 2339 (class 0 OID 87956)
+-- Dependencies: 221
+-- Data for Name: inv_lineas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_lineas (id_lineas, nombre_linea, definicion_linea, objetivos, objeto_estudio, coordinador_linea, ruta_archivo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2382 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: inv_lineas_id_lineas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_lineas_id_lineas_seq', 1, false);
+
+
+--
+-- TOC entry 2361 (class 0 OID 88074)
+-- Dependencies: 243
+-- Data for Name: inv_participacion_grupos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_grupos (id_participacion_grupos, inv_cod_grupo, cedula_persona) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2383 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: inv_participacion_grupos_id_participacion_grupos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_grupos_id_participacion_grupos_seq', 1, false);
+
+
+--
+-- TOC entry 2363 (class 0 OID 88082)
+-- Dependencies: 245
+-- Data for Name: inv_participacion_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_productos (id_participacion_productos, inv_cod_grupo, inv_cod_producto, cedula_persona) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2384 (class 0 OID 0)
+-- Dependencies: 244
+-- Name: inv_participacion_productos_id_participacion_productos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_productos_id_participacion_productos_seq', 1, false);
+
+
+--
+-- TOC entry 2359 (class 0 OID 88066)
+-- Dependencies: 241
+-- Data for Name: inv_participacion_proyectos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_participacion_proyectos (id_participacion_proyectos, inv_cod_proyecto, cedula_persona, dedicacion_tiempo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2385 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: inv_participacion_proyectos_id_participacion_proyectos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_participacion_proyectos_id_participacion_proyectos_seq', 1, false);
+
+
+--
+-- TOC entry 2344 (class 0 OID 87986)
+-- Dependencies: 226
+-- Data for Name: inv_periodos_academicos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_periodos_academicos (codigo_periodo, ano, periodo, fecha_inicio, fecha_fin) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2386 (class 0 OID 0)
+-- Dependencies: 225
+-- Name: inv_periodos_academicos_codigo_periodo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_periodos_academicos_codigo_periodo_seq', 1, false);
+
+
+--
+-- TOC entry 2357 (class 0 OID 88055)
+-- Dependencies: 239
+-- Data for Name: inv_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_productos (codigo_producto, inv_cod_grupo, inv_id_sublinea, inv_subtipo_producto, nombre_producto, observaciones_producto, reconocimiento_producto, soporte_producto, tipo_soporte, observaciones_soporte, entidad, fecha_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2387 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: inv_productos_codigo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2348 (class 0 OID 88005)
+-- Dependencies: 230
+-- Data for Name: inv_proyectos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_sublinea, inv_cod_grupo, nombre_proyecto, objetivo_general, archivo_propuesta, archivo_acta_inicio, archivo_informe_final, fecha_proyecto, sublinea_auxiliar, grupo_auxiliar, estado_proyecto, estado_financiamiento) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2388 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 1, false);
+
+
+--
+-- TOC entry 2351 (class 0 OID 88028)
+-- Dependencies: 233
+-- Data for Name: inv_sublinea_grupos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_sublinea_grupos (inv_cod_grupo, inv_id_sublinea) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2341 (class 0 OID 87967)
+-- Dependencies: 223
+-- Data for Name: inv_sublineas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_sublineas (id_sublinea, inv_id_linea, nombre_sublinea, descripcion_linea, estado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2389 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: inv_sublineas_id_sublinea_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_sublineas_id_sublinea_seq', 1, false);
+
+
+--
+-- TOC entry 2355 (class 0 OID 88044)
+-- Dependencies: 237
+-- Data for Name: inv_subtipo_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_subtipo_productos (id_subtipo_producto, inv_id_tipo_producto, nombre_subtipo_producto, descripcion_subtipo_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2390 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: inv_subtipo_productos_id_subtipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_subtipo_productos_id_subtipo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2353 (class 0 OID 88033)
+-- Dependencies: 235
+-- Data for Name: inv_tipo_productos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY inv_tipo_productos (id_tipo_producto, nombre_tipo_producto, descripcion_producto) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2391 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: inv_tipo_productos_id_tipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_tipo_productos_id_tipo_producto_seq', 1, false);
+
+
+--
+-- TOC entry 2392 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: linea_cod_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('linea_cod_seq', 96, true);
+
+
+--
+-- TOC entry 2337 (class 0 OID 87488)
+-- Dependencies: 219
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY migrations (migration, batch) FROM stdin;
+2014_10_16_163046_cinv_tipo_grupos	1
+2014_10_16_164557_cinv_grupos	1
+2014_10_16_195953_cinv_lineas	2
+2014_10_16_201227_cinv_sublineas	2
+2014_10_16_203854_cinv_convocatorias	2
+2014_10_16_214304_cinv_periodos_academicos	2
+2014_10_16_214904_cinv_evento_noticias	2
+2014_10_16_215820_cinv_proyectos	2
+2014_10_17_000336_cinv_entidades	2
+2014_10_17_002101_cinv_financiacion	2
+2014_10_17_010230_cinv_sublinea_grupos	2
+2014_10_17_011420_cinv_tipo_productos	2
+2014_10_17_012336_cinv_subtipo_productos	2
+2014_10_17_013427_cinv_productos	2
+2014_10_17_155152_cinv_participacion_proyectos	2
+2014_10_17_162750_cinv_participacion_grupos	2
+2014_10_17_163446_cinv_participacion_productos	2
+2014_11_13_170955_cinv_investigadores_externos	2
+\.
+
+
+--
+-- TOC entry 2335 (class 0 OID 87266)
+-- Dependencies: 217
+-- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY perfil (codperfil, nombreperfil, descperfil) FROM stdin;
+1	joven investigador            	ffrfffffffffffffffffffffffffffw
+2	investigador epi              	blablablablablablablalblalaldla
+3	investigador colciencias      	blablabjujujujulablablablablalblalaldla
+4	auxiliar docente              	blablabjujufifififjujulablablablablalblalaldla
+5	investigador                  	blablabjujufifrdefififjujulablablablablalblalaldla
+\.
+
+
+--
+-- TOC entry 2334 (class 0 OID 87258)
+-- Dependencies: 216
+-- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY persona (cedula, nombre1, direccion, telefono, celular, apellido1, nombre2, apellido2, mail, clavep, fecha_perfil, foto) FROM stdin;
+1121868384	andrea	bario billa maria                                                                                   	66666666  	3105165543	camargo        	jully	murillo        	andreakamargo                                     	andreak_91@hotmail.com	2012-11-20 10:51:51	hhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121861059	tania	bario macunaima                                                                                     	44444446  	3214037703	lopez          	maria	beltran        	anfffrffgttgdee                                   	tanialopez@hotmail.com	2013-11-20 11:51:51	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1120571636	elizabeth	bario macunaima                                                                                     	44453446  	3114790331	maldonado      	 	triana         	afjdkjfekjfkejfke                                 	elisk123@hotmail.com	2014-01-02 09:42:11	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1123456432	julieth	bario manantial                                                                                     	422223446 	3114790351	rodriguez      	nubia 	rincon         	addddddsswdftre                                   	njulietg@hotmail.com	2014-02-10 08:42:11	hgtggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121345678	jennifer	bario estero                                                                                        	56784333  	3113456789	rincon         	 	cardozo        	adddgjgjrgjdddsswdftre                            	jenniffer@hotmail.com	2014-07-16 04:35:11	hgfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121322111	sebastian	bario grama                                                                                         	564456664 	311344389 	perez          	juan 	gonzales       	addfrgtgtyyhtre                                   	sebastian@gmail.com	2014-10-04 06:35:11	hgfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+120654321	edward	bario popular                                                                                       	564453324 	3105168834	ladino         	alexis	betancourt     	addfrggrgrtgtyyhtre                               	betancourt@gmail.com	2014-01-10 06:35:11	hgrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1204456765	maria	bario hacaritama                                                                                    	56445388  	3105783834	gonzales       	paula	niño           	adfrffssaswdgryyhtre                              	maria@gmail.com	2011-09-15 03:20:55	hghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121456789	mauricio	bario viscaya                                                                                       	564453488 	3105383834	pinzon         	 	restrepo       	adfrfderyyhtre                                    	pinzon@hotmail.com	2012-09-30 03:20:55	hfghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+1121456734	vanesa	bario morichal                                                                                      	5623      	310534564 	poveda         	 angie	betancourt     	adfrftgyhderyyhtre                                	vanessa1@hotmail.com	2012-10-08 07:20:55	hrfghrrfftggyhhhhhhhhhhhhhhhhhhhhhhhhhh
+\.
+
+
+--
+-- TOC entry 2336 (class 0 OID 87272)
 -- Dependencies: 218
 -- Data for Name: personaperfil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -35,7 +825,7 @@ COPY personaperfil (codperfil, cedula, clave, username, habilitado, tiempoextra)
 \.
 
 
--- Completed on 2014-11-21 00:33:27
+-- Completed on 2014-12-03 10:29:37
 
 --
 -- PostgreSQL database dump complete
