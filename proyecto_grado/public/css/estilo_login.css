@@ -7,6 +7,23 @@
 color: #f00;
 }
 
+#formulario-login label{  
+    color: #333;
+    display: inline-block;
+    font-family: sans-serif, Arial, Verdana, Helvetica;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 3px;
+    padding: 3px;
+    width: 120px;
+}
+
+#formulario-login li{
+    list-style-type:none;
+    text-decoration: none;
+
+}
+
 form:after { 
     content: "."; 
     display: block; 
@@ -17,8 +34,8 @@ form:after {
 .container-login { margin: 10px auto; position: relative; width: 100%; } 
 .container-login #content { 
     font-family: Arial, Helvetica, sans-serif;
-    background: #f9f9f9;    
-    border: 1px solid #c4c6ca; 
+    background: #FBFBFB;
+    border: 1px solid #FBFBFB; 
     margin: 0 auto; 
     padding: 25px 0 0; 
     position: relative; 
@@ -27,8 +44,9 @@ form:after {
     width: 960px; 
 } 
 .container-login #content h1 { 
-    color: #322C2D; 
+    color: ##3D3E41; 
     text-align: center;
+    text-transform: uppercase;
     font: bold 25px Arial, Helvetica, sans-serif;;
     letter-spacing: -0.05em; 
     line-height: 25px; 
@@ -43,21 +61,21 @@ form:after {
     width: 30%; 
 } 
 .container-login #content h1:after { 
-    background: rgba(203,7,40,1); 
-    background: -moz-linear-gradient(left,  rgba(203,7,40,1) 0%, rgba(255,255,255,1) 100%); 
-    background: -webkit-linear-gradient(left,  rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
-    background: -o-linear-gradient(left,  rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
-    background: -ms-linear-gradient(left,  rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
-    background: linear-gradient(left,  rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
+    background: rgba(0,114,188,4); 
+    background: -moz-linear-gradient(left,  rgba(0,114,188,4) 0%, rgba(255,255,255,1) 100%); 
+    background: -webkit-linear-gradient(left,  rgba(0,114,188,4) 0%,rgba(255,255,255,1) 100%); 
+    background: -o-linear-gradient(left,  rgba(0,114,188,4) 0%,rgba(255,255,255,1) 100%); 
+    background: -ms-linear-gradient(left,  rgba(0,114,188,4) 0%,rgba(255,255,255,1) 100%); 
+    background: linear-gradient(left,  rgba(0,114,188,4)0%,rgba(255,255,255,1) 100%); 
     right: 0; 
 } 
 .container-login #content h1:before { 
-    background: rgba(203,7,40,1); 
-    background: -moz-linear-gradient(right,  rgba(203,7,40,1) 0%, rgba(255,255,255,1) 100%); 
-    background: -webkit-linear-gradient(right,  rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
-    background: -o-linear-gradient(right, rgba(203,7,40,1) 0%,rgba(255,255,255,1) 100%); 
-    background: -ms-linear-gradient(right,  rgba(203,7,40,1)0%,rgba(255,255,255,1) 100%); 
-    background: linear-gradient(right,  rgba(203,7,40,1)0%,rgba(255,255,255,1) 100%); 
+    background: rgba(0,114,188,4); 
+    background: -moz-linear-gradient(right,  rgba(0,114,188,4) 0%, rgba(255,255,255,1) 100%); 
+    background: -webkit-linear-gradient(right,  rgba(0,114,188,4) 0%,rgba(255,255,255,1) 100%); 
+    background: -o-linear-gradient(right, rgba(0,114,188,4) 0%,rgba(255,255,255,1) 100%); 
+    background: -ms-linear-gradient(right,  rgba(0,114,188,4)0%,rgba(255,255,255,1) 100%); 
+    background: linear-gradient(right,  rgba(0,114,188,4)0%,rgba(255,255,255,1) 100%); 
     left: 0; 
 } 
 .container-login #content:after, 
@@ -114,22 +132,21 @@ form:after {
 
 /***Boton de ingresar***/
 .container-login #content form input[type="submit"] { 
-    background: #D82828;    
-    border: 1px solid #FAEAEA; 
+    background: #122d3e;    
     color: #fff; 
     cursor: pointer;  
-    border-radius: 6px;
-    font: bold 15px Helvetica, Arial, sans-serif; 
+    border-radius: 5px;
+    font: bold 13px Helvetica, Arial, sans-serif; 
     height: 35px; 
-    margin: 20px 0 35px 15px; 
+    margin: 15px; 
     position: relative; 
-    
-    overflow: visible;
+    padding: 5px;
+    min-width: 70px;
 } 
 .container-login #content form input[type="submit"]:hover { 
-    background: #060606; 
+    background: #0072BC; 
     color: #fff; 
-    border-radius: 5px;
+    border-radius: 5px solid #0072BC;
 
 } 
 .container-login #content form div a { 

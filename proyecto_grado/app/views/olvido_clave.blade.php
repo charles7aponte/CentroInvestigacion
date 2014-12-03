@@ -3,11 +3,14 @@
 @section('contenido-principal')
 <div class="container-login"> 
     <section id="content"> 
-        <form action=""> 
+        <form id="formulario-login" action=""> 
             <h1>Solicitar Contraseña</h1> 
-            <div> 
-                Correo electronico: <input type="email" required="" id="email" /> 
-                <span class="form-required" title="Este campo es obligatorio.">*</span>
+            <div>
+            	<li>
+                <label>Correo electronico:</label>
+                	<input type="email" required="" id="email" /> 
+                	<span class="form-required" title="Este campo es obligatorio.">*</span>
+                </li>
             </div> 
             <div class="caja-login"><a href="login">Recordo su contraseña?</a></div>
             <div> <input type="submit" value="Nueva Contraseña" /> </div> 
