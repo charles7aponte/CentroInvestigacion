@@ -1,13 +1,4 @@
 
-/* ===================================
-Estilo login
-==================================== */
-.body{
-    width: 960px; 
-    margin: 0 auto; 
-    background: #FBFBFB;
-}
-
 .caja-login{
     font-family: Arial, Helvetica, sans-serif;
 }

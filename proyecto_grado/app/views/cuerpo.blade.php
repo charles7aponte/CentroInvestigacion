@@ -4,8 +4,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"> <!--css del estilo de la pagina principal-->
     <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo_login.css">
 	
 
 	@section('css')
@@ -43,18 +44,14 @@
 					</div><!--Fin redes sociales cabecera-->					
 					<!-- Iniciar sesion -->
 					<div id="ingreso-encabezado">
-						<a href="#" title="Inicie sesion" class="popups-form-reload">Ingresar</a>
+						<a href="login" title="Inicie sesion" class="popups-form-reload">Ingresar</a>
 					</div>
 			</header>
 			<!-- Menu de navegacion -->
 			<section id="menu">
 				<ul>
-				  <li class="nivel1"><a href="#" class="nivel1">Menu 1</a>
-					<ul>
-						<li><a href="#">Menu 1.1</a></li>
-					</ul>
-				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				  </li>
+				  <li class="nivel1"><a href="{{URL::to('/')}}" class="nivel1">Inicio</a></li>
+
 				  <li class="nivel1"><a href="#" class="nivel1">Menu 2</a>
 				<!--[if lte IE 6]><a href="#" class="nivel1ie">Menu 2<table class="falsa"><tr><td><![endif]-->
 					<ul>
@@ -96,7 +93,7 @@
 			<!--fin menu de navegacion-->
 			<!-- Slider -->
 				
-		    @section('contenido-grupos')
+		    @section('contenido-principal')
 
 		    @show
 				<div id="pie-pagina">
