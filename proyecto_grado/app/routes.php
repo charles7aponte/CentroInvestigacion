@@ -9,6 +9,7 @@ Route::get('login', function()
 {
 	return View::make('login');
 });
+
 Route::get('contrasena', function()
 {
 	return View::make('olvido_clave');
@@ -45,7 +46,6 @@ Route::get('formulariosublineas', function()
 	return View::make('administrador/formulario_sublineas');
 });
 
-
 Route::get('formularioconvocatorias', function()
 {
 	return View::make('administrador/formulario_convocatorias');
@@ -54,6 +54,11 @@ Route::get('formularioconvocatorias', function()
 Route::get('formularioproyectos', function()
 {
 	return View::make('administrador/formulario_proyectos');
+});
+
+Route::get('formularioentidades', function()
+{
+	return View::make('administrador/formulario_empresas');
 });
 
 Route::get('formularioproductos', function()
@@ -111,7 +116,7 @@ $personas= array(
 });
 
 
-Route::get('login',function(){
+Route::get('login1',function(){
   // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
    if (Auth::attempt( array('cedula' => '1', 'clavep' => '123' ), true )){
   // if(true){

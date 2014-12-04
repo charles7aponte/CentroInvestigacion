@@ -79,8 +79,7 @@
 					</div><!--Fin redes sociales cabecera-->					
 					<!-- Iniciar sesion -->
 					<div id="ingreso-encabezado">
-						<a href="login" title="Inicie sesion" class="popups-form-reload">
-							Ingresar</a>
+						<a href="login" class="popups-form-reload">Ingresar</a>
 					</div>
 			</header>
 			<!-- Menu de navegacion -->

@@ -137,7 +137,7 @@ switch($mes){
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">
-			<li class=""><a href="">Agregar nueva empresa</a></li>
+			<li class=""><a href="formularioentidades">Agregar nueva empresa</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
