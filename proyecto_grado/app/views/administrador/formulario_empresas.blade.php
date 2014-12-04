@@ -2,7 +2,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-empresas" autocomplete="on"   action="" method="">
+    <form id="form-empresas" autocomplete="on"   action="{{URL::to('creacion/formulario')}}" method="post">
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nueva empresa</h2></div>
             <ul>
                 <fieldset> 

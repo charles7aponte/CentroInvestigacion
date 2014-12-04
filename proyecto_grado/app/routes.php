@@ -111,6 +111,17 @@ Route::get('convocatoria', function()
 
 
 
+/***********   Creacion de formulario --------------------------
+********************/
+Route::post('creacion/formulario', 'ControlEntidades@CrearFormulario');
+
+
+
+
+
+
+
+
 
 /***************
 *** consultas de tipo json
