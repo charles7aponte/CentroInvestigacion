@@ -123,7 +123,7 @@
                                 <tr><th colspan="4">INTEGRANTES DEL GRUPO</th></tr>
                                 <tr>
                                   <th>Documento</th>
-                                  <th colspan="2">Nombres y Apellidos</th>
+                                  <th colspan="1">Nombres y Apellidos</th>
                                   <th>Tiempo dedicado</th>
                                   <th></th>
                                 </tr>

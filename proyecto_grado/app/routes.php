@@ -8,6 +8,10 @@ Route::get('/', function()
 
 Route::get('login','ControlLogin@login');
 
+Route::get('login', function()
+{
+	return View::make('login');
+});
 
 
 Route::get('contrasena', function()
@@ -46,7 +50,6 @@ Route::get('formulariosublineas', function()
 	return View::make('administrador/formulario_sublineas');
 });
 
-
 Route::get('formularioconvocatorias', function()
 {
 	return View::make('administrador/formulario_convocatorias');
@@ -55,6 +58,11 @@ Route::get('formularioconvocatorias', function()
 Route::get('formularioproyectos', function()
 {
 	return View::make('administrador/formulario_proyectos');
+});
+
+Route::get('formularioentidades', function()
+{
+	return View::make('administrador/formulario_empresas');
 });
 
 Route::get('formularioproductos', function()
@@ -78,6 +86,21 @@ Route::get('listadeconvocatorias', function()
 	return View::make('administrador/lista_convocatorias');
 });
 
+Route::get('listadelineas', function()
+{
+	return View::make('administrador/lista_lineas');
+});
+
+Route::get('listadesublineas', function()
+{
+	return View::make('administrador/lista_sublineas');
+});
+
+Route::get('listadeproductos', function()
+{
+	return View::make('administrador/lista_productos');
+});
+
 /*principales por tema*/
 Route::get('grupos', function()
 {
@@ -88,6 +111,17 @@ Route::get('convocatoria', function()
 {
 	return View::make('inf_convocatorias');
 });
+
+
+
+
+/***********   Creacion de formulario --------------------------
+********************/
+Route::post('creacion/formulario', 'ControlEntidades@CrearFormulario');
+
+
+
+
 
 
 
@@ -112,3 +146,18 @@ $personas= array(
 });
 
 
+
+Route::get('login1',function(){
+  // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
+   if (Auth::attempt( array('cedula' => '1', 'clavep' => '123' ), true )){
+  // if(true){
+   	
+  
+        //return Redirect::to('inicio');
+    	return "entro;";
+    }else{
+        //return Redirect::to('login')->with('mensaje_login', 'Ingreso invalido');
+    	return "entro;";
+    }
+ 
+});

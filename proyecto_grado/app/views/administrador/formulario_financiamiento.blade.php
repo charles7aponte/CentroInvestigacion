@@ -6,6 +6,9 @@
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Financiamiento del proyecto</h2></div>           
             <ul>
                 <fieldset style="border-color:transparent">
+                <li><label for="proyecto-finananciar">Proyecto: </label>
+                    <input  type="text" id="proyecto-finananciar" name="proyecto-finananciar" required="required">
+                </li>
                 <li><label for="fecha-financiamiento">Fecha: </label>
                         <div class="container">
                             <div class="row">
