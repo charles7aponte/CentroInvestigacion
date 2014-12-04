@@ -1,8 +1,29 @@
-#tabla-listagrupos{
+#tabla-listagrupos, #tabla-listaconvocatorias, #tabla-listalineas,#tabla-listasublineas,#tabla-listaproductos{
   width: 100%;
 }
 
-table#listagrupos {
+fieldset{
+  padding: 5px;
+}
+
+#titulo-listagrupo, #titulo-listaconvocatoria, #titulo-listalineas, #titulo-listasublineas, #titulo-listaproductos h2{
+   font-family: sans-serif;
+   text-align:left;
+   color:#1C7E8A;
+   display: block;
+   font-size:24px;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 1px #AFEEEE;
+   background: none repeat scroll 0 0 #FAFAFA;
+   border-radius: 5px;
+   border-bottom:  1px solid #DCDCDC;
+   width: 980px;
+   padding:5px;
+   margin: 10px;
+
+}
+
+table#listagrupos,table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos{
   color: #333;
   font-family: sans-serif;
   font-size: .9em;
@@ -15,28 +36,28 @@ table#listagrupos {
   margin: 20px auto;
 }
 
-table#listagrupos thead tr:first-child {
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos thead tr:first-child {
   background: #1D1F36;
   color: #fff;
   border: none;
 }
 
-table#listagrupos th {font-weight: bold;}
-table#listagrupos th:first-child, td:first-child {padding: 0 15px 0 20px;}
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos th {font-weight: bold;}
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos th:first-child, td:first-child {padding: 0 15px 0 20px;}
 
-table#listagrupos thead tr:last-child th {
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos thead tr:last-child th {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
 }
 
-table#listagrupos tbody tr:hover {background-color: #EFF0FB;}
-table#listagrupos tbody tr:last-child td {border: none;}
-table#listagrupos tbody td {
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos tbody tr:hover {background-color: #EFF0FB;}
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos tbody tr:last-child td {border: none;}
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos tbody td {
   border-bottom: 1px solid #ddd;
 }
-table#listagrupos tbody tr{background-color:#F8F9FE;}
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos tbody tr{background-color:#F8F9FE;}
 
-table#listagrupos td:last-child {
+table#listagrupos, table#listaconvocatorias, table#listalineas, table#listasublineas, table#listaproductos td:last-child {
   text-align: right;
   padding-right: 10px;
   width: 400px;

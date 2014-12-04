@@ -82,6 +82,21 @@ Route::get('listadeconvocatorias', function()
 	return View::make('administrador/lista_convocatorias');
 });
 
+Route::get('listadelineas', function()
+{
+	return View::make('administrador/lista_lineas');
+});
+
+Route::get('listadesublineas', function()
+{
+	return View::make('administrador/lista_sublineas');
+});
+
+Route::get('listadeproductos', function()
+{
+	return View::make('administrador/lista_productos');
+});
+
 /*principales por tema*/
 Route::get('grupos', function()
 {

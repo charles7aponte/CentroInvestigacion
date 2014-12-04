@@ -1,6 +1,14 @@
 @extends('administrador.panel_admin')
 
 @section('cuerpo')
+
+<form id="form-grupos">
+<fieldset>
+        
+ <div id="titulo-listagrupo" id="cuadro"> 
+    <h2>Grupos Investigacion</h2>
+  </div>
+
 <div id="tabla-listagrupos">
   <table id="listagrupos">
     <thead>
@@ -31,9 +39,27 @@
   </table>
   <nav>
   <ul class="pager">
-    <li><a href="#">Anterior</a></li>
-    <li><a href="#">Siguiente</a></li>
+    <li><a href="#" style=" background: #276b6f;
+      background: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
+      background: -moz-linear-gradient(top,#276B6F,#5BA9AE);
+      background: -o-linear-gradient(top,#276B6F,#5BA9AE);  
+      background: linear-gradient(to bottom,#276B6F,#5BA9AE);  
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#276B6F, endColorstr=#5BA9AE);
+      text-decoration: none;
+      font-weight: bold;
+      color:#fff">Anterior</a></li> 
+    <li><a href="#" style=" background: #276b6f;
+      background: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
+      background: -moz-linear-gradient(top,#276B6F,#5BA9AE);
+      background: -o-linear-gradient(top,#276B6F,#5BA9AE);  
+      background: linear-gradient(to bottom,#276B6F,#5BA9AE);  
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#276B6F, endColorstr=#5BA9AE);
+      text-decoration: none;
+      font-weight: bold;
+      color:#fff">Siguiente</a></li>
   </ul>
 </nav>
 </div>
+</fieldset>
+</form>
 @stop
