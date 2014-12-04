@@ -5,10 +5,11 @@ Route::get('/', function()
 	return View::make('cuerpo');
 });
 
-Route::get('login', function()
-{
-	return View::make('login');
-});
+
+Route::get('login','ControlLogin@login');
+
+
+
 Route::get('contrasena', function()
 {
 	return View::make('olvido_clave');
@@ -111,17 +112,3 @@ $personas= array(
 });
 
 
-Route::get('login',function(){
-  // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
-   if (Auth::attempt( array('cedula' => '1', 'clavep' => '123' ), true )){
-  // if(true){
-   	
-  
-        //return Redirect::to('inicio');
-    	return "entro;";
-    }else{
-        //return Redirect::to('login')->with('mensaje_login', 'Ingreso invalido');
-    	return "entro;";
-    }
- 
-});

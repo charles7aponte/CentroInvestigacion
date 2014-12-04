@@ -79,8 +79,10 @@
 					</div><!--Fin redes sociales cabecera-->					
 					<!-- Iniciar sesion -->
 					<div id="ingreso-encabezado">
-						<a href="login" title="Inicie sesion" class="popups-form-reload">
-							Ingresar</a>
+						<form action="login" id="myForm" method="POST"> 
+							<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
+								Ingresar</a>
+						</form>	
 					</div>
 			</header>
 			<!-- Menu de navegacion -->
