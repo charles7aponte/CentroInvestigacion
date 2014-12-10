@@ -16,8 +16,9 @@ class CinvSublineas extends Migration {
 			$tabla->increments('id_sublinea');
 			$tabla->integer('inv_id_linea')->unsigned();
 			$tabla->text('nombre_sublinea');
-			$tabla->text('descripcion_linea');
-			$tabla->string('estado',30);
+			$tabla->string('estado',30)->nullable();
+			$tabla->text('descripcion_sublinea')->nullable;
+			
 			
 			//$tabla->foreign('inv_id_linea')->references('id_lineas')->on('inv_lineas');
 		});

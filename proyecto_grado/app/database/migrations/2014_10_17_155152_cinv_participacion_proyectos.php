@@ -14,7 +14,7 @@ class CinvParticipacionProyectos extends Migration {
 	{
 		Schema::create('inv_participacion_proyectos', function($tabla){
 			$tabla->increments('id_participacion_proyectos');
-			$tabla->integer('inv_cod_proyecto')->unsigned();
+			$tabla->integer('inv_codigo_proyecto')->unsigned();
 			$tabla->bigInteger('cedula_persona')->unsigned();
 			$tabla->string('dedicacion_tiempo',10);
 			

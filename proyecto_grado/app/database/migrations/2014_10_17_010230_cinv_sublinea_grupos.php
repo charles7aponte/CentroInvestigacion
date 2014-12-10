@@ -12,9 +12,9 @@ class CinvSublineaGrupos extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('inv_sublinea_grupos', function($tabla){
-		$tabla->integer('inv_cod_grupo')->unsigned();
-		$tabla->integer('inv_id_sublinea')->unsigned();
+		Schema::create('inv_linea_grupos', function($tabla){
+		$tabla->integer('inv_codigo_grupo')->unsigned();
+		$tabla->integer('inv_id_linea')->unsigned();
 
 		/*$tabla->foreign('inv_cod_grupo')->references('codigo_grupo')->on('inv_grupos');
 		$tabla->foreign('inv_id_sublinea')->references('id_sublinea')->on('inv_sublineas');
@@ -31,7 +31,7 @@ class CinvSublineaGrupos extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('inv_sublinea_grupos');
+		Schema::drop('inv_linea_grupos');
 	}
 
 }

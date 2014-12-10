@@ -18,18 +18,18 @@ class CinvGrupos extends Migration {
 			$tabla->text('nombre_grupo');
 			$tabla->string('director_grupo',100);
 			$tabla->string('unidad_academica',100);
-			$tabla->text('descripcion');
-			$tabla->string('categoria',15)->nullable();
+			$tabla->string('categoria',4);
+			$tabla->text('objetivos');
+			$tabla->date('ano_creacion');
 			$tabla->string('email',60);
-			$tabla->string('telefono',15);
-			$tabla->text('pagina_web');
-			$tabla->string('direccion_grupo',100);
-			$tabla->text('archivo_afiche');
+			$tabla->string('telefono',20);
+			$tabla->text('direccion_grupo');
+			$tabla->text('pagina_web')->nullable();
+			$tabla->text('ruta_afiche')->nullable();
 			$tabla->text('link_gruplac')->nullable();
-			$tabla->date('ano_creacion')->nullable();
-			$tabla->text('logo_grupo');
-			$tabla->text('foto1')->nullable();
-			$tabla->text('foto2')->nullable();	
+			$tabla->text('imagen1')->nullable();
+			$tabla->text('imagen2')->nullable();
+			$tabla->text('logo_grupo');	
 
 			//$tabla->foreign('inv_tipo_grupos_id')->references('id_tipo')->on('inv_tipo_grupos');
 		});

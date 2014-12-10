@@ -15,11 +15,13 @@ class CinvFinanciacion extends Migration {
 		
 		Schema::create('inv_financiacion', function($tabla){
 
-			$tabla->integer('inv_cod_proyecto')->unsigned();
-			$tabla->string('inv_nit_entidad',30)->unsigned();
-			$tabla->text('descripcion_financiamiento');
+			$tabla->integer('inv_codigo_proyecto')->unsigned();
+			$tabla->string('inv_nit_empresa',30)->unsigned();
+			$tabla->date('fecha')->nullable();
 			$tabla->float('valor_financiado');
-			$tabla->date('fecha');
+			$tabla->text('descripcion_financiamiento')->nullable();
+			$tabla->string('modo_financiamiento',10);
+			
 			
 			
 			/*$tabla->foreign('inv_cod_proyecto')->references('codigo_proyecto')->on('inv_proyectos');

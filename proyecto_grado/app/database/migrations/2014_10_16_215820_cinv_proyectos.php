@@ -16,18 +16,16 @@ class CinvProyectos extends Migration {
 			$tabla->increments('codigo_proyecto');
 			$tabla->string('inv_numero_convocatoria')->unsigned();
 			$tabla->integer('inv_id_sublinea')->unsigned();
-			$tabla->integer('inv_cod_grupo')->unsigned();
+			$tabla->integer('inv_codigo_grupo')->unsigned();
 			$tabla->text('nombre_proyecto');
-			$tabla->string('objetivo_general',150);
-			$tabla->text('archivo_propuesta');
-			$tabla->text('archivo_acta_inicio');
-			$tabla->text('archivo_informe_final')->nullable();
-			$tabla->date('fecha_proyecto')->nullable();
-			$tabla->text('sublinea_auxiliar')->nullable();
+			$tabla->text('objetivo_general');
+			$tabla->text('archivo_actainicio')->nullable();
+			$tabla->text('archivo_propuesta')->nullable();
+			$tabla->text('informe_final')->nullable();
+			$tabla->date('fecha_proyecto');
 			$tabla->text('grupo_auxiliar')->nullable();
-			$tabla->string('estado_proyecto',30)->nullable();
-			$tabla->string('estado_financiamiento',50);
-			
+			$tabla->string('estado_proyecto',30);
+		
 			
 			/*$tabla->foreign('inv_numero_convocatoria')->references('numero_convocatoria')->on('inv_convocatorias');
 			$tabla->foreign('inv_id_sublinea')->references('id_sublinea')->on('inv_sublineas');

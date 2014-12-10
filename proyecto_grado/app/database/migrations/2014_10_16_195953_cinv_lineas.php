@@ -15,10 +15,10 @@ class CinvLineas extends Migration {
 		Schema::create('inv_lineas', function($tabla){
 			$tabla->increments('id_lineas');
 			$tabla->string('nombre_linea',100);
-			$tabla->text('definicion_linea');
-			$tabla->text('objetivos');
-			$tabla->text('objeto_estudio');
-			$tabla->string('coordinador_linea',100);
+			$tabla->text('definicion_linea')->nullable();
+			$tabla->string('coordinador_linea',59);
+			$tabla->text('objetivo_estudio');
+			$tabla->text('objetivo_linea')->nullable();
 			$tabla->text('ruta_archivo')->nullable();	
 		});
 	}
