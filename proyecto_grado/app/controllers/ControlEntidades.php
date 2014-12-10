@@ -19,26 +19,27 @@ class ControlEntidades extends Controller {
 		$telefono_entidad=Input::get('telefono-entidad');
 		$celular_entidad=Input::get('celular-entidad');
 
-		var_dump(Input::all());
 	
-//$entidad=new InvEntidades();
 
+    	$entidad=new InvEntidades();
+	//		var_dump(Input::all());
+	
 
-		/*objeto del modelo*/
-		//$entidad=new InvEntidad();
-		
-		//$entidad->nit_empresa=$nit;
-		/*$entidad->nombre_empresa=$entidad_nombre;
+	
+		$entidad->nit_empresa=$nit;
+	
+		$entidad->nombre_empresa=$entidad_nombre;
 		$entidad->descripcion_empresa=$descripcion;
 		$entidad->email=$email_entidad;
+		/*
 		$entidad->pagina_web=$pagina_entidad;
 		$entidad->representante_legal=$representante;
 		$entidad->telefono=$telefono_entidad;
 		$entidad->celular=$celular_entidad;
 		$entidad->tipo_empresa=$tipo;
 		*/
-
-		//$entidad->save();
+	var_dump($entidad);
+		$entidad->save();
 		}
 
 }
