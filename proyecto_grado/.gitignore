@@ -1,5 +1,6 @@
 /bootstrap/compiled.php
 /vendor
+proyecto_grado/app/config/database.php
 composer.phar
 composer.lock
 .env.*.php
