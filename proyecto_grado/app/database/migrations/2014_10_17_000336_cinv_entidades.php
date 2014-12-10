@@ -23,6 +23,8 @@ class CinvEntidades extends Migration {
 			$tabla->string('celular',20)->nullable();
 			$tabla->string('tipo_empresa',10)->nullable();
 			$tabla->primary('nit_empresa');
+
+			//$tabla->timestamp();
 		});
 	}
 

@@ -50,25 +50,32 @@ Route::get('formulariosublineas', function()
 	return View::make('administrador/formulario_sublineas');
 });
 
+
+
+
 Route::get('formularioconvocatorias', function()
 {
 	return View::make('administrador/formulario_convocatorias');
 });
+
 
 Route::get('formularioproyectos', function()
 {
 	return View::make('administrador/formulario_proyectos');
 });
 
+
 Route::get('formularioentidades', function()
 {
 	return View::make('administrador/formulario_empresas');
 });
 
+
 Route::get('formularioproductos', function()
 {
 	return View::make('administrador/formulario_productos');
 });
+
 
 Route::get('formulariofinanciamiento', function()
 {

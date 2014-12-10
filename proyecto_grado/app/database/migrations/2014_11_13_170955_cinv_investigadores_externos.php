@@ -35,7 +35,7 @@ class CinvInvestigadoresExternos extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop("inv_investigadores_externos");
 	}
 
 }

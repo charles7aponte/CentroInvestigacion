@@ -247,3 +247,14 @@ section#main {
 	margin: 8px 20px;
 }
 
+/**** manejo de errores **/
+
+.help-block{
+ /*text-align: center;*/
+}
+
+.has-error>input , .has-error>textarea{
+
+	border: 1px solid #D70000 !important;
+	box-shadow: 0 0 5px #E01820 !important;
+}
