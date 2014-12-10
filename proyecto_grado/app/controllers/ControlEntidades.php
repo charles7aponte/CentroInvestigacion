@@ -23,12 +23,12 @@ class ControlEntidades extends Controller {
 		/*objeto del modelo*/
 		$entidad=new InvEntidad();
 		
-		$entidad->nit_entidad=$nit;
+		$entidad->nit_empresa=$nit;
 		$entidad->nombre_empresa=$entidad_nombre;
-		$entidad->descripcion=$descripcion;
-		$entidad->email=$email_entidad;
-		$entidad->paginaweb=$pagina_entidad;
 		$entidad->representante_legal=$representante;
+		$entidad->descripcion_empresa=$descripcion;
+		$entidad->pagina_web=$pagina_entidad;
+		$entidad->email=$email_entidad;
 		$entidad->telefono=$telefono_entidad;
 		$entidad->celular=$celular_entidad;
 		$entidad->tipo_empresa=$tipo;
