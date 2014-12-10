@@ -21,25 +21,16 @@ class ControlEntidades extends Controller {
 
 	
 
-    	$entidad=new InvEntidades();
-	//		var_dump(Input::all());
-	
-
-	
+		/*objeto del modelo*
+		$entidad=new InvEntidad();
+		
 		$entidad->nit_empresa=$nit;
-	
 		$entidad->nombre_empresa=$entidad_nombre;
-		$entidad->descripcion_empresa=$descripcion;
-		$entidad->email=$email_entidad;
-		/*
-		$entidad->pagina_web=$pagina_entidad;
 		$entidad->representante_legal=$representante;
-		$entidad->telefono=$telefono_entidad;
-		$entidad->celular=$celular_entidad;
-		$entidad->tipo_empresa=$tipo;
-		*/
-	var_dump($entidad);
+		$entidad->descripcion_empresa=$descripcion;
 		$entidad->save();
+
+		*/
 		}
 
 }

@@ -21,8 +21,7 @@ class CinvEntidades extends Migration {
 			$tabla->string('email',60);
 			$tabla->string('telefono',20)->nullable();
 			$tabla->string('celular',20)->nullable();
-			$tabla->text('foto')->nullable();
-			
+			$tabla->string('tipo_empresa',10)->nullable();
 			$tabla->primary('nit_empresa');
 		});
 	}
