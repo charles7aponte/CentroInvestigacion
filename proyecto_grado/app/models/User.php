@@ -7,35 +7,17 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	//use UserTrait, RemindableTrait;
+    protected $table = 'persona';  
+    protected $hidden = array('clavep');  
+      
+  /*  public function getAuthIdentifier() { return $this->getKey(); }  
+    public function getAuthPassword() { return $this->clavep; }  
+    public function getRememberToken() { return $this->remember_token; }  
+    public function setRememberToken($token) {  
+        $this->remember_token = $token;  
+    }  
+    public function getRememberTokenName() { return 'remember_token'; }  
+    public function getReminderEmail() { return $this->email; }  
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'persona';
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('clavep');
-
-	protected $fillable = array('nombre1', 'cedula', 'clavep');
- 
-
-    // este metodo se debe implementar por la interfaz
-    public function getAuthIdentifier()
-    {
-        return $this->getKey();
-    }
-    
-  
-    public function getAuthPassword()
-    {
-        return $this->clavep;
-    }
-
+*/
 }

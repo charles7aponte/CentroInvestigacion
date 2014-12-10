@@ -3,19 +3,19 @@
 @section('contenido-principal')
 <div class="container-login"> 
     <section id="content"> 
-        <form id="formulario-login" action=""> 
+        <form id="formulario-login" action="{{URL::to('login')}}" method="POST"> 
             <h1>Cuenta de Usuario</h1> 
             <div> 
                  <li> 
                     <label>Usuario: </label>
-                    <input type="text"  required="" id="username"/> 
+                    <input type="text"  required="" id="username" name="nombre"/> 
                     <span class="form-required" title="Este campo es obligatorio.">*</span>
                 </li>  
             </div> 
             <div> 
                 <li>
                 <label>Contraseña: </label> 
-                    <input type="password" required="" id="password"> 
+                    <input type="password" required="" id="password" name="pass"> 
                     <span class="form-required" title="Este campo es obligatorio.">*</span>
                 </li>
             </div> 

@@ -112,8 +112,8 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="formulariolineas">Agregar nueva l&iacute;nea</a></li>
 			<li class=""><a href="formulariosublineas">Agregar nueva subl&iacute;nea</a></li>
-			<li class=""><a href="#">Ver/Editar una l&iacute;nea</a></li>
-			<li class=""><a href="#">Ver/Editar una subl&iacute;nea</a></li>
+			<li class=""><a href="listadelineas">Ver/Editar una l&iacute;nea</a></li>
+			<li class=""><a href="listadesublineas">Ver/Editar una subl&iacute;nea</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
@@ -133,7 +133,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproductos"> Agregar nuevo producto</a></li>
-			<li class=""><a href="">Ver/Editar un producto</a></li>
+			<li class=""><a href="listadeproductos">Ver/Editar un producto</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">

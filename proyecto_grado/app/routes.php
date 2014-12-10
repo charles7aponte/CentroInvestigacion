@@ -5,10 +5,14 @@ Route::get('/', function()
 	return View::make('cuerpo');
 });
 
+
+Route::get('login','ControlLogin@login');
+
 Route::get('login', function()
 {
 	return View::make('login');
 });
+
 
 Route::get('contrasena', function()
 {
@@ -140,6 +144,7 @@ $personas= array(
 	return Response::json($personas);
 
 });
+
 
 
 Route::get('login1',function(){

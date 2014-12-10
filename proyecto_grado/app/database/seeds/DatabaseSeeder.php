@@ -11,8 +11,16 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('InsercionTipoGrupos');
-		$this->command->info('la tabla tipo grupo ha sido llenada');
+		//$this->call('InsercionTipoGrupos');
+		//$this->command->info('la tabla tipo grupo ha sido llenada');
+
+		    DB::table('users')->delete();  
+   
+        User::create(array(  
+            'username' => 'user1',  
+            'password' => Hash::make('pass1'),  
+            'email' => 'prueba1@prueba.com'  
+        ));  
 	}
 
 }

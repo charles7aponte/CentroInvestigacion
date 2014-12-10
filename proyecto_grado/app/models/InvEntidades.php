@@ -1,6 +1,6 @@
 <?php
 
-class InvEntidad extends Eloquent  {
+class InvEntidades extends Eloquent  {
 
 
 	/**
