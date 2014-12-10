@@ -1,0 +1,9 @@
+proyecto_grado/bootstrap/compiled.php
+proyecto_grado/vendor
+proyecto_grado/app/config/database.php
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
