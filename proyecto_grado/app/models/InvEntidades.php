@@ -20,7 +20,7 @@ class InvEntidades extends Eloquent  {
 			'representante-entidad'     => 'required|max:50',
 			'tipo-entidad' 				=> 'required',
 
-			'email-entidad' 			=> 'required',
+			'email-entidad' 			=> 'required| email',
 			'pagina-entidad' 				=> 'max:60',
 			'telefono-entidad' 				=> 'max:20',
 			'celular-entidad' 				=> 'max:20',

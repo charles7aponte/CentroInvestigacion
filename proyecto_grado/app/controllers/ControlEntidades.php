@@ -41,7 +41,8 @@ class ControlEntidades extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				'max'=>'No debe ser mayor a :max'
+				'max'=>'No debe ser mayor a :max',
+				'email' =>'No es una dirección de email válida'
 			);
 
 
