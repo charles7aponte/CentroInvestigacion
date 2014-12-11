@@ -124,7 +124,7 @@ Route::get('convocatoria', function()
 
 /***********   Creacion de formulario --------------------------
 ********************/
-Route::post('creacion/formulario', 'ControlEntidades@CrearFormulario');
+Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
 
 

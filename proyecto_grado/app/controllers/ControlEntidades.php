@@ -34,7 +34,7 @@ class ControlEntidades extends Controller {
 		$entidad->tipo_empresa=$tipo;
 		$entidad->email=$email_entidad;
 
-		$entidad->pagina_web=$pagina_entidad;
+		$entidad->paginaweb=$pagina_entidad;
 		$entidad->telefono=$telefono_entidad;
 		$entidad->celular=$celular_entidad;
 
@@ -70,7 +70,7 @@ class ControlEntidades extends Controller {
 						
 						return Redirect::to('formularioentidades')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si exsite la entidad");
+						->with('mensaje_error',"Verifique si existe la entidad");
 					}
 
 						return Redirect::to('formularioentidades')
