@@ -22,7 +22,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-convocatorias" autocomplete="on"  action="{{URL::to('creacion/formularioconvocatorias')}}" method="post">
+    <form id="form-convocatorias" autocomplete="on"  action="{{URL::to('creacion/formularioconvocatoria')}}" method="post">
         
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -44,8 +44,10 @@
             <ul>
                 <fieldset> 
 
-                    <li><label for="titulo-conv">T&iacute;tulo:</label>
-                        <input type="text" id="titulo-conv" name="titulo-conv" value="" required="required"/> 
+                    <li class="@if($errors->has('titulo-conv')) has-error @endif">
+                    <label for="titulo-conv">T&iacute;tulo:</label>
+                        <input type="text" id="titulo-conv" name="titulo-conv" value="{{Input::old('titulo-conv')}}" required="required"/> 
+                         @if ($errors->has('titulo-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-conv') }}</p> @endif
                     </li>    
                     <li><label for="estado">Estado:</label>
                         <input type="text" id="estado" name="estado" value="" required="required"/>
