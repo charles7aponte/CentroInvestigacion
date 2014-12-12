@@ -22,33 +22,10 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-convocatorias" autocomplete="on"   action="{{URL::to('creacion/formularioconvocatorias')}}" method="post">
-
-        @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
-            <fieldset style="margin-bottom: 2px;
-                    margin-top: 5px;
-                    padding: 2px;">
-                @if(Session::has('mensaje_success'))    
-                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
-                @endif
-
-                @if(Session::has('mensaje_error'))
-                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
-                @endif 
-            </fieldset>
-        @endif
-
-
-
-
+    <form id="form-convocatorias" autocomplete="on"   action="" method="">
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Crear nueva convocatoria</h2></div>
             <ul>
                 <fieldset> 
-                    <li class="@if($errors->has('numero-conv')) has-error @endif">
-                        <label for="numero-conv"># Convocatoria:</label>
-                        <input type="text" id="numero-conv" name="numero-conv" value="{{Input::old('numero-conv')}}" required="required"/>
-                        @if ($errors->has('numero-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero-conv') }}</p> @endif 
-                    </li> 
 
                     <li><label for="titulo-conv">T&iacute;tulo:</label>
                         <input type="text" id="titulo-conv" name="titulo-conv" value="" required="required"/> 
@@ -63,7 +40,7 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer"   
-                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="fecha-apertura" value="" required="required" /> 
+                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -80,7 +57,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="fecha-cierre" value="" required="required" /> 
+                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
                                             
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -112,8 +89,8 @@
             </ul>
             <ul>
                 <fieldset>
-                    <li><label for="archivo-conv">Archivo de la convocatoria: </label>
-                        <input type="file" id="archivo-conv" name="archivo-conv" />
+                    <li><label for="dcto-conv">Documento de la convocatoria: </label>
+                        <input type="file" id="dcto-conv" name="dcto-conv" />
                     </li>     
                 </fieldset> 
             </ul>   
