@@ -22,7 +22,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-convocatorias" autocomplete="on"  action="{{URL::to('creacion/formularioconvocatoria')}}" method="post">
+    <form id="form-convocatorias" autocomplete="on"  action="{{URL::to('creacion/formularioconvocatorias')}}" method="post">
         
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer"   
-                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="fecha-apertura" value="" required="required" /> 
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -76,7 +76,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="fecha-cierre" value="" required="required" /> 
                                             
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>

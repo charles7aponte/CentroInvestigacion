@@ -64,7 +64,7 @@ Route::get('convocatoria', function() {return View::make('inf_convocatorias');})
 ********************/
 Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
-Route::post('creacion/formularioconvocatoria', 'ControlConvocatorias@CrearFormulario');
+Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
 
 
