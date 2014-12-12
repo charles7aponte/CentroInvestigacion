@@ -40,8 +40,8 @@ class ControlEntidades extends Controller {
 
 			// mensaje a mostrar
 			$messages = array(
-				'required' => '*Es obligatorio.',
-				'max'=>'No debe ser mayor a :max',
+				'required' => 'Este campo es obligatorio.',
+				'max'=>'El campo no debe ser mayor a :max',
 				'email' =>'No es una dirección de email válida'
 			);
 
@@ -70,12 +70,12 @@ class ControlEntidades extends Controller {
 						
 						return Redirect::to('formularioentidades')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si existe la entidad");
+						->with('mensaje_error',"Verifique, es posible que ya exista la entidad");
 					}
 
 						return Redirect::to('formularioentidades')
 								->withInput($todosDatos)
-								->with('mensaje_success',"Se ha Guardado");
+								->with('mensaje_success',"La empresa ".$entidad_nombre." ha sido creada con éxito");
 				
 					}
 			}

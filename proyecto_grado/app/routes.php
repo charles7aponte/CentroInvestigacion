@@ -1,134 +1,70 @@
 <?php
 
-Route::get('/', function()
-{
-	return View::make('cuerpo');
-});
 
+/******************-------------------------
+Paginas generales--------------------
+***************/
+
+Route::get('/', function() { return View::make('cuerpo'); });
 
 Route::get('login','ControlLogin@login');
 
-Route::get('login', function()
-{
-	return View::make('login');
-});
+Route::get('login', function() { return View::make('login'); });
 
-
-Route::get('contrasena', function()
-{
-	return View::make('olvido_clave');
-});
+Route::get('contrasena', function() { return View::make('olvido_clave'); });
 
 
 
 /******************-------------------------
-pagina del administrador--------------------
+paginas del administrador--------------------
 ***************/
-Route::get('administrador', function()
-{
-	return View::make('administrador/panel_admin');
-});
+Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-/*formularios*/
-Route::get('formulariogrupos', function()
-{
-	return View::make('administrador/formulario_grupos');
-});
+/*--------------formularios-----------------*/
+Route::get('formulariogrupos', function() { return View::make('administrador/formulario_grupos'); });
 
-Route::get('formulariotipogrupo', function()
-{
-	return View::make('administrador/formulario_tipogrupos');
-});
+Route::get('formulariotipogrupo', function() { return View::make('administrador/formulario_tipogrupos'); });
 
-Route::get('formulariolineas', function()
-{
-	return View::make('administrador/formulario_lineas');
-});
+Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
-Route::get('formulariosublineas', function()
-{
-	return View::make('administrador/formulario_sublineas');
-});
+Route::get('formulariosublineas', function() { return View::make('administrador/formulario_sublineas'); });
+
+Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+
+Route::get('formularioproyectos', function() { return View::make('administrador/formulario_proyectos');});
+
+Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
+
+Route::get('formularioproductos', function() { return View::make('administrador/formulario_productos');});
+
+Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 
 
+/*-------------listas de cada tema-------------*/
+Route::get('listadegrupos', function() { return View::make('administrador/lista_grupos');});
 
+Route::get('listadeconvocatorias', function() { return View::make('administrador/lista_convocatorias');});
 
-Route::get('formularioconvocatorias', function()
-{
-	return View::make('administrador/formulario_convocatorias');
-});
+Route::get('listadelineas', function() { return View::make('administrador/lista_lineas');});
 
+Route::get('listadesublineas', function() { return View::make('administrador/lista_sublineas');});
 
-Route::get('formularioproyectos', function()
-{
-	return View::make('administrador/formulario_proyectos');
-});
+Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
 
+/*--------------------principales por tema-------------------*/
+Route::get('grupos', function() {return View::make('inf_grupos');});
 
-Route::get('formularioentidades', function()
-{
-	return View::make('administrador/formulario_empresas');
-});
-
-
-Route::get('formularioproductos', function()
-{
-	return View::make('administrador/formulario_productos');
-});
-
-
-Route::get('formulariofinanciamiento', function()
-{
-	return View::make('administrador/formulario_financiamiento');
-});
-
-
-/*listas de cada tema*/
-Route::get('listadegrupos', function()
-{
-	return View::make('administrador/lista_grupos');
-});
-Route::get('listadeconvocatorias', function()
-{
-	return View::make('administrador/lista_convocatorias');
-});
-
-Route::get('listadelineas', function()
-{
-	return View::make('administrador/lista_lineas');
-});
-
-Route::get('listadesublineas', function()
-{
-	return View::make('administrador/lista_sublineas');
-});
-
-Route::get('listadeproductos', function()
-{
-	return View::make('administrador/lista_productos');
-});
-
-/*principales por tema*/
-Route::get('grupos', function()
-{
-	return View::make('inf_grupos');
-});
-
-Route::get('convocatoria', function()
-{
-	return View::make('inf_convocatorias');
-});
+Route::get('convocatoria', function() {return View::make('inf_convocatorias');});
 
 
 
 
-/***********   Creacion de formulario --------------------------
+/***********   Creacion de formularios (almacenando en la bd) -----------
+-----------------------
 ********************/
 Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
-
-
-
+Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
 
 

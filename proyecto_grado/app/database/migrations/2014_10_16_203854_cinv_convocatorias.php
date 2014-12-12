@@ -27,8 +27,6 @@ class CinvConvocatorias extends Migration {
 			$tabla->text('convocatoria_dirigida');
 			
 
-			$tabla->primary('numero_convocatoria');
-
 		});
 	}
 
