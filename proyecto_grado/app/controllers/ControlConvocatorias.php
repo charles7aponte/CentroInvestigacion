@@ -8,19 +8,19 @@ class ControlConvocatorias extends Controller {
 	 * @return void
 	 */
 	public function CrearFormulario(){
-echo "hola";
+
 		$numero=Input::get('numero-conv');
-		$estado=Input::get('estado');
 		$titulo=Input::get('titulo-conv');
+		$estado=Input::get('estado');
 		$fecha_apertura=Input::get('fecha-apertura');
 		$fecha_cierre=Input::get('fecha-cierre');
-		$cuantia=Input::get('cuantia-conv');
-		$descripcion=Input::get('desc-conv');
-		$email=Input::get('email-conv');
 		$telefono=Input::get('telefono');
-		$pagina=Input::get('pag-conv');
-		$archivo=Input::get('archivo-conv');
+		$email=Input::get('email-conv');
+		$pagina=Input::get('pag-conv');	
 		$dirigida=Input::get('dirigida-conv');
+		$descripcion=Input::get('desc-conv');	
+		$cuantia=Input::get('cuantia-conv');
+		$archivo=Input::get('dcto-conv');
 
 		$todosDatos = Input::all();
 
@@ -36,7 +36,7 @@ echo "hola";
 		$entidad->fecha_cierre=$fecha_cierre;
 		$entidad->cuantia=$cuantia;
 		$entidad->descripcion_convocatoria=$descripcion;
-		$entidad->email=$celular_entidad;
+		$entidad->email=$email;
 		$entidad->telefono_contacto=$telefono;
 		$entidad->pagina_convocatoria=$pagina;
 		$entidad->archivo_convocatoria=$archivo;

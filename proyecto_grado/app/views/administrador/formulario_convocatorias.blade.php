@@ -43,7 +43,11 @@
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Crear nueva convocatoria</h2></div>
             <ul>
                 <fieldset> 
-
+                    <li class="@if($errors->has('numero-conv')) has-error @endif">
+                    <label for="numero-conv"># Convocatoria:</label>
+                        <input type="text" id="numero-conv" name="numero-conv" value="{{Input::old('numero-conv')}}" required="required"/> 
+                         @if ($errors->has('numero-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero-conv') }}</p> @endif
+                    </li> 
                     <li class="@if($errors->has('titulo-conv')) has-error @endif">
                     <label for="titulo-conv">T&iacute;tulo:</label>
                         <input type="text" id="titulo-conv" name="titulo-conv" value="{{Input::old('titulo-conv')}}" required="required"/> 
@@ -52,6 +56,7 @@
                     <li class="@if($errors->has('estado')) has-error @endif">
                         <label for="estado">Estado:</label>
                         <input type="text" id="estado" name="estado" value="{{Input::old('estado')}}" required="required"/>
+                        @if ($errors->has('estado')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('estado') }}</p> @endif
                     </li>    
                     <li class="@if($errors->has('fecha-apertura')) has-error @endif">
                         <label for="fecha-apert">Fecha de apertura:</label>
@@ -68,7 +73,8 @@
                                     </div>
                                 </div>                               
                             </div>
-                        </div>    
+                        </div> 
+                        @if ($errors->has('fecha-apertura')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-apertura') }}</p> @endif   
                     </li>
                     <li class="@if($errors->has('fecha-cierre')) has-error @endif">
                         <label for="fecha-cierre">Fecha de cierre:</label>
@@ -88,30 +94,37 @@
                                 </div> 
                             </div>
                         </div>
+                        @if ($errors->has('fecha-cierre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-cierre') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('telefono')) has-error @endif">
                         <label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
+                        <input type="text" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
+                        @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('email-conv')) has-error @endif">
                         <label for="email-conv">Email:</label>
                         <input type="email" id="email-conv" name="email-conv" value="{{Input::old('email-conv')}}" required="required"/>
+                        @if ($errors->has('email-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email-conv') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('pag-conv')) has-error @endif">
                         <label for="pag-conv">P&aacute;gina web:</label>
                         <input type="text" id="pag-conv" name="pag-conv" value="{{Input::old('pag-conv')}}"/>
+                        @if ($errors->has('pag-con')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pag-conv') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('dirigifa-conv')) has-error @endif">
                         <label for="dirigida-conv">Dirigida a:</label>
                         <input type="text" id="dirigida-conv" name="dirigida-conv" value="{{Input::old('dirigida-conv')}}" required="required" />
+                        @if ($errors->has('dirigida-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dirigida-conv') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('desc-conv')) has-error @endif">
                         <label for="desc-conv">Descripci&oacute;n:</label>
                         <textarea id="desc-conv" name="desc-conv" value="{{Input::old('desc-conv')}}" required="required"></textarea>
+                        @if ($errors->has('desc-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-conv') }}</p> @endif
                     </li> 
                     <li class="@if($errors->has('cuantia-conv')) has-error @endif">
                         <label for="cuantia-conv">Cuant&iacute;a:</label>
                         <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="{{Input::old('cuantia-conv')}}" />
+                        @if ($errors->has('cuantia-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cuantia-conv') }}</p> @endif
                     </li>
                 </fieldset>
             </ul>
@@ -120,6 +133,7 @@
                     <li class="@if($errors->has('dcto-conv')) has-error @endif">
                         <label for="dcto-conv">Documento de la convocatoria: </label>
                         <input type="file" id="dcto-conv" name="dcto-conv" value="{{Input::old('dcto-conv')}}" />
+                        @if ($errors->has('dcto-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dcto-conv') }}</p> @endif
                     </li>     
                 </fieldset> 
             </ul>   
