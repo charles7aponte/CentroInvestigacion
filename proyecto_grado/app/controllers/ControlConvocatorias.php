@@ -8,7 +8,7 @@ class ControlConvocatorias extends Controller {
 	 * @return void
 	 */
 	public function CrearFormulario(){
-
+echo "hola";
 		$numero=Input::get('numero-conv');
 		$estado=Input::get('estado');
 		$titulo=Input::get('titulo-conv');
@@ -22,7 +22,6 @@ class ControlConvocatorias extends Controller {
 		$archivo=Input::get('archivo-conv');
 		$dirigida=Input::get('dirigida-conv');
 
-		echo "hola".$numero;
 		$todosDatos = Input::all();
 
 	

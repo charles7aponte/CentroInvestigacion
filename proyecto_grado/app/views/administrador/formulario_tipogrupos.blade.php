@@ -3,13 +3,31 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-tipogrupo" autocomplete="on"   action="" method="">
+    <form id="form-tipogrupo" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
+
+        @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo tipo de grupo</h2></div>
                        <ul>
                 <fieldset style="border-color:transparent">
-                    <li>
+
+                    <li class="@if($errors->has('tipo-grupo')) has-error @endif">
                         <label for="tipo-grupo">Tipo Grupo:</label> 
-                          <input id="tipo-grupo" type="text" name="tipo-grupo" value="" required="required"
+                          <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
                         </div> 
                     </li>       
  

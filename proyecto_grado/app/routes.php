@@ -66,6 +66,8 @@ Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
+Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
+
 
 
 

@@ -49,17 +49,19 @@
                         <input type="text" id="titulo-conv" name="titulo-conv" value="{{Input::old('titulo-conv')}}" required="required"/> 
                          @if ($errors->has('titulo-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-conv') }}</p> @endif
                     </li>    
-                    <li><label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" value="" required="required"/>
+                    <li class="@if($errors->has('estado')) has-error @endif">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" value="{{Input::old('estado')}}" required="required"/>
                     </li>    
-                    <li><label for="fecha-apert">Fecha de apertura:</label>
+                    <li class="@if($errors->has('fecha-apertura')) has-error @endif">
+                        <label for="fecha-apert">Fecha de apertura:</label>
                         <div class="container">
                             <div class="row">
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer"   
-                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="fecha-apertura" value="" required="required" /> 
+                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="fecha-apertura" value="{{Input::old('fecha-apertura')}}" required="required" /> 
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -68,7 +70,8 @@
                             </div>
                         </div>    
                     </li>
-                    <li><label for="fecha-cierre">Fecha de cierre:</label>
+                    <li class="@if($errors->has('fecha-cierre')) has-error @endif">
+                        <label for="fecha-cierre">Fecha de cierre:</label>
                         <div class="container">
                             <div class="row">
                                 <div class='col-sm-5' style="padding:0px;">
@@ -76,7 +79,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="fecha-cierre" value="" required="required" /> 
+                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="fecha-cierre" value="{{Input::old('fecha-cierre')}}" required="required" /> 
                                             
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -86,30 +89,37 @@
                             </div>
                         </div>
                     </li>
-                    <li><label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value=""/>
+                    <li class="@if($errors->has('telefono')) has-error @endif">
+                        <label for="telefono">Tel&eacute;fono:</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
                     </li>
-                    <li><label for="email-conv">Email:</label>
-                        <input type="email" id="email-conv" name="email-conv" value="" required="required"/>
+                    <li class="@if($errors->has('email-conv')) has-error @endif">
+                        <label for="email-conv">Email:</label>
+                        <input type="email" id="email-conv" name="email-conv" value="{{Input::old('email-conv')}}" required="required"/>
                     </li>
-                    <li><label for="pag-conv">P&aacute;gina web:</label>
-                        <input type="text" id="pag-conv" name="pag-conv" value=""/>
+                    <li class="@if($errors->has('pag-conv')) has-error @endif">
+                        <label for="pag-conv">P&aacute;gina web:</label>
+                        <input type="text" id="pag-conv" name="pag-conv" value="{{Input::old('pag-conv')}}"/>
                     </li>
-                    <li><label for="dirigida-conv">Dirigida a:</label>
-                        <input type="text" id="dirigida-conv" name="dirigida-conv" value="" required="required" />
+                    <li class="@if($errors->has('dirigifa-conv')) has-error @endif">
+                        <label for="dirigida-conv">Dirigida a:</label>
+                        <input type="text" id="dirigida-conv" name="dirigida-conv" value="{{Input::old('dirigida-conv')}}" required="required" />
                     </li>
-                    <li><label for="desc-conv">Descripci&oacute;n:</label>
-                        <textarea id="desc-conv" name="desc-conv" required="required"></textarea>
+                    <li class="@if($errors->has('desc-conv')) has-error @endif">
+                        <label for="desc-conv">Descripci&oacute;n:</label>
+                        <textarea id="desc-conv" name="desc-conv" value="{{Input::old('desc-conv')}}" required="required"></textarea>
                     </li> 
-                    <li><label for="cuantia-conv">Cuant&iacute;a:</label>
-                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="" />
+                    <li class="@if($errors->has('cuantia-conv')) has-error @endif">
+                        <label for="cuantia-conv">Cuant&iacute;a:</label>
+                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="{{Input::old('cuantia-conv')}}" />
                     </li>
                 </fieldset>
             </ul>
             <ul>
                 <fieldset>
-                    <li><label for="dcto-conv">Documento de la convocatoria: </label>
-                        <input type="file" id="dcto-conv" name="dcto-conv" />
+                    <li class="@if($errors->has('dcto-conv')) has-error @endif">
+                        <label for="dcto-conv">Documento de la convocatoria: </label>
+                        <input type="file" id="dcto-conv" name="dcto-conv" value="{{Input::old('dcto-conv')}}" />
                     </li>     
                 </fieldset> 
             </ul>   
