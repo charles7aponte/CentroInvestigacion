@@ -47,7 +47,7 @@ class ControlConvocatorias extends Controller {
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida'
+				'email' =>'No es una dirección de email válida',
 				'date'=>'No es un fecha valida'
 			);
 
@@ -76,12 +76,12 @@ class ControlConvocatorias extends Controller {
 						
 						return Redirect::to('formularioconvocatorias')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista la entidad");
+						->with('mensaje_error',"Verifique, es posible que ya exista la convocatoria");
 					}
 
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
-								->with('mensaje_success',"La convocatoria ".$titulo." ha sido creada con éxito");
+								->with('mensaje_success',"La convocatoria ".$titulo)." ha sido creada.";
 				
 					}
 			}
