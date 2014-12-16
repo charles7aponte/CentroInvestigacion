@@ -47,8 +47,7 @@ class ControlConvocatorias extends Controller {
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida',
-				'date'=>'No es un fecha valida'
+				'email' =>'No es una dirección de email válida'
 			);
 
 
@@ -81,7 +80,7 @@ class ControlConvocatorias extends Controller {
 
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
-								->with('mensaje_success',"La convocatoria ".$titulo)." ha sido creada.";
+								->with('mensaje_success',"La convocatoria ha sido creada.");
 				
 					}
 			}
