@@ -12,15 +12,38 @@ class ControlConvocatorias extends Controller {
 		$numero=Input::get('numero-conv');
 		$titulo=Input::get('titulo-conv');
 		$estado=Input::get('estado');
+
+		//manejo de fechas ..		
 		$fecha_apertura=Input::get('fecha-apertura');
 		$fecha_cierre=Input::get('fecha-cierre');
+
+		$dateApertura = new DateTime($fecha_apertura);
+		$dateCierre = new DateTime($fecha_cierre);
+
+		$fecha_apertura=$dateApertura->format('d/m/Y');
+		$fecha_cierre=$dateCierre->format('d/m/Y');
+		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
+
+
 		$telefono=Input::get('telefono');
 		$email=Input::get('email-conv');
 		$pagina=Input::get('pag-conv');	
 		$dirigida=Input::get('dirigida-conv');
 		$descripcion=Input::get('desc-conv');	
 		$cuantia=Input::get('cuantia-conv');
-		$archivo=Input::get('dcto-conv');
+		//$archivo=Input::get('dcto-conv');
+
+
+		//manejo de archivo
+		///
+		if(Input::hasFile('dcto-conv'))
+		{
+			$archivoF =Input::file('dcto-conv');
+			$archivoF->move("img_db",$archivoF ->getClientOriginalName());
+			//echo "-->".$archivoF ->getClientOriginalName();
+		}
+
+
 
 		$todosDatos = Input::all();
 
@@ -39,7 +62,7 @@ class ControlConvocatorias extends Controller {
 		$entidad->email=$email;
 		$entidad->telefono_contacto=$telefono;
 		$entidad->pagina_convocatoria=$pagina;
-		$entidad->archivo_convocatoria=$archivo;
+	//	$entidad->archivo_convocatoria=$archivo;
 		$entidad->convocatoria_dirigida=$dirigida;
 	
 
@@ -50,7 +73,7 @@ class ControlConvocatorias extends Controller {
 				'email' =>'No es una dirección de email válida'
 			);
 
-
+/*
 			// execute la validacin 
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
@@ -77,12 +100,14 @@ class ControlConvocatorias extends Controller {
 						->withInput($todosDatos)
 						->with('mensaje_error',"Verifique, es posible que ya exista la convocatoria");
 					}
-
+					
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
 								->with('mensaje_success',"La convocatoria ha sido creada.");
-				
+			
 					}
+					*/
+				
 			}
 
 }

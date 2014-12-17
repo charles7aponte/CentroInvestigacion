@@ -22,7 +22,9 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-convocatorias" autocomplete="on"  action="{{URL::to('creacion/formularioconvocatorias')}}" method="post">
+    <form id="form-convocatorias" autocomplete="on" 
+    enctype="multipart/form-data"
+     action="{{URL::to('creacion/formularioconvocatorias')}}" method="post">
         
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -118,7 +120,7 @@
                     </li>
                     <li class="@if($errors->has('desc-conv')) has-error @endif">
                         <label for="desc-conv">Descripci&oacute;n:</label>
-                        <textarea id="desc-conv" name="desc-conv" value="{{Input::old('desc-conv')}}" required="required"></textarea>
+                        <textarea id="desc-conv" name="desc-conv"  required="required">{{Input::old('desc-conv')}}</textarea>
                         @if ($errors->has('desc-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-conv') }}</p> @endif
                     </li> 
                     <li class="@if($errors->has('cuantia-conv')) has-error @endif">
