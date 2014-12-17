@@ -3,7 +3,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-tipogrupo" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
+    <form id="form-tipoproducto" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
 
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -28,14 +28,12 @@
                     <li class="@if($errors->has('tipo-grupo')) has-error @endif">
                         <label for="tipo-grupo">Nombre tipo producto:</label> 
                           <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
-                        </div> 
                     </li>   
 
-                    <li class="@if($errors->has('desc-entidad')) has-error @endif">
-                      <label for="desc-empresa">Descripci&oacute;n:</label>
-                        <textarea id="desc-empresa" name="desc-empresa">{{Input::old('desc-empresa')}}</textarea>
-                          @if ($errors->has('desc-entidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-entidad') }}</p> @endif
-                        
+                    <li class="@if($errors->has('desc-tipo-producto')) has-error @endif">
+                      <label for="desc-tipo-producto">Descripci&oacute;n:</label>
+                        <textarea id="desc-tipo-producto" name="desc-tipo-producto">{{Input::old('desc-tipo-producto')}}</textarea>
+                          @if ($errors->has('desc-tipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-tipo-producto') }}</p> @endif 
                     </li>    
  
                 </fieldset> 
@@ -43,7 +41,7 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-tipogrupo" type="submit">
+                        <button id="crear-tipoproducto" type="submit">
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
                         Crear
                         </button>
@@ -52,12 +50,13 @@
             </table>
 
             <ul> 
-              <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px;">
+              <table id="tabla-tipo-productos" style="margin-top:40px; width:950px;">
                   <thead>
-                    <tr><th colspan="3">TIPOS DE GRUPO</th></tr>
+                    <tr><th colspan="4">TIPOS DE PRODUCTO</th></tr>
                     <tr>
                       <th>C&oacute;digo</th>
-                      <th>Nombre del tipo de grupo</th>
+                      <th>Nombre del tipo de producto</th>
+                      <th>Descripci&oacute;n</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -66,13 +65,16 @@
                     <tr>
                       <td>01</td>
                       <td>Estudio</td>
+                      <td></td>
                       <td>
                         <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                       </td>
+                      
                     </tr>
                     <tr>
                       <td>02</td>
                       <td>Investigaci&oacute;n</td>
+                      <td></td>
                       <td>
                         <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                       </td>

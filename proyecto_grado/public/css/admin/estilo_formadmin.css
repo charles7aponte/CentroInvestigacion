@@ -10,7 +10,8 @@
 #form-tipogrupo fieldset,
 #form-lineas fieldset,
 #form-sublineas fieldset,
-#form-empresas fieldset {
+#form-empresas fieldset,
+#form-tipoproducto fieldset {
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -27,7 +28,8 @@
 #form-tipogrupo ul,
 #form-lineas ul,
 #form-sublineas ul,
-#form-empresas ul{
+#form-empresas ul,
+#form-tipoproducto ul {
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -42,14 +44,16 @@
 #form-tipogrupo li,
 #form-lineas li, 
 #form-sublineas li,
-#form-empresas li {
+#form-empresas li,
+#form-tipoproducto li {
     padding:7px; 
     position:relative;
 } 
 
 #form-grupos label,
 #form-convocatorias label,
-#form-tipogrupo label{
+#form-tipogrupo label, 
+#form-tipoproducto label{
 	color: #333;
     display: inline-block;
     float: left;
