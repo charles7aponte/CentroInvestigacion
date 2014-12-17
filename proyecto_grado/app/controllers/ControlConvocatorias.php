@@ -39,7 +39,17 @@ class ControlConvocatorias extends Controller {
 		if(Input::hasFile('dcto-conv'))
 		{
 			$archivoF =Input::file('dcto-conv');
-			$archivoF->move("img_db",$archivoF ->getClientOriginalName());
+			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
+
+			while (File::exists("img_db/".$nombreNuevo) )
+			{
+				$numero=rand(1,999);
+				$nombreNuevo=$numero."-".$nombreNuevo;				
+			
+			}
+
+			$archivoF->move("img_db",$nombreNuevo);
+
 			//echo "-->".$archivoF ->getClientOriginalName();
 		}
 
