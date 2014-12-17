@@ -32,7 +32,7 @@ class ControlConvocatorias extends Controller {
 		$descripcion=Input::get('desc-conv');	
 		$cuantia=Input::get('cuantia-conv');
 		//$archivo=Input::get('dcto-conv');
-
+		$nombreNuevo="";
 
 		//manejo de archivo
 		///
@@ -72,7 +72,7 @@ class ControlConvocatorias extends Controller {
 		$entidad->email=$email;
 		$entidad->telefono_contacto=$telefono;
 		$entidad->pagina_convocatoria=$pagina;
-	//	$entidad->archivo_convocatoria=$archivo;
+		$entidad->archivo_convocatoria=$nombreNuevo;
 		$entidad->convocatoria_dirigida=$dirigida;
 	
 
