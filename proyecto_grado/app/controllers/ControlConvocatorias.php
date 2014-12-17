@@ -73,7 +73,7 @@ class ControlConvocatorias extends Controller {
 				'email' =>'No es una dirección de email válida'
 			);
 
-/*
+
 			// execute la validacin 
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
@@ -106,7 +106,6 @@ class ControlConvocatorias extends Controller {
 								->with('mensaje_success',"La convocatoria ha sido creada.");
 			
 					}
-					*/
 				
 			}
 
