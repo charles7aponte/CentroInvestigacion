@@ -72,6 +72,8 @@ Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormu
 
 Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
 
+Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+
 
 
 

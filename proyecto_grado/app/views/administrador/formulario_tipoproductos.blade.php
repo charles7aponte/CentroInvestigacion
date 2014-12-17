@@ -3,7 +3,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-tipoproducto" autocomplete="on"   action="{{URL::to('creacion/')}}" method="post">
+    <form id="form-tipoproducto" autocomplete="on"   action="{{URL::to('creacion/formulariotipoproductos')}}" method="post">
 
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -25,9 +25,9 @@
                        <ul>
                 <fieldset style="border-color:transparent">
 
-                    <li class="@if($errors->has('tipo-grupo')) has-error @endif">
-                        <label for="tipo-grupo">Nombre tipo producto:</label> 
-                          <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
+                    <li class="@if($errors->has('tipo-producto')) has-error @endif">
+                        <label for="tipo-producto">Nombre tipo producto:</label> 
+                          <input id="tipo-producto" type="text" name="tipo-producto" value="{{Input::old('tipo-producto')}}" required="required">
                     </li>   
 
                     <li class="@if($errors->has('desc-tipo-producto')) has-error @endif">
@@ -65,7 +65,21 @@
                     <tr>
                       <td>01</td>
                       <td>Estudio</td>
-                      <td></td>
+                      <td><button style="font-size: 12px; margin: 3px; color: white; background-color: rgb(39, 107, 111);" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Ver descripci&oacute;n</button></td>
+                      <!-- Modal -->
+                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+                                  <h4 class="modal-title" id="myModalLabel">Descripci&oacute;n</h4>
+                                </div>
+                                <div class="modal-body">
+                                  ...
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       <td>
                         <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                       </td>

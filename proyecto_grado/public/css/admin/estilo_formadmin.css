@@ -335,7 +335,8 @@ input#grupo-producto {
 }
 
 table#tabla-integrantes-grupos,
-table#tabla-lineas-grupos{
+table#tabla-lineas-grupos, 
+table#tabla-tipo-grupos {
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -350,8 +351,7 @@ table#tabla-lineas-grupos{
 table#tabla-financiamiento-grupos,
 table#tabla-integrantes-proyectos,
 table#tabla-integrantes-productos, 
-table#tabla-tipo-productos,
-table#tabla-tipo-grupos{
+table#tabla-tipo-productos{
     color: #333;
     font-size: .9em;
     font-weight: 300;
