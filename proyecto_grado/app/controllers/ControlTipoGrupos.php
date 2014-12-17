@@ -38,7 +38,7 @@ class ControlTipoGrupos extends Controller {
 				return Redirect::to('formulariotipogrupo')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar, puede ser posible que exceda la cantidad de caracteres.");
 			} else {
 
 
@@ -55,7 +55,7 @@ class ControlTipoGrupos extends Controller {
 						->with('mensaje_error',"Verifique si existe la entidad");
 					}
 
-						return Redirect::to('formularioentidades')
+						return Redirect::to('formulariotipogrupo')
 								->withInput($todosDatos)
 								->with('mensaje_success',"Se ha Guardado");
 				
