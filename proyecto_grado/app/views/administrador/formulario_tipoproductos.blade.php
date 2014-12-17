@@ -3,7 +3,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-tipoproducto" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
+    <form id="form-tipoproducto" autocomplete="on"   action="{{URL::to('creacion/')}}" method="post">
 
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -21,7 +21,7 @@
 
 
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo tipo productos</h2></div>
+        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo tipo de producto</h2></div>
                        <ul>
                 <fieldset style="border-color:transparent">
 
@@ -86,7 +86,7 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="guardar-tipogrupo" type="submit">
+                        <button id="guardar-tipoproducto" type="submit" style="margin-top:10px;">
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
                         Guardar 
                         </button>
