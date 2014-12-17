@@ -89,9 +89,9 @@ class ControlConvocatorias extends Controller {
 
 
 
-					try{
+			//		try{
 						$entidad->save();
-					}
+			/*		}
 					catch( PDOException $e)
 					{
 						//return 'existe un error' + $e;
@@ -104,7 +104,7 @@ class ControlConvocatorias extends Controller {
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
 								->with('mensaje_success',"La convocatoria ha sido creada.");
-			
+			*/
 					}
 				
 			}
