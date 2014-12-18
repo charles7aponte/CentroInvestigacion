@@ -22,28 +22,26 @@
 
 
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo tipo de grupo</h2></div>
-              <ul>
-                <fieldset style="border-color:transparent">
-
-                    <li class="@if($errors->has('tipo-grupo')) has-error @endif">
-                        <label for="tipo-grupo">Tipo Grupo:</label> 
-                          <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
-                
-                    </li>       
- 
-                </fieldset> 
-            </ul> 
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="crear-tipogrupo" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear
-                        </button>
-                    </th>
-                </thead>
-            </table>
-            <ul> 
+          <ul>
+            <fieldset style="border-color:transparent">
+                <li class="@if($errors->has('tipo-grupo')) has-error @endif">
+                  <label for="tipo-grupo">Tipo Grupo:</label> 
+                    <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
+                </li>       
+            </fieldset> 
+          </ul> 
+              <table id="botones-formularios">
+                  <thead>
+                      <th id="crear">
+                          <button id="crear-tipogrupo" type="submit">
+                          <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                          Crear
+                          </button>
+                      </th>
+                  </thead>
+              </table>
+          <ul> 
+        </form>          
               <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px;">
                   <thead>
                     <tr><th colspan="3">TIPOS DE GRUPO</th></tr>
@@ -83,6 +81,5 @@
                     </th>
                 </thead>
             </table> 
-    </form>    
 </div>  
 @stop    

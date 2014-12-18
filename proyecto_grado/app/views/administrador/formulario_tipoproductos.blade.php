@@ -48,7 +48,7 @@
                     </th>
                 </thead>
             </table>
-
+    </form>  
             <ul> 
               <table id="tabla-tipo-productos" style="margin-top:40px; width:950px;">
                   <thead>
@@ -80,9 +80,7 @@
                               </div>
                             </div>
                           </div>
-                      <td>
-                        <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                      </td>
+                      <td><a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>
                       
                     </tr>
                     <tr>
@@ -106,7 +104,6 @@
                         </button>
                     </th>
                 </thead>
-            </table> 
-    </form>    
+            </table>   
 </div>  
 @stop    
