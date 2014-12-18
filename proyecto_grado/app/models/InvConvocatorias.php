@@ -17,6 +17,7 @@ class InvConvocatorias extends Eloquent  {
 	public 	static $reglasValidacion = array(
 			'numero-conv'             => 'required|max:50|', 
 			'estado'            		=> 'max:20', 	
+			'cuantia-conv'			=>'required|numeric'
 					
 		);
 

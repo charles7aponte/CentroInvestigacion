@@ -127,7 +127,7 @@
                     </li> 
                     <li class="@if($errors->has('cuantia-conv')) has-error @endif">
                         <label for="cuantia-conv">Cuant&iacute;a:</label>
-                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" value="{{Input::old('cuantia-conv')}}" />
+                        <span class="glyphicon glyphicon-usd"></span><input type="text" id="cuantia-conv" name="cuantia-conv" required="required" value="{{Input::old('cuantia-conv')}}" />
                         @if ($errors->has('cuantia-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cuantia-conv') }}</p> @endif
                     </li>
                 </fieldset>

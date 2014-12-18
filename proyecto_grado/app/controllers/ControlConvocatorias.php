@@ -36,7 +36,7 @@ class ControlConvocatorias extends Controller {
 
 		//manejo de archivo
 
-		/*if(Input::hasFile('dcto-conv'))
+		//if(Input::hasFile('dcto-conv'))
 		if(Input::hasFile('dcto-conv'))
 
 		{
@@ -50,10 +50,10 @@ class ControlConvocatorias extends Controller {
 			
 			}
 
-			$archivoF->move("img_db",$nombreNuevo);
+			$archivoF->move("img_db/convocatoria/",$nombreNuevo);
 
 			//echo "-->".$archivoF ->getClientOriginalName();
-		}*/
+		}
 
 
 		$todosDatos = Input::all();
@@ -81,7 +81,8 @@ class ControlConvocatorias extends Controller {
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida'
+				'email' =>'No es una dirección de email válida',
+				'numeric'=>'No es un valor valido'
 			);
 
 
@@ -100,10 +101,10 @@ class ControlConvocatorias extends Controller {
 
 
 
-				//	try{
+					try{
 						$entidad->save();
-				/*	}
-					catch( PDOException $e)
+					}
+					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
@@ -115,7 +116,7 @@ class ControlConvocatorias extends Controller {
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
 								->with('mensaje_success',"La convocatoria ha sido creada.");
-			*/
+			
 					}
 				
 			}
