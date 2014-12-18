@@ -55,7 +55,7 @@ class ControlConvocatorias extends Controller {
 		}
 
 
-		$todosDatos = Input::all();
+		$todosDatos = Input::except('dcto-conv');
 
 	
 
