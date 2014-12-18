@@ -35,7 +35,7 @@ class ControlConvocatorias extends Controller {
 		$nombreNuevo="";
 
 		//manejo de archivo
-		///
+/*		///
 		if(Input::hasFile('dcto-conv'))
 		{
 			$archivoF =Input::file('dcto-conv');
@@ -53,7 +53,7 @@ class ControlConvocatorias extends Controller {
 			//echo "-->".$archivoF ->getClientOriginalName();
 		}
 
-
+*/
 
 		$todosDatos = Input::all();
 

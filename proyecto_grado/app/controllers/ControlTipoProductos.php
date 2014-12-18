@@ -28,6 +28,7 @@ echo "holaa";
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
+				 'unique'  =>'Es posible que ya exista el tipo de grupo, verifique' 
 				
 			);
 
@@ -42,7 +43,7 @@ echo "holaa";
 				return Redirect::to('formulariotipoproductos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar, puede ser posible que exceda la cantidad de caracteres.");
+					->with('mensaje_error');
 			} else {
 
 
