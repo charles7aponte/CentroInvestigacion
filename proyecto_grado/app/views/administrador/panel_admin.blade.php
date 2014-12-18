@@ -46,6 +46,12 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_listasadmin.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+
+
 	@section("css-nuevos")
 	@show
 
@@ -55,6 +61,8 @@ switch($mes){
 	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="js/hideshow.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
+
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
 	@show

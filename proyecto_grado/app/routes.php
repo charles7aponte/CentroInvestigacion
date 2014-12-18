@@ -21,7 +21,22 @@ paginas del administrador--------------------
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
 /*--------------formularios-----------------*/
-Route::get('formulariogrupos', function() { return View::make('administrador/formulario_grupos'); });
+Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
+/*function(){
+
+  $p = Estudiante::find(3);
+
+  //print_r($p);
+
+  $gg=$p->personas()->get();
+
+print_r($gg);
+  //print_r($p->grupos()->get());
+
+});
+*/
+
+
 
 Route::get('formulariotipogrupo', function() { return View::make('administrador/formulario_tipogrupos'); });
 
@@ -73,6 +88,18 @@ Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormu
 Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
 
 Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+//creacion de grupos
+Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
+
+
+
+
+/*********** creacion de servicios 
+*************
+****************/
+//Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
+Route::get('servicios/personas/{nombre}/','ControlPersona@getEstudiantesByName');
+
 
 
 

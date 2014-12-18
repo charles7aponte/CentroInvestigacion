@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">
 @stop
 
+
 @section('javascript-nuevos')
    
     <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
 
 @stop
+
 
 @section('javascript-nuevos2')
     <script src="{{URL::to('js/')}}/fechas_formularios.js" type="text/javascript"></script>

@@ -10,6 +10,8 @@
    
     <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
+
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariogrupos.js"></script>
 @stop
 
 
@@ -24,11 +26,13 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-grupos" autocomplete="on"   action="" method="">
+    <form id="form-grupos" autocomplete="on" 
+      enctype="multipart/form-data" 
+      action="{{URL::to('creacion/formulariogrupos')}}" method="POST">
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo grupo</h2></div>
             <ul>
                 <fieldset>  
-                    <li><label for="nombre">Nombre del grupo:</label>
+                    <li><label for="nombre">Nombre del grupo: </label>
                         <input type="text" id="nombre" name="nombre" value="" required="required"/>
                     </li>    
                     <li><label for="coord">Coordinador:</label>
@@ -54,7 +58,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="fecha_creacion" value="" required="required" /> 
                                             
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -73,9 +77,14 @@
                     </li>
                     <li><label for="tipo">Tipo:</label> 
                         <select name="tipo" required="required">
-                            <option value=""></option>
-                            <option value="inv">Investigaci&oacute;n</option>
-                            <option value="estudio">Estudio</option>
+                         
+                          @if(isset($tipo_grupos))
+                          
+                             @foreach ($tipo_grupos as $tipo_grupo)
+                               <option value="{{$tipo_grupo['id']}}">{{$tipo_grupo['tipo_grupo']}}</option>
+                             @endforeach 
+
+                          @endif
                         </select>
                     </li> 
                 </fieldset>
@@ -99,8 +108,8 @@
                             </button>
                             <!--Agregando nuevos integrantes-->
                             <label  style="width:inherit">Integrante: </label>
-                             <input type="text" id="integrantes-grupos" name="integrantes-grupos" value="" required="required"/>
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <input type="text" id="integrantes-grupos"  value="" />
+                             <button type="button" class="btn btn-primary"  style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -116,28 +125,28 @@
 
                               <tbody>
                                 <tr>
-                                  <td>1121889765</td>
+                                  <td><input  name="integrantes[]" type="hidden" value="1">1121889765</td>
                                   <td>Pepa Pombo</td>
                                   <td>
                                     <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>1121889765</td>
+                                  <td><input  name="integrantes[]" type="hidden" value="2">1121889765</td>
                                   <td>Pepa Pombo</td>
                                   <td>
                                     <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>1121887678</td>
+                                  <td><input  name="integrantes[]" type="hidden" value="3">1121887678</td>
                                   <td>Pepito Perez Gonzalez</td>
                                   <td>
                                     <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>1121889765</td>
+                                  <td><input  name="integrantes[]" type="hidden" value="4">1121889765</td>
                                   <td>Pepa Pombo</td>
                                   <td>
                                     <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
@@ -172,11 +181,15 @@
                             </button>
                             <!--Agregando nuevas lineas-->
                             <label  style="width:inherit">L&iacute;nea: </label>
-                             <input type="text" id="lineas-grupos" name="lineas-grupos" value="" required="required"/>
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             
+                             <button type="button" class="btn btn-primary"  style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
+                             <input type="text" id="lineas-grupos"  value="" />
+                              
+
+
                             <table id="tabla-lineas-grupos">
                               <thead>
                                 <tr><th colspan="3">L&Iacute;NEAS DEL GRUPO</th></tr>
