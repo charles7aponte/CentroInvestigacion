@@ -22,7 +22,9 @@ class ControlTipoProductos extends Controller {
 		$entidad->nombre_tipo_producto=$nombre;
 		$entidad->descripcion_producto=$descripcion;
 
-		echo "holaaa entro";
+
+
+echo "holaa";
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
@@ -45,23 +47,23 @@ class ControlTipoProductos extends Controller {
 
 
 
-					///try{
-						$entidad->save();
-					/*}
+					try{
+						$entidad->save();echo "entre1";
+					}
 					catch( PDOException $e)
 					{
-						//return 'existe un error' + $e;
+					echo "entre entre";	//return 'existe un error' + $e;
 						
 						return Redirect::to('formulariotipoproductos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Verifique si ya existe el tipo de producto ");
-					}
+					}echo "entre2";
 
 						return Redirect::to('formulariotipoproductos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"Se ha Guardado");
 				
-					}*/
+					}
 				}	
 			}
 

@@ -16,7 +16,7 @@ class InvTipoProductos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'nombre'            => 'required', 	
+			'tipo-producto'            => 'required', 	
 		);
 
 

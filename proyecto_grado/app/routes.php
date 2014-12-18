@@ -102,7 +102,7 @@ Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
 Route::get('servicios/personas/{nombre}/','ControlPersona@getEstudiantesByName');
 
 
-Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+
 
 
 
