@@ -57,14 +57,15 @@ echo "holaa";
 						return Redirect::to('formulariotipoproductos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Verifique si ya existe el tipo de producto ");
-					}echo "entre2";
+					}
+					echo "entre2";
 
 						return Redirect::to('formulariotipoproductos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"Se ha Guardado");
 				
-					}
-				}	
 			}
+	}	
+			
 
 }

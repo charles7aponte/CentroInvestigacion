@@ -59,7 +59,9 @@ class ControlTipoGrupos extends Controller {
 								->withInput($todosDatos)
 								->with('mensaje_success',"Se ha Guardado");
 				
-					}
+					
 			}
+
+		}	
 
 }
