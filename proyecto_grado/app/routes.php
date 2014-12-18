@@ -99,7 +99,7 @@ Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
 *************
 ****************/
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
-Route::get('servicios/personas/{nombre}/','ControlPersona@getEstudiantesByName');
+Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
 
 
 

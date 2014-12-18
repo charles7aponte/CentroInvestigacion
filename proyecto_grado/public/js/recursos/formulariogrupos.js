@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 	//autocompletado
-	$("#nombre").autocomplete({
+	$("#integrantes-grupos").autocomplete({
 
 		source:function(request, response)
 		{
@@ -29,6 +29,8 @@ $(document).ready(function(){
 			console.log("seleccion :.. "+ ui.item.nombre)
 			console.log("seleccion ... cedula "+ui.item.cedula)
 
+			generaFilaPersona(ui.item,"integrantes");
+
 		}
 
 	})
@@ -46,14 +48,32 @@ $(document).ready(function(){
 
  function generaFilaPersona( json, name ) {
       
-      var html ="<tr>
-                                  <td>01</td>
-                                  <td>Teleinformatica</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>";
+      var html ="<tr> ";
+            html +="                   <td><inputy type='hidden' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
+            html +="                  <td>"+json.nombre+"</td> ";
+            html +="                  <td> ";
+            html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
+            html +="                </td> ";
+            html +="                </tr>";
+
+            $fila= $(html);
+            $("#tabla-integrantes-grupos").append($fila);
+
     }
+
+
+
+/******
+*** elimina la fila del la table
+ **********/
+ function eliminarFila(elemento){
+
+ 	$fila = $(elemento).parent().parent();
+
+ 	$fila.remove();
+
+ 	return false;
+ }   
 
 
 
