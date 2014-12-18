@@ -62,6 +62,7 @@ class ControlTipoProductos extends Controller {
 								->with('mensaje_success',"Se ha Guardado");
 				
 					}*/
+				}	
 			}
 
 }
