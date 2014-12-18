@@ -38,7 +38,6 @@ class ControlConvocatorias extends Controller {
 
 		//if(Input::hasFile('dcto-conv'))
 		if(Input::hasFile('dcto-conv'))
-
 		{
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
