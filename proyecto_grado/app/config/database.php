@@ -68,7 +68,7 @@ return array(
 			'host'     => 'localhost',
 			'database' => 'centro',
 			'username' => 'postgres',
-			'password' => '123',
+			'password' => '12345',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',

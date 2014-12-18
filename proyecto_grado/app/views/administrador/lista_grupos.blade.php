@@ -21,7 +21,7 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td id="nombre-grupo"><a href="">Este es el nombre del grupo 1 de investigacion o de estudio de la universidad de los llanos</a></td>
+        <td id="nombre-grupo"><a href="grupos">Este es el nombre del grupo 1 de investigacion o de estudio de la universidad de los llanos</a></td>
         <td>
           <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
           <a href="#" class="button">Inhabilitar</a>

@@ -16,7 +16,7 @@ class InvTipoProductos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'tipo-producto'            => 'required', 	
+			'tipo-producto'            => 'required|unique:inv_tipo_productos,nombre_tipo_producto', 	
 		);
 
 

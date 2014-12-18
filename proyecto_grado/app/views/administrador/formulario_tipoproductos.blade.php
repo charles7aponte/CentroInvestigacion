@@ -28,6 +28,7 @@
                     <li class="@if($errors->has('tipo-producto')) has-error @endif">
                         <label for="tipo-producto">Nombre tipo producto:</label> 
                           <input id="tipo-producto" type="text" name="tipo-producto" value="{{Input::old('tipo-producto')}}" required="required">
+                          @if ($errors->has('tipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('tipo-producto') }}</p> @endif 
                     </li>   
 
                     <li class="@if($errors->has('desc-tipo-producto')) has-error @endif">
