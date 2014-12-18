@@ -36,7 +36,7 @@ class ControlConvocatorias extends Controller {
 
 		//manejo de archivo
 		///
-		if(Input::hasFile('dcto-conv'))
+		/*if(Input::hasFile('dcto-conv'))
 		{
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
@@ -51,7 +51,7 @@ class ControlConvocatorias extends Controller {
 			$archivoF->move("img_db",$nombreNuevo);
 
 			//echo "-->".$archivoF ->getClientOriginalName();
-		}
+		}*/
 
 
 
@@ -99,9 +99,9 @@ class ControlConvocatorias extends Controller {
 
 
 
-			//		try{
+				//	try{
 						$entidad->save();
-			/*		}
+				/*	}
 					catch( PDOException $e)
 					{
 						//return 'existe un error' + $e;
