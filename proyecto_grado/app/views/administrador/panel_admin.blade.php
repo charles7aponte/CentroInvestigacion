@@ -143,7 +143,7 @@ switch($mes){
 			<li class=""><a href="formularioproductos"> Agregar nuevo producto</a></li>
 			<li class=""><a href="listadeproductos">Ver/Editar un producto</a></li>			
 			<li class=""><a href="formulariotipoproductos">Agregar/eliminar un tipo de producto</a></li>
-			<li class=""><a href="formulariosubtipoproductos">Agregar un subtipo de producto</a></li>			
+			<li class=""><a href="formulariosubtipoproductos">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">

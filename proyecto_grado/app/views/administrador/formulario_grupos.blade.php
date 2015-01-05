@@ -77,10 +77,10 @@
                     </li>
                     <li><label for="tipo">Tipo:</label> 
                         <select name="tipo" required="required">
-                         
+                         <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
                           @if(isset($tipo_grupos))
                           
-                             @foreach ($tipo_grupos as $tipo_grupo)
+                             @foreach ($tipo_grupos as $tipo_grupo) //array--- nombre del campo en la bd
                                <option value="{{$tipo_grupo['id']}}">{{$tipo_grupo['tipo_grupo']}}</option>
                              @endforeach 
 
