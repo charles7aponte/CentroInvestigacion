@@ -31,8 +31,9 @@
                           @if ($errors->has('subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('subtipo-producto') }}</p> @endif 
                     </li> 
 
-                    <li><label for="subtipo-producto">Tipo de producto:</label> 
-                        <select name="subtipo-producto" required="required">
+                    <li><label for="subtipo-tipo-producto">Tipo de producto:</label> 
+                        <select name="subtipo-tipo-producto" >
+                      <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
 
                         </select>
                     </li>   

@@ -25,7 +25,7 @@
 @section('cuerpo')
 <div>  
     <form id="form-grupos" autocomplete="on"   action="" method="">
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo Investigador</h2></div>
+        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo J&oacute;ven investigador o Externo</h2></div>
             <ul>
                 <fieldset>  
                     <li><label for="cedula">C&eacute;dula:</label>

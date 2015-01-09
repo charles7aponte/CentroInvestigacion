@@ -5,7 +5,7 @@
 
 
 
-    <form id="form-empresas" autocomplete="on"   action="{{URL::to('creacion/formularioempresas')}}" method="post">
+    <form id="form-empresas" autocomplete="on"  action="{{URL::to('creacion/formularioempresas')}}" method="post">
       
 
   

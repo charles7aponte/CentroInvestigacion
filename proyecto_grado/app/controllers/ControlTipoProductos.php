@@ -24,11 +24,10 @@ class ControlTipoProductos extends Controller {
 
 
 
-echo "holaa";
 			// mensaje a mostrar
 			$messages = array(
-				'required' => '*Es obligatorio.',
-				 'unique'  =>'Es posible que ya exista el tipo de grupo, verifique' 
+				'required' => '*Este campo es obligatorio.',
+				'unique'  =>'Es posible que ya exista el tipo de producto, verifique.' 
 				
 			);
 
@@ -57,7 +56,7 @@ echo "holaa";
 						
 						return Redirect::to('formulariotipoproductos')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si ya existe el tipo de producto ");
+						->with('mensaje_error',"");
 					}
 					echo "entre2";
 

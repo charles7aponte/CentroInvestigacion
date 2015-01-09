@@ -70,7 +70,7 @@ class ControlEntidades extends Controller {
 						
 						return Redirect::to('formularioentidades')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si existe la entidad");
+						->with('mensaje_error',"Verifique, es posible que ya exista la entidad");
 					}
 
 						return Redirect::to('formularioentidades')

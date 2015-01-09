@@ -16,7 +16,7 @@ class CinvLineas extends Migration {
 			$tabla->increments('id_lineas');
 			$tabla->string('nombre_linea',100);
 			$tabla->text('definicion_linea')->nullable();
-			$tabla->string('coordinador_linea',59);
+			$tabla->string('coordinador_linea',50);
 			$tabla->text('objetivo_estudio');
 			$tabla->text('objetivo_linea')->nullable();
 			$tabla->text('ruta_archivo')->nullable();	

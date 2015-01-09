@@ -58,6 +58,8 @@ Route::get('formulariosubtipoproductos', function() { return View::make('adminis
 
 Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 
+Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
+
 
 /*-------------listas de cada tema-------------*/
 Route::get('listadegrupos', function() { return View::make('administrador/lista_grupos');});
@@ -85,14 +87,17 @@ Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
-Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
-
-
+//creacion de productos
 Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+
+Route::post('creacion/formulariosubtipoproductos', 'ControlSubtipoProductos@CrearFormulario');
+
 //creacion de grupos
 Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
 
+Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
 
+Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 
 
 /*********** creacion de servicios 
@@ -100,8 +105,6 @@ Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
 ****************/
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
 Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
-
-
 
 
 
