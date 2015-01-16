@@ -56,9 +56,9 @@ class ControlSublineas extends Controller {
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formulariosublineas')
-						->withInput($todosDatos)
-						->with('mensaje_error',"Error al guardar");
+						//return Redirect::to('formulariosublineas')
+						//->withInput($todosDatos)
+						//->with('mensaje_error',"Error al guardar");
 					}
 
 						return Redirect::to('formulariosublineas')
@@ -67,5 +67,22 @@ class ControlSublineas extends Controller {
 				
 					}
 			}
+
+
+
+
+
+			public function cargarFormularioNuevaSublinea(){
+
+			$listaLineas = InvLineas::all();
+
+			$datos=  array(
+				'lineas' =>$listaLineas);
+
+
+		return View::make('administrador/formulario_sublineas',$datos); 
+
+
+			}//
 
 }

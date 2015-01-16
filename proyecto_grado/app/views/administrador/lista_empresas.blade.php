@@ -2,31 +2,31 @@
 
 @section('cuerpo')
 
-<form id="form-lineas">
+<form id="form-empresas">
         
-   <div id="titulo-listalineas" id="cuadro"> 
-      <h2>Lista de L&iacute;neas</h2>
+   <div id="titulo-listaempresas" id="cuadro"> 
+      <h2>Lista de Empresas</h2>
     </div>
 
-  <div id="tabla-listalineas">
-      <table id="listalineas">
+  <div id="tabla-listaempresas">
+      <table id="listaempresas">
         <thead>
           <tr><th colspan="3"  style=" border-radius: 5px; background: #1A6D71;
               background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
               background: -moz-linear-gradient(top,#1A6D71,#122d3e);
               background: -o-linear-gradient(top,#1A6D71,#122d3e);  
               background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">L&Iacute;NEAS</th></tr>
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">EMPRESAS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="2">NOMBRE DE LA L&Iacute;NEA</th>
+            <th colspan="2">NOMBRE DE LA EMPRESA</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
             <td>1</td>
-            <td id="nombre-linea"><a href="">Este es el nombre de la linea</a></td>
+            <td id="nombre-empresa"><a href="">Este es el nombre de la empresa</a></td>
             <td>
               <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               <a href="#" class="button">Eliminar</a>
@@ -34,7 +34,7 @@
           </tr>
           <tr>
             <td>2</td>
-            <td id="nombre-linea"><a href="">Linea 2</a></td>
+            <td id="nombre-empresa"><a href="">Linea 2</a></td>
             <td>
               <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               <a href="#" class="button">Eliminar</a>
