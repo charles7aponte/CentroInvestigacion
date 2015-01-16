@@ -13,8 +13,9 @@ class CinvTipoGrupos extends Migration {
 	public function up()
 	{
 		Schema::create('inv_tipo_grupos', function($tabla){
-		$tabla->increments('id_tipo');
+		$tabla->increments('id');
 		$tabla->string('tipo_grupo',50);
+		
 		});
 	}
 

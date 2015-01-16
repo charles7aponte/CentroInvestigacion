@@ -9,47 +9,41 @@ class ControlLineas extends Controller {
 	 */
 	public function CrearFormulario(){
 
-		$nit=Input::get('nonmbre-linea');
-		$cordinador_linea=Input::get('cordinador-linea');
+		$nombre=Input::get('nombre-linea');
+		$coordinador=Input::get('coor-linea');
 		$objetivo=Input::get('objetivo-linea');
-		$estudio=Input::get('objetivo-estulinea');
-		$definicion=Input::get('defi-linea');
-		$archivo=Input::get('archivo-linea');
+		$objeto_estudio=Input::get('objetivo-estulinea');
+		$definicion=Input::get('defi-linea');	
+							
 
 		$todosDatos = Input::all();
 
 	
 
 		/*objeto del modelo*/
-		$entidad=new InvEntidades();
+		$entidad=new InvLineas();
 		
-		$entidad->nit_empresa=$nit;
-		$entidad->nombre_empresa=$entidad_nombre;
-		$entidad->representante_legal=$representante;
-		$entidad->descripcion_empresa=$descripcion;
-		$entidad->tipo_empresa=$tipo;
-		$entidad->email=$email_entidad;
-
-		$entidad->pagina_web=$pagina_entidad;
-		$entidad->telefono=$telefono_entidad;
-		$entidad->celular=$celular_entidad;
+		$entidad->nombre_linea=$nombre;
+		$entidad->coordinador_linea =$coordinador;
+		$entidad->objetivo_linea=$objetivo;
+		$entidad->objetivo_estudio =$objeto_estudio;
+		$entidad->definicion_linea=$definicion;
+	
 
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
 				'max'=>'No debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida'
 			);
 
 
 			// execute la validacin 
-			$validator = Validator::make(Input::all(), InvEntidades::$reglasValidacion,$messages);
+			$validator = Validator::make(Input::all(), InvLineas::$reglasValidacion,$messages);
 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
-
-				return Redirect::to('formularioentidades')
+				return Redirect::to('formulariolineas')
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
@@ -64,12 +58,13 @@ class ControlLineas extends Controller {
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioentidades')
+						return Redirect::to('formulariolineas')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si exsite la entidad");
+						->with('mensaje_error',"Verifique, es posible que ya exista la línea");
 					}
 
-						return Redirect::to('formularioentidades')
+						return Redirect::to('formulariolineas')
+
 								->withInput($todosDatos)
 								->with('mensaje_success',"Se ha Guardado");
 				

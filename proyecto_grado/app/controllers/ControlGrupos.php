@@ -1,20 +1,37 @@
 <?php
 
-
-class ControlConvocatorias extends Controller {
-
+class ControlGrupos extends Controller {
 
 	/**
 	 * Setup the layout used by the controller.
 	 *
 	 * @return void
 	 */
-
 	public function CrearFormulario(){
 
-		$numero=Input::get('numero-conv');
-		$titulo=Input::get('titulo-conv');
-		$estado=Input::get('estado');
+		$numero=Input::get('nombre');
+		$coord=Input::get('coord');
+		$email=Input::get('email');
+
+		$pagina=Input::get('pagina');
+		$telefono=Input::get('telefono');
+		$direccion=Input::get('direccion');
+		
+		$fecha_creacion=Input::get('fecha_creacion');
+		$unidad=Input::get('unidad');
+		$categoria=Input::get('categoria');
+		$tipo=Input::get('tipo');
+
+		$integrantes =Input::get('integrantes');
+
+
+print_r(Input::all());
+		
+
+
+/*
+
+
 
 		//manejo de fechas ..		
 		$fecha_apertura=Input::get('fecha-apertura');
@@ -38,30 +55,27 @@ class ControlConvocatorias extends Controller {
 		$nombreNuevo="";
 
 		//manejo de archivo
-
-		//if(Input::hasFile('dcto-conv'))
+		///
 		if(Input::hasFile('dcto-conv'))
 		{
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
-			while (File::exists("img_db/convocatoria/".$nombreNuevo) )
+			while (File::exists("img_db/".$nombreNuevo) )
 			{
 				$numero=rand(1,999);
 				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
 			}
 
-			$archivoF->move("img_db/convocatoria/",$nombreNuevo);
+			$archivoF->move("img_db",$nombreNuevo);
 
 			//echo "-->".$archivoF ->getClientOriginalName();
 		}
 
 
-		$todosDatos = Input::except('dcto-conv');
-	
 
-		/*objeto del modelo*/
+		$todosDatos = Input::all();
 
 		$entidad=new InvConvocatorias();
 		
@@ -83,19 +97,15 @@ class ControlConvocatorias extends Controller {
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida',
-				'numeric'=>'No es un valor valido'
-
+				'email' =>'No es una dirección de email válida'
 			);
 
 
 			// execute la validacin 
-
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
-
 
 
 				return Redirect::to('formularioconvocatorias')
@@ -106,11 +116,10 @@ class ControlConvocatorias extends Controller {
 
 
 
-					try{
+			//		try{
 						$entidad->save();
 					}
-
-					catch(PDOException $e)
+					catch( PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
@@ -124,7 +133,27 @@ class ControlConvocatorias extends Controller {
 								->with('mensaje_success',"La convocatoria ha sido creada.");
 			
 					}
-				
+			*/	
 			}
+
+
+
+			/**********
+			* caraga el formulario para crear un nuevo grupo
+			*/
+			public function cargarFormularioNuevoGrupo(){
+
+				$listaTiposGrupos = InvTipoGrupos::all();
+
+				$datos=  array(
+					'tipo_grupos' =>$listaTiposGrupos );
+
+			  return View::make('administrador/formulario_grupos',$datos); 
+
+
+			}//
+
+
+
 
 }

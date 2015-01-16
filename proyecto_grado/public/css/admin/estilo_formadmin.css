@@ -10,7 +10,9 @@
 #form-tipogrupo fieldset,
 #form-lineas fieldset,
 #form-sublineas fieldset,
-#form-empresas fieldset {
+#form-empresas fieldset,
+#form-tipoproducto fieldset,
+#form-subtipoproducto fieldset {
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -27,7 +29,9 @@
 #form-tipogrupo ul,
 #form-lineas ul,
 #form-sublineas ul,
-#form-empresas ul{
+#form-empresas ul,
+#form-tipoproducto ul,
+#form-subtipoproducto ul {
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -42,7 +46,9 @@
 #form-tipogrupo li,
 #form-lineas li, 
 #form-sublineas li,
-#form-empresas li {
+#form-empresas li,
+#form-tipoproducto li,
+#form-subtipoproducto li {
     padding:7px; 
     position:relative;
 } 
@@ -66,7 +72,9 @@
 #form-financiamiento-proyectos label,
 #form-lineas label,
 #form-sublineas label,
-#form-empresas label {
+#form-empresas label,
+#form-tipoproducto label,
+#form-subtipoproducto label {
 	color: #333;
     display: inline-block;
     float: left;
@@ -75,7 +83,7 @@
     font-weight: bold;
     margin-top: 3px;
     padding: 3px;
-    width: 170px;
+    width: 175px;
 } 
 
 #form-grupos input, #form-grupos select,
@@ -86,7 +94,9 @@
 #form-tipogrupo input,
 #form-lineas input,
 #form-sublineas input, #form-sublineas select,
-#form-empresas input {
+#form-empresas input,
+#form-tipoproducto input,
+#form-subtipoproducto input, #form-subtipoproducto select {
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -99,7 +109,9 @@
 #form-financiamiento-proyectos textarea,
 #form-lineas textarea,
 #form-sublineas textarea,
-#form-empresas textarea {
+#form-empresas textarea,
+#form-tipoproducto textarea,
+#form-subtipoproducto textarea {
     padding:8px; 
     width: 700px;
     min-height: 150px;
@@ -113,7 +125,9 @@
 #form-tipogrupo input,
 #form-lineas input, #form-lineas textarea,
 #form-sublineas input, #form-sublineas textarea, #form-sublineas select,
-#form-empresas input, #form-empresas textarea { 
+#form-empresas input, #form-empresas textarea,
+#form-tipoproducto input, #form-tipoproducto textarea,
+#form-subtipoproducto input, #form-subtipoproducto textarea, #form-subtipoproducto select{ 
     border: 1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -134,8 +148,10 @@
 #form-tipogrupo input:focus,
 #form-lineas input:focus, #form-lineas textarea:focus,
 #form-sublineas input:focus, #form-sublineas textarea:focus,
-#form-empresas input:focus, #form-empresas textarea:focus {
-    background: #fff;  
+#form-empresas input:focus, #form-empresas textarea:focus,
+#form-tipoproducto input:focus, #form-tipoproducto textarea:focus,
+#form-subtipoproducto input:focus, #form-subtipoproducto textarea:focus {
+    background: #fff;  , 
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
     padding-right:80px;
@@ -159,7 +175,9 @@
 #form-tipogrupo #titulo,
 #form-lineas #titulo,
 #form-sublineas #titulo,
-#form-empresas #titulo {
+#form-empresas #titulo,
+#form-tipoproducto #titulo,
+#form-subtipoproducto #titulo {
     width: auto;
     margin: 0 5px 0 5px; 
 }
@@ -172,7 +190,9 @@
 #form-tipogrupo #titulo h2,
 #form-lineas #titulo h2,
 #form-sublineas #titulo h2,
-#form-empresas #titulo h2 {
+#form-empresas #titulo h2,
+#form-tipoproducto #titulo h2,
+#form-subtipoproducto #titulo h2 {
     color: #1c7e84; /*tono verde de todo #20B2AA*/
     display: block;
     text-transform: uppercase;
@@ -194,7 +214,9 @@
 #form-tipogrupo h2 img,
 #form-lineas h2 img,
 #form-sublineas h2 img,
-#form-empresas h2 img {
+#form-empresas h2 img,
+#form-tipoproducto h2 img,
+#form-subtipoproducto h2 img {
 	margin-right: 5px;
 }
 
@@ -207,7 +229,9 @@
 #form-tipogrupo input:required:valid,
 #form-lineas input:required:valid, #form-lineas textarea:required:valid,
 #form-sublineas input:required:valid, #form-sublineas textarea:required:valid,
-#form-empresas input:required:valid, #form-empresas textarea:required:valid {
+#form-empresas input:required:valid, #form-empresas textarea:required:valid,
+#form-tipoproducto input:required:valid, #form-tipoproducto textarea:required:valid,
+#form-subtipoproducto input:required:valid, #form-subtipoproducto textarea:required:valid, #form-subtipoproducto select:required:valid {
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
@@ -218,10 +242,12 @@
 #form-proyectos #crear-proyecto, #reset-button,
 #form-productos #crear-producto, #reset-button,
 #form-financiamiento-proyectos #agregar-financiamiento, #form-financiamiento-proyectos #guardar-financiamiento,
-#form-tipogrupo #crear-tipogrupo, #form-tipogrupo #guardar-tipogrupo,
 #form-lineas #crear-linea,
 #form-sublineas #crear-sublinea,
-#form-empresas #crear-empresa, #form-empresas #reset-button  {
+#form-empresas #crear-empresa, #form-empresas #reset-button,
+#form-tipoproducto #crear-tipoproducto, #guardar-tipoproducto,
+#form-tipogrupo #crear-tipogrupo, #guardar-tipogrupo,
+#form-subtipoproducto #crear-subtipoproducto, #guardar-subtipoproducto {
 	background:#276B6F; 
     background-image: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
     background-image: -moz-linear-gradient(top,#276B6F,#5BA9AE);
@@ -249,7 +275,10 @@
     float: left;
     margin-left: 20px;
     margin-bottom:;
+
 }
+
+
 
 #botones-formularios th#borrar{
     float: left;
@@ -276,13 +305,13 @@
 #form-convocatorias #crear-convocatoria:hover,
 #form-proyectos #crear-proyecto:hover,
 #form-productos #crear-producto:hover,
-#form-financiamiento-proyectos #guardar-financiamiento:hover,
-#form-financiamiento-proyectos #agregar-financiamiento:hover,
-#form-tipogrupo #crear-tipogrupo:hover,
-#form-tipogrupo #guardar-tipogrupo:hover,
+#form-financiamiento-proyectos #guardar-financiamiento:hover, #form-financiamiento-proyectos #agregar-financiamiento:hover,
+#form-tipogrupo #crear-tipogrupo:hover, #guardar-tipogrupo:hover,
 #form-lineas #crear-linea:hover,
 #form-sublineas #crear-sublinea:hover,
-#form-empresas #crear-empresa:hover {
+#form-empresas #crear-empresa:hover,
+#form-tipoproducto #crear-tipoproducto:hover,#guardar-tipoproducto:hover,
+#form-subtipoproducto #crear-subtipoproducto:hover, #guardar-subtipoproducto:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -323,8 +352,8 @@ input#grupo-producto {
 }
 
 table#tabla-integrantes-grupos,
-table#tabla-lineas-grupos,
-table#tabla-tipo-grupos{
+table#tabla-lineas-grupos, 
+table#tabla-tipo-grupos {
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -338,7 +367,9 @@ table#tabla-tipo-grupos{
 
 table#tabla-financiamiento-grupos,
 table#tabla-integrantes-proyectos,
-table#tabla-integrantes-productos {
+table#tabla-integrantes-productos, 
+table#tabla-tipo-productos,
+table#tabla-subtipo-productos{
     color: #333;
     font-size: .9em;
     font-weight: 300;
@@ -352,11 +383,12 @@ table#tabla-integrantes-productos {
 
 #tabla-integrantes-grupos thead tr:first-child,
 #tabla-integrantes-proyectos thead tr:first-child,
-#tabla-integrantes-proyectos thead tr:first-child,
 #tabla-lineas-grupos thead tr:first-child,
 #tabla-financiamiento-grupos thead tr:first-child,
 #tabla-tipo-grupos thead tr:first-child,
-#tabla-integrantes-productos thead tr:first-child {
+#tabla-integrantes-productos thead tr:first-child,
+#tabla-tipo-productos thead tr:first-child,
+#tabla-subtipo-productos thead tr:first-child {
 	background: #1A6D71;
 	color: #fff;
 	border: none;
@@ -367,7 +399,9 @@ table#tabla-integrantes-productos {
  #tabla-lineas-grupos th,
  #tabla-financiamiento-grupos th,
  #tabla-tipo-grupos th,
- #tabla-integrantes-productos th {
+ #tabla-integrantes-productos th,
+ #tabla-tipo-productos th,
+ #tabla-subtipo-productos th {
  	font-weight: bold;
  }
 
@@ -376,7 +410,9 @@ table#tabla-integrantes-productos {
  #tabla-lineas-grupos th:first-child, td:first-child,
  #tabla-financiamiento-grupos th:first-child, td:first-child,
  #tabla-tipo-grupos th:first-child, td:first-child,
- #tabla-integrantes-productos th:first-child, td:first-child  {
+ #tabla-integrantes-productos th:first-child, td:first-child,
+ #tabla-tipo-productos th:first-child, td:first-child,
+ #tabla-subtipo-productos th:first-child, td:first-child {
  	padding: 0 15px 0 20px;
  }
 
@@ -385,7 +421,9 @@ table#tabla-integrantes-productos {
  #tabla-lineas-grupos thead tr:last-child th,
  #tabla-financiamiento-grupos thead tr:last-child th,
  #tabla-tipo-grupos thead tr:last-child th,
- #tabla-integrantes-productos thead tr:last-child th {
+ #tabla-integrantes-productos thead tr:last-child th,
+ #tabla-tipo-productos thead tr:last-child th,
+ #tabla-subtipo-productos thead tr:last-child th {
     border-bottom: 2px solid #ddd;
 }
 
@@ -394,13 +432,17 @@ table#tabla-integrantes-productos {
  #tabla-lineas-grupos tbody tr:hover,
  #tabla-financiamiento-grupos tbody tr:hover, 
  #tabla-tipo-grupos tbody tr:hover,
- #tabla-integrantes-productos tbody tr:hover {
+ #tabla-integrantes-productos tbody tr:hover,
+ #tabla-tipo-productos tbody tr:hover,
+ #tabla-subtipo-productos tbody tr:hover {
     background-color: #E5F7FE;
 }
  #tabla-integrantes-grupos tbody tr:last-child td, 
  #tabla-lineas-grupos tbody tr:last-child td,
  #tabla-tipo-grupos tbody tr:last-child td,
- #tabla-integrantes-productos tbody tr:last-child td {
+ #tabla-integrantes-productos tbody tr:last-child td,
+ #tabla-tipo-productos tbody tr:last-child td,
+ #tabla-subtipo-productos tbody tr:last-child td {
     border: none;
 }
  #tabla-integrantes-grupos tbody td, 
@@ -408,7 +450,9 @@ table#tabla-integrantes-productos {
  #tabla-lineas-grupos tbody td,
  #tabla-financiamiento-grupos tbody td,
  #tabla-tipo-grupos tbody td,
- #tabla-integrantes-productos tbody td{
+ #tabla-integrantes-productos tbody td,
+ #tabla-tipo-productos tbody td,
+ #tabla-subtipo-productos tbody td{
     border-bottom: 1px solid #ddd;
 }
 

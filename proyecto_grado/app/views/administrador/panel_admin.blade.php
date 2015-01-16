@@ -46,6 +46,12 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_listasadmin.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+
+
 	@section("css-nuevos")
 	@show
 
@@ -55,6 +61,8 @@ switch($mes){
 	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
 	<script src="js/hideshow.js" type="text/javascript"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
+
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
 	@show
@@ -104,9 +112,9 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
-			<li class=""><a href="listadegrupos">Ver/Editar grupos de estudio</a></li>
-			<li class=""><a href="listadegrupos">Ver/Editar grupos de investigaci&oacute;n</a></li>
-			<li class=""><a href="formulariotipogrupo">Agregar/Eliminar tipo de grupo</a></li>
+			<li class=""><a href="listadegruposestudio">Ver/Editar grupos de estudio</a></li>
+			<li class=""><a href="listadegruposinv">Ver/Editar grupos de investigaci&oacute;n</a></li>
+			<li class=""><a href="formulariotipogrupo">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
@@ -117,7 +125,7 @@ switch($mes){
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
-			<li class=""><a href="">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
+			<li class=""><a href="formularioinvestigadores">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
 		<ul class="toggle">
@@ -133,11 +141,14 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproductos"> Agregar nuevo producto</a></li>
-			<li class=""><a href="listadeproductos">Ver/Editar un producto</a></li>
+			<li class=""><a href="listadeproductos">Ver/Editar un producto</a></li>			
+			<li class=""><a href="formulariotipoproductos">Agregar/eliminar un tipo de producto</a></li>
+			<li class=""><a href="formulariosubtipoproductos">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioentidades">Agregar nueva empresa</a></li>
+			<li class=""><a href="">Ver/Eliminar una empresa</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">

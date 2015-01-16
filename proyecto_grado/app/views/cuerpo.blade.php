@@ -39,6 +39,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
     <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
+
+
     <link rel="stylesheet" type="text/css" href="css/estilo.css"> <!--css del estilo de la pagina principal-->
     <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
     <link rel="stylesheet" type="text/css" href="css/estilo_login.css">
@@ -47,11 +52,20 @@
 	@section('css')
 	
 	@show
+
+
+
 	
     <!-- scripts -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/texto-imagenes-slider.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+
+    @section('css')
+	
+	@show
 
 </head>
 	<body>

@@ -2,26 +2,30 @@
 
 @section('cuerpo')
 
-<form id="form-grupos">
-<fieldset>
+<form id="form-sublineas">
         
  <div id="titulo-listasublineas" id="cuadro"> 
-    <h2>Listado Sublineas</h2>
+    <h2>Lista de Subl&iacute;neas</h2>
   </div>
 
 <div id="tabla-listasublineas">
   <table id="listasublineas">
     <thead>
-      <tr><th colspan="3">SUBLINEAS</th></tr>
+      <tr><th colspan="3" style=" border-radius: 5px; background: #0072BC;
+                  background: -webkit-linear-gradient(top,#0072BC,#122d3e);
+                  background: -moz-linear-gradient(top,#0072BC,#122d3e);
+                  background: -o-linear-gradient(top,#0072BC,#122d3e);  
+                  background: linear-gradient(to bottom,#0072BC,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0072BC, endColorstr=#122d3e); color:white;">SUBL&Iacute;NEAS</th></tr>
       <tr>
         <th>#</th>
-        <th colspan="2">NOMBRE DE LA SUBLINEA</th>
+        <th colspan="2">NOMBRE DE LA SUBL&Iacute;NEA</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
-        <td id="nombre-sublinea"><a href="">Este es el nombre del grupo 1 de investigacion o de estudio de la universidad de los llanos</a></td>
+        <td id="nombre-sublinea"><a href="">Este es el nombre de la sublinea</a></td>
         <td>
           <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
           <a href="#" class="button">Eliminar</a>
@@ -37,29 +41,34 @@
       </tr>
     </tbody>
   </table>
-  <nav>
-  <ul class="pager">
-    <li><a href="#" style=" background: #276b6f;
-      background: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
-      background: -moz-linear-gradient(top,#276B6F,#5BA9AE);
-      background: -o-linear-gradient(top,#276B6F,#5BA9AE);  
-      background: linear-gradient(to bottom,#276B6F,#5BA9AE);  
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#276B6F, endColorstr=#5BA9AE);
-      text-decoration: none;
-      font-weight: bold;
-      color:#fff">Anterior</a></li> 
-    <li><a href="#" style=" background: #276b6f;
-      background: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
-      background: -moz-linear-gradient(top,#276B6F,#5BA9AE);
-      background: -o-linear-gradient(top,#276B6F,#5BA9AE);  
-      background: linear-gradient(to bottom,#276B6F,#5BA9AE);  
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#276B6F, endColorstr=#5BA9AE);
-      text-decoration: none;
-      font-weight: bold;
-      color:#fff">Siguiente</a></li>
-  </ul>
-</nav>
+          <nav>
+        <ul  class="pager">
+          <li id="botones">
+            <a href="#" style=" border-radius: 7px; background: #0072BC;
+              background: -webkit-linear-gradient(top,#0072BC,#122d3e);
+              background: -moz-linear-gradient(top,#0072BC,#122d3e);
+              background: -o-linear-gradient(top,#0072BC,#122d3e);  
+              background: linear-gradient(to bottom,#0072BC,#122d3e);  
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0072BC, endColorstr=#122d3e);
+              text-decoration: none;
+              font-weight: bold;
+              color:#fff">Anterior
+            </a>
+          </li> 
+          <li id="botones">
+            <a href="#" style=" border-radius: 7px; background: #0072BC;
+              background: -webkit-linear-gradient(top,#0072BC,#122d3e);
+              background: -moz-linear-gradient(top,#0072BC,#122d3e);
+              background: -o-linear-gradient(top,#0072BC,#122d3e);  
+              background: linear-gradient(to bottom,#0072BC,#122d3e);  
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0072BC, endColorstr=#122d3e);
+              text-decoration: none;
+              font-weight: bold;
+              color:#fff">Siguiente
+            </a>
+          </li>
+      </ul>
+    </nav>
 </div>
-</fieldset>
 </form>
 @stop

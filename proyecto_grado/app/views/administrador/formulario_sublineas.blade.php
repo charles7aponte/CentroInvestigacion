@@ -2,33 +2,54 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-sublineas" autocomplete="on"   action="" method="">
+    <form id="form-sublineas" autocomplete="on"   action="{{URL::to('creacion/formulariosublineas')}}" method="post">
+
+        @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nueva subl&iacute;nea</h2></div>
             <ul>
                 <fieldset> 
 
-                    <li><label for="nombre-sublinea">Nombre de la subl&iacute;nea:</label>
-                        <input type="text" id="nombre-sublinea" name="nombre-sublinea" value="" required="required"/> 
-                    </li>
-                    </li>
-                    <li><label for="objetivo-sublinea">Estado de la subl&iacute;nea:</label>
-                        <input id="objetivo-sublinea" name="objetivo-sublinea"></input>
-                    </li>   
-                    <li><label for="lineade-sublinea">L&iacute;nea:</label> 
-                        <select name="lineade-sublinea" required="required">
-                            <option value=""></option>
-                            <option value="">Aaaaaa</option>
-                            <option value="">Bbbbbb</option>
-                            <option value="">Cccccc</option>
-                        </select>
+                    <li class="@if($errors->has('nombre-sublinea')) has-error @endif">
+                        <label for="nombre-sublinea">Nombre de la subl&iacute;nea:</label>
+                        <input type="text" id="nombre-sublinea" name="nombre-sublinea" value="{{Input::old('nombre-sublinea')}}" required="required"/> 
+                        @if ($errors->has('nombre-sublinea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-sublinea') }}</p> @endif
                     </li>
 
+                    </li>
+                    <li class="@if($errors->has('estado-sublinea')) has-error @endif">
+                        <label for="estado-sublinea">Estado de la subl&iacute;nea:</label>
+                        <input id="estado-sublinea" name="estado-sublinea" value="{{Input::old('estado-sublinea')}}"></input>
+                        @if ($errors->has('estado-sublinea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('estado-sublinea') }}</p> @endif
+                    </li>  
+
+                    <li>
+                        <label for="lineade-sublinea">L&iacute;nea:</label> 
+                        <select name="lineade-sublinea" required="required">
+        
+                        </select>
+                    </li>
                 </fieldset>
             </ul>
             <ul>
                 <fieldset>
-                    <li><label for="decr-sublinea">Descripci&oacute;n:</label>
-                        <textarea id="decr-sublinea" name="decr-sublinea" required="required" ></textarea>
+                    <li class="@if($errors->has('decr-sublinea')) has-error @endif">
+                        <label for="decr-sublinea">Descripci&oacute;n:</label>
+                        <textarea id="decr-sublinea" name="decr-sublinea" required="required" value="{{Input::old('decr-sublinea')}}" ></textarea>
+                        @if ($errors->has('decr-sublinea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('decr-sublinea') }}</p> @endif
                     </li>  
                 </fieldset> 
             </ul>   
