@@ -43,7 +43,7 @@
                           @if(isset($lineas))
                           
                              @foreach ($lineas as $linea) <!--array--- nombre del campo en la bd-->
-                               <option value="{{$linea['id_linea']}}">{{$linea['nombre_linea']}}</option>
+                               <option value="{{$linea['id_lineas']}}">{{$linea['nombre_linea']}}</option>
                              @endforeach 
 
                           @endif
