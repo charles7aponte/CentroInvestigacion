@@ -48,10 +48,10 @@ class ControlSublineas extends Controller {
 			} else {
 
 
-
-					try{
-						$entidad->save();
+	$entidad->save();
 					}
+					try{
+					
 					catch( PDOException $e)
 					{
 						//return 'existe un error' + $e;
@@ -59,11 +59,13 @@ class ControlSublineas extends Controller {
 						//return Redirect::to('formulariosublineas')
 						//->withInput($todosDatos)
 						//->with('mensaje_error',"Error al guardar");
+
+
 					}
 
-						return Redirect::to('formulariosublineas')
-								->withInput($todosDatos)
-								->with('mensaje_success',"Se ha Guardado");
+						//return Redirect::to('formulariosublineas')
+						//		->withInput($todosDatos)
+						//		->with('mensaje_success',"Se ha Guardado");
 				
 					}
 			}
