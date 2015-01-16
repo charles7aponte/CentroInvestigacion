@@ -10,8 +10,8 @@
                     <li><label for="nombre-linea">Nombre de la l&iacute;nea:</label>
                         <input type="text" id="nombre-linea" name="nombre-linea" value="" required="required"/> 
                     </li>
-                    <li><label for="coor-linea">Coordinador de la l&iacute;nea:</label>
-                        <input type="text" id="coor-linea" name="coor-linea" value="" required="required"/> 
+                    <li><label for="cordinador-linea">Coordinador de la l&iacute;nea:</label>
+                        <input type="text" id="cordinador-linea" name="coor-linea" value="" required="required"/> 
                     </li>
                     <li><label for="objetivo-linea">Objetivo de la l&iacute;nea:</label>
                         <textarea id="objetivo-linea" name="objetivo-linea"></textarea>
