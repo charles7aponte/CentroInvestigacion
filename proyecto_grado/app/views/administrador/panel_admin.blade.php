@@ -136,7 +136,7 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
 			<li class=""><a href="formulariofinanciamiento">Agregar/Ver Financiamiento de un proyecto</a></li>
-			<li class=""><a href="">Ver/Editar un proyecto</a></li>
+			<li class=""><a href="listadeproyectos">Ver/Editar un proyecto</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
@@ -148,7 +148,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Empresas Financiadoras</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioentidades">Agregar nueva empresa</a></li>
-			<li class=""><a href="">Ver/Eliminar una empresa</a></li>
+			<li class=""><a href="listadeempresas">Ver/Eliminar una empresa</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">

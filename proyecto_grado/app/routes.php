@@ -22,6 +22,8 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 
 /*--------------formularios-----------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
+
+Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
 /*function(){
 
   $p = Estudiante::find(3);
@@ -41,8 +43,6 @@ print_r($gg);
 Route::get('formulariotipogrupo', function() { return View::make('administrador/formulario_tipogrupos'); });
 
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
-
-Route::get('formulariosublineas', function() { return View::make('administrador/formulario_sublineas'); });
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
@@ -85,6 +85,10 @@ Route::post('creacion/formulariogrupos', 'ControlGrupos@CrearFormulario');
 
 Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario');
 
+Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
+
+Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
+
 
 /*-------------listas de cada tema-------------*/
 Route::get('listadegruposinv', function() { return View::make('administrador/lista_grupos_inv');});
@@ -99,10 +103,9 @@ Route::get('listadesublineas', function() { return View::make('administrador/lis
 
 Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
 
-Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
+Route::get('listadeempresas', function() {return View::make('administrador/lista_empresas');});
 
-Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
-
+Route::get('listadeproyectos', function() {return View::make('administrador/lista_proyectos');});
 
 /*********** creacion de servicios 
 *************

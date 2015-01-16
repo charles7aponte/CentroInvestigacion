@@ -37,9 +37,16 @@
                     </li>  
 
                     <li>
-                        <label for="lineade-sublinea">L&iacute;nea:</label> 
-                        <select name="lineade-sublinea" required="required">
-        
+                        <label for="lineade-sublinea">L&iacute;nea: </label> 
+                        <select name="lineade-sublinea">
+                         <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
+                          @if(isset($lineas))
+                          
+                             @foreach ($lineas as $linea) <!--array--- nombre del campo en la bd-->
+                               <option value="{{$linea['id_linea']}}">{{$linea['nombre_linea']}}</option>
+                             @endforeach 
+
+                          @endif
                         </select>
                     </li>
                 </fieldset>

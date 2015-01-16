@@ -157,8 +157,8 @@ Menu de navegacion
 
 #menu ul li a:hover, #menu ul li:hover a.nivel1 {
     box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 2px 2px 10px rgba(0,0,0,.1);
-    border: 1px solid #0072BC; /* Borde */
-    background: #0072BC;  /* Fondo */
+    border: 1px solid #015892; /* Borde */
+    background: #015892;  /* Fondo */
     text-align: center;  /* Alineación del texto */
     text-shadow: -1px -1px rgba(0,0,0,.2);  /* Sombra del texto */
     color: white;  /* Color del texto */
@@ -205,7 +205,6 @@ Cuerpo
     font-family:sans-serif, Arial, Verdana, Helvetica;
     color:#333333;
 }
-
 
 
 /*leer mas*/
@@ -307,9 +306,8 @@ ul.sb_menu li a, ul.list li a {
     text-decoration:none;
     margin-left:-12px;
     padding-left:12px;
-        
-
 }
+
 ul.sb_menu li a:hover, ul.list li a:hover {
     color:#2cadff;
     text-decoration:underline;
@@ -381,7 +379,7 @@ Pie de pagina
 }
 
 #capa-pie{
-    background: url(../images/bg-footer.jpg); ;
+    background: url(../images/bg-footer.jpg); 
     color: #FFF;
     margin: 0 0 10px 0;
     padding: 10px 5px 10px 5px;
