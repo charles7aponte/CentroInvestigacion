@@ -11,6 +11,7 @@ class InvLineas extends Eloquent  {
 	protected $table = 'inv_lineas';
 	public $timestamps = false;
 	protected $primaryKey = "id_lineas";
+	public $incrementing = true;
 
 
 		// reglas

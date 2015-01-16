@@ -28,7 +28,7 @@ class ControlSubtipoProductos extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				 'unique'  =>'Es posible que ya exista el subtipo de producto, verifique'
+				'unique'  =>'Es posible que ya exista el subtipo de producto, verifique.'
 				
 			);
 

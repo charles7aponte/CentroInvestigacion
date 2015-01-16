@@ -32,14 +32,15 @@
                     </li> 
 
                     <li><label for="subtipo-tipo-producto">Tipo de producto:</label> 
-                        <select name="subtipo-tipo-producto" >
+                        <select name="subtipo-tipo-producto" id="subtipo-tipo-producto">
                       <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
-
+                          <option>aaaa</option>
+                          <option>bbbb</option>
                         </select>
                     </li>   
   
                     <li class="@if($errors->has('desc-subtipo-producto')) has-error @endif">
-                      <label for="desc-subtipo-producto">Descripci&oacute;n:</label>
+                        <label for="desc-subtipo-producto">Descripci&oacute;n:</label>
                         <textarea id="desc-subtipo-producto" name="desc-subtipo-producto">{{Input::old('desc-subtipo-producto')}}</textarea>
                           @if ($errors->has('desc-subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-subtipo-producto') }}</p> @endif 
                     </li>  

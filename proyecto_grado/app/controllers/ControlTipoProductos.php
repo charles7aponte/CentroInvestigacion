@@ -42,13 +42,13 @@ class ControlTipoProductos extends Controller {
 				return Redirect::to('formulariotipoproductos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error');
+					->with('mensaje_error',"");
 			} else {
 
 
 
 					try{
-						$entidad->save();echo "entre1";
+						$entidad->save();
 					}
 					catch( PDOException $e)
 					{

@@ -16,7 +16,7 @@ class InvTipoGrupos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'tipo-grupo'            => 'required| max:50', 	
+			'tipo-grupo'           => 'required|unique:inv_tipo_grupos,tipo_grupo|max:50', 	
 		);
 
 

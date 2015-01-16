@@ -24,7 +24,7 @@ class ControlLineas extends Controller {
 		$entidad=new InvLineas();
 		
 		$entidad->nombre_linea=$nombre;
-		$entidad->coordinador_lineaa =$coordinador;
+		$entidad->coordinador_linea =$coordinador;
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;

@@ -24,7 +24,8 @@ class ControlTipoGrupos extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				'max'=>'No debe ser mayor a :max',
+				'unique'  =>'Es posible que ya exista el tipo de producto, verifique.',
+				'max'=>'No debe ser mayor a :max'
 			);
 
 
@@ -38,7 +39,7 @@ class ControlTipoGrupos extends Controller {
 				return Redirect::to('formulariotipogrupo')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar, puede ser posible que exceda la cantidad de caracteres.");
+					->with('mensaje_error',"Error al guardar, puede ser posible que exceda la cantidad de caracteres o ingreso un tipo de grupo que ya existe.");
 			} else {
 
 
@@ -52,7 +53,7 @@ class ControlTipoGrupos extends Controller {
 						
 						return Redirect::to('formulariotipogrupo')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique si existe la entidad");
+						->with('mensaje_error',"error al guardar, verifique");
 					}
 
 						return Redirect::to('formulariotipogrupo')

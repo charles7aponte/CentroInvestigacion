@@ -112,8 +112,8 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
-			<li class=""><a href="listadegrupos">Ver/Editar grupos de estudio</a></li>
-			<li class=""><a href="listadegrupos">Ver/Editar grupos de investigaci&oacute;n</a></li>
+			<li class=""><a href="listadegruposestudio">Ver/Editar grupos de estudio</a></li>
+			<li class=""><a href="listadegruposinv">Ver/Editar grupos de investigaci&oacute;n</a></li>
 			<li class=""><a href="formulariotipogrupo">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
