@@ -10,12 +10,13 @@
   function eliminartipogrupo(id){
 
 
-alert("hola");
-/*  $.ajax({
+
+ $.ajax({
     url:'formulariotipogrupo/eliminar/'+id,
     type:'GET',
     dataType:"json",
-    sucess: function (data){
+
+    success: function (data){
       alert(data);
       if(data.respuesta)
         {
@@ -29,10 +30,9 @@ alert("hola");
     }
     ,
     error: function(j,t,e){
-      alert();
+      alert("");
     }
   });
-*/
   return false;
 
   }
@@ -99,7 +99,8 @@ alert("hola");
                       <td>{{$tipogrupo['id']}}</td>
                       <td>{{$tipogrupo['tipo_grupo']}}</td>
                       <td>
-                        <a href="#" onclick="eliminartipogrupo({{$tipogrupo['id']}})" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                       <b onclick="eliminartipogrupo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                       </b>
                       </td>
                     </tr>
 
