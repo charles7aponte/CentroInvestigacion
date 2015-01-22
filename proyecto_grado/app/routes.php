@@ -139,16 +139,38 @@ $personas= array(
 
 
 Route::get('login1',function(){
-  // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
-   if (Auth::attempt( array('cedula' => '1', 'clavep' => '123' ), true )){
-  // if(true){
-   	
-  
-        //return Redirect::to('inicio');
-    	return "entro;";
-    }else{
-        //return Redirect::to('login')->with('mensaje_login', 'Ingreso invalido');
-    	return "entro;";
-    }
+
+
+      $userdata = array(
  
+            'username' => "g1",
+            'password'=> "12"
+ 
+        ); 
+ 
+        //si los datos son correctos y existe un usuario con los mismos se inicia sesión
+        //y redirigimos a la home
+        if(Auth::attempt($userdata, true))
+        {
+ 
+            return "entro";
+ 
+        }else{
+            //en caso contrario mostramos un error
+            return "no ...";
+ 
+        }
+
+});
+
+
+Route::get('gua', function(){
+  $s1 = new Usuarios1();
+  $s1->username="g1";
+  $s1->password=Hash::make("12");
+  $s1->name="g1";
+  $s1->email="@1";
+
+  $s1->save();
+
 });

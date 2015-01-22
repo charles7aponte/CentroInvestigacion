@@ -16,6 +16,8 @@ return array(
 	*/
 
 	'driver' => 'eloquent',
+//'driver' => 'fluent',
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +43,7 @@ return array(
 	|
 	*/
 
-	'table' => 'persona',
+	'table' => 'users',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -57,6 +59,11 @@ return array(
 	| they have less time to be guessed. You may change this as needed.
 	|
 	*/
+
+  	'username' => 'username',//username a utilizar de la tabla usuarios
+ 
+    'password' => 'password',//password a utilizar de la tabla usuarios
+ 
 
 	'reminder' => array(
 
