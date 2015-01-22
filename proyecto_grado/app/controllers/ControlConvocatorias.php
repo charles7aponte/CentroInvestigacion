@@ -47,15 +47,15 @@ class ControlConvocatorias extends Controller {
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
-			while (File::exists("img_db/convocatoria/".$nombreNuevo) )
+			while (File::exists("../img_db/convocatorias/".$nombreNuevo) )
 			{
-				echo "2-";
+				echo "-2-";
 				$numero=rand(1,999);
 				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
 			}
 
-			$semovio=$archivoF->move("img_db/convocatorias",$nombreNuevo);
+			$semovio=$archivoF->move("../img_db/convocatorias/",$nombreNuevo);
 
 			echo "-333 $semovio";
 
@@ -113,8 +113,8 @@ class ControlConvocatorias extends Controller {
 
 
 					try{
-*/						$entidad->save();
-/*					}
+						$entidad->save();
+					}
 
 					catch(PDOException $e)
 					{
