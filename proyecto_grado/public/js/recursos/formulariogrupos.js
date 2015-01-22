@@ -1,4 +1,15 @@
+var jsonIntegrante=null;
+
+
+
 $(document).ready(function(){
+
+
+$("#bton_integrantes-grupos").click(function(){
+	generaFilaPersona(jsonIntegrante,"integrantes");
+});
+
+
 
 
 	//autocompletado
@@ -17,19 +28,25 @@ $(document).ready(function(){
 		}
 
 
-		,response:function(event, ui){
+		/*,response:function(event, ui){
 
 			console.info(event)
 			console.log(ui.item)
-		}
+		}*/
 
 		, select:function(event, ui)
 		{
 
 			console.log("seleccion :.. "+ ui.item.nombre)
 			console.log("seleccion ... cedula "+ui.item.cedula)
+  		
 
-			generaFilaPersona(ui.item,"integrantes");
+
+			$("#integrantes-grupos").val(ui.item.nombre+"("+ui.item.cedula+")");
+			//generaFilaPersona(ui.item,"integrantes");
+			jsonIntegrante = ui.item;
+
+			return false;
 
 		}
 
@@ -47,9 +64,11 @@ $(document).ready(function(){
 
 
  function generaFilaPersona( json, name ) {
-      
+ 
+ 	if(json)
+ 	{     
       var html ="<tr> ";
-            html +="                   <td><inputy type='hidden' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
+            html +="                   <td><inputy type='hidden' data-info='"+json.cedula+"' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
             html +="                  <td>"+json.nombre+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
@@ -57,9 +76,23 @@ $(document).ready(function(){
             html +="                </tr>";
 
             $fila= $(html);
-            $("#tabla-integrantes-grupos").append($fila);
 
-    }
+            var $lista=$("#tabla-integrantes-grupos").find("input[data-info]");
+            var existe=false;
+            $lista.each(function(index, ob){
+
+            	var $ob= $(ob);
+            	if(json.cedula==$ob.attr("data-info"))
+            	{
+            		existe=true;
+            	}
+
+            });
+
+            if(existe==false)
+            $("#tabla-integrantes-grupos").append($fila);
+	}
+   }
 
 
 
