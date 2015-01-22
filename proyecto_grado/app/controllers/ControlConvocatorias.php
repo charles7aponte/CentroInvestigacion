@@ -42,17 +42,22 @@ class ControlConvocatorias extends Controller {
 		//if(Input::hasFile('dcto-conv'))
 		if(Input::hasFile('dcto-conv'))
 		{
+
+			echo "1-";
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
 			while (File::exists("img_db/convocatoria/".$nombreNuevo) )
 			{
+				echo "2-";
 				$numero=rand(1,999);
 				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
 			}
 
-			$archivoF->move("img_db/convocatoria/",$nombreNuevo);
+			$semovio=$archivoF->move("img_db/convocatorias",$nombreNuevo);
+
+			echo "-333 $semovio";
 
 			//echo "-->".$archivoF ->getClientOriginalName();
 		}
@@ -82,9 +87,10 @@ class ControlConvocatorias extends Controller {
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
-				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida',
-				'numeric'=>'No es un valor valido'
+				'max'=>'El campo no debe ser mayor a :max.',
+				'email' =>'No es una dirección de email válida.',
+				'numeric'=>'No es un valor valido.',
+				'unique'=>'Verifique, es posible que ya exista la convocatoria.'
 
 			);
 
@@ -93,22 +99,22 @@ class ControlConvocatorias extends Controller {
 
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
-			if ($validator->fails()) {
+	//		if ($validator->fails()) {
 				$messages = $validator->messages();
 
 
 
-				return Redirect::to('formularioconvocatorias')
+	/*			return Redirect::to('formularioconvocatorias')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar.");
 			} else {
 
 
 
 					try{
-						$entidad->save();
-					}
+*/						$entidad->save();
+/*					}
 
 					catch(PDOException $e)
 					{
@@ -116,7 +122,7 @@ class ControlConvocatorias extends Controller {
 						
 						return Redirect::to('formularioconvocatorias')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista la convocatoria");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 					
 						return Redirect::to('formularioconvocatorias')
@@ -125,6 +131,7 @@ class ControlConvocatorias extends Controller {
 			
 					}
 				
-			}
+
+*/			}
 
 }
