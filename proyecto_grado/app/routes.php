@@ -24,19 +24,8 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
 
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
-/*function(){
 
-  $p = Estudiante::find(3);
-
-  //print_r($p);
-
-  $gg=$p->personas()->get();
-
-print_r($gg);
-  //print_r($p->grupos()->get());
-
-});
-*/
+Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioNuevoSubtipoProducto');
 
 
 
@@ -53,8 +42,6 @@ Route::get('formularioentidades', function() { return View::make('administrador/
 Route::get('formularioproductos', function() { return View::make('administrador/formulario_productos');});
 
 Route::get('formulariotipoproductos', function() { return View::make('administrador/formulario_tipoproductos');});
-
-Route::get('formulariosubtipoproductos', function() { return View::make('administrador/formulario_subtipoproductos');});
 
 Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 

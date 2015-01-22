@@ -42,19 +42,22 @@ class ControlConvocatorias extends Controller {
 		//if(Input::hasFile('dcto-conv'))
 		if(Input::hasFile('dcto-conv'))
 		{
+
+			echo "1-";
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
 			while (File::exists("D://img_db/convocatoria/".$nombreNuevo) )
 			{
+				echo "2-";
 				$numero=rand(1,999);
 				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
 			}
 
 			$archivoF->move(__DIR__."/img_db/convocatoria/",$nombreNuevo);
-echo " ".__DIR__;
-			//echo "-->".$archivoF ->getClientOriginalName();
+	echo " ".__DIR__;
+
 		}
 
 
@@ -82,9 +85,10 @@ echo " ".__DIR__;
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
-				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida',
-				'numeric'=>'No es un valor valido'
+				'max'=>'El campo no debe ser mayor a :max.',
+				'email' =>'No es una dirección de email válida.',
+				'numeric'=>'No es un valor valido.',
+				'unique'=>'Verifique, es posible que ya exista la convocatoria.'
 
 			);
 
@@ -93,12 +97,13 @@ echo " ".__DIR__;
 
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
+
 		/*	if ($validator->fails()) {
 				$messages = $validator->messages();
 
 
 
-				return Redirect::to('formularioconvocatorias')
+	/*			return Redirect::to('formularioconvocatorias')
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
@@ -116,7 +121,7 @@ echo " ".__DIR__;
 						
 						return Redirect::to('formularioconvocatorias')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista la convocatoria");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 					
 						return Redirect::to('formularioconvocatorias')

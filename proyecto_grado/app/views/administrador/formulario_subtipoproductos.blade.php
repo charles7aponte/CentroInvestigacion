@@ -20,42 +20,46 @@
         @endif
 
 
-
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo subtipo de producto</h2></div>
-                       <ul>
-                <fieldset style="border-color:transparent">
+          <ul>
+            <fieldset style="border-color:transparent">
 
-                    <li class="@if($errors->has('subtipo-producto')) has-error @endif">
-                        <label for="subtipo-producto">Nombre subtipo producto:</label> 
-                          <input id="subtipo-producto" type="text" name="subtipo-producto" value="{{Input::old('subtipo-producto')}}" required="required">
-                          @if ($errors->has('subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('subtipo-producto') }}</p> @endif 
-                    </li> 
+                <li class="@if($errors->has('subtipo-producto')) has-error @endif">
+                    <label for="subtipo-producto">Nombre subtipo producto:</label> 
+                      <input id="subtipo-producto" type="text" name="subtipo-producto" value="{{Input::old('subtipo-producto')}}" required="required">
+                      @if ($errors->has('subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('subtipo-producto') }}</p> @endif 
+                </li> 
 
-                    <li><label for="subtipo-tipo-producto">Tipo de producto:</label> 
-                        <select name="subtipo-tipo-producto" id="subtipo-tipo-producto">
-                      <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
-                          <option>aaaa</option>
-                          <option>bbbb</option>
-                        </select>
-                    </li>   
-  
-                    <li class="@if($errors->has('desc-subtipo-producto')) has-error @endif">
-                        <label for="desc-subtipo-producto">Descripci&oacute;n:</label>
-                        <textarea id="desc-subtipo-producto" name="desc-subtipo-producto">{{Input::old('desc-subtipo-producto')}}</textarea>
-                          @if ($errors->has('desc-subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-subtipo-producto') }}</p> @endif 
-                    </li>  
-                </fieldset> 
-            </ul> 
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="crear-subtipoproducto" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear
-                        </button>
-                    </th>
-                </thead>
-            </table>
+                <li><label for="subtipo-tipo-producto">Tipo de producto:</label> 
+                    <select name="subtipo-tipo-producto">
+                     <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
+                      @if(isset($tipos))
+                      
+                         @foreach ($tipos as $tipo) <!--array--- nombre del campo en la bd-->
+                           <option value="{{$tipo['id_tipo_producto']}}">{{$tipo['nombre_tipo_producto']}}</option>
+                         @endforeach 
+
+                      @endif
+                    </select>      
+                </li>   
+
+                <li class="@if($errors->has('desc-subtipo-producto')) has-error @endif">
+                    <label for="desc-subtipo-producto">Descripci&oacute;n:</label>
+                    <textarea id="desc-subtipo-producto" name="desc-subtipo-producto">{{Input::old('desc-subtipo-producto')}}</textarea>
+                      @if ($errors->has('desc-subtipo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-subtipo-producto') }}</p> @endif 
+                </li>  
+            </fieldset> 
+          </ul> 
+          <table id="botones-formularios">
+              <thead>
+                  <th id="crear">
+                      <button id="crear-subtipoproducto" type="submit">
+                      <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                      Crear
+                      </button>
+                  </th>
+              </thead>
+          </table>
     </form>  
             <ul> 
               <table id="tabla-subtipo-productos" style="margin-top:40px; width:950px;">

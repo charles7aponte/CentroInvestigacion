@@ -27,7 +27,7 @@ class ControlTipoProductos extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Este campo es obligatorio.',
-				'unique'  =>'Es posible que ya exista el tipo de producto, verifique.' 
+				'unique'  =>'Ya existe el tipo de producto.' 
 				
 			);
 
@@ -42,7 +42,7 @@ class ControlTipoProductos extends Controller {
 				return Redirect::to('formulariotipoproductos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"");
+					->with('mensaje_error',"Error al guardar, Verifique.");
 			} else {
 
 
@@ -56,7 +56,7 @@ class ControlTipoProductos extends Controller {
 						
 						return Redirect::to('formulariotipoproductos')
 						->withInput($todosDatos)
-						->with('mensaje_error',"");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 					echo "entre2";
 
