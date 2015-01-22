@@ -15,21 +15,29 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 
 
 
-/******************-------------------------
-paginas del administrador--------------------
-***************/
+/*************************************************************************************************-------------------------
+--------------------------------------------paginas del administrador----------------------------------
+*********************************************************************************************************************************/
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
 /*--------------formularios-----------------*/
+
+//crear grupo
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
 
+//crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
 
+//crear subtipo de producto
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioNuevoSubtipoProducto');
 
 
+//agregar tipo grupos
+Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
+//eliminar tipo grupos
+Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
-Route::get('formulariotipogrupo', function() { return View::make('administrador/formulario_tipogrupos'); });
+
 
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 

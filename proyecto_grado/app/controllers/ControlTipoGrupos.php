@@ -65,4 +65,37 @@ class ControlTipoGrupos extends Controller {
 
 		}	
 
+			//crear y cargar en la tabla cada tipo grupo.. funcionando
+
+			public function cargarFormularioTipoGrupo(){
+
+			$form_tipogrupo= InvTipoGrupos::all(); //de donde necesito
+
+			$datos=  array(
+				'tipogrupos' =>$form_tipogrupo);
+
+
+			return View::make('administrador/formulario_tipogrupos',$datos); 
+
+
+			}//
+
+			//elimina cada grupo de la tabla .. 
+
+
+			public function EliminarFormularioTipoGrupo($id){
+			
+			$form_tipogrupo= InvTipoGrupos::find($id); //de donde necesito
+
+			if (is_null($form_tipogrupo)==false){
+				$form_tipogrupo->delete();
+
+				return Response::json(array("respuesta"=>true));
+
+			}
+				return Response::json(array("respuesta"=>false));
+
+			}//
+	
+
 }

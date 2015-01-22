@@ -2,6 +2,43 @@
 
 
 @section('cuerpo')
+
+
+
+<script>
+
+  function eliminartipogrupo(id){
+
+
+alert("hola");
+/*  $.ajax({
+    url:'formulariotipogrupo/eliminar/'+id,
+    type:'GET',
+    dataType:"json",
+    sucess: function (data){
+      alert(data);
+      if(data.respuesta)
+        {
+
+          $("#dato_tipogrupo_"+id).remove();
+        }
+      else{
+        alert("No se pudo eliminar.");
+      }
+
+    }
+    ,
+    error: function(j,t,e){
+      alert();
+    }
+  });
+*/
+  return false;
+
+  }
+
+</script>
+
 <div>  
     <form id="form-tipogrupo" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
 
@@ -53,20 +90,22 @@
                   </thead>
 
                   <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>Estudio</td>
+                    
+                  <!--insertando en la tabla los registros-->
+                  @if(isset($tipogrupos))
+                          
+                     @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
+                      <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
+                      <td>{{$tipogrupo['id']}}</td>
+                      <td>{{$tipogrupo['tipo_grupo']}}</td>
                       <td>
-                        <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                        <a href="#" onclick="eliminartipogrupo({{$tipogrupo['id']}})" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                       </td>
                     </tr>
-                    <tr>
-                      <td>02</td>
-                      <td>Investigaci&oacute;n</td>
-                      <td>
-                        <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                      </td>
-                    </tr>
+
+                     @endforeach
+                  @endif
+                           
                   </tbody>
                 </table>
             </ul>

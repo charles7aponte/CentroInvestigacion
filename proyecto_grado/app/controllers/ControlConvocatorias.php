@@ -41,18 +41,15 @@ class ControlConvocatorias extends Controller {
 
 		//manejo de archivo
 
-		//if(Input::hasFile('dcto-conv'))
 		if(Input::hasFile('dcto-conv'))
 		{
 
-			echo "1-";
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
 
 			while (File::exists($direccion.$nombreNuevo) )
 			{
-				echo "-2-";
 				$numero=rand(1,999);
 				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
@@ -60,7 +57,6 @@ class ControlConvocatorias extends Controller {
 
 
 			$archivoF->move($direccion,$nombreNuevo);
-			echo " ".$direccion;
 
 
 		}
@@ -103,12 +99,12 @@ class ControlConvocatorias extends Controller {
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
 
-		/*	if ($validator->fails()) {
+			if ($validator->fails()) {
 				$messages = $validator->messages();
 
 
 
-	/*			return Redirect::to('formularioconvocatorias')
+				return Redirect::to('formularioconvocatorias')
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
@@ -134,7 +130,7 @@ class ControlConvocatorias extends Controller {
 								->with('mensaje_success',"La convocatoria ha sido creada.");
 			
 					}
-*/				
+				
 			}
 
 }
