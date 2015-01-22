@@ -37,6 +37,8 @@ class ControlConvocatorias extends Controller {
 		//$archivo=Input::get('dcto-conv');
 		$nombreNuevo="";
 
+		$direccion = __DIR__."/../../public/img_db/convocatoria/";
+
 		//manejo de archivo
 
 		//if(Input::hasFile('dcto-conv'))
@@ -47,7 +49,7 @@ class ControlConvocatorias extends Controller {
 			$archivoF =Input::file('dcto-conv');
 			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
 
-			while (File::exists("D://img_db/convocatoria/".$nombreNuevo) )
+			while (File::exists($direccion.$nombreNuevo) )
 			{
 				echo "2-";
 				$numero=rand(1,999);
@@ -55,8 +57,8 @@ class ControlConvocatorias extends Controller {
 			
 			}
 
-			$archivoF->move(__DIR__."/img_db/convocatoria/",$nombreNuevo);
-	echo " ".__DIR__;
+			$archivoF->move($direccion,$nombreNuevo);
+	echo " ".$direccion;
 
 		}
 
