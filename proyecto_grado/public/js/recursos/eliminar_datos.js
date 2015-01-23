@@ -1,10 +1,10 @@
 
   var ID_principal=null;
-  var URL='formulariotipogrupo/eliminar/';
-  var fila_info="#dato_tipogrupo_";
+  var URL;
+  var fila_info;
 
 
-  function eliminartipogrupo(id){
+  function eliminartipo(id){
     
     ID=id;
     $("#eliminar-confirmar").modal('show');

@@ -66,6 +66,37 @@ class ControlTipoProductos extends Controller {
 				
 			}
 	}	
+
+			//crear y cargar en la tabla cada tipo .. funcionando
+			public function cargarFormularioTipoProducto(){
+
+			$form_tipoproducto= InvTipoProductos::all(); //de donde necesito
+
+			$datos=  array(
+				'tipoproductos' =>$form_tipoproducto);
+
+
+			return View::make('administrador/formulario_tipoproductos',$datos); 
+
+
+			}//
+
+
+		//elimina cada grupo de la tabla .. 
+		public function EliminarFormularioTipoProducto($id){
+		
+			$form_tipoproducto= InvTipoProductos::find($id); //de donde necesito
+
+			if (is_null($form_tipoproducto)==false){
+				$form_tipoproducto->delete();
+
+				return Response::json(array("respuesta"=>true));
+
+			}
+			return Response::json(array("respuesta"=>false));
+
+		}//
+	
 			
 
 }

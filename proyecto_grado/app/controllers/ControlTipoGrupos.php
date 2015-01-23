@@ -39,7 +39,7 @@ class ControlTipoGrupos extends Controller {
 				return Redirect::to('formulariotipogrupo')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar, puede ser posible que exceda la cantidad de caracteres o ingreso un tipo de grupo que ya existe.");
+					->with('mensaje_error',"Error al guardar, Verifique.");
 			} else {
 
 
@@ -53,7 +53,7 @@ class ControlTipoGrupos extends Controller {
 						
 						return Redirect::to('formulariotipogrupo')
 						->withInput($todosDatos)
-						->with('mensaje_error',"error al guardar, verifique");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 
 						return Redirect::to('formulariotipogrupo')
@@ -80,22 +80,20 @@ class ControlTipoGrupos extends Controller {
 
 			}//
 
+			
 			//elimina cada grupo de la tabla .. 
-
-
 			public function EliminarFormularioTipoGrupo($id){
 			
-			$form_tipogrupo= InvTipoGrupos::find($id); //de donde necesito
+				$form_tipogrupo= InvTipoGrupos::find($id); //de donde necesito
 
-			if (is_null($form_tipogrupo)==false){
-				$form_tipogrupo->delete();
+				if (is_null($form_tipogrupo)==false){
+					$form_tipogrupo->delete();
 
-				return Response::json(array("respuesta"=>true));
+					return Response::json(array("respuesta"=>true));
 
-			}
+				}
 				return Response::json(array("respuesta"=>false));
 
 			}//
 	
-
 }

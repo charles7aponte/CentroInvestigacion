@@ -2,6 +2,11 @@
 
 @section("javascript-nuevos")
   <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+  <script >
+      URL='formulariotipogrupo/eliminar/';
+      fila_info="#dato_tipogrupo_";
+  </script>
+
 @stop
 
 @section('cuerpo')
@@ -18,8 +23,9 @@
         <p>¿Esta seguro que desea eliminarlo?</p>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="eliminacionremota();"
+        style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="eliminacionremota();">Aceptar</button>
       </div>
     </div><!-- /.modal-content -->
     </div>
@@ -77,8 +83,7 @@
                     </tr>
                   </thead>
 
-                  <tbody>
-                    
+                  <tbody>  
                   <!--insertando en la tabla los registros-->
                   @if(isset($tipogrupos))
                           
@@ -87,28 +92,17 @@
                       <td>{{$tipogrupo['id']}}</td>
                       <td>{{$tipogrupo['tipo_grupo']}}</td>
                       <td>
-                       <b onclick="eliminartipogrupo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                       <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                        </b>
                       </td>
                     </tr>
 
                      @endforeach
-                  @endif
-                           
+                  @endif        
                   </tbody>
                 </table>
             </ul>
-
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="guardar-tipogrupo" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Guardar 
-                        </button>
-                    </th>
-                </thead>
-            </table> 
+ 
 </div>  
 @stop   
 

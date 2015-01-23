@@ -44,7 +44,7 @@ class ControlSublineas extends Controller {
 				return Redirect::to('formulariosublineas')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Verifique, es posible que ya exista la sublínea o que excedio en el numero de caracteres de un campo");
+					->with('mensaje_error',"Error al guardar.");
 			} else {
 
 
@@ -59,7 +59,7 @@ class ControlSublineas extends Controller {
 						
 						return Redirect::to('formulariosublineas')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Error al guardar");
+						->with('mensaje_error',"Error del servidor.");
 
 
 					}
@@ -70,8 +70,6 @@ class ControlSublineas extends Controller {
 				
 					}
 			}
-
-
 
 
 

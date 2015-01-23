@@ -31,11 +31,15 @@ Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea
 //crear subtipo de producto
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioNuevoSubtipoProducto');
 
-
 //agregar tipo grupos
 Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
 //eliminar tipo grupos
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
+
+//agregar tipo productos
+Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
+//eliminar tipo productos
+Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
 
 
@@ -49,7 +53,6 @@ Route::get('formularioentidades', function() { return View::make('administrador/
 
 Route::get('formularioproductos', function() { return View::make('administrador/formulario_productos');});
 
-Route::get('formulariotipoproductos', function() { return View::make('administrador/formulario_tipoproductos');});
 
 Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 
