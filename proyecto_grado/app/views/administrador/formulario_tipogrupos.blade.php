@@ -1,43 +1,31 @@
 @extends('administrador.panel_admin')
 
+@section("javascript-nuevos")
+  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+@stop
 
 @section('cuerpo')
 
+<!--Alerta de confirmar eliminacion de datos---->
+<div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+    <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirmaci&oacute;n</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿Esta seguro que desea eliminarlo?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="eliminacionremota();">Aceptar</button>
+      </div>
+    </div><!-- /.modal-content -->
+    </div>
+  </div>
+</div>
 
-
-<script>
-
-  function eliminartipogrupo(id){
-
-
-
- $.ajax({
-    url:'formulariotipogrupo/eliminar/'+id,
-    type:'GET',
-    dataType:"json",
-
-    success: function (data){
-      alert(data);
-      if(data.respuesta)
-        {
-
-          $("#dato_tipogrupo_"+id).remove();
-        }
-      else{
-        alert("No se pudo eliminar.");
-      }
-
-    }
-    ,
-    error: function(j,t,e){
-      alert("");
-    }
-  });
-  return false;
-
-  }
-
-</script>
 
 <div>  
     <form id="form-tipogrupo" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
@@ -122,4 +110,5 @@
                 </thead>
             </table> 
 </div>  
-@stop    
+@stop   
+
