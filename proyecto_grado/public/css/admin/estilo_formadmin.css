@@ -353,14 +353,14 @@ table#tabla-integrantes-grupos,
 table#tabla-lineas-grupos, 
 table#tabla-tipo-grupos {
 	color: #333;
-	font-size: .9em;
+	font-size: .8em;
 	font-weight: 300;
 	text-align: left;
 	line-height: 40px;
 	border-spacing: 0;
 	border: 1px solid #DCDCDC;
 	width: 900px;
-	margin: 10px auto;
+	margin-right: 6px auto;
 }
 
 table#tabla-financiamiento-grupos,
@@ -375,8 +375,9 @@ table#tabla-subtipo-productos{
     line-height: 40px;
     border-spacing: 0;
     border: 1px solid #DCDCDC;
-    width: 95%;
-    margin: 10px auto;   
+    border-left: none;
+    width: 900px;
+    margin-right: 6px;   
 }
 
 #tabla-integrantes-grupos thead tr:first-child,

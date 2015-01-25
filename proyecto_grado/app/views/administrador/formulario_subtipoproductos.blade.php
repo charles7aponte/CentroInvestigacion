@@ -32,6 +32,7 @@
   </div>
 </div>
 
+
 <div>  
     <form id="form-subtipoproducto" autocomplete="on"   action="{{URL::to('creacion/formulariosubtipoproductos')}}" method="post">
 
@@ -96,7 +97,6 @@
             <thead>
               <tr><th colspan="5">SUBTIPOS DE PRODUCTO</th></tr>
               <tr>
-                <th>C&oacute;digo</th>
                 <th>Nombre del subtipo de producto</th>
                 <th>Descripci&oacute;n</th>
                 <th>Tipo producto</th>
@@ -111,11 +111,35 @@
                         
                    @foreach ($subtipoproductos as $subtipoproducto) <!--array- que viene del controlador-->
                     <tr id="dato_subtipoproducto_{{$subtipoproducto['id_subtipo_producto']}}">
-                    <td>{{$subtipoproducto['id_subtipo_producto']}}</td>  
-                    <td>{{$subtipoproducto['nombre_subtipo_producto']}}</td>
+                    <td style="width:500px;">{{$subtipoproducto['nombre_subtipo_producto']}}</td>
+                    <td style="width:120px;">
+                      <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
+                         style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;">
+                         Ver descripci&oacute;n
+                        </button>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        {{$subtipoproducto['descripcion_subtipo_producto']}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    </td>
                     <td>{{$subtipoproducto['inv_id_tipo_producto']}}</td>
-                    <td>{{$subtipoproducto['descripcion_subtipo_producto']}}</td>
-                    <td>
+                    <td style="width:100px;">
                      <b onclick="eliminartipo({{$subtipoproducto['id_subtipo_producto']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                      </b>
                     </td>

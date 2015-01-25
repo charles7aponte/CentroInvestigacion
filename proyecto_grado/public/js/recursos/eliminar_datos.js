@@ -39,3 +39,7 @@
     
     $("#eliminar-confirmar").modal('hide');    
   }
+
+  function verinfo(){
+    
+  }
