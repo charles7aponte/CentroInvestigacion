@@ -44,6 +44,7 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_paneladmin.css">
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_formadmin.css">
 	<link rel="stylesheet" type="text/css" href="css/admin/estilo_listasadmin.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo_infconvocatorias.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 

@@ -18,7 +18,6 @@
             </fieldset>
         @endif
 
-
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nueva l&iacute;nea</h2></div>
             <ul>
                 <fieldset> 

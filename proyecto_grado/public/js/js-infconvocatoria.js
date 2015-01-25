@@ -1,26 +1,26 @@
 /*------------------jquery tabla aprobados-----------------------------------------------*/
-$("#tabla_aprovados").hide();
-$("#boton_aprovados .glyphicon-minus-sign").hide();
+$("#tabla_aprobados").hide();
+$("#boton_aprobados .glyphicon-minus-sign").hide();
 
 
-var band_aprovados = true;
+var band_aprobados = true;
 
-$("#boton_aprovados").click(function(){
+$("#boton_aprobados").click(function(){
 
-	$("#tabla_aprovados").toggle(500);
+	$("#tabla_aprobados").toggle(500);
 
-	if(band_aprovados)
+	if(band_aprobados)
 	{
-		$("#boton_aprovados .glyphicon-plus-sign").hide();
-		$("#boton_aprovados .glyphicon-minus-sign").show();
+		$("#boton_aprobados .glyphicon-plus-sign").hide();
+		$("#boton_aprobados .glyphicon-minus-sign").show();
 
 	}
 	else{
 
-		$("#boton_aprovados .glyphicon-minus-sign").hide();
-		$("#boton_aprovados .glyphicon-plus-sign").show();
+		$("#boton_aprobados .glyphicon-minus-sign").hide();
+		$("#boton_aprobados .glyphicon-plus-sign").show();
 	}
-	band_aprovados=!band_aprovados;
+	band_aprobados=!band_aprobados;
 
 })
 

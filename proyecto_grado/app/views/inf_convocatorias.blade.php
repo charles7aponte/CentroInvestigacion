@@ -3,12 +3,7 @@
 @extends('administrador.panel_admin')
 @section('css-nuevos')
 <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infgrupos.css" />
 @stop
-
-
-
-
 
 
 @section('javascript-nuevos2')
@@ -19,11 +14,10 @@
 
 @section('cuerpo')
 
-<div id="capa">
-    <form id="form-grupos">
-    <fieldset>
+<div id="capa" class="infoconvocatoria">
+    <fieldset id="principal">
         <div id="titulo-infconv" id="cuadro"> 
-            <h2>Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria Titulo Convocatoria 
+            <h2>Este es el titulo de la convocatoria numero uno de la ciudad de villavicencion de la universidad de los
             </h2>
         </div>
 
@@ -31,7 +25,12 @@
 
             <thead>   
              <tr>
-                <th scope="col" colspan="2">Informacion de la Convocatoria</th>
+                <th scope="col" colspan="2" style=" border-radius: 5px; background: #286388;
+              background: -webkit-linear-gradient(top,#286388,#122d3e);
+              background: -moz-linear-gradient(top,#286388,#122d3e);
+              background: -o-linear-gradient(top,#286388,#122d3e);  
+              background: linear-gradient(to bottom,#286388,#122d3e);  
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white; ">Informacion de la Convocatoria</th>
              </tr>
             </thead>
 
@@ -97,11 +96,12 @@
     </fieldset>
 
         <!-- tabla de proyectos-->
-    <fieldset>
+    
+    <fieldset id="secundario">
         <div class="titulo-conv1" id="cuadro"> 
-            <h2 id="boton_aprovados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Aprobados</h2>
+            <h2 id="boton_aprobados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Aprobados</h2>
         </div>
-        <table id="tabla_aprovados" class="tabla-conv">
+        <table id="tabla_aprobados" class="tabla-conv">
             <thead>
                 <tr>
                     <td></td>
@@ -110,7 +110,6 @@
                     <td>Especie</td>
                 </tr>
             </thead>
-
             <tbody>
                 <tr>
                     <th id="f-principal">Proyecto1</th>
@@ -125,7 +124,10 @@
                     <td id="c-principal" id="cuadro">2222vfff</td>
                 </tr>
             </tbody>
-        </table> 
+        </table>
+    </fieldset>
+
+    <fieldset id="secundario">
         <div class="titulo-conv1" id="cuadro"> 
             <h2 id="boton_rechazados"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Rechazados</h2>
         </div>
@@ -154,37 +156,38 @@
                 </tr>
             </tbody>
         </table> 
+    </fieldset>
 
+    <fieldset id="secundario">
         <div class="titulo-conv1" id="cuadro"> 
             <h2 id="boton_evaluacion"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li>Evaluacion</h2>
         </div> 
 
-        <table id="tabla_evaluacion" class="tabla-conv">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Total</td>
-                    <td>Efectivo</td>
-                    <td>Especie</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th id="f-principal">Proyecto3</th>
-                    <td id="c-principal" id="cuadro">ffrrff</td>
-                    <td id="c-principal" id="cuadro">2222vfff</td>
-                    <td id="c-principal" id="cuadro">2222vfff</td>
-                </tr>
-                <tr>
-                    <th id="f-principal">Proyecto3</th>
-                    <td id="c-principal" id="cuadro">ffrrff</td>
-                    <td id="c-principal" id="cuadro">2222vfff</td>
-                    <td id="c-principal" id="cuadro">2222vfff</td>
-                </tr>
-            </tbody>
-        </table>
-        </fieldset>
-    </form> 
+            <table id="tabla_evaluacion" class="tabla-conv">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td>Efectivo</td>
+                        <td>Especie</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="f-principal">Proyecto3</th>
+                        <td id="c-principal" id="cuadro">ffrrff</td>
+                        <td id="c-principal" id="cuadro">2222vfff</td>
+                        <td id="c-principal" id="cuadro">2222vfff</td>
+                    </tr>
+                    <tr>
+                        <th id="f-principal">Proyecto3</th>
+                        <td id="c-principal" id="cuadro">ffrrff</td>
+                        <td id="c-principal" id="cuadro">2222vfff</td>
+                        <td id="c-principal" id="cuadro">2222vfff</td>
+                    </tr>
+                </tbody>
+            </table>
+    </fieldset>
 </div>       
 
 @stop
