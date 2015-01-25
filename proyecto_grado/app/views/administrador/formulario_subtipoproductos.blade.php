@@ -1,7 +1,37 @@
 @extends('administrador.panel_admin')
 
+@section("javascript-nuevos")
+  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+  <script>
+      URL='formulariosubtipoproductos/eliminar/';
+      fila_info="#dato_subtipoproducto_";
+  </script>
+
+@stop
 
 @section('cuerpo')
+
+<!--Alerta de confirmar eliminacion de datos---->
+<div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+    <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirmaci&oacute;n</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿Esta seguro que desea eliminarlo?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="eliminacionremota();"
+        style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div><!-- /.modal-content -->
+    </div>
+  </div>
+</div>
+
 <div>  
     <form id="form-subtipoproducto" autocomplete="on"   action="{{URL::to('creacion/formulariosubtipoproductos')}}" method="post">
 
@@ -61,54 +91,39 @@
               </thead>
           </table>
     </form>  
-            <ul> 
-              <table id="tabla-subtipo-productos" style="margin-top:40px; width:950px;">
-                  <thead>
-                    <tr><th colspan="5">SUBTIPOS DE PRODUCTO</th></tr>
-                    <tr>
-                      <th>C&oacute;digo</th>
-                      <th>Nombre del subtipo de producto</th>
-                      <th>Descripci&oacute;n</th>
-                      <th>Tipo producto</th>
-                      <th></th>
-                    </tr>
-                  </thead>
+      <ul> 
+        <table id="tabla-subtipo-productos" style="margin-top:40px; width:950px;">
+            <thead>
+              <tr><th colspan="5">SUBTIPOS DE PRODUCTO</th></tr>
+              <tr>
+                <th>C&oacute;digo</th>
+                <th>Nombre del subtipo de producto</th>
+                <th>Descripci&oacute;n</th>
+                <th>Tipo producto</th>
+                <th></th>
+              </tr>
+            </thead>
 
-                  <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>nombre aaaaa</td>
-                      <td><button style="font-size: 12px; margin: 3px; color: white; background-color: rgb(39, 107, 111);" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Ver descripci&oacute;n</button></td>
-                      <!-- Modal -->
-                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">Descripci&oacute;n</h4>
-                                </div>
-                                <div class="modal-body">
-                                  ...
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      <td>tipo del producto</td>
-                      <td><a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-            </ul>
-
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="guardar-subtipoproducto" type="submit" style="margin-top:10px;">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Guardar 
-                        </button>
-                    </th>
-                </thead>
-            </table>   
+            <tbody>
+              <tr>
+                <!--insertando en la tabla los registros-->
+                @if(isset($subtipoproductos))
+                        
+                   @foreach ($subtipoproductos as $subtipoproducto) <!--array- que viene del controlador-->
+                    <tr id="dato_subtipoproducto_{{$subtipoproducto['id_subtipo_producto']}}">
+                    <td>{{$subtipoproducto['id_subtipo_producto']}}</td>  
+                    <td>{{$subtipoproducto['nombre_subtipo_producto']}}</td>
+                    <td>{{$subtipoproducto['inv_id_tipo_producto']}}</td>
+                    <td>{{$subtipoproducto['descripcion_subtipo_producto']}}</td>
+                    <td>
+                     <b onclick="eliminartipo({{$subtipoproducto['id_subtipo_producto']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                     </b>
+                    </td>
+                  </tr>
+                   @endforeach
+                @endif 
+            </tbody>
+          </table>
+      </ul>
 </div>  
 @stop    

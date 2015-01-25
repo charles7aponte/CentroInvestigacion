@@ -22,21 +22,23 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 
 /*--------------formularios-----------------*/
 
-//crear grupo
+//----------------crear grupo
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
 
-//crear sublinea
+//----------------crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
 
-//crear subtipo de producto
-Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioNuevoSubtipoProducto');
+//----------------crear subtipo de producto
+Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioSubtipoProducto');
+//eliminar subtipo producto
+Route::get('formulariosubtipoproductos/eliminar/{id}','ControlSubtipoProductos@EliminarFormularioSubtipoProducto');
 
-//agregar tipo grupos
+//----------------agregar tipo grupos
 Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
 //eliminar tipo grupos
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
-//agregar tipo productos
+//----------------agregar tipo productos
 Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
 //eliminar tipo productos
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
@@ -52,7 +54,6 @@ Route::get('formularioproyectos', function() { return View::make('administrador/
 Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
 
 Route::get('formularioproductos', function() { return View::make('administrador/formulario_productos');});
-
 
 Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 

@@ -80,7 +80,37 @@ class ControlSubtipoProductos extends Controller {
 			return View::make('administrador/formulario_subtipoproductos',$datos); 
 
 			}//		
-			
 
+
+			//crear y cargar en la tabla cada tipo .. funcionando
+			public function cargarFormularioSubtipoProducto(){
+
+			$form_subtipoproducto= InvSubtipoProductos::all(); //de donde necesito
+			$listatipos =InvTipoProductos::all(); //modelo del q quiero cargar
+
+			$datos=  array(
+				'subtipoproductos' =>$form_subtipoproducto,
+				'tipos' =>$listatipos);
+
+			return View::make('administrador/formulario_subtipoproductos',$datos); 
+
+
+			}//
+		
+
+			//elimina cada grupo de la tabla .. 
+			public function EliminarFormularioSubtipoProducto($id){
+			
+				$form_subtipoproducto= InvSubtipoProductos::find($id); //de donde necesito
+
+				if (is_null($form_subtipoproducto)==false){
+					$form_subtipoproducto->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+			}//				
+	
 }
 
