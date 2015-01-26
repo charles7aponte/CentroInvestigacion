@@ -89,6 +89,12 @@
                       Crear
                       </button>
                   </th>
+                  <th id="borrar">
+                      <button id="reset-button" type="reset">
+                      <img alt="mal" src="images/ml.png" width="16" height="16" />
+                      Borrar campos
+                    </button>
+                    </th>
               </thead>
           </table>
     </form>  
@@ -111,31 +117,32 @@
                         
                    @foreach ($subtipoproductos as $subtipoproducto) <!--array- que viene del controlador-->
                     <tr id="dato_subtipoproducto_{{$subtipoproducto['id_subtipo_producto']}}">
-                    <td style="width:500px;">{{$subtipoproducto['nombre_subtipo_producto']}}</td>
+                    <td style="width:500px;"><b>{{$subtipoproducto['id_subtipo_producto']}}.</b> {{$subtipoproducto['nombre_subtipo_producto']}}</td>
                     <td style="width:120px;">
                       <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
                          style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;">
                          Ver descripci&oacute;n
                         </button>
-    <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        {{$subtipoproducto['descripcion_subtipo_producto']}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel" style="background:none;"><b>Descripci&oacute;n</b></h4>
+                              </div>
+                              <div class="modal-body">
+                                {{$subtipoproducto['descripcion_subtipo_producto']}}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
                     </td>
                     <td>{{$subtipoproducto['inv_id_tipo_producto']}}</td>

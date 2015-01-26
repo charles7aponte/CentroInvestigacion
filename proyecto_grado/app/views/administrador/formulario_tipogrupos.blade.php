@@ -71,37 +71,37 @@
                       </th>
                   </thead>
               </table>
-          <ul> 
-        </form>          
-              <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px;">
-                  <thead>
-                    <tr><th colspan="3">TIPOS DE GRUPO</th></tr>
-                    <tr>
-                      <th>C&oacute;digo</th>
-                      <th>Nombre del tipo de grupo</th>
-                      <th></th>
-                    </tr>
-                  </thead>
+        </form>  
+        <ul>
+          <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px; border:none;">
+              <thead>
+                <tr><th colspan="3">TIPOS DE GRUPO</th></tr>
+                <tr>
+                  <th>C&oacute;digo</th>
+                  <th>Nombre del tipo de grupo</th>
+                  <th></th>
+                </tr>
+              </thead>
 
-                  <tbody>  
-                  <!--insertando en la tabla los registros-->
-                  @if(isset($tipogrupos))
-                          
-                     @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
-                      <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
-                      <td>{{$tipogrupo['id']}}</td>
-                      <td>{{$tipogrupo['tipo_grupo']}}</td>
-                      <td>
-                       <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                       </b>
-                      </td>
-                    </tr>
+              <tbody>  
+              <!--insertando en la tabla los registros-->
+              @if(isset($tipogrupos))
+                      
+                 @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
+                  <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
+                  <td>{{$tipogrupo['id']}}</td>
+                  <td>{{$tipogrupo['tipo_grupo']}}</td>
+                  <td>
+                   <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                   </b>
+                  </td>
+                </tr>
 
-                     @endforeach
-                  @endif        
-                  </tbody>
-                </table>
-            </ul>
+                 @endforeach
+              @endif        
+              </tbody>
+          </table>
+        </ul>
  
 </div>  
 @stop   

@@ -69,18 +69,6 @@ class ControlSubtipoProductos extends Controller {
 			}
 		}
 
-			public function cargarFormularioNuevoSubtipoProducto(){
-
-			$listatipos =InvTipoProductos::all(); //modelo del q quiero cargar
-
-			$datos=  array(
-				'tipos' =>$listatipos);
-
-
-			return View::make('administrador/formulario_subtipoproductos',$datos); 
-
-			}//		
-
 
 			//crear y cargar en la tabla cada tipo .. funcionando
 			public function cargarFormularioSubtipoProducto(){

@@ -82,21 +82,18 @@ class ControlTipoProductos extends Controller {
 			}//
 
 
-		//elimina cada grupo de la tabla .. 
-		public function EliminarFormularioTipoProducto($id){
-		
-			$form_tipoproducto= InvTipoProductos::find($id); //de donde necesito
-
-			if (is_null($form_tipoproducto)==false){
-				$form_tipoproducto->delete();
-
-				return Response::json(array("respuesta"=>true));
-
-			}
-			return Response::json(array("respuesta"=>false));
-
-		}//
-	
+			//elimina cada grupo de la tabla .. 
+			public function EliminarFormularioTipoProducto($id){
 			
+				$form_tipoproducto= InvTipoProductos::find($id); //de donde necesito
+
+				if (is_null($form_tipoproducto)==false){
+					$form_tipoproducto->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+			}//				
 
 }
