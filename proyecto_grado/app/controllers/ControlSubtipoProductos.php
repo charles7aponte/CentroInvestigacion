@@ -76,6 +76,10 @@ class ControlSubtipoProductos extends Controller {
 			$form_subtipoproducto= InvSubtipoProductos::all(); //de donde necesito
 			$listatipos =InvTipoProductos::all(); //modelo del q quiero cargar
 
+			for ($i=0; $i<count($form_subtipoproducto); $i++) { 
+				$form_subtipoproducto[$i]->nombre_campo=$this->TransformarIda_Nombre($form_subtipoproducto[$i]->inv_id_tipo_producto,$listatipos);
+			}
+
 			$datos=  array(
 				'subtipoproductos' =>$form_subtipoproducto,
 				'tipos' =>$listatipos);
@@ -98,7 +102,17 @@ class ControlSubtipoProductos extends Controller {
 
 				}
 				return Response::json(array("respuesta"=>false));
-			}//				
-	
+			}//
+
+
+			//traer de otra tabla un dato
+			public function TransformarIda_Nombre($id,$listatipos){
+
+				for ($i=0; $i<count($listatipos); $i++) { 
+					if($listatipos[$i]->id_tipo_producto==$id){
+						return $listatipos[$i]->nombre_tipo_producto;
+					}
+				} return "error";
+			}
 }
 
