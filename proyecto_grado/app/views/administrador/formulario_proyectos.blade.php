@@ -22,13 +22,29 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-proyectos" autocomplete="on"   action="" method="">
+    <form id="form-proyectos" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioproyectos')}}" method="post">
+           @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nuevo proyecto</h2></div>
             <ul>
                 <fieldset> 
 
                     <li><label for="nombre-proyecto">Nombre del proyecto:</label>
-                        <input type="text" id="nombre-proyecto" name="nombre-proyecto" value="" required="required"/> 
+                        <input type="text" id="nombre-proyecto" name="nombre-proyecto" value="{{Input::old('nombre-proyecto')}}" /> 
+                         @if ($errors->has('nombre-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-proyecto') }}</p> @endif
                     </li>   
                     <li><label for="estado-proy">Estado:</label> 
                         <select name="estado-proy" required="required">
@@ -37,6 +53,9 @@
                             <option value="rechazado">Rechazado</option>
                             <option value="evaluacion">En evaluaci&oacute;n</option>
                         </select>
+
+                        @if ($errors->has('estado-proy')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('estado-proy') }}</p> @endif
+
                     </li>
                     <li><label for="fecha-proyecto">Fecha de inicio:</label>
                         <div class="container">
@@ -45,7 +64,8 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer" 
-                                            readonly id="fecha-proyecto" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                            readonly id="fecha-proyecto" class="date form-control" data-format="dd/MM/yyyy" name="creacion_proyecto" value="{{Input::old('creacion_proyecto')}}" required="required" />
+                                             @if ($errors->has('creacion_proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion_proyecto') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -56,21 +76,22 @@
                     </li>
                     <li><label for="convocatoria-proyecto">Convocatoria:</label> 
                         <select name="convocatoria-proyecto" required="required">
-                            <option value=""></option>
                             <option value="">Aaaaa</option>
                             <option value="">Bbbbbb</option>
                         </select>
+
+                        @if ($errors->has('convocatoria-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('convocatoria-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="linea-proyecto">Linea del proyecto:</label> 
                         <select name="linea-proyecto" required="required">
-                            <option value=""></option>
                             <option value="">Teleinformatica</option>
                             <option value="">Software</option>
                         </select>
+
+                        @if ($errors->has('linea-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('linea-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="grupo1-proyecto">Grupo 1 del proyecto:</label> 
                         <select name="grupo1-proyecto" required="required">
-                            <option value=""></option>
                             <option value="">Gitecx</option>
                             <option value="">Horizonte Mediatico</option>
                         </select>
@@ -107,11 +128,11 @@
                             <!--Agregando nuevos integrantes-->
                             <li style="margin-top: 15px;">
                                 <label  style="width:inherit">Integrante: </label>
-                                    <input type="text" id="integrantes-proyectos" name="integrantes-proyecto" value="" required="required"></br>
+                                    <input type="text" id="integrantes-proyectos" name="integrantes-proyecto" value="" ></br>
                             </li>    
                             <li>
                                 <label  style="width:inherit">Tiempo dedicado: </label>
-                                    <input type="text" id="tiempo-proyecto" name="tiempo-proyecto" value="" required="required">
+                                    <input type="text" id="tiempo-proyecto" name="tiempo-proyecto" value="">
                             </li> 
                              <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>

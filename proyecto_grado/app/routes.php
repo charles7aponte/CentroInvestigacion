@@ -45,6 +45,8 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 
 
 
+
+
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
@@ -94,6 +96,8 @@ Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario'
 Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 
 Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
+
+Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 
 
 /*-------------listas de cada tema-------------*/
