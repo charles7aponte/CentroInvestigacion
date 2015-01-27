@@ -11,7 +11,7 @@
 
 @section('cuerpo')
 
-<!--Alerta de confirmar eliminacion de datos---->
+<!--Alerta de confirmar eliminacion de datos-->
 <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
     <div class="modal-content">
@@ -31,18 +31,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-<div  id="gato" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
-
 
 
 <div>  

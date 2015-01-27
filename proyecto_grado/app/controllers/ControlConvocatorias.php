@@ -37,29 +37,7 @@ class ControlConvocatorias extends Controller {
 		//$archivo=Input::get('dcto-conv');
 		$nombreNuevo="";
 
-		$direccion = __DIR__."/../../public/img_db/convocatoria/";
-
-		//manejo de archivo
-
-		if(Input::hasFile('dcto-conv'))
-		{
-
-			$archivoF =Input::file('dcto-conv');
-			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
-
-
-			while (File::exists($direccion.$nombreNuevo) )
-			{
-				$numero=rand(1,999);
-				$nombreNuevo=$numero."-".$nombreNuevo;				
-			
-			}
-
-
-			$archivoF->move($direccion,$nombreNuevo);
-
-
-		}
+		$direccion = __DIR__."/../../public/archivos_db/convocatorias/";
 
 
 		$todosDatos = Input::except('dcto-conv');
@@ -79,7 +57,6 @@ class ControlConvocatorias extends Controller {
 		$entidad->email=$email;
 		$entidad->telefono_contacto=$telefono;
 		$entidad->pagina_convocatoria=$pagina;
-		$entidad->archivo_convocatoria=$nombreNuevo;
 		$entidad->convocatoria_dirigida=$dirigida;
 	
 
@@ -113,6 +90,28 @@ class ControlConvocatorias extends Controller {
 
 
 					try{
+
+							//manejo de archivo
+
+							if(Input::hasFile('dcto-conv'))
+							{
+
+								$archivoF =Input::file('dcto-conv');
+								$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
+
+
+								while (File::exists($direccion.$nombreNuevo) )
+								{
+									$numero=rand(1,999);
+									$nombreNuevo=$numero."-".$nombreNuevo;				
+								
+								}
+
+
+								$archivoF->move($direccion,$nombreNuevo);
+							}
+
+						$entidad->archivo_convocatoria=$nombreNuevo;
 						$entidad->save();
 					}
 
@@ -124,6 +123,11 @@ class ControlConvocatorias extends Controller {
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}
+
+
+
+
+
 					
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)

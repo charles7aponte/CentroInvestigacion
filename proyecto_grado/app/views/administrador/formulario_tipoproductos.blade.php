@@ -18,7 +18,7 @@
     <div class="modal-content">
      <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Confirmaci&oacute;n</h4>
+        <h4 class="modal-title" >Confirmaci&oacute;n</h4>
       </div>
       <div class="modal-body">
         <p>¿Esta seguro que desea eliminarlo?</p>
@@ -131,9 +131,7 @@
                     <td style="width:120px;">                      
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" 
-
-                         data-info="{{{$tipoproducto['descripcion_producto']}}}"
-                         onclick="cargarmodal_descripcion(this);"
+                         onclick="cargarmodal_descripcion('{{{$tipoproducto['descripcion_producto']}}}');"
                          style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;" >
                          Ver descripci&oacute;n
                         </button>

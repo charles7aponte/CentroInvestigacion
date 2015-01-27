@@ -16,9 +16,35 @@ class ControlLineas extends Controller {
 		$definicion=Input::get('defi-linea');	
 							
 
-		$todosDatos = Input::all();
+	//$archivo=Input::get('dcto-cineas');
+		$nombreNuevo="";
 
-	
+		$direccion = __DIR__."/../../public/archivos_db/lineas/";
+
+		//manejo de archivo
+
+		if(Input::hasFile('dcto-conv'))
+		{
+
+			$archivoF =Input::file('dcto-conv');
+			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
+
+
+			while (File::exists($direccion.$nombreNuevo) )
+			{
+				$numero=rand(1,999);
+				$nombreNuevo=$numero."-".$nombreNuevo;				
+			
+			}
+
+
+			$archivoF->move($direccion,$nombreNuevo);
+
+
+		}
+
+
+		$todosDatos = Input::except('dcto-conv');
 
 		/*objeto del modelo*/
 		$entidad=new InvLineas();
@@ -37,7 +63,7 @@ class ControlLineas extends Controller {
 			);
 
 
-			// execute la validacin 
+			// ejecute la validacion 
 			$validator = Validator::make(Input::all(), InvLineas::$reglasValidacion,$messages);
 
 			if ($validator->fails()) {
