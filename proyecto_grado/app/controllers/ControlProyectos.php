@@ -36,32 +36,31 @@ class ControlProyectos extends Controller {
 		//$archivo=Input::get('dcto-conv');
 		$nombreNuevo="";
  
-		$direccion = __DIR__."/../../public/img_db/convocatoria/";
+		$direccion = __DIR__."/../../public/archivos_db/proyectos/";
 
 		//manejo de archivo
 
 
-		$todosDatos = Input::except('dcto-conv');
+		$todosDatos = Input::except('actaini-proyectos','propuesta-proyecto','informe-proyecto');
 	
 
-		/*
-
-		$entidad=new InvConvocatorias();
 		
-		$entidad->numero_convocatoria=$numero;
-		$entidad->estado=$estado;
-		$entidad->titulo_convocatoria=$titulo;
-		$entidad->fecha_apertura=$fecha_apertura;
-		$entidad->fecha_cierre=$fecha_cierre;
-		$entidad->cuantia=$cuantia;
-		$entidad->descripcion_convocatoria=$descripcion;
-		$entidad->email=$email;
-		$entidad->telefono_contacto=$telefono;
-		$entidad->pagina_convocatoria=$pagina;
-		$entidad->archivo_convocatoria=$nombreNuevo;
-		$entidad->convocatoria_dirigida=$dirigida;
-		*/
 
+		$entidad=new InvProyectos();
+		
+		$entidad->nombre_proyecto=$nombre_proyecto;
+		$entidad->estado_proyecto=$estado_proyecto;
+		$entidad->fecha_proyecto=$fecha_inicio;
+		$entidad->inv_numero_convocatoria=$conv_proyecto;
+		$entidad->inv_id_sublinea=$linea_proyecto;
+		$entidad->inv_codigo_grupo=$grupo1_proyecto;
+		$entidad->grupo_auxiliar=$grupo2_proyecto;
+		$entidad->objetivo_general=$objetivo_proyecto;
+		$entidad->archivo_actainicio=$actainicio;
+		$entidad->archivo_propuesta=$propuesta_proyecto;
+		$entidad->informe_final=$informe_proyecto;
+
+		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
@@ -75,7 +74,7 @@ class ControlProyectos extends Controller {
 
 			// execute la validacin 
 
-			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
+			$validator = Validator::make(Input::all(), InvProyectos::$reglasValidacion,$messages);
 
 
 			if ($validator->fails()) {
@@ -89,7 +88,16 @@ class ControlProyectos extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
+					$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);
+						$entidad->archivo_actainicio=$archivo1;
 
+					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
+						$entidad->archivo_propuesta=$archivo2;
+
+					$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
+						$entidad->informe_final=$archivo3;
+
+						$entidad->save();
 			/*
 					try{
 						$entidad->save();
@@ -114,24 +122,56 @@ class ControlProyectos extends Controller {
 
 
 
-			function ArchivosProyectos(){
-				if(Input::hasFile('dcto-conv'))
+
+
+		/**********
+			* carga el formulario para cargar los datos desde la tabla
+			*/
+			public function cargarFormularioProyectos(){
+
+				$listaConvocatorias = InvConvocatorias::all();
+				$listaLineas = InvLineas::all();
+				$listaGrupos = InvGrupos::all();
+				$listaGrupos1 = InvGrupos::all();
+
+
+				$datos=  array(
+					'convocatorias' =>$listaConvocatorias,
+					'lineas' =>$listaLineas,
+					'grupos' =>$listaGrupos,
+					'grupos1' =>$listaGrupos1 );
+
+			  return View::make('administrador/formulario_proyectos',$datos); 
+
+
+			}//
+
+
+
+
+
+			function ArchivosProyectos($name,$direccion){
+				
+				$nombreNuevo="";
+				if(Input::hasFile($name))
 					{
 
-						$archivoF =Input::file('dcto-conv');
-						$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
+						$archivoF =Input::file($name);
+						$nombreNuevo=$archivoF->getClientOriginalName();
 
 
-					while (File::exists($direccion.$nombreNuevo) )
-					{
-						$numero=rand(1,999);
-						$nombreNuevo=$numero."-".$nombreNuevo;				
-			
+						while (File::exists($direccion.$nombreNuevo) )
+						{
+							$numero=rand(1,999);
+							$nombreNuevo=$numero."-".$nombreNuevo;				
+				
+						}
+
+
+						$archivoF->move($direccion,$nombreNuevo);
 					}
 
-
-					$archivoF->move($direccion,$nombreNuevo);
-				}
+					return $nombreNuevo;
 			
 			}
 

@@ -44,6 +44,9 @@ Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipo
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
 
+Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
+
+
 
 
 
@@ -51,7 +54,6 @@ Route::get('formulariolineas', function() { return View::make('administrador/for
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
-Route::get('formularioproyectos', function() { return View::make('administrador/formulario_proyectos');});
 
 Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
 

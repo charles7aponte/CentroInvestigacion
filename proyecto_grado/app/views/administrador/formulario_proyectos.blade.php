@@ -42,7 +42,8 @@
             <ul>
                 <fieldset> 
 
-                    <li><label for="nombre-proyecto">Nombre del proyecto:</label>
+                    <li class="@if($errors->has('nombre-proyecto')) has-error @endif">
+                        <label for="nombre-proyecto">Nombre del proyecto:</label>
                         <input type="text" id="nombre-proyecto" name="nombre-proyecto" value="{{Input::old('nombre-proyecto')}}" /> 
                          @if ($errors->has('nombre-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-proyecto') }}</p> @endif
                     </li>   
@@ -76,35 +77,58 @@
                     </li>
                     <li><label for="convocatoria-proyecto">Convocatoria:</label> 
                         <select name="convocatoria-proyecto" required="required">
-                            <option value="">Aaaaa</option>
-                            <option value="">Bbbbbb</option>
+                              @if(isset($convocatorias))
+                                @foreach($convocatorias as $convocatoria)
+                                    <option value="{{$convocatoria['numero_convocatoria']}}" > {{$convocatoria['titulo_convocatoria']}}</option>
+                                @endforeach
+                              @endif    
+
+                        
                         </select>
 
                         @if ($errors->has('convocatoria-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('convocatoria-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="linea-proyecto">Linea del proyecto:</label> 
                         <select name="linea-proyecto" required="required">
-                            <option value="">Teleinformatica</option>
-                            <option value="">Software</option>
+
+                          @if(isset($lineas))
+                                @foreach($lineas as $linea)
+                                    <option value="{{$linea['id_lineas']}}" > {{$linea['nombre_linea']}}</option>
+                                @endforeach
+                          @endif  
+                            
                         </select>
 
                         @if ($errors->has('linea-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('linea-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="grupo1-proyecto">Grupo 1 del proyecto:</label> 
                         <select name="grupo1-proyecto" required="required">
-                            <option value="">Gitecx</option>
-                            <option value="">Horizonte Mediatico</option>
+
+                          @if(isset($grupos))
+                                @foreach($grupos as $grupo)
+                                    <option value="{{$grupo['codigo_grupo']}}" > {{$grupo['nombre_grupo']}}</option>
+                                @endforeach
+                          @endif 
                         </select>
+
+                        @if ($errors->has('grupo1-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('grupo1-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="grupo2-proyecto">Grupo 2 del proyecto:</label> 
                         <select name="grupo2-proyecto">
-                            <option value=""></option>
-                            <option value="">Gitecx</option>
-                            <option value="">Horizonte Mediatico</option>
+
+                          @if(isset($grupos1))
+                                @foreach($grupos1 as $grupo1)
+                                    <option value="{{$grupo1['codigo_grupo']}}" > {{$grupo1['nombre_grupo']}}</option>
+                                @endforeach
+                          @endif 
+                      
                         </select>
+
+                        @if ($errors->has('grupo2-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('grupo2-proyecto') }}</p> @endif
                     </li> 
                     <li><label for="obj-proyecto">Objetivo general:</label>
-                        <textarea id="obj-proyecto" name="obj-proyecto" required="required"></textarea>
+                        <textarea id="obj-proyecto" name="obj-proyecto" required="required">{{Input::old('obj-proyecto')}}</textarea>
+                        @if ($errors->has('obj-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('obj-proyecto') }}</p> @endif
                     </li>
 
                     <div class="row">
@@ -200,13 +224,16 @@
             <ul>
                 <fieldset>
                     <li><label for="actaini-proyectos">Archivo del Acta de inicio: </label>
-                        <input type="file" id="actaini-proyectos" name="actaini-proyectos" />
+                        <input type="file" id="actaini-proyectos" name="actaini-proyectos" value="{{Input::old('actaini-proyectos')}}"/>
+                        @if ($errors->has('actaini-proyectos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('actaini-proyectos') }}</p> @endif
                     </li>     
                     <li><label for="propuesta-proyecto">Archivo de la propuesta: </label>
-                        <input type="file" id="propuesta-proyecto" name="propuesta-proyecto" />
+                        <input type="file" id="propuesta-proyecto" name="propuesta-proyecto" value="{{Input::old('propuesta-proyecto')}}" />
+                        @if ($errors->has('propuesta-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('propuesta-proyecto') }}</p> @endif
                     </li>  
                     <li><label for="informe-proyecto">Archivo del informe final: </label>
-                        <input type="file" id="informe-proyecto" name="informe-proyecto" />
+                        <input type="file" id="informe-proyecto" name="informe-proyecto" value="{{Input::old('informe-proyecto')}}" />
+                        @if ($errors->has('informe-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('informe-proyecto') }}</p> @endif
                     </li>      
                 </fieldset> 
             </ul>   
