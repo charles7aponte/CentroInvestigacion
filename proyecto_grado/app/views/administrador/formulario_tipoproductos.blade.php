@@ -131,7 +131,9 @@
                     <td style="width:120px;">                      
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" 
-                         onclick="cargarmodal_descripcion('{{{$tipoproducto['descripcion_producto']}}}');"
+
+                         data-info="{{{$tipoproducto['descripcion_producto']}}}"
+                         onclick="cargarmodal_descripcion(this);"
                          style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;" >
                          Ver descripci&oacute;n
                         </button>

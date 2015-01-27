@@ -46,6 +46,8 @@ function verinfo(){
 }
 
 //ver descripcion en los mdoal
-  function cargarmodal_descripcion(desc){
+  function cargarmodal_descripcion(elemento){
+  var $fila = $(elemento);
+  var desc= $fila.attr("data-info"); 
   $('#contenido_modal').html(desc);
 }
