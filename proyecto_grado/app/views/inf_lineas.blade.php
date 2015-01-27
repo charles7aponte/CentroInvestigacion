@@ -1,7 +1,7 @@
 
 @extends('administrador.panel_admin')
 @section('css-nuevos')
-<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_temasprincipales.css" />
 @stop
 
 
@@ -83,29 +83,53 @@
               		background: -moz-linear-gradient(top,#1A6D71,#122d3e);
               		background: -o-linear-gradient(top,#1A6D71,#122d3e);  
              		background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">GRUPOS</th>
+              		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PRODUCTOS</th>
           	 	</tr>
             	<tr> 
-          			<th colspan="2">NOMBRE DEL GRUPO</th>
+          			<th colspan="2">NOMBRE DEL PRODUCTO</th>
         		</tr>
       		</thead>
       		<tbody>
         		<tr>
           			<td>1</td>
-          			<td id="nombre-grupo"><a href="grupos">Este es el nombre del grupo 1 de investigacion o de estudio de la universidad de los llanos</a></td>
+          			<td id="nombre-grupo"><a href="grupos">Este es el nombre del producto de investigacion o de estudio de la universidad de los llanos</a></td>
         		</tr>
         		<tr>
          		 	<td>2</td>
-         			<td id="nombre-grupo"><a href="">Grupo 2</a></td>
+         			<td id="nombre-grupo"><a href="">nombre del producto  2</a></td>
        	 		</tr>
       		</tbody>
     	</table>
     </fieldset>
 
     <fieldset id="secundario">
-        <div class="titulo-tabla-productividad" id="cuadro">             
-            <h4 id="boton_" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Proyectos</a></h4>
+        <div class="titulo-tabla-proyecto" id="cuadro">             
+            <h4 id="boton_proyecto" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Proyectos</a></h4>
         </div>
+      <table id="tabla_proyecto">
+          <thead>
+            <tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
+                  background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
+                  background: -moz-linear-gradient(top,#1A6D71,#122d3e);
+                  background: -o-linear-gradient(top,#1A6D71,#122d3e);  
+                  background: linear-gradient(to bottom,#1A6D71,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PROYECTOS</th>
+            </tr>
+            <tr> 
+              <th colspan="2">NOMBRE DEL PROYECTO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>1</td>
+                <td id="nombre-grupo"><a href="grupos">Este es el nombre del proyecto1 de investigacion o de estudio de la universidad de los llanos</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="nombre-grupo"><a href="">nombre del proyecto  2</a></td>
+            </tr>
+          </tbody>
+      </table>
     </fieldset>
 </div>    
 @stop

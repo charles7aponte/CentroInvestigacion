@@ -66,6 +66,8 @@ Route::get('convocatoria', function() {return View::make('inf_convocatorias');})
 
 Route::get('lineas', function() {return View::make('inf_lineas');});
 
+Route::get('productos', function() {return View::make('inf_productos');});
+
 
 
 
