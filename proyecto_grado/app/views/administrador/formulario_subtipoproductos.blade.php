@@ -124,26 +124,6 @@
                          style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;">
                          Ver descripci&oacute;n
                         </button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel" style="background:none;"><b>Descripci&oacute;n</b></h4>
-                              </div>
-                              <div class="modal-body">
-                                {{$subtipoproducto['descripcion_subtipo_producto']}}
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
                     </td>
                     <td>{{$subtipoproducto['inv_id_tipo_producto']}}</td>
                     <td style="width:100px;">

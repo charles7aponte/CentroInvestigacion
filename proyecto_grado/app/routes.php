@@ -69,6 +69,9 @@ Route::get('lineas', function() {return View::make('inf_lineas');});
 
 
 
+Route::get('personas', function() {return View::make('info_personas');});
+
+
 /***********   Creacion de formularios (almacenando en la bd) -----------
 -----------------------
 ********************/
