@@ -292,7 +292,8 @@
 #form-empresas #reset-button:hover,
 #form-tipoproducto #reset-button:hover,
 #form-subtipoproducto #reset-button:hover,
-#form-financiamiento-proyectos #reset-button:hover {
+#form-financiamiento-proyectos #reset-button:hover,
+#form-convocatorias #reset-butto:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -303,7 +304,7 @@
 }
 
 #form-grupos #crear-grupo:hover,
-#form-convocatorias #crear-convocatoria:hover,
+#form-convocatorias #crear-convocatoria:hover, 
 #form-proyectos #crear-proyecto:hover,
 #form-productos #crear-producto:hover,
 #form-financiamiento-proyectos #guardar-financiamiento:hover, #form-financiamiento-proyectos #agregar-financiamiento:hover,

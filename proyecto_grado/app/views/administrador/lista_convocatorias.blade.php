@@ -9,7 +9,7 @@
       <div id="tabla-listaconvocatorias">
         <table id="listaconvocatorias">
           <thead>
-            <tr><th colspan="3" style="background: #1A6D71;
+            <tr><th colspan="4" style="background: #1A6D71;
                     background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                     background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                     background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -17,26 +17,28 @@
                     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;";>CONVOCATORIAS</th></tr>
             <tr>
               <th> </th>
-              <th colspan="2">Ti&iacute;tulo de la convocatoria</th>
+              <th colspan="3">Ti&iacute;tulo de la convocatoria</th>
             </tr>
           </thead>
           <tbody>
+          @if(isset($campo_lista))
+          @foreach ($campo_lista as $campo)
             <tr>
-              <td>1</td>
-              <td id="nombre-convocatoria"><a href="">Este es el nombre de la convocatoria</a></td>
+              <td style="width:100px;">
+                <b>{{$campo['numero_convocatoria']}}</b>
+              </td> 
               <td>
+                <a href="">{{$campo['titulo_convocatoria']}}</a>
+              </td>
+              <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                <a href="#" class="button">Eliminar</a>
+              </td>
+              <td style="width:90px;">
+                <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td id="nombre-convocatoria"><a href="">Grupo 2</a></td>
-              <td>
-                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                <a href="#" class="button">Eliminar</a>
-              </td>
-            </tr>
+          @endforeach
+          @endif
           </tbody>
         </table>
         <div style="margin-left:30px; margin-right:30px;"> 
