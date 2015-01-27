@@ -11,7 +11,7 @@
 <div id="tabla-listasublineas">
   <table id="listasublineas">
     <thead>
-      <tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
+      <tr><th colspan="4" style=" border-radius: 5px; background: #1A6D71;
               background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
               background: -moz-linear-gradient(top,#1A6D71,#122d3e);
               background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -19,56 +19,34 @@
               filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">SUBL&Iacute;NEAS</th></tr>
       <tr>
         <th> </th>
-        <th colspan="2">NOMBRE DE LA SUBL&Iacute;NEA</th>
+        <th colspan="3">NOMBRE DE LA SUBL&Iacute;NEA</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td id="nombre-sublinea"><a href="">Este es el nombre de la sublinea</a></td>
-        <td>
-          <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-          <a href="#" class="button">Eliminar</a>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td id="nombre-sublinea"><a href="">Sublinea 2</a></td>
-        <td>
-          <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-          <a href="#" class="button">Eliminar</a>
-        </td>
-      </tr>
-    </tbody>
+        @if(isset($campo_lista))
+          @foreach ($campo_lista as $campo)
+            <tr>
+              <td style="width:100px;">
+                <a href="">{{$campo['id_sublinea']}}</a>
+              </td> 
+              <td>
+                <a href="">{{$campo['nombre_sublinea']}}</a>
+              </td>
+              <td style="width:90px;">
+                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+              </td>
+              <td style="width:90px;">
+                <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+              </td>
+            </tr>
+          @endforeach
+          @endif
   </table>
-          <nav>
-        <ul  class="pager">
-          <li id="botones">
-            <a href="#" style=" border-radius: 7px; background: #1A6D71;
-              background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-              background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-              background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-              background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);
-              text-decoration: none;
-              font-weight: bold;
-              color:#fff">Anterior
-            </a>
-          </li> 
-          <li id="botones">
-            <a href="#" style=" border-radius: 7px; background: #1A6D71;
-              background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-              background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-              background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-              background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);
-              text-decoration: none;
-              font-weight: bold;
-              color:#fff">Siguiente
-            </a>
-          </li>
-      </ul>
-    </nav>
+
+      <div style="margin-left:30px; margin-right:30px;"> 
+          {{$links}}
+      </div>
+  </div>
 </div>
 </form>
 @stop

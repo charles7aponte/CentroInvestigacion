@@ -102,16 +102,18 @@ Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
 Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 
 
-/*-------------listas de cada tema-------------*/
+/**********-------------listas de cada tema -------------
+----------------------------------------------------------------------
+*********************/
 Route::get('listadegruposinv', function() { return View::make('administrador/lista_grupos_inv');});
 
 Route::get('listadegruposestudio', function() { return View::make('administrador/lista_grupos_estudio');});
 
-Route::get('listadeconvocatorias', function() { return View::make('administrador/lista_convocatorias');});
+Route::get('listadeconvocatorias','ControlListas@ConstruirListaConvocatorias');
 
-Route::get('listadelineas', function() { return View::make('administrador/lista_lineas');});
+Route::get('listadelineas','ControlListas@ConstruirListaLineas');
 
-Route::get('listadesublineas', function() { return View::make('administrador/lista_sublineas');});
+Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 
 Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
 

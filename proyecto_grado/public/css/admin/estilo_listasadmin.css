@@ -148,10 +148,16 @@ table#listaproyectos td:last-child {
   cursor: pointer;
 }
 
-#botones{
-  border: 10px;
+ul.pagination li a{
+  color:#1A6D71;
 }
 
-#botones:hover{
-  border: 1px solid #ECE6E2;
+ul.pagination li.active > span{
+    border-color:#1A6D71;
+    background: #1A6D71;
+}
+
+ul.pagination li.active > span:hover{
+    border-color:#1A6D71;
+    background: #1A6D71;
 }

@@ -97,7 +97,7 @@ class ControlConvocatorias extends Controller {
 							{
 
 								$archivoF =Input::file('dcto-conv');
-								$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
+								$nombreNuevo=$numero."-".$archivoF->getClientOriginalName(); //llave de la convocatoria. archivo .nombre
 
 
 								while (File::exists($direccion.$nombreNuevo) )

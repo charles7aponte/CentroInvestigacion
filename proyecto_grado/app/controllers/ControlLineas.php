@@ -14,37 +14,13 @@ class ControlLineas extends Controller {
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');	
-							
-
-	//$archivo=Input::get('dcto-cineas');
+		//$archivo=Input::get('archivo-linea');
 		$nombreNuevo="";
 
-		$direccion = __DIR__."/../../public/archivos_db/lineas/";
+		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
 
-		//manejo de archivo
+		$todosDatos = Input::except('archivo-linea');
 
-		if(Input::hasFile('dcto-conv'))
-		{
-
-			$archivoF =Input::file('dcto-conv');
-			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
-
-
-			while (File::exists($direccion.$nombreNuevo) )
-			{
-				$numero=rand(1,999);
-				$nombreNuevo=$numero."-".$nombreNuevo;				
-			
-			}
-
-
-			$archivoF->move($direccion,$nombreNuevo);
-
-
-		}
-
-
-		$todosDatos = Input::except('dcto-conv');
 
 		/*objeto del modelo*/
 		$entidad=new InvLineas();
@@ -54,7 +30,6 @@ class ControlLineas extends Controller {
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
-	
 
 			// mensaje a mostrar
 			$messages = array(
@@ -78,8 +53,31 @@ class ControlLineas extends Controller {
 
 
 					try{
+
+							//manejo de archivo
+
+							if(Input::hasFile('archivo-linea'))
+							{
+
+								$archivoF =Input::file('archivo-linea');
+								$nombreNuevo=$nombre."-".$archivoF->getClientOriginalName();
+
+
+								while (File::exists($direccion.$nombreNuevo) )
+								{
+									$nombre=rand(1,999);
+									$nombreNuevo=$nombre."-".$nombreNuevo;				
+								
+								}
+
+
+								$archivoF->move($direccion,$nombreNuevo);
+							}
+
+						$entidad->ruta_archivo=$nombreNuevo;
 						$entidad->save();
 					}
+
 					catch( PDOException $e)
 					{
 						//return 'existe un error' + $e;

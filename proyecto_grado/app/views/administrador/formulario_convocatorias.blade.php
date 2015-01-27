@@ -115,7 +115,7 @@
                         <input type="text" id="pag-conv" name="pag-conv" value="{{Input::old('pag-conv')}}"/>
                         @if ($errors->has('pag-con')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pag-conv') }}</p> @endif
                     </li>
-                    <li class="@if($errors->has('dirigifa-conv')) has-error @endif">
+                    <li class="@if($errors->has('dirigida-conv')) has-error @endif">
                         <label for="dirigida-conv">Dirigida a:</label>
                         <input type="text" id="dirigida-conv" name="dirigida-conv" value="{{Input::old('dirigida-conv')}}" required="required" />
                         @if ($errors->has('dirigida-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dirigida-conv') }}</p> @endif
