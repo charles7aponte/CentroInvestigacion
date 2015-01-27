@@ -3,7 +3,7 @@
 
 @section('css-nuevos')
   
-    <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatoria.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_temasprincipales.css" />
 @stop
 
 @section('javascript-nuevos2')

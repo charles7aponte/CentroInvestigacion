@@ -1,6 +1,6 @@
 @extends('administrador.panel_admin')
 @section('css-nuevos')
-<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_infconvocatorias.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_temasprincipales.css" />
 @stop
 
 
@@ -12,7 +12,7 @@
 
 @section('cuerpo')
 
-<div id="capa" class="infoconvocatoria">
+<div id="capa" class="infconvocatoria">
     <fieldset id="principal">
         <div id="titulo-infconv" id="cuadro"> 
             <h2>Este es el titulo de la convocatoria numero uno de la ciudad de villavicencion de la universidad de los
