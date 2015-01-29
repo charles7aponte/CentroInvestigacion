@@ -59,7 +59,6 @@ Route::get('formularioconvocatorias', function() { return View::make('administra
 
 Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
 
-Route::get('formularioproductos', function() { return View::make('administrador/formulario_productos');});
 
 Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
 

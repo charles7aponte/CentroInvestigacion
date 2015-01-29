@@ -91,13 +91,13 @@ class ControlProductos extends Controller {
 		} else {
 
 					$archivo1=$this->ArchivosProductos('foto-producto',$direccion);
-						$entidad->archivo_fotoproducto=$archivo1;
+						$entidad->foto_producto=$archivo1;
 
 					$archivo2=$this->ArchivosProductos('soporte-producto',$direccion);
-						$entidad->archivo_soporteproducto=$archivo2;
+						$entidad->soporte_producto=$archivo2;
 
 					$archivo3=$this->ArchivosProductos('tipo-soporte-producto',$direccion);
-						$entidad->informe_tiposoporte=$archivo3;
+						$entidad->tipo_soporte=$archivo3;
 
 						$entidad->save();
 			/*

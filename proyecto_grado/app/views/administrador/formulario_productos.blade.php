@@ -122,11 +122,11 @@
                             <!--Agregando nuevos integrantes-->
                             <li style="margin-top: 15px;">
                                 <label  style="width:inherit">Integrante: </label>
-                                    <input type="text" id="integrantes-producto" name="integrantes-producto" value="" required="required"></br>
+                                    <input type="text" id="integrantes-producto" name="integrantes-producto" value=""></br>
                             </li>    
                             <li>
                                 <label  style="width:inherit">Grupo participante: </label>
-                                    <input type="text" id="grupo-producto" name="grupo-producto" value="" required="required">
+                                    <input type="text" id="grupo-producto" name="grupo-producto" value="">
                             </li> 
                              <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
