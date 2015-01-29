@@ -6,8 +6,24 @@ $(document).ready(function(){
 
 
 $("#bton_integrantes-grupos").click(function(){
+
+
 	generaFilaPersona(jsonIntegrante,"integrantes");
+
+
+
 });
+
+
+$("#integrantes-grupos").keyup(function(e){
+	//console.log(e);
+
+	$("#bton_integrantes-grupos").hide();
+
+});
+
+
+
 
 
 
@@ -39,7 +55,7 @@ $("#bton_integrantes-grupos").click(function(){
 
 			console.log("seleccion :.. "+ ui.item.nombre)
 			console.log("seleccion ... cedula "+ui.item.cedula)
-  		
+  			$("#bton_integrantes-grupos").show();
 
 
 			$("#integrantes-grupos").val(ui.item.nombre+"("+ui.item.cedula+")");
@@ -68,7 +84,7 @@ $("#bton_integrantes-grupos").click(function(){
  	if(json)
  	{     
       var html ="<tr> ";
-            html +="                   <td><inputy type='hidden' data-info='"+json.cedula+"' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
+            html +="                   <td><input type='hidden' data-info='"+json.cedula+"' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
             html +="                  <td>"+json.nombre+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
@@ -82,6 +98,8 @@ $("#bton_integrantes-grupos").click(function(){
             $lista.each(function(index, ob){
 
             	var $ob= $(ob);
+
+            	console.log($ob.attr("data-info"));
             	if(json.cedula==$ob.attr("data-info"))
             	{
             		existe=true;
@@ -90,7 +108,13 @@ $("#bton_integrantes-grupos").click(function(){
             });
 
             if(existe==false)
-            $("#tabla-integrantes-grupos").append($fila);
+            {
+            $("#tabla-integrantes-grupos").append($fila);	
+            }
+            else{
+            	alert("ya existe");
+            }
+            
 	}
    }
 

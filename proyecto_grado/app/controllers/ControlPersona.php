@@ -7,16 +7,10 @@ class ControlPersona extends Controller {
 	/*********************
 	* retorna las coincidencias en nombre , apellido o cedula
 	*/
-	public function getPersonaByName($nombre)
+	public function buscarPersonaPorNombre($nombre)
 	{
 		$nombre=$this->limpiarCadena($nombre);
 
-		/*$listaPersonas= Persona::select("nombre12")->where("nombre1","LIKE" ,"'%$nombre%'")
-					//->orwhere("nombre2","LKE" ,$nombre."%")
-					//->orwhere("apellido1","LKE" ,$nombre."%")
-					//->orwhere("apellido2","LKE" ,$nombre."%")
-					//->where("cedula","LKE" ,$nombre)
-					->get();*/
 
 				$listaPersonas=	DB::select(DB::raw("select concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ) as nombre , cedula as cedula 
 					FROM \"persona\"

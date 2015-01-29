@@ -128,7 +128,7 @@ Route::get('listadeproyectos', function() {return View::make('administrador/list
 *************
 ****************/
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
-Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
+Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre');
 
 
 

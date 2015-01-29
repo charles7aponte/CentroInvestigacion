@@ -109,9 +109,9 @@
                             <!--Agregando nuevos integrantes-->
                             <label  style="width:inherit">Integrante: </label>
                              <input type="text" id="integrantes-grupos"  value="" />
-                             <button type="button" class="btn btn-primary" 
+                             <button type="button" class="btn btn-primary"  
                                 id="bton_integrantes-grupos"
-                              style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              style="background:#1A6D71; display:none"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
