@@ -74,8 +74,6 @@ Route::get('lineas', function() {return View::make('inf_lineas');});
 Route::get('productos', function() {return View::make('inf_productos');});
 
 
-
-
 Route::get('personas', function() {return View::make('info_personas');});
 
 
@@ -124,11 +122,22 @@ Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos', function() {return View::make('administrador/lista_proyectos');});
 
-/*********** creacion de servicios 
-*************
-****************/
+
+/***********--------------------------------- creacion de servicios (modales integrantes, lineas)
+*************----------------
+--------------------------------------------------------------------------------****************/
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
+
+//Grupos
 Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre');
+
+Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
+
+//Productos
+
+//Proyectos
+
+
 
 
 

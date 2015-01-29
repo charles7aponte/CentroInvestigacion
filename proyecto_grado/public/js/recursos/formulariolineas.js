@@ -1,23 +1,24 @@
-var jsonIntegrante=null;
+var jsonlinea=null;
 
 
 
 $(document).ready(function(){
 
 
-$("#bton_integrantes-grupos").click(function(){
+$("#bton_linea-grupos").click(function(){ //bton agregar modal de lineas
 
-	generaFilaPersona(jsonIntegrante,"integrantes");
+
+	generaFilaLinea(jsonlinea,"lineas");
 
 
 
 });
 
 
-$("#integrantes-grupos").keyup(function(e){
+$("#linea-grupos").keyup(function(e){//input
 	//console.log(e);
 
-	$("#bton_integrantes-grupos").hide();
+	$("#bton_linea-grupos").hide();
 
 });
 
@@ -28,7 +29,7 @@ $("#integrantes-grupos").keyup(function(e){
 
 
 	//autocompletado
-	$("#integrantes-grupos").autocomplete({
+	$("#linea-grupos").autocomplete({
 
 		source:function(request, response)
 		{
@@ -36,7 +37,7 @@ $("#integrantes-grupos").keyup(function(e){
 			//console.log(response)
 			//console.info(request)
 
-			$.getJSON("servicios/personas/"+request.term,{
+			$.getJSON("servicios/lineas/"+request.term,{ //routes
 	//			term:  ( request.term )
 			},response);//fin get JSON
 
@@ -52,14 +53,14 @@ $("#integrantes-grupos").keyup(function(e){
 		, select:function(event, ui)
 		{
 
-			console.log("seleccion :.. "+ ui.item.nombre)
-			console.log("seleccion ... cedula "+ui.item.cedula)
-  			$("#bton_integrantes-grupos").show();
+			console.log("seleccion :.. "+ ui.item.nombre_linea)
+			console.log("seleccion ... codigo"+ui.item.id_lineas)
+  			$("#bton_linea-grupos").show();
 
 
-			$("#integrantes-grupos").val(ui.item.nombre+"("+ui.item.cedula+")");
+			$("#linea-grupos").val(ui.item.nombre_linea+"("+ui.item.id_lineas+")");
 			//generaFilaPersona(ui.item,"integrantes");
-			jsonIntegrante = ui.item;
+			jsonlinea = ui.item;
 
 			return false;
 
@@ -68,7 +69,7 @@ $("#integrantes-grupos").keyup(function(e){
 	})
 	.autocomplete( "instance" )._renderItem = function( ul, item ) {
       return $( "<li>" )
-        .append( "<a>" + item.nombre + "<br>" + item.cedula + "</a>" )
+        .append( "<a>" +item.nombre_linea +"<br>"+"("+ item.id_lineas+")"+"</a>" )
         .appendTo( ul );
     };
 	;// fin defincion de autocompletado
@@ -78,13 +79,15 @@ $("#integrantes-grupos").keyup(function(e){
 
 
 
- function generaFilaPersona( json, name ) {
+ function generaFilaLinea( json, name ) {
  
  	if(json)
  	{     
+       console.info(json); 
+
       var html ="<tr> ";
-            html +="                   <td><input type='hidden' data-info='"+json.cedula+"' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
-            html +="                  <td>"+json.nombre+"</td> ";
+            html +="                  <td><input type='hidden' data-info='"+json.nombre_linea+"' name='"+name+"[]' value='"+json.id_lineas+"'>"+json.id_lineas+"</td> ";
+            html +="                  <td>"+json.nombre_linea+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
             html +="                </td> ";
@@ -92,7 +95,7 @@ $("#integrantes-grupos").keyup(function(e){
 
             $fila= $(html);
 
-            var $lista=$("#tabla-integrantes-grupos").find("input[data-info]");
+            var $lista=$("#tabla-lineas-grupos").find("input[data-info]");
             var existe=false;
             $lista.each(function(index, ob){
 
@@ -108,7 +111,7 @@ $("#integrantes-grupos").keyup(function(e){
 
             if(existe==false)
             {
-            $("#tabla-integrantes-grupos").append($fila);	
+            $("#tabla-lineas-grupos").append($fila);	
             }
             else{
             	alert("ya existe");

@@ -12,6 +12,7 @@
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
 
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariogrupos.js"></script>
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariolineas.js"></script>
 @stop
 
 
@@ -108,10 +109,10 @@
                             </button>
                             <!--Agregando nuevos integrantes-->
                             <label  style="width:inherit">Integrante: </label>
-                             <input type="text" id="integrantes-grupos"  value="" />
+                             <input type="text" id="integrantes-grupos"  value="" style="width:500px;"/>
                              <button type="button" class="btn btn-primary"  
                                 id="bton_integrantes-grupos"
-                              style="background:#1A6D71; display:none"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -120,40 +121,13 @@
                               <thead>
                                 <tr><th colspan="3">INTEGRANTES DEL GRUPO</th></tr>
                                 <tr>
-                                  <th>Documento</th>
+                                  <th># DOCUMENTO</th>
                                   <th colspan="2">Nombres y Apellidos</th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="1">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="2">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="3">1121887678</td>
-                                  <td>Pepito Perez Gonzalez</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="4">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+
                               </tbody>
                             </table>
                           </div>
@@ -165,14 +139,14 @@
                     </div>
                     <!--*******************************************
                     ******************-->
+
                     <div class="row">
-                        <div class="col-md-2"><label>L&iacute;neas: </label></div>
-                        <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal-lineas" id="botones-especiales" value="Agregar/Ver L&iacute;neas">
+                        <div class="col-md-2"><label>Lineas: </label></div>
+                         <div class="col-md-2"> 
+                            <input type="button"  data-toggle="modal" data-target="#myModal-lineas" id="botones-especiales" value="Agregar/Ver Lineas">
                         </div>
                     </div>
-
-                    <!--haciendo una modal para agregar Lineas-->
+                    <!--haciendo una modal para agregar lineas-->
                     <div class="modal fade" id="myModal-lineas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
                       <div class="modal-dialog"  style="width:960px">
                         <div class="modal-content">
@@ -181,50 +155,38 @@
                             <button type="button" class="close" data-dismiss="modal">
                                 <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
                             </button>
+
                             <!--Agregando nuevas lineas-->
                             <label  style="width:inherit">L&iacute;nea: </label>
-                             
-                             <button type="button" class="btn btn-primary"  style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <input type="text" id="linea-grupos"  value="" />
+                             <button type="button" class="btn btn-primary"  
+                                id="bton_linea-grupos"
+                              style="background:#1A6D71; display:none; width:500px;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
-                             <input type="text" id="lineas-grupos"  value="" />
-                              
-
-
-                            <table id="tabla-lineas-grupos">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
+                            id="tabla-lineas-grupos">
                               <thead>
-                                <tr><th colspan="3">L&Iacute;NEAS DEL GRUPO</th></tr>
+                                <tr><th colspan="3">L&iacute;neas</th></tr>
                                 <tr>
                                   <th>C&oacute;digo</th>
-                                  <th colspan="2">Nombre de la L&iacute;nea</th>
+                                  <th colspan="2">Nombre</th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td>01</td>
-                                  <td>Teleinformatica</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>02</td>
-                                  <td>Software</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+                            
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>
                     </div>
+
                     <!--*******************************************
                     ******************-->
                 </fieldset>
