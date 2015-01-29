@@ -43,10 +43,12 @@ Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipo
 //eliminar tipo productos
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
-
+//----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
+//----------------eliminar proyectos
 
-
+//----------------agregar productos
+Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 
 
@@ -100,6 +102,8 @@ Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
 
 Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
+
+Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 
 
 /**********-------------listas de cada tema -------------

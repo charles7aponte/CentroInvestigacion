@@ -44,7 +44,7 @@
 
                     <li class="@if($errors->has('nombre-proyecto')) has-error @endif">
                         <label for="nombre-proyecto">Nombre del proyecto:</label>
-                        <input type="text" id="nombre-proyecto" name="nombre-proyecto" value="{{Input::old('nombre-proyecto')}}" /> 
+                        <input type="text" id="nombre-proyecto" name="nombre-proyecto" required="required" value="{{Input::old('nombre-proyecto')}}" /> 
                          @if ($errors->has('nombre-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-proyecto') }}</p> @endif
                     </li>   
                     <li><label for="estado-proy">Estado:</label> 

@@ -22,13 +22,29 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-productos" autocomplete="on"   action="" method="">
+   <form id="form-productos" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioproductos')}}" method="post">
+           @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+          @endif
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nuevo producto</h2></div>
         <ul>
             <fieldset> 
 
-                <li><label for="titulo-producto">Nombre del producto:</label>
-                    <input type="text" id="titulo-produtcto" name="titulo-produtcto" value="" required="required"> 
+                <li class="@if($errors->has('titulo-producto')) has-error @endif"><label for="titulo-producto">Nombre del producto:</label>
+                    <input type="text" id="titulo-producto" name="titulo-producto" value="{{Input::old('titulo-producto')}}" required="required"> 
+                    @if ($errors->has('titulo-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-producto')}}</p> @endif
                 </li>    
                 <li><label for="fecha-proy">Fecha:</label>
                     <div class="container">
@@ -37,7 +53,8 @@
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker2'>
                                         <input type="" style="cursor:pointer"   
-                                        readonly id="fecha-proy" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
+                                        readonly id="fecha-proy" class="date form-control" data-format="dd/MM/yyyy" name="creacion-producto" value="{{Input::old('creacion-producto')}}" required="required" />
+                                        @if ($errors->has('creacion-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-producto') }}</p> @endif 
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                         </span>
                                     </div>
@@ -48,24 +65,41 @@
                 </li>
                 <li><label for="subtipo-proy">Subtipo de producto:</label> 
                     <select name="subtipo-proy" required="required">
-                        <option value=""></option>
-                        <option value="">Bbbbbbbb</option>
-                        <option value="">Aaaaaaaa</option>
+                        @if(isset($subtipos))
+                        @foreach($subtipos as $subtipo)
+                           <option value="{{$subtipo['id_subtipo_producto']}}" > {{$subtipo['nombre_subtipo_producto']}}</option>
+                        @endforeach
+                        @endif
+
                     </select>
+
+                    @if ($errors->has('subtipo-proy')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('subtipo-proy') }}</p> @endif
                 </li>
                 <li><label for="grupo-proy">Grupo:</label> 
                     <select name="grupo-proy" required="required">
-                        <option value=""></option>
-                        <option value="">Horizonte Mediatico</option>
-                        <option value="">Gitecx</option>
+                      @if(isset($grupoproductos))
+                        @foreach($grupoproductos as $grupoproducto)
+                           <option value="{{$grupoproducto['codigo_grupo']}}" > {{$grupoproducto['nombre_grupo']}}</option>
+                        @endforeach
+                      @endif
+
                     </select>
+
+                    @if ($errors->has('grupo-proy')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('grupo-proy') }}</p> @endif
+
+                </li>
                 </li>
                 <li><label for="linea-proy">Linea:</label> 
                     <select name="linea-proy" required="required">
-                        <option value=""></option>
-                        <option value="">Teleinformatica</option>
-                        <option value="">Horizonte mediatico</option>
+                      @if(isset($lineasproductos))
+                        @foreach($lineasproductos as $lineasproducto)
+                           <option value="{{$lineasproducto['id_lineas']}}" > {{$lineasproducto['nombre_linea']}}</option>
+                        @endforeach
+                      @endif
                     </select>
+
+                  @if ($errors->has('linea-proy')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('linea-proy') }}</p> @endif 
+
                 </li>
                 <div class="row">
                         <li>
@@ -155,29 +189,36 @@
                     <!--*******************************************
                     ******************-->
                 <li><label for="entidad-prod">Entidad:</label>
-                    <input type="tel" id="entidad-prod" name="entidad-prod" value="">
+                    <input type="tel" id="entidad-prod" name="entidad-prod" value="{{Input::old('entidad-prod')}}">
+                     @if ($errors->has('entidad-prod')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-prod') }}</p> @endif
                 </li>
                 <li><label for="reconocimiento-prod">Reconocimiento:</label>
-                    <input type="text" id="reconocimiento-prod" name="reconocimiento-prod" value="">
+                    <input type="text" id="reconocimiento-prod" name="reconocimiento-prod" value="{{Input::old('reconocimiento-prod')}}">
+                     @if ($errors->has('reconocimiento-prod')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('reconocimiento-prod') }}</p> @endif
                 </li>
                 <li><label for="desc-conv">Descripci&oacute;n:</label>
-                    <textarea id="desc-conv" name="desc-conv" required="required"></textarea>
+                    <textarea id="desc-conv" name="desc-conv" required="required">{{Input::old('desc-conv')}}</textarea>
+                     @if ($errors->has('desc-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-conv') }}</p> @endif
                 </li> 
             </fieldset>
         </ul>
         <ul>
             <fieldset>
                 <li><label for="foto-producto">Foto del producto: </label>
-                    <input type="file" id="foto-producto" name="foto-producto">
+                    <input type="file" id="foto-producto" name="foto-producto" value="{{Input::old('foto-producto')}}">
+                    @if ($errors->has('foto-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto-producto') }}</p> @endif
                 </li> 
                 <li><label for="soporte-producto">Soporte del producto: </label>
-                    <input type="file" id="soporte-producto" name="soporte-producto">
+                    <input type="file" id="soporte-producto" name="soporte-producto" value="{{Input::old('soporte-producto')}}">
+                    @if ($errors->has('soporte-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('soporte-producto') }}</p> @endif
                 </li>  
                 <li><label for="tipo-soporte-producto">Tipo de Soporte: </label>
-                    <input type="text" id="tipo-soporte-producto" name="tipo-soporte-producto">
+                    <input type="text" id="tipo-soporte-producto" name="tipo-soporte-producto" value="{{Input::old('tipo-soporte-producto')}}">
+                    @if ($errors->has('tipo-soporte-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('tipo-soporte-producto') }}</p> @endif
                 </li> 
                 <li><label for="obs-soporte">Observaciones del soporte:</label>
-                    <textarea id="obs-soporte" name="obs-soporte"></textarea>
+                    <textarea id="obs-soporte" name="obs-soporte">{{Input::old('obs-soporte')}}</textarea>
+                    @if ($errors->has('obs-soporte')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('obs-soporte') }}</p> @endif
                 </li>     
             </fieldset> 
         </ul>    
