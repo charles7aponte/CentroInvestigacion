@@ -33,7 +33,6 @@ class ControlListas extends Controller {
 		return View::make('administrador/lista_sublineas',$datos);
 	}
 
-
 	//controlador convocatorias
 	public function ConstruirListaConvocatorias(){
 		$listas=InvConvocatorias::all(); //traer registros
@@ -44,6 +43,18 @@ class ControlListas extends Controller {
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
 		
 		return View::make('administrador/lista_convocatorias',$datos);
+	}
+
+		//controlador emoresas
+	public function ConstruirListaEmpresas(){
+		$listas=InvEntidades::all(); //traer registros
+		$paginacion=InvEntidades::paginate(30);
+		$crear_paginacion=$paginacion->links();
+
+		$datos= array(
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+		
+		return View::make('administrador/lista_empresas',$datos);
 	}
 	
 	

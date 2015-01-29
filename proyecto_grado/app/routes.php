@@ -121,7 +121,7 @@ Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 
 Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
 
-Route::get('listadeempresas', function() {return View::make('administrador/lista_empresas');});
+Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos', function() {return View::make('administrador/lista_proyectos');});
 

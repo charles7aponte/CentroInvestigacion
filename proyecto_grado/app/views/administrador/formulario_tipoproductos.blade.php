@@ -128,13 +128,14 @@
                    @foreach ($tipoproductos as $tipoproducto) <!--array- que viene del controlador-->
                     <tr id="dato_tipoproducto_{{$tipoproducto['id_tipo_producto']}}">
                     <td style="width:500px;"><b>{{$tipoproducto['id_tipo_producto']}}.</b> {{$tipoproducto['nombre_tipo_producto']}}</td>
-                    <td style="width:120px;">                      
+                    <td style="width:120px;">    
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" 
-                         onclick="cargarmodal_descripcion('{{{$tipoproducto['descripcion_producto']}}}');"
+                         data-info="{{{$tipoproducto['descripcion_producto']}}}"
+                         onclick="cargarmodal_descripcion(this);"
                          style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;" >
                          Ver descripci&oacute;n
-                        </button>
+                        </button>                  
                     </td>
 
                     <td style="width:100px;">

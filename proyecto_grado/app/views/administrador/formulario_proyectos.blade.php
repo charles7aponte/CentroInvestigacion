@@ -135,7 +135,7 @@
                         <li>
                             <div class="col-md-2"><label>Integrantes: </label></div>
                              <div class="col-md-2"> 
-                                <input style="margin-left: 24px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-proyecto" id="botones-especiales" value="Agregar/Ver Integrantes">
+                                <input style="margin-left: 31px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-proyecto" id="botones-especiales" value="Agregar/Ver Integrantes">
                             </div>
                         </li>
                     </div>

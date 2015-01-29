@@ -27,7 +27,7 @@
           @foreach ($campo_lista as $campo)
             <tr>
               <td style="width:100px;">
-                <a href="">{{$campo['id_sublinea']}}</a>
+                <b>{{$campo['id_sublinea']}}</b>
               </td> 
               <td>
                 <a href="">{{$campo['nombre_sublinea']}}</a>
