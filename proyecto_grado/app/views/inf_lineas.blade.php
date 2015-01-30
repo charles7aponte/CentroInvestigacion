@@ -11,20 +11,25 @@
 
 @section('cuerpo')
 
-!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+<!-- Modal  de sublineas-->
+<div id="modal-internos">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width:700px">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel" style="background:none;">sublinea 1</h4>
+        </div>
+        <div class="modal-body">
+          <label for="estado-sublinea"><b>Estado:</b></label>
+            <div id="estado-sublinea"> Aprobado</div>
+          </br>
+          <label for="descripcion-sublinea"><b>Descripci&oacute;n: </b></label>
+            <div id="descripcion-sublinea">Este es el titulo de la linea de investigacion numero uno de la ciudad de villavicencion de la universidad de los llanos </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -88,12 +93,10 @@
                     <td class="link-archivo" id="col-principal" id="cuadro"><li class="glyphicon glyphicon-save"></li>555555555</td>
                 </tr>
                 <tr>
-                    <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Sublineas</th>
+                    <th id="fil-principal">Sublineas</th>
                     <td class="sublinea" id="col-principal" id="cuadro">
                       <ol>
-                        <li><a  data-toggle="modal" data-target="#myModal" href="#">Profesores</a></li>
-                        <li><a href="#">Profesores</a></li>
-                        <li><a href="#">Profesores</a></li>
+                        <li style="list-style-type: square; text-decoration:underline;"><a  data-toggle="modal" data-target="#myModal" href="#">sublinea 1</a></li>
                       </ol>
                     </td>
                 </tr>

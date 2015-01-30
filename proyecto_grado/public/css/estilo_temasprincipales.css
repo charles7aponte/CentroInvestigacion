@@ -332,5 +332,9 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
 }
 
 
-
+/*<!MODAL... sublineas lineas--->*/
+#modal-internos div.modal-header{
+  background-color:#2E6B90;
+  color: white; 
+}
 
