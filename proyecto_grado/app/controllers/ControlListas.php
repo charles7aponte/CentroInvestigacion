@@ -57,5 +57,17 @@ class ControlListas extends Controller {
 		return View::make('administrador/lista_empresas',$datos);
 	}
 	
+
+		//controlador emoresas
+	public function ConstruirListaProyectos(){
+		$listas=InvProyectos::all(); //traer registros
+		$paginacion=InvProyectos::paginate(30);
+		$crear_paginacion=$paginacion->links();
+
+		$datos= array(
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+		
+		return View::make('administrador/lista_proyectos',$datos);
+	}
 	
 }

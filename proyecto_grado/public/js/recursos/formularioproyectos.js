@@ -100,7 +100,7 @@ $("#guardar-cambios").click(function(){
 
         if(jsontiempo =='')
         {
-alert("ingresa algo en el tiempo");
+            alert("Por favor, ingresar el tiempo que dedica al proyecto" );
             return;
         }
       var html ="<tr> ";
@@ -133,7 +133,7 @@ alert("ingresa algo en el tiempo");
             $("#tabla-integrantes-proyectos").append($fila);	
             }
             else{
-            	alert("ya existe");
+            	alert("El participante ya fue agregado a ese proyecto.");
             }
             
 	}
