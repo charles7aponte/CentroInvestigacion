@@ -11,6 +11,26 @@
 
 @section('cuerpo')
 
+!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div id="capa" class="inflineas">
     <fieldset id="principal">
         <div id="titulo-lineas" id="cuadro"> 
@@ -70,7 +90,11 @@
                 <tr>
                     <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Sublineas</th>
                     <td class="sublinea" id="col-principal" id="cuadro">
-
+                      <ol>
+                        <li><a  data-toggle="modal" data-target="#myModal" href="#">Profesores</a></li>
+                        <li><a href="#">Profesores</a></li>
+                        <li><a href="#">Profesores</a></li>
+                      </ol>
                     </td>
                 </tr>
             </tbody>
