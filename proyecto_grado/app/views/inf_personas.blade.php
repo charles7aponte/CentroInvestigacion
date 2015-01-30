@@ -7,7 +7,7 @@
 
 <div id="capa" class="infpersonas">
     <fieldset id="principal">
-        <div id="titulo-personas" id="cuadro"> 
+        <div  class="talkbubble" id="cuadro"> 
             <h2>Elizabeth Maldonado Triana<img src="images/macrypt.jpg"></h2>  
         </div>
 
