@@ -1,5 +1,5 @@
 
-#titulo-infconv, .titulo-conv1, #titulo-infgrupos{
+#titulo-infconv, .titulo-conv1, #titulo-infgrupos,#titulo-infpersonas{
     width: auto;
     margin:0;
 }
@@ -21,8 +21,9 @@
     padding:5px;
 }
 
-#titulo-infconv h2, #titulo-lineas h2,
-#titulo-productos h2 {
+#titulo-infconv h2,
+#titulo-lineas h2,
+#titulo-productos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: center;
    color:#122d3e;
@@ -38,7 +39,8 @@
 
 }
 
-#titulo-infgrupos h2{
+#titulo-infgrupos h2,
+#titulo-personas h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: left;
    font-weight: bold;
@@ -56,7 +58,7 @@
 }
 
 /*-------------------logos de los grupos-----------------------*/
-#titulo-infgrupos h2 img{
+#titulo-infgrupos h2 img, #titulo-personas h2 img{
     position: relative;
     right: -370px;
     width: 200px;
@@ -74,7 +76,8 @@
 .tabla-infconvocatorias,
 .tabla-infgrupos,
 .tabla-inflineas,
-.tabla-infproductos{
+.tabla-infproductos,
+.tabla-infpersonas{
     font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
     line-height: 20px;
     border-spacing: 1px;
@@ -91,7 +94,8 @@
 .tabla-infconvocatorias th:first-child, 
 .tabla-infgrupos th:first-child,
 .tabla-inflineas th:first-child,
-.tabla-infproductos th:first-child{
+.tabla-infproductos th:first-child,
+.tabla-infpersonas th:first-child{
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -99,13 +103,15 @@
 
 .tabla-infconvocatorias thead, 
 .tabla-infgrupos thead,
-.tabla-inflineas thead{
+.tabla-inflineas thead,
+.tabla-infpersonas thead{
     cursor: pointer;
 }
 
 .tabla-infconvocatorias #fil-principal,
 .tabla-infgrupos #fil-principal,
-.tabla-inflineas #fil-principal{
+.tabla-inflineas #fil-principal,
+.tabla-infpersonas #fil-principal{
     width: 150px;
     padding:0.5em;
     border: 5px solid white;
@@ -115,7 +121,8 @@
 }
 .tabla-infconvocatorias #col-principal,
 .tabla-infgrupos #col-principal,
-.tabla-inflineas #col-principal{
+.tabla-inflineas #col-principal,
+.tabla-infpersonas #col-principal{
     width: 600px;
     padding:3px;
     border-right: none;
