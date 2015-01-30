@@ -39,8 +39,7 @@
 
 }
 
-#titulo-infgrupos h2,
-#titulo-personas h2{
+#titulo-infgrupos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: left;
    font-weight: bold;
@@ -345,24 +344,26 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
   color: white; 
 }
 /*<!Forma de encabezado-->*/
-.talkbubble {
-   width: 120px;
-   height: 80px;
-   background: red;
+.infpersonas .talkbubble {
+   width: 700px;
+   height: 100px;
+   margin-left:90px; 
+   background: #eee;
    position: relative;
    -moz-border-radius:    10px;
    -webkit-border-radius: 10px;
    border-radius:         10px;
+
 }
-.talkbubble:before {
+
+.infpersonas .talkbubble:before{
    content:"";
    position: absolute;
    right: 100%;
-   top: 26px;
+   top: 40px;
    width: 0;
    height: 0;
    border-top: 13px solid transparent;
-   border-right: 26px solid red;
+   border-right: 26px solid #eee;
    border-bottom: 13px solid transparent;
 }
-

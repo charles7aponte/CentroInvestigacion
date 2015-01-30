@@ -7,9 +7,20 @@
 
 <div id="capa" class="infpersonas">
     <fieldset id="principal">
-        <div  class="talkbubble" id="cuadro"> 
-            <h2>Elizabeth Maldonado Triana<img src="images/macrypt.jpg"></h2>  
-        </div>
+        <table id="encabezado-persona">
+            <tbody>
+                <tr>
+                    <th>
+                        <img src="images/macrypt.jpg"> 
+                    </th> 
+                    <th style="background:none;">
+                        <div  class="talkbubble" id="cuadro"  style="box-shadow: 2px 2px 5px #999;"> 
+                            <h1>Elizabeth Maldonado Triana</h1>  
+                        </div>  
+                    </th> 
+                </tr>
+            </tbody>
+        </table>
 
 		<table class="tabla-infpersonas">
             
