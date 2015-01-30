@@ -88,8 +88,12 @@ class ControlProyectos extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
-					$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);
-						$entidad->archivo_actainicio=$archivo1;
+			
+
+			
+					try{
+						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
+						$entidad->archivo_actainicio=$archivo1;//base
 
 					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
 						$entidad->archivo_propuesta=$archivo2;
@@ -98,21 +102,33 @@ class ControlProyectos extends Controller {
 						$entidad->informe_final=$archivo3;
 
 						$entidad->save();
-			/*
-					try{
-						$entidad->save();
+
+						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+						$listatiempos=Input::get("tiempo");
+
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionProyectos();
+							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
+							$modelIntegrante->save();
+
+						}
 					}
 
 					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioconvocatorias')
+						return Redirect::to('formularioproyectos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}
 					
-			*/			return Redirect::to('formularioproyectos')
+						return Redirect::to('formularioproyectos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El proyecto ha sido creado.");
 			
@@ -124,9 +140,8 @@ class ControlProyectos extends Controller {
 
 
 
-		/**********
-			* carga el formulario para cargar los datos desde la tabla
-			*/
+		/*********** carga el formulario para cargar los datos desde la tabla*/
+
 			public function cargarFormularioProyectos(){
 
 				$listaConvocatorias = InvConvocatorias::all();

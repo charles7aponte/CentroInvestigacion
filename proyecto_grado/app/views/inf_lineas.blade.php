@@ -35,37 +35,43 @@
 
                 <tr>
                     <th id="fil-principal">c&oacute;digo linea</th>
-                    <td  class="numero" id="col-principal" id="cuadro"></td>
+                    <td  class="codigo" id="col-principal" id="cuadro"></td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Nombre linea</th>
-                    <td class="estado" id="col-principal" id="cuadro"></td>
+                    <td class="nombre" id="col-principal" id="cuadro"></td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Coordinador linea</th>
-                    <td class="descripcion" id="col-principal" id="cuadro">Facultad de ciencias basicas e ingenieria</td>
+                    <td class="coordinador" id="col-principal" id="cuadro">Facultad de ciencias basicas e ingenieria</td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Definici&oacute;n linea</th>
-                    <td class="dirigida" id="col-principal" id="cuadro">D</td>
+                    <td class="definicion-linea" id="col-principal" id="cuadro">D</td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Objeto estudio</th>
-                    <td class="fecha-apertura" id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
+                    <td class="objeto-estudio" id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Objetivo linea</th>
-                    <td class="fecha-cierre" id="col-principal" id="cuadro">xxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                    <td class="objetivo-linea" id="col-principal" id="cuadro">xxxxxxxxxxxxxxxxxxxxxxxxxx</td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Link archivo</th>
-                    <td class="email" id="col-principal" id="cuadro"><li class="glyphicon glyphicon-save"></li>555555555</td>
+                    <td class="link-archivo" id="col-principal" id="cuadro"><li class="glyphicon glyphicon-save"></li>555555555</td>
+                </tr>
+                <tr>
+                    <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Sublineas</th>
+                    <td class="sublinea" id="col-principal" id="cuadro">
+
+                    </td>
                 </tr>
             </tbody>
         </table>
