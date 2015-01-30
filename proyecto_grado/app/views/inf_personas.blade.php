@@ -32,6 +32,11 @@
                     </tr>
 
                      <tr>
+                        <th id="fil-principal">C&eacute;dula</th>
+                        <td id="col-principal" id="cuadro">2221111111</td>
+                    </tr>
+
+                     <tr>
                         <th id="fil-principal">Perfil</th>
                         <td id="col-principal" id="cuadro">Felipe Corredor</td>
                     </tr>

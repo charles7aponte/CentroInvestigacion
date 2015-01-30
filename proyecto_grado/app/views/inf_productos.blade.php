@@ -81,9 +81,13 @@
                     </tr>
 
                     <tr>
-                        <th id="fil-principal">Imagen Producto</th>
-                        <td id="col-principal" id="cuadro">ddddddddddddddddddddddddddddddddddddddddddddddddddddddd</td>
-                    </tr>
+                    <th id="fil-principal">Imagen Producto</th>
+                    <td id="col-principal" id="cuadro">
+                      <ol>
+                        <li style="list-style-type: square; text-decoration:underline;"><a href="#">sublinea 1</a></li>
+                      </ol>
+                    </td>
+                </tr>
                 </tbody>
             </table>
     </fieldset>
