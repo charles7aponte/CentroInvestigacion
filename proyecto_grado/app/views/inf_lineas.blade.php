@@ -70,7 +70,11 @@
                 <tr>
                     <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Sublineas</th>
                     <td class="sublinea" id="col-principal" id="cuadro">
-
+                      <ol>
+                        <li><a href="#">Profesores</a></li>
+                        <li><a href="#">Profesores</a></li>
+                        <li><a href="#">Profesores</a></li>
+                      </ol>
                     </td>
                 </tr>
             </tbody>

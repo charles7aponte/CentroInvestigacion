@@ -100,7 +100,7 @@ $("#guardar-cambios").click(function(){
 
         if(jsontiempo =='')
         {
-alert("ingresa algo en el tiempo");
+    alert("ingresa el tiempo dedicado");
             return;
         }
       var html ="<tr> ";
