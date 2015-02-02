@@ -12,6 +12,14 @@ class InvGrupos extends Eloquent  {
 	public $timestamps = false;
 	protected $primaryKey = "codigo_grupo";
 
+		// reglas
+	public 	static $reglasValidacion = array(
+			'nombre'             =>'required|unique:inv_grupos,nombre_grupo', 
+			'coord'            => 'required|max:50|', 	
+			'objetivos'     => 'required',
+				
+		);
+
 
 
 	/**
@@ -21,6 +29,7 @@ class InvGrupos extends Eloquent  {
 
 		return $this->belongsToMany('Persona','inv_participacion_grupos','inv_codigo_grupo','cedula_persona');
 	}
+
 
 
 

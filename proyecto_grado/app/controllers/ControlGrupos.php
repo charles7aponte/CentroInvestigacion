@@ -10,32 +10,33 @@ class ControlGrupos extends Controller {
 	public function CrearFormulario(){
 
 		$grupo=Input::get('nombre');
+
+
+		//manejo de fechas ..		
+		$fecha_creacion=Input::get('creacion-grupo');
+
+
+		$dateinicio = new DateTime($fecha_creacion);
+
+		$fecha_creacion=$dateinicio->format('d/m/Y');
+
+
+
+
+
 		$coord=Input::get('coord');
 		$email=Input::get('email');
 		$pagina=Input::get('pagina');
 		$telefono=Input::get('telefono');
-		$direccion=Input::get('direccion');
+		$direccion1=Input::get('direccion');
 		$unidad=Input::get('unidad');
 		$categoria=Input::get('categoria');
 		$tipo=Input::get('tipo');
 		$objetivos=Input::get('objetivos');
 		$gruplac=Input::get('gruplac');
-		$logo_grupo=Input::get('logog');
-		$ruta_afiche=Input::get('afiche');
-		$foto1=Input::get('img1');
-		$foto2=Input::get('img2');
 
-				
-		//manejo de fechas
-		$fecha_creacion=Input::get('creacion-grupo');		
 
-		$dategrupo = new DateTime($fecha_creacion);
-
-		$fecha_creacion=$dategrupo->format('d/m/Y');
-				$dategrupo= new DateTime($fecha_creacion);
-
-		$fecha_creacion=$dategrupo->format('d/m/Y');
-
+			
 
 		//manejo archuvos
 		$nombreNuevo="";
@@ -52,17 +53,14 @@ class ControlGrupos extends Controller {
 		$entidad->email=$email;
 		$entidad->pagina_web=$pagina;
 		$entidad->telefono=$telefono;
-		$entidad->direccion_grupo=$direccion;
+		$entidad->direccion_grupo=$direccion1;
 		$entidad->objetivos=$objetivos;
 		$entidad->unidad_academica=$unidad;
 		$entidad->categoria=$categoria;
 		$entidad->inv_tipo_grupos_id=$tipo;
 		$entidad->link_gruplac=$gruplac;
 		$entidad->ano_creacion=$fecha_creacion;
-		$entidad->logo_grupo=$logo_grupo;
-		$entidad->ruta=$ruta_afiche;
-		$entidad->imagen1=$foto1;
-		$entidad->imagen2=$foto2;
+
 
 
 			// mensaje a mostrar segun errores o requerimientos
@@ -89,10 +87,6 @@ class ControlGrupos extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
-			
-
-			
-					try{
 						$archivo1=$this->ArchivosGrupos('logog',$direccion);//archivoshtml
 							$entidad->logo_grupo=$archivo1;//base
 
@@ -102,7 +96,7 @@ class ControlGrupos extends Controller {
 						$archivo3=$this->ArchivosGrupos('img1',$direccion);
 							$entidad->imagen1=$archivo3;
 
-						$archivo3=$this->ArchivosGrupos('img2',$direccion);
+						$archivo4=$this->ArchivosGrupos('img2',$direccion);
 							$entidad->imagen2=$archivo4;	
 
 						$entidad->save();
@@ -120,6 +114,22 @@ class ControlGrupos extends Controller {
 							$modelIntegrante->save();
 
 						}
+
+
+						for($i=0;$i<count($listaLineas);$i++)
+						{
+
+							$modelLinea=new InvParticipacionGruposLineas();
+							$modelLinea->inv_codigo_grupo =  $entidad->codigo_grupo; //donde estoy .. donde apunto
+							$modelLinea->inv_id_linea =     $listaLineas[$i];
+							$modelLinea->save();
+
+						}
+			
+
+			
+					try{
+
 
 					}
 
@@ -149,7 +159,7 @@ class ControlGrupos extends Controller {
 				$datos=  array(
 					'tipos' =>$listatipogrupos);
 
-			  return View::make('administrador/formulario_grupos',$datos); 
+			 	return View::make('administrador/formulario_grupos',$datos); 
 
 
 			}//

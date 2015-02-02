@@ -54,7 +54,7 @@
                                   <div class="form-group">
                                       <div class='input-group date' id='datetimepicker2'>
                                           <input type="" style="cursor:pointer" 
-                                          readonly id="fecha-proyecto" class="date form-control" data-format="dd/MM/yyyy" name="creacion_proyecto" 
+                                          readonly id="fecha-financiamiento" class="date form-control" data-format="dd/MM/yyyy" name="creacion_proyecto" 
                                           value="{{Input::old('fecha-financiamiento')}}" required="required" />
                                            @if ($errors->has('fecha-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-financiamiento') }}</p> @endif
                                           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -67,7 +67,7 @@
                   </li>
 
                     <li class="@if($errors->has('entidad-financiada')) has-error @endif"><label for="entidad-financiada">Entidad:</label> 
-                      <select name="convocatoria-proyecto" required="required">
+                      <select name="entidad-financiada" required="required">
                         @if(isset($empresas))
                           @foreach($empresas as $empresa)
                               <option value="{{$empresa['nit_empresa']}}" > {{$empresa['nombre_empresa']}}</option>

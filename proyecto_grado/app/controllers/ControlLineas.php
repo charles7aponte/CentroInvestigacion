@@ -35,6 +35,7 @@ class ControlLineas extends Controller {
 			$messages = array(
 				'required' => '*Es obligatorio.',
 				'max'=>'No debe ser mayor a :max',
+				'unique'=>'Es posible que ya exista la linea que ingreso.'
 			);
 
 

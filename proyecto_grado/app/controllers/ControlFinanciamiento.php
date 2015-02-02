@@ -1,7 +1,7 @@
 <?php
 
 
-class ControlProyectos extends Controller {
+class ControlFinanciamiento extends Controller {
 
 
 	/**
@@ -12,11 +12,13 @@ class ControlProyectos extends Controller {
 
 	public function CrearFormulario(){
 
-		$nombre_proyecto=Input::get('nombre-proyecto');
-		$estado_proyecto=Input::get('estado-proy');
+		$entidad=Input::get('entidad-financiada');
+		$modo_financiamiento=Input::get('modo-financiada');
+		$valor=Input::get('valor-financiado');
+		$descripcion=Input::get('descripcion-financiamiento');
 		
 		//manejo de fechas ..		
-		$fecha_inicio=Input::get('creacion_proyecto');
+		$fecha_inicio=Input::get('fecha-financiamiento');
 
 
 		$dateinicio = new DateTime($fecha_inicio);
@@ -25,28 +27,12 @@ class ControlProyectos extends Controller {
 		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 
-		$conv_proyecto=Input::get('convocatoria-proyecto');
-		$linea_proyecto=Input::get('linea-proyecto');
-		$grupo1_proyecto=Input::get('grupo1-proyecto');	
-		$grupo2_proyecto=Input::get('grupo2-proyecto');
-		$objetivo_proyecto=Input::get('obj-proyecto');	
-		$actainicio=Input::get('actaini-proyectos');
-		$propuesta_proyecto=Input::get('propuesta-proyecto');
-		$informe_proyecto=Input::get('informe-proyecto');
-		//$archivo=Input::get('dcto-conv');
-		$nombreNuevo="";
- 
-		$direccion = __DIR__."/../../public/archivos_db/proyectos/";
-
-		//manejo de archivo
-
-
-		$todosDatos = Input::except('actaini-proyectos','propuesta-proyecto','informe-proyecto');
+		$todosDatos = Input::all();
 	
 
 		
 
-		$entidad=new InvProyectos();
+		$entidad=new InvFinanciamiento();
 		
 		$entidad->nombre_proyecto=$nombre_proyecto;
 		$entidad->estado_proyecto=$estado_proyecto;

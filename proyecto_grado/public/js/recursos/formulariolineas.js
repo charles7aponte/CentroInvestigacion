@@ -20,7 +20,7 @@ $("#linea-grupos").keyup(function(e){
 
 });
 
-$("#guardar-cambios").click(function(){
+$("#guardar-cambios1").click(function(){
 
     $("#myModal-lineas").modal("hide");
 
@@ -85,7 +85,7 @@ $("#guardar-cambios").click(function(){
        console.info(json); 
 
       var html ="<tr> ";
-            html +="                  <td><input type='hidden' data-info='"+json.nombre_linea+"' name='"+name+"[]' value='"+json.id_lineas+"'>"+json.id_lineas+"</td> ";
+            html +="                  <td><input type='hidden' data-info='"+json.id_lineas+"' name='"+name+"[]' value='"+json.id_lineas+"'>"+json.id_lineas+"</td> ";
             html +="                  <td>"+json.nombre_linea+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";

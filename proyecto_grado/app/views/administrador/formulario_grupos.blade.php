@@ -30,27 +30,66 @@
     <form id="form-grupos" autocomplete="on" 
       enctype="multipart/form-data" 
       action="{{URL::to('creacion/formulariogrupos')}}" method="POST">
+
+         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo grupo</h2></div>
             <ul>
                 <fieldset>  
-                    <li><label for="nombre">Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre" value="" required="required"/>
-                    </li>    
-                    <li><label for="coord">Coordinador:</label>
+                    <li class="@if($errors->has('nombre')) has-error @endif">
+                      <label for="nombre">Nombre del grupo: </label>
+                        <input type="text" id="nombre" name="nombre" value="" required="required"/>                      
+                         @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
+                         @endif
+                    </li> 
+
+                    <li class="@if($errors->has('coord')) has-error @endif">
+                      <label for="coord">Coordinador:</label>
                         <input type="text" id="coord" name="coord" value="" required="required"/>
+                          @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
+                         @endif
                     </li>
-                    <li><label for="email">Email:</label>
+
+                    <li class="@if($errors->has('email')) has-error @endif">
+                      <label for="email">Email:</label>
                         <input type="email" id="email" name="email" value="" required="required" />
+                          @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
+                         @endif          
                     </li>
-                    <li><label for="pagina">P&aacute;gina web:</label>
+
+                    <li class="@if($errors->has('pagina')) has-error @endif">
+                      <label for="pagina">P&aacute;gina web:</label>
                         <input type="text" id="pagina" name="pagina" value=""  autofocus="autofocus" />
+                         @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
+                         @endif                        
                     </li>
-                    <li><label for="telefono">Tel&eacute;fono:</label>
+
+                    <li class="@if($errors->has('telefono')) has-error @endif">
+                      <label for="telefono">Tel&eacute;fono:</label>
                         <input type="tel" id="telefono" name="telefono" value=""/>
+                         @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
+                         @endif                   
                     </li>
-                    <li><label for="direccion">Direcci&oacute;n:</label>
+
+                    <li class="@if($errors->has('direccion')) has-error @endif">
+                      <label for="direccion">Direcci&oacute;n:</label>
                         <input type="text" id="direccion" name="direccion" value="" required="required"/>
+                         @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
+                         @endif                     
                     </li>
+
                     <li><label for="creacion-grupo">Año de creaci&oacute;n:</label>
                         <div class="container">
                             <div class="row">
@@ -68,13 +107,22 @@
                             </div>
                         </div>    
                     </li>
-                    <li><label for="unidad">Unidad acad&eacute;mica:</label>
+
+                    <li class="@if($errors->has('unidad')) has-error @endif">
+                      <label for="unidad">Unidad acad&eacute;mica:</label>
                         <input type="text" id="unidad" name="unidad" value="" required="required"/>
+                         @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
+                         @endif                        
                     </li>
-                    <li><label for="categoria">Categor&iacute;a:</label>
+
+                    <li class="@if($errors->has('categoria')) has-error @endif">
+                      <label for="categoria">Categor&iacute;a:</label>
                         <input type="text" id="categoria" name="categoria" value="" required="required"/>
+                         @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
+                         @endif                        
                     </li>
-                    <li><label for="tipo">Tipo:</label> 
+
+                    <li ><label for="tipo">Tipo:</label> 
                         <select name="tipo" required="required">
                               @if(isset($tipos))
                                 @foreach($tipos as $tipo)
@@ -176,7 +224,7 @@
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios1" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>
@@ -189,24 +237,48 @@
 
             <ul>
                 <fieldset>
-                        <li><label for="objetivos">Objetivos:</label>
-                        <textarea id="objetivos" name="objetivos" required="required"></textarea>
+                        <li class="@if($errors->has('objetivos')) has-error @endif">
+                          <label for="objetivos">Objetivos:</label>
+                          <textarea id="objetivos" name="objetivos" required="required"></textarea>
+                           @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
+                           @endif
                         </li>  
-                        <li><label for="gruplac">Link Gruplac: </label>
+
+                        <li class="@if($errors->has('gruplac')) has-error @endif">
+                          <label for="gruplac">Link Gruplac: </label>
                             <input type="text" id="gruplac" name="gruplac" />
+                           @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
+                           @endif                            
                         </li>
-                        <li><label for="logog">Logo del grupo:</label>
+
+                        <li class="@if($errors->has('logog')) has-error @endif">
+                          <label for="logog">Logo del grupo:</label>
                             <input type="file"  id="logog" name="logog"  required="required" />
+                           @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
+                           @endif                            
                         </li>
-                        <li><label for="afiche">Ruta del afiche: </label>
+
+                        <li class="@if($errors->has('afiche')) has-error @endif">
+                          <label for="afiche">Ruta del afiche: </label>
                             <input type="file" id="afiche" name="afiche"/>
+                          @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> 
+                          @endif                            
                         </li>
-                        <li><label for="img1">Imagen 1: </label>
+
+                        <li class="@if($errors->has('img1')) has-error @endif">
+                          <label for="img1">Imagen 1: </label>
                             <input type="file"  id="img1" name="img1" />
+                          @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
+                          @endif 
                         </li>
-                        <li><label for="img2">Imagen 2: </label>
+
+                        <li class="@if($errors->has('img2')) has-error @endif">
+                          <label for="img2">Imagen 2: </label>
                             <input type="file"  id="img2" name="img2" />
-                        </li>       
+                          @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
+                         @endif
+                        </li> 
+
                 </fieldset> 
             </ul>   
             <table id="botones-formularios">

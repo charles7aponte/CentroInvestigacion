@@ -1,6 +1,6 @@
 <?php
 
-class InvParticipacionGrupos extends Eloquent  {
+class InvParticipacionGruposLineas extends Eloquent  {
 
 
 	/**
@@ -10,16 +10,7 @@ class InvParticipacionGrupos extends Eloquent  {
 	 */
 	protected $table = 'inv_linea_grupos';
 	public $timestamps = false;
-	protected $primaryKey = "inv_codigo_grupo";
-
-
-		// reglas
-	public 	static $reglasValidacion = array(
-			/*'numero-conv'             => 'required|max:50|unique:inv_convocatorias,numero_convocatoria', 
-			'estado'            		=> 'max:20', 	
-			'cuantia-conv'			=>'required|numeric'*/
-					
-		);
+	protected $primaryKey = "id_linea_grupos";
 
 
 }

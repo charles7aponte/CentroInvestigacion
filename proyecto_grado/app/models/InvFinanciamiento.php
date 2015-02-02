@@ -1,6 +1,6 @@
 <?php
 
-class InvProyectos extends Eloquent  {
+class InvFinanciamiento extends Eloquent  {
 
 
 	/**
@@ -8,21 +8,14 @@ class InvProyectos extends Eloquent  {
 	 *
 	 * @var string
 	 */
-	protected $table = 'inv_proyectos';
+	protected $table = 'inv_financiacion';
 	public $timestamps = false;
-	protected $primaryKey = "codigo_proyecto";
+	protected $primaryKey = "id_financiacion";
 
 
 		// reglas
 	public 	static $reglasValidacion = array(
 			'nombre-proyecto'        =>'required|unique:inv_proyectos,nombre_proyecto',
-			'creacion_proyecto'      => 'required',
-			'estado-proy'			 => 'required', 
-			'creacion_proyecto' 	 => 'required',
-			'convocatoria-proyecto' 	 => 'required',
-			'linea-proyecto' 	 => 'required',	
-			'grupo1-proyecto' 	 => 'required',	
-			'obj-proyecto' 	 => 'required',	
 					
 		);
 
