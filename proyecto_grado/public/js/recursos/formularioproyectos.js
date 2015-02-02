@@ -17,8 +17,6 @@ $("#boton-integrantes-proyectos").click(function(){
 
 
 
-
-
 $("#integrantes-proyectos").keyup(function(e){
 	if(e.which!=13)            //para cuando se da el evento de enter
     {
@@ -100,11 +98,9 @@ $("#guardar-cambios").click(function(){
 
         if(jsontiempo =='')
         {
-<<<<<<< HEAD
+
             alert("Por favor, ingresar el tiempo que dedica al proyecto" );
-=======
-    alert("ingresa el tiempo dedicado");
->>>>>>> origin/master
+
             return;
         }
       var html ="<tr> ";

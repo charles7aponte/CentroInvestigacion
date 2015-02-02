@@ -367,3 +367,8 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
    border-right: 26px solid #eee;
    border-bottom: 13px solid transparent;
 }
+.talkbubble h1{
+    vertical-align:inherit;
+    line-height: 1.5em;
+    padding: 20px;
+}

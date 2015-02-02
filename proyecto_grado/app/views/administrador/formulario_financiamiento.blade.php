@@ -22,51 +22,80 @@
 @section('cuerpo') 
 
 <div>  
-    <form id="form-financiamiento-proyectos" autocomplete="on"   action="" method="">
+    <form id="form-financiamiento-proyectos" autocomplete="on"   action="{{URL::to('creacion/formulariofinanciamiento')}}" method="post">
+        @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Financiamiento del proyecto</h2></div>           
             <ul>
                 <fieldset style="border-color:transparent">
-                <li><label for="proyecto-finananciar">Proyecto: </label>
-                    <input  type="text" id="proyecto-finananciar" name="proyecto-finananciar" required="required">
-                </li>
-                <li><label for="fecha-financiamiento">Fecha:</label>
-                    <div class="container">
-                      <div class="row">
-                            <div class='col-sm-5' style="padding:0px;">
-                                <div class="form-group">
-                                  <div class='input-group date' id='datetimepicker2'>
-                                      <input type="" style="cursor:pointer" 
-                                      readonly id="fecha-financiamiento" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="" required="required" /> 
-                                      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                      </span>
+                  <li class="@if($errors->has('proyecto-finananciar')) has-error @endif">
+                    <label for="proyecto-finananciar">Proyecto: </label>
+                      <input  type="text" id="proyecto-finananciar" name="proyecto-finananciar" required="required">
+                  </li>
+
+                  <li><label for="fecha-financiamiento">Fecha:</label>
+                      <div class="container">
+                          <div class="row">
+                              <div class='col-sm-5' style="padding:0px;">
+                                  <div class="form-group">
+                                      <div class='input-group date' id='datetimepicker2'>
+                                          <input type="" style="cursor:pointer" 
+                                          readonly id="fecha-proyecto" class="date form-control" data-format="dd/MM/yyyy" name="creacion_proyecto" 
+                                          value="{{Input::old('fecha-financiamiento')}}" required="required" />
+                                           @if ($errors->has('fecha-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-financiamiento') }}</p> @endif
+                                          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                          </span>
+                                      </div>
                                   </div>
-                                </div>
-                            </div>                               
-                        </div>
+                              </div>                               
+                          </div>
                       </div>    
-                    </li>
-                    <li><label for="entidad-financiada">Entidad:</label> 
-                        <select name="entidad-financiada" required="required">
-                            <option value=""></option>
-                            <option value="">Colciencias</option>
-                            <option value="">Universidad de los llanos</option>
-                        </select>
-                    </li>                     
-                    <li><label for="modo-financiada">Modo de financiamiento:</label> 
+                  </li>
+
+                    <li class="@if($errors->has('entidad-financiada')) has-error @endif"><label for="entidad-financiada">Entidad:</label> 
+                      <select name="convocatoria-proyecto" required="required">
+                        @if(isset($empresas))
+                          @foreach($empresas as $empresa)
+                              <option value="{{$empresa['nit_empresa']}}" > {{$empresa['nombre_empresa']}}</option>
+                          @endforeach
+                        @endif     
+                      </select>
+                        @if ($errors->has('entidad-financiada')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-financiada') }}</p> @endif
+                    </li>         
+
+                    <li class="@if($errors->has('modo-financiada')) has-error @endif">
+                      <label for="modo-financiada">Modo de financiamiento:</label> 
                         <select name="modo-financiada" required="required">
                             <option value=""></option>
                             <option value="">Especie</option>
                             <option value="">Efectivo</option>
                         </select>
                     </li> 
-                    <li>
+
+                    <li class="@if($errors->has('valor-financiado')) has-error @endif">
                         <label for="valor-financiado">Valor:</label> 
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
                           <input id="valor-financiado" type="text" class="form-control" required="required" style="width: 567px;">
                         </div> 
-                    </li>       
-                    <li><label for="descripcion-financiamiento">Descripci&oacute;n:</label>
+                    </li>    
+
+                    <li class="@if($errors->has('descripcion-financiamiento')) has-error @endif"><label for="descripcion-financiamiento">
+                      Descripci&oacute;n:</label>
                     <textarea id="descripcion-financiamiento" name="descripcion-financiamiento"></textarea>
                     </li>   
                 </fieldset> 

@@ -15,7 +15,7 @@ class InvSublineas extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'nombre-sublinea'             =>'required', 
+			'nombre-sublinea'             =>'required|unique:inv_sublineas,nombre_sublinea|max:50', 
 			'estado-sublinea'            => 'max:30', 	
 				
 		);

@@ -13,6 +13,8 @@ class CinvSublineaGrupos extends Migration {
 	public function up()
 	{
 		Schema::create('inv_linea_grupos', function($tabla){
+
+		$tabla->increments('id_linea_grupos');
 		$tabla->integer('inv_codigo_grupo')->unsigned();
 		$tabla->integer('inv_id_linea')->unsigned();
 

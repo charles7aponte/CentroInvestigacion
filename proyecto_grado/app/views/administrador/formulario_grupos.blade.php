@@ -51,24 +51,22 @@
                     <li><label for="direccion">Direcci&oacute;n:</label>
                         <input type="text" id="direccion" name="direccion" value="" required="required"/>
                     </li>
-                    <li><label for="creacion">Año de creaci&oacute;n:</label>
+                    <li><label for="creacion-grupo">Año de creaci&oacute;n:</label>
                         <div class="container">
                             <div class="row">
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" 
-                                            style="cursor:pointer"   
-                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="fecha_creacion" value="" required="required" /> 
-                                            
+                                            <input type="" style="cursor:pointer" 
+                                            readonly id="creacion-grupo" class="date form-control" data-format="dd/MM/yyyy" name="creacion-grupo" value="{{Input::old('creacion-grupo')}}" required="required" />
+                                             @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-grupo') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
                                     </div>
-                                </div>
-                               
+                                </div>                               
                             </div>
-                        </div>
+                        </div>    
                     </li>
                     <li><label for="unidad">Unidad acad&eacute;mica:</label>
                         <input type="text" id="unidad" name="unidad" value="" required="required"/>
@@ -78,14 +76,12 @@
                     </li>
                     <li><label for="tipo">Tipo:</label> 
                         <select name="tipo" required="required">
-                         <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
-                          @if(isset($tipo_grupos))
-                          
-                             @foreach ($tipo_grupos as $tipo_grupo) //array--- nombre del campo en la bd
-                               <option value="{{$tipo_grupo['id']}}">{{$tipo_grupo['tipo_grupo']}}</option>
-                             @endforeach 
+                              @if(isset($tipos))
+                                @foreach($tipos as $tipo)
+                                    <option value="{{$tipo['id']}}" > {{$tipo['tipo_grupo']}}</option>
+                                @endforeach
+                              @endif    
 
-                          @endif
                         </select>
                     </li> 
                 </fieldset>
@@ -132,7 +128,7 @@
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>
@@ -161,12 +157,11 @@
                              <input type="text" id="linea-grupos"  value="" />
                              <button type="button" class="btn btn-primary"  
                                 id="bton_linea-grupos"
-                              style="background:#1A6D71; display:none; width:500px;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
-                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
-                            id="tabla-lineas-grupos">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true" id="tabla-lineas-grupos">
                               <thead>
                                 <tr><th colspan="3">L&iacute;neas</th></tr>
                                 <tr>
@@ -181,7 +176,7 @@
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>

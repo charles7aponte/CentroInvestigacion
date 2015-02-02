@@ -69,7 +69,7 @@ class ControlProductos extends Controller {
 				'max'=>'El campo no debe ser mayor a :max.',
 				'email' =>'No es una dirección de email válida.',
 				'numeric'=>'No es un valor valido.',
-				'unique'=>'Verifique, es posible que ya exista la convocatoria.'
+				'unique'=>'Verifique, es posible que ya exista el producto.'
 
 			);
 
@@ -100,7 +100,7 @@ class ControlProductos extends Controller {
 						$entidad->tipo_soporte=$archivo3;
 
 						$entidad->save();
-			/*
+			
 					try{
 						$entidad->save();
 					}
@@ -114,7 +114,7 @@ class ControlProductos extends Controller {
 						->with('mensaje_error',"Error en el servidor.");
 					}
 					
-			*/			return Redirect::to('formularioproductos')
+						return Redirect::to('formularioproductos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El producto ha sido creado.");
 			

@@ -5,27 +5,26 @@ var jsonlinea=null;
 $(document).ready(function(){
 
 
-$("#bton_linea-grupos").click(function(){ //bton agregar modal de lineas
+$("#bton_linea-grupos").click(function(){
 
-
-	generaFilaLinea(jsonlinea,"lineas");
-
-
-
-});
-
-
-$("#linea-grupos").keyup(function(e){//input
-	//console.log(e);
-
-	$("#bton_linea-grupos").hide();
-
+    generaFilaLinea(jsonlinea,"lineas");
 });
 
 
 
+$("#linea-grupos").keyup(function(e){
+    if(e.which!=13)            //para cuando se da el evento de enter
+    {
+       $("#bton_linea-grupos").hide();
+    }
 
+});
 
+$("#guardar-cambios").click(function(){
+
+    $("#myModal-lineas").modal("hide");
+
+});
 
 
 	//autocompletado
@@ -102,7 +101,7 @@ $("#linea-grupos").keyup(function(e){//input
             	var $ob= $(ob);
 
             	console.log($ob.attr("data-info"));
-            	if(json.cedula==$ob.attr("data-info"))
+            	if(json.id_lineas==$ob.attr("data-info"))
             	{
             		existe=true;
             	}
@@ -114,7 +113,7 @@ $("#linea-grupos").keyup(function(e){//input
             $("#tabla-lineas-grupos").append($fila);	
             }
             else{
-            	alert("ya existe");
+            	alert("Ya asocio esa linea al grupo.");
             }
             
 	}

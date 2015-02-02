@@ -180,7 +180,7 @@
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar </button>
                           </div>
                         </div>
                       </div>

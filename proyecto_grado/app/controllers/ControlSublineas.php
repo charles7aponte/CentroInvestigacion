@@ -30,7 +30,8 @@ class ControlSublineas extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				'max'=>'No debe ser mayor a :max'
+				'max'=>'No debe ser mayor a :max',
+				'unique'=>'Es posible que la sublinea ya exista.'
 			);
 
 

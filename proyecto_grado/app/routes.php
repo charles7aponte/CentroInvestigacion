@@ -23,7 +23,7 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 /*--------------formularios-----------------*/
 
 //----------------crear grupo
-Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
+Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 
 //----------------crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
@@ -45,6 +45,9 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 
 //----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
+
+//Route::get('formulariofinanciamiento', 'ControlProyectos@cargarFormularioFinanciamiento');
+
 //----------------eliminar proyectos
 
 //----------------agregar productos
@@ -87,6 +90,8 @@ Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormu
 //creacion de productos
 Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
 
+Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+
 Route::post('creacion/formulariosubtipoproductos', 'ControlSubtipoProductos@CrearFormulario');
 
 //creacion de grupos
@@ -98,9 +103,11 @@ Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 
 Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
 
+//creacion proyectos y financiamientos
+
 Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 
-Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
+Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
 
 
 /**********-------------listas de cada tema -------------
