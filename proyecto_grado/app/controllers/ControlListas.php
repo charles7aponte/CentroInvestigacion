@@ -70,7 +70,7 @@ class ControlListas extends Controller {
 		return View::make('administrador/lista_proyectos',$datos);
 	}
 	
-			//controlador emoresas
+			//controlador productos
 	public function ConstruirListaProductos(){
 		$listas=InvProductos::all(); //traer registros
 		$paginacion=InvProductos::paginate(30);
@@ -80,5 +80,17 @@ class ControlListas extends Controller {
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
 		
 		return View::make('administrador/lista_productos',$datos);
+	}
+
+				//controlador emoresas
+	public function ConstruirListaGrupos(){
+		$listas=InvGrupos::all(); //traer registros
+		$paginacion=InvGrupos::paginate(30);
+		$crear_paginacion=$paginacion->links();
+
+		$datos= array(
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+		
+		return View::make('administrador/lista_grupos',$datos);
 	}
 }

@@ -113,9 +113,8 @@ Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFor
 /**********-------------listas de cada tema -------------
 ----------------------------------------------------------------------
 *********************/
-Route::get('listadegruposinv', function() { return View::make('administrador/lista_grupos_inv');});
 
-Route::get('listadegruposestudio', function() { return View::make('administrador/lista_grupos_estudio');});
+Route::get('listadegrupos','ControlListas@ConstruirListaGrupos');
 
 Route::get('listadeconvocatorias','ControlListas@ConstruirListaConvocatorias');
 
