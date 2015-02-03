@@ -49,43 +49,43 @@
             <ul>
                 <fieldset>  
                     <li class="@if($errors->has('nombre')) has-error @endif">
-                      <label for="nombre">Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre" value="" required="required"/>                      
+                      <label for="nombre" >Nombre del grupo: </label>
+                        <input type="text" id="nombre" name="nombre" value="{{Input::old('nombre')}}" required="required"/>                      
                          @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
                          @endif
                     </li> 
 
                     <li class="@if($errors->has('coord')) has-error @endif">
                       <label for="coord">Coordinador:</label>
-                        <input type="text" id="coord" name="coord" value="" required="required"/>
+                        <input type="text" id="coord" name="coord" value="{{Input::old('coord')}}" required="required"/>
                           @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
                          @endif
                     </li>
 
                     <li class="@if($errors->has('email')) has-error @endif">
                       <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="" required="required" />
+                        <input type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
                           @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
                          @endif          
                     </li>
 
                     <li class="@if($errors->has('pagina')) has-error @endif">
                       <label for="pagina">P&aacute;gina web:</label>
-                        <input type="text" id="pagina" name="pagina" value=""  autofocus="autofocus" />
+                        <input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
                          @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
                          @endif                        
                     </li>
 
                     <li class="@if($errors->has('telefono')) has-error @endif">
                       <label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value=""/>
+                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
                          @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
                          @endif                   
                     </li>
 
                     <li class="@if($errors->has('direccion')) has-error @endif">
                       <label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="" required="required"/>
+                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
                          @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
                          @endif                     
                     </li>
@@ -110,14 +110,14 @@
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
                       <label for="unidad">Unidad acad&eacute;mica:</label>
-                        <input type="text" id="unidad" name="unidad" value="" required="required"/>
+                        <input type="text" id="unidad" name="unidad" value="{{Input::old('unidad')}}" required="required"/>
                          @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
                          @endif                        
                     </li>
 
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
-                        <input type="text" id="categoria" name="categoria" value="" required="required"/>
+                        <input type="text" id="categoria" name="categoria" value="{{Input::old('categoria')}}" required="required"/>
                          @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
                          @endif                        
                     </li>
@@ -239,21 +239,21 @@
                 <fieldset>
                         <li class="@if($errors->has('objetivos')) has-error @endif">
                           <label for="objetivos">Objetivos:</label>
-                          <textarea id="objetivos" name="objetivos" required="required"></textarea>
+                          <textarea id="objetivos" name="objetivos" required="required" value="{{Input::old('objetivos')}}"></textarea>
                            @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
                            @endif
                         </li>  
 
                         <li class="@if($errors->has('gruplac')) has-error @endif">
                           <label for="gruplac">Link Gruplac: </label>
-                            <input type="text" id="gruplac" name="gruplac" />
+                            <input type="text" id="gruplac" name="gruplac" value="{{Input::old('gruplac')}}"/>
                            @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
                            @endif                            
                         </li>
 
                         <li class="@if($errors->has('logog')) has-error @endif">
                           <label for="logog">Logo del grupo:</label>
-                            <input type="file"  id="logog" name="logog"  required="required" />
+                            <input type="file"  id="logog" name="logog"  required="required" value="{{Input::old('logog')}}" />
                            @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
                            @endif                            
                         </li>
@@ -267,14 +267,14 @@
 
                         <li class="@if($errors->has('img1')) has-error @endif">
                           <label for="img1">Imagen 1: </label>
-                            <input type="file"  id="img1" name="img1" />
+                            <input type="file"  id="img1" name="img1" value="{{Input::old('img1')}}"/>
                           @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
                           @endif 
                         </li>
 
                         <li class="@if($errors->has('img2')) has-error @endif">
                           <label for="img2">Imagen 2: </label>
-                            <input type="file"  id="img2" name="img2" />
+                            <input type="file"  id="img2" name="img2" value="{{Input::old('img2')}}" />
                           @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
                          @endif
                         </li> 

@@ -145,38 +145,7 @@
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121887678</td>
-                                  <td>Pepito Perez Gonzalez</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>

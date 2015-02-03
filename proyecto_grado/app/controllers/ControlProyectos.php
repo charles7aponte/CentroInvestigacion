@@ -190,5 +190,13 @@ class ControlProyectos extends Controller {
 			
 			}
 
+				public function buscarProyectoPorNombre($proyecto){
+				$proyectos1=InvProyectos::where("nombre_proyecto","LIKE","%$proyecto%")->get();
+
+				return Response::json($proyectos1);
+
+			}
+
+
 	
 }

@@ -10,7 +10,8 @@ class ControlFinanciamiento extends Controller {
 	 * @return void
 	 */
 
-	public function CrearFormulario(){
+	public function CrearFormulario()
+	{
 
 		$entidad=Input::get('entidad-financiada');
 		$modo_financiamiento=Input::get('modo-financiada');
@@ -31,150 +32,94 @@ class ControlFinanciamiento extends Controller {
 	
 
 		
-
 		$entidad=new InvFinanciamiento();
 		
-		$entidad->nombre_proyecto=$nombre_proyecto;
-		$entidad->estado_proyecto=$estado_proyecto;
-		$entidad->fecha_proyecto=$fecha_inicio;
-		$entidad->inv_numero_convocatoria=$conv_proyecto;
-		$entidad->inv_id_sublinea=$linea_proyecto;
-		$entidad->inv_codigo_grupo=$grupo1_proyecto;
-		$entidad->grupo_auxiliar=$grupo2_proyecto;
-		$entidad->objetivo_general=$objetivo_proyecto;
-		$entidad->archivo_actainicio=$actainicio;
-		$entidad->archivo_propuesta=$propuesta_proyecto;
-		$entidad->informe_final=$informe_proyecto;
+		$entidad->inv_nit_empresa=$entidad;
+		$entidad->modo_financiamiento=$modo_financiamiento;
+		$entidad->valor_financiado=$valor;
+		$entidad->descripcion_financiamiento=$descripcion;
 
 		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'max'=>'El campo no debe ser mayor a :max.',
-				'email' =>'No es una dirección de email válida.',
 				'numeric'=>'No es un valor valido.',
-				'unique'=>'Verifique, es posible que ya exista el proyecto.'
 
 			);
 
 
 			// execute la validacin 
 
-			$validator = Validator::make(Input::all(), InvProyectos::$reglasValidacion,$messages);
+			$validator = Validator::make(Input::all(), InvFinanciamiento::$reglasValidacion,$messages);
 
 
-			if ($validator->fails()) {
+			if ($validator->fails()) 
+			{
 				$messages = $validator->messages();
 
 
 
-				return Redirect::to('formularioproyectos')
+				/*return Redirect::to('formulariofinanciamiento')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
-		} else {
+					->with('mensaje_error',"Error al guardar");*/
+			} else 
+				{
 
 			
-
-			
-					try{
-						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
-						$entidad->archivo_actainicio=$archivo1;//base
-
-					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
-						$entidad->archivo_propuesta=$archivo2;
-
-					$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
-						$entidad->informe_final=$archivo3;
-
+					try
+					{
 						$entidad->save();
+						print_r($entidad);
 
-						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
-						$listatiempos=Input::get("tiempo");
+						$proyecto_financiado=Input::get("proyectos"); // name del json del jquery
 
 
-						for($i=0;$i<count($listaIntegrantes);$i++)
+
+						for($i=0;$i<count($proyecto_financiado);$i++)
 						{
 
-							$modelIntegrante=new InvParticipacionProyectos();
-							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
-							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
-							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
+							$modelIntegrante=new InvFinanciamiento();
+							//$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
+							$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
 							$modelIntegrante->save();
 
 						}
 					}
 
-					catch(PDOException $e)
-					{
+						catch(PDOException $e)
+						{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioproyectos')
-						->withInput($todosDatos)
-						->with('mensaje_error',"Error en el servidor.");
-					}
+							/*return Redirect::to('formulariofinanciamiento')
+							->withInput($todosDatos)
+							->with('mensaje_error',"Error en el servidor.");*/
+						}
 					
-						return Redirect::to('formularioproyectos')
+								/*return Redirect::to('formulariofinanciamiento')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El proyecto ha sido creado.");
+								->with('mensaje_success',"El proyecto ha sido creado.");*/
 			
 					}
 			
 			}
-
-
-
 
 
 		/*********** carga el formulario para cargar los datos desde la tabla*/
 
-			public function cargarFormularioProyectos(){
+					/*********** carga el formulario para cargar los datos desde la tabla*/
 
-				$listaConvocatorias = InvConvocatorias::all();
-				$listaLineas = InvLineas::all();
-				$listaGrupos = InvGrupos::all();
-				$listaGrupos1 = InvGrupos::all();
+			public function cargarFormularioFinanciamiento(){
 
+				$listaempresas = InvEntidades::all();
 
 				$datos=  array(
-					'convocatorias' =>$listaConvocatorias,
-					'lineas' =>$listaLineas,
-					'grupos' =>$listaGrupos,
-					'grupos1' =>$listaGrupos1 );
+					'empresas' =>$listaempresas);
 
-			  return View::make('administrador/formulario_proyectos',$datos); 
+			 	return View::make('administrador/formulario_financiamiento',$datos); 
 
 
 			}//
 
-
-
-
-
-			function ArchivosProyectos($name,$direccion){
-				
-				$nombreNuevo="";
-				if(Input::hasFile($name))
-					{
-
-						$archivoF =Input::file($name);
-						$nombreNuevo=$archivoF->getClientOriginalName();
-
-
-						while (File::exists($direccion.$nombreNuevo) )
-						{
-							$numero=rand(1,999);
-							$nombreNuevo=$numero."-".$nombreNuevo;				
-				
-						}
-
-
-						$archivoF->move($direccion,$nombreNuevo);
-					}
-
-					return $nombreNuevo;
-			
-			}
-
-	
 }

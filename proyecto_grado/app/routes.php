@@ -46,7 +46,7 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 //----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
-//Route::get('formulariofinanciamiento', 'ControlProyectos@cargarFormularioFinanciamiento');
+Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
 
 //----------------eliminar proyectos
 
@@ -54,8 +54,9 @@ Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 
-
+//.............................................................................................................//
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
+
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
@@ -63,9 +64,8 @@ Route::get('formularioconvocatorias', function() { return View::make('administra
 Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
 
 
-Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
-
 Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
+
 
 /*--------------------principales por tema-------------------*/
 Route::get('grupos', function() {return View::make('inf_grupos');});
@@ -123,11 +123,12 @@ Route::get('listadelineas','ControlListas@ConstruirListaLineas');
 
 Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 
-Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
+Route::get('listadeproductos','ControlListas@ConstruirListaProductos');
 
 Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
+
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas)
@@ -140,11 +141,8 @@ Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre
 
 Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
 
-//Productos
-
-//Proyectos
-
-
+//financiamiento
+Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
 
 
 

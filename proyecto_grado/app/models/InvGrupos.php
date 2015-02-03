@@ -14,9 +14,11 @@ class InvGrupos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'nombre'             =>'required|unique:inv_grupos,nombre_grupo', 
-			'coord'            => 'required|max:50|', 	
+			'nombre'        =>'required|unique:inv_grupos,nombre_grupo', 
+			'coord'         => 'required|max:50|', 	
 			'objetivos'     => 'required',
+			'categoria'		=>'max:4',
+
 				
 		);
 

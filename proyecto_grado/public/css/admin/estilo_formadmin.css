@@ -355,7 +355,8 @@ input#grupo-producto {
 
 table#tabla-integrantes-grupos,
 table#tabla-lineas-grupos, 
-table#tabla-tipo-grupos {
+table#tabla-tipo-grupos,
+table#tabla-proyecto-financiado {
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -391,7 +392,8 @@ table#tabla-subtipo-productos{
 #tabla-tipo-grupos thead tr:first-child,
 #tabla-integrantes-productos thead tr:first-child,
 #tabla-tipo-productos thead tr:first-child,
-#tabla-subtipo-productos thead tr:first-child {
+#tabla-subtipo-productos thead tr:first-child,
+#tabla-proyecto-financiado thead tr:first-child {
 	background: #1A6D71;
 	color: #fff;
 	border: none;
@@ -404,7 +406,8 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos th,
  #tabla-integrantes-productos th,
  #tabla-tipo-productos th,
- #tabla-subtipo-productos th {
+ #tabla-subtipo-productos th,
+ #tabla-proyecto-financiado th {
  	font-weight: bold;
  }
 
@@ -415,7 +418,8 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos th:first-child, td:first-child,
  #tabla-integrantes-productos th:first-child, td:first-child,
  #tabla-tipo-productos th:first-child, td:first-child,
- #tabla-subtipo-productos th:first-child, td:first-child {
+ #tabla-subtipo-productos th:first-child, td:first-child,
+ #tabla-proyecto-financiado  th:first-child, td:first-child {
  	padding: 0 15px 0 20px;
  }
 
@@ -426,7 +430,8 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos thead tr:last-child th,
  #tabla-integrantes-productos thead tr:last-child th,
  #tabla-tipo-productos thead tr:last-child th,
- #tabla-subtipo-productos thead tr:last-child th {
+ #tabla-subtipo-productos thead tr:last-child th,
+ #tabla-proyecto-financiado thead tr:last-child th {
     border-bottom: 2px solid #ddd;
 }
 
@@ -437,7 +442,8 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos tbody tr:hover,
  #tabla-integrantes-productos tbody tr:hover,
  #tabla-tipo-productos tbody tr:hover,
- #tabla-subtipo-productos tbody tr:hover {
+ #tabla-subtipo-productos tbody tr:hover,
+ #tabla-proyecto-financiado  tbody tr:hover {
     background-color: #E5F7FE;
 }
  #tabla-integrantes-grupos tbody tr:last-child td, 
@@ -445,9 +451,11 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos tbody tr:last-child td,
  #tabla-integrantes-productos tbody tr:last-child td,
  #tabla-tipo-productos tbody tr:last-child td,
- #tabla-subtipo-productos tbody tr:last-child td {
+ #tabla-subtipo-productos tbody tr:last-child td,
+ #tabla-proyecto-financiado tbody tr:last-child td {
     border: none;
 }
+
  #tabla-integrantes-grupos tbody td, 
  #tabla-integrantes-proyectos tbody td,
  #tabla-lineas-grupos tbody td,
@@ -455,7 +463,8 @@ table#tabla-subtipo-productos{
  #tabla-tipo-grupos tbody td,
  #tabla-integrantes-productos tbody td,
  #tabla-tipo-productos tbody td,
- #tabla-subtipo-productos tbody td{
+ #tabla-subtipo-productos tbody td,
+ #tabla-proyecto-financiado tbody td {
     border-bottom: 1px solid #ddd;
 }
 
@@ -463,14 +472,16 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-proyectos td:last-child, 
  #tabla-lineas-grupos td:last-child,
  #tabla-tipo-grupos td:last-child, 
- #tabla-integrantes-productos td:last-child {
+ #tabla-integrantes-productos td:last-child,
+  #tabla-proyecto-financiado td:last-child {
 	text-align: right;
 	padding-right: 10px;
 }
 
  #tabla-integrantes-grupos .button, 
  #tabla-integrantes-proyectos .button,
- #tabla-lineas-grupos .button{
+ #tabla-lineas-grupos .button,
+ #tabla-proyecto-financiado .button{
 	color: #1A6D71;
 	text-align: center;
 	text-decoration: none;
@@ -482,7 +493,8 @@ table#tabla-subtipo-productos{
  #tabla-lineas-grupos .button:hover,
  #tabla-subtipo-productos .button:hover,
  #tabla-tipo-productos .button:hover,
- #tabla-financiamiento-grupos .button:hover {
+ #tabla-financiamiento-grupos .button:hover,
+ #tabla-proyecto-financiado .button:hover {
 	text-decoration: underline;
 	cursor: pointer;
 	color: #2C3333;

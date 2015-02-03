@@ -18,6 +18,7 @@
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
+    <script src="{{URL::to('js/')}}/recursos/formulariofinanciamiento.js" type="text/javascript"></script>
 @stop
 @section('cuerpo') 
 
@@ -42,11 +43,51 @@
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Financiamiento del proyecto</h2></div>           
             <ul>
                 <fieldset style="border-color:transparent">
-                  <li class="@if($errors->has('proyecto-finananciar')) has-error @endif">
-                    <label for="proyecto-finananciar">Proyecto: </label>
-                      <input  type="text" id="proyecto-finananciar" name="proyecto-finananciar" required="required">
-                  </li>
 
+                    <div class="row">
+                        <div class="col-md-2" style="margin-left:6px;"><label>Proyecto: </label></div>
+                         <div class="col-md-2"> 
+                            <input type="button"  data-toggle="modal" data-target="#myModal-proyectos-financiados" id="botones-especiales" style="margin-left:30px; margin-bottom:18px;" value="Seleccionar Proyecto">
+                        </div>
+                    </div>
+                    <!--haciendo una modal para agregar integrantes-->
+                    <div class="modal fade" id="myModal-proyectos-financiados" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                      <div class="modal-dialog"  style="width:960px">
+                        <div class="modal-content">
+                          
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                            </button>
+                            <!--Agregando nuevos integrantes-->
+                            <label  style="width:inherit">Proyecto: </label>
+                             <input type="text" id="proyecto-financiado"  value="" style="width:500px;"/>
+                             <button type="button" class="btn btn-primary"  
+                                id="bton_proyecto-financiado"
+                              style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Seleccionar</button> 
+                          </div>
+                          
+                          <div class="modal-body">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
+                            id="tabla-proyecto-financiado">
+                              <thead>
+                                <tr><th colspan="4">PROYECTO SELECCIONADO</th></tr>
+                                <tr>
+                                  <th colspan="2"></th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   <li><label for="fecha-financiamiento">Fecha:</label>
                       <div class="container">
                           <div class="row">
@@ -66,37 +107,41 @@
                       </div>    
                   </li>
 
-                    <li class="@if($errors->has('entidad-financiada')) has-error @endif"><label for="entidad-financiada">Entidad:</label> 
+                    <li><label for="entidad-financiada">Entidad:</label> 
                       <select name="entidad-financiada" required="required">
-                        @if(isset($empresas))
-                          @foreach($empresas as $empresa)
-                              <option value="{{$empresa['nit_empresa']}}" > {{$empresa['nombre_empresa']}}</option>
-                          @endforeach
-                        @endif     
-                      </select>
-                        @if ($errors->has('entidad-financiada')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-financiada') }}</p> @endif
+                              @if(isset($empresas))
+                                @foreach($empresas as $empresa)
+                                    <option value="{{$empresa['nit_empresa']}}" > {{$empresa['nombre_empresa']}}</option>
+                                @endforeach
+                              @endif    
+                        </select>    
                     </li>         
 
                     <li class="@if($errors->has('modo-financiada')) has-error @endif">
-                      <label for="modo-financiada">Modo de financiamiento:</label> 
-                        <select name="modo-financiada" required="required">
-                            <option value=""></option>
-                            <option value="">Especie</option>
-                            <option value="">Efectivo</option>
-                        </select>
+                      <label for="modo-financiada" >Modo de financiamiento:</label> 
+                      <select  value="{{Input::old('modo-financiada')}}">
+                        <option id="efectivo">Efectivo</option>
+                        <option id="especie">Especie</option>
+                      </select>
+                          @if ($errors->has('modo-financiada')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('modo-financiada') }}</p>
+                          @endif    
                     </li> 
 
                     <li class="@if($errors->has('valor-financiado')) has-error @endif">
                         <label for="valor-financiado">Valor:</label> 
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input id="valor-financiado" type="text" class="form-control" required="required" style="width: 567px;">
+                          <input id="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;">
+                          @if ($errors->has('valor-financiado')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('valor-financiado') }}</p>
+                          @endif
                         </div> 
                     </li>    
 
-                    <li class="@if($errors->has('descripcion-financiamiento')) has-error @endif"><label for="descripcion-financiamiento">
+                    <li class="@if($errors->has('descripcion-financiamiento')) has-error @endif">
+                      <label for="descripcion-financiamiento">
                       Descripci&oacute;n:</label>
-                    <textarea id="descripcion-financiamiento" name="descripcion-financiamiento"></textarea>
+                    <textarea id="descripcion-financiamiento" name="descripcion-financiamiento" value="{{Input::old('descripcion-financiamiento')}}"></textarea>
+                      @if ($errors->has('descripcion-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('descripcion-financiamiento') }}</p> @endif
                     </li>   
                 </fieldset> 
             </ul> 
@@ -105,7 +150,7 @@
                     <th id="crear">
                         <button id="agregar-financiamiento" type="submit">
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Agregar
+                        Agregar 
                         </button>
                     </th>
                     <th id="borrar">
@@ -116,62 +161,7 @@
                     </th>
                 </thead>
             </table>
-
-            <ul>
-                <table id="tabla-financiamiento-grupos" style="margin-top:40px; margin-left:40px; border-right:none; width:950px;">
-                  <thead>
-                    <tr><th colspan="6">NOMBRE DEL PROYECTO</th></tr>
-                    <tr>
-                      <th>Fecha</th>
-                      <th>Entidad</th>
-                      <th>Modo</th>
-                      <th>Valor</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr>
-                      <td style="width:60px;">01/03/2014</td>
-                      <td style="width:400px; margin-right:5px;">Universidad de los llanos de villavicencio jajajaS jjjjjjjjjj</td>
-                      <td style="width:100px; margin-rigth:5px;">efectivo</td>
-                      <td style="width:90px; margin-left:5px;">$ 3.000.000</td>
-                      <td style="width:120px;">                      
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
-                         style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;">
-                         Ver descripci&oacute;n
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel" style="background:none;"><b>Descripci&oacute;n</b></h4>
-                              </div>
-                              <div class="modal-body">
-
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </td>
-                      <td style="width:100px;">
-                        <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-            </ul>
-
         </form> 
-
     </div>
         
 @stop

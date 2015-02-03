@@ -23,46 +23,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td id="nombre-producto"><a href="">Este es el nombre del Producto</a></td>
-          <td>
-            <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-            <a href="#" class="button">Eliminar</a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td id="nombre-producto"><a href="">producto 2</a></td>
-          <td>
-            <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-            <a href="#" class="button">Eliminar</a>
-          </td>
-        </tr>
-      </tbody>
+        @if(isset($campo_lista))
+          @foreach ($campo_lista as $campo)
+            <tr>
+              <td style="width:100px;">
+                <b>{{$campo['codigo_producto']}}</b>
+              </td> 
+              <td>
+                <a href="">{{$campo['nombre_producto']}}</a>
+              </td>
+              <td style="width:90px;">
+                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+              </td>
+              <td style="width:90px;">
+                <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+              </td>
+            </tr>
+          @endforeach
+          @endif
+      </tbody>    
     </table>
-        <nav>
-        <ul class="pager">
-          <li id="botones"><a href="#" style="border-radius: 7px; background: #1A6D71;
-            background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-            background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-            background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-            background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);
-            text-decoration: none;
-            font-weight: bold;
-            color:#fff">Anterior</a></li> 
-          <li id="botones"><a href="#" style="border-radius: 7px; background: #1A6D71;
-            background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-            background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-            background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-            background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);
-            text-decoration: none;
-            font-weight: bold;
-            color:#fff">Siguiente</a></li>
-        </ul>
-      </nav>
+
+        <div style="margin-left:30px; margin-right:30px;"> 
+            {{$links}}
+        </div>
   </div>
 </form>
 @stop
