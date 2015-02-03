@@ -124,8 +124,6 @@ class ControlProductos extends Controller {
 
 
 
-
-
 		/*********** carga el formulario para cargar los datos desde la tabla*/
 			public function cargarFormularioProductos(){
 
@@ -145,12 +143,9 @@ class ControlProductos extends Controller {
 
 			}
 
-
-
-
 		
-			function ArchivosProductos($name,$direccion){
-				
+			function ArchivosProductos($name,$direccion)
+			{
 				$nombreNuevo="";
 				if(Input::hasFile($name))
 					{
@@ -170,9 +165,50 @@ class ControlProductos extends Controller {
 						$archivoF->move($direccion,$nombreNuevo);
 					}
 
-					return $nombreNuevo;
-			
+					return $nombreNuevo;	
 			}
 
+
+			public function buscarPersonasPorNombre($name)
+			{
+				$name=$this->limpiarCadena($name);
+
+
+				$listaPersonas=	DB::select(DB::raw("select cedula as cedulaPersona,(nombre1||' '||nombre2||' '||apellido1||' '||apellido2) as datospersonales,codigo_grupo as CodigoGrupo,nombre_grupo as NombreGrupo
+					from persona a,inv_grupos b,inv_participacion_grupos as c
+					where 
+						a.cedula=c.cedula_persona and b.codigo_grupo=c.inv_codigo_grupo
+						and ((nombre1||' '||nombre2||' '||apellido1||' '||apellido2) like '%$name%'
+						  OR (cedula||'') like '%$name%' )"));  /*esta es la consulta que busca las concidencias con la BD*/
+				return Response::json($listaPersonas);
+	
+			}
+
+
+
+			public  function limpiarCadena($valor)
+			{
+				$valor = str_ireplace("SELECT","",$valor);
+				$valor = str_ireplace("COPY","",$valor);
+				$valor = str_ireplace("DELETE","",$valor);
+				$valor = str_ireplace("DROP","",$valor);
+				$valor = str_ireplace("DUMP","",$valor);
+				$valor = str_ireplace(" OR ","",$valor);
+				$valor = str_ireplace("%","",$valor);
+				$valor = str_ireplace("LIKE","",$valor);
+				$valor = str_ireplace("--","",$valor);
+				$valor = str_ireplace("^","",$valor);
+				$valor = str_ireplace("[","",$valor);
+				$valor = str_ireplace("]","",$valor);
+				$valor = str_ireplace("\\","",$valor);
+				$valor = str_ireplace("!","",$valor);
+				$valor = str_ireplace("¡","",$valor);
+				$valor = str_ireplace("?","",$valor);
+				$valor = str_ireplace("=","",$valor);
+				$valor = str_ireplace("&","",$valor);
+				$valor = str_ireplace("'","\\'",$valor);
+				$valor = str_ireplace("\"","\\\"",$valor);
+				return $valor;
+			}	
 	
 }

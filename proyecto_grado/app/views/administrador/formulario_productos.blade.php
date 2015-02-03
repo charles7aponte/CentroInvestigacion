@@ -18,6 +18,8 @@
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
+
+    <script src="{{URL::to('js/')}}/recursos/formularioproductos.js" type="text/javascript"></script>
 @stop
 
 @section('cuerpo')
@@ -128,7 +130,7 @@
                                 <label  style="width:inherit">Grupo participante: </label>
                                     <input type="text" id="grupo-producto" name="grupo-producto" value="">
                             </li> 
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" id="boton-integrantes-productos" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -150,7 +152,7 @@
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar Cambios</button>
                           </div>
                         </div>
                       </div>

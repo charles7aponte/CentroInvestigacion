@@ -132,8 +132,8 @@ Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas)
-*************----------------
---------------------------------------------------------------------------------****************/
+*************----------------**/
+
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
 
 //Grupos
@@ -143,6 +143,12 @@ Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
 
 //financiamiento
 Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
+
+Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
+//Productos
+
+//Proyectos
+
 
 
 
