@@ -107,6 +107,8 @@ Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
 
 Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 
+Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
+
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
 
 
