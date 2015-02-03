@@ -135,7 +135,8 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">
 			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
-			<li class=""><a href="formulariofinanciamiento">Agregar/Ver Financiamiento de un proyecto</a></li>
+			<li class=""><a href="formulariofinanciamiento">Agregar Financiamiento a un proyecto</a></li>
+			<li class=""><a href="listafinanciamiento">Ver/editar el financiamiento de un proyecto</a></li>
 			<li class=""><a href="listadeproyectos">Ver/Editar un proyecto</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>

@@ -22,8 +22,6 @@ class ControlGrupos extends Controller {
 
 
 
-
-
 		$coord=Input::get('coord');
 		$email=Input::get('email');
 		$pagina=Input::get('pagina');

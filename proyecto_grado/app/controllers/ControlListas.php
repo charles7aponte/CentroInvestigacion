@@ -82,7 +82,7 @@ class ControlListas extends Controller {
 		return View::make('administrador/lista_productos',$datos);
 	}
 
-				//controlador emoresas
+				//controlador grupos
 	public function ConstruirListaGrupos(){
 		$listas=InvGrupos::all(); //traer registros
 		$paginacion=InvGrupos::paginate(30);
