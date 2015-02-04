@@ -130,7 +130,8 @@ Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
 
-//Route::get('listadefinanciamientos','ControlListas@ConstruirListafinanciamiento');
+Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
+
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)
