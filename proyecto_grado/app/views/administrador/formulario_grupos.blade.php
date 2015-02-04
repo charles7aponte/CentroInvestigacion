@@ -110,14 +110,29 @@
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
                       <label for="unidad">Unidad acad&eacute;mica:</label>
-                        <input type="text" id="unidad" name="unidad" value="{{Input::old('unidad')}}" required="required"/>
+                        <select required="required">
+                          <option value="dpto-bio">Departamento de biolog&iacute;a y qu&iacute;mica</option>
+                          <option value="dpto-mate">Departamento de matem&aacute;ticas y f&iacute;sica</option>
+                          <option value="escuela-ing">Escuela de ingenier&iacute;a</option>
+                          <option value="inst-amb">Instituto de ciencias ambientales</option>
+                        </select>
                          @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
                          @endif                        
                     </li>
 
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
-                        <input type="text" id="categoria" name="categoria" value="{{Input::old('categoria')}}" required="required"/>
+                        <select required="required">
+                          <option value="a1">A1</option>
+                          <option value="a2">A2</option>
+                          <option value="a">A</option>
+                          <option value="b">B</option>
+                          <option value="c">C</option>
+                          <option value="d">D</option>
+                          <option value="reconocido">Reconocido</option>
+                          <option value="ins-unillanos">Institucional-Unillanos</option>
+                          <option value="no-reconocido">No reconocido</option>
+                        </select>
                          @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
                          @endif                        
                     </li>

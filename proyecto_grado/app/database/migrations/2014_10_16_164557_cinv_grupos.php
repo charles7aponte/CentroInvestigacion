@@ -18,7 +18,7 @@ class CinvGrupos extends Migration {
 			$tabla->text('nombre_grupo');
 			$tabla->string('director_grupo',100);
 			$tabla->string('unidad_academica',100);
-			$tabla->string('categoria',4);
+			$tabla->string('categoria',30);
 			$tabla->text('objetivos');
 			$tabla->date('ano_creacion');
 			$tabla->string('email',60);
