@@ -60,10 +60,6 @@ Route::get('formulariolineas', function() { return View::make('administrador/for
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
-
-Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
-
-
 Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
 
 
@@ -83,7 +79,6 @@ Route::get('personas', function() {return View::make('inf_personas');});
 /***********   Creacion de formularios (almacenando en la bd) -----------
 -----------------------
 ********************/
-Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
