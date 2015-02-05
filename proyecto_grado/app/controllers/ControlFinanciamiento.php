@@ -13,7 +13,7 @@ class ControlFinanciamiento extends Controller {
 	public function CrearFormulario()
 	{
 
-		$entidad=Input::get('entidad-financiada');
+		$entidad1=Input::get('entidad-financiada');
 		$modo_financiamiento=Input::get('modo-financiada');
 		$valor=Input::get('valor-financiado');
 		$descripcion=Input::get('descripcion-financiamiento');
@@ -31,10 +31,9 @@ class ControlFinanciamiento extends Controller {
 		$todosDatos = Input::all();
 	
 
-		
 		$entidad=new InvFinanciamiento();
 		
-		$entidad->inv_nit_empresa=$entidad;
+		$entidad->inv_nit_empresa=$entidad1;
 		$entidad->modo_financiamiento=$modo_financiamiento;
 		$entidad->valor_financiado=$valor;
 		$entidad->descripcion_financiamiento=$descripcion;
@@ -43,7 +42,7 @@ class ControlFinanciamiento extends Controller {
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
-				'max'=>'El campo no debe ser mayor a :max.',
+				//'max'=>'El campo no debe ser mayor a :max.',
 				'numeric'=>'No es un valor valido.',
 
 			);
@@ -53,7 +52,7 @@ class ControlFinanciamiento extends Controller {
 
 			$validator = Validator::make(Input::all(), InvFinanciamiento::$reglasValidacion,$messages);
 
-
+		
 			if ($validator->fails()) 
 			{
 				$messages = $validator->messages();
@@ -68,10 +67,9 @@ class ControlFinanciamiento extends Controller {
 				{
 
 			
-					try
-					{
+
 						$entidad->save();
-						print_r($entidad);
+						//print_r($entidad);
 
 						$proyecto_financiado=Input::get("proyectos"); // name del json del jquery
 
@@ -81,11 +79,16 @@ class ControlFinanciamiento extends Controller {
 						{
 
 							$modelIntegrante=new InvFinanciamiento();
-							//$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
-							$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
+							//$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
+							$modelIntegrante->inv_codigo_proyecto=  $proyecto_financiado[$i];
+							//$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
 							$modelIntegrante->save();
 
 						}
+
+					try
+					{
+						///
 					}
 
 						catch(PDOException $e)

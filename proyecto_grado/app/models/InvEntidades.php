@@ -8,24 +8,9 @@ class InvEntidades extends Eloquent  {
 	 *
 	 * @var string
 	 */
-	protected $table = 'inv_entidades';
+	protected $table = 'empresa';
 	public $timestamps = false;
-	protected $primaryKey = "nit_empresa";
-
-
-		// reglas
-	public 	static $reglasValidacion = array(
-			'nit-entidad'             => 'required|max:30|', 
-			'nombre-entidad'            => 'required', 	
-			'representante-entidad'     => 'required|max:50',
-			'tipo-entidad' 				=> 'required',
-
-			'email-entidad' 			=> 'required| email',
-			'pagina-entidad' 				=> 'max:60',
-			'telefono-entidad' 				=> 'max:20',
-			'celular-entidad' 				=> 'max:20',
-					
-		);
+	protected $primaryKey = "nit";
 
 
 }

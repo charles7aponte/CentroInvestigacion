@@ -15,8 +15,8 @@ class InvFinanciamiento extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'modo_financiamiento'        =>'required',
-			'valor'  					=>'required|numeric'
+			'modo-financiada'        =>'required',
+			'valor-financiado'  	=>'required|numeric'
 					
 		);
 

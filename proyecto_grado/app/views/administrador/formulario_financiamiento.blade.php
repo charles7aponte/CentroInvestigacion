@@ -111,7 +111,7 @@
                       <select name="entidad-financiada" required="required">
                               @if(isset($empresas))
                                 @foreach($empresas as $empresa)
-                                    <option value="{{$empresa['nit_empresa']}}" > {{$empresa['nombre_empresa']}}</option>
+                                    <option value="{{$empresa['nit']}}" > {{$empresa['razon_social']}}</option>
                                 @endforeach
                               @endif    
                         </select>    
@@ -119,7 +119,7 @@
 
                     <li class="@if($errors->has('modo-financiada')) has-error @endif">
                       <label for="modo-financiada" >Modo de financiamiento:</label> 
-                      <select  value="{{Input::old('modo-financiada')}}">
+                      <select  value="{{Input::old('modo-financiada')}}" name="modo-financiada">
                         <option id="efectivo">Efectivo</option>
                         <option id="especie">Especie</option>
                       </select>
@@ -131,7 +131,7 @@
                         <label for="valor-financiado">Valor:</label> 
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input id="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;">
+                          <input id="valor-financiado" name="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;">
                           @if ($errors->has('valor-financiado')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('valor-financiado') }}</p>
                           @endif
                         </div> 
