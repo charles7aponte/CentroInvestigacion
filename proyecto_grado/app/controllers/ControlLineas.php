@@ -10,7 +10,7 @@ class ControlLineas extends Controller {
 	public function CrearFormulario(){
 
 		$nombre=Input::get('nombre-linea');
-		$coordinador=Input::get('coor-linea');
+		$coordinador=Input::get('cedula-persona');
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');	

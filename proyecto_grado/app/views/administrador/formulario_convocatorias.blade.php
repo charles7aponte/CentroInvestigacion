@@ -135,9 +135,15 @@
             <ul>
                 <fieldset>
                     <li class="@if($errors->has('dcto-conv')) has-error @endif">
-                        <label for="dcto-conv">Documento de la convocatoria: </label>
+                        <label for="dcto-conv">Documento: </label>
                         <input type="file" id="dcto-conv" name="dcto-conv" value="{{Input::old('dcto-conv')}}" />
                         @if ($errors->has('dcto-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dcto-conv') }}</p> @endif
+                    </li> 
+
+                    <li class="@if($errors->has('img-conv')) has-error @endif">
+                        <label for="img-conv">Imagen: </label>
+                        <input type="file" id="img-conv" name="img-conv" value="{{Input::old('img-conv')}}" />
+                        @if ($errors->has('imf-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img-conv') }}</p> @endif
                     </li>     
                 </fieldset> 
             </ul>   

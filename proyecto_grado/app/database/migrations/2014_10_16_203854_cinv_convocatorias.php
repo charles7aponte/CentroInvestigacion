@@ -24,7 +24,7 @@ class CinvConvocatorias extends Migration {
 			$tabla->string('telefono_contacto',20)->nullable();
 			$tabla->text('pagina_convocatoria')->nullable();
 			$tabla->text('archivo_convocatoria')->nullable();
-			$tabla->text('archivo_imagen');->nullable();
+			$tabla->text('archivo_imagen')->nullable();
 			$tabla->text('convocatoria_dirigida');
 
 			

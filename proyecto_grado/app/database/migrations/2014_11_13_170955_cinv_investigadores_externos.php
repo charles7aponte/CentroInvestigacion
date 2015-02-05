@@ -16,12 +16,12 @@ class CinvInvestigadoresExternos extends Migration {
 			$tabla->increments('codinv_ext');
 			$tabla->bigInteger('cedula_persona')->unsigned();
 			$tabla->string('profesion',100);
-			$tabla->integer('codconvocatoria')->->nullable();
+			$tabla->integer('codconvocatoria')->nullable();
 			$tabla->text('nombreconvocatoria')->nullable();
 			$tabla->text('entidad')->nullable();
 			$tabla->string('numerocontrato',100)->nullable();
-			$tabla->date('fecha_inicio')->->nullable();
-			$tabla->date('fecha_fin')->->nullable();
+			$tabla->date('fecha_inicio')->nullable();
+			$tabla->date('fecha_fin')->nullable();
 
 			
 			//$tabla->foreign('cedula_persona')->references('cedula')->on('persona');

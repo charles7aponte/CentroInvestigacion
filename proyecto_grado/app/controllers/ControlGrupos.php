@@ -22,7 +22,7 @@ class ControlGrupos extends Controller {
 
 
 
-		$coord=Input::get('coord');
+		$coord=Input::get('cedula-persona');
 		$email=Input::get('email');
 		$pagina=Input::get('pagina');
 		$telefono=Input::get('telefono');

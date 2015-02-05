@@ -112,7 +112,7 @@
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
                       <label for="unidad">Unidad academica:</label>
-                        <select required="required">
+                        <select required="required" name="unidad">
                           <option value="Departamento de biologia y quimica">
                             Departamento de biolog&iacute;a y qu&iacute;mica</option>
                           <option value="Departamento de matematicas y fisica">
@@ -128,7 +128,7 @@
 
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
-                        <select required="required">
+                        <select required="required" name="categoria">
                           <option value="A1">A1</option>
                           <option value="A2">A2</option>
                           <option value="A">A</option>
