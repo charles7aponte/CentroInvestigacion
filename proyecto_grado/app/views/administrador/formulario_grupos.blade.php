@@ -50,7 +50,8 @@
                 <fieldset>  
                     <li class="@if($errors->has('nombre')) has-error @endif">
                       <label for="nombre" >Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre" value="{{Input::old('nombre')}}" required="required"/>                      
+                        <input type="text" id="nombre" name="nombre" value="" required="required"/>
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />                     
                          @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
                          @endif
                     </li> 

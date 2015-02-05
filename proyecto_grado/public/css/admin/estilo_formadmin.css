@@ -12,7 +12,8 @@
 #form-sublineas fieldset,
 #form-empresas fieldset,
 #form-tipoproducto fieldset,
-#form-subtipoproducto fieldset {
+#form-subtipoproducto fieldset,
+#form-financiamiento-proyectos fieldset {
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;

@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-2" style="margin-left:6px;"><label>Proyecto: </label></div>
                          <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal-proyectos-financiados" id="botones-especiales" style="margin-left:30px; margin-bottom:18px;" value="Seleccionar Proyecto">
+                            <input type="button"  data-toggle="modal" data-target="#myModal-proyectos-financiados" id="botones-especiales" style="margin-left:26px; margin-bottom:18px;" value="Seleccionar Proyecto">
                         </div>
                     </div>
                     <!--haciendo una modal para agregar integrantes-->
@@ -95,7 +95,7 @@
                                   <div class="form-group">
                                       <div class='input-group date' id='datetimepicker2'>
                                           <input type="" style="cursor:pointer" 
-                                          readonly id="fecha-financiamiento" class="date form-control" data-format="dd/MM/yyyy" name="creacion_proyecto" 
+                                          readonly id="fecha-financiamiento" class="date form-control" data-format="dd/MM/yyyy" name="fecha-financiamiento" 
                                           value="{{Input::old('fecha-financiamiento')}}" required="required" />
                                            @if ($errors->has('fecha-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-financiamiento') }}</p> @endif
                                           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -131,10 +131,10 @@
                         <label for="valor-financiado">Valor:</label> 
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input id="valor-financiado" name="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;">
-                          @if ($errors->has('valor-financiado')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('valor-financiado') }}</p>
-                          @endif
+                          <input id="valor-financiado" name="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;"/>
                         </div> 
+                        @if ($errors->has('valor-financiado')) <p  style="margin-left: 173px;" class="help-block">{{ $errors->first('valor-financiado') }}</p>
+                        @endif
                     </li>    
 
                     <li class="@if($errors->has('descripcion-financiamiento')) has-error @endif">

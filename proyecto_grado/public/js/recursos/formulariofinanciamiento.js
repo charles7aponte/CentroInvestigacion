@@ -103,25 +103,13 @@ $("#guardar-cambios").click(function(){
             $fila= $(html);
 
             var $lista=$("#tabla-proyecto-financiado").find("input[data-info]");
-            var existe=false;
-            $lista.each(function(index, ob){
+            if ($lista.length==0){
+                $("#tabla-proyecto-financiado").append($fila);
 
-            	var $ob= $(ob);
-
-            	console.log($ob.attr("data-info"));
-            	if(json.codigo_proyecto==$ob.attr("data-info"))
-            	{
-            		existe=true;
-            	}
-
-            });
-
-            if(existe==false)
-            {
-            $("#tabla-proyecto-financiado").append($fila);	
+                $("#proyecto-financiado").val("");
             }
             else{
-            	alert("Solo puede agregar un proyecto.");
+            	alert("Ya selecciono un proyecto para agregar su financiamiento.");
             }
             
 	}

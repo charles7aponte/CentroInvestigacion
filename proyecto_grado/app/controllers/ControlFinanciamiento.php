@@ -37,13 +37,14 @@ class ControlFinanciamiento extends Controller {
 		$entidad->modo_financiamiento=$modo_financiamiento;
 		$entidad->valor_financiado=$valor;
 		$entidad->descripcion_financiamiento=$descripcion;
+		$entidad->fecha=$fecha_inicio;
 
 		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				//'max'=>'El campo no debe ser mayor a :max.',
-				'numeric'=>'No es un valor valido.',
+				'numeric'=>'No es un valor valido, verifique.',
 
 			);
 
@@ -59,30 +60,26 @@ class ControlFinanciamiento extends Controller {
 
 
 
-				/*return Redirect::to('formulariofinanciamiento')
+				return Redirect::to('formulariofinanciamiento')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");*/
+					->with('mensaje_error',"Error al guardar");
 			} else 
 				{
 
-			
-
-						$entidad->save();
-						//print_r($entidad);
 
 						$proyecto_financiado=Input::get("proyectos"); // name del json del jquery
 
 
-
+						print_r($proyecto_financiado);
 						for($i=0;$i<count($proyecto_financiado);$i++)
 						{
 
-							$modelIntegrante=new InvFinanciamiento();
+							//$modelIntegrante=new InvFinanciamiento();
 							//$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
-							$modelIntegrante->inv_codigo_proyecto=  $proyecto_financiado[$i];
+							$entidad->inv_codigo_proyecto=  $proyecto_financiado[$i];
 							//$modelIntegrante->codigo_proyecto =     $proyecto_financiado[$i];
-							$modelIntegrante->save();
+							$entidad->save();
 
 						}
 
@@ -95,14 +92,14 @@ class ControlFinanciamiento extends Controller {
 						{
 						//return 'existe un error' + $e;
 						
-							/*return Redirect::to('formulariofinanciamiento')
+							return Redirect::to('formulariofinanciamiento')
 							->withInput($todosDatos)
-							->with('mensaje_error',"Error en el servidor.");*/
+							->with('mensaje_error',"Error en el servidor.");
 						}
 					
-								/*return Redirect::to('formulariofinanciamiento')
+								return Redirect::to('formulariofinanciamiento')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El proyecto ha sido creado.");*/
+								->with('mensaje_success',"El financiamiento del proyecto ha sido creado.");
 			
 					}
 			
