@@ -13,6 +13,7 @@
 
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariogrupos.js"></script>
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariolineas.js"></script>
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariointegrantes-lineasgrupos.js"></script>
 @stop
 
 
@@ -50,15 +51,15 @@
                 <fieldset>  
                     <li class="@if($errors->has('nombre')) has-error @endif">
                       <label for="nombre" >Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre" value="" required="required"/>
-                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />                     
+                        <input type="text" id="nombre" name="nombre"  value="{{Input::old('nombre')}}" required="required"/>                
                          @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
                          @endif
                     </li> 
 
                     <li class="@if($errors->has('coord')) has-error @endif">
                       <label for="coord">Coordinador:</label>
-                        <input type="text" id="coord" name="coord" value="{{Input::old('coord')}}" required="required"/>
+                        <input type="text" id="coord" name="coord" value="" required="required"/>
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
                           @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
                          @endif
                     </li>
@@ -110,12 +111,16 @@
                     </li>
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
-                      <label for="unidad">Unidad acad&eacute;mica:</label>
+                      <label for="unidad">Unidad academica:</label>
                         <select required="required">
-                          <option value="dpto-bio">Departamento de biolog&iacute;a y qu&iacute;mica</option>
-                          <option value="dpto-mate">Departamento de matem&aacute;ticas y f&iacute;sica</option>
-                          <option value="escuela-ing">Escuela de ingenier&iacute;a</option>
-                          <option value="inst-amb">Instituto de ciencias ambientales</option>
+                          <option value="Departamento de biologia y quimica">
+                            Departamento de biolog&iacute;a y qu&iacute;mica</option>
+                          <option value="Departamento de matematicas y fisica">
+                            Departamento de matem&aacute;ticas y f&iacute;sica</option>
+                          <option value="Escuela de ingenieria">
+                            Escuela de ingenier&iacute;a</option>
+                          <option value="Instituto de ciencias ambientales">
+                            Instituto de ciencias ambientales</option>
                         </select>
                          @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
                          @endif                        
@@ -124,15 +129,15 @@
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
                         <select required="required">
-                          <option value="a1">A1</option>
-                          <option value="a2">A2</option>
-                          <option value="a">A</option>
-                          <option value="b">B</option>
-                          <option value="c">C</option>
-                          <option value="d">D</option>
+                          <option value="A1">A1</option>
+                          <option value="A2">A2</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
                           <option value="reconocido">Reconocido</option>
-                          <option value="ins-unillanos">Institucional-Unillanos</option>
-                          <option value="no-reconocido">No reconocido</option>
+                          <option value="institucional-unillanos">Institucional-Unillanos</option>
+                          <option value="no reconocido">No reconocido</option>
                         </select>
                          @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
                          @endif                        

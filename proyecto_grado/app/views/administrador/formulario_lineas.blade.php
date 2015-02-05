@@ -1,5 +1,11 @@
 @extends('administrador.panel_admin')
 
+
+@section('javascript-nuevos')
+   
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariointegrantes-lineasgrupos.js"></script>
+@stop
+
 @section('cuerpo')
 <div>  
     <form id="form-lineas" autocomplete="on" enctype="multipart/form-data" action="{{URL::to('creacion/formulariolineas')}}"  method="post">
@@ -31,7 +37,8 @@
 
                     <li class="@if($errors->has('coor-linea')) has-error @endif" >
                         <label for="coor-linea">Coordinador de la l&iacute;nea:</label>
-                        <input type="text" id="coor-linea" name="coor-linea" value="{{Input::old('coor-linea')}}" required="required"/> 
+                        <input type="text" id="coor-linea" name="coor-linea" value=" " required="required"/> 
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value=" " required="required"/> 
                          @if ($errors->has('coor-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coor-linea') }}</p> @endif
                     </li>
 
