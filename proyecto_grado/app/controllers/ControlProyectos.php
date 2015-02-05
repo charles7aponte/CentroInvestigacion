@@ -95,16 +95,17 @@ class ControlProyectos extends Controller {
 						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
 						$entidad->archivo_actainicio=$archivo1;//base
 
-					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
+						$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
 						$entidad->archivo_propuesta=$archivo2;
 
-					$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
+						$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
 						$entidad->informe_final=$archivo3;
 
 						$entidad->save();
 
 						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
 						$listatiempos=Input::get("tiempo");
+						$listatipoinvestigador=Input::get("tipoinvestigador");
 
 
 						for($i=0;$i<count($listaIntegrantes);$i++)
@@ -114,6 +115,7 @@ class ControlProyectos extends Controller {
 							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
 							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
 							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
+							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
 							$modelIntegrante->save();
 
 						}

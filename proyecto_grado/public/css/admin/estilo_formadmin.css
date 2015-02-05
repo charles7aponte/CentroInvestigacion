@@ -349,7 +349,8 @@ input#lineas-grupos,
 input#integrantes-proyectos, 
 input#tiempo-proyecto,
 input#integrantes-producto,
-input#grupo-producto {
+input#grupo-producto,
+#tipo-investigador{
 	width: 300px;
 	margin-left:10px;
 }

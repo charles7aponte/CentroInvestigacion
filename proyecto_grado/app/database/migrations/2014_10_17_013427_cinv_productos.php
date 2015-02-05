@@ -17,6 +17,7 @@ class CinvProductos extends Migration {
 			$tabla->integer('inv_codigo_grupo')->unsigned();
 			$tabla->integer('inv_id_linea')->unsigned();
 			$tabla->integer('inv_subtipo_producto')->unsigned();
+			$tabla->integer('inv_nit')->unsigned();
 			$tabla->text('nombre_producto');
 			$tabla->text('observaciones_producto');
 			$tabla->date('fecha_producto')->nullable();

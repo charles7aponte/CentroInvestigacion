@@ -1,6 +1,6 @@
 var jsonIntegrante=null;
 var jsontiempo=null;
-
+var jsoninvestigador=null;
 
 
 $(document).ready(function(){
@@ -94,7 +94,11 @@ $("#guardar-cambios").click(function(){
  	if(json)
  	{  
 
-        jsontiempo = $("#tiempo-proyecto").val(); //capturar variable   
+
+        var idTipoIntegrante= $("#tipo-investigador").val();
+        var textTipoIntegrante= $("#tipo-investigador option:selected").text();
+        jsontiempo = $("#tiempo-proyecto").val(); //capturar variable  
+
 
         if(jsontiempo =='')
         {
@@ -103,11 +107,22 @@ $("#guardar-cambios").click(function(){
 
             return;
         }
+
+
+        if(/[0-9]+/.test(jsontiempo)==false)
+        {
+            alert("solo se pueden ingresar números en el tiempo dedicado");
+            return;
+
+        }
+        
+
       var html ="<tr> ";
             html +="                   <td><input type='hidden' data-info='"+json.cedula+"' name='"+name+"[]' value='"+json.cedula+"'>"+json.cedula+"</td> ";
             html +="                  <td>"+json.nombre+"</td> ";
             html +="                  <td><input type='hidden'  name='tiempo[]' value='"+jsontiempo+"'>"+jsontiempo+"</td> ";
-            html +="                  <td> ";
+            html +="                  <td><input type='hidden'  name='tipoinvestigador[]' value='"+idTipoIntegrante+"'>"+textTipoIntegrante+"</td> ";
+            html +="                  <td> ";                                                                                                        
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
             html +="                </td> ";
             html +="                </tr>";
@@ -116,6 +131,7 @@ $("#guardar-cambios").click(function(){
 
             var $lista=$("#tabla-integrantes-proyectos").find("input[data-info]");
             var existe=false;
+
             $lista.each(function(index, ob){
 
             	var $ob= $(ob);
@@ -130,6 +146,7 @@ $("#guardar-cambios").click(function(){
 
             if(existe==false)
             {
+
             $("#tabla-integrantes-proyectos").append($fila);	
             }
             else{

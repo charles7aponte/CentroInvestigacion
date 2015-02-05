@@ -107,7 +107,7 @@
                         <li>
                             <div class="col-md-2"><label>Integrantes: </label></div>
                              <div class="col-md-2"> 
-                                <input style="margin-left: 30px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-producto" id="botones-especiales" value="Agregar/Ver Integrantes">
+                                <input style="margin-left: 30px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-producto" id="botones-especiales" value="Agregar/Ver Autores">
                             </div>
                         </li>
                     </div>
@@ -123,14 +123,23 @@
                             </button>
                             <!--Agregando nuevos integrantes-->
                             <li style="margin-top: 15px;">
-                                <label  style="width:inherit">Integrante: </label>
+                                <label  style="width:inherit">Autores: </label>
                                     <input type="text" id="integrantes-producto" name="integrantes-producto" value=""></br>
                             </li>    
                             <li>
                                 <label  style="width:inherit">Grupo participante: </label>
-                                    <input type="text" id="grupo-producto" name="grupo-producto" value="">
+
+                                <select name="grupo-integrante" id="grupo-integrante">
+
+                                    @if(isset($grupoproductos))
+                                        @foreach($grupoproductos as $grupoproducto)
+                                             <option value="{{$grupoproducto['codigo_grupo']}}" > {{$grupoproducto['nombre_grupo']}}</option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
                             </li> 
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" id="boton-integrantes-productos" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <button type="button" class="btn btn-primary" id="boton-integrantes-productos" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -160,7 +169,15 @@
                     <!--*******************************************
                     ******************-->
                 <li><label for="entidad-prod">Entidad:</label>
-                    <input type="tel" id="entidad-prod" name="entidad-prod" value="{{Input::old('entidad-prod')}}">
+                    
+                    <select name="entidad-prod" required="required">
+                      @if(isset($entidadproductos))
+                        @foreach($entidadproductos as $entidadproducto)
+                           <option value="{{$entidadproducto['nit']}}" > {{$entidadproducto['razon_social']}}</option>
+                        @endforeach
+                      @endif
+                    </select>
+
                      @if ($errors->has('entidad-prod')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-prod') }}</p> @endif
                 </li>
                 <li><label for="reconocimiento-prod">Reconocimiento:</label>

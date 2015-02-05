@@ -55,7 +55,7 @@ class ControlProductos extends Controller {
 		$entidad->inv_subtipo_producto=$subtipo_producto;
 		$entidad->inv_codigo_grupo=$grupo_producto;
 		$entidad->inv_id_linea=$linea_producto;
-		$entidad->entidad=$entidad_producto;
+		$entidad->inv_nit=$entidad_producto;
 		$entidad->reconocimiento_producto=$reconocimiento_producto;
 		$entidad->observaciones_producto=$descrip_producto;
 		$entidad->foto_producto=$foto_producto;
@@ -90,19 +90,40 @@ class ControlProductos extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
-					$archivo1=$this->ArchivosProductos('foto-producto',$direccion);
+
+
+					try{
+					
+					
+						$archivo1=$this->ArchivosProductos('foto-producto',$direccion);
 						$entidad->foto_producto=$archivo1;
 
-					$archivo2=$this->ArchivosProductos('soporte-producto',$direccion);
+						$archivo2=$this->ArchivosProductos('soporte-producto',$direccion);
 						$entidad->soporte_producto=$archivo2;
 
-					$archivo3=$this->ArchivosProductos('tipo-soporte-producto',$direccion);
+						$archivo3=$this->ArchivosProductos('tipo-soporte-producto',$direccion);
 						$entidad->tipo_soporte=$archivo3;
 
 						$entidad->save();
-			
-					try{
-						$entidad->save();
+
+
+						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+
+						$listagrupos=Input::get("idgrupo"); // name del json del jquery
+
+						/*******como hago para guardar lo de la tabla grupos**************/
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionProductos();
+							$modelIntegrante->inv_codigo_producto=  $entidad->codigo_producto;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->inv_codigo_grupo = $listagrupos[$i];
+							$modelIntegrante->save();
+
+						}
+					
 					}
 
 					catch(PDOException $e)
@@ -118,7 +139,7 @@ class ControlProductos extends Controller {
 								->withInput($todosDatos)
 								->with('mensaje_success',"El producto ha sido creado.");
 			
-					}
+				}
 			
 			}
 
@@ -130,13 +151,16 @@ class ControlProductos extends Controller {
 				$listasubprod = InvSubtipoProductos::all();
 				$listagruposproducto = InvGrupos::all();
 				$listaLineasproducto = InvLineas::all();
-			
+				$listaentidadproducto = InvEntidades::all();				
 
+		
 
 				$datos=  array(
 					'subtipos' =>$listasubprod,
-					'grupoproductos' =>$listagruposproducto,
-					'lineasproductos' =>$listaLineasproducto);
+					'grupoproductos' =>$listagruposproducto,			
+					'lineasproductos' =>$listaLineasproducto,
+					'entidadproductos' =>$listaentidadproducto);
+
 					
 			  return View::make('administrador/formulario_productos',$datos); 
 
@@ -174,7 +198,7 @@ class ControlProductos extends Controller {
 				$name=$this->limpiarCadena($name);
 
 
-				$listaPersonas=	DB::select(DB::raw("select cedula as cedulaPersona,(nombre1||' '||nombre2||' '||apellido1||' '||apellido2) as datospersonales,codigo_grupo as CodigoGrupo,nombre_grupo as NombreGrupo
+				$listaPersonas=	DB::select(DB::raw("select cedula as cedulaPersona,(nombre1||' '||nombre2||' '||apellido1||' '||apellido2) as datospersonales,codigo_grupo as codigogrupo,nombre_grupo as nombregrupo
 					from persona a,inv_grupos b,inv_participacion_grupos as c
 					where 
 						a.cedula=c.cedula_persona and b.codigo_grupo=c.inv_codigo_grupo

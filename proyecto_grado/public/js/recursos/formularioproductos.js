@@ -66,7 +66,7 @@ $("#guardar-cambios").click(function(){
 			console.log("seleccion ... cedula "+ui.item.cedula)
   			$("#boton-integrantes-productos").show();
 
-            $("#grupo-producto").val(ui.item.nombregrupo);
+            //$("#grupo-integrante").val(ui.item.nombregrupo);
 
 			$("#integrantes-producto").val(ui.item.cedulapersona+"("+ui.item.datospersonales+")");
 
@@ -97,10 +97,15 @@ $("#guardar-cambios").click(function(){
  	{  
 
 
+
+      var idGrupoIntegrante= $("#grupo-integrante").val();
+      var textGrupoIntegrante= $("#grupo-integrante option:selected").text();
+      
+      
       var html ="<tr> ";
             html +="                   <td><input type='hidden' data-info='"+json.cedulapersona+"' name='"+name+"[]' value='"+json.cedulapersona+"'>"+json.cedulapersona+"</td> ";
             html +="                  <td>"+json.datospersonales+"</td> ";
-            html +="                  <td>"+json.nombregrupo+"</td> ";
+            html +="                  <td> <input type='hidden' ' name='idgrupo[]' value='"+idGrupoIntegrante+"'>"+textGrupoIntegrante+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
             html +="                </td> ";
