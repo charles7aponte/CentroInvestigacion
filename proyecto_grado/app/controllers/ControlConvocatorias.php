@@ -40,7 +40,7 @@ class ControlConvocatorias extends Controller {
 		$direccion = __DIR__."/../../public/archivos_db/convocatorias/";
 
 
-		$todosDatos = Input::except('dcto-conv');
+		$todosDatos = Input::except('dcto-conv','img-conv');
 	
 
 		/*objeto del modelo*/
@@ -87,32 +87,17 @@ class ControlConvocatorias extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
+						$archivo1=$this->ArchivosConvocatorias('dcto-conv',$direccion);//archivoshtml
+							$entidad->archivo_convocatoria=$archivo1;//base
+
+						$archivo2=$this->ArchivosConvocatorias('img-conv',$direccion);
+							$entidad->archivo_imagen=$archivo2;
+
+						$entidad->save();
 
 
 					try{
 
-							//manejo de archivo
-
-							if(Input::hasFile('dcto-conv'))
-							{
-
-								$archivoF =Input::file('dcto-conv');
-								$nombreNuevo=$numero."-".$archivoF->getClientOriginalName(); //llave de la convocatoria. archivo .nombre
-
-
-								while (File::exists($direccion.$nombreNuevo) )
-								{
-									$numero=rand(1,999);
-									$nombreNuevo=$numero."-".$nombreNuevo;				
-								
-								}
-
-
-								$archivoF->move($direccion,$nombreNuevo);
-							}
-
-						$entidad->archivo_convocatoria=$nombreNuevo;
-						$entidad->save();
 					}
 
 					catch(PDOException $e)
@@ -123,11 +108,6 @@ class ControlConvocatorias extends Controller {
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}
-
-
-
-
-
 					
 						return Redirect::to('formularioconvocatorias')
 								->withInput($todosDatos)
@@ -135,6 +115,31 @@ class ControlConvocatorias extends Controller {
 			
 					}
 				
+			}
+
+			function ArchivosConvocatorias($name,$direccion){
+				
+				$nombreNuevo="";
+				if(Input::hasFile($name))
+					{
+
+						$archivoF =Input::file($name);
+						$nombreNuevo=$archivoF->getClientOriginalName();
+
+
+						while (File::exists($direccion.$nombreNuevo) )
+						{
+							$numero=rand(1,999);
+							$nombreNuevo=$numero."-".$nombreNuevo;				
+				
+						}
+
+
+						$archivoF->move($direccion,$nombreNuevo);
+					}
+
+					return $nombreNuevo;
+			
 			}
 
 }
