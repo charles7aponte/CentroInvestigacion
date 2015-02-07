@@ -41,33 +41,34 @@ switch($mes){
 	<title>Panel</title>
 	
 	<!--css-->
-	<link rel="stylesheet" type="text/css" href="css/admin/estilo_paneladmin.css">
-	<link rel="stylesheet" type="text/css" href="css/admin/estilo_formadmin.css">
-	<link rel="stylesheet" type="text/css" href="css/admin/estilo_listasadmin.css">
-	<link rel="stylesheet" type="text/css" href="css/estilo_temasprincipales.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_paneladmin.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_formadmin.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
 
 
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.theme.css')}}">
 
 
 	@section("css-nuevos")
 	@show
 
-	<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
+	<script src="{{URL::to('js/jquery-1.5.2.min.js')}}" type="text/javascript"></script>
 
 	<!--javascript-->
-	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-	<script src="js/hideshow.js" type="text/javascript"></script>
-	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<script src="{{URL::to('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
+	<script src="{{URL::to('js/hideshow.js')}}" type="text/javascript"></script>
+	<script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
 
-	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
 	@show
 
+	
 </head>
 
 
@@ -75,7 +76,7 @@ switch($mes){
 
 	<header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="index.html">Panel de administraci&oacute;n</a></h1>
+			<h1 class="site_title"><a href="{{URL::to('index.html')}}">Panel de administraci&oacute;n</a></h1>
 			<a href="index.php" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->
@@ -112,39 +113,39 @@ switch($mes){
 		
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
-			<li class=""><a href="formulariogrupos">Agregar nuevo grupo</a></li>
-			<li class=""><a href="listadegrupos">Ver/Editar un grupo</a></li>
-			<li class=""><a href="formulariotipogrupo">Agregar/Eliminar un tipo de grupo</a></li>
+			<li class=""><a href="{{URL::to('formulariogrupos')}}">Agregar nuevo grupo</a></li>
+			<li class=""><a href="{{URL::to('listadegrupos')}}">Ver/Editar un grupo</a></li>
+			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
-			<li class=""><a href="formulariolineas">Agregar nueva l&iacute;nea</a></li>
-			<li class=""><a href="formulariosublineas">Agregar nueva subl&iacute;nea</a></li>
-			<li class=""><a href="listadelineas">Ver/Editar una l&iacute;nea</a></li>
-			<li class=""><a href="listadesublineas">Ver/Editar una subl&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('formulariolineas')}}">Agregar nueva l&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('formulariosublineas')}}">Agregar nueva subl&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('listadelineas')}}">Ver/Editar una l&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('listadesublineas')}}">Ver/Editar una subl&iacute;nea</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
-			<li class=""><a href="formularioinvestigadores">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
+			<li class=""><a href="{{URL::to('formularioinvestigadores')}}">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
 		</ul>
-		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right')}}"></span> Convocatorias</h3>
 		<ul class="toggle">
-			<li class=""><a href="formularioconvocatorias">Crear nueva convocatoria</a></li>
-			<li class=""><a href="listadeconvocatorias">Ver/Editar convocatorias</a></li>
+			<li class=""><a href="{{URL::to('formularioconvocatorias')}}">Crear nueva convocatoria</a></li>
+			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar convocatorias</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">
-			<li class=""><a href="formularioproyectos">Agregar nuevo proyecto</a></li>
-			<li class=""><a href="formulariofinanciamiento">Agregar Financiamiento a un proyecto</a></li>
-			<li class=""><a href="listafinanciamiento">Ver/editar el financiamiento de un proyecto</a></li>
-			<li class=""><a href="listadeproyectos">Ver/Editar un proyecto</a></li>
+			<li class=""><a href="{{URL::to('formularioproyectos')}}">Agregar nuevo proyecto</a></li>
+			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
+			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/editar el financiamiento de un proyecto</a></li>
+			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
-			<li class=""><a href="formularioproductos"> Agregar nuevo producto</a></li>
-			<li class=""><a href="listadeproductos">Ver/Editar un producto</a></li>			
-			<li class=""><a href="formulariotipoproductos">Agregar/eliminar un tipo de producto</a></li>
-			<li class=""><a href="formulariosubtipoproductos">Agregar/eliminar un subtipo de producto</a></li>			
+			<li class=""><a href="{{URL::to('formularioproductos')}}"> Agregar nuevo producto</a></li>
+			<li class=""><a href="{{URL::to('listadeproductos')}}">Ver/Editar un producto</a></li>			
+			<li class=""><a href="{{URL::to('formulariotipoproductos')}}">Agregar/eliminar un tipo de producto</a></li>
+			<li class=""><a href="{{URL::to('formulariosubtipoproductos')}}">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
