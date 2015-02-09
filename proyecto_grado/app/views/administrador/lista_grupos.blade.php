@@ -39,10 +39,10 @@ filter: none;
                 <b>{{$campo['codigo_grupo']}}</b>
               </td> 
               <td>
-                <a href="">{{$campo['nombre_grupo']}}</a>
+                <a href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
               </td>
               <td style="width:90px;">
-                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                <a href="" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>

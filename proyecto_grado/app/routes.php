@@ -64,7 +64,7 @@ Route::get('formularioinvestigadores', function() { return View::make('administr
 
 
 /*--------------------principales por tema-------------------*/
-Route::get('grupos', function() {return View::make('inf_grupos');});
+Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
 
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
 

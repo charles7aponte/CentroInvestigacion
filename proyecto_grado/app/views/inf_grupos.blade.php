@@ -16,8 +16,21 @@
 
 <div id="capa" class="infgrupos">
     <fieldset id="principal">
+
+         @if(isset($grupos['codigo_grupo'])==false)
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                    <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para ese grupo</div>   
+            </fieldset>
+        @endif
+
             <div id="titulo-infgrupos" id="cuadro"> 
-                <h2>Grupo Investigacion Macrypt<img src="images/macrypt.jpg"></th></h2>
+                <h2>{{$grupos['nombre_grupo']}}
+                    @if($grupos['logo_grupo']!="")
+                        <img align="left" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
+                    @endif
+                </h2>
             </div>
 
             <table class="tabla-infgrupos">

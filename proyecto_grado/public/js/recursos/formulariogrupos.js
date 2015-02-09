@@ -34,8 +34,6 @@ $("#guardar-cambios").click(function(){
 
 
 
-
-
 	//autocompletado
 	$("#integrantes-grupos").autocomplete({
 
@@ -66,7 +64,7 @@ $("#guardar-cambios").click(function(){
   			$("#bton_integrantes-grupos").show();
 
 
-			$("#integrantes-grupos").val(ui.item.nombre+"("+ui.item.cedula+")");
+			$("#integrantes-grupos").val(ui.item.nombre+"  ("+ui.item.cedula+")");
 			//generaFilaPersona(ui.item,"integrantes");
 			jsonIntegrante = ui.item;
 

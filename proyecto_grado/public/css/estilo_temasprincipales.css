@@ -41,8 +41,9 @@
 
 #titulo-infgrupos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: left;
+   text-align: center;
    font-weight: bold;
+   line-height: 70px; 
    color:#122d3e;
    display: block;
    font-size:24px;
@@ -52,6 +53,7 @@
    border-radius: 5px;
    border-bottom:  2px solid #DCDCDC;
    width: auto;
+   height: 70px;
    padding:2px;
 
 }
@@ -59,7 +61,6 @@
 /*-------------------logos de los grupos-----------------------*/
 #titulo-infgrupos h2 img, #titulo-personas h2 img{
     position: relative;
-    right: -370px;
     width: 200px;
     vertical-align: middle;
     margin-top: 5px;
@@ -71,6 +72,8 @@
     -moz-box-shadow:0 0 20px #ccc ;
     box-shadow:0 0 20px #ccc;
 }
+
+
  
 .tabla-infconvocatorias,
 .tabla-infgrupos,

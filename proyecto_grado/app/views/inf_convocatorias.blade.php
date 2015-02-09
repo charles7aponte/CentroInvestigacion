@@ -117,7 +117,7 @@
                     <td class="documento-conv" id="col-principal" id="cuadro">
                       
                       @if($convocatorias['archivo_convocatoria']!="")
-                          <a href="{{URL::to('archivos_db/convocatorias/')}}/{{$convocatorias['archivo_convocatoria']}}" target="_blank">Archivo : {{$convocatorias['archivo_convocatoria']}} Imagen de un archivo hermoso (si quieres)</a>
+                          <a href="{{URL::to('archivos_db/convocatorias/')}}/{{$convocatorias['archivo_convocatoria']}}" target="_blank"><i class="icon-file"></i> {{$convocatorias['archivo_convocatoria']}}</a>
                        @endif
 
                     </td>
