@@ -55,7 +55,7 @@ class ControlProductos extends Controller {
 		$entidad->inv_subtipo_producto=$subtipo_producto;
 		$entidad->inv_codigo_grupo=$grupo_producto;
 		$entidad->inv_id_linea=$linea_producto;
-		$entidad->inv_nit=$entidad_producto;
+		$entidad->entidad=$entidad_producto;
 		$entidad->reconocimiento_producto=$reconocimiento_producto;
 		$entidad->observaciones_producto=$descrip_producto;
 		$entidad->foto_producto=$foto_producto;
@@ -108,8 +108,9 @@ class ControlProductos extends Controller {
 
 
 						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
-
 						$listagrupos=Input::get("idgrupo"); // name del json del jquery
+
+
 
 						/*******como hago para guardar lo de la tabla grupos**************/
 
@@ -130,7 +131,7 @@ class ControlProductos extends Controller {
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioconvocatorias')
+						return Redirect::to('formularioproductos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}

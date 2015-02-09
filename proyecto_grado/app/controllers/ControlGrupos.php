@@ -55,7 +55,7 @@ class ControlGrupos extends Controller {
 		$entidad->objetivos=$objetivos;
 		$entidad->unidad_academica=$unidad;
 		$entidad->categoria=$categoria;
-		$entidad->inv_tipo_grupos_id=$tipo;
+		$entidad->inv_tipo_grupos=$tipo;
 		$entidad->link_gruplac=$gruplac;
 		$entidad->ano_creacion=$fecha_creacion;
 

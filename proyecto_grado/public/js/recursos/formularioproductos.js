@@ -130,6 +130,7 @@ $("#guardar-cambios").click(function(){
             if(existe==false)
             {
             $("#tabla-integrantes-productos").append($fila);	
+            $("#integrantes-producto").val(" "); //poner el input vacio
             }
             else{
             	alert("El participante ya fue agregado a ese producto.");
