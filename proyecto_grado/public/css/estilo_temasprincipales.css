@@ -39,32 +39,34 @@
 
 }
 
-#titulo-infgrupos h2{
-   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: center;
-   font-weight: bold;
-   line-height: 70px; 
-   color:#122d3e;
-   display: block;
-   font-size:24px;
-   text-transform: uppercase;
+#titulo-infgrupos{
    text-shadow: 1px 1px 1px #AFEEEE;
    background: none repeat scroll 0 0 #FBFBFB;
    border-radius: 5px;
    border-bottom:  2px solid #DCDCDC;
    width: auto;
-   height: 70px;
+   min-height: 200px;
    padding:2px;
 
 }
 
+#titulo-infgrupos h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align: center;
+   font-weight: bold;
+   line-height: 70px; 
+   color:#122d3e; 
+   font-size:20px;
+   text-transform: uppercase;
+}
+
 /*-------------------logos de los grupos-----------------------*/
-#titulo-infgrupos h2 img, #titulo-personas h2 img{
+#titulo-infgrupos img, #titulo-personas img{
     position: relative;
-    width: 200px;
+    width: 300px;
+    max-height: 200px;
     vertical-align: middle;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -73,8 +75,6 @@
     box-shadow:0 0 20px #ccc;
 }
 
-
- 
 .tabla-infconvocatorias,
 .tabla-infgrupos,
 .tabla-inflineas,

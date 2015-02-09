@@ -25,12 +25,20 @@
             </fieldset>
         @endif
 
+            <table id="titulo-infgrupos" id="cuadro" >
+                   <th><h2>{{$grupos['nombre_grupo']}}</h2></th> 
+                   <th>
+                        @if($grupos['logo_grupo']!="")
+                        <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
+                        @endif
+                    </th> 
+            </table>
+
             <div id="titulo-infgrupos" id="cuadro"> 
-                <h2>{{$grupos['nombre_grupo']}}
-                    @if($grupos['logo_grupo']!="")
-                        <img align="left" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
-                    @endif
-                </h2>
+                <h2>{{$grupos['nombre_grupo']}}</h2>
+                @if($grupos['logo_grupo']!="")
+                    <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
+                @endif
             </div>
 
             <table class="tabla-infgrupos">
