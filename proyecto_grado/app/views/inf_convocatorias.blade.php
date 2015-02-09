@@ -76,7 +76,7 @@
                         if(isset($convocatorias['fecha_apertura']) && $convocatorias['fecha_apertura']!="")
                         {
                             $fecha= new DateTime($convocatorias['fecha_apertura']);
-                             echo $fecha->format('d/m/Y'); 
+                             echo $fecha->format('M-d-Y'); 
                         }
                       ?>
                     </td>  

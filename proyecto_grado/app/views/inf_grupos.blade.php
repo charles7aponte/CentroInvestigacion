@@ -26,20 +26,15 @@
         @endif
 
             <table id="titulo-infgrupos" id="cuadro" >
+                <tbody>
                    <th><h2>{{$grupos['nombre_grupo']}}</h2></th> 
                    <th>
                         @if($grupos['logo_grupo']!="")
                         <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
                         @endif
-                    </th> 
+                    </th>
+                </tbody>     
             </table>
-
-            <div id="titulo-infgrupos" id="cuadro"> 
-                <h2>{{$grupos['nombre_grupo']}}</h2>
-                @if($grupos['logo_grupo']!="")
-                    <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
-                @endif
-            </div>
 
             <table class="tabla-infgrupos">
             
@@ -59,57 +54,96 @@
 
                     <tr>
                         <th id="fil-principal">A&ntilde;o de Creaci&oacute;n</th>
-                        <td id="col-principal" id="cuadro">31 de nov 2011</td>
+                        <td id="col-principal" id="cuadro">
+                              <?php 
+                                if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
+                                {
+                                    $fecha= new DateTime($grupos['ano_creacion']);
+                                     echo $fecha->format('M-d-Y'); 
+                                }
+                              ?>
+                        </td>
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Director Grupo</th>
-                        <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['director_grupo']}}
+                        </td>
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Unidad Academica</th>
-                        <td id="col-principal" id="cuadro">Facultad de ciencias basicas e ingenieria</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['unidad_academica']}}
+                        </td>
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Categoria</th>
-                        <td id="col-principal" id="cuadro">D</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['categoria']}}
+                        </td>
                     </tr>
         
                     <tr>
-                        <th id="fil-principal">Descripci&oacute;n</th>
-                        <td id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
+                        <th id="fil-principal">Objetivos</th>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['objetivos']}}
+                        </td>  
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Email</th>
-                        <td id="col-principal" id="cuadro">xxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['email']}}
+                        </td>
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Tel&eacute;fono</th>
-                        <td id="col-principal" id="cuadro">555555555</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['telefono']}}
+                        </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">P&aacute;gina Web</th>
-                        <td id="col-principal" id="cuadro"><a href="#">paginaweb@hotmail.ccom</a></td>
+                        <td id="col-principal" id="cuadro">
+                            <a style="color:blue;" href= "<?php
+                                $url = ($grupos['pagina_web']);
+                                echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);
+                                ?>">{{$grupos['pagina_web']}}
+                            </a>
+                        </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Ruta Afiche</th>
-                        <td id="col-principal" id="cuadro"><a href="#">paginaweb@hotmail.ccom</a></td>
+                        <td id="col-principal" id="cuadro">
+                            @if($grupos['ruta_afiche']!="")
+                                <a href="{{URL::to('archivos_db/grupos/')}}/{{$grupos['ruta_afiche']}}" target="_blank"><i class="icon-file"></i> {{$grupos['ruta_afiche']}}
+                                </a>
+                            @endif
+                        </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Direcci&oacute;n Grupo</th>
-                        <td id="col-principal" id="cuadro">ddddddddddddddddddddddddddddddddddddddddddddddddddddddd</td>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['direccion_grupo']}}
+                        </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Link gruplac</th>
-                        <td id="col-principal" id="cuadro"><a href="#">paginaweb@hotmail.ccom</a></td>
+                        <td id="col-principal" id="cuadro">
+                            <a style="color:blue;" href= "<?php
+                                $url = ($grupos['link_gruplac']);
+                                echo $link_actual = "http://" .parse_url($url, PHP_URL_PATH);
+                                ?>">{{$grupos['link_gruplac']}}
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

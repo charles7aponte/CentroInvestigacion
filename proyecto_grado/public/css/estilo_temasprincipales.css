@@ -11,7 +11,8 @@
     margin: 18px;
     padding-bottom: 10px;
 }
- fieldset#secundario{
+
+fieldset#secundario{
     background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -44,7 +45,7 @@
    background: none repeat scroll 0 0 #FBFBFB;
    border-radius: 5px;
    border-bottom:  2px solid #DCDCDC;
-   width: auto;
+   width: 100%;
    min-height: 200px;
    padding:2px;
 
@@ -52,13 +53,15 @@
 
 #titulo-infgrupos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: center;
+   text-align:left;
    font-weight: bold;
-   line-height: 70px; 
+   line-height:30px;
    color:#122d3e; 
    font-size:20px;
    text-transform: uppercase;
-}
+   margin-left: 15px;
+   margin-right: 5px;
+ }
 
 /*-------------------logos de los grupos-----------------------*/
 #titulo-infgrupos img, #titulo-personas img{
@@ -208,8 +211,8 @@ tbody tr.odd td {
   font-style: normal;
 }
 
-h2:hover, h4:hover{
-  background:#2E6B90;
+h4:hover{
+  background: gray;
 }
 
 .tabla-conv thead td{
