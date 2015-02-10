@@ -108,7 +108,7 @@ Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
 
-Route::get('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
+Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
 
 
 

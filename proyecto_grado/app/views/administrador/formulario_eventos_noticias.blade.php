@@ -24,8 +24,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-eventos-noticias" autocomplete="on" 
-    enctype="multipart/form-data"
+    <form id="form-eventos-noticias" autocomplete="on" enctype="multipart/form-data"
      action="{{URL::to('creacion/formularioeventosnoticias')}}" method="post">
         
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
