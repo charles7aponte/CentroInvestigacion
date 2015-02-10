@@ -147,16 +147,17 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formulariotipoproductos')}}">Agregar/eliminar un tipo de producto</a></li>
 			<li class=""><a href="{{URL::to('formulariosubtipoproductos')}}">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
+		
+		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un evento &oacute; Noticia</a></li>	
+		</ul>
+
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
 			<li class=""><a href="#"></a></li>
 		</ul>
 		
-		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
-		<ul class="toggle">
-			<li class=""><a href="#">Agregar un evento</a></li>
-			<li class=""><a href="#">Agregar una noticia</a></li>	
-		</ul>
 		<h3>Administrador</h3>
 		<ul class="toggle">
 			<li class=""><a href="#">Opciones</a></li>

@@ -20,7 +20,8 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 *********************************************************************************************************************************/
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-/*--------------formularios-----------------*/
+/*--------------formularios-----------------
+----------------------------*/
 
 //----------------crear grupo
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
@@ -57,13 +58,14 @@ Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 //.............................................................................................................//
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
-
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
 Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
 
+Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
 
-/*--------------------principales por tema-------------------*/
+/*--------------------principales por tema -----------------
+---------------------------------------*/
 Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
 
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
@@ -105,6 +107,9 @@ Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
+
+Route::get('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
+
 
 
 /**********-------------listas de cada tema -------------

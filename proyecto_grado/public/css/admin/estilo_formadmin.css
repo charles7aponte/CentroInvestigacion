@@ -13,7 +13,8 @@
 #form-empresas fieldset,
 #form-tipoproducto fieldset,
 #form-subtipoproducto fieldset,
-#form-financiamiento-proyectos fieldset {
+#form-financiamiento-proyectos fieldset,
+#form-eventos-noticias fieldset {
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -32,7 +33,8 @@
 #form-sublineas ul,
 #form-empresas ul,
 #form-tipoproducto ul,
-#form-subtipoproducto ul {
+#form-subtipoproducto ul,
+#form-eventos-noticias ul {
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -49,7 +51,8 @@
 #form-sublineas li,
 #form-empresas li,
 #form-tipoproducto li,
-#form-subtipoproducto li {
+#form-subtipoproducto li,
+#form-eventos-noticias li {
     padding:7px; 
     position:relative;
 } 
@@ -75,7 +78,8 @@
 #form-sublineas label,
 #form-empresas label,
 #form-tipoproducto label,
-#form-subtipoproducto label {
+#form-subtipoproducto label,
+#form-eventos-noticias label {
 	color: #333;
     display: inline-block;
     float: left;
@@ -97,7 +101,8 @@
 #form-sublineas input, #form-sublineas select,
 #form-empresas input,
 #form-tipoproducto input,
-#form-subtipoproducto input, #form-subtipoproducto select {
+#form-subtipoproducto input, #form-subtipoproducto select,
+#form-eventos-noticias input, #form-eventos-noticias select {
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -112,7 +117,8 @@
 #form-sublineas textarea,
 #form-empresas textarea,
 #form-tipoproducto textarea,
-#form-subtipoproducto textarea {
+#form-subtipoproducto textarea,
+#form-eventos-noticias textarea {
     padding:8px; 
     width: 700px;
     min-height: 150px;
@@ -128,7 +134,8 @@
 #form-sublineas input, #form-sublineas textarea, #form-sublineas select,
 #form-empresas input, #form-empresas textarea,
 #form-tipoproducto input, #form-tipoproducto textarea,
-#form-subtipoproducto input, #form-subtipoproducto textarea, #form-subtipoproducto select{ 
+#form-subtipoproducto input, #form-subtipoproducto textarea, #form-subtipoproducto select,
+#form-eventos-noticias input, #form-eventos-noticias textarea, #form-eventos-noticias select { 
     border: 1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -151,7 +158,8 @@
 #form-sublineas input:focus, #form-sublineas textarea:focus,
 #form-empresas input:focus, #form-empresas textarea:focus,
 #form-tipoproducto input:focus, #form-tipoproducto textarea:focus,
-#form-subtipoproducto input:focus, #form-subtipoproducto textarea:focus {
+#form-subtipoproducto input:focus, #form-subtipoproducto textarea:focus,
+#form-eventos-noticias input:focus, #form-eventos-noticias textarea:focus {
     background: #fff;  , 
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
@@ -162,7 +170,8 @@
 #form-convocatorias input[type="file"],
 #form-proyectos input[type="file"],
 #form-productos input[type="file"],
-#form-lineas input[type="file"] {
+#form-lineas input[type="file"],
+#form-eventos-noticias input[type="file"] {
 	width: 600px;
 	padding-left: 5px; 
 }
@@ -178,7 +187,8 @@
 #form-sublineas #titulo,
 #form-empresas #titulo,
 #form-tipoproducto #titulo,
-#form-subtipoproducto #titulo {
+#form-subtipoproducto #titulo,
+#form-eventos-noticias #titulo {
     width: auto;
     margin: 0 5px 0 5px; 
 }
@@ -193,7 +203,8 @@
 #form-sublineas #titulo h2,
 #form-empresas #titulo h2,
 #form-tipoproducto #titulo h2,
-#form-subtipoproducto #titulo h2 {
+#form-subtipoproducto #titulo h2,
+#form-eventos-noticias #titulo h2 {
     color: #1c7e84; /*tono verde de todo #20B2AA*/
     display: block;
     text-transform: uppercase;
@@ -217,7 +228,8 @@
 #form-sublineas h2 img,
 #form-empresas h2 img,
 #form-tipoproducto h2 img,
-#form-subtipoproducto h2 img {
+#form-subtipoproducto h2 img,
+#form-eventos-noticias h2 img {
 	margin-right: 5px;
 }
 
@@ -232,23 +244,25 @@
 #form-sublineas input:required:valid, #form-sublineas textarea:required:valid,
 #form-empresas input:required:valid, #form-empresas textarea:required:valid,
 #form-tipoproducto input:required:valid,
-#form-subtipoproducto input:required:valid{
+#form-subtipoproducto input:required:valid,
+#form-eventos-noticias input:required:valid {
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
 
 /***Boton de enviar -- reset***/
-#form-grupos #crear-grupo,#reset-button,
-#form-convocatorias #crear-convocatoria, #reset-button,
+#form-grupos #crear-grupo, #reset-button,
+#form-convocatorias #crear-convocatoria,#reset-button,
 #form-proyectos #crear-proyecto, #reset-button,
-#form-productos #crear-producto, #reset-button,
+#form-productos #crear-producto,#reset-button,
 #form-financiamiento-proyectos #agregar-financiamiento, #reset-button,
 #form-lineas #crear-linea,
 #form-sublineas #crear-sublinea,
 #form-empresas #crear-empresa, #form-empresas #reset-button,
-#form-tipoproducto #crear-tipoproducto, #guardar-tipoproducto, #reset-button,
+#form-tipoproducto #crear-tipoproducto, #form-tipoproducto #guardar-tipoproducto, #form-tipoproducto #reset-button,
 #form-tipogrupo #crear-tipogrupo, #guardar-tipogrupo,
-#form-subtipoproducto #crear-subtipoproducto, #guardar-subtipoproducto, #reset-button {
+#form-subtipoproducto #crear-subtipoproducto, #guardar-subtipoproducto, #reset-button,
+#form-eventos-noticias #crear-even-noti, #reset-button {
 	background:#276B6F; 
     background-image: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
     background-image: -moz-linear-gradient(top,#276B6F,#5BA9AE);
@@ -294,7 +308,8 @@
 #form-tipoproducto #reset-button:hover,
 #form-subtipoproducto #reset-button:hover,
 #form-financiamiento-proyectos #reset-button:hover,
-#form-convocatorias #reset-butto:hover {
+#form-convocatorias #reset-button:hover,
+#form-eventos-noticias #reset-button:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -314,7 +329,8 @@
 #form-sublineas #crear-sublinea:hover,
 #form-empresas #crear-empresa:hover,
 #form-tipoproducto #crear-tipoproducto:hover,#guardar-tipoproducto:hover,
-#form-subtipoproducto #crear-subtipoproducto:hover, #guardar-subtipoproducto:hover {
+#form-subtipoproducto #crear-subtipoproducto:hover, #guardar-subtipoproducto:hover,
+#form-eventos-noticias #crear-even-noti:hover {
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
