@@ -23,11 +23,9 @@
     padding-bottom: 10px;
 }
 
-#form-grupos #advertencias{
-    
-}
 
-#form-grupos #advertencias p{
+#form-grupos #advertencias p,
+#f-lista-financiamiento p{
     color:#1c7e84;
     font-size:11px; 
 }
