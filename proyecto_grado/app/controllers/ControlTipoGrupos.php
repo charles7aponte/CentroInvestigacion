@@ -9,7 +9,7 @@ class ControlTipoGrupos extends Controller {
 	 */
 	public function CrearFormulario(){
 
-		$tipo=Input::get('tipo-grupo');
+		$tipo= ucfirst(strtolower(Input::get('tipo-grupo')));
 
 		$todosDatos = Input::all();
 
@@ -87,7 +87,11 @@ class ControlTipoGrupos extends Controller {
 				$form_tipogrupo= InvTipoGrupos::find($id); //de donde necesito
 
 				if (is_null($form_tipogrupo)==false){
-					$form_tipogrupo->delete();
+
+					$form_tipogrupo->estado=0;
+					$form_tipogrupo->save();
+
+					//$form_tipogrupo->delete();
 
 					return Response::json(array("respuesta"=>true));
 
@@ -95,5 +99,5 @@ class ControlTipoGrupos extends Controller {
 				return Response::json(array("respuesta"=>false));
 
 			}//
-	
+
 }

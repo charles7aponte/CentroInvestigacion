@@ -88,15 +88,17 @@
               @if(isset($tipogrupos))
                       
                  @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
-                  <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
-                  <td>{{$tipogrupo['id']}}</td>
-                  <td>{{$tipogrupo['tipo_grupo']}}</td>
-                  <td>
-                   <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                   </b>
-                  </td>
-                </tr>
-
+                  
+                  @if($tipogrupo['estado']==1 ) 
+                    <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
+                      <td>{{$tipogrupo['id']}}</td>
+                      <td>{{$tipogrupo['tipo_grupo']}}</td>
+                      <td>
+                       <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                       </b>
+                      </td>
+                    </tr>
+                @endif
                  @endforeach
               @endif        
               </tbody>

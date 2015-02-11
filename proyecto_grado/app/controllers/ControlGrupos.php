@@ -9,7 +9,7 @@ class ControlGrupos extends Controller {
 	 */
 	public function CrearFormulario(){
 
-		$grupo=Input::get('nombre');
+		$grupo=ucfirst(strtolower(Input::get('nombre')));
 
 
 		//manejo de fechas ..		
@@ -22,16 +22,16 @@ class ControlGrupos extends Controller {
 
 
 
-		$coord=Input::get('cedula-persona');
-		$email=Input::get('email');
-		$pagina=Input::get('pagina');
-		$telefono=Input::get('telefono');
-		$direccion1=Input::get('direccion');
-		$unidad=Input::get('unidad');
-		$categoria=Input::get('categoria');
-		$tipo=Input::get('tipo');
-		$objetivos=Input::get('objetivos');
-		$gruplac=Input::get('gruplac');
+		$coord=ucfirst(strtolower(Input::get('cedula-persona')));
+		$email=ucfirst(strtolower(Input::get('email')));
+		$pagina=ucfirst(strtolower(Input::get('pagina')));
+		$telefono=ucfirst(strtolower(Input::get('telefono')));
+		$direccion1=ucfirst(strtolower(Input::get('direccion')));
+		$unidad=ucfirst(strtolower(Input::get('unidad')));
+		$categoria=ucfirst(strtolower(Input::get('categoria')));
+		$tipo=ucfirst(strtolower(Input::get('tipo')));
+		$objetivos=ucfirst(strtolower(Input::get('objetivos')));
+		$gruplac=ucfirst(strtolower(Input::get('gruplac')));
 
 
 			
