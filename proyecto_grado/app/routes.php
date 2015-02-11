@@ -20,7 +20,8 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 *********************************************************************************************************************************/
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-/*--------------formularios-----------------*/
+/*--------------formularios-----------------
+----------------------------*/
 
 //----------------crear grupo
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
@@ -59,13 +60,14 @@ Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInv
 //.............................................................................................................//
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
-
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
 
 
+Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
 
-/*--------------------principales por tema-------------------*/
+/*--------------------principales por tema -----------------
+---------------------------------------*/
 Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
 
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
@@ -82,7 +84,7 @@ Route::get('personas', function() {return View::make('inf_personas');});
 
 /***********   Creacion de formularios (almacenando en la bd) -----------
 -----------------------
-********************/
+********************/ 
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
@@ -111,6 +113,8 @@ Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
 
 Route::post('creacion/formularioinvestigadores', 'ControlInvestigadores@CrearFormulario');
+
+Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
 
 
 

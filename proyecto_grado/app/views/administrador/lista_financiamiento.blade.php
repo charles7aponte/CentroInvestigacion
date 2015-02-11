@@ -1,6 +1,12 @@
 @extends('administrador.panel_admin')
 
+@section('javascript-nuevos')   
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/listafinanciamiento_proyectos.js"></script>
+@stop
+
+
 @section('cuerpo')
+
 
   <div id="titulo-listaproyecto-financiado" id="cuadro"> 
     <h2>FINANCIAMIENTO DE UN PROYECTO</h2>
@@ -8,12 +14,17 @@
 
   <div id="f-lista-financiamiento" style="margin-top:30px;">
     <fieldset>
-      <form class="navbar-form navbar-left" role="search">
+     <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input style="width:810px;" type="text" class="form-control" placeholder="Ingrese el Proyecto">
+          <input type="text" style="width:810px;" id="nombre_proyecto" name="nombre_proyecto" value="" class="form-control"  placeholder="Ingrese el Proyecto"/>
+          <input type="hidden" id="nombre_proyecto1" name="nombre_proyecto1" value=""  placeholder="Ingrese el Proyecto"/>
         </div>
         <button type="submit" class="btn btn-default">Ver Financiamiento</button>
+                    <span id="advertencias">
+              <p>*Ingrese el nombre del proyecto y espere a que el autocompletado lo muestre.</p>
+            </span>
       </form>
+
     </fieldset> 
   </div>  
 

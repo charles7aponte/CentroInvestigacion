@@ -60,6 +60,9 @@
                       <label for="coord">Coordinador:</label>
                         <input type="text" id="coord" name="coord" value="" required="required"/>
                         <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
+                          <span id="advertencias">
+                            <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
+                          </span>
                           @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
                          @endif
                     </li>

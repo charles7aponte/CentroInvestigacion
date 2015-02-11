@@ -37,8 +37,11 @@
 
                     <li class="@if($errors->has('coor-linea')) has-error @endif" >
                         <label for="coor-linea">Coordinador de la l&iacute;nea:</label>
-                        <input type="text" id="coor-linea" name="coor-linea" value=" " required="required"/> 
-                        <input type="hidden" id="cedula-persona" name="cedula-persona" value=" " required="required"/> 
+                        <input type="text" id="coor-linea" name="coor-linea" value=" " /> 
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value=" "/>
+                            <span id="advertencias">
+                                <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
+                            </span> 
                          @if ($errors->has('coor-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coor-linea') }}</p> @endif
                     </li>
 

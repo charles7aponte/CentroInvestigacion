@@ -17,7 +17,8 @@ class InvGrupos extends Eloquent  {
 			'nombre'        =>'required|unique:inv_grupos,nombre_grupo', 
 			'coord'         => 'required|max:50|', 	
 			'objetivos'     => 'required',
-			'categoria'		=>'max:4',
+			'categoria'		=>'max:30|required',
+			'unidad'		=>'required|max:100',
 
 				
 		);

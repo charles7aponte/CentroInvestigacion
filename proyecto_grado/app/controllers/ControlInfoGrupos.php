@@ -20,7 +20,6 @@ class ControlInfoGrupos extends Controller {
 
 		return View::make("inf_grupos",$datos);
 
-		//recuerdas como recibiamos esos datos el blade ?? como q? osea en el blade?. si. cuando usamos el issetsi . listo abre .. y mustra los datos .. estan en un array de nombre $convocatoria['nombre_columna'] dale en el blade
 	}
 	
 }
