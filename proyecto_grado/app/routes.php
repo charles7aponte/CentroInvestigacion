@@ -53,6 +53,8 @@ Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFi
 //----------------agregar productos
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
+Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
+
 
 //.............................................................................................................//
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
@@ -60,7 +62,7 @@ Route::get('formulariolineas', function() { return View::make('administrador/for
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
-Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
+
 
 
 /*--------------------principales por tema-------------------*/
@@ -68,9 +70,11 @@ Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
 
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
 
-Route::get('lineas', function() {return View::make('inf_lineas');});
+Route::get('linea/id/{id_linea}','ControlInfoLineas@CargarInfoPrincipales');
 
-Route::get('productos', function() {return View::make('inf_productos');});
+Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipales');
+
+Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
 
 Route::get('personas', function() {return View::make('inf_personas');});
 
@@ -105,6 +109,9 @@ Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
+
+Route::post('creacion/formularioinvestigadores', 'ControlInvestigadores@CrearFormulario');
+
 
 
 /**********-------------listas de cada tema -------------

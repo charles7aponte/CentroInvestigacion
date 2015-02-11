@@ -1,5 +1,5 @@
 
-#titulo-infconv, .titulo-conv1, #titulo-infgrupos{
+#titulo-infconv, .titulo-conv1, #titulo-infgrupos, #titulo-proyectos{
     width: auto;
     margin:0;
 }
@@ -24,7 +24,8 @@ fieldset#secundario{
 
 #titulo-infconv h2,
 #titulo-lineas h2,
-#titulo-productos h2{
+#titulo-productos h2,
+#titulo-proyectos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: center;
    color:#122d3e;
@@ -82,7 +83,8 @@ fieldset#secundario{
 .tabla-infgrupos,
 .tabla-inflineas,
 .tabla-infproductos,
-.tabla-infpersonas{
+.tabla-infpersonas,
+.tabla-infproyectos{
     font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
     line-height: 20px;
     border-spacing: 1px;
@@ -94,29 +96,34 @@ fieldset#secundario{
     vertical-align: middle;
     border-collapse: separate;
     border-spacing: 2px;
+    text-transform: capitalize;
 }
 
 .tabla-infconvocatorias th:first-child, 
 .tabla-infgrupos th:first-child,
 .tabla-inflineas th:first-child,
 .tabla-infproductos th:first-child,
-.tabla-infpersonas th:first-child{
+.tabla-infpersonas th:first-child,
+.tabla-infproyectos th:first-child{
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    padding-left: 10px;
 }
 
 .tabla-infconvocatorias thead, 
 .tabla-infgrupos thead,
 .tabla-inflineas thead,
-.tabla-infpersonas thead{
+.tabla-infpersonas thead,
+.tabla-infproyectos thead{
     cursor: pointer;
 }
 
 .tabla-infconvocatorias #fil-principal,
 .tabla-infgrupos #fil-principal,
 .tabla-inflineas #fil-principal,
-.tabla-infpersonas #fil-principal{
+.tabla-infpersonas #fil-principal,
+.tabla-infproyectos #fil-principal{
     width: 150px;
     padding:0.5em;
     border: 5px solid white;
@@ -127,7 +134,8 @@ fieldset#secundario{
 .tabla-infconvocatorias #col-principal,
 .tabla-infgrupos #col-principal,
 .tabla-inflineas #col-principal,
-.tabla-infpersonas #col-principal{
+.tabla-infpersonas #col-principal,
+.tabla-infproyectos #col-principal{
     width: 600px;
     padding:3px;
     border-right: none;

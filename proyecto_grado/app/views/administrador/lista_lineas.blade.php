@@ -31,7 +31,7 @@
                 <b>{{$campo['id_lineas']}}</b>
               </td> 
               <td>
-                <a href="">{{$campo['nombre_linea']}}</a>
+                <a href="{{URL::to('linea/id')}}/{{$campo['id_lineas']}}">{{$campo['nombre_linea']}}</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>

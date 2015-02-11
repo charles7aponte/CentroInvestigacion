@@ -83,7 +83,7 @@
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"  readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="{{Input::old('creacion')}}" required="required" /> 
+                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="dd/MM/yyyy" name="creacion-perfil" value="{{Input::old('creacion')}}" required="required" /> 
                                             @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
