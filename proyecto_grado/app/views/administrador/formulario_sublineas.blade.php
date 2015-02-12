@@ -38,7 +38,7 @@
 
                     <li>
                         <label for="lineade-sublinea">L&iacute;nea: </label> 
-                        <select name="lineade-sublinea">
+                        <select name="lineade-sublinea" required="required">
                          <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
                           @if(isset($lineas))
                           

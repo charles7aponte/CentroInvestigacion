@@ -1,5 +1,12 @@
 @extends('administrador.panel_admin')
 
+@section("javascript-nuevos")
+  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+  <script >
+      URL='formulariosublineas/eliminar/';
+      fila_info="#dato_sublinea_";
+  </script>
+
 @section('cuerpo')
 
 <form id="form-sublineas">
@@ -25,22 +32,25 @@
     <tbody>
         @if(isset($campo_lista))
           @foreach ($campo_lista as $campo)
-            <tr>
-              <td style="width:100px;">
-                <b>{{$campo['id_sublinea']}}</b>
-              </td> 
-              <td>
-                <a href="">{{$campo['nombre_sublinea']}}</a>
-              </td>
-              <td style="width:90px;">
-                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-              </td>
-              <td style="width:90px;">
-                <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-              </td>
-            </tr>
+            @if($campo['estado1']==1 ) 
+              <tr id="dato_sublinea_{{$campo['id_sublinea']}}">
+                <td style="width:100px;">
+                  <b>{{$campo['id_sublinea']}}</b>
+                </td> 
+                <td>
+                  <a href="">{{$campo['nombre_sublinea']}}</a>
+                </td>
+                <td style="width:90px;">
+                  <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                </td>
+                <td style="width:93px;">
+                  <b onclick="eliminartipo({{$campo['id_sublinea']}})">
+                  <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                </td>
+              </tr>
+            @endif
           @endforeach
-          @endif
+        @endif
   </table>
 
       <div style="margin-left:30px; margin-right:30px;"> 

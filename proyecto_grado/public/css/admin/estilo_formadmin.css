@@ -26,7 +26,8 @@
 
 #form-grupos #advertencias p,
 #f-lista-financiamiento p,
-#form-financiamiento-proyectos p{
+#form-financiamiento-proyectos p,
+#form-lineas p{
     color:#1c7e84;
     font-size:11px; 
 }
@@ -264,7 +265,7 @@
 #form-proyectos #crear-proyecto, #reset-button,
 #form-productos #crear-producto,#reset-button,
 #form-financiamiento-proyectos #agregar-financiamiento, #form-financiamiento-proyectos #reset-button,
-#form-lineas #crear-linea,
+#form-lineas #crear-linea, #form-lineas #reset-button ,
 #form-sublineas #crear-sublinea,
 #form-empresas #crear-empresa, #form-empresas #reset-button,
 #form-tipoproducto #crear-tipoproducto, #form-tipoproducto #guardar-tipoproducto, #form-tipoproducto #reset-button,

@@ -28,6 +28,9 @@ Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 
 //----------------crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
+//----------------eliminar sublineas
+Route::get('formulariosublineas/eliminar/{id}','ControlSublineas@EliminarFormularioSublinea');
+
 
 //----------------crear subtipo de producto
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioSubtipoProducto');
@@ -39,26 +42,31 @@ Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
 //eliminar tipo grupos
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
+
 //----------------agregar tipo productos
 Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
 //eliminar tipo productos
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
+
 //----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
 Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
-
 //----------------eliminar proyectos
+
 
 //----------------agregar productos
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 
+//----------------crear lineas
+Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
+//----------------eliminar lineas
+Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
 //.............................................................................................................//
-Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 

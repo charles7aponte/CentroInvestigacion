@@ -9,7 +9,7 @@ class ControlTipoGrupos extends Controller {
 	 */
 	public function CrearFormulario(){
 
-		$tipo= ucfirst(strtolower(Input::get('tipo-grupo')));
+		$tipo= Input::get('tipo-grupo');//ucfirst(strtolower(Input::get('tipo-grupo')));
 
 		$todosDatos = Input::all();
 
@@ -24,7 +24,7 @@ class ControlTipoGrupos extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				'unique'  =>'Es posible que ya exista el tipo de producto, verifique.',
+				'unique'  =>'Es posible que ya exista el tipo de grupo, verifique.',
 				'max'=>'No debe ser mayor a :max'
 			);
 
@@ -81,7 +81,6 @@ class ControlTipoGrupos extends Controller {
 			}//
 
 			
-			//elimina cada grupo de la tabla .. 
 			public function EliminarFormularioTipoGrupo($id){
 			
 				$form_tipogrupo= InvTipoGrupos::find($id); //de donde necesito
@@ -89,6 +88,7 @@ class ControlTipoGrupos extends Controller {
 				if (is_null($form_tipogrupo)==false){
 
 					$form_tipogrupo->estado=0;
+					$form_tipogrupo->tipo_grupo.="*";
 					$form_tipogrupo->save();
 
 					//$form_tipogrupo->delete();
@@ -98,6 +98,7 @@ class ControlTipoGrupos extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 
-			}//
+			}//			//elimina cada tipo de la tabla .. 
+
 
 }
