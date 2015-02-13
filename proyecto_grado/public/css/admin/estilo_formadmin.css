@@ -14,7 +14,9 @@
 #form-tipoproducto fieldset,
 #form-subtipoproducto fieldset,
 #form-financiamiento-proyectos fieldset,
-#form-eventos-noticias fieldset {
+#form-eventos-noticias fieldset,
+#form-investigadores fieldset,
+#form-periodos-academicos fieldset{
 	background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -41,7 +43,9 @@
 #form-empresas ul,
 #form-tipoproducto ul,
 #form-subtipoproducto ul,
-#form-eventos-noticias ul {
+#form-eventos-noticias ul,
+#form-investigadores ul,
+#form-periodos-academicos ul {
     width:100%;
     list-style-type:none;
     margin:0px;
@@ -59,7 +63,9 @@
 #form-empresas li,
 #form-tipoproducto li,
 #form-subtipoproducto li,
-#form-eventos-noticias li {
+#form-eventos-noticias li,
+#form-investigadores li,
+#form-periodos-academicos li{
     padding:7px; 
     position:relative;
 } 
@@ -86,7 +92,9 @@
 #form-empresas label,
 #form-tipoproducto label,
 #form-subtipoproducto label,
-#form-eventos-noticias label {
+#form-eventos-noticias label,
+#form-investigadores label,
+#form-periodos-academicos label{
 	color: #333;
     display: inline-block;
     float: left;
@@ -109,7 +117,9 @@
 #form-empresas input,
 #form-tipoproducto input,
 #form-subtipoproducto input, #form-subtipoproducto select,
-#form-eventos-noticias input, #form-eventos-noticias select {
+#form-eventos-noticias input, #form-eventos-noticias select,
+#form-investigadores input, #form-investigadores select,
+#form-periodos-academicos input, #form-periodos-academicos select {
     height:auto; 
     width: 600px; 
     padding:5px 5px;
@@ -125,7 +135,8 @@
 #form-empresas textarea,
 #form-tipoproducto textarea,
 #form-subtipoproducto textarea,
-#form-eventos-noticias textarea {
+#form-eventos-noticias textarea,
+#form-investigadores textarea {
     padding:8px; 
     width: 700px;
     min-height: 150px;
@@ -142,7 +153,8 @@
 #form-empresas input, #form-empresas textarea,
 #form-tipoproducto input, #form-tipoproducto textarea,
 #form-subtipoproducto input, #form-subtipoproducto textarea, #form-subtipoproducto select,
-#form-eventos-noticias input, #form-eventos-noticias textarea, #form-eventos-noticias select { 
+#form-eventos-noticias input, #form-eventos-noticias textarea, #form-eventos-noticias select,
+#form-investigadores input, #form-investigadores textarea, #form-investigadores select{ 
     border: 1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -166,7 +178,9 @@
 #form-empresas input:focus, #form-empresas textarea:focus,
 #form-tipoproducto input:focus, #form-tipoproducto textarea:focus,
 #form-subtipoproducto input:focus, #form-subtipoproducto textarea:focus,
-#form-eventos-noticias input:focus, #form-eventos-noticias textarea:focus {
+#form-eventos-noticias input:focus, #form-eventos-noticias textarea:focus,
+#form-investigadores input:focus, #form-investigadores textarea:focus,
+#form-periodos-academicos input:focus, #form-periodos-academicos textarea:focus {
     background: #fff;  , 
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
@@ -178,7 +192,8 @@
 #form-proyectos input[type="file"],
 #form-productos input[type="file"],
 #form-lineas input[type="file"],
-#form-eventos-noticias input[type="file"] {
+#form-eventos-noticias input[type="file"],
+#form-investigadores input[type="file"]  {
 	width: 600px;
 	padding-left: 5px; 
 }
@@ -195,7 +210,9 @@
 #form-empresas #titulo,
 #form-tipoproducto #titulo,
 #form-subtipoproducto #titulo,
-#form-eventos-noticias #titulo {
+#form-eventos-noticias #titulo,
+#form-investigadores #titulo,
+#form-periodos-academicos #titulo{
     width: auto;
     margin: 0 5px 0 5px; 
 }
@@ -211,7 +228,9 @@
 #form-empresas #titulo h2,
 #form-tipoproducto #titulo h2,
 #form-subtipoproducto #titulo h2,
-#form-eventos-noticias #titulo h2 {
+#form-eventos-noticias #titulo h2,
+#form-investigadores #titulo h2,
+#form-periodos-academicos #titulo h2{
     color: #1c7e84; /*tono verde de todo #20B2AA*/
     display: block;
     text-transform: uppercase;
@@ -236,7 +255,9 @@
 #form-empresas h2 img,
 #form-tipoproducto h2 img,
 #form-subtipoproducto h2 img,
-#form-eventos-noticias h2 img {
+#form-eventos-noticias h2 img,
+#form-investigadores h2 img,
+#form-periodos-academicos h2 img{
 	margin-right: 5px;
 }
 
@@ -252,7 +273,9 @@
 #form-empresas input:required:valid, #form-empresas textarea:required:valid,
 #form-tipoproducto input:required:valid,
 #form-subtipoproducto input:required:valid,
-#form-eventos-noticias input:required:valid {
+#form-eventos-noticias input:required:valid,
+#form-investigadores input:required:valid,
+#form-periodos-academicos input:required:valid {
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
@@ -269,7 +292,10 @@
 #form-tipoproducto #crear-tipoproducto, #form-tipoproducto #guardar-tipoproducto, #form-tipoproducto #reset-button,
 #form-tipogrupo #crear-tipogrupo, #form-tipogrupo #guardar-tipogrupo,
 #form-subtipoproducto #crear-subtipoproducto, #form-subtipoproducto #guardar-subtipoproducto, #form-subtipoproducto #reset-button,
-#form-eventos-noticias #crear-even-noti, #form-eventos-noticias #reset-button {
+#form-eventos-noticias #crear-even-noti, #form-eventos-noticias #reset-button,
+#form-investigadores #crear-investigador, #form-investigadores #reset-button, 
+#form-periodos-academicos #crear-periodo, #form-periodos-academicos #reset-button  {
+
 	background:#276B6F; 
     background-image: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
     background-image: -moz-linear-gradient(top,#276B6F,#5BA9AE);
@@ -316,7 +342,9 @@
 #form-subtipoproducto #reset-button:hover,
 #form-financiamiento-proyectos #reset-button:hover,
 #form-convocatorias #reset-button:hover,
-#form-eventos-noticias #reset-button:hover {
+#form-eventos-noticias #reset-button:hover,
+#form-investigadores #reset-button:hover,
+#form-periodos-academicos #reset-button:hover{
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -337,7 +365,9 @@
 #form-empresas #crear-empresa:hover,
 #form-tipoproducto #crear-tipoproducto:hover,#guardar-tipoproducto:hover,
 #form-subtipoproducto #crear-subtipoproducto:hover, #guardar-subtipoproducto:hover,
-#form-eventos-noticias #crear-even-noti:hover {
+#form-eventos-noticias #crear-even-noti:hover,
+#form-investigadores #crear-investigador:hover,
+#form-periodos-academicos #crear-periodo:hover{
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -373,7 +403,7 @@ input#integrantes-proyectos,
 input#tiempo-proyecto,
 input#integrantes-producto,
 input#grupo-producto,
-#tipo-investigador{
+input#tipo-investigador{
 	width: 300px;
 	margin-left:10px;
 }
@@ -397,7 +427,9 @@ table#tabla-financiamiento-grupos,
 table#tabla-integrantes-proyectos,
 table#tabla-integrantes-productos, 
 table#tabla-tipo-productos,
-table#tabla-subtipo-productos{
+table#tabla-subtipo-productos,
+table#tabla-periodos-academicos
+{
     color: #333;
     font-size: .9em;
     font-weight: 300;
@@ -418,7 +450,8 @@ table#tabla-subtipo-productos{
 #tabla-integrantes-productos thead tr:first-child,
 #tabla-tipo-productos thead tr:first-child,
 #tabla-subtipo-productos thead tr:first-child,
-#tabla-proyecto-financiado thead tr:first-child {
+#tabla-proyecto-financiado thead tr:first-child,
+#tabla-periodos-academicos thead tr:first-child  {
 	background: #1A6D71;
 	color: #fff;
 	border: none;
@@ -432,7 +465,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos th,
  #tabla-tipo-productos th,
  #tabla-subtipo-productos th,
- #tabla-proyecto-financiado th {
+ #tabla-proyecto-financiado th,
+ #tabla-periodos-academicos th{
  	font-weight: bold;
  }
 
@@ -444,7 +478,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos th:first-child, td:first-child,
  #tabla-tipo-productos th:first-child, td:first-child,
  #tabla-subtipo-productos th:first-child, td:first-child,
- #tabla-proyecto-financiado  th:first-child, td:first-child {
+ #tabla-proyecto-financiado  th:first-child, td:first-child,
+ #tabla-periodos-academicos  th:first-child, td:first-child {
  	padding: 0 15px 0 20px;
  }
 
@@ -456,7 +491,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos thead tr:last-child th,
  #tabla-tipo-productos thead tr:last-child th,
  #tabla-subtipo-productos thead tr:last-child th,
- #tabla-proyecto-financiado thead tr:last-child th {
+ #tabla-proyecto-financiado thead tr:last-child th ,
+ #tabla-periodos-academicos  thead tr:last-child th {
     border-bottom: 2px solid #ddd;
 }
 
@@ -468,7 +504,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos tbody tr:hover,
  #tabla-tipo-productos tbody tr:hover,
  #tabla-subtipo-productos tbody tr:hover,
- #tabla-proyecto-financiado  tbody tr:hover {
+ #tabla-proyecto-financiado  tbody tr:hover,
+ #tabla-periodos-academicos  tbody tr:hover{
     background-color: #E5F7FE;
 }
  #tabla-integrantes-grupos tbody tr:last-child td, 
@@ -477,7 +514,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos tbody tr:last-child td,
  #tabla-tipo-productos tbody tr:last-child td,
  #tabla-subtipo-productos tbody tr:last-child td,
- #tabla-proyecto-financiado tbody tr:last-child td {
+ #tabla-proyecto-financiado tbody tr:last-child td,
+ #tabla-periodos-academicos tbody tr:last-child td {
     border: none;
 }
 
@@ -489,7 +527,8 @@ table#tabla-subtipo-productos{
  #tabla-integrantes-productos tbody td,
  #tabla-tipo-productos tbody td,
  #tabla-subtipo-productos tbody td,
- #tabla-proyecto-financiado tbody td {
+ #tabla-proyecto-financiado tbody td,
+ #tabla-periodos-academicos tbody td {
     border-bottom: 1px solid #ddd;
 }
 
@@ -498,7 +537,8 @@ table#tabla-subtipo-productos{
  #tabla-lineas-grupos td:last-child,
  #tabla-tipo-grupos td:last-child, 
  #tabla-integrantes-productos td:last-child,
-  #tabla-proyecto-financiado td:last-child {
+ #tabla-proyecto-financiado td:last-child,
+ #tabla-periodos-academicos  td:last-child {
 	text-align: right;
 	padding-right: 10px;
 }
@@ -519,7 +559,8 @@ table#tabla-subtipo-productos{
  #tabla-subtipo-productos .button:hover,
  #tabla-tipo-productos .button:hover,
  #tabla-financiamiento-grupos .button:hover,
- #tabla-proyecto-financiado .button:hover {
+ #tabla-proyecto-financiado .button:hover,
+ #tabla-periodos-academicos .button:hover{
 	text-decoration: underline;
 	cursor: pointer;
 	color: #2C3333;

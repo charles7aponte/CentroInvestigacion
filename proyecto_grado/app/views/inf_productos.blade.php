@@ -11,6 +11,18 @@
 <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script> 
 <script type="text/javascript" src="{{URL::to('/js')}}/js-infgrupos.js"></script>
 
+
+<script>
+    function cargarModal1(elemento)
+    {
+        var $elemento = $(elemento);
+
+        var valor= $elemento.attr("data-foto");
+        $("#id_img_modal").attr("src",valor);
+
+    }
+</script>
+
 @stop
 
 
@@ -26,11 +38,15 @@
           <h4 class="modal-title" id="myModalLabel" style="background:none;">Foto Producto</h4>
         </div>
         <div class="modal-body">
+            <center>
             <table>
                 <tr>
-                    <td><img src="imagenes\logo.glull.png"></td>
+                    <td><img id="id_img_modal" style="width: 200px;
+                    height: auto;" src=""></td>
                 </tr>    
             </table>
+
+        </center>
         </div>
       </div>
     </div>
@@ -151,10 +167,10 @@
                     <td id="col-principal" id="cuadro">
                       <ol>
                         <li style="list-style-type: square; text-decoration:underline;" class="glyphicon glyphicon-hand-right"><a  data-toggle="modal" data-target="#myModal" style="color:blue;" 
-                             href= "<?php
+                             onclick="cargarModal1(this)" data-foto="<?php
                                 $url = ($productos['foto_producto']);
-                                echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);
-                                ?>">{{$productos['foto_producto']}}</a></li>
+                                echo $url_actual = URL::to('archivos_db/productos')."/".parse_url($url, PHP_URL_PATH);
+                                ?>")>{{$productos['foto_producto']}}</a></li>
                       </ol>                  
                     </td>
                     </tr>

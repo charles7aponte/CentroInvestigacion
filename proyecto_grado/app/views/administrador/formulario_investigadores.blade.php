@@ -24,7 +24,24 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-grupos" autocomplete="on"   action="" method="">
+     <form id="form-investigadores" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioinvestigadores')}}" method="post">
+
+         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+          @endif
+
+
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo J&oacute;ven investigador o Externo</h2></div>
             <ul>
                 <fieldset>  
@@ -69,12 +86,17 @@
                         <input type="file"  id="foto" name="foto" value="{{Input::old('foto')}}" />
                         @if ($errors->has('foto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto') }}</p> @endif
                     </li>
-                    <li><label for="perfil">Perfil:</label> 
+                    <li><label for="perfil">Perfil:</label>
+
                         <select name="perfil" required="required">
-                            <option value=""></option>
-                            <option value="inv">Investigador</option>
-                            <option value="estudio">Joven Epi</option>
-                        </select>
+                        @if(isset($perfiles))
+                            @foreach($perfiles as $perfilinv)
+                             <option value="{{$perfilinv['codperfil']}}" > {{$perfilinv['nombreperfil']}}</option>
+                            @endforeach
+                        @endif
+                        </select>    
+                            
+                    
                         @if ($errors->has('perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('perfil') }}</p> @endif
                     </li> 
                     <li><label for="">Fecha Perfil:</label>
@@ -83,8 +105,8 @@
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="dd/MM/yyyy" name="creacion-perfil" value="{{Input::old('creacion')}}" required="required" /> 
-                                            @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion') }}</p> @endif
+                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="dd/MM/yyyy" name="creacion-perfil" value="{{Input::old('creacion-perfil')}}" required="required" /> 
+                                            @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -94,6 +116,9 @@
                             </div>
                         </div>
                     </li>
+                </fieldset>
+
+                <fieldset>
                     <li><label for="profesion">Profesi&oacute;n:</label>
                         <input type="text" id="profesion" name="profesion" value="{{Input::old('profesion')}}" required="required"/>
                         @if ($errors->has('profesion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('profesion') }}</p> @endif
@@ -111,7 +136,7 @@
                         <select name="entidad-investigadores" required="required">
                         @if(isset($entidades))
                             @foreach($entidades as $entidadinv)
-                             <option value="{{$entidadproducto['nit']}}" > {{$entidadproducto['razon_social']}}</option>
+                             <option value="{{$entidadinv['nit']}}" > {{$entidadinv['razon_social']}}</option>
                             @endforeach
                         @endif
                         </select>
@@ -130,8 +155,8 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="{{Input::old('creacion')}}" required="required" /> 
-                                            @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion') }}</p> @endif
+                                            readonly id="creacion_inicio" class="date form-control" data-format="dd/MM/yyyy" name="creacion_inicio" value="{{Input::old('creacion_inicio')}}" required="required" /> 
+                                            @if ($errors->has('creacion_inicio')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion_inicio') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -149,8 +174,8 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="creacion" value="{{Input::old('creacion')}}" required="required" /> 
-                                            @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion') }}</p> @endif
+                                            readonly id="creacion_fin" class="date form-control" data-format="dd/MM/yyyy" name="creacion_fin" value="{{Input::old('creacion_fin')}}" required="required" /> 
+                                            @if ($errors->has('creacion_fin')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion_fin') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -161,7 +186,23 @@
                         </div>
                     </li>
                 </fieldset>
-            </ul>       
+            </ul>
+
+            <table id="botones-formularios">
+                <thead>
+                    <th id="crear">
+                        <button id="crear-investigador" type="submit">
+                        <img alt="bien"  src="images/bn.png" width="16" height="16">
+                        Crear producto
+                        </button>
+                    </th>
+                    <th id="borrar">
+                        <button id="reset-button" type="reset">
+                        <img alt="mal" src="images/ml.png" width="16" height="16">
+                        Borrar todo
+                    </th>
+                </thead>
+            </table>       
     </form>    
 </div>  
 @stop    

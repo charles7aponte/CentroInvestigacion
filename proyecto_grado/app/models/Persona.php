@@ -13,7 +13,6 @@ class Persona extends Eloquent  {
 	protected $primaryKey = "cedula";// no tiene llave primaria en la base
 
 
-
 	/*********
 	*
 	**/

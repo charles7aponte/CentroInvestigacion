@@ -153,6 +153,11 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un evento &oacute; Noticia</a></li>	
 		</ul>
 
+		<h3><span class="glyphicon glyphicon-calendar"></span>Per&iacute;odos Acad&eacute;micos</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formularioperiodosacademicos')}}">Agregar un Per&iacute;odo Acad&eacute;mico</a></li>	
+		</ul>
+
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
 			<li class=""><a href="#"></a></li>

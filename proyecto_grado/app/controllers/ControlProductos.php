@@ -43,7 +43,7 @@ class ControlProductos extends Controller {
 		//manejo de archivo
 
 
-		$todosDatos = Input::except('foto-producto','soporte-producto','tipo-soporte-producto');
+		$todosDatos = Input::except('foto-producto','soporte-producto');
 	
 
 		
@@ -55,7 +55,7 @@ class ControlProductos extends Controller {
 		$entidad->inv_subtipo_producto=$subtipo_producto;
 		$entidad->inv_codigo_grupo=$grupo_producto;
 		$entidad->inv_id_linea=$linea_producto;
-		$entidad->entidad=$entidad_producto;
+		$entidad->nit=$entidad_producto;
 		$entidad->reconocimiento_producto=$reconocimiento_producto;
 		$entidad->observaciones_producto=$descrip_producto;
 		$entidad->foto_producto=$foto_producto;
@@ -101,8 +101,7 @@ class ControlProductos extends Controller {
 						$archivo2=$this->ArchivosProductos('soporte-producto',$direccion);
 						$entidad->soporte_producto=$archivo2;
 
-						$archivo3=$this->ArchivosProductos('tipo-soporte-producto',$direccion);
-						$entidad->tipo_soporte=$archivo3;
+						
 
 						$entidad->save();
 
@@ -139,7 +138,7 @@ class ControlProductos extends Controller {
 						return Redirect::to('formularioproductos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El producto ha sido creado.");
-			
+				
 				}
 			
 			}

@@ -21,6 +21,7 @@ class InvProductos extends Eloquent  {
 			'grupo-proy' 	         => 'required',
 			'linea-proy' 	 		 => 'required',
 			'desc-conv' 			 => 'required',	
+			'entidad-prod'           =>'required',
 			
 		);
 

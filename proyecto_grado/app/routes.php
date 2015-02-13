@@ -49,6 +49,10 @@ Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
 Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
 
+Route::get('formularioperiodosacademicos','ControlPeriodosAcademicos@cargarFormularioPeriodo');
+//-------------eliminar periodos
+Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademicos@EliminarFormularioPeriodo');
+
 //----------------eliminar proyectos
 
 //----------------agregar productos
@@ -56,15 +60,20 @@ Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 
-
 //.............................................................................................................//
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
+Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
+Route::post('formularioconvocatorias/editar/','ControlConvocatorias@guardarEdicion');
+
+
+
 
 
 Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
+
 
 /*--------------------principales por tema -----------------
 ---------------------------------------*/
@@ -115,6 +124,8 @@ Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFor
 Route::post('creacion/formularioinvestigadores', 'ControlInvestigadores@CrearFormulario');
 
 Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
+
+Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
 
 
 

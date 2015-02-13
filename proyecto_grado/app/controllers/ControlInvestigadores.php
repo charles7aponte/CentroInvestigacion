@@ -22,7 +22,7 @@ class ControlInvestigadores extends Controller {
 		$celular_contacto=Input::get('celular');
 		$email_contacto=Input::get('email');
 		$foto_investigador=Input::get('foto');
-		$perfil_invest=Input::get('"perfil');
+		$perfil_invest=Input::get('perfil');
 		$profesion_investigador=Input::get('profesion');
 		$cod_conv=Input::get('codigo_conv');
 		$nombre_convocatoria=Input::get('nombre_conv');
@@ -31,13 +31,27 @@ class ControlInvestigadores extends Controller {
 			
 
 
-		//manejo de fechas ..		
-		$fecha_investigador=Input::get('creacion');
+		//manejo de fechas ..	
+		$fecha_perfil=Input::get('creacion-perfil');
+
+		$dateperfil = new DateTime($fecha_perfil);
+
+		$fecha_perfil=$dateperfil->format('d/m/Y');
 
 
-		$dateinvestigador = new DateTime($fecha_investigador);
+		$fecha_inicio=Input::get('creacion_inicio');
 
-		$fecha_investigador=$dateinvestigador->format('d/m/Y');
+		$dateinicio = new DateTime($fecha_inicio);
+
+		$fecha_inicio=$dateinicio->format('d/m/Y');
+
+
+		$fecha_fin=Input::get('creacion_fin');
+
+
+		$datefin = new DateTime($fecha_fin);
+
+		$fecha_fin=$datefin->format('d/m/Y');
 		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 		$nombreNuevo="";
@@ -49,8 +63,19 @@ class ControlInvestigadores extends Controller {
 
 		$todosDatos = Input::except('foto');
 	
+		$persona= new Persona();
 
-		
+		$persona->cedula=$c_persona;
+		$persona->nombre1=$nombre_1;
+		$persona->nombre2=$nombre_2;
+		$persona->apellido1=$apellido_1;
+		$persona->apellido2=$apellido_2;
+		$persona->direccion=$direccion1;
+		$persona->telefono=$telefono_contacto;
+		$persona->celular=$celular_contacto;
+		$persona->mail=$email_contacto;
+		$persona->fecha_perfil=$fecha_perfil;
+		$persona->foto=$foto_investigador;
 
 		$entidad=new InvInvestigadoresExternos();
 		
@@ -58,10 +83,11 @@ class ControlInvestigadores extends Controller {
 		$entidad->profesion=$profesion_investigador;
 		$entidad->codconvocatoria=$cod_conv;
 		$entidad->nombreconvocatoria=$nombre_convocatoria;
-		$entidad->entidad =$entida_conv;
+		$entidad->nit=$entida_conv;
+		$entidad->codperfil=$perfil_invest;
 		$entidad->numerocontrato=$num_contrato;
-		$entidad->fecha_inicio=$fecha_investigador;
-		$entidad->fecha_fin=$fecha_investigador;
+		$entidad->fecha_inicio=$fecha_inicio;
+		$entidad->fecha_fin=$fecha_fin;
 		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
@@ -77,6 +103,8 @@ class ControlInvestigadores extends Controller {
 			// execute la validacin 
 
 			$validator = Validator::make(Input::all(), InvInvestigadoresExternos::$reglasValidacion,$messages);
+			//$validator = Validator::make(Input::all(), Persona::$reglasValidacion,$messages);
+
 
 
 			if ($validator->fails()) {
@@ -95,31 +123,15 @@ class ControlInvestigadores extends Controller {
 					try{
 					
 					
-						$archivo1=$this->Archivoinvestigador('foto',$direccion);
-						$entidad->foto=$archivo1;
+						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
+						$persona->foto=$archivo1;
 
 					
-						$entidad->save();
+						$persona->save();
 
 
-						/*$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
-						$listagrupos=Input::get("idgrupo"); // name del json del jquery
+						$entidad->save();	
 
-
-
-						/*******como hago para guardar lo de la tabla grupos**************/
-
-						/*for($i=0;$i<count($listaIntegrantes);$i++)
-						{
-
-							$modelIntegrante=new InvParticipacionProductos();
-							$modelIntegrante->inv_codigo_producto=  $entidad->codigo_producto;
-							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
-							$modelIntegrante->inv_codigo_grupo = $listagrupos[$i];
-							$modelIntegrante->save();
-
-						}*/
-					
 					}
 
 					catch(PDOException $e)
@@ -139,32 +151,26 @@ class ControlInvestigadores extends Controller {
 			
 			}
 
-//terminar lo que falta del controlador eliza aqui vas!!!//
 
 		/*********** carga el formulario para cargar los datos desde la tabla*/
-			public function cargarFormularioProductos(){
+			public function cargarFormularioInvestigadores(){
 
-				$listasubprod = InvSubtipoProductos::all();
-				$listagruposproducto = InvGrupos::all();
-				$listaLineasproducto = InvLineas::all();
-				$listaentidadproducto = InvEntidades::all();				
-
+				$listaentidadinv = InvEntidades::all();				
+				$listaperfiles = InvPerfiles::all();
 		
 
 				$datos=  array(
-					'subtipos' =>$listasubprod,
-					'grupoproductos' =>$listagruposproducto,			
-					'lineasproductos' =>$listaLineasproducto,
-					'entidadproductos' =>$listaentidadproducto);
+					'entidades' =>$listaentidadinv,
+					'perfiles'  =>$listaperfiles); 
 
 					
-			  return View::make('administrador/formulario_productos',$datos); 
+			  return View::make('administrador/formulario_investigadores',$datos); 
 
 
 			}
 
 		
-			function ArchivosProductos($name,$direccion)
+			function ArchivosInvestigadores($name,$direccion)
 			{
 				$nombreNuevo="";
 				if(Input::hasFile($name))
@@ -187,48 +193,5 @@ class ControlInvestigadores extends Controller {
 
 					return $nombreNuevo;	
 			}
-
-
-			public function buscarPersonasPorNombre($name)
-			{
-				$name=$this->limpiarCadena($name);
-
-
-				$listaPersonas=	DB::select(DB::raw("select cedula as cedulaPersona,(nombre1||' '||nombre2||' '||apellido1||' '||apellido2) as datospersonales,codigo_grupo as codigogrupo,nombre_grupo as nombregrupo
-					from persona a,inv_grupos b,inv_participacion_grupos as c
-					where 
-						a.cedula=c.cedula_persona and b.codigo_grupo=c.inv_codigo_grupo
-						and ((nombre1||' '||nombre2||' '||apellido1||' '||apellido2) like '%$name%'
-						  OR (cedula||'') like '%$name%' )"));  /*esta es la consulta que busca las concidencias con la BD*/
-				return Response::json($listaPersonas);
-	
-			}
-
-
-
-			public  function limpiarCadena($valor)
-			{
-				$valor = str_ireplace("SELECT","",$valor);
-				$valor = str_ireplace("COPY","",$valor);
-				$valor = str_ireplace("DELETE","",$valor);
-				$valor = str_ireplace("DROP","",$valor);
-				$valor = str_ireplace("DUMP","",$valor);
-				$valor = str_ireplace(" OR ","",$valor);
-				$valor = str_ireplace("%","",$valor);
-				$valor = str_ireplace("LIKE","",$valor);
-				$valor = str_ireplace("--","",$valor);
-				$valor = str_ireplace("^","",$valor);
-				$valor = str_ireplace("[","",$valor);
-				$valor = str_ireplace("]","",$valor);
-				$valor = str_ireplace("\\","",$valor);
-				$valor = str_ireplace("!","",$valor);
-				$valor = str_ireplace("¡","",$valor);
-				$valor = str_ireplace("?","",$valor);
-				$valor = str_ireplace("=","",$valor);
-				$valor = str_ireplace("&","",$valor);
-				$valor = str_ireplace("'","\\'",$valor);
-				$valor = str_ireplace("\"","\\\"",$valor);
-				return $valor;
-			}	
 	
 }

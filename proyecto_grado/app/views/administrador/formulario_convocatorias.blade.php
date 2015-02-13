@@ -43,18 +43,22 @@
         @endif
 
 
+@if(isset($convocatoria['numero_convocatoria']))
+
+        <input type="hidden" name="id_convacotoria" value="{{$convocatoria['numero_convocatoria']}}">
+@endif
 
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Crear nueva convocatoria</h2></div>
             <ul>
                 <fieldset> 
                     <li class="@if($errors->has('numero-conv')) has-error @endif">
                     <label for="numero-conv"># Convocatoria:</label>
-                        <input type="text" id="numero-conv" name="numero-conv" value="{{Input::old('numero-conv')}}" required="required"/> 
+                        <input type="text" id="numero-conv" name="numero-conv" value="{{$convocatoria['numero_convocatoria']}}{{Input::old('numero-conv')}}" required="required"/> 
                          @if ($errors->has('numero-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero-conv') }}</p> @endif
                     </li> 
                     <li class="@if($errors->has('titulo-conv')) has-error @endif">
                     <label for="titulo-conv">T&iacute;tulo:</label>
-                        <input type="text" id="titulo-conv" name="titulo-conv" value="{{Input::old('titulo-conv')}}" required="required"/> 
+                        <input type="text" id="titulo-conv" name="titulo-conv" value="{{$convocatoria['titulo_convocatoria']}}{{Input::old('titulo-conv')}}" required="required"/> 
                          @if ($errors->has('titulo-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-conv') }}</p> @endif
                     </li>    
                     <li class="@if($errors->has('estado')) has-error @endif">
