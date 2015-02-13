@@ -24,7 +24,7 @@
 
 @section('cuerpo')
 <div>  
-   <form id="form-productos" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioproductos')}}" method="post">
+   <form id="form-productos"   enctype="multipart/form-data" action="{{URL::to('creacion/formularioproductos')}}" method="post">
            @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;

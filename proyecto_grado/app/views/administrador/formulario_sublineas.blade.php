@@ -55,7 +55,7 @@
                 <fieldset>
                     <li class="@if($errors->has('decr-sublinea')) has-error @endif">
                         <label for="decr-sublinea">Descripci&oacute;n:</label>
-                        <textarea id="decr-sublinea" name="decr-sublinea" required="required" value="{{Input::old('decr-sublinea')}}" ></textarea>
+                        <textarea onchange="letrasCapital(this)" id="decr-sublinea" name="decr-sublinea" required="required" value="{{Input::old('decr-sublinea')}}" ></textarea>
                         @if ($errors->has('decr-sublinea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('decr-sublinea') }}</p> @endif
                     </li>  
                 </fieldset> 

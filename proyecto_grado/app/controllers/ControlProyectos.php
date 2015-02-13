@@ -52,7 +52,7 @@ class ControlProyectos extends Controller {
 		$entidad->estado_proyecto=$estado_proyecto;
 		$entidad->fecha_proyecto=$fecha_inicio;
 		$entidad->inv_numero_convocatoria=$conv_proyecto;
-		$entidad->inv_id_sublinea=$linea_proyecto;
+		$entidad->inv_id_linea=$linea_proyecto;
 		$entidad->inv_codigo_grupo=$grupo1_proyecto;
 		$entidad->grupo_auxiliar=$grupo2_proyecto;
 		$entidad->objetivo_general=$objetivo_proyecto;
@@ -82,16 +82,17 @@ class ControlProyectos extends Controller {
 
 
 
-				return Redirect::to('formularioproyectos')
+				/*return Redirect::to('formularioproyectos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar");*/
 		} else {
 
 			
 
 			
-					try{
+					try
+					{
 						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
 						$entidad->archivo_actainicio=$archivo1;//base
 
@@ -134,9 +135,11 @@ class ControlProyectos extends Controller {
 								->withInput($todosDatos)
 								->with('mensaje_success',"El proyecto ha sido creado.");
 			
-					}
+				
 			
-			}
+			}//el
+
+		}	
 
 
 
@@ -146,8 +149,8 @@ class ControlProyectos extends Controller {
 
 			public function cargarFormularioProyectos(){
 
-				$listaConvocatorias = InvConvocatorias::all();
-				$listaLineas = InvLineas::all();
+				$listaConvocatorias = InvConvocatorias::where('estado1','=','1')->get();
+				$listaLineas = InvLineas::where('estado','=','1')->get();
 				$listaGrupos = InvGrupos::all();
 				$listaGrupos1 = InvGrupos::all();
 

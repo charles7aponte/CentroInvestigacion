@@ -122,4 +122,13 @@ class ControlFinanciamiento extends Controller {
 
 			}//
 
+
+				public function financiamientoPorProyecto($idproyecto){
+				$proyecto=InvFinanciamiento::where("inv_codigo_proyecto","=","$idproyecto")->get();
+
+				return Response::json($proyecto);
+
+			}
+
+
 }

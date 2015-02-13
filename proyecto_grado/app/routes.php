@@ -53,6 +53,7 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
 Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
+
 //----------------eliminar proyectos
 
 
@@ -72,8 +73,8 @@ Route::get('formularioconvocatorias', function() { return View::make('administra
 Route::get('formularioconvocatorias/eliminar/{id}','ControlConvocatorias@EliminarFormularioConvocatoria');
 
 
-
 Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
+
 
 /*--------------------principales por tema -----------------
 ---------------------------------------*/
@@ -168,6 +169,8 @@ Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasP
 //Proyectos
 
 
+//financiamiento
+Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
 
 
 

@@ -50,6 +50,8 @@
     list-style-type:none;
     margin:0px;
     padding:0px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #form-grupos li, 
@@ -395,6 +397,7 @@ table#tabla-proyecto-financiado {
 	border: 1px solid #DCDCDC;
 	width: 900px;
 	margin-right: 6px auto;
+    box-sizing:border-box;
 }
 
 table#tabla-financiamiento-grupos,
@@ -411,7 +414,8 @@ table#tabla-subtipo-productos{
     border: 1px solid #DCDCDC;
     border-left: none;
     width: 900px;
-    margin-right: 6px auto;   
+    margin-right: 6px auto;
+        box-sizing:border-box;   
 }
 
 #tabla-integrantes-grupos thead tr:first-child,
@@ -532,6 +536,5 @@ table#tabla-subtipo-productos{
 @media screen and (max-width:800px){
     fieldset{
         width: 100%;
-        background-color: yellow;
     }
 }

@@ -69,14 +69,14 @@
 
                     <li class="@if($errors->has('email')) has-error @endif">
                       <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
+                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
                           @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
                          @endif          
                     </li>
 
                     <li class="@if($errors->has('pagina')) has-error @endif">
                       <label for="pagina">P&aacute;gina web:</label>
-                        <input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+                        <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
                          @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
                          @endif                        
                     </li>
