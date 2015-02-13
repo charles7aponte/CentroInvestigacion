@@ -66,9 +66,10 @@ Route::get('formulariolineas', function() { return View::make('administrador/for
 //----------------eliminar lineas
 Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
-//.............................................................................................................//
-
+//---------------crear convocatorias
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+//---------------eliminar convocatorias
+Route::get('formularioconvocatorias/eliminar/{id}','ControlConvocatorias@EliminarFormularioConvocatoria');
 
 
 

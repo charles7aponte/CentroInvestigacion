@@ -142,4 +142,24 @@ class ControlConvocatorias extends Controller {
 			
 			}
 
+				public function EliminarFormularioConvocatoria($id){
+			
+				$form_convocatoria= InvConvocatorias::find($id); //de donde necesito
+
+				if (is_null($form_convocatoria)==false){
+
+					$form_convocatoria->estado1=0;
+					$form_convocatoria->titulo_convocatoria="*";
+					$form_convocatoria->save();
+
+					//$form_tipogrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 
+
+
 }
