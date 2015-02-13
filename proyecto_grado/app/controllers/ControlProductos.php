@@ -151,7 +151,7 @@ class ControlProductos extends Controller {
 
 				$listasubprod = InvSubtipoProductos::all();
 				$listagruposproducto = InvGrupos::all();
-				$listaLineasproducto = InvLineas::all();
+				$listaLineasproducto = InvLineas::where("estado","=","1")->get();
 				$listaentidadproducto = InvEntidades::all();				
 
 		

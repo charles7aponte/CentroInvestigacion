@@ -21,6 +21,8 @@
     box-shadow:0 0 10px #E1E1E1;
     margin: 18px;
     padding-bottom: 10px;
+    max-width: 100%;
+    box-sizing:border-box;
 }
 
 
@@ -527,3 +529,9 @@ table#tabla-subtipo-productos{
 	color: #2C3333;
 }
 
+@media screen and (max-width:800px){
+    fieldset{
+        width: 100%;
+        background-color: yellow;
+    }
+}
