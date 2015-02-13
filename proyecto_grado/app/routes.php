@@ -28,6 +28,9 @@ Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 
 //----------------crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
+//----------------eliminar sublineas
+Route::get('formulariosublineas/eliminar/{id}','ControlSublineas@EliminarFormularioSublinea');
+
 
 //----------------crear subtipo de producto
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioSubtipoProducto');
@@ -39,10 +42,12 @@ Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
 //eliminar tipo grupos
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
+
 //----------------agregar tipo productos
 Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
 //eliminar tipo productos
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
+
 
 //----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
@@ -55,19 +60,26 @@ Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademic
 
 //----------------eliminar proyectos
 
+
 //----------------agregar productos
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 
-//.............................................................................................................//
-Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
 
+//............................................................................................................./
+//----------------crear lineas
+
+Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
+//----------------eliminar lineas
+Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
+
+//---------------crear convocatorias
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+
 
 Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 Route::post('formularioconvocatorias/editar/','ControlConvocatorias@guardarEdicion');
-
 
 
 
@@ -92,8 +104,8 @@ Route::get('personas', function() {return View::make('inf_personas');});
 
 
 /***********   Creacion de formularios (almacenando en la bd) -----------
------------------------
-********************/ 
+-----------------------*/
+
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
@@ -170,6 +182,8 @@ Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasP
 //Proyectos
 
 
+//financiamiento
+Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
 
 
 

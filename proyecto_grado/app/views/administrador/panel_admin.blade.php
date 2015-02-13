@@ -37,7 +37,10 @@ switch($mes){
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
 	<title>Panel</title>
 	
 	<!--css-->
@@ -62,7 +65,7 @@ switch($mes){
 	<script src="{{URL::to('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/hideshow.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
-
+	<script src="{{URL::to('js/cambiaracapital.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
@@ -73,7 +76,7 @@ switch($mes){
 
 
 <body>
-
+	<div class="contenedor">
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title"><a href="{{URL::to('index.html')}}">Panel de administraci&oacute;n</a></h1>
@@ -176,6 +179,7 @@ switch($mes){
 		
 		<div class="clear"></div>
 	</section>
+	</div>
 	</body>
 
 	@section("javascript-nuevos2")

@@ -152,7 +152,7 @@ class ControlGrupos extends Controller {
 
 			public function cargarFormularioGrupo(){
 
-				$listatipogrupos = InvTipoGrupos::all();
+				$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
 
 				$datos=  array(
 					'tipos' =>$listatipogrupos);

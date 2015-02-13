@@ -48,12 +48,6 @@
                         <div class="col-md-2" style="margin-left:6px;"><label>Proyecto: </label></div>
                          <div class="col-md-2"> 
                             <input type="button"  data-toggle="modal" data-target="#myModal-proyectos-financiados" id="botones-especiales" style="margin-left:28px; margin-bottom:18px;" value="Seleccionar Proyecto">                        
-
-                            <input type="text" id="coord" name="coord" value="" required="required"/>
-                            <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
-                            <span id="advertencias">
-                            <p>*Ingrese el nombre del proyecto y espere a que el autocompletado lo muestre.</p>
-                            </span>
                         </div>
                     </div>
                     <!--haciendo una modal para agregar integrantes-->
@@ -71,6 +65,9 @@
                              <button type="button" class="btn btn-primary"  
                                 id="bton_proyecto-financiado"
                               style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Seleccionar</button> 
+                            <span id="advertencias">
+                            <p>*Ingrese el nombre del proyecto y espere a que el autocompletado lo muestre.</p>
+                            </span>
                           </div>
                           
                           <div class="modal-body">

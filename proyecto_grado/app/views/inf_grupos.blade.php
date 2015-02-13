@@ -68,7 +68,19 @@
                     <tr>
                         <th id="fil-principal">Director Grupo</th>
                         <td id="col-principal" id="cuadro">
-                            {{$grupos['director_grupo']}}
+                            {{$grupos['nombre_director']}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Tipo: </th>
+                        <td id="col-principal" id="cuadro" >
+                            @if($grupos['tipo_grupo_band']==1)
+                                {{$grupos['tipo_grupo_']}}
+                            @else
+                               <p style="color:red">{{$grupos['tipo_grupo_']}} </p>         
+                            @endif
+                            
                         </td>
                     </tr>
         

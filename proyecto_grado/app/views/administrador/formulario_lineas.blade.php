@@ -31,7 +31,7 @@
                     <li class="@if($errors->has('nombre-linea')) has-error @endif">
                         <label for="nombre-linea">
                         Nombre de la l&iacute;nea:</label>
-                        <input type="text" id="nombre-linea" name="nombre-linea" value="{{Input::old('nombre-linea')}}" required="required"/>
+                        <input onchange="letrasCapital(this)" type="text" id="nombre-linea" name="nombre-linea" value="{{Input::old('nombre-linea')}}" required="required"/>
                          @if ($errors->has('nombre-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-linea') }}</p> @endif
                     </li>
 

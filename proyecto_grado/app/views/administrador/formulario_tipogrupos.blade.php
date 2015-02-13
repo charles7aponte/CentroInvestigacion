@@ -11,7 +11,9 @@
 
 @section('cuerpo')
 
-<!--Alerta de confirmar eliminacion de datos-->
+
+<div>  
+  <!--Alerta de confirmar eliminacion de datos-->
 <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
     <div class="modal-content">
@@ -33,8 +35,7 @@
 </div>
 
 
-<div>  
-    <form id="form-tipogrupo" autocomplete="on"   action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
+    <form id="form-tipogrupo" enctype="multipart/form-data" action="{{URL::to('creacion/formulariotipogrupos')}}" method="post">
 
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -57,7 +58,7 @@
             <fieldset style="border-color:transparent">
                 <li class="@if($errors->has('tipo-grupo')) has-error @endif">
                   <label for="tipo-grupo">Tipo Grupo:</label> 
-                    <input id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
+                    <input onchange="letrasCapital(this)" id="tipo-grupo" type="text" name="tipo-grupo" value="{{Input::old('tipo-grupo')}}" required="required">
                 </li>       
             </fieldset> 
           </ul> 
@@ -88,15 +89,17 @@
               @if(isset($tipogrupos))
                       
                  @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
-                  <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
-                  <td>{{$tipogrupo['id']}}</td>
-                  <td>{{$tipogrupo['tipo_grupo']}}</td>
-                  <td>
-                   <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                   </b>
-                  </td>
-                </tr>
-
+                  
+                  @if($tipogrupo['estado']==1 ) 
+                    <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
+                      <td>{{$tipogrupo['id']}}</td>
+                      <td>{{$tipogrupo['tipo_grupo']}}</td>
+                      <td>
+                       <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                       </b>
+                      </td>
+                    </tr>
+                @endif
                  @endforeach
               @endif        
               </tbody>
