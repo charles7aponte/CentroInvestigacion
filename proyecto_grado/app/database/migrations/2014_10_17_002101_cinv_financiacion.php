@@ -14,7 +14,7 @@ class CinvFinanciacion extends Migration {
 	{
 		
 		Schema::create('inv_financiacion', function($tabla){
-
+			$tabla->increments('id_financiacion');
 			$tabla->integer('inv_codigo_proyecto')->unsigned();
 			$tabla->string('inv_nit_empresa',30)->unsigned();
 			$tabla->date('fecha')->nullable();

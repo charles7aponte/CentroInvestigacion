@@ -20,13 +20,17 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 *********************************************************************************************************************************/
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-/*--------------formularios-----------------*/
+/*--------------formularios-----------------
+----------------------------*/
 
 //----------------crear grupo
-Route::get('formulariogrupos','ControlGrupos@cargarFormularioNuevoGrupo');
+Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 
 //----------------crear sublinea
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
+//----------------eliminar sublineas
+Route::get('formulariosublineas/eliminar/{id}','ControlSublineas@EliminarFormularioSublinea');
+
 
 //----------------crear subtipo de producto
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioSubtipoProducto');
@@ -38,55 +42,81 @@ Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
 //eliminar tipo grupos
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
+
 //----------------agregar tipo productos
 Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
 //eliminar tipo productos
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
+
 //----------------agregar proyectos
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
+
+Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
+
+Route::get('formularioperiodosacademicos','ControlPeriodosAcademicos@cargarFormularioPeriodo');
+//-------------eliminar periodos
+Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademicos@EliminarFormularioPeriodo');
+
 //----------------eliminar proyectos
+
 
 //----------------agregar productos
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
+Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 
+
+//............................................................................................................./
+//----------------crear lineas
 
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
+//----------------eliminar lineas
+Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
+//---------------crear convocatorias
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
+Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
 
-Route::get('formularioentidades', function() { return View::make('administrador/formulario_empresas');});
 
 
-Route::get('formulariofinanciamiento', function() { return View::make('administrador/formulario_financiamiento');});
+//--------------rutas formularios editados
 
-Route::get('formularioinvestigadores', function() { return View::make('administrador/formulario_investigadores');});
+Route::get('formularioconvocatorias', 'ControlConvocatorias@cargarEditar');  // esto es charles
 
-/*--------------------principales por tema-------------------*/
-Route::get('grupos', function() {return View::make('inf_grupos');});
-
-Route::get('convocatoria', function() {return View::make('inf_convocatorias');});
-
-Route::get('lineas', function() {return View::make('inf_lineas');});
-
-Route::get('productos', function() {return View::make('inf_productos');});
+//Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
 
 
 
-Route::get('personas', function() {return View::make('info_personas');});
+
+
+/*--------------------principales por tema -----------------
+---------------------------------------*/
+Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
+
+Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
+
+Route::get('linea/id/{id_linea}','ControlInfoLineas@CargarInfoPrincipales');
+
+Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipales');
+
+Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
+
+Route::get('personas', function() {return View::make('inf_personas');});
+
 
 
 /***********   Creacion de formularios (almacenando en la bd) -----------
------------------------
-********************/
-Route::post('creacion/formularioempresas', 'ControlEntidades@CrearFormulario');
+-----------------------*/
+
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
 //creacion de productos
+Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
+
 Route::post('creacion/formulariotipoproductos', 'ControlTipoProductos@CrearFormulario');
 
 Route::post('creacion/formulariosubtipoproductos', 'ControlSubtipoProductos@CrearFormulario');
@@ -100,17 +130,31 @@ Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 
 Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
 
+//creacion proyectos y financiamientos
+
 Route::post('creacion/formularioproyectos', 'ControlProyectos@CrearFormulario');
 
 Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
+
+Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
+
+Route::post('creacion/formularioinvestigadores', 'ControlInvestigadores@CrearFormulario');
+
+Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
+
+Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
+
+// creacion editar de los formularios
+
+Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion');
+
 
 
 /**********-------------listas de cada tema -------------
 ----------------------------------------------------------------------
 *********************/
-Route::get('listadegruposinv', function() { return View::make('administrador/lista_grupos_inv');});
 
-Route::get('listadegruposestudio', function() { return View::make('administrador/lista_grupos_estudio');});
+Route::get('listadegrupos','ControlListas@ConstruirListaGrupos');
 
 Route::get('listadeconvocatorias','ControlListas@ConstruirListaConvocatorias');
 
@@ -118,20 +162,37 @@ Route::get('listadelineas','ControlListas@ConstruirListaLineas');
 
 Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 
-Route::get('listadeproductos', function() {return View::make('administrador/lista_productos');});
+Route::get('listadeproductos','ControlListas@ConstruirListaProductos');
 
 Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
-Route::get('listadeproyectos', function() {return View::make('administrador/lista_proyectos');});
+Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
 
-/*********** creacion de servicios 
-*************
-****************/
+Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
+
+
+
+/***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)
+*************----------------**/
+
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
+
+//Grupos
 Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre');
 
+Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
+
+//financiamiento
+Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
+
+//Productos
+Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
+
+//Proyectos
 
 
+//financiamiento
+Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
 
 
 

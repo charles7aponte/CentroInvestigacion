@@ -14,8 +14,19 @@
 
 <div id="capa" class="infconvocatoria">
     <fieldset id="principal">
+
+
+         @if(isset($convocatorias['numero_convocatoria'])==false)
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                    <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para esa convocatoria</div>   
+            </fieldset>
+        @endif
+
+
         <div id="titulo-infconv" id="cuadro"> 
-            <h2>Este es el titulo de la convocatoria numero uno de la ciudad de villavicencion de la universidad de los
+            <h2>{{$convocatorias['titulo_convocatoria']}}
             </h2>
         </div>
 
@@ -36,32 +47,54 @@
 
                 <tr>
                     <th id="fil-principal">N&uacute;mero</th>
-                    <td  class="numero" id="col-principal" id="cuadro"></td>
+                    <td  class="numero" id="col-principal">
+                           {{$convocatorias['numero_convocatoria']}}
+                    </td>
                 </tr>
-        
-                <tr>
+
+                        <tr>
                     <th id="fil-principal">Estado</th>
-                    <td class="estado" id="col-principal" id="cuadro"></td>
+                    <td class="estado" id="col-principal" ></td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Descripci&oacute;n</th>
-                    <td class="descripcion" id="col-principal" id="cuadro">Facultad de ciencias basicas e ingenieria</td>
+                    <td class="descripcion" id="col-principal">Facultad de ciencias basicas e ingenieria</td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Dirigida a</th>
-                    <td class="dirigida" id="col-principal" id="cuadro">D</td>
+                    <td class="dirigida" id="col-principal">D</td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Fecha Apertura</th>
-                    <td class="fecha-apertura" id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
+                    <td class="fecha-apertura" id="col-principal">
+                       
+
+                      <?php 
+                        if(isset($convocatorias['fecha_apertura']) && $convocatorias['fecha_apertura']!="")
+                        {
+                            $fecha= new DateTime($convocatorias['fecha_apertura']);
+                             echo $fecha->format('M-d-Y'); 
+                        }
+                      ?>
+                    </td>  
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Fecha Cierre</th>
-                    <td class="fecha-cierre" id="col-principal" id="cuadro">xxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                    <td class="fecha-cierre" id="col-principal" id="cuadro">
+                        
+                      <?php 
+                        if(isset($convocatorias['fecha_cierre']) && $convocatorias['fecha_cierre']!="")
+                        {
+                            $fecha= new DateTime($convocatorias['fecha_cierre']);
+                             echo $fecha->format('d/m/Y'); 
+                        }
+                      ?>
+
+                    </td>
                 </tr>
         
                 <tr>
@@ -81,7 +114,13 @@
 
                 <tr>
                     <th id="fil-principal">Documento de la Convocatoria</th>
-                    <td class="documento-conv" id="col-principal" id="cuadro">wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</td>
+                    <td class="documento-conv" id="col-principal" id="cuadro">
+                      
+                      @if($convocatorias['archivo_convocatoria']!="")
+                          <a href="{{URL::to('archivos_db/convocatorias/')}}/{{$convocatorias['archivo_convocatoria']}}" target="_blank"><i class="icon-file"></i> {{$convocatorias['archivo_convocatoria']}}</a>
+                       @endif
+
+                    </td>
                 </tr>
 
                 <tr>

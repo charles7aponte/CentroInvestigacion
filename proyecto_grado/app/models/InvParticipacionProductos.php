@@ -15,9 +15,9 @@ class InvParticipacionProductos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'numero-conv'             => 'required|max:50|unique:inv_convocatorias,numero_convocatoria', 
+			/*'numero-conv'             => 'required|max:50|unique:inv_convocatorias,numero_convocatoria', 
 			'estado'            		=> 'max:20', 	
-			'cuantia-conv'			=>'required|numeric'
+			'cuantia-conv'			=>'required|numeric'*/
 					
 		);
 

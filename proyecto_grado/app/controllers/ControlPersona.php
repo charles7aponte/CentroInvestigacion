@@ -11,10 +11,11 @@ class ControlPersona extends Controller {
 	{
 		$nombre=$this->limpiarCadena($nombre);
 
+		$nombre=strtolower($nombre);
 
-				$listaPersonas=	DB::select(DB::raw("select concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ) as nombre , cedula as cedula 
+				$listaPersonas=	DB::select(DB::raw("select trim(concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2)) as nombre , cedula as cedula 
 					FROM \"persona\"
-					where concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ,' ',cedula) LIKE '%$nombre%'")
+					where lower(concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ,' ',cedula)) LIKE '%$nombre%'")
 									);
 
 		return Response::json($listaPersonas);

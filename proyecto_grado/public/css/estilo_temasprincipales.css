@@ -1,5 +1,5 @@
 
-#titulo-infconv, .titulo-conv1, #titulo-infgrupos{
+#titulo-infconv, .titulo-conv1, #titulo-infgrupos, #titulo-proyectos{
     width: auto;
     margin:0;
 }
@@ -11,7 +11,8 @@
     margin: 18px;
     padding-bottom: 10px;
 }
- fieldset#secundario{
+
+fieldset#secundario{
     background-color: white;
     border:1px solid #E1E1E1;
     border-radius: 15px;
@@ -21,8 +22,10 @@
     padding:5px;
 }
 
-#titulo-infconv h2, #titulo-lineas h2,
-#titulo-productos h2 {
+#titulo-infconv h2,
+#titulo-lineas h2,
+#titulo-productos h2,
+#titulo-proyectos h2{
    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
    text-align: center;
    color:#122d3e;
@@ -38,31 +41,36 @@
 
 }
 
-#titulo-infgrupos h2{
-   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-   text-align: left;
-   font-weight: bold;
-   color:#122d3e;
-   display: block;
-   font-size:24px;
-   text-transform: uppercase;
+#titulo-infgrupos{
    text-shadow: 1px 1px 1px #AFEEEE;
    background: none repeat scroll 0 0 #FBFBFB;
    border-radius: 5px;
    border-bottom:  2px solid #DCDCDC;
-   width: auto;
+   width: 100%;
+   min-height: 200px;
    padding:2px;
 
 }
 
+#titulo-infgrupos h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align:left;
+   font-weight: bold;
+   line-height:30px;
+   color:#122d3e; 
+   font-size:20px;
+   text-transform: uppercase;
+   margin-left: 15px;
+   margin-right: 5px;
+ }
+
 /*-------------------logos de los grupos-----------------------*/
-#titulo-infgrupos h2 img{
+#titulo-infgrupos img, #titulo-personas img{
     position: relative;
-    right: -370px;
-    width: 200px;
+    width: 300px;
+    max-height: 200px;
     vertical-align: middle;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -70,11 +78,13 @@
     -moz-box-shadow:0 0 20px #ccc ;
     box-shadow:0 0 20px #ccc;
 }
- 
+
 .tabla-infconvocatorias,
 .tabla-infgrupos,
 .tabla-inflineas,
-.tabla-infproductos{
+.tabla-infproductos,
+.tabla-infpersonas,
+.tabla-infproyectos{
     font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
     line-height: 20px;
     border-spacing: 1px;
@@ -86,26 +96,34 @@
     vertical-align: middle;
     border-collapse: separate;
     border-spacing: 2px;
+    text-transform: capitalize;
 }
 
 .tabla-infconvocatorias th:first-child, 
 .tabla-infgrupos th:first-child,
 .tabla-inflineas th:first-child,
-.tabla-infproductos th:first-child{
+.tabla-infproductos th:first-child,
+.tabla-infpersonas th:first-child,
+.tabla-infproyectos th:first-child{
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    padding-left: 10px;
 }
 
 .tabla-infconvocatorias thead, 
 .tabla-infgrupos thead,
-.tabla-inflineas thead{
+.tabla-inflineas thead,
+.tabla-infpersonas thead,
+.tabla-infproyectos thead{
     cursor: pointer;
 }
 
 .tabla-infconvocatorias #fil-principal,
 .tabla-infgrupos #fil-principal,
-.tabla-inflineas #fil-principal{
+.tabla-inflineas #fil-principal,
+.tabla-infpersonas #fil-principal,
+.tabla-infproyectos #fil-principal{
     width: 150px;
     padding:0.5em;
     border: 5px solid white;
@@ -115,7 +133,9 @@
 }
 .tabla-infconvocatorias #col-principal,
 .tabla-infgrupos #col-principal,
-.tabla-inflineas #col-principal{
+.tabla-inflineas #col-principal,
+.tabla-infpersonas #col-principal,
+.tabla-infproyectos #col-principal{
     width: 600px;
     padding:3px;
     border-right: none;
@@ -199,8 +219,8 @@ tbody tr.odd td {
   font-style: normal;
 }
 
-h2:hover, h4:hover{
-  background:#2E6B90;
+h4:hover{
+  background: gray;
 }
 
 .tabla-conv thead td{
@@ -332,5 +352,37 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
 }
 
 
+/*<!MODAL... sublineas lineas--->*/
+#modal-internos div.modal-header{
+  background-color:#2E6B90;
+  color: white; 
+}
+/*<!Forma de encabezado-->*/
+.infpersonas .talkbubble {
+   width: 700px;
+   height: 100px;
+   margin-left:90px; 
+   background: #eee;
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
 
+}
 
+.infpersonas .talkbubble:before{
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 40px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid #eee;
+   border-bottom: 13px solid transparent;
+}
+.talkbubble h1{
+    vertical-align:inherit;
+    line-height: 1.5em;
+    padding: 20px;
+}

@@ -18,11 +18,13 @@
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
+
+    <script src="{{URL::to('js/')}}/recursos/formularioproductos.js" type="text/javascript"></script>
 @stop
 
 @section('cuerpo')
 <div>  
-   <form id="form-productos" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioproductos')}}" method="post">
+   <form id="form-productos"   enctype="multipart/form-data" action="{{URL::to('creacion/formularioproductos')}}" method="post">
            @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -105,7 +107,7 @@
                         <li>
                             <div class="col-md-2"><label>Integrantes: </label></div>
                              <div class="col-md-2"> 
-                                <input style="margin-left: 30px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-producto" id="botones-especiales" value="Agregar/Ver Integrantes">
+                                <input style="margin-left: 30px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-producto" id="botones-especiales" value="Agregar/Ver Autores">
                             </div>
                         </li>
                     </div>
@@ -121,14 +123,23 @@
                             </button>
                             <!--Agregando nuevos integrantes-->
                             <li style="margin-top: 15px;">
-                                <label  style="width:inherit">Integrante: </label>
+                                <label  style="width:inherit">Autores: </label>
                                     <input type="text" id="integrantes-producto" name="integrantes-producto" value=""></br>
                             </li>    
                             <li>
                                 <label  style="width:inherit">Grupo participante: </label>
-                                    <input type="text" id="grupo-producto" name="grupo-producto" value="">
+
+                                <select name="grupo-integrante" id="grupo-integrante">
+
+                                    @if(isset($grupoproductos))
+                                        @foreach($grupoproductos as $grupoproducto)
+                                             <option value="{{$grupoproducto['codigo_grupo']}}" > {{$grupoproducto['nombre_grupo']}}</option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
                             </li> 
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <button type="button" class="btn btn-primary" id="boton-integrantes-productos" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -145,43 +156,12 @@
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121887678</td>
-                                  <td>Pepito Perez Gonzalez</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar Cambios</button>
                           </div>
                         </div>
                       </div>
@@ -189,7 +169,15 @@
                     <!--*******************************************
                     ******************-->
                 <li><label for="entidad-prod">Entidad:</label>
-                    <input type="tel" id="entidad-prod" name="entidad-prod" value="{{Input::old('entidad-prod')}}">
+                    
+                    <select name="entidad-prod" required="required">
+                      @if(isset($entidadproductos))
+                        @foreach($entidadproductos as $entidadproducto)
+                           <option value="{{$entidadproducto['nit']}}" > {{$entidadproducto['razon_social']}}</option>
+                        @endforeach
+                      @endif
+                    </select>
+
                      @if ($errors->has('entidad-prod')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-prod') }}</p> @endif
                 </li>
                 <li><label for="reconocimiento-prod">Reconocimiento:</label>
@@ -225,8 +213,7 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-producto" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16">
+                        <button id="crear-producto" type="submit"                        <img alt="bien"  src="images/bn.png" width="16" height="16">
                         Crear producto
                         </button>
                     </th>

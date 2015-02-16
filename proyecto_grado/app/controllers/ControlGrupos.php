@@ -9,155 +9,186 @@ class ControlGrupos extends Controller {
 	 */
 	public function CrearFormulario(){
 
-		$numero=Input::get('nombre');
-		$coord=Input::get('coord');
-		$email=Input::get('email');
+		$grupo=Input::get('nombre');
 
+
+
+
+
+		$dateinicio = new DateTime($fecha_creacion);
+
+		$fecha_creacion=$dateinicio->format('d/m/Y');
+
+
+
+		$coord=Input::get('cedula-persona');
+		$email=Input::get('email');
 		$pagina=Input::get('pagina');
 		$telefono=Input::get('telefono');
-		$direccion=Input::get('direccion');
-		
-		$fecha_creacion=Input::get('fecha_creacion');
+		$direccion1=Input::get('direccion');
 		$unidad=Input::get('unidad');
 		$categoria=Input::get('categoria');
 		$tipo=Input::get('tipo');
-
-		$integrantes =Input::get('integrantes');
-
-
-
-     for($i=0;$i< count($integrantes); $i++)
-     {
-     	echo "--> ".$integrantes[$i]."<br>";
-     }
-
-print_r(Input::all());
-		
+		$objetivos=Input::get('objetivos');
+		$gruplac=Input::get('gruplac');
 
 
-/*
-
-
-
-		//manejo de fechas ..		
-		$fecha_apertura=Input::get('fecha-apertura');
-		$fecha_cierre=Input::get('fecha-cierre');
-
-		$dateApertura = new DateTime($fecha_apertura);
-		$dateCierre = new DateTime($fecha_cierre);
-
-		$fecha_apertura=$dateApertura->format('d/m/Y');
-		$fecha_cierre=$dateCierre->format('d/m/Y');
-		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
-
-
-		$telefono=Input::get('telefono');
-		$email=Input::get('email-conv');
-		$pagina=Input::get('pag-conv');	
-		$dirigida=Input::get('dirigida-conv');
-		$descripcion=Input::get('desc-conv');	
-		$cuantia=Input::get('cuantia-conv');
-		//$archivo=Input::get('dcto-conv');
-		$nombreNuevo="";
-
-		//manejo de archivo
-		///
-		if(Input::hasFile('dcto-conv'))
-		{
-			$archivoF =Input::file('dcto-conv');
-			$nombreNuevo=$numero."-".$archivoF->getClientOriginalName();
-
-			while (File::exists("img_db/".$nombreNuevo) )
-			{
-				$numero=rand(1,999);
-				$nombreNuevo=$numero."-".$nombreNuevo;				
 			
-			}
 
-			$archivoF->move("img_db",$nombreNuevo);
-
-			//echo "-->".$archivoF ->getClientOriginalName();
-		}
+		//manejo archuvos
+		$nombreNuevo="";
+		$direccion = __DIR__."/../../public/archivos_db/grupos/";
 
 
-
-		$todosDatos = Input::all();
-
-		$entidad=new InvConvocatorias();
+		$todosDatos = Input::except('logog','afiche','img1','img2');
 		
-		$entidad->numero_convocatoria=$numero;
-		$entidad->estado=$estado;
-		$entidad->titulo_convocatoria=$titulo;
-		$entidad->fecha_apertura=$fecha_apertura;
-		$entidad->fecha_cierre=$fecha_cierre;
-		$entidad->cuantia=$cuantia;
-		$entidad->descripcion_convocatoria=$descripcion;
+
+		$entidad=new InvGrupos();
+		
+		$entidad->nombre_grupo=$grupo;
+		$entidad->director_grupo=$coord;
 		$entidad->email=$email;
-		$entidad->telefono_contacto=$telefono;
-		$entidad->pagina_convocatoria=$pagina;
-		$entidad->archivo_convocatoria=$nombreNuevo;
-		$entidad->convocatoria_dirigida=$dirigida;
-	
+		$entidad->pagina_web=$pagina;
+		$entidad->telefono=$telefono;
+		$entidad->direccion_grupo=$direccion1;
+		$entidad->objetivos=$objetivos;
+		$entidad->unidad_academica=$unidad;
+		$entidad->categoria=$categoria;
+		$entidad->inv_tipo_grupos=$tipo;
+		$entidad->link_gruplac=$gruplac;
+		$entidad->ano_creacion=$fecha_creacion;
+
+
 
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
 				'required' => 'Este campo es obligatorio.',
-				'max'=>'El campo no debe ser mayor a :max',
-				'email' =>'No es una dirección de email válida'
+				'max'=>'El campo no debe ser mayor a :max.',
+				'email' =>'No es una dirección de email válida.',
+				'unique'=>'Verifique, es posible que ya exista el grupo.'
+
 			);
+						// execute la validacin 
 
+			$validator = Validator::make(Input::all(), InvGrupos::$reglasValidacion,$messages);
 
-			// execute la validacin 
-			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
 
-				return Redirect::to('formularioconvocatorias')
+
+				return Redirect::to('formulariogrupos')
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
-			} else {
+		} else {
 
+						$archivo1=$this->ArchivosGrupos('logog',$direccion);//archivoshtml
+							$entidad->logo_grupo=$archivo1;//base
 
+						$archivo2=$this->ArchivosGrupos('afiche',$direccion);
+							$entidad->ruta_afiche=$archivo2;
 
-			//		try{
+						$archivo3=$this->ArchivosGrupos('img1',$direccion);
+							$entidad->imagen1=$archivo3;
+
+						$archivo4=$this->ArchivosGrupos('img2',$direccion);
+							$entidad->imagen2=$archivo4;	
+
 						$entidad->save();
+
+						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+						$listaLineas=Input::get("lineas"); // name del json del jquery
+
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionGrupos();
+							$modelIntegrante->inv_codigo_grupo =  $entidad->codigo_grupo;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->save();
+
+						}
+
+
+						for($i=0;$i<count($listaLineas);$i++)
+						{
+
+							$modelLinea=new InvParticipacionGruposLineas();
+							$modelLinea->inv_codigo_grupo =  $entidad->codigo_grupo; //donde estoy .. donde apunto
+							$modelLinea->inv_id_linea =     $listaLineas[$i];
+							$modelLinea->save();
+
+						}
+			
+
+			
+					try{
+
+
 					}
-					catch( PDOException $e)
+
+					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioconvocatorias')
+						return Redirect::to('formulariogrupos')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista la convocatoria");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 					
-						return Redirect::to('formularioconvocatorias')
+						return Redirect::to('formulariogrupos')
 								->withInput($todosDatos)
-								->with('mensaje_success',"La convocatoria ha sido creada.");
+								->with('mensaje_success',"El grupo ha sido creado.");
 			
 					}
-			*/	
+			
 			}
 
+					/*********** carga el formulario para cargar los datos desde la tabla*/
 
+			public function cargarFormularioGrupo(){
 
-			/**********
-			* caraga el formulario para crear un nuevo grupo
-			*/
-			public function cargarFormularioNuevoGrupo(){
-
-				$listaTiposGrupos = InvTipoGrupos::all();
+				$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
 
 				$datos=  array(
-					'tipo_grupos' =>$listaTiposGrupos );
+					'tipos' =>$listatipogrupos);
 
-			  return View::make('administrador/formulario_grupos',$datos); 
+			 	return View::make('administrador/formulario_grupos',$datos); 
 
 
 			}//
+
+
+
+			function ArchivosGrupos($name,$direccion){
+				
+				$nombreNuevo="";
+				if(Input::hasFile($name))
+					{
+
+						$archivoF =Input::file($name);
+						$nombreNuevo=$archivoF->getClientOriginalName();
+
+
+						while (File::exists($direccion.$nombreNuevo) )
+						{
+							$numero=rand(1,999);
+							$nombreNuevo=$numero."-".$nombreNuevo;				
+				
+						}
+
+
+						$archivoF->move($direccion,$nombreNuevo);
+					}
+
+					return $nombreNuevo;
+			
+			}
+
+
 
 
 

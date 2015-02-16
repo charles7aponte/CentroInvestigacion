@@ -10,14 +10,12 @@ class InvParticipacionProyectos extends Eloquent  {
 	 */
 	protected $table = 'inv_participacion_proyectos';
 	public $timestamps = false;
-	protected $primaryKey = "numero_convocatoria";
+	protected $primaryKey = "id_participacion_proyectos";
 
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'numero-conv'             => 'required|max:50|unique:inv_convocatorias,numero_convocatoria', 
-			'estado'            		=> 'max:20', 	
-			'cuantia-conv'			=>'required|numeric'
+			
 					
 		);
 

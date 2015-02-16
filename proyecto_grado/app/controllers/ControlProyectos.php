@@ -52,7 +52,7 @@ class ControlProyectos extends Controller {
 		$entidad->estado_proyecto=$estado_proyecto;
 		$entidad->fecha_proyecto=$fecha_inicio;
 		$entidad->inv_numero_convocatoria=$conv_proyecto;
-		$entidad->inv_id_sublinea=$linea_proyecto;
+		$entidad->inv_id_linea=$linea_proyecto;
 		$entidad->inv_codigo_grupo=$grupo1_proyecto;
 		$entidad->grupo_auxiliar=$grupo2_proyecto;
 		$entidad->objetivo_general=$objetivo_proyecto;
@@ -67,7 +67,7 @@ class ControlProyectos extends Controller {
 				'max'=>'El campo no debe ser mayor a :max.',
 				'email' =>'No es una dirección de email válida.',
 				'numeric'=>'No es un valor valido.',
-				'unique'=>'Verifique, es posible que ya exista la convocatoria.'
+				'unique'=>'Verifique, es posible que ya exista el proyecto.'
 
 			);
 
@@ -82,55 +82,75 @@ class ControlProyectos extends Controller {
 
 
 
-				return Redirect::to('formularioproyectos')
+				/*return Redirect::to('formularioproyectos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar");*/
 		} else {
 
-					$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);
-						$entidad->archivo_actainicio=$archivo1;
+			
 
-					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
+			
+					try
+					{
+						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
+						$entidad->archivo_actainicio=$archivo1;//base
+
+						$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
 						$entidad->archivo_propuesta=$archivo2;
 
-					$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
+						$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
 						$entidad->informe_final=$archivo3;
 
 						$entidad->save();
-			/*
-					try{
-						$entidad->save();
+
+						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+						$listatiempos=Input::get("tiempo");
+						$listatipoinvestigador=Input::get("tipoinvestigador");
+
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionProyectos();
+							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
+							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
+							$modelIntegrante->save();
+
+						}
 					}
 
 					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
-						return Redirect::to('formularioconvocatorias')
+						return Redirect::to('formularioproyectos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}
 					
-			*/			return Redirect::to('formularioproyectos')
+						return Redirect::to('formularioproyectos')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El proyecto ha sido creado.");
 			
-					}
+				
 			
-			}
+			}//el
+
+		}	
 
 
 
 
 
-		/**********
-			* carga el formulario para cargar los datos desde la tabla
-			*/
+		/*********** carga el formulario para cargar los datos desde la tabla*/
+
 			public function cargarFormularioProyectos(){
 
-				$listaConvocatorias = InvConvocatorias::all();
-				$listaLineas = InvLineas::all();
+				$listaConvocatorias = InvConvocatorias::where('estado1','=','1')->get();
+				$listaLineas = InvLineas::where('estado','=','1')->get();
 				$listaGrupos = InvGrupos::all();
 				$listaGrupos1 = InvGrupos::all();
 
@@ -174,6 +194,14 @@ class ControlProyectos extends Controller {
 					return $nombreNuevo;
 			
 			}
+
+				public function buscarProyectoPorNombre($proyecto){
+				$proyectos1=InvProyectos::where("nombre_proyecto","LIKE","%$proyecto%")->get();
+
+				return Response::json($proyectos1);
+
+			}
+
 
 	
 }

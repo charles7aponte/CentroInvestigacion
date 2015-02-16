@@ -15,7 +15,7 @@ class InvProyectos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'nombre-proyecto'        =>'required',
+			'nombre-proyecto'        =>'required|unique:inv_proyectos,nombre_proyecto',
 			'creacion_proyecto'      => 'required',
 			'estado-proy'			 => 'required', 
 			'creacion_proyecto' 	 => 'required',

@@ -30,7 +30,8 @@ class ControlSublineas extends Controller {
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',
-				'max'=>'No debe ser mayor a :max'
+				'max'=>'No debe ser mayor a :max',
+				'unique'=>'Es posible que la sublinea ya exista.'
 			);
 
 
@@ -75,7 +76,7 @@ class ControlSublineas extends Controller {
 
 			public function cargarFormularioNuevaSublinea(){
 
-			$listaLineas = InvLineas::all();
+			$listaLineas = InvLineas::where("estado","=","1")->get();
 
 			$datos=  array(
 				'lineas' =>$listaLineas);
@@ -85,5 +86,27 @@ class ControlSublineas extends Controller {
 
 
 			}//
+
+
+			public function EliminarFormularioSublinea($id){
+			
+				$form_sublinea= InvSublineas::find($id); //de donde necesito
+
+				if (is_null($form_sublinea)==false){
+
+					$form_sublinea->estado1=0;
+					$form_sublinea->nombre_sublinea.="*";
+					$form_sublinea->save();
+
+					//$form_tipogrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 
+
+
 
 }

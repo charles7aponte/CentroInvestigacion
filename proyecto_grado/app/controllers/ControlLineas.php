@@ -10,7 +10,7 @@ class ControlLineas extends Controller {
 	public function CrearFormulario(){
 
 		$nombre=Input::get('nombre-linea');
-		$coordinador=Input::get('coor-linea');
+		$coordinador=Input::get('cedula-persona');
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');	
@@ -35,6 +35,7 @@ class ControlLineas extends Controller {
 			$messages = array(
 				'required' => '*Es obligatorio.',
 				'max'=>'No debe ser mayor a :max',
+				'unique'=>'Es posible que ya exista la linea que ingreso.'
 			);
 
 
@@ -94,5 +95,32 @@ class ControlLineas extends Controller {
 				
 					}
 			}
+
+			public function buscarlineaPorNombre($linea){
+				$lineas=InvLineas::where("nombre_linea","LIKE","%$linea%")->get();
+
+				return Response::json($lineas);
+
+			}
+
+
+			public function EliminarFormularioLinea($id){
+			
+				$form_linea= InvLineas::find($id); //de donde necesito
+
+				if (is_null($form_linea)==false){
+
+					$form_linea->estado=0;
+					$form_linea->nombre_linea.="*";
+					$form_linea->save();
+
+					//$form_tipogrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 
 
 }

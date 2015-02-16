@@ -15,12 +15,13 @@ class InvProductos extends Eloquent  {
 
 		// reglas
 	public 	static $reglasValidacion = array(
-			'titulo-producto'        =>'required',
+			'titulo-producto'        =>'required|unique:inv_productos,nombre_producto',
 			'creacion-producto'      => 'required',
 			'subtipo-proy'			 => 'required', 
 			'grupo-proy' 	         => 'required',
 			'linea-proy' 	 		 => 'required',
 			'desc-conv' 			 => 'required',	
+			'entidad-prod'           =>'required',
 			
 		);
 

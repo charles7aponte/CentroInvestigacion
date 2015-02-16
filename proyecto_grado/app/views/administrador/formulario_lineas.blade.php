@@ -1,5 +1,11 @@
 @extends('administrador.panel_admin')
 
+
+@section('javascript-nuevos')
+   
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariointegrantes-lineasgrupos.js"></script>
+@stop
+
 @section('cuerpo')
 <div>  
     <form id="form-lineas" autocomplete="on" enctype="multipart/form-data" action="{{URL::to('creacion/formulariolineas')}}"  method="post">
@@ -25,13 +31,17 @@
                     <li class="@if($errors->has('nombre-linea')) has-error @endif">
                         <label for="nombre-linea">
                         Nombre de la l&iacute;nea:</label>
-                        <input type="text" id="nombre-linea" name="nombre-linea" value="{{Input::old('nombre-linea')}}" required="required"/>
+                        <input onchange="letrasCapital(this)" type="text" id="nombre-linea" name="nombre-linea" value="{{Input::old('nombre-linea')}}" required="required"/>
                          @if ($errors->has('nombre-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-linea') }}</p> @endif
                     </li>
 
                     <li class="@if($errors->has('coor-linea')) has-error @endif" >
                         <label for="coor-linea">Coordinador de la l&iacute;nea:</label>
-                        <input type="text" id="coor-linea" name="coor-linea" value="{{Input::old('coor-linea')}}" required="required"/> 
+                        <input type="text" id="coor-linea" name="coor-linea" value=" " /> 
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value=" "/>
+                            <span id="advertencias">
+                                <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
+                            </span> 
                          @if ($errors->has('coor-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coor-linea') }}</p> @endif
                     </li>
 

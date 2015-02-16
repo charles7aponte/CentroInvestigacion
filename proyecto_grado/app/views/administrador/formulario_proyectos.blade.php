@@ -18,6 +18,7 @@
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
+    <script src="{{URL::to('js/')}}/recursos/formularioproyectos.js" type="text/javascript"></script>
 @stop
 
 @section('cuerpo')
@@ -158,60 +159,39 @@
                                 <label  style="width:inherit">Tiempo dedicado: </label>
                                     <input type="text" id="tiempo-proyecto" name="tiempo-proyecto" value="">
                             </li> 
-                             <button type="button" class="btn btn-primary" ng-click="buscarUsuarios()" style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+
+                            <li>
+                                <label  style="width:inherit">Tipo Investigador:</label>
+                                <select name="tipo-investigador" id="tipo-investigador" required="required" style="width: 300px;
+                                        margin-left: 10px;">
+                                    <option value="investigador principal">Investigador Principal (IP)</option>
+                                    <option value="coinvestigador">Coinvestigador (CI)</option>    
+                                </select>
+                            </li> 
+
+                             <button type="button" class="btn btn-primary" id="boton-integrantes-proyectos" style="background:#1A6D71; display:none"><span class="glyphicon glyphicon-plus"></span> Agregar </button> 
                           </div>
                           
                           <div class="modal-body">
                             <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
                             id="tabla-integrantes-proyectos">
                               <thead>
-                                <tr><th colspan="4">INTEGRANTES DEL GRUPO</th></tr>
+                                <tr><th colspan="5">INTEGRANTES DEL PROYECTO</th></tr>
                                 <tr>
                                   <th>Documento</th>
                                   <th colspan="1">Nombres y Apellidos</th>
                                   <th>Tiempo dedicado</th>
+                                  <th>Tipo Investigador</th>
                                   <th></th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121887678</td>
-                                  <td>Pepito Perez Gonzalez</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar Cambios</button>
                           </div>
                         </div>
                       </div>

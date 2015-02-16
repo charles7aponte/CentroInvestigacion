@@ -7,7 +7,6 @@ $(document).ready(function(){
 
 $("#bton_integrantes-grupos").click(function(){
 
-
 	generaFilaPersona(jsonIntegrante,"integrantes");
 
 
@@ -17,13 +16,20 @@ $("#bton_integrantes-grupos").click(function(){
 
 $("#integrantes-grupos").keyup(function(e){
 	//console.log(e);
-
-	$("#bton_integrantes-grupos").hide();
+    if(e.which!=13)            //para cuando se da el evento de enter
+    {
+        $("#bton_integrantes-grupos").hide();
+    }
 
 });
 
 
 
+$("#guardar-cambios").click(function(){
+
+    $("#myModal-integrantes").modal("hide");
+
+});
 
 
 
@@ -58,7 +64,7 @@ $("#integrantes-grupos").keyup(function(e){
   			$("#bton_integrantes-grupos").show();
 
 
-			$("#integrantes-grupos").val(ui.item.nombre+"("+ui.item.cedula+")");
+			$("#integrantes-grupos").val(ui.item.nombre+"  ("+ui.item.cedula+")");
 			//generaFilaPersona(ui.item,"integrantes");
 			jsonIntegrante = ui.item;
 
@@ -110,9 +116,10 @@ $("#integrantes-grupos").keyup(function(e){
             if(existe==false)
             {
             $("#tabla-integrantes-grupos").append($fila);	
+            $("#integrantes-grupos").val(" "); //poner el input vacio
             }
             else{
-            	alert("ya existe");
+            	alert("Ya agrego ese participante al grupo");
             }
             
 	}

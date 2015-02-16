@@ -13,6 +13,7 @@ class CinvParticipacionGrupos extends Migration {
 	public function up()
 	{
 		Schema::create('inv_participacion_grupos', function($tabla){
+			
 			$tabla->increments('id_participacion_grupos');
 			$tabla->integer('inv_codigo_grupo')->unsigned();
 			$tabla->bigInteger('cedula_persona')->unsigned();

@@ -12,6 +12,8 @@
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
 
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariogrupos.js"></script>
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariolineas.js"></script>
+    <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariointegrantes-lineasgrupos.js"></script>
 @stop
 
 
@@ -29,62 +31,129 @@
     <form id="form-grupos" autocomplete="on" 
       enctype="multipart/form-data" 
       action="{{URL::to('creacion/formulariogrupos')}}" method="POST">
+
+         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+            <fieldset style="margin-bottom: 2px;
+                    margin-top: 5px;
+                    padding: 2px;">
+                @if(Session::has('mensaje_success'))    
+                    <div style="margin: 0px;" class="alert alert-success">{{Session::get('mensaje_success')}}</div>
+                @endif
+
+                @if(Session::has('mensaje_error'))
+                    <div  style="margin: 0px;" class="alert alert-danger">{{ Session::get('mensaje_error')}}</div>   
+                @endif 
+            </fieldset>
+        @endif
+
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo grupo</h2></div>
             <ul>
                 <fieldset>  
-                    <li><label for="nombre">Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre" value="" required="required"/>
-                    </li>    
-                    <li><label for="coord">Coordinador:</label>
+                    <li class="@if($errors->has('nombre')) has-error @endif">
+                      <label for="nombre" >Nombre del grupo: </label>
+                        <input type="text" id="nombre" name="nombre"  value="{{Input::old('nombre')}}" required="required"/>                
+                         @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
+                         @endif
+                    </li> 
+
+                    <li class="@if($errors->has('coord')) has-error @endif">
+                      <label for="coord">Coordinador:</label>
                         <input type="text" id="coord" name="coord" value="" required="required"/>
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
+                          <span id="advertencias">
+                            <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
+                          </span>
+                          @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
+                         @endif
                     </li>
-                    <li><label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="" required="required" />
+
+                    <li class="@if($errors->has('email')) has-error @endif">
+                      <label for="email">Email:</label>
+                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
+                          @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
+                         @endif          
                     </li>
-                    <li><label for="pagina">P&aacute;gina web:</label>
-                        <input type="text" id="pagina" name="pagina" value=""  autofocus="autofocus" />
+
+                    <li class="@if($errors->has('pagina')) has-error @endif">
+                      <label for="pagina">P&aacute;gina web:</label>
+                        <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+                         @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
+                         @endif                        
                     </li>
-                    <li><label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value=""/>
+
+                    <li class="@if($errors->has('telefono')) has-error @endif">
+                      <label for="telefono">Tel&eacute;fono:</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
+                         @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
+                         @endif                   
                     </li>
-                    <li><label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="" required="required"/>
+
+                    <li class="@if($errors->has('direccion')) has-error @endif">
+                      <label for="direccion">Direcci&oacute;n:</label>
+                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
+                         @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
+                         @endif                     
                     </li>
-                    <li><label for="creacion">Año de creaci&oacute;n:</label>
+
+                    <li><label for="creacion-grupo">Año de creaci&oacute;n:</label>
                         <div class="container">
                             <div class="row">
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" 
-                                            style="cursor:pointer"   
-                                            readonly id="creacion" class="date form-control" data-format="dd/MM/yyyy" name="fecha_creacion" value="" required="required" /> 
-                                            
+                                            <input type="" style="cursor:pointer" 
+                                            readonly id="creacion-grupo" class="date form-control" data-format="dd/MM/yyyy" name="creacion-grupo" value="{{Input::old('creacion-grupo')}}" required="required" />
+                                             @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-grupo') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
                                     </div>
-                                </div>
-                               
+                                </div>                               
                             </div>
-                        </div>
+                        </div>    
                     </li>
-                    <li><label for="unidad">Unidad acad&eacute;mica:</label>
-                        <input type="text" id="unidad" name="unidad" value="" required="required"/>
-                    </li>
-                    <li><label for="categoria">Categor&iacute;a:</label>
-                        <input type="text" id="categoria" name="categoria" value="" required="required"/>
-                    </li>
-                    <li><label for="tipo">Tipo:</label> 
-                        <select name="tipo" required="required">
-                         <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
-                          @if(isset($tipo_grupos))
-                          
-                             @foreach ($tipo_grupos as $tipo_grupo) //array--- nombre del campo en la bd
-                               <option value="{{$tipo_grupo['id']}}">{{$tipo_grupo['tipo_grupo']}}</option>
-                             @endforeach 
 
-                          @endif
+                    <li class="@if($errors->has('unidad')) has-error @endif">
+                      <label for="unidad">Unidad academica:</label>
+                        <select required="required" name="unidad">
+                          <option value="Departamento de biologia y quimica">
+                            Departamento de biolog&iacute;a y qu&iacute;mica</option>
+                          <option value="Departamento de matematicas y fisica">
+                            Departamento de matem&aacute;ticas y f&iacute;sica</option>
+                          <option value="Escuela de ingenieria">
+                            Escuela de ingenier&iacute;a</option>
+                          <option value="Instituto de ciencias ambientales">
+                            Instituto de ciencias ambientales</option>
+                        </select>
+                         @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
+                         @endif                        
+                    </li>
+
+                    <li class="@if($errors->has('categoria')) has-error @endif">
+                      <label for="categoria">Categor&iacute;a:</label>
+                        <select required="required" name="categoria">
+                          <option value="A1">A1</option>
+                          <option value="A2">A2</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+                          <option value="reconocido">Reconocido</option>
+                          <option value="institucional-unillanos">Institucional-Unillanos</option>
+                          <option value="no reconocido">No reconocido</option>
+                        </select>
+                         @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
+                         @endif                        
+                    </li>
+
+                    <li ><label for="tipo">Tipo:</label> 
+                        <select name="tipo" required="required">
+                              @if(isset($tipos))
+                                @foreach($tipos as $tipo)
+                                    <option value="{{$tipo['id']}}" > {{$tipo['tipo_grupo']}}</option>
+                                @endforeach
+                              @endif    
+
                         </select>
                     </li> 
                 </fieldset>
@@ -108,10 +177,10 @@
                             </button>
                             <!--Agregando nuevos integrantes-->
                             <label  style="width:inherit">Integrante: </label>
-                             <input type="text" id="integrantes-grupos"  value="" />
+                             <input type="text" id="integrantes-grupos"  value="" style="width:500px;"/>
                              <button type="button" class="btn btn-primary"  
                                 id="bton_integrantes-grupos"
-                              style="background:#1A6D71; display:none"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
@@ -120,18 +189,18 @@
                               <thead>
                                 <tr><th colspan="3">INTEGRANTES DEL GRUPO</th></tr>
                                 <tr>
-                                  <th>Documento</th>
+                                  <th># DOCUMENTO</th>
                                   <th colspan="2">Nombres y Apellidos</th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                
+
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>
@@ -140,14 +209,14 @@
                     
                     <!--*******************************************
                     ******************-->
+
                     <div class="row">
-                        <div class="col-md-2"><label>L&iacute;neas: </label></div>
-                        <div class="col-md-2"> 
-                            <input type="button"  data-toggle="modal" data-target="#myModal-lineas" id="botones-especiales" value="Agregar/Ver L&iacute;neas">
+                        <div class="col-md-2"><label>Lineas: </label></div>
+                         <div class="col-md-2"> 
+                            <input type="button"  data-toggle="modal" data-target="#myModal-lineas" id="botones-especiales" value="Agregar/Ver Lineas">
                         </div>
                     </div>
-
-                    <!--haciendo una modal para agregar Lineas-->
+                    <!--haciendo una modal para agregar lineas-->
                     <div class="modal fade" id="myModal-lineas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
                       <div class="modal-dialog"  style="width:960px">
                         <div class="modal-content">
@@ -156,50 +225,37 @@
                             <button type="button" class="close" data-dismiss="modal">
                                 <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
                             </button>
+
                             <!--Agregando nuevas lineas-->
                             <label  style="width:inherit">L&iacute;nea: </label>
-                             
-                             <button type="button" class="btn btn-primary"  style="background:#1A6D71"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                             <input type="text" id="linea-grupos"  value="" />
+                             <button type="button" class="btn btn-primary"  
+                                id="bton_linea-grupos"
+                              style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
                           </div>
                           
                           <div class="modal-body">
-                             <input type="text" id="lineas-grupos"  value="" />
-                              
-
-
-                            <table id="tabla-lineas-grupos">
+                            <table  data-url="/examples/bootstrap_table/data" data-height="400" data-side-pagination="server" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true" id="tabla-lineas-grupos">
                               <thead>
-                                <tr><th colspan="3">L&Iacute;NEAS DEL GRUPO</th></tr>
+                                <tr><th colspan="3">L&iacute;neas</th></tr>
                                 <tr>
                                   <th>C&oacute;digo</th>
-                                  <th colspan="2">Nombre de la L&iacute;nea</th>
+                                  <th colspan="2">Nombre</th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td>01</td>
-                                  <td>Teleinformatica</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>02</td>
-                                  <td>Software</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+                            
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" style="background:#1A6D71">Guardar Cambios</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios1" style="background:#1A6D71">Guardar</button>
                           </div>
                         </div>
                       </div>
                     </div>
+
                     <!--*******************************************
                     ******************-->
                 </fieldset>
@@ -207,24 +263,48 @@
 
             <ul>
                 <fieldset>
-                        <li><label for="objetivos">Objetivos:</label>
-                        <textarea id="objetivos" name="objetivos" required="required"></textarea>
+                        <li class="@if($errors->has('objetivos')) has-error @endif">
+                          <label for="objetivos">Objetivos:</label>
+                          <textarea id="objetivos" name="objetivos" required="required" value="{{Input::old('objetivos')}}"></textarea>
+                           @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
+                           @endif
                         </li>  
-                        <li><label for="gruplac">Link Gruplac: </label>
-                            <input type="text" id="gruplac" name="gruplac" />
+
+                        <li class="@if($errors->has('gruplac')) has-error @endif">
+                          <label for="gruplac">Link Gruplac: </label>
+                            <input type="text" id="gruplac" name="gruplac" value="{{Input::old('gruplac')}}"/>
+                           @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
+                           @endif                            
                         </li>
-                        <li><label for="logog">Logo del grupo:</label>
-                            <input type="file"  id="logog" name="logog"  required="required" />
+
+                        <li class="@if($errors->has('logog')) has-error @endif">
+                          <label for="logog">Logo del grupo:</label>
+                            <input type="file"  id="logog" name="logog"  required="required" value="{{Input::old('logog')}}" />
+                           @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
+                           @endif                            
                         </li>
-                        <li><label for="afiche">Ruta del afiche: </label>
+
+                        <li class="@if($errors->has('afiche')) has-error @endif">
+                          <label for="afiche">Ruta del afiche: </label>
                             <input type="file" id="afiche" name="afiche"/>
+                          @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> 
+                          @endif                            
                         </li>
-                        <li><label for="img1">Imagen 1: </label>
-                            <input type="file"  id="img1" name="img1" />
+
+                        <li class="@if($errors->has('img1')) has-error @endif">
+                          <label for="img1">Imagen 1: </label>
+                            <input type="file"  id="img1" name="img1" value="{{Input::old('img1')}}"/>
+                          @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
+                          @endif 
                         </li>
-                        <li><label for="img2">Imagen 2: </label>
-                            <input type="file"  id="img2" name="img2" />
-                        </li>       
+
+                        <li class="@if($errors->has('img2')) has-error @endif">
+                          <label for="img2">Imagen 2: </label>
+                            <input type="file"  id="img2" name="img2" value="{{Input::old('img2')}}" />
+                          @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
+                         @endif
+                        </li> 
+
                 </fieldset> 
             </ul>   
             <table id="botones-formularios">
