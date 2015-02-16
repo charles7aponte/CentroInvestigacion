@@ -264,7 +264,8 @@ class ControlConvocatorias extends Controller {
 
 
 
-
+/// no esta recibiendo un valor .. desde route.....
+			// 
 			function cargarEditar($id)
 			{
 
@@ -278,7 +279,10 @@ class ControlConvocatorias extends Controller {
 
 			}
 
-				public function EliminarFormularioConvocatoria($id){
+
+
+
+		public function EliminarFormularioConvocatoria($id){
 			
 				$form_convocatoria= InvConvocatorias::find($id); //de donde necesito
 
