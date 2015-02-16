@@ -77,14 +77,19 @@ Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLin
 //---------------crear convocatorias
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
-
-Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
-Route::post('formularioconvocatorias/editar/','ControlConvocatorias@guardarEdicion');
-
-
-
-
 Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
+
+
+
+//--------------rutas formularios editados
+
+Route::get('formularioconvocatorias', 'ControlConvocatorias@cargarEditar');  // esto es charles
+
+//Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
+
+
+
+
 
 
 /*--------------------principales por tema -----------------
@@ -138,6 +143,10 @@ Route::post('creacion/formularioinvestigadores', 'ControlInvestigadores@CrearFor
 Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearFormulario');
 
 Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
+
+// creacion editar de los formularios
+
+Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion');
 
 
 

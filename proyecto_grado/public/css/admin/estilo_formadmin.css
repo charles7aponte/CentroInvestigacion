@@ -23,15 +23,11 @@
     box-shadow:0 0 10px #E1E1E1;
     margin: 18px;
     padding-bottom: 10px;
-    max-width: 100%;
-    box-sizing:border-box;
 }
 
 
 #form-grupos #advertencias p,
-#f-lista-financiamiento p,
-#form-financiamiento-proyectos p,
-#form-lineas p{
+#f-lista-financiamiento p{
     color:#1c7e84;
     font-size:11px; 
 }
@@ -54,8 +50,6 @@
     list-style-type:none;
     margin:0px;
     padding:0px;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 #form-grupos li, 
@@ -292,7 +286,7 @@
 #form-proyectos #crear-proyecto, #reset-button,
 #form-productos #crear-producto,#reset-button,
 #form-financiamiento-proyectos #agregar-financiamiento, #form-financiamiento-proyectos #reset-button,
-#form-lineas #crear-linea, #form-lineas #reset-button ,
+#form-lineas #crear-linea,
 #form-sublineas #crear-sublinea,
 #form-empresas #crear-empresa, #form-empresas #reset-button,
 #form-tipoproducto #crear-tipoproducto, #form-tipoproducto #guardar-tipoproducto, #form-tipoproducto #reset-button,
@@ -300,7 +294,7 @@
 #form-subtipoproducto #crear-subtipoproducto, #form-subtipoproducto #guardar-subtipoproducto, #form-subtipoproducto #reset-button,
 #form-eventos-noticias #crear-even-noti, #form-eventos-noticias #reset-button,
 #form-investigadores #crear-investigador, #form-investigadores #reset-button, 
-#form-periodos-academicos #crear-periodo, #form-periodos-academicos #reset-button  {
+#form-periodos-academicos #crear-periodo, #form-periodos-academicos #reset-button{
 
 	background:#276B6F; 
     background-image: -webkit-linear-gradient(top,#276B6F,#5BA9AE);
@@ -427,7 +421,6 @@ table#tabla-proyecto-financiado {
 	border: 1px solid #DCDCDC;
 	width: 900px;
 	margin-right: 6px auto;
-    box-sizing:border-box;
 }
 
 table#tabla-financiamiento-grupos,
@@ -446,8 +439,7 @@ table#tabla-periodos-academicos
     border: 1px solid #DCDCDC;
     border-left: none;
     width: 900px;
-    margin-right: 6px auto;
-        box-sizing:border-box;   
+    margin-right: 6px auto;   
 }
 
 #tabla-integrantes-grupos thead tr:first-child,
@@ -574,8 +566,3 @@ table#tabla-periodos-academicos
 	color: #2C3333;
 }
 
-@media screen and (max-width:800px){
-    fieldset{
-        width: 100%;
-    }
-}
