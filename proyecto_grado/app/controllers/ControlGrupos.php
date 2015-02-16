@@ -25,6 +25,12 @@ class ControlGrupos extends Controller {
 		$integrantes =Input::get('integrantes');
 
 
+
+     for($i=0;$i< count($integrantes); $i++)
+     {
+     	echo "--> ".$integrantes[$i]."<br>";
+     }
+
 print_r(Input::all());
 		
 

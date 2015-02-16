@@ -126,34 +126,7 @@
                               </thead>
 
                               <tbody>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="1">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="2">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="3">1121887678</td>
-                                  <td>Pepito Perez Gonzalez</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input  name="integrantes[]" type="hidden" value="4">1121889765</td>
-                                  <td>Pepa Pombo</td>
-                                  <td>
-                                    <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                  </td>
-                                </tr>
+                                
                               </tbody>
                             </table>
                           </div>
@@ -163,6 +136,8 @@
                         </div>
                       </div>
                     </div>
+
+                    
                     <!--*******************************************
                     ******************-->
                     <div class="row">
