@@ -105,7 +105,7 @@ class ControlSublineas extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 
-			}//			//elimina cada tipo de la tabla .. 
+			}
 
 
 

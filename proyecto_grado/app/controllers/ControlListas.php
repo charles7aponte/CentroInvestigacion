@@ -36,7 +36,7 @@ class ControlListas extends Controller {
 	//controlador convocatorias
 	public function ConstruirListaConvocatorias(){
 		$listas=InvConvocatorias::all(); //traer registros
-		$paginacion=InvConvocatorias::paginate(30);
+		$paginacion=InvConvocatorias::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
@@ -48,7 +48,7 @@ class ControlListas extends Controller {
 		//controlador emoresas
 	public function ConstruirListaEmpresas(){
 		$listas=InvEntidades::all(); //traer registros
-		$paginacion=InvEntidades::paginate(30);
+		$paginacion=InvEntidades::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
@@ -61,7 +61,7 @@ class ControlListas extends Controller {
 		//controlador proyectos
 	public function ConstruirListaProyectos(){
 		$listas=InvProyectos::all(); //traer registros
-		$paginacion=InvProyectos::paginate(30);
+		$paginacion=InvProyectos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
@@ -73,7 +73,7 @@ class ControlListas extends Controller {
 			//controlador productos
 	public function ConstruirListaProductos(){
 		$listas=InvProductos::all(); //traer registros
-		$paginacion=InvProductos::paginate(30);
+		$paginacion=InvProductos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
@@ -85,12 +85,24 @@ class ControlListas extends Controller {
 				//controlador grupos
 	public function ConstruirListaGrupos(){
 		$listas=InvGrupos::all(); //traer registros
-		$paginacion=InvGrupos::paginate(30);
+		$paginacion=InvGrupos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
 		
 		return View::make('administrador/lista_grupos',$datos);
+	}
+
+					//controlador grupos
+	public function ConstruirListaEventosNoticias(){
+		$listas=InvEventosNoticias::all(); //traer registros
+		$paginacion=InvEventosNoticias::paginate(20);
+		$crear_paginacion=$paginacion->links();
+
+		$datos= array(
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+		
+		return View::make('administrador/lista_eventos_noticias',$datos);
 	}
 }

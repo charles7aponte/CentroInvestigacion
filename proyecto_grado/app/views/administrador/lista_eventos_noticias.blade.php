@@ -3,8 +3,8 @@
 @section("javascript-nuevos")
   <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
   <script >
-      URL='formulariosublineas/eliminar/';
-      fila_info="#dato_sublinea_";
+      URL='formularioeventosnoticias/eliminar/';
+      fila_info="#dato_eventonoticia_";
   </script>
 
 @section('cuerpo')
@@ -31,45 +31,46 @@
     </div>
 
 
-  <form id="form-sublineas">
+  <form id="form-eventos-noticias">
           
-   <div id="titulo-listasublineas" id="cuadro"> 
+   <div id="titulo-listaeventos-noticias" id="cuadro"> 
       <h2>Lista de Eventos y Noticias</h2>
     </div>
-    <div id="tabla-listasublineas">
-      <table id="listasublineas">
+    <div id="tabla-eventos-noticias">
+      <table id="listaeventosnoticias">
         <thead>
-          <tr><th colspan="4" style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
                   background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                   background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                   background: -o-linear-gradient(top,#1A6D71,#122d3e);  
                   background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">SUBL&Iacute;NEAS</th></tr>
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">EVENTOS Y NOTICIAS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="3">NOMBRE DEL EVENTO &Oacute; NOTICIA</th>
+            <th colspan="3">T&Iacute;TULO</th>
           </tr>
         </thead>
         <tbody>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-                @if($campo['estado1']==1 ) 
-                  <tr id="dato_sublinea_{{$campo['id_sublinea']}}">
+                  <tr id="dato_eventonoticia_{{$campo['id_evento']}}">
                     <td style="width:100px;">
-                      <b>{{$campo['id_sublinea']}}</b>
+                      <b>{{$campo['id_evento']}}</b>
                     </td> 
                     <td>
-                      <a href="">{{$campo['nombre_sublinea']}}</a>
+                      <a href="">{{$campo['titulo_evento']}}</a>
+                    </td>
+                    <td style="width:90px;">
+                      <a href="">{{$campo['tipo']}}</a>
                     </td>
                     <td style="width:90px;">
                       <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
-                      <b onclick="eliminartipo({{$campo['id_sublinea']}})">
+                      <b onclick="eliminartipo({{$campo['id_evento']}})">
                       <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
-                @endif
               @endforeach
             @endif
       </table>

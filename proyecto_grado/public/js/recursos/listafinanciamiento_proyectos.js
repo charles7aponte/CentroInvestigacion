@@ -20,7 +20,7 @@ function cargar(input, escondido){
             $("#"+escondido).val(ui.item.codigo_proyecto);
 
             return false;
-                        $("#nombre_proyecto").val(" "); //poner el input vacio
+                        
         }
 
     })
