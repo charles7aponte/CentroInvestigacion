@@ -11,16 +11,6 @@
 
 @section('cuerpo')
   <div>
-
-    <!--ALERTA DE QUE NO EXISTE UN FINANCIAMIENTO ASOCIADO A ESE PROYECTO -->
-       @if(isset($[''])==false)
-            <fieldset style="margin-bottom: 2px;
-                    margin-top: 5px;
-                    padding: 2px;">
-                    <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para ese grupo</div>   
-            </fieldset>
-        @endif
-
     
           <!-- Modal de la descripcion -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -41,6 +31,15 @@
           </div>
 
 
+ <!--ALERTA DE QUE NO EXISTE UN FINANCIAMIENTO ASOCIADO A ESE PROYECTO --> 
+
+        <fieldset id="mensaje_de_vacio" style="margin-bottom: 2px;
+                margin-top: 5px;
+                display:none;
+                padding: 2px;">
+                <div  style="margin: 0px;" class="alert alert-danger">No hay financiamiento asociado a ese proyecto</div>   
+        </fieldset>
+ 
   <div id="titulo-listaproyecto-financiado" id="cuadro"> 
     <h2>FINANCIAMIENTO DE UN PROYECTO</h2>
   </div>
