@@ -22,14 +22,15 @@ var idP= $("#nombre_proyecto1").val();
                      if(result.length==0)
                      {
                         $("#mensaje_de_vacio").show();
+
                      }
                      else{
                         $("#mensaje_de_vacio").hide();
+                                            
                      }
 
-                     $("#cuerpo_tabla_finaciamiento").html(mihtml);
+                     $("#cuerpo_tabla_finaciamiento").html(mihtml); 
                 }
-
               ,error:function(){
 
               }

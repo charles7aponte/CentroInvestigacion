@@ -33,11 +33,11 @@
 
  <!--ALERTA DE QUE NO EXISTE UN FINANCIAMIENTO ASOCIADO A ESE PROYECTO --> 
 
-        <fieldset id="mensaje_de_vacio" style="margin-bottom: 2px;
-                margin-top: 5px;
+        <fieldset id="mensaje_de_vacio" style="
+                margin:5px;
                 display:none;
                 padding: 2px;">
-                <div  style="margin: 0px;" class="alert alert-danger">No hay financiamiento asociado a ese proyecto</div>   
+                <div  style="margin: 0px;" class="alert alert-danger"><b>No hay financiamiento asociado a ese proyecto.</b></div>   
         </fieldset>
  
   <div id="titulo-listaproyecto-financiado" id="cuadro"> 

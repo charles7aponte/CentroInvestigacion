@@ -19,9 +19,8 @@ function cargar(input, escondido){
             $("#"+input).val(ui.item.codigo_proyecto+"  ("+ui.item.nombre_proyecto+")");
             $("#"+escondido).val(ui.item.codigo_proyecto);
 
-
             return false;
-
+                        $("#nombre_proyecto").val(" "); //poner el input vacio
         }
 
     })
@@ -29,6 +28,7 @@ function cargar(input, escondido){
       return $( "<li>" )
         .append( "<a>" + item.nombre_proyecto + "<br>" + item.codigo_proyecto + "</a>" )
         .appendTo( ul );
+
     };
     ;// fin defincion de autocompletado
 
