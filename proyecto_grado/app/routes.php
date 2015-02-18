@@ -71,7 +71,7 @@ Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 /*---------------crear investigadores-----------------*/
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 /*---------------eliminar investigadores-----------------*/
-Route::get('formularioinvestigadores/eliminar/{id}','ControlInvestigadores@EliminarFormularioInvestigadores');
+//Route::get('formularioinvestigadores/eliminar/{id}','ControlInvestigadores@EliminarFormularioInvestigadores');
 
 /*---------------crear lineas------------------*/
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });

@@ -76,7 +76,7 @@ class ControlInvestigadores extends Controller {
 		$persona->mail=$email_contacto;
 		$persona->fecha_perfil=$fecha_perfil;
 		$persona->foto=$foto_investigador;
-
+		print_r($persona);
 		$entidad=new InvInvestigadoresExternos();
 		
 		$entidad->cedula_persona=$c_persona;
@@ -104,6 +104,7 @@ class ControlInvestigadores extends Controller {
 
 			$validator = Validator::make(Input::all(), InvInvestigadoresExternos::$reglasValidacion,$messages);
 			//$validator = Validator::make(Input::all(), Persona::$reglasValidacion,$messages);
+			print_r($validator);
 
 
 
@@ -120,7 +121,8 @@ class ControlInvestigadores extends Controller {
 
 
 
-					try{
+					try
+					{
 					
 					
 						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
@@ -193,5 +195,25 @@ class ControlInvestigadores extends Controller {
 
 					return $nombreNuevo;	
 			}
+
+
+			/*public function EliminarFormularioInvestigadores($id){
+			
+				$form_linea=InvInvestigadoresExternos::find($id); //de donde necesito
+
+				if (is_null($form_linea)==false){
+
+					$form_linea->estado=0;
+					$form_linea->cedula_persona .="*";
+					$form_linea->save();
+
+					//$form_tipogrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 	*/
 	
 }

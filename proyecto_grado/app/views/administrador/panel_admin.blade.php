@@ -66,6 +66,7 @@ switch($mes){
 	<script src="{{URL::to('js/hideshow.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/cambiaracapital.js')}}" type="text/javascript"></script>
+	<script src="{{URL::to('js/limpiarformularios.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
