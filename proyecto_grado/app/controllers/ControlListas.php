@@ -93,8 +93,8 @@ class ControlListas extends Controller {
 		
 		return View::make('administrador/lista_grupos',$datos);
 	}
-
-					//controlador grupos
+	
+	//controlador  eventos
 	public function ConstruirListaEventosNoticias(){
 		$listas=InvEventosNoticias::all(); //traer registros
 		$paginacion=InvEventosNoticias::paginate(20);
@@ -104,5 +104,17 @@ class ControlListas extends Controller {
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
 		
 		return View::make('administrador/lista_eventos_noticias',$datos);
+	}
+
+	//controlador investigadores
+	public function ConstruirListaInvestigadores(){
+		$listas=InvInvestigadoresExternos::all(); //traer registros
+		$paginacion=InvInvestigadoresExternos::paginate(20);
+		$crear_paginacion=$paginacion->links();
+
+		$datos= array(
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+		
+		return View::make('administrador/lista_investigadores',$datos);
 	}
 }

@@ -70,7 +70,8 @@ Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
 /*---------------crear investigadores-----------------*/
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
-
+/*---------------eliminar investigadores-----------------*/
+Route::get('formularioinvestigadores/eliminar/{id}','ControlInvestigadores@EliminarFormularioInvestigadores');
 
 /*---------------crear lineas------------------*/
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
@@ -187,6 +188,8 @@ Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
 Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
 
 Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticias');
+
+Route::get('listadeinvestigadores','ControlListas@ConstruirListaInvestigadores');
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)

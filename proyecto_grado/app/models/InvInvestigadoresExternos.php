@@ -21,10 +21,8 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'perfil' 	             => 'required|max:30|',
 			'creacion-perfil' 	 	 => 'required',
 			'profesion' 			 => 'required|max:100|',
-			'codigo_conv' 			 => 'required',
-			'nombre_conv' 			 => 'required',	
 			'entidad-investigadores' => 'required|max:200|',	
-			'numero_contrato'        => 'required|max:100|',
+			'numero_contrato'        => 'max:100',
 			'creacion_inicio'        => 'required',
 			'creacion_fin'           => 'required',
 

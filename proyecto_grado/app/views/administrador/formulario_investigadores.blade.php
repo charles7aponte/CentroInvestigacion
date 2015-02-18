@@ -124,11 +124,11 @@
                         @if ($errors->has('profesion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('profesion') }}</p> @endif
                     </li>
                     <li><label for="codigo_cov">C&oacute;d. Convocatoria:</label>
-                        <input type="text" id="codigo_conv" name="codigo_conv" value="{{Input::old('codigo_conv')}}" required="required"/>
+                        <input type="text" id="codigo_conv" name="codigo_conv" value="{{Input::old('codigo_conv')}}" />
                         @if ($errors->has('codigo_conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('codigo_conv') }}</p> @endif
                     </li>
                     <li><label for="nombre_conv">Nombre Conv.</label>
-                        <input type="text" id="nombre_conv" name="nombre_conv" value="{{Input::old('nombre_conv')}}" required="required"/>
+                        <input type="text" id="nombre_conv" name="nombre_conv" value="{{Input::old('nombre_conv')}}" />
                         @if ($errors->has('nombre_conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre_conv') }}</p> @endif
                     </li>
                     <li><label for="entidad">Entidad:</label>
@@ -144,7 +144,7 @@
                      @if ($errors->has('entidad-investigadores')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-investigadores') }}</p> @endif
                     </li>
                     <li><label for="numero_contrato">N. Contrato</label>
-                        <input type="text" id="numero_contrato" name="numero_contrato" value="{{Input::old('numero_contrato')}}" required="required"/>
+                        <input type="text" id="numero_contrato" name="numero_contrato" value="{{Input::old('numero_contrato')}}"/>
                         @if ($errors->has('numero_contrato')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero_contrato') }}</p> @endif
                     </li>
                     <li><label for="">Fecha Inicio:</label>
@@ -193,7 +193,7 @@
                     <th id="crear">
                         <button id="crear-investigador" type="submit">
                         <img alt="bien"  src="images/bn.png" width="16" height="16">
-                        Crear producto
+                        Crear Investigador
                         </button>
                     </th>
                     <th id="borrar">

@@ -130,6 +130,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioinvestigadores')}}">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
+			<li class=""><a href="{{URL::to('listadeinvestigadores')}}">Ver/editar informaci&oacute;n de un j&oacute;ven investigador o participante externo</a></li>			
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span>Convocatorias</h3>
 		<ul class="toggle">
