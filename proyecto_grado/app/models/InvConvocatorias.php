@@ -13,9 +13,18 @@ class InvConvocatorias extends Eloquent  {
 	protected $primaryKey = "numero_convocatoria";
 
 
-		// reglas
+		// reglas  crearciona
 	public 	static $reglasValidacion = array(
 			'numero-conv'             => 'required|max:50|unique:inv_convocatorias,numero_convocatoria', 
+			'estado'            		=> 'max:20', 	
+			'cuantia-conv'			=>'required|numeric'
+					
+		);
+
+
+
+	public 	static $reglasValidacionEdicion = array(
+			'numero-conv'             => 'required|max:50', 
 			'estado'            		=> 'max:20', 	
 			'cuantia-conv'			=>'required|numeric'
 					

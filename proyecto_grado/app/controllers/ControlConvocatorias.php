@@ -87,6 +87,7 @@ class ControlConvocatorias extends Controller {
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
+
 						$archivo1=$this->ArchivosConvocatorias('dcto-conv',$direccion);//archivoshtml
 							$entidad->archivo_convocatoria=$archivo1;//base
 
@@ -150,6 +151,9 @@ class ControlConvocatorias extends Controller {
 
 
 
+
+
+
 	public function guardarEdicion(){
 
 		$id=Input::get('id_convacotoria');
@@ -188,6 +192,9 @@ class ControlConvocatorias extends Controller {
 		/*objeto del modelo*/
 
 		$entidad=InvConvocatorias::find($id);
+
+		$numeroConvocatoriaAnterior = $entidad->numero_convocatoria;
+
 		
 		$entidad->numero_convocatoria=$numero;
 		$entidad->estado=$estado;
@@ -213,9 +220,21 @@ class ControlConvocatorias extends Controller {
 			);
 
 
-			// execute la validacin 
+			$validator= false;
 
-			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
+			
+			// execute la validacin 
+			if($numeroConvocatoriaAnterior ==  $entidad->numero_convocatoria)
+			{
+				$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacionEdicion,$messages);
+
+			}
+			else {
+				$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
+			}
+
+
+
 
 
 			if ($validator->fails()) {
@@ -223,19 +242,27 @@ class ControlConvocatorias extends Controller {
 
 
 
-				return Redirect::to('formularioconvocatorias/edit/'.$id)
+				return Redirect::to('formularioconvocatorias/edit/'.$id."/")
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
 		} else {
 
 
-
-						$archivo1=$this->ArchivosConvocatorias('dcto-conv',$direccion);//archivoshtml
+					
+						if(Input::get('edicion_dct-conv')=="si")
+						{
+							$archivo1=$this->ArchivosConvocatorias('dcto-conv',$direccion);//archivoshtml
 							$entidad->archivo_convocatoria=$archivo1;//base
+							
+						}
 
-						$archivo2=$this->ArchivosConvocatorias('img-conv',$direccion);
+						if(Input::get('edicion_img-conv')=="si")
+						{
+
+							$archivo2=$this->ArchivosConvocatorias('img-conv',$direccion);
 							$entidad->archivo_imagen=$archivo2;
+						}	
 
 						$entidad->save();
 
@@ -254,7 +281,7 @@ class ControlConvocatorias extends Controller {
 					}
 					
 						return Redirect::to('formularioconvocatorias/edit/'.$id)
-								->withInput($todosDatos)
+								//->withInput($todosDatos)
 								->with('mensaje_success',"La convocatoria ha sido creada.");
 			
 					}
@@ -264,14 +291,25 @@ class ControlConvocatorias extends Controller {
 
 
 
-/// no esta recibiendo un valor .. desde route.....
 			// 
 			function cargarEditar($id)
 			{
 
 				$convocatoria = InvConvocatorias::find($id);	
 
-				$datos=array('convocatoria' => $convocatoria );
+				$datos=array('convocatoria' => $convocatoria,
+							'accion'=>'editar' );
+
+				if($convocatoria)
+				{
+						// esto es solo en caso de fechas .. para darle formato .. pues no lo retona diferente
+					$dateApertura = new DateTime($convocatoria->fecha_apertura);
+					$dateCierre = new DateTime($convocatoria->fecha_cierre);
+
+					$convocatoria->fecha_apertura=$dateApertura->format('d/m/Y');
+					$convocatoria->fecha_cierre=$dateCierre->format('d/m/Y');
+					
+				}
 
 
 				return View::make('administrador/formulario_convocatorias',$datos);

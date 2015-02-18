@@ -75,21 +75,14 @@ Route::get('formulariolineas', function() { return View::make('administrador/for
 Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
 //---------------crear convocatorias
-Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');}); // 
 
 Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
 
 
 
-//--------------rutas formularios editados
-
-Route::get('formularioconvocatorias', 'ControlConvocatorias@cargarEditar');  // esto es charles
-
-//Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
-
-
-
-
+//--------------rutas formularios editados // a que se debe ese problema al guardar??
+Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
 
 /*--------------------principales por tema -----------------
@@ -146,7 +139,7 @@ Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@
 
 // creacion editar de los formularios
 
-Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion');
+Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion'); // en post si quedaria asi? si hermosa :) voy a mirar con la ruta del get
 
 
 
