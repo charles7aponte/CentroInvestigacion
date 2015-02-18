@@ -163,7 +163,7 @@ Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@
 
 // creacion editar de los formularios
 
-Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion'); // en post si quedaria asi? si hermosa :) voy a mirar con la ruta del get
+Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion'); 
 
 
 
