@@ -52,7 +52,7 @@ class ControlEventosNoticias extends Controller {
 				return Redirect::to('formularioeventosnoticias')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar, Verifique.");
 			} else {
 
 
@@ -89,7 +89,7 @@ class ControlEventosNoticias extends Controller {
 						
 						return Redirect::to('eventosnoticias')
 						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista el evento o noticia");
+						->with('mensaje_error',"Error en el servidor.");
 					}
 
 						return Redirect::to('formularioeventosnoticias')

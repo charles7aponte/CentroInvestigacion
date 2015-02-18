@@ -47,7 +47,7 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">EVENTOS Y NOTICIAS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="3">T&Iacute;TULO</th>
+            <th colspan="4">T&Iacute;TULO</th>
           </tr>
         </thead>
         <tbody>
