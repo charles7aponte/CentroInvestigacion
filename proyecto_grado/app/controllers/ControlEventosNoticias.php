@@ -99,6 +99,22 @@ class ControlEventosNoticias extends Controller {
 				
 					}
 			}
+					//elimina cada tipo de la tabla .. 
+
+			public function EliminarFormularioEventosNoticias($id){
+			
+				$form_eventos_noticias= invEventosNoticias::find($id); //de donde necesito
+
+				if (is_null($form_eventos_noticias)==false){
+					$form_eventos_noticias->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+			}//	
+
+
 
 }
 

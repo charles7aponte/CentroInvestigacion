@@ -10,13 +10,12 @@
    
     <script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>
-
 @stop
 
 
 @section('javascript-nuevos2')
     <script src="{{URL::to('js/')}}/fechas_formularios.js" type="text/javascript"></script>
-    
+    <script type="text/javascript" src="jqueryy.js"></script>
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
@@ -24,7 +23,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-eventos-noticias" autocomplete="on" enctype="multipart/form-data"
+    <form id="form-eventos-noticias" enctype="multipart/form-data"
      action="{{URL::to('creacion/formularioeventosnoticias')}}" method="post">
         
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
@@ -108,7 +107,8 @@
                         </button>
                     </th>
                     <th id="borrar">
-                        <button id="reset-button" type="reset">
+                        <button id="reset-button" type="reset" >
+
                         <img alt="mal" src="images/ml.png" width="16" height="16" />
                         Borrar todo
                     </th>

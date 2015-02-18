@@ -1,6 +1,5 @@
 <?php
 
-
 /******************-------------------------
 Paginas generales--------------------
 ***************/
@@ -15,78 +14,102 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 
 
 
-/*************************************************************************************************-------------------------
---------------------------------------------paginas del administrador----------------------------------
+/********************************************************************************************************************************
+-----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------
 *********************************************************************************************************************************/
 Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-/*--------------formularios-----------------
-----------------------------*/
+/*--------------1-FORMULARIOS-----------------
+**********************************************/
 
-//----------------crear grupo
+/*---------------crear grupo------------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 
-//----------------crear sublinea
+
+/*---------------crear sublinea-----------------*/
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
-//----------------eliminar sublineas
+/*---------------eliminar sublinea------------------*/
 Route::get('formulariosublineas/eliminar/{id}','ControlSublineas@EliminarFormularioSublinea');
 
 
-//----------------crear subtipo de producto
+/*---------------crear subtipo producto------------------*/
 Route::get('formulariosubtipoproductos','ControlSubtipoProductos@cargarFormularioSubtipoProducto');
-//eliminar subtipo producto
+/*---------------eliminar subtipo producto------------------*/
 Route::get('formulariosubtipoproductos/eliminar/{id}','ControlSubtipoProductos@EliminarFormularioSubtipoProducto');
 
-//----------------agregar tipo grupos
+
+/*---------------crear tipo grupo------------------*/
 Route::get('formulariotipogrupo','ControlTipoGrupos@cargarFormularioTipoGrupo');
-//eliminar tipo grupos
+/*---------------eliminar tipo grupo------------------*/
 Route::get('formulariotipogrupo/eliminar/{id}','ControlTipoGrupos@EliminarFormularioTipoGrupo');
 
 
-//----------------agregar tipo productos
+/*---------------agregar tipo producto-----------------*/
 Route::get('formulariotipoproductos', 'ControlTipoProductos@cargarFormularioTipoProducto');
-//eliminar tipo productos
+/*---------------eliminar tipo producto-----------------*/
 Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@EliminarFormularioTipoProducto');
 
 
-//----------------agregar proyectos
+/*---------------crear proyecto------------------*/
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
+
+/*---------------crear crear financiamiento------------------*/
 Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
 
+
+/*---------------crear periodos academicos------------------*/
 Route::get('formularioperiodosacademicos','ControlPeriodosAcademicos@cargarFormularioPeriodo');
-//-------------eliminar periodos
+/*---------------eliminar periodos academicos------------------*/
 Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademicos@EliminarFormularioPeriodo');
 
-//----------------eliminar proyectos
 
-
-//----------------agregar productos
+/*---------------crear producto------------------*/
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 
+
+/*---------------crear investigadores-----------------*/
 Route::get('formularioinvestigadores','ControlInvestigadores@cargarFormularioInvestigadores');
 
 
-//............................................................................................................./
-//----------------crear lineas
-
+/*---------------crear lineas------------------*/
 Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
-//----------------eliminar lineas
+/*---------------eliminar lineas------------------*/
 Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
+
 //---------------crear convocatorias
-Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');}); // 
+Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});  
+
+
+/*---------------crear convocatorias------------------*/
+//Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+
+
+
+
+
+/*---------------cerar eventos y noticias------------------*/
 
 Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
+/*---------------eliminar eventos y noticias------------------*/
+Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@EliminarFormularioEventosNoticias');
 
 
 
-//--------------rutas formularios editados // a que se debe ese problema al guardar??
+
+//--------------rutas formularios editados----------------------------
 Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
 
-/*--------------------principales por tema -----------------
----------------------------------------*/
+//Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
+
+
+
+
+/*****************************************************************
+**************************PRINCIPALES POR TEMA
+*****************************************************************/
 Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
 
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
@@ -163,6 +186,7 @@ Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
 
 Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
 
+Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticias');
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)

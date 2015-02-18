@@ -82,7 +82,6 @@ class ControlTipoProductos extends Controller {
 			}//
 
 
-			//elimina cada grupo de la tabla .. 
 			public function EliminarFormularioTipoProducto($id){
 			
 				$form_tipoproducto= InvTipoProductos::find($id); //de donde necesito

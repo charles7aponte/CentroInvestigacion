@@ -140,7 +140,7 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioproyectos')}}">Agregar nuevo proyecto</a></li>
 			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
-			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/editar el financiamiento de un proyecto</a></li>
+			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar el financiamiento de un proyecto</a></li>
 			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
@@ -154,6 +154,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un evento &oacute; Noticia</a></li>	
+			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento o noticia</a></li>	
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-calendar"></span>Per&iacute;odos Acad&eacute;micos</h3>
