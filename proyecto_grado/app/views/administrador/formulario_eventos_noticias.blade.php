@@ -48,7 +48,7 @@
                     <li class="@if($errors->has('titulo-even-noti')) has-error @endif">
                     <label for="titulo-even-noti">T&iacute;tulo:</label>
                         <input type="text" id="titulo-even-noti" name="titulo-even-noti" value="{{Input::old('titulo-even-noti')}}" required="required"/> 
-                         @if ($errors->has('titulo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-conv') }}</p> @endif
+                         @if ($errors->has('titulo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-even-noti') }}</p> @endif
                     </li>   
 
                    <li class="@if($errors->has('tipo-even-noti')) has-error @endif">

@@ -154,7 +154,8 @@
 #form-tipoproducto input, #form-tipoproducto textarea,
 #form-subtipoproducto input, #form-subtipoproducto textarea, #form-subtipoproducto select,
 #form-eventos-noticias input, #form-eventos-noticias textarea, #form-eventos-noticias select,
-#form-investigadores input, #form-investigadores textarea, #form-investigadores select{ 
+#form-investigadores input, #form-investigadores textarea, #form-investigadores select,
+#form-periodos-academicos input{ 
     border: 1px solid #aaa;
     box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
     border-radius:2px;
@@ -180,7 +181,7 @@
 #form-subtipoproducto input:focus, #form-subtipoproducto textarea:focus,
 #form-eventos-noticias input:focus, #form-eventos-noticias textarea:focus,
 #form-investigadores input:focus, #form-investigadores textarea:focus,
-#form-periodos-academicos input:focus, #form-periodos-academicos textarea:focus {
+#form-periodos-academicos input:focus{
     background: #fff;  , 
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
