@@ -95,9 +95,7 @@
                             @endforeach
                         @endif
                         </select>    
-                            
-                    
-                        @if ($errors->has('perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('perfil') }}</p> @endif
+                        
                     </li> 
                     <li><label for="">Fecha Perfil:</label>
                         <div class="container">
@@ -140,8 +138,6 @@
                             @endforeach
                         @endif
                         </select>
-
-                     @if ($errors->has('entidad-investigadores')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('entidad-investigadores') }}</p> @endif
                     </li>
                     <li><label for="numero_contrato">N. Contrato</label>
                         <input type="text" id="numero_contrato" name="numero_contrato" value="{{Input::old('numero_contrato')}}"/>

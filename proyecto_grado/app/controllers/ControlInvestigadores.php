@@ -76,7 +76,8 @@ class ControlInvestigadores extends Controller {
 		$persona->mail=$email_contacto;
 		$persona->fecha_perfil=$fecha_perfil;
 		$persona->foto=$foto_investigador;
-		print_r($persona);
+
+		
 		$entidad=new InvInvestigadoresExternos();
 		
 		$entidad->cedula_persona=$c_persona;
@@ -88,6 +89,8 @@ class ControlInvestigadores extends Controller {
 		$entidad->numerocontrato=$num_contrato;
 		$entidad->fecha_inicio=$fecha_inicio;
 		$entidad->fecha_fin=$fecha_fin;
+
+		
 		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(
@@ -104,7 +107,7 @@ class ControlInvestigadores extends Controller {
 
 			$validator = Validator::make(Input::all(), InvInvestigadoresExternos::$reglasValidacion,$messages);
 			//$validator = Validator::make(Input::all(), Persona::$reglasValidacion,$messages);
-			print_r($validator);
+			
 
 
 
@@ -112,27 +115,25 @@ class ControlInvestigadores extends Controller {
 				$messages = $validator->messages();
 
 
-
-				return Redirect::to('formularioinvestigadores')
+				/*return Redirect::to('formularioinvestigadores')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");
+					->with('mensaje_error',"Error al guardar");*/
 		} else {
 
 
 
-					try
+					/*try
 					{
 					
 					
 						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
 						$persona->foto=$archivo1;
 
-					
+				
 						$persona->save();
+						$entidad->save();
 
-
-						$entidad->save();	
 
 					}
 
@@ -147,8 +148,7 @@ class ControlInvestigadores extends Controller {
 					
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El investigador ha sido creado.");
-			
+								->with('mensaje_success',"El investigador ha sido creado	*/	
 				}
 			
 			}

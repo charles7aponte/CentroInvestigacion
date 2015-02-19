@@ -31,6 +31,7 @@ class ControlLineas extends Controller {
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
 
+		print_r($entidad);
 			// mensaje a mostrar
 			$messages = array(
 				'required' => '*Es obligatorio.',

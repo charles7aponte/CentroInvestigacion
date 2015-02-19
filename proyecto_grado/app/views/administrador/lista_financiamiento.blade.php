@@ -5,7 +5,7 @@
       <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
       <script >
           URL='formulariofinanciamiento/eliminar/';
-          fila_info="#dato_tipogrupo_";
+          fila_info="#";
       </script>
 @stop
 

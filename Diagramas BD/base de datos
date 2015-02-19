@@ -165,7 +165,7 @@ CREATE TABLE inv_investigadores_externos
   codinv_ext serial NOT NULL,
   cedula_persona bigint NOT NULL,
   nit integer NOT NULL,
-  codperfil INTEGER NOT nULL,
+  codperfil INTEGER NOT NULL,
   profesion character varying(100) NOT NULL,
   codconvocatoria integer,
   nombreconvocatoria text,
@@ -173,7 +173,9 @@ CREATE TABLE inv_investigadores_externos
   fecha_inicio date,
   fecha_fin date,
   estado char default 1,
-  CONSTRAINT inv_investigadores_externos_pkey PRIMARY KEY (codinv_ext)
+  CONSTRAINT inv_investigadores_externos_pkey PRIMARY KEY (codinv_ext),
+  CONSTRAINT inv_cedula_persona_fkey FOREIGN KEY (cedula_persona) REFERENCES  persona ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT inv_codperfil_fkey FOREIGN KEY (codperfil) REFERENCES  perfil ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE inv_participacion_proyectos
