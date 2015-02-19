@@ -125,21 +125,37 @@ class ControlFinanciamiento extends Controller {
 
 
 				public function financiamientoPorProyecto($idproyecto){
-				$proyecto=InvFinanciamiento::where("inv_codigo_proyecto","=","$idproyecto")->get();
+					$proyecto=InvFinanciamiento::where("inv_codigo_proyecto","=","$idproyecto")->get();
 
-				
+					
 
-				for($i = 0; $i<count($proyecto) ; $i++)
-				{
-					$entidad = InvEntidades::find($proyecto[$i]->inv_nit_empresa);
-					$proyecto[$i]->nombre_empresa = $entidad->razon_social;	
+					for($i = 0; $i<count($proyecto) ; $i++)
+					{
+						$entidad = InvEntidades::find($proyecto[$i]->inv_nit_empresa);
+						$proyecto[$i]->nombre_empresa = $entidad->razon_social;	
 
+					}
+					return Response::json($proyecto);
 				}
 
-				return Response::json($proyecto);
+				public function EliminarListaFinanciamiento($id){
+			
+				$form_lista_financiamiento= InvFinanciamiento::find($id); //de donde necesito
 
+				if (is_null($form_lista_financiamiento)==false){
 
-			}
+					//$form_lista_financiamiento->estado=0;
+					//$form_lista_financiamiento->inv_codigo_proyecto.="*";
+					//$form_lista_financiamiento->save();
+					$form_lista_financiamiento->delete();
 
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 
+
+	}
 
 }

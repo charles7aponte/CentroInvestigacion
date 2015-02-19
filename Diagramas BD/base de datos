@@ -80,7 +80,7 @@ CREATE TABLE inv_convocatorias
   archivo_convocatoria text,
   archivo_imagen text,
   convocatoria_dirigida text NOT NULL,
-  estado char default 1,
+  estado1 char default 1,
   CONSTRAINT inv_convocatorias_pkey PRIMARY KEY (numero_convocatoria)
 );
 

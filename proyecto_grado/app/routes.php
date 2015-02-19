@@ -54,8 +54,10 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
 
 
-/*---------------crear crear financiamiento------------------*/
+/*---------------crear financiamiento------------------*/
 Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFinanciamiento');
+/*---------------eliminar financiamiento------------------*/
+Route::get('formulariofinanciamiento/eliminar/{id}','ControlFinanciamiento@EliminarListaFinanciamiento');
 
 
 /*---------------crear periodos academicos------------------*/

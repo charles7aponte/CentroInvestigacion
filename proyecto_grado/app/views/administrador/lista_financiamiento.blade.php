@@ -2,6 +2,11 @@
 
 @section('javascript-nuevos')   
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/listafinanciamiento_proyectos.js"></script>
+      <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+      <script >
+          URL='formulariofinanciamiento/eliminar/';
+          fila_info="#dato_tipogrupo_";
+      </script>
 @stop
 
 @section("javascript-nuevos2")
