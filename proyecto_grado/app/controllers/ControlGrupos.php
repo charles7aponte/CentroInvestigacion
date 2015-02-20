@@ -11,14 +11,11 @@ class ControlGrupos extends Controller {
 
 		$grupo=Input::get('nombre');
 
-
-
-
+		$fecha_creacion=Input::get('creacion-grupo');
 
 		$dateinicio = new DateTime($fecha_creacion);
 
 		$fecha_creacion=$dateinicio->format('d/m/Y');
-
 
 
 		$coord=Input::get('cedula-persona');
@@ -31,8 +28,6 @@ class ControlGrupos extends Controller {
 		$tipo=Input::get('tipo');
 		$objetivos=Input::get('objetivos');
 		$gruplac=Input::get('gruplac');
-
-
 			
 
 		//manejo archuvos
@@ -151,7 +146,7 @@ class ControlGrupos extends Controller {
 
 			public function cargarFormularioGrupo(){
 
-				$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
+				$listatipogrupos = InvTipoGrupos::all();
 
 				$datos=  array(
 					'tipos' =>$listatipogrupos);

@@ -138,6 +138,8 @@ class ControlFinanciamiento extends Controller {
 					return Response::json($proyecto);
 				}
 
+				
+				//funcion eliminar
 				public function EliminarListaFinanciamiento($id){
 			
 				$form_lista_financiamiento= InvFinanciamiento::find($id); //de donde necesito
@@ -157,5 +159,3 @@ class ControlFinanciamiento extends Controller {
 			}//			//elimina cada tipo de la tabla .. 
 
 	}
-
-}

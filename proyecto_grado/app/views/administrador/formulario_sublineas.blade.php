@@ -22,7 +22,6 @@
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar nueva subl&iacute;nea</h2></div>
             <ul>
                 <fieldset> 
-
                     <li class="@if($errors->has('nombre-sublinea')) has-error @endif">
                         <label for="nombre-sublinea">Nombre de la subl&iacute;nea:</label>
                         <input type="text" id="nombre-sublinea" name="nombre-sublinea" value="{{Input::old('nombre-sublinea')}}" required="required"/> 
@@ -70,9 +69,9 @@
                         </button>
                     </th>
                     <th id="borrar">
-                        <button id="reset-button" type="reset">
+                        <<button id="reset-button" type="button" onclick="limpiaForm('#form-sublineas')" >
                         <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
+                        Limpiar Formulario
                     </th>
                 </thead>
             </table>  

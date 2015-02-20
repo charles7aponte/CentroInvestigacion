@@ -28,10 +28,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-grupos" autocomplete="on" 
-      enctype="multipart/form-data" 
-      action="{{URL::to('creacion/formulariogrupos')}}" method="POST">
-
+    <form id="form-grupos" autocomplete="on" enctype="multipart/form-data" action="{{URL::to('creacion/formulariogrupos')}}"method="POST">
          @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -206,9 +203,7 @@
                       </div>
                     </div>
 
-                    
-                    <!--*******************************************
-                    ******************-->
+                    <!--modal 2 de lineas-->
 
                     <div class="row">
                         <div class="col-md-2"><label>Lineas: </label></div>
@@ -228,10 +223,11 @@
 
                             <!--Agregando nuevas lineas-->
                             <label  style="width:inherit">L&iacute;nea: </label>
-                             <input type="text" id="linea-grupos"  value="" />
-                             <button type="button" class="btn btn-primary"  
+                              <input type="text" id="linea-grupos"  value="" />
+                              <button type="button" class="btn btn-primary"  
                                 id="bton_linea-grupos"
-                              style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                                style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar
+                              </button> 
                           </div>
                           
                           <div class="modal-body">
@@ -245,7 +241,7 @@
                               </thead>
 
                               <tbody>
-                            
+                          
                               </tbody>
                             </table>
                           </div>
@@ -255,73 +251,70 @@
                         </div>
                       </div>
                     </div>
-
-                    <!--*******************************************
-                    ******************-->
                 </fieldset>
             </ul> 
 
             <ul>
-                <fieldset>
-                        <li class="@if($errors->has('objetivos')) has-error @endif">
-                          <label for="objetivos">Objetivos:</label>
-                          <textarea id="objetivos" name="objetivos" required="required" value="{{Input::old('objetivos')}}"></textarea>
-                           @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
-                           @endif
-                        </li>  
+            <fieldset>
+              <li class="@if($errors->has('objetivos')) has-error @endif">
+                <label for="objetivos">Objetivos:</label>
+                <textarea id="objetivos" name="objetivos" required="required" value="{{Input::old('objetivos')}}"></textarea>
+                 @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
+                 @endif
+              </li>  
 
-                        <li class="@if($errors->has('gruplac')) has-error @endif">
-                          <label for="gruplac">Link Gruplac: </label>
-                            <input type="text" id="gruplac" name="gruplac" value="{{Input::old('gruplac')}}"/>
-                           @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
-                           @endif                            
-                        </li>
+              <li class="@if($errors->has('gruplac')) has-error @endif">
+                <label for="gruplac">Link Gruplac: </label>
+                  <input type="text" id="gruplac" name="gruplac" value="{{Input::old('gruplac')}}"/>
+                 @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
+                 @endif                            
+              </li>
 
-                        <li class="@if($errors->has('logog')) has-error @endif">
-                          <label for="logog">Logo del grupo:</label>
-                            <input type="file"  id="logog" name="logog"  required="required" value="{{Input::old('logog')}}" />
-                           @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
-                           @endif                            
-                        </li>
+              <li class="@if($errors->has('logog')) has-error @endif">
+                <label for="logog">Logo del grupo:</label>
+                  <input type="file"  id="logog" name="logog"  required="required" value="{{Input::old('logog')}}" />
+                 @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
+                 @endif                            
+              </li>
 
-                        <li class="@if($errors->has('afiche')) has-error @endif">
-                          <label for="afiche">Ruta del afiche: </label>
-                            <input type="file" id="afiche" name="afiche"/>
-                          @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> 
-                          @endif                            
-                        </li>
+              <li class="@if($errors->has('afiche')) has-error @endif">
+                <label for="afiche">Ruta del afiche: </label>
+                  <input type="file" id="afiche" name="afiche"/>
+                @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> 
+                @endif                            
+              </li>
 
-                        <li class="@if($errors->has('img1')) has-error @endif">
-                          <label for="img1">Imagen 1: </label>
-                            <input type="file"  id="img1" name="img1" value="{{Input::old('img1')}}"/>
-                          @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
-                          @endif 
-                        </li>
+              <li class="@if($errors->has('img1')) has-error @endif">
+                <label for="img1">Imagen 1: </label>
+                  <input type="file"  id="img1" name="img1" value="{{Input::old('img1')}}"/>
+                @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
+                @endif 
+              </li>
 
-                        <li class="@if($errors->has('img2')) has-error @endif">
-                          <label for="img2">Imagen 2: </label>
-                            <input type="file"  id="img2" name="img2" value="{{Input::old('img2')}}" />
-                          @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
-                         @endif
-                        </li> 
-
-                </fieldset> 
-            </ul>   
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="crear-grupo" type="submit" >
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear grupo
-                        </button>
-                    </th>
-                    <th id="borrar">
-                        <button id="reset-button" type="reset">
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
-                    </th>
-                </thead>
-            </table> 
+              <li class="@if($errors->has('img2')) has-error @endif">
+                <label for="img2">Imagen 2: </label>
+                  <input type="file"  id="img2" name="img2" value="{{Input::old('img2')}}" />
+                @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
+               @endif
+            </li> 
+          </fieldset> 
+        </ul>   
+        
+        <table id="botones-formularios">
+            <thead>
+                <th id="crear">
+                    <button id="crear-grupo" type="submit" >
+                    <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                    Crear grupo
+                    </button>
+                </th>
+                <th id="borrar">
+                    <button id="reset-button" type="button" onclick="limpiaForm('#form-grupos')" >
+                    <img alt="mal" src="images/ml.png" width="16" height="16" />
+                    Limpiar Formulario
+                </th>
+            </thead>
+        </table> 
     </form>    
 </div>  
 @stop    

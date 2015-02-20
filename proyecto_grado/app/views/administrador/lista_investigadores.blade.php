@@ -46,30 +46,30 @@
                   background: linear-gradient(to bottom,#1A6D71,#122d3e);  
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">INVESTIGADORES</th></tr>
           <tr>
-            <th> </th>
-            <th colspan="3">NOMBRE DE LOS INVESTIGADORES</th>
+            <th></th>
+            <th colspan="4">NOMBRE DE LOS INVESTIGADORES</th>
           </tr>
         </thead>
         <tbody>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-                @if($campo['estado1']==1 ) 
-                  <tr id="dato_investigador_{{$campo['id_sublinea']}}">
-                    <td style="width:100px;">
-                      <b>{{$campo['id_sublinea']}}</b>
-                    </td> 
-                    <td>
-                      <a href="">{{$campo['nombre_sublinea']}}</a>
+               <!-- @if($campo['estado']==1 ) -->
+                  <tr id="dato_investigador_{{$campo['codinv_ext']}}">
+                    <td style="width:130px;">
+                      <a >{{$campo['cedula_persona']}} </a>
+                    </td>
+                    <td >
+                      <a href="">{{$campo['nombre_persona']}} </a>
                     </td>
                     <td style="width:90px;">
                       <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
-                      <b onclick="eliminartipo({{$campo['id_sublinea']}})">
+                      <b onclick="eliminartipo({{$campo['codinv_ext']}})">
                       <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
-                @endif
+                <!--@endif-->
               @endforeach
             @endif
       </table>

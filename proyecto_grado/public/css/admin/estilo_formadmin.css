@@ -27,7 +27,9 @@
 
 
 #form-grupos #advertencias p,
-#f-lista-financiamiento p{
+#f-lista-financiamiento p,
+#form-lineas #advertencias p,
+#form-financiamiento-proyectos #advertencias p {
     color:#1c7e84;
     font-size:11px; 
 }

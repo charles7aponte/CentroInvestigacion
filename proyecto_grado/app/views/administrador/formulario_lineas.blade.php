@@ -8,7 +8,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-lineas" autocomplete="on" enctype="multipart/form-data" action="{{URL::to('creacion/formulariolineas')}}"  method="post">
+    <form id="form-lineas"  enctype="multipart/form-data" action="{{URL::to('creacion/formulariolineas')}}"  method="post">
 
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
@@ -84,9 +84,9 @@
                         </button>
                     </th>
                     <th id="borrar">
-                        <button id="reset-button" type="reset">
+                        <button id="reset-button" type="button" onclick="limpiaForm('#form-lineas')" >
                         <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
+                        Limpiar Formulario
                     </th>
                 </thead>
             </table>  

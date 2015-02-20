@@ -52,7 +52,7 @@ class ControlInvestigadores extends Controller {
 		$datefin = new DateTime($fecha_fin);
 
 		$fecha_fin=$datefin->format('d/m/Y');
-		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
+		//actualmente esta colocando la fecha de hoy si esta en blanco
 
 		$nombreNuevo="";
  
@@ -115,26 +115,23 @@ class ControlInvestigadores extends Controller {
 				$messages = $validator->messages();
 
 
-				/*return Redirect::to('formularioinvestigadores')
+				return Redirect::to('formularioinvestigadores')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");*/
+					->with('mensaje_error',"Error al guardar");
 		} else {
-
-
-
-					/*try
+					try
 					{
 					
-					
+
+
+
 						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
 						$persona->foto=$archivo1;
 
-				
+
 						$persona->save();
 						$entidad->save();
-
-
 					}
 
 					catch(PDOException $e)
@@ -148,7 +145,7 @@ class ControlInvestigadores extends Controller {
 					
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El investigador ha sido creado	*/	
+								->with('mensaje_success',"El investigador ha sido creado");
 				}
 			
 			}
@@ -197,17 +194,19 @@ class ControlInvestigadores extends Controller {
 			}
 
 
-			/*public function EliminarFormularioInvestigadores($id){
+			public function EliminarFormularioInvestigadores($id){
 			
-				$form_linea=InvInvestigadoresExternos::find($id); //de donde necesito
+				$formulario_investigadores=InvInvestigadoresExternos::find($id); //de donde necesito
+				//$formularioinvestigadores1=Persona::find($id);
 
 				if (is_null($form_linea)==false){
 
-					$form_linea->estado=0;
-					$form_linea->cedula_persona .="*";
-					$form_linea->save();
+					//$formulario_investigadores->estado=0;
+					//$formulario_investigadores->cedula_persona .="*";
+					//$formulario_investigadores->save();
 
-					//$form_tipogrupo->delete();
+					$formulario_investigadores->delete();
+					$formularioinvestigadores1->delete();
 
 					return Response::json(array("respuesta"=>true));
 

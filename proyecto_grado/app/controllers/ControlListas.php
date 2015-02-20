@@ -112,6 +112,22 @@ class ControlListas extends Controller {
 		$paginacion=InvInvestigadoresExternos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
+
+		for($i = 0; $i< count($paginacion); $i++)
+			{
+				$paginacion[$i]->nombre_persona ="";
+				$persona = Persona::where("cedula","=", $paginacion[$i]->cedula_persona)->get();
+		
+
+				if($persona && count($persona)>0)
+				{
+					$paginacion[$i]->nombre_persona = $persona[0]->nombre1 ." ". $persona[0]->apellido1 ." ". $persona[0]->apellido2;  
+				}				
+			}
+
+
+
+
 		$datos= array(
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
 		
