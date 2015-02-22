@@ -111,9 +111,9 @@
                       </button>
                   </th>
                   <th id="borrar">
-                      <button id="reset-button" type="reset">
+                      <button id="reset-button" type="button" onclick="limpiaForm('#form-subtipoproducto')" >
                       <img alt="mal" src="images/ml.png" width="16" height="16" />
-                      Borrar campos
+                      Limpiar Formulario
                     </button>
                     </th>
               </thead>

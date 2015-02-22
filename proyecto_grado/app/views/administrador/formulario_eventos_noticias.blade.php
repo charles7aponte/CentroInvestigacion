@@ -45,46 +45,46 @@
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Crear un Evento &oacute; Noticia</h2></div>
             <ul>
                 <fieldset> 
-                    <li class="@if($errors->has('titulo-even-noti')) has-error @endif">
-                    <label for="titulo-even-noti">T&iacute;tulo:</label>
-                        <input type="text" id="titulo-even-noti" name="titulo-even-noti" value="{{Input::old('titulo-even-noti')}}" required="required"/> 
-                         @if ($errors->has('titulo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-even-noti') }}</p> @endif
-                    </li>   
+                <li class="@if($errors->has('titulo-even-noti')) has-error @endif">
+                <label for="titulo-even-noti">T&iacute;tulo:</label>
+                    <input type="text" id="titulo-even-noti" name="titulo-even-noti" value="{{Input::old('titulo-even-noti')}}" required="required"/> 
+                     @if ($errors->has('titulo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('titulo-even-noti') }}</p> @endif
+                </li>   
 
-                   <li class="@if($errors->has('tipo-even-noti')) has-error @endif">
-                    <label for="tipo-even-noti">Tipo:</label>
-                        <select name="tipo-even-noti">
-                            <option value="Evento">Evento</option>
-                            <option value="Noticia">Noticia</option>
-                        </select>
+               <li class="@if($errors->has('tipo-even-noti')) has-error @endif">
+                <label for="tipo-even-noti">Tipo:</label>
+                    <select name="tipo-even-noti">
+                        <option value="Evento">Evento</option>
+                        <option value="Noticia">Noticia</option>
+                    </select>
 
-                         @if ($errors->has('tipo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('tipo-even-noti') }}</p> @endif
-                    </li> 
+                     @if ($errors->has('tipo-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('tipo-even-noti') }}</p> @endif
+                </li> 
 
-                    <li class="@if($errors->has('desc-even-noti')) has-error @endif">
-                        <label for="desc-even-noti">Descripci&oacute;n:</label>
-                        <textarea id="desc-even-noti" name="desc-even-noti"  required="required">{{Input::old('desc-even-noti')}}</textarea>
-                        @if ($errors->has('desc-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-even-noti') }}</p> @endif
-                    </li>  
-   
-                    <li class="@if($errors->has('fecha-even-noti')) has-error @endif">
-                        <label for="fecha-even-noti">Fecha:</label>
-                        <div class="container">
-                            <div class="row">
-                                <div class='col-sm-5' style="padding:0px;">
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"   
-                                            readonly id="fecha-even-noti" class="date form-control" data-format="dd/MM/yyyy" name="fecha-even-noti" value="{{Input::old('fecha-even-noti')}}" required="required" /> 
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
+                <li class="@if($errors->has('desc-even-noti')) has-error @endif">
+                    <label for="desc-even-noti">Descripci&oacute;n:</label>
+                    <textarea id="desc-even-noti" name="desc-even-noti"  required="required">{{Input::old('desc-even-noti')}}</textarea>
+                    @if ($errors->has('desc-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('desc-even-noti') }}</p> @endif
+                </li>  
+
+                <li class="@if($errors->has('fecha-even-noti')) has-error @endif">
+                    <label for="fecha-even-noti">Fecha:</label>
+                    <div class="container">
+                        <div class="row">
+                            <div class='col-sm-5' style="padding:0px;">
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        <input type="" style="cursor:pointer"   
+                                        readonly id="fecha-even-noti" class="date form-control" data-format="dd/MM/yyyy" name="fecha-even-noti" value="{{Input::old('fecha-even-noti')}}" required="required" /> 
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
                                     </div>
-                                </div>                               
-                            </div>
-                        </div> 
-                        @if ($errors->has('fecha-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-even-noti') }}</p> @endif   
-                    </li>
+                                </div>
+                            </div>                               
+                        </div>
+                    </div> 
+                    @if ($errors->has('fecha-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-even-noti') }}</p> @endif   
+                </li>
 
                 </fieldset>
             </ul>
@@ -93,26 +93,25 @@
                     <li class="@if($errors->has('dcto-even-noti')) has-error @endif">
                         <label for="dcto-even-noti">Documento: </label>
                         <input type="file" id="dcto-even-noti" name="dcto-even-noti" value="{{Input::old('dcto-even-noti')}}" />
-                        @if ($errors->has('dcto-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dcto-even-noti') }}</p> @endif
+                        @if ($errors->has('dcto-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('dcto-even-noti') }}</p> 
+                        @endif
                     </li> 
-    
                 </fieldset> 
             </ul>   
             <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="crear-even-noti" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear
-                        </button>
-                    </th>
-                    <th id="borrar">
-                        <button id="reset-button" type="button" onclick="limpiaForm('#form-eventos-noticias')" >
-
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
-                    </th>
-                </thead>
+            <thead>
+                <th id="crear">
+                    <button id="crear-even-noti" type="submit">
+                    <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                    Crear
+                    </button>
+                </th>
+                <th id="borrar">
+                    <button id="reset-button" type="button" onclick="limpiaForm('#form-eventos-noticias')" >
+                    <img alt="mal" src="images/ml.png" width="16" height="16" />
+                    Limpiar Formulario
+                </th>
+            </thead>
             </table>   
     </form>    
 </div>  

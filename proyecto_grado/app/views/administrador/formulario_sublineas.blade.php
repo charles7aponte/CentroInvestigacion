@@ -69,7 +69,7 @@
                         </button>
                     </th>
                     <th id="borrar">
-                        <<button id="reset-button" type="button" onclick="limpiaForm('#form-sublineas')" >
+                        <button id="reset-button" type="button" onclick="limpiaForm('#form-sublineas')" >
                         <img alt="mal" src="images/ml.png" width="16" height="16" />
                         Limpiar Formulario
                     </th>
