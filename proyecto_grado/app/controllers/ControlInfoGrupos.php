@@ -2,8 +2,6 @@
 
 
 class ControlInfoGrupos extends Controller {
-
-
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -37,5 +35,12 @@ class ControlInfoGrupos extends Controller {
 		return View::make("inf_grupos",$datos);
 
 	}
+
+	
+	public function Lineasporgrupos($id_grupo){
+		$grupos= InvLineaGrupos::find($id_grupo);	
+
+	}
+
 	
 }
