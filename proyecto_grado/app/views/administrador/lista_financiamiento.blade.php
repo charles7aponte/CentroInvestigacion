@@ -5,7 +5,7 @@
       <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
       <script >
           URL='formulariofinanciamiento/eliminar/';
-          fila_info="#";
+          fila_info="#principal";
       </script>
 @stop
 
@@ -34,6 +34,29 @@
               </div>
             </div>
           </div>
+
+
+              <!--Alerta de confirmar eliminacion de datos-->
+        <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+          <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+            <div class="modal-content">
+             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirmaci&oacute;n</h4>
+              </div>
+              <div class="modal-body">
+                <p>¿Esta seguro que desea eliminarlo?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="eliminacionremota();"
+                style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div><!-- /.modal-content -->
+            </div>
+          </div>
+        </div>
+
 
 
  <!--ALERTA DE QUE NO EXISTE UN FINANCIAMIENTO ASOCIADO A ESE PROYECTO --> 
@@ -68,13 +91,15 @@
 
   <table id="tabla-listafinanciamiento-proyectos" style="margin-top:40px; margin-left:40px; border:none; width:950px;">
     <thead>
-      <tr><th colspan="6" style="background: #1A6D71;
+      <tr ><th id="nombre-proyecto" colspan="6" style="background: #1A6D71;
             background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
             background: -moz-linear-gradient(top,#1A6D71,#122d3e);
             background: -o-linear-gradient(top,#1A6D71,#122d3e);  
             background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">
-            Financiamiento 
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;
+            text-align:center;">
+            
+
           </th>
       </tr>
       <tr>

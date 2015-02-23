@@ -11,13 +11,18 @@ var idP= $("#nombre_proyecto1").val();
                 success: function(result){
                      
                      var mihtml=""; 
+                     var total=0;
+
 
                      for(var i=0; i< result.length; i++ )
                      {
 
+                      total+=parseFloat(result[i].valor_financiado);
+                      console.log(total);
                       mihtml+= crearfilafinanciamientoproyecto(result[i]);
-
+                      
                      }
+                     mihtml+= mostrartotal(total);
 
                      if(result.length==0)
                      {
@@ -30,6 +35,9 @@ var idP= $("#nombre_proyecto1").val();
                      }
 
                      $("#cuerpo_tabla_finaciamiento").html(mihtml); 
+                     $("#nombre-proyecto").html(nombreproyecto);
+                     $("#nombre_proyecto").val("");
+
                 }
               ,error:function(){
 
@@ -58,7 +66,7 @@ $("#descripcion-financimiento").html(info);
 
 function crearfilafinanciamientoproyecto(proyecto){
 
-    var html ="<tr> "
+    var html ="<tr id='principal"+proyecto.id_financiacion+"'> "
 
       +"  <td style='width:90px;'>"+proyecto.fecha+"</td> "
       +"  <td style='width:300px; margin-right:5px;'>"+proyecto.nombre_empresa+" </td> "
@@ -93,9 +101,26 @@ function crearfilafinanciamientoproyecto(proyecto){
       +"    </div>"
       +"  </td>"
       +"  <td style='width:100px;'>"
-      +"    <a href='#' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a>"
+      +"  <b onclick=\"eliminartipo('"+proyecto.id_financiacion+"')\">"
+      +"    <a href='#' onclick=\"return false\" class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a>"
+      +"   </b>"
       +"  </td>"
       +"</tr>"
 
 return html;
+}
+
+
+function mostrartotal(total){
+   var html1 ="<tr>"
+
+      +"  <td style='width:90px;'></td> "
+      +"  <td style='width:300px; margin-right:5px;'></td> "
+      +"  <td style='width:100px; margin-rigth:5px; font-weight:bold;'>Total</td>"
+      +"  <td style='width:90px; margin-left:5px; font-weight:bold;'>"+"$"+total+" </td>"
+      +"  <td style='width:120px;'> </td>"
+      +"  <td style='width:100px;'> </td>"
+      +"  </tr>"
+
+      return html1;
 }

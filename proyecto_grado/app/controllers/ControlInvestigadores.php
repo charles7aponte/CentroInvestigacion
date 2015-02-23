@@ -197,13 +197,10 @@ class ControlInvestigadores extends Controller {
 			public function EliminarFormularioInvestigadores($id){
 			
 				$formulario_investigadores=InvInvestigadoresExternos::find($id); //de donde necesito
-				//$formularioinvestigadores1=Persona::find($id);
+				
+				if (is_null($formulario_investigadores)==false){
+					$formularioinvestigadores1=Persona::find($formulario_investigadores->cedula_persona);
 
-				if (is_null($form_linea)==false){
-
-					//$formulario_investigadores->estado=0;
-					//$formulario_investigadores->cedula_persona .="*";
-					//$formulario_investigadores->save();
 
 					$formulario_investigadores->delete();
 					$formularioinvestigadores1->delete();

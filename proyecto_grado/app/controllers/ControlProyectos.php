@@ -82,10 +82,10 @@ class ControlProyectos extends Controller {
 
 
 
-				/*return Redirect::to('formularioproyectos')
+				return Redirect::to('formularioproyectos')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");*/
+					->with('mensaje_error',"Error al guardar");
 		} else {
 
 			

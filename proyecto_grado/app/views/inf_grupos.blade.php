@@ -162,50 +162,66 @@
     </fieldset>
 
         <!-- menus desplegables-->
-                <fieldset id="secundario">
+                <fieldset id="secundario1">
                 <div class="titulo-listas" id="cuadro">             
-                 <h4 id="boton_integrantes" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Integrantes</a></h4>
+                 <h4 style= "border-radius: 5px; background: #286388;
+                          background: -webkit-linear-gradient(top,#286388,#122d3e);
+                          background: -moz-linear-gradient(top,#286388,#122d3e);
+                          background: -o-linear-gradient(top,#286388,#122d3e);  
+                          background: linear-gradient(to bottom,#286388,#122d3e);  
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);">
+                          <p>L&Iacute;NEAS</p>
+                </h4>
                 </div> 
-                    <div id="lista_integrantes" class="lista-grupos">
-                            <ul class="galeria-grupos">
-                                <li class="glyphicon glyphicon-ok"><a href="#">Profesores</a>
-                                    <a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                                </li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Estudiantes</a>
-                                    <a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Never ending gallery</a>
-                                    <a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                            </ul>
+                    <div class="list-group">
+                      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                      <a href="#" class="list-group-item">Morbi leo risus</a>
+                      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                      <a href="#" class="list-group-item">Vestibulum at eros</a>
                     </div>
                 </fieldset> 
-                <fieldset id="secundario">
+
+
+                <fieldset id="secundario1">
                     <div class="titulo-listas" id="cuadro">
-                     <h4 id="boton_productos"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productos</a></h4>
+                     <h4 id="boton_integrantes" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Integrantes</a></h4>
                     </div>
-                        <div id="lista_productos" class="lista-grupos">
-                            <ul class="galeria-grupos">
-                                <li class="glyphicon glyphicon-ok"><a href="#">Ponencias</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Articulos</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Revistas</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Conferencias</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                                <li class="glyphicon glyphicon-ok"><a href="#">Sotfware</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
+                        <div id="lista_integrantes" class="lista-integrantes">
+                            <ul class="list-group">
+                              <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Docentes
+                              </li>
+                              <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Estudiantes
+                              </li>
+                              <li class="list-group-item">
+                                <span class="badge">14</span>
+                                J&oacute;venes Investigadores
+                              </li>
+                              <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Investigadores Externos
+                              </li>
+                            </ul>
+                        </div>
+                </fieldset> 
+
+                <fieldset id="secundario1">
+                    <div class="titulo-listas" id="cuadro">
+                     <h4 id="boton_productos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productos</a></h4>
+                    </div>
+                        <div id="lista_productos" class="lista_productos">
+                            <ul class="list-group">
+                              <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio
+                              </li>
                             </ul>
                         </div>
                 </fieldset>
-                <fieldset id="secundario">
-                    <div class="titulo-listas" id="cuadro">
-                        <h4 id="boton_lineas" style= "width:244px;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Lineas de Investigacion</a></h4>
-                    </div>
-                    <div id="lista_lineas" class="lista-grupos">
-                        <ul class="galeria-grupos ">
-                            <li class="glyphicon glyphicon-ok"><a href="#">Ingenieria de Sotfware</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                            <li class="glyphicon glyphicon-ok"><a href="#">Teleinformatica</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                            <li class="glyphicon glyphicon-ok"><a href="#">Automatizaci&oacute;n</a><a href="#" class="button editar"><span class="glyphicon glyphicon-pencil"></span>Editar</a></li>
-                        </ul>
-                    </div>
-                </fieldset>
             </div>  
-        </div>  
+    </div>  
 </div>
-
 @stop
