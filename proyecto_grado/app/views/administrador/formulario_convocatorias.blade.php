@@ -53,14 +53,17 @@
      method="post">
         <!-- encoso de no existri el id-->
         @if(isset($accion) && $accion=="editar")
-          <fieldset style="margin-bottom: 2px;
-                    margin-top: 5px;
-                    padding: 2px;">
+          
               
                 @if(!isset($convocatoria) || !$convocatoria)
-                    <div  style="margin: 0px;" class="alert alert-danger">NO existe la convocatoria!!</div>   
+                    <fieldset style="margin-bottom: 2px;
+                        margin-top: 5px;
+                        padding: 2px;">
+
+                        <div  style="margin: 0px;" class="alert alert-danger">NO existe la convocatoria!!</div> 
+                    </fieldset>  
                 @endif 
-            </fieldset>
+            
         @endif
 
 
