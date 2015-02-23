@@ -61,7 +61,7 @@
                       <a href="{{URL::to('convocatoria/id')}}/{{$campo['numero_convocatoria']}}">{{$campo['titulo_convocatoria']}}</a>
                     </td>
                     <td style="width:90px;">
-                      <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="edicion/formulariolineas" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:92px;">
                       <b  onclick="eliminartipo({{$campo['numero_convocatoria']}})">

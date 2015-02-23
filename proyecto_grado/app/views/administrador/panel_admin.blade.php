@@ -37,6 +37,14 @@ switch($mes){
 <!doctype html>
 <html lang="en">
 <head>
+
+
+	<script type="text/javascript">
+
+		var URL_SERVIDOR ="{{URL::to('/')}}";
+
+	</script>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -68,6 +76,7 @@ switch($mes){
 	<script src="{{URL::to('js/cambiaracapital.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/limpiarformularios.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
+
 
 	@section("javascript-nuevos")
 	@show

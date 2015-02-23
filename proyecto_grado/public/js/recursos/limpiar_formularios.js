@@ -1,3 +1,5 @@
+
+
 function limpiaForm(miForm) {
 // recorremos todos los campos que tiene el formulario
 		$(':input', miForm).each(function() {

@@ -105,6 +105,8 @@ Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@Eli
 //--------------rutas formularios editados----------------------------
 Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
+Route::get('formulariolineas/edit/{id}','ControlLineas@cargarEditar');
+
 
 //Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
@@ -167,6 +169,8 @@ Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@
 // creacion editar de los formularios
 
 Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion'); 
+
+Route::post('edicion/formulariolineas','ControlLineas@guardarEdicion'); 
 
 
 

@@ -80,10 +80,10 @@
         @endif
 
 
-@if(isset($convocatoria['numero_convocatoria']))
+        @if(isset($convocatoria['numero_convocatoria']))
 
-        <input type="hidden" name="id_convacotoria" value="{{$convocatoria['numero_convocatoria']}}">
-@endif
+            <input type="hidden" name="id_convacotoria" value="{{$convocatoria['numero_convocatoria']}}">
+        @endif
 
         <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
            

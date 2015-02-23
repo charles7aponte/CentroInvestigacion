@@ -6,7 +6,7 @@ function cargar(input, escondido){
         source:function(request, response)
         {
 
-            $.getJSON("servicios/personas/"+request.term,{
+            $.getJSON(URL_SERVIDOR+"/servicios/personas/"+request.term,{
     //          term:  ( request.term )
             },response);//fin get JSON
 
