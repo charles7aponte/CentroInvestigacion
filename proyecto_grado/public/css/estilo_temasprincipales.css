@@ -22,7 +22,7 @@ fieldset#secundario{
     padding:5px;
 }
 
-/*basicos propios ficha grupos*/
+/*css propio de la ficha grupos*/
 .infgrupos fieldset#secundario1{
   background-color: none;
   margin: 5px 15px 5px 15px;
@@ -42,6 +42,36 @@ fieldset#secundario{
 }
 /*fin ficha grupos*/
 
+
+/*css propio de la ficha persona*/
+#marco-persona{
+  margin: 10px;
+  padding: 3px 10px; 
+  border: #F2F2F2 5px double; 
+  border-top-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
+
+.infpersonas #nombre-persona{
+  text-align: center;
+  font-weight: bold;
+}
+
+#foto-persona{
+   padding:8px; 
+   margin-left: 20px;
+   margin-top: 10px;
+   background-color: #f5f5f5; 
+   border: 1px solid #E6E6E6; 
+}
+
+#foto-persona img{
+   border: 1px solid #FAFAFA; 
+   width: 180px; 
+   height: 220px;
+}
+
+/*fin ficha persona*/
 
 #titulo-infconv h2,
 #titulo-lineas h2,
@@ -177,6 +207,7 @@ thead th[colspan],thead th[rowspan]{             /*************color de la cabec
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    font-size: 13px;
 
 }
 
@@ -383,7 +414,7 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
 .infpersonas .talkbubble {
    width: 700px;
    height: 100px;
-   margin-left:90px; 
+   margin-left:35px; 
    background: #eee;
    position: relative;
    -moz-border-radius:    10px;

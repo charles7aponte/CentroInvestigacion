@@ -164,13 +164,13 @@
         <!-- menus desplegables-->
                 <fieldset id="secundario1">
                 <div class="titulo-listas" id="cuadro">             
-                 <h4 style= "border-radius: 5px; background: #286388;
+                 <h4>
+                    <p style=" border-radius: 5px; background: #286388;
                           background: -webkit-linear-gradient(top,#286388,#122d3e);
                           background: -moz-linear-gradient(top,#286388,#122d3e);
                           background: -o-linear-gradient(top,#286388,#122d3e);  
                           background: linear-gradient(to bottom,#286388,#122d3e);  
-                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);">
-                          <p>L&Iacute;NEAS</p>
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">L&Iacute;NEAS</p>
                 </h4>
                 </div> 
                     <div class="list-group">
