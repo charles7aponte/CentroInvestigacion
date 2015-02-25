@@ -2,6 +2,9 @@
 
 
 class ControlInfoGrupos extends Controller {
+	
+	public $listaIntegrantesGrupos=array('Docente' => 0,'Estudiante' => 0,'Joven Investigador'=>0, 'Investigador Externo'=>0 );
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -30,11 +33,21 @@ class ControlInfoGrupos extends Controller {
 		} 
 	
 		
+		///
+
+		foreach ($this->listaIntegrantesGrupos as $keyintegrante => $integrante) {
+
+
+			
+			$this->listaIntegrantesGrupos[$keyintegrante]=$this->ContarIntegrantes($keyintegrante,$id_grupo);
+		}
+
+
 		$lineas_grupos= $this->Lineasporgrupos($id_grupo);
 		$datos = array('grupos' =>$grupos,
-					   'Lineas_grupos' =>$lineas_grupos
+					   'Lineas_grupos' =>$lineas_grupos,
+					   'Lista_integrantes'=>$this->listaIntegrantesGrupos
 			);
-		//print_r($datos);
 	return View::make("inf_grupos",$datos);
 
 	}
@@ -46,6 +59,24 @@ class ControlInfoGrupos extends Controller {
 				where ilg.inv_codigo_grupo=$id_grupo and ilg.inv_codigo_grupo=ig.codigo_grupo and ilg.inv_id_linea=il.id_lineas;")
 			);
 		return $listaLineasGrupos;
+	}
+
+	//contar cantidad de integrantes
+	public function ContarIntegrantes($perfil, $id_grupo){
+	$listaIntegrantesGrupos=DB::select(DB::raw("select count(*) 
+				from persona ps,perfil pf, personaperfil pp, inv_participacion_grupos ipg,
+				inv_grupos ig
+				where pp.codperfil=pf.codperfil and 
+				ps.cedula=pp.cedula and ipg.cedula_persona=ps.cedula and ig.codigo_grupo=ipg.inv_codigo_grupo
+				and lower(trim(nombreperfil))  like lower('$perfil') and ipg.inv_codigo_grupo=$id_grupo;")
+			);
+
+		if($listaIntegrantesGrupos && count($listaIntegrantesGrupos)>0)
+		{
+			return $listaIntegrantesGrupos[0]->count; 
+		}		
+
+		return 0;
 	}
 
 	

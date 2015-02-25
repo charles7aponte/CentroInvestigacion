@@ -195,20 +195,30 @@
                     </div>
                         <div id="lista_integrantes" class="lista-integrantes">
                             <ul class="list-group">
+                            
                               <li class="list-group-item">
-                                <span class="badge">14</span>
+                                <span class="badge" id="total">
+                                {{$Lista_integrantes["Docente"]}}
+                                </span>
                                 Docentes
                               </li>
+
                               <li class="list-group-item">
-                                <span class="badge">14</span>
+                                <span class="badge" id="total">
+                                {{$Lista_integrantes["Estudiante"]}}
+                                </span>
                                 Estudiantes
                               </li>
                               <li class="list-group-item">
-                                <span class="badge">14</span>
+                                <span class="badge" id="total"> 
+                                {{$Lista_integrantes["Joven Investigador"]}}
+                                </span>
                                 J&oacute;venes Investigadores
                               </li>
                               <li class="list-group-item">
-                                <span class="badge">14</span>
+                                <span class="badge" id="total">
+                                {{$Lista_integrantes["Investigador Externo"]}}
+                                </span>
                                 Investigadores Externos
                               </li>
                             </ul>
