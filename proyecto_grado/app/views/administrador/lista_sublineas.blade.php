@@ -59,10 +59,10 @@
                       <b>{{$campo['id_sublinea']}}</b>
                     </td> 
                     <td>
-                      <a href="">{{$campo['nombre_sublinea']}}</a>
+                      <a href="{{URL::to('sublinea/id')}}/{{$campo['id_sublinea']}}">{{$campo['nombre_sublinea']}}</a> 
                     </td>
                     <td style="width:90px;">
-                      <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="edicion/formulariosublineas" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
                       <b onclick="eliminartipo({{$campo['id_sublinea']}})">

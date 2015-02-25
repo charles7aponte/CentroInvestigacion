@@ -12,16 +12,25 @@ class InvGrupos extends Eloquent  {
 	public $timestamps = false;
 	protected $primaryKey = "codigo_grupo";
 
-		// reglas
+	// reglas validacion creacion
+
 	public 	static $reglasValidacion = array(
 			'nombre'        =>'required|unique:inv_grupos,nombre_grupo', 
 			'coord'         => 'required|max:50|', 	
 			'objetivos'     => 'required',
 			'categoria'		=>'max:30|required',
-			'unidad'		=>'required|max:100',
+			'unidad'		=>'required|max:100',			
+	);
 
-				
-		);
+	// reglas validacion edicion
+
+	public 	static $reglasValidacionEdicion = array(
+			'nombre'        =>'required', 
+			'coord'         => 'required|max:50|', 	
+			'objetivos'     => 'required',
+			'categoria'		=>'max:30|required',
+			'unidad'		=>'required|max:100',			
+	);
 
 
 

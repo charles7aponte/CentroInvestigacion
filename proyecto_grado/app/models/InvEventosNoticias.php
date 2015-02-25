@@ -14,13 +14,20 @@ class InvEventosNoticias extends Eloquent  {
 	public $incrementing = true;
 
 
-		// reglas
+		// reglas validacion creacion
 	public 	static $reglasValidacion = array(
 			'titulo-even-noti'   =>'required|unique:inv_evento_noticias,titulo_evento|max:150|',  	
 			'desc-even-noti'	=>'required',
 			'tipo-even-noti'	=>'required',
 					
-		);
+	);
 
+	// reglas validacion edicion
+	public 	static $reglasValidacionEdicion = array(
+			'titulo-even-noti'   =>'required|max:150',  	
+			'desc-even-noti'	=>'required',
+			'tipo-even-noti'	=>'required',
+					
+	);
 
 }
