@@ -174,10 +174,17 @@
                 </h4>
                 </div> 
                     <div class="list-group">
-                      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                      <a href="#" class="list-group-item">Morbi leo risus</a>
-                      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                      <a href="#" class="list-group-item">Vestibulum at eros</a>
+
+                        @if($Lineas_grupos && count($Lineas_grupos)>0)
+                            @foreach($Lineas_grupos as $Linea_grupo)
+                              <a href="{{URL::to('/')}}/linea/id/{{$Linea_grupo->id_lineas}}" class="list-group-item">
+                                {{$Linea_grupo->nombre_linea}}
+                              </a>
+                            @endforeach  
+
+                        @else 
+                        <p>No hay L&iacute;neas definidas para este grupo.</p>
+                        @endif    
                     </div>
                 </fieldset> 
 

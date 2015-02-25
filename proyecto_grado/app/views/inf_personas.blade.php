@@ -74,6 +74,32 @@
                         </tr>
                     </tbody>
         	</table> 
+
+                        <table class="tabla-infpersonas">
+                
+                    <thead>    
+                        <tr>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th id="fil-principal">Nombre Completo</th>
+                            <td id="col-principal" id="cuadro">frddedsswwssdeeddfrgt</td>
+                        </tr>
+
+                         <tr>
+                            <th id="fil-principal">C&eacute;dula</th>
+                            <td id="col-principal" id="cuadro">2221111111</td>
+                        </tr>
+
+                         <tr>
+                            <th id="fil-principal">Perfil</th>
+                            <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                        </tr>
+                    </tbody>
+            </table> 
         </fieldset>		    
     </div>  
 </fieldset>

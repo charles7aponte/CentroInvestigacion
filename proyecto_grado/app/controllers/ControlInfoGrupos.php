@@ -29,17 +29,23 @@ class ControlInfoGrupos extends Controller {
 			$grupos->tipo_grupo_band=1;
 		} 
 	
-
-		$datos = array('grupos' =>$grupos);
-
-		return View::make("inf_grupos",$datos);
+		
+		$lineas_grupos= $this->Lineasporgrupos($id_grupo);
+		$datos = array('grupos' =>$grupos,
+					   'Lineas_grupos' =>$lineas_grupos
+			);
+		//print_r($datos);
+	return View::make("inf_grupos",$datos);
 
 	}
 
-	
-	public function Lineasporgrupos($id_grupo){
-		$grupos= InvLineaGrupos::find($id_grupo);	
-
+	//consulta lineas por grupos
+	public function Lineasporgrupos($id_grupo){	
+		$listaLineasGrupos=	DB::select(DB::raw("select id_lineas, nombre_linea
+				from inv_lineas il, inv_linea_grupos  ilg, inv_grupos ig
+				where ilg.inv_codigo_grupo=$id_grupo and ilg.inv_codigo_grupo=ig.codigo_grupo and ilg.inv_id_linea=il.id_lineas;")
+			);
+		return $listaLineasGrupos;
 	}
 
 	
