@@ -28,7 +28,7 @@
 
 @section('cuerpo')
 <div>  
-    <form id="form-grupos" autocomplete="on" enctype="multipart/form-data" action="{{URL::to('creacion/formulariogrupos')}}"method="POST">
+    <form id="form-grupos" enctype="multipart/form-data" action="{{URL::to('creacion/formulariogrupos')}}"method="POST">
          @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -55,7 +55,7 @@
 
                     <li class="@if($errors->has('coord')) has-error @endif">
                       <label for="coord">Coordinador:</label>
-                        <input type="text" id="coord" name="coord" value="" required="required"/>
+                        <input style="text-transform:capitalize;" type="text" id="coord" name="coord" value="" required="required"/>
                         <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
                           <span id="advertencias">
                             <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
@@ -66,14 +66,14 @@
 
                     <li class="@if($errors->has('email')) has-error @endif">
                       <label for="email">Email:</label>
-                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
+                        <input  type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
                           @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
                          @endif          
                     </li>
 
                     <li class="@if($errors->has('pagina')) has-error @endif">
                       <label for="pagina">P&aacute;gina web:</label>
-                        <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+                        <input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
                          @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
                          @endif                        
                     </li>
@@ -87,7 +87,7 @@
 
                     <li class="@if($errors->has('direccion')) has-error @endif">
                       <label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
+                        <input onchange="letrasCapital(this)" type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
                          @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
                          @endif                     
                     </li>
@@ -178,6 +178,10 @@
                              <button type="button" class="btn btn-primary"  
                                 id="bton_integrantes-grupos"
                               style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              <span id="advertencias">
+                                <p>*Ingrese el número de documento o nombres y espere a que el autocompletado lo muestre.
+                                </p>
+                              </span>
                           </div>
                           
                           <div class="modal-body">
@@ -228,6 +232,10 @@
                                 id="bton_linea-grupos"
                                 style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar
                               </button> 
+                              <span id="advertencias">
+                                <p>*Ingrese el nombre de la línea y espere a que el autocompletado lo muestre.
+                                </p>
+                              </span>
                           </div>
                           
                           <div class="modal-body">

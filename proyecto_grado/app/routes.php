@@ -199,6 +199,13 @@ Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticia
 Route::get('listadeinvestigadores','ControlListas@ConstruirListaInvestigadores');
 
 
+//sublistas de fichas principales
+Route::get('listaintegrantesgrupos/grupo/{idgrupo}/perfil/{idperfil}','ControlInfoListasGrupos@ConstruirListaIntegrantesGrupos');
+
+Route::get('listaproductosgrupos/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','ControlInfoListasGrupos@ContruirListaProductosGrupos');
+
+Route::get('listaproyectosgrupos/grupo/{idgrupo}','ControlInfoListasGrupos@ConstruirListaProyectosGrupos');
+
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)
 *************----------------**/
 

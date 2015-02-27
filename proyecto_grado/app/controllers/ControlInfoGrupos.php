@@ -4,6 +4,7 @@
 class ControlInfoGrupos extends Controller {
 	
 	public $listaIntegrantesGrupos=array('Docente' => 0,'Estudiante' => 0,'Joven Investigador'=>0, 'Investigador Externo'=>0 );
+	public $idperfiles=array();
 
 	/**
 	 * Setup the layout used by the controller.
@@ -22,7 +23,7 @@ class ControlInfoGrupos extends Controller {
 		$tipo = InvTipoGrupos::where("id","=",$grupos->inv_tipo_grupos)->get();
 		$tipo=$tipo[0];
 
-		$grupos->nombre_director=$persona->nombre1." ".$persona->apellido1." ".$persona->apellido2;
+		$grupos->nombre_director=$persona->nombre1." ".$persona->nombre2." ".$persona->apellido1." ".$persona->apellido2;
 		
 		$grupos->tipo_grupo_="No definido. ";
 		$grupos->tipo_grupo_band=0;
@@ -33,21 +34,42 @@ class ControlInfoGrupos extends Controller {
 		} 
 	
 		
-		///
 
 		foreach ($this->listaIntegrantesGrupos as $keyintegrante => $integrante) {
 
 
-			
-			$this->listaIntegrantesGrupos[$keyintegrante]=$this->ContarIntegrantes($keyintegrante,$id_grupo);
+			$temporal=$this->ContarIntegrantes($keyintegrante,$id_grupo);
+
+
+			$this->listaIntegrantesGrupos[$keyintegrante]=$temporal['count'];
+			$this->idperfiles[$keyintegrante]=$temporal['codperfil'];
+
 		}
 
 
+		//traer subtipo por grupo
+		$productos=InvSubtipoProductos::all();
+
+		foreach ($productos as $keyproducto => $producto) {
+			//$this->Contarproductos($producto->id_subtipo_producto,$id_grupo);
+
+			$total_productos=$this->Contarproductos($producto->id_subtipo_producto,$id_grupo);
+			$productos[$keyproducto]->total = $total_productos; 			
+
+		}
+
 		$lineas_grupos= $this->Lineasporgrupos($id_grupo);
+		$proyectos_grupos= $this->ContarProyectos($id_grupo);
+		
 		$datos = array('grupos' =>$grupos,
 					   'Lineas_grupos' =>$lineas_grupos,
-					   'Lista_integrantes'=>$this->listaIntegrantesGrupos
+					   'Lista_integrantes'=>$this->listaIntegrantesGrupos,
+					   'Lista_perfiles'=> $this->idperfiles,
+					   'Lista_productos' =>$productos,
+					   'Lista_proyectos' =>$proyectos_grupos
 			);
+
+
 	return View::make("inf_grupos",$datos);
 
 	}
@@ -63,21 +85,53 @@ class ControlInfoGrupos extends Controller {
 
 	//contar cantidad de integrantes
 	public function ContarIntegrantes($perfil, $id_grupo){
-	$listaIntegrantesGrupos=DB::select(DB::raw("select count(*) 
+	$listaIntegrantesGrupos=DB::select(DB::raw("select count(*) , pf.codperfil
 				from persona ps,perfil pf, personaperfil pp, inv_participacion_grupos ipg,
 				inv_grupos ig
 				where pp.codperfil=pf.codperfil and 
 				ps.cedula=pp.cedula and ipg.cedula_persona=ps.cedula and ig.codigo_grupo=ipg.inv_codigo_grupo
-				and lower(trim(nombreperfil))  like lower('$perfil') and ipg.inv_codigo_grupo=$id_grupo;")
+				and lower(trim(nombreperfil))  like lower('$perfil') and ipg.inv_codigo_grupo=$id_grupo
+				group by pf.codperfil;")
 			);
 
 		if($listaIntegrantesGrupos && count($listaIntegrantesGrupos)>0)
 		{
-			return $listaIntegrantesGrupos[0]->count; 
+
+
+			return  array('count'=>$listaIntegrantesGrupos[0]->count, 'codperfil'=>$listaIntegrantesGrupos[0]->codperfil);
 		}		
+
+		return array('count'=>0, 'codperfil'=>0);
+	}
+
+	//contar cantidad de prodcutos por grupo
+	public function Contarproductos($subtipo,$id_grupo){
+		$listaProductosGrupos=DB::select(DB::raw("select count(*) 
+				from inv_participacion_productos ipp, inv_productos ip
+				where ip.codigo_producto=ipp.inv_codigo_producto and ip.inv_subtipo_producto=$subtipo
+				and ipp.inv_codigo_grupo=$id_grupo;")
+		);
+
+		if($listaProductosGrupos && count($listaProductosGrupos)>0){
+			return $listaProductosGrupos[0]->count;
+		}
 
 		return 0;
 	}
 
+	//contar cantidad de proyectos por grupo
+	public function ContarProyectos($id_grupo){
+		$listaProyectosGrupos=DB::select(DB::raw("select count(*) 
+			from inv_proyectos ip, inv_grupos ig
+			where ip.inv_codigo_grupo=ig.codigo_grupo
+			and ig.codigo_grupo=$id_grupo")
+			);
+
+		if($listaProyectosGrupos && count($listaProyectosGrupos)>0){
+			return $listaProyectosGrupos[0]->count;
+		}
+
+		return 0;
+	}
 	
 }

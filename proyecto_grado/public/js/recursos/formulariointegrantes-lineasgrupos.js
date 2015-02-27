@@ -27,7 +27,7 @@ function cargar(input, escondido){
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
       return $( "<li>" )
-        .append( "<a>" + item.nombre + "<br>" + item.cedula + "</a>" )
+        .append( "<a>" + item.nombre+ "<br>" + item.cedula + "</a>" )
         .appendTo( ul );
     };
     ;// fin defincion de autocompletado
