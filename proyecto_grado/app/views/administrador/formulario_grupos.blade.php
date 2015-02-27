@@ -44,6 +44,7 @@
 
 
 
+ <!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
   $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
   $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
@@ -283,6 +284,17 @@
 
                               <tbody>
 
+                                @if(isset($integrantes))
+                                  @foreach($integrantes as $personagrupos)
+                                      <tr id="integrantemodal_{{$personagrupos->cedula}}">
+                                        <td><input type="hidden" data-info="1" name="integrantes[]" value="1">{{$personagrupos->cedula}}</td> 
+                                        <td>{{$personagrupos->datos_personales}}</td> 
+                                        <td><a href="#" onclick="eliminarModalIntegranteGrupo('{{$grupos['codigo_grupo']}}','{{$personagrupos->cedula}}')" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
+                                      </tr>
+
+                                  @endforeach
+                                @endif
+
                               </tbody>
                             </table>
                           </div>
@@ -292,6 +304,28 @@
                         </div>
                       </div>
                     </div>
+
+                  <!--Modal de Verificacion de Eliminar integrantes grupos-->
+                  <div>    
+                   <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+                      <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Confirmaci&oacute;n</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>¿Esta seguro que desea eliminarlo?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="eliminarintegrantemodal();"
+                          style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                      </div>
+                    </div>
+                  </div>
 
                     <!--modal 2 de lineas-->
 
@@ -335,7 +369,17 @@
                               </thead>
 
                               <tbody>
-                          
+                                @if(isset($lineasintegrantes))
+                                @foreach($lineasintegrantes as $personalineas)
+                                    <tr id="lineamodal_{{$personalineas->id_lineas}}">
+                                      <td><input type="hidden" data-info="1" name="integrantes[]" value="1">{{$personalineas->id_lineas}}</td> 
+                                      <td>{{$personalineas->nombre_linea}}</td> 
+                                      <td><a href="#" onclick="eliminarModalLineaGrupo('{{$grupos['codigo_grupo']}}','{{$personalineas->id_lineas}}')" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
+                                    </tr>
+
+                                @endforeach
+                                @endif
+                                                 
                               </tbody>
                             </table>
                           </div>
@@ -345,6 +389,29 @@
                         </div>
                       </div>
                     </div>
+
+                    <!--Modal de Verificacion de Eliminar lineas grupos-->
+                  <div>    
+                   <div class="modal fade bs-example-modal-lg" id="eliminar-linea" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+                      <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Confirmaci&oacute;n</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>¿Esta seguro que desea eliminarlo?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="eliminarLineaamodal();"
+                          style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                      </div>
+                    </div>
+                  </div>
+
                 </fieldset>
             </ul> 
 
