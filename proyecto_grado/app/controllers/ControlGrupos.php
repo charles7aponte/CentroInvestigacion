@@ -348,31 +348,82 @@ class ControlGrupos extends Controller {
 
 		$grupos->nombre_director=$nombrecor;
 
-		$datos=array('grupos' => $grupos,
-					 'accion'=>'editar',
-					 'tipos' =>$listatipogrupos);
-
+		
 			if($grupos)
 				{
 					// esto es solo en caso de fechas .. para darle formato .. pues no lo retona diferente
 					$dateinicio = new DateTime($grupos->ano_creacion);
 					$grupos->ano_creacion=$dateinicio->format('d/m/Y');
 					
-				}
+				}	
+
+			$integrantes=$this->listaUsuarios($id);
+			$lineasintegrantes=$this->listaLineas($id);
 
 
-				
+			$datos=array('grupos' => $grupos,
+					    'accion'=>'editar',
+					    'tipos' =>$listatipogrupos,
+					    'integrantes' =>$integrantes,
+					    'lineasintegrantes' =>$lineasintegrantes);
 
-
-				//integranres
-$mi_integrantes=DB::select(DB::raw("select trim(concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2)) as nombre , cedula as cedula 
-					FROM \"persona\"
-					where lower(concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ,' ',cedula)) LIKE '%$nombre%'")
-									);
-
-print_r($mi_integrantes);	
-			//return View::make('administrador/formulario_grupos',$datos);
+			//print_r($datos);
+			return View::make('administrador/formulario_grupos',$datos);
 	}
 
+	// funcion para editar los integrantes del modal de grupos a traves de consultas con la bd!!
+	public function listaUsuarios($id)
+	{	
 
+		$listaPersonas=	DB::select(DB::raw("select (nombre1||''||nombre2||''||apellido1||''||apellido2)as datos_personales,p.cedula 
+		from persona p,  inv_participacion_grupos ipg
+		where p.cedula=ipg.cedula_persona and ipg.inv_codigo_grupo=$id"));
+
+		return $listaPersonas;	
+	}	
+
+	// funcion para editar las lineas del modal de grupos a traves de consultas con la bd!!
+	public function listaLineas($id)
+	{	
+
+		$listaPersonas=	DB::select(DB::raw("select vl.nombre_linea,vl.id_lineas 
+		from inv_lineas vl ,  inv_linea_grupos ivl 
+		where vl.id_lineas=ivl.inv_id_linea  and ivl.inv_codigo_grupo=$id"));
+
+		return $listaPersonas;	
+	}	
+
+	// servicio para eliminar los integrantes de los grupos.........
+	public function EliminarIntegrantesGrupos($idgrupo,$idintegrante){
+			
+				$integrantegrupo= InvParticipacionGrupos::where("cedula_persona","=",$idintegrante)
+										->where("inv_codigo_grupo","=",$idgrupo)->first(); 
+
+
+				if (is_null($integrantegrupo)==false){
+
+					$integrantegrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+	}
+
+	// servicio para eliminar de los modales las lineas de los grupos...........
+	public function EliminarlineaGrupos($idgrupo,$idlinea){   
+			
+				$lineagrupo= InvLineaGrupos::where("inv_id_linea","=",$idlinea)
+										->where("inv_codigo_grupo","=",$idgrupo)->first(); 
+
+
+				if (is_null($lineagrupo)==false){
+
+					$lineagrupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+	}
 }
