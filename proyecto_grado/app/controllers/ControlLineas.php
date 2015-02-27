@@ -245,9 +245,6 @@ class ControlLineas extends Controller {
 	}
 
 
-
-
-
 		$linea->nombre_coordinador=$nombre;
 
 		$datos=array('linea' => $linea,
@@ -281,5 +278,5 @@ class ControlLineas extends Controller {
 
 					return $nombreNuevo;
 			
-			}
+	}
 }

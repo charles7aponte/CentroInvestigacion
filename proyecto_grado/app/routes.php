@@ -95,7 +95,8 @@ Route::get('formularioconvocatorias', function() { return View::make('administra
 
 /*---------------cerar eventos y noticias------------------*/
 
-Route::get('formularioeventosnoticias', function() { return View::make('administrador/formulario_eventos_noticias');});
+Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');
+});
 /*---------------eliminar eventos y noticias------------------*/
 Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@EliminarFormularioEventosNoticias');
 
@@ -106,6 +107,12 @@ Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@Eli
 Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
 
 Route::get('formulariolineas/edit/{id}','ControlLineas@cargarEditar');
+
+Route::get('formulariosublineas/edit/{id}','ControlSublineas@cargarEditar');
+
+Route::get('formularioeventosnoticias/edit/{id}','ControlEventosNoticias@cargarEditar');
+
+Route::get('formulariogrupos/edit/{id}','ControlGrupos@cargarEditar');
 
 
 //Route::get('formularioconvocatorias/edit/{id}','ControlConvocatorias@cargarEditar');
@@ -171,6 +178,13 @@ Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@
 Route::post('edicion/formularioconvocatorias','ControlConvocatorias@guardarEdicion'); 
 
 Route::post('edicion/formulariolineas','ControlLineas@guardarEdicion'); 
+
+Route::post('edicion/formulariosublineas','ControlSublineas@guardarEdicion'); 
+
+Route::post('edicion/formularioeventosnoticias','ControlEventosNoticias@guardarEdicion');
+
+Route::post('edicion/formulariogrupos','ControlGrupos@guardarEdicion');
+
 
 
 

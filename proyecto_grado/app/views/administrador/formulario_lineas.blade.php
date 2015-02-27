@@ -5,7 +5,7 @@
    
     <script type="text/javascript" src="{{URL::to('/js')}}/recursos/formulariointegrantes-lineasgrupos.js"></script>
 
-     <script type="text/javascript">
+    <script type="text/javascript">
         function eliminacionArchivo1(idBLoque1, idBloque2, idHidden){
 
             $("#"+idBLoque1).hide();
@@ -13,7 +13,6 @@
             $("#"+idHidden).val('si');
 
         }
-
     </script>
 
 @stop
@@ -36,14 +35,17 @@
 
     <!-- en caso de no existir el id-->
         @if(isset($accion) && $accion=="editar")
-          <fieldset style="margin-bottom: 2px;
-                    margin-top: 5px;
-                    padding: 2px;">
               
-                @if(!isset($linea) || !$linea)
-                    <div  style="margin: 0px;" class="alert alert-danger">NO existe la Linea!!</div>   
-                @endif 
-            </fieldset>
+            @if(!isset($linea) || !$linea)
+
+                 <fieldset style="margin-bottom: 2px;
+                        margin-top: 5px;
+                        padding: 2px;">
+
+                        <div  style="margin: 0px;" class="alert alert-danger">NO existe la Linea!!</div> 
+                </fieldset>                 
+            @endif 
+            
         @endif
 
 

@@ -108,5 +108,110 @@ class ControlSublineas extends Controller {
 			}
 
 
+	public function guardarEdicion(){
+
+		$id=Input::get('id_sublineas');
+
+		$nombre=Input::get('nombre-sublinea');
+		$estado=Input::get('estado-sublinea');
+		$descripcion=Input::get('decr-sublinea');
+		$linea=Input::get('lineade-sublinea');
+	
+							
+		$todosDatos = Input::all();
+
+
+		/*objeto del modelo*/
+
+		$entidad=InvSublineas::find($id);
+
+		$numeroSublineaAnterior = $entidad->id_sublinea;
+		
+		
+		$entidad->nombre_sublinea =$nombre;
+		$entidad->estado =$estado;
+		$entidad->descripcion_sublinea =$descripcion;
+		$entidad->inv_id_linea =$linea;
+
+		
+			//mensaje a mostrar segun errores o requerimientos-----------
+
+			$messages = array(
+				'required' => '*Es obligatorio.',
+				'max'=>'No debe ser mayor a :max',
+				'unique'=>'Es posible que ya exista la linea que ingreso.'
+			);
+
+			$validator= false;
+
+
+			// execute la validacin
+
+			if($numeroSublineaAnterior ==  $entidad->id_sublinea)
+			{
+				$validator = Validator::make(Input::all(), InvSublineas::$reglasValidacionEdicion,$messages);
+
+			}
+			else {
+				$validator = Validator::make(Input::all(), InvLineas::$reglasValidacion,$messages);
+			}
+
+
+			if ($validator->fails())
+			{
+				
+				$messages = $validator->messages();
+
+				return Redirect::to('formulariosublineas/edit/'.$id."/")
+					->withErrors($validator)
+					->withInput($todosDatos)
+					->with('mensaje_error',"Error al guardar");
+			}
+	
+			else {
+
+				/*if(Input::get('edicion_dct-linea')=="si")
+					{
+						$archivoF=$this->guardarArchivos('archivo-linea',$direccion);//archivoshtml
+						$entidad->ruta_archivo=$archivoF;
+							
+					}	*/
+		
+					$entidad->save();
+
+				try{
+
+				}
+
+				catch(PDOException $e)
+					{
+						//return 'existe un error' + $e;
+						
+						return Redirect::to('formulariosublineas/edit/'.$id)
+						->withInput($todosDatos)
+						->with('mensaje_error',"Error en el servidor.");
+					}
+					
+					return Redirect::to('formulariosublineas/edit/'.$id)
+						//->withInput($todosDatos)
+						->with('mensaje_success',"La sublinea ha sido editada.");	
+			}
+
+	}
+
+	function cargarEditar($id)
+		{
+
+			$sublinea = InvSublineas::find($id);	
+			$listaLineas = InvLineas::where("estado","=","1")->get();
+
+	
+			$datos=array('sublinea' => $sublinea,
+							'accion'=>'editar',
+							'lineas' =>$listaLineas );
+
+
+			return View::make('administrador/formulario_sublineas',$datos);
+	}
 
 }
