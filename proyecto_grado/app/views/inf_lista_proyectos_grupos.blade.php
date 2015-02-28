@@ -48,6 +48,7 @@
           </tbody>
       </table>      
       <div style="margin-left:30px; margin-right:30px;"> 
+        {{$links}}
          
       </div>
     </div>

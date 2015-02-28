@@ -2,17 +2,6 @@
 
 class ControlInfoListasGrupos extends Controller {
 
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-
-
-
-
-
-
 	//controlador lineas
 	public function ConstruirListaIntegrantesGrupos($idgrupo, $idperfil){
 
@@ -23,57 +12,39 @@ class ControlInfoListasGrupos extends Controller {
 	
 			if($perfil)
 			{
-				$listaParticipanteGrupos = InvParticipacionGrupos::where("codigo_inv_codigo_grupo","=",$idgrupo)->get("cedula");
-				$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->get("cedula");
+				$listaParticipanteGrupos = InvParticipacionGrupos::where("inv_codigo_grupo","=",$idgrupo)->lists("cedula_persona");
+				$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->lists("cedula");
 				
 				$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
 							->whereIn("cedula",$listaParticipanteGrupos)
-							->get();
+							->paginate(1);
 			}
 
-
-		/*$listaintegrantesgrupos=DB::select(DB::raw("select ps.cedula, ps.nombre1, ps.nombre2, ps.apellido1, ps.apellido2, pf.nombreperfil
-				from persona ps, perfil pf, personaperfil pp, inv_participacion_grupos ipg
-				where ipg.cedula_persona=ps.cedula and ps.cedula=pp.cedula and pp.codperfil=pf.codperfil 
-				and ipg.inv_codigo_grupo=$idgrupo and pf.codperfil=$idperfil")
-		);
-		//print_r( $listaintegrantesgrupos);*/
-
-
+		$paginacion=$listaintegrantesgrupos->links();
 		$datos= array(
 			'lista_integrantes_grupos'=>$listaintegrantesgrupos,
-			'lista_nombre_grupos' =>$grupos
+			'lista_nombre_grupos' =>$grupos,
+			'registro_perfiles' =>$perfil,
+			'campo_lista'=>$listaintegrantesgrupos,'links'=>$paginacion
 			);
 
 
-		//return View::make('inf_lista_integrantes_grupos',$datos);
-
-/*
-
-		$paginacion=InvLineas::paginate(20);
-		$crear_paginacion=$paginacion->links();
-
-		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
-		
-		//print_r($a);
-		return View::make('administrador/lista_lineas',$datos);*/
-
+		return View::make('inf_lista_integrantes_grupos',$datos);
 	}
+
 
 	//lista de proyectos por grupos
 	public function ConstruirListaProyectosGrupos($idgrupo){
 
 		$grupos = InvGrupos::find($idgrupo);
 
-		$listaproyectosgrupos=DB::select(DB::raw("select codigo_proyecto, nombre_proyecto
-			from inv_grupos iv, inv_proyectos ip
-			where iv.codigo_grupo=ip.inv_codigo_grupo and iv.codigo_grupo=$idgrupo"
-			));
+		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(1);
 
+		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
 			'lista_proyectos_grupos' =>$listaproyectosgrupos,
-			'lista_nombre_grupos' =>$grupos
+			'lista_nombre_grupos' =>$grupos,
+			'campo_lista'=>$listaproyectosgrupos,'links'=>$paginacion
 			);
 
 		return View::make('inf_lista_proyectos_grupos',$datos);

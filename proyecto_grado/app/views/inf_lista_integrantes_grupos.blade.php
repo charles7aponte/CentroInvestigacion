@@ -47,13 +47,14 @@
                     {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}</a>
                 </td>
                 <td style="width:250px; text-align:left;">
-                  {{$lista_integrante_grupo->nombreperfil}}
+                  {{$registro_perfiles['nombreperfil']}}
                 </td>
               </tr>
             @endforeach  
           </tbody>
       </table>      
       <div style="margin-left:30px; margin-right:30px;"> 
+        {{$links}}
          
       </div>
     </div>
