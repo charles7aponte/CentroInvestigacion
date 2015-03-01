@@ -2,6 +2,7 @@
 
 class ControlInfoListasGrupos extends Controller {
 
+
 	//controlador lineas
 	public function ConstruirListaIntegrantesGrupos($idgrupo, $idperfil){
 

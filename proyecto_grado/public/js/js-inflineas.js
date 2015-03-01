@@ -1,49 +1,24 @@
-/*------------------jquery lista de productividad lineas-----------------------------------------------*/
-$("#tabla_producto").hide();
-$("#boton_producto .glyphicon-minus-sign").hide();
+/*------------------jquery lista de sublineas de las lineas-----------------------------------------------*/
+$("#tabla_sublinea").hide();
+$("#boton_sublinea .glyphicon-minus-sign").hide();
 
 var band_producto = true;
 
-$("#boton_producto").click(function(){
+$("#boton_sublinea").click(function(){
 	
-	$("#tabla_producto").toggle(500);
+	$("#tabla_sublinea").toggle(500);
 
 	if(band_producto)
 	{
-		$("#boton_producto .glyphicon-plus-sign").hide();
-		$("#boton_producto .glyphicon-minus-sign").show();
+		$("#boton_sublinea .glyphicon-plus-sign").hide();
+		$("#boton_sublinea .glyphicon-minus-sign").show();
 
 	}
 	else{
 
-		$("#boton_producto .glyphicon-minus-sign").hide();
-		$("#boton_producto .glyphicon-plus-sign").show();
+		$("#boton_sublinea .glyphicon-minus-sign").hide();
+		$("#boton_sublinea .glyphicon-plus-sign").show();
 	}
 	band_producto=!band_producto;
-
-})
-
-/*------------------jquery lista de proyectos lineas-----------------------------------------------*/
-$("#tabla_proyecto").hide();
-$("#boton_proyecto .glyphicon-minus-sign").hide();
-
-var band_proyecto = true;
-
-$("#boton_proyecto").click(function(){
-	
-	$("#tabla_proyecto").toggle(500);
-
-	if(band_proyecto)
-	{
-		$("#boton_proyecto .glyphicon-plus-sign").hide();
-		$("#boton_proyecto .glyphicon-minus-sign").show();
-
-	}
-	else{
-
-		$("#boton_proyecto .glyphicon-minus-sign").hide();
-		$("#boton_proyecto .glyphicon-plus-sign").show();
-	}
-	band_proyecto=!band_proyecto;
 
 })

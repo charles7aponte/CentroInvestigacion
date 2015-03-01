@@ -68,44 +68,43 @@
             </thead>
 
             <tbody>
-
                 <tr>
-                    <th id="fil-principal">c&oacute;digo linea</th>
+                    <th id="fil-principal">c&oacute;digo</th>
                     <td  class="codigo" id="col-principal" id="cuadro">
                       {{$lineas['id_lineas']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Nombre linea</th>
+                    <th id="fil-principal">Nombre</th>
                     <td class="nombre" id="col-principal" id="cuadro">
                       {{$lineas['nombre_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Coordinador linea</th>
+                    <th id="fil-principal">Coordinador</th>
                     <td class="coordinador" id="col-principal" id="cuadro">
                       {{$lineas['coordinador_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Definici&oacute;n linea</th>
+                    <th id="fil-principal">Definici&oacute;n</th>
                     <td class="definicion-linea" id="col-principal" id="cuadro">
                       {{$lineas['definicion_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Objeto estudio</th>
+                    <th id="fil-principal">Objeto de estudio</th>
                     <td class="objeto-estudio" id="col-principal" id="cuadro">
                        {{$lineas['objetivo_estudio']}}
                     </td>  
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Objetivo linea</th>
+                    <th id="fil-principal">Objetivo de la l&iacute;nea</th>
                     <td class="objetivo-linea" id="col-principal" id="cuadro">
                       {{$lineas['objetivo_linea']}}
                     </td>
@@ -121,77 +120,70 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <th id="fil-principal">Sublineas</th>
-                    <td class="sublinea" id="col-principal" id="cuadro">
-                      <ol>
-                        <li style="list-style-type: square; text-decoration:underline;"><a  data-toggle="modal" data-target="#myModal" >sublinea 1</a></li>
-                      </ol>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </fieldset>
 
- <!-- menus desplegables productividad de las lineas-->
-    <fieldset id="secundario">
-        <div class="titulo-tabla-productividad" id="cuadro">             
-            <h4 id="boton_producto" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productividad</a></h4>
+ <!-- menus desplegables de las lineas-->
+     <fieldset id="secundario1">
+        <div class="titulo-tabla-proyecto" id="cuadro">             
+            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Subl&iacute;neas</a></h4>
         </div>
-        <table id="tabla_producto">
-      		<thead>
-      			<tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
-             		background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-              		background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-              		background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-             		background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PRODUCTOS</th>
-          	 	</tr>
-            	<tr> 
-          			<th colspan="2">NOMBRE DEL PRODUCTO</th>
-        		</tr>
-      		</thead>
-      		<tbody>
-        		<tr>
-          			<td>1</td>
-          			<td id="nombre-grupo"><a href="grupos">Este es el nombre del producto de investigacion o de estudio de la universidad de los llanos</a></td>
-        		</tr>
-        		<tr>
-         		 	<td>2</td>
-         			<td id="nombre-grupo"><a href="">nombre del producto  2</a></td>
-       	 		</tr>
-      		</tbody>
-    	</table>
+      <div id="tabla_sublinea">
+          <div class="list-group">
+            <a href="" class="list-group-item" data-toggle="modal" data-target="#myModal" >
+             sublinea 1
+           </a>
+          </div>
+      </div>
     </fieldset>
 
-    <fieldset id="secundario">
-        <div class="titulo-tabla-proyecto" id="cuadro">             
-            <h4 id="boton_proyecto" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Proyectos</a></h4>
-        </div>
-      <table id="tabla_proyecto">
-          <thead>
-            <tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
-                  background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-                  background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PROYECTOS</th>
-            </tr>
-            <tr> 
-              <th colspan="2">NOMBRE DEL PROYECTO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-                <td>1</td>
-                <td id="nombre-grupo"><a href="grupos">Este es el nombre del proyecto1 de investigacion o de estudio de la universidad de los llanos</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td id="nombre-grupo"><a href="">nombre del proyecto  2</a></td>
-            </tr>
-          </tbody>
-      </table>
+    <fieldset id="secundario1">
+      <div class="titulo-listas" id="cuadro">             
+         <h4>
+            <p style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
+                  Productos asociados a la L&iacute;nea</p>
+        </h4>
+      </div>
+      <div id="producto">
+          <div class="list-group">
+            <a href="" class="list-group-item">
+                <span class="badge" id="total">
+                  10
+                </span>
+                Total Productos
+            </a>
+          </div>
+    	</div>
+    </fieldset>
+
+    <fieldset id="secundario1">
+      <div class="titulo-listas" id="cuadro">             
+         <h4>
+            <p style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
+                  Proyectos asociados a la L&iacute;nea</p>
+        </h4>
+      </div>
+      <div id="proyecto">
+          <div class="list-group">
+            <a href="" class="list-group-item">
+                <span class="badge" id="total">
+                  10
+                </span>
+                Total Proyectos
+            </a>
+          </div>
+      </div>
     </fieldset>
 </div>    
 @stop

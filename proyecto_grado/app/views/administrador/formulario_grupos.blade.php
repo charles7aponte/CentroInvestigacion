@@ -73,7 +73,7 @@
                         margin-top: 5px;
                         padding: 2px;">
 
-                        <div  style="margin: 0px;" class="alert alert-danger">NO existe un Grupo!!</div> 
+                        <div  style="margin: 0px;" class="alert alert-danger">No existe el Grupo</div> 
                 </fieldset>  
  
             @endif    
@@ -242,7 +242,6 @@
                     </li> 
                 </fieldset>
             </ul>
-            
                 <fieldset>                   
                     <div class="row">
                         <div class="col-md-2"><label>Integrantes: </label></div>
@@ -389,7 +388,6 @@
                         </div>
                       </div>
                     </div>
-
                     <!--Modal de Verificacion de Eliminar lineas grupos-->
                   <div>    
                    <div class="modal fade bs-example-modal-lg" id="eliminar-linea" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
@@ -415,8 +413,8 @@
                 </fieldset>
             </ul> 
 
-            <ul>
-            <fieldset>
+        <ul>
+          <fieldset>
               <li class="@if($errors->has('objetivos')) has-error @endif">
                 <label for="objetivos">Objetivos:</label>
                 <textarea id="objetivos" name="objetivos" required="required" value="{{ Input::old('objetivos')!=null? Input::old('objetivos'): (isset($grupos['objetivos'])? $grupos['objetivos']:'')}}"></textarea>
@@ -435,8 +433,6 @@
               <li class="@if($errors->has('logog')) has-error @endif">
                         <label for="logog">Logo del grupo:</label>
                         
-
-                        <!-- la maquetacion estilo tu lo aplicas si? SIP ok-->
                          
                         <div id="block1_archivo1" style="@if(!(isset($grupos) &&  $grupos['logo_grupo']!="")) display:none @endif">
                             <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_logo')">
