@@ -36,14 +36,14 @@ class ControlInvestigadores extends Controller {
 
 		$dateperfil = new DateTime($fecha_perfil);
 
-		$fecha_perfil=$dateperfil->format('d/m/Y');
+		$fecha_perfil=$dateperfil->format('Y-m-d');
 
 
 		$fecha_inicio=Input::get('creacion_inicio');
 
 		$dateinicio = new DateTime($fecha_inicio);
 
-		$fecha_inicio=$dateinicio->format('d/m/Y');
+		$fecha_inicio=$dateinicio->format('Y-m-d');
 
 
 		$fecha_fin=Input::get('creacion_fin');
@@ -51,7 +51,7 @@ class ControlInvestigadores extends Controller {
 
 		$datefin = new DateTime($fecha_fin);
 
-		$fecha_fin=$datefin->format('d/m/Y');
+		$fecha_fin=$datefin->format('Y-m-d');
 		//actualmente esta colocando la fecha de hoy si esta en blanco
 
 		$nombreNuevo="";
@@ -211,6 +211,9 @@ class ControlInvestigadores extends Controller {
 			}//			//elimina cada tipo de la tabla .. 	*/
 
 
+
+
+
 	public function guardarEdicion(){
 
 		$id=Input::get('id_investigador');
@@ -236,19 +239,18 @@ class ControlInvestigadores extends Controller {
 
 		//manejo de fechas ..	
 		$fecha_perfil=Input::get('creacion-perfil');
-
 		$dateperfil = new DateTime($fecha_perfil);
+		//echo("-$fecha_perfil-");
 
-		$fecha_perfil=$dateperfil->format('d/m/Y');
+		$fecha_perfil=$dateperfil->format('Y-m-d');
 
-		echo($dateperfil);
 
 
 		$fecha_inicio=Input::get('creacion_inicio');
 
 		$dateinicio = new DateTime($fecha_inicio);
 
-		$fecha_inicio=$dateinicio->format('d/m/Y');
+		$fecha_inicio=$dateinicio->format('Y-m-d');
 
 
 		$fecha_fin=Input::get('creacion_fin');
@@ -256,7 +258,7 @@ class ControlInvestigadores extends Controller {
 
 		$datefin = new DateTime($fecha_fin);
 
-		$fecha_fin=$datefin->format('d/m/Y');
+		$fecha_fin=$datefin->format('Y-m-d');
 		//actualmente esta colocando la fecha de hoy si esta en blanco
 
 		$nombreNuevo="";
@@ -268,8 +270,12 @@ class ControlInvestigadores extends Controller {
 
 		$todosDatos = Input::except('foto');
 
-	
-		$Persona= Persona::find($id);
+		$entidad= InvInvestigadoresExternos::find($id);	
+		$persona= Persona::where("cedula","=",$entidad->cedula_persona)->first();
+
+
+
+
 		$numeropersonaAnterior = $persona->cedula;
 
 		$persona->cedula=$c_persona;
@@ -284,7 +290,9 @@ class ControlInvestigadores extends Controller {
 		$persona->fecha_perfil=$fecha_perfil;
 		$persona->foto=$foto_investigador;
 
-		$entidad= InvInvestigadoresExternos::where("cedula_persona","=",$numeropersonaAnterior)->first();
+
+	
+
 
 		$entidad->cedula_persona=$c_persona;
 		$entidad->profesion=$profesion_investigador;
@@ -312,9 +320,6 @@ class ControlInvestigadores extends Controller {
 			$validator=false;
 
 			// execute la validacin 
-
-			// como hago para validar cuando son dos modelos que se estan llamando..........
-
 
 			if($numeropersonaAnterior ==  $entidad->codinv_ext)
 			{
@@ -347,8 +352,9 @@ class ControlInvestigadores extends Controller {
 						$entidad->foto=$archivoF;
 							
 					}	
-		
+					$persona->save();
 					$entidad->save();
+
 
 				try{
 
@@ -366,7 +372,8 @@ class ControlInvestigadores extends Controller {
 					return Redirect::to('formularioinvestigadores/edit/'.$id)
 						//->withInput($todosDatos)
 						->with('mensaje_success',"El Investigador ha sido editada.");	
-			}		
+			}
+				
 	}
 
 
@@ -385,9 +392,9 @@ class ControlInvestigadores extends Controller {
 					$dateinicio = new DateTime($investigador->fecha_inicio);
 					$datefin    = new DateTime($investigador->fecha_fin);
 
-					$personaiv->fecha_perfil=$dateperfil->format('d/m/Y');
-					$investigador->fecha_inicio=$dateinicio->format('d/m/Y');
-					$investigador->fecha_fin=$datefin->format('d/m/Y');
+					$personaiv->fecha_perfil=$dateperfil->format('Y-m-d');
+					$investigador->fecha_inicio=$dateinicio->format('Y-m-d');
+					$investigador->fecha_fin=$datefin->format('Y-m-d');
 					
 				}
 
@@ -397,7 +404,7 @@ class ControlInvestigadores extends Controller {
 							 'entidades' =>$listaentidadinv,
 							 'perfiles'  =>$listaperfiles); 
 
-				//return View::make('administrador/formulario_investigadores',$datos);
+				return View::make('administrador/formulario_investigadores',$datos);
 	}
 	
 }

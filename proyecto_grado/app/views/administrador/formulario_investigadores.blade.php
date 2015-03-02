@@ -164,7 +164,7 @@
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="dd/MM/yyyy" name="creacion-perfil" value="{{ Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'): (isset($personaiv['fecha_perfil'])? $personaiv['fecha_perfil']:'')}}" required="required" /> 
+                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="yyyy-mm-dd" name="creacion-perfil" value="{{ Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'): (isset($personaiv['fecha_perfil'])? $personaiv['fecha_perfil']:'')}}" required="required" /> 
                                             @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
