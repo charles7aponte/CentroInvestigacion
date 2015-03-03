@@ -121,7 +121,7 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer"   
-                                            readonly id="fecha-apertura" class="date form-control" data-format="dd/MM/yyyy" name="fecha-apertura" value="{{ Input::old('fecha-apertura')!=null? Input::old('fecha-apertura'): (isset($convocatoria['fecha_apertura'])? $convocatoria['fecha_apertura']:'')}}" required="required" /> 
+                                            readonly id="fecha-apertura" class="date form-control" data-format="yyyy-mm-dd" name="fecha-apertura" value="{{ Input::old('fecha-apertura')!=null? Input::old('fecha-apertura'): (isset($convocatoria['fecha_apertura'])? $convocatoria['fecha_apertura']:'')}}" required="required" /> 
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
@@ -140,7 +140,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="fecha-cierre" class="date form-control" data-format="dd/MM/yyyy" name="fecha-cierre" value="{{ Input::old('fecha-cierre')!=null? Input::old('fecha-cierre'): (isset($convocatoria['fecha_cierre'])? $convocatoria['fecha_cierre']:'')}}" required="required" /> 
+                                            readonly id="fecha-cierre" class="date form-control" data-format="yyyy-mm-dd" name="fecha-cierre" value="{{ Input::old('fecha-cierre')!=null? Input::old('fecha-cierre'): (isset($convocatoria['fecha_cierre'])? $convocatoria['fecha_cierre']:'')}}" required="required" /> 
                                             
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>

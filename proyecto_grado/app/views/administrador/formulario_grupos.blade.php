@@ -178,7 +178,7 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer" 
-                                            readonly id="creacion-grupo" class="date form-control" data-format="dd/MM/yyyy" name="creacion-grupo" value="{{ Input::old('creacion-grupo')!=null? Input::old('creacion-grupo'): (isset($grupos['ano_creacion'])? $grupos['ano_creacion']:'')}}" required="required" />
+                                            readonly id="creacion-grupo" class="date form-control" data-format="yyyy-mm-dd" name="creacion-grupo" value="{{ Input::old('creacion-grupo')!=null? Input::old('creacion-grupo'): (isset($grupos['ano_creacion'])? $grupos['ano_creacion']:'')}}" required="required" />
                                              @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-grupo') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>

@@ -15,7 +15,7 @@ class ControlGrupos extends Controller {
 
 		$dateinicio = new DateTime($fecha_creacion);
 
-		$fecha_creacion=$dateinicio->format('d/m/Y');
+		$fecha_creacion=$dateinicio->format('Y-m-d');
 
 
 		$coord=Input::get('cedula-persona');
@@ -195,7 +195,7 @@ class ControlGrupos extends Controller {
 
 		$dateinicio = new DateTime($fecha_creacion);
 
-		$fecha_creacion=$dateinicio->format('d/m/Y');
+		$fecha_creacion=$dateinicio->format('Y-m-d');
 
 
 		$coord=Input::get('cedula-persona');
@@ -210,7 +210,7 @@ class ControlGrupos extends Controller {
 		$gruplac=Input::get('gruplac');
 			
 
-		//manejo archuvos
+		//manejo archivos
 		$nombreNuevo="";
 		$direccion = __DIR__."/../../public/archivos_db/grupos/";
 
@@ -353,7 +353,7 @@ class ControlGrupos extends Controller {
 				{
 					// esto es solo en caso de fechas .. para darle formato .. pues no lo retona diferente
 					$dateinicio = new DateTime($grupos->ano_creacion);
-					$grupos->ano_creacion=$dateinicio->format('d/m/Y');
+					$grupos->ano_creacion=$dateinicio->format('Y-m-d');
 					
 				}	
 
@@ -393,7 +393,7 @@ class ControlGrupos extends Controller {
 		return $listaPersonas;	
 	}	
 
-	// servicio para eliminar los integrantes de los grupos.........
+	// servicio para eliminar de el modal integrantes de los grupos.........
 	public function EliminarIntegrantesGrupos($idgrupo,$idintegrante){
 			
 				$integrantegrupo= InvParticipacionGrupos::where("cedula_persona","=",$idintegrante)
