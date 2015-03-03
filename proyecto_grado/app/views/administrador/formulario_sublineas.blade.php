@@ -24,7 +24,7 @@
                         margin-top: 5px;
                         padding: 2px;">
 
-                        <div  style="margin: 0px;" class="alert alert-danger">NO existe la Sublinea!!</div> 
+                        <div  style="margin: 0px;" class="alert alert-danger">No existe la sublinea</div> 
                 </fieldset>  
 
             @endif 
@@ -56,7 +56,7 @@
             @if(isset($sublinea['id_sublinea']))
               Edicion Sublinea 
             @else 
-                 Crear nueva Linea
+                 Crear nueva Subl&iacute;nea
             @endif
         </h2></div>
             <ul>

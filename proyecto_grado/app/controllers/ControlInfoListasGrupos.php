@@ -15,6 +15,7 @@ class ControlInfoListasGrupos extends Controller {
 			{
 				$listaParticipanteGrupos = InvParticipacionGrupos::where("inv_codigo_grupo","=",$idgrupo)->lists("cedula_persona");
 				$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->lists("cedula");
+				//$invPerfil1= InvInvestigadoresExternos::where("codperfil","=",$idperfil)->lists("cedula");
 				
 				$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
 							->whereIn("cedula",$listaParticipanteGrupos)

@@ -90,9 +90,6 @@ Route::get('formularioconvocatorias', function() { return View::make('administra
 //Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
 
 
-
-
-
 /*---------------cerar eventos y noticias------------------*/
 
 Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');
@@ -123,30 +120,8 @@ Route::get('formularioinvestigadores/edit/{id}','ControlInvestigadores@cargarEdi
 
 
 
-
-
-
-
-/*****************************************************************
-**************************PRINCIPALES POR TEMA
-*****************************************************************/
-Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
-
-Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
-
-Route::get('linea/id/{id_linea}','ControlInfoLineas@CargarInfoPrincipales');
-
-Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipales');
-
-Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
-
-Route::get('personas', function() {return View::make('inf_personas');});
-
-
-
 /***********   Creacion de formularios (almacenando en la bd) -----------
 -----------------------*/
-
 
 Route::post('creacion/formularioconvocatorias', 'ControlConvocatorias@CrearFormulario');
 
@@ -196,7 +171,6 @@ Route::post('edicion/formularioinvestigadores','ControlInvestigadores@guardarEdi
 
 
 
-
 /**********-------------listas de cada tema -------------
 ----------------------------------------------------------------------
 *********************/
@@ -222,12 +196,32 @@ Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticia
 Route::get('listadeinvestigadores','ControlListas@ConstruirListaInvestigadores');
 
 
+/*****************************************************************
+**************************PRINCIPALES POR TEMA
+*****************************************************************/
+Route::get('grupo/id/{id_grupo}','ControlInfoGrupos@CargarInfoPrincipales');
+
+Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
+
+Route::get('linea/id/{id_linea}','ControlInfoLineas@CargarInfoPrincipales');
+
+Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipales');
+
+Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
+
+Route::get('personas', function() {return View::make('inf_personas');});
+
+
 //sublistas de fichas principales
+
+//grupos
 Route::get('listaintegrantesgrupos/grupo/{idgrupo}/perfil/{idperfil}','ControlInfoListasGrupos@ConstruirListaIntegrantesGrupos');
 
 Route::get('listaproductosgrupos/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','ControlInfoListasGrupos@ContruirListaProductosGrupos');
 
 Route::get('listaproyectosgrupos/grupo/{idgrupo}','ControlInfoListasGrupos@ConstruirListaProyectosGrupos');
+
+
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)
 *************----------------**/
