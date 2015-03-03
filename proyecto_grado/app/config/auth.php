@@ -19,6 +19,12 @@ return array(
 //'driver' => 'fluent',
 
 
+
+    'username' => 'nombre',//username a utilizar de la tabla usuarios
+ 
+    'password' => 'cont2',//password a utilizar de la tabla usuarios
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| Authentication Model
@@ -43,7 +49,7 @@ return array(
 	|
 	*/
 
-	'table' => 'users',
+	'table' => 'usuarios1',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -60,11 +66,9 @@ return array(
 	|
 	*/
 
-  	'username' => 'username',//username a utilizar de la tabla usuarios
- 
-    'password' => 'password',//password a utilizar de la tabla usuarios
- 
+	'remember_token'=>'uno' ,
 
+ 
 	'reminder' => array(
 
 		'email' => 'emails.auth.reminder',

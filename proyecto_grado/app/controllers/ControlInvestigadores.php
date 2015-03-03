@@ -115,28 +115,28 @@ class ControlInvestigadores extends Controller {
 				$messages = $validator->messages();
 
 
-				/*return Redirect::to('formularioinvestigadores')
+				return Redirect::to('formularioinvestigadores')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar");*/
+					->with('mensaje_error',"Error al guardar");
+
 		} else {
 
 
 
-					/*try
+					//try
 					{
 					
 					
-						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
+						$archivo1=$this->ArchivosInvestigadores('foto',$direccion);
 						$persona->foto=$archivo1;
-
 				
 						$persona->save();
 						$entidad->save();
 
 
 					}
-
+					/*
 					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;

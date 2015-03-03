@@ -8,9 +8,10 @@ class Usuarios1 extends Eloquent  {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
-	protected $primaryKey = "id";// no tiene llave primaria en la base
-	public $incrementing = true;
+	protected $table = 'usuarios1';
+	protected $primaryKey = "nombre";// no tiene llave primaria en la base
+	public $incrementing = false;
+	public $timestamps = false;
 
 
 

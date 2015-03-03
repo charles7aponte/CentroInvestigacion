@@ -221,18 +221,12 @@ Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamient
 /***************
 *** consultas de tipo json
 ****************/
-Route::get('usuarios/{nombre}',function($nombre){
+Route::get('gato/{n}/{c}',function($nombre, $con){
+  $d =new User();
+  $d->nombre ="peludo1";//$nombre;
+  $d->cont2 = Hash::make("peludo1");
 
-$personas= Persona::all();
-
-$personas= array(
-	array("cedula"=>124243, "apellido1"=>"galgo",   "nombre1"=>"algo..." , "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
-	array("cedula"=>124241, "apellido1"=>"galgo2",  "nombre1"=>"algo...1", "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
-	array("cedula"=>124242, "apellido1"=>"galgo3",  "nombre1"=>"algo...2", "apellido2"=>"algo...33" ,"nombre2"=>"minombre2"),
-	);
-	
-
-	return Response::json($personas);
+  $d->save();
 
 });
 
@@ -243,34 +237,53 @@ Route::get('login1',function(){
 
       $userdata = array(
  
-            'username' => "g1",
-            'password'=> "12"
+            'nombre' => "peludo1",
+            'password'=>"peludo1",
+           // 'username'=>"peludo",
+           // 'cont2'=>"peludo1"
  
         ); 
  
         //si los datos son correctos y existe un usuario con los mismos se inicia sesión
         //y redirigimos a la home
-        if(Auth::attempt($userdata, true))
+        if(Auth::attempt($userdata))
         {
  
-            return "entro";
+            echo  "entro";
  
         }else{
             //en caso contrario mostramos un error
-            return "no ...";
+            echo  "no ...";
  
+        }
+
+
+       // print_r(Auth::user());
+      //  Auth::logout();
+
+
+
+     if(Auth::check())
+        {
+ 
+            echo "<br>si . ... . mi chec";
+ 
+        }else{
+            //en caso contrario mostramos un error
+            echo  "<br>no . check";
+ 
+        }
+
+
+
+        if (Auth::viaRemember())
+        {
+          echo "<br> si via rember";
+        }
+        else{
+          echo "<br> NO via rember";
         }
 
 });
 
 
-Route::get('gua', function(){
-  $s1 = new Usuarios1();
-  $s1->username="g1";
-  $s1->password=Hash::make("12");
-  $s1->name="g1";
-  $s1->email="@1";
-
-  $s1->save();
-
-});

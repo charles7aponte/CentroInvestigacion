@@ -1,0 +1,11 @@
+                                          Listado de base de datos
+  Nombre   |  Dueño   | Codificación |        Collate        |         Ctype         |      Privilegios      
+-----------+----------+--------------+-----------------------+-----------------------+-----------------------
+ centro    | postgres | UTF8         | Spanish_Colombia.1252 | Spanish_Colombia.1252 | 
+ postgres  | postgres | UTF8         | Spanish_Colombia.1252 | Spanish_Colombia.1252 | 
+ template0 | postgres | UTF8         | Spanish_Colombia.1252 | Spanish_Colombia.1252 | =c/postgres          +
+           |          |              |                       |                       | postgres=CTc/postgres
+ template1 | postgres | UTF8         | Spanish_Colombia.1252 | Spanish_Colombia.1252 | =c/postgres          +
+           |          |              |                       |                       | postgres=CTc/postgres
+(4 filas)
+
