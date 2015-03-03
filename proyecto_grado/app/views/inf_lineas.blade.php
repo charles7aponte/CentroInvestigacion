@@ -68,51 +68,43 @@
             </thead>
 
             <tbody>
-
                 <tr>
-                    <th id="fil-principal">c&oacute;digo linea</th>
+                    <th id="fil-principal">c&oacute;digo</th>
                     <td  class="codigo" id="col-principal" id="cuadro">
                       {{$lineas['id_lineas']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Nombre linea</th>
-                    <td class="nombre" id="col-principal" id="cuadro">
-                      {{$lineas['nombre_linea']}}
-                    </td>
-                </tr>
-        
-                <tr>
-                    <th id="fil-principal">Coordinador linea</th>
+                    <th id="fil-principal">Coordinador</th>
                     <td class="coordinador" id="col-principal" id="cuadro">
                       {{$lineas['coordinador_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Definici&oacute;n linea</th>
-                    <td class="definicion-linea" id="col-principal" id="cuadro">
+                    <th id="fil-principal">Definici&oacute;n</th>
+                    <td class="definicion-linea" id="col-principal" id="cuadro" style="text-transform:none;">
                       {{$lineas['definicion_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Objeto estudio</th>
-                    <td class="objeto-estudio" id="col-principal" id="cuadro">
+                    <th id="fil-principal">Objeto de estudio</th>
+                    <td class="objeto-estudio" id="col-principal" id="cuadro" style="text-transform:none;">
                        {{$lineas['objetivo_estudio']}}
                     </td>  
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Objetivo linea</th>
-                    <td class="objetivo-linea" id="col-principal" id="cuadro">
+                    <th id="fil-principal">Objetivo de la l&iacute;nea</th>
+                    <td class="objetivo-linea" id="col-principal" id="cuadro" style="text-transform:none;">
                       {{$lineas['objetivo_linea']}}
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>Link archivo</th>
+                    <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>archivo</th>
                     <td class="link-archivo" id="col-principal" id="cuadro"><li class="glyphicon glyphicon-save"></li>
                        @if($lineas['ruta_archivo']!="")
                           <a href="{{URL::to('archivos_db/lineas/')}}/{{$lineas['ruta_archivo']}}" target="_blank">
@@ -121,77 +113,82 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <th id="fil-principal">Sublineas</th>
-                    <td class="sublinea" id="col-principal" id="cuadro">
-                      <ol>
-                        <li style="list-style-type: square; text-decoration:underline;"><a  data-toggle="modal" data-target="#myModal" >sublinea 1</a></li>
-                      </ol>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </fieldset>
 
- <!-- menus desplegables productividad de las lineas-->
-    <fieldset id="secundario">
-        <div class="titulo-tabla-productividad" id="cuadro">             
-            <h4 id="boton_producto" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productividad</a></h4>
+ <!-- menus desplegables de las lineas-->
+     <fieldset id="secundario1">
+        <div class="titulo-tabla-proyecto" id="cuadro">             
+            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Subl&iacute;neas</a></h4>
         </div>
-        <table id="tabla_producto">
-      		<thead>
-      			<tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
-             		background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-              		background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-              		background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-             		background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-              		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PRODUCTOS</th>
-          	 	</tr>
-            	<tr> 
-          			<th colspan="2">NOMBRE DEL PRODUCTO</th>
-        		</tr>
-      		</thead>
-      		<tbody>
-        		<tr>
-          			<td>1</td>
-          			<td id="nombre-grupo"><a href="grupos">Este es el nombre del producto de investigacion o de estudio de la universidad de los llanos</a></td>
-        		</tr>
-        		<tr>
-         		 	<td>2</td>
-         			<td id="nombre-grupo"><a href="">nombre del producto  2</a></td>
-       	 		</tr>
-      		</tbody>
-    	</table>
+      <div id="tabla_sublinea">
+          <div class="list-group">
+            @if($sublineas && count($sublineas)>0)
+              @foreach($sublineas as $sublinea)
+                <a class="list-group-item" data-toggle="modal" data-target="#myModal" >
+                 {{$sublinea->nombre_sublinea}}
+               </a>
+             @endforeach
+            @else
+              <p style="margin-left:5px; color:#122d3e; font-weight:bold; font-size: 13px;">
+                No hay Subl&iacute;neas asociadas a esta l&iacute;nea.
+              </p>
+            @endif 
+          </div>
+      </div>
     </fieldset>
 
-    <fieldset id="secundario">
-        <div class="titulo-tabla-proyecto" id="cuadro">             
-            <h4 id="boton_proyecto" ><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Proyectos</a></h4>
-        </div>
-      <table id="tabla_proyecto">
-          <thead>
-            <tr><th colspan="3" style=" border-radius: 5px; background: #1A6D71;
-                  background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-                  background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e);); color:white;">PROYECTOS</th>
-            </tr>
-            <tr> 
-              <th colspan="2">NOMBRE DEL PROYECTO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-                <td>1</td>
-                <td id="nombre-grupo"><a href="grupos">Este es el nombre del proyecto1 de investigacion o de estudio de la universidad de los llanos</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td id="nombre-grupo"><a href="">nombre del proyecto  2</a></td>
-            </tr>
-          </tbody>
-      </table>
+    <fieldset id="secundario1">
+      <div class="titulo-listas" id="cuadro">             
+         <h4>
+            <p style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
+                  Proyectos asociados a la L&iacute;nea</p>
+        </h4>
+      </div>
+      <div id="proyecto">
+          <div class="list-group">
+              <a href="{{URL::to('/')}}" class="list-group-item">
+                  <span class="badge" id="total">
+                          {{$Lista_proyectos}}
+                  </span>
+                  Total Proyectos
+              </a>
+          </div>
+      </div>
+    </fieldset>
+
+    <fieldset id="secundario1">
+      <div class="titulo-listas" id="cuadro">             
+         <h4>
+            <p style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
+                  Productos asociados a la L&iacute;nea</p>
+        </h4>
+      </div>
+      <div id="producto">
+          <div class="list-group">
+              @foreach($Lista_productos as $lista_producto)   
+                <a href="{{URL::to('/')}}">
+                  <li class="list-group-item">
+                    <span class="badge">
+                        {{$lista_producto['total']}}
+                    </span>
+                    {{$lista_producto['nombre_subtipo_producto']}}
+                  </li>
+                </a>  
+              @endforeach  
+          </div>
+      </div>
     </fieldset>
 </div>    
 @stop

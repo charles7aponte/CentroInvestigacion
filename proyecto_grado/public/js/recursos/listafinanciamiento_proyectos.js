@@ -1,3 +1,5 @@
+    
+    var nombreproyecto=null;
 function cargar(input, escondido){
 
     //autocompletado
@@ -19,6 +21,7 @@ function cargar(input, escondido){
             $("#"+input).val(ui.item.codigo_proyecto+"  ("+ui.item.nombre_proyecto+")");
             $("#"+escondido).val(ui.item.codigo_proyecto);
 
+            nombreproyecto=ui.item.nombre_proyecto;
             return false;
                         
         }

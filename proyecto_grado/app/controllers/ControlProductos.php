@@ -92,7 +92,8 @@ class ControlProductos extends Controller {
 
 
 
-					try{
+					try
+					{
 					
 					
 						$archivo1=$this->ArchivosProductos('foto-producto',$direccion);
@@ -109,9 +110,6 @@ class ControlProductos extends Controller {
 						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
 						$listagrupos=Input::get("idgrupo"); // name del json del jquery
 
-
-
-						/*******como hago para guardar lo de la tabla grupos**************/
 
 						for($i=0;$i<count($listaIntegrantes);$i++)
 						{
@@ -152,7 +150,6 @@ class ControlProductos extends Controller {
 				$listagruposproducto = InvGrupos::all();
 				$listaLineasproducto = InvLineas::where("estado","=","1")->get();
 				$listaentidadproducto = InvEntidades::all();				
-
 		
 
 				$datos=  array(

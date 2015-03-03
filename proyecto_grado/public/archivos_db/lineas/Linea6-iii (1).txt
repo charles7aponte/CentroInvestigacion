@@ -1,0 +1,13 @@
+CREATE TABLE inv_investigadores_externos
+(
+  codinv_ext serial NOT NULL,
+  cedula_persona bigint NOT NULL,
+  profesion character varying(100) NOT NULL,
+  codconvocatoria integer,
+  nombreconvocatoria text,
+  entidad text,
+  numerocontrato character varying(100),
+  fecha_inicio date,
+  fecha_fin date,
+  CONSTRAINT inv_investigadores_externos_pkey PRIMARY KEY (codinv_ext)
+);

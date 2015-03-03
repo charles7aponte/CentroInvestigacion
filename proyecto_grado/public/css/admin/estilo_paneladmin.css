@@ -147,7 +147,7 @@ aside#sidebar {
 	width: 23%;
 	background:#1A6D71; 
 	float: left;
-	height: auto;
+	min-height:1050px;
 	margin-top: -2px;
 }
 

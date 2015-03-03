@@ -1,4 +1,7 @@
 var jsonIntegrante=null;
+var Idgrupo=null;
+var IdIntegrante=null;
+var IdLinea=null;
 
 
 
@@ -137,10 +140,102 @@ $("#guardar-cambios").click(function(){
  	$fila.remove();
 
  	return false;
- }   
+}   
 
 
 
-    function split( val ) {
+
+function eliminarintegrantemodal(){
+
+    $.ajax(
+            {
+                type:"GET" 
+                ,url:URL_SERVIDOR+"/formulariogrupos/eliminarintegrante/"+Idgrupo+"/"+IdIntegrante+"/", 
+                success: function(result){
+                    
+
+                    if(result && result.respuesta)
+                    {
+                        $fila = $("#integrantemodal_"+IdIntegrante);
+                        $fila.remove();
+
+                    }    
+                    else{
+
+                        alert("El integrante no ha sido eliminado.");
+                    }
+            }
+            ,error:function(){
+
+                alert("El servidor ha fallado intentalo nuevamente.");
+            }
+            ,dataType:'json'
+        });
+
+      $("#eliminar-confirmar").modal('hide');  
+
+   /*
+
+    return false;*/
+} 
+
+function eliminarLineaamodal(){
+
+    $.ajax(
+            {
+                type:"GET" 
+                ,url:URL_SERVIDOR+"/formulariogrupos/eliminarlinea/"+Idgrupo+"/"+IdLinea+"/", 
+                success: function(result){
+                     
+
+                    if(result && result.respuesta)
+                    {
+                        $fila = $("#lineamodal_"+IdLinea);
+                        $fila.remove();
+
+                    }    
+                    else{
+
+                        alert("El integrante no ha sido eliminado.");
+                    }
+            }
+            ,error:function(){
+
+                alert("El servidor ha fallado intentalo nuevamente.");
+            }
+            ,dataType:'json'
+        });
+
+      $("#eliminar-linea").modal('hide');  
+
+   /*
+
+    return false;*/
+}   
+
+
+function eliminarModalIntegranteGrupo(idgrupo,idintegrante){
+
+    Idgrupo=idgrupo;
+    IdIntegrante=idintegrante;
+
+  $("#eliminar-confirmar").modal('show');
+
+return false;
+
+}
+
+
+function eliminarModalLineaGrupo(idgrupo,idlinea){
+
+    Idgrupo=idgrupo;
+    IdLinea=idlinea;
+
+  $("#eliminar-linea").modal('show');
+
+return false;
+
+}
+function split( val ) {
       return val.split( /,\s*/ );
     }

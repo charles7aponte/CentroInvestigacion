@@ -37,6 +37,14 @@ switch($mes){
 <!doctype html>
 <html lang="en">
 <head>
+
+
+	<script type="text/javascript">
+
+		var URL_SERVIDOR ="{{URL::to('/')}}";
+
+	</script>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -69,6 +77,7 @@ switch($mes){
 	<script src="{{URL::to('js/limpiarformularios.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 
+
 	@section("javascript-nuevos")
 	@show
 
@@ -80,8 +89,8 @@ switch($mes){
 	<div class="contenedor">
 	<header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="{{URL::to('index.html')}}">Panel de administraci&oacute;n</a></h1>
-			<a href="index.php" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
+			<h1 class="site_title"><a href="{{URL::to('/')}}/index.html">Panel de administraci&oacute;n</a></h1>
+			<a href="{{URL::to('/')}}" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
@@ -113,7 +122,7 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<a href="administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>
+		<a href="{{URL::to('/')}}/administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>
 		
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">

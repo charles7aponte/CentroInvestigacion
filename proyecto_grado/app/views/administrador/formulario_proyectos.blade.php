@@ -21,6 +21,8 @@
     <script src="{{URL::to('js/')}}/recursos/formularioproyectos.js" type="text/javascript"></script>
 @stop
 
+
+
 @section('cuerpo')
 <div>  
     <form id="form-proyectos" autocomplete="on"  enctype="multipart/form-data" action="{{URL::to('creacion/formularioproyectos')}}" method="post">
@@ -94,7 +96,8 @@
 
                           @if(isset($lineas))
                                 @foreach($lineas as $linea)
-                                    <option value="{{$linea['id_lineas']}}" > {{$linea['nombre_linea']}}</option>
+                                <!-- condicion  para recorer el select-->
+                                    <option value="{{$linea['id_lineas']}}" select=""> {{$linea['nombre_linea']}}</option>
                                 @endforeach
                           @endif  
                             
@@ -227,9 +230,9 @@
                         </button>
                     </th>
                     <th id="borrar">
-                        <button id="reset-button" type="reset">
+                        <button id="reset-button" type="button" onclick="limpiaForm('#form-proyectos')" >
                         <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
+                        Limpiar Formulario
                     </th>
                 </thead>
             </table>  

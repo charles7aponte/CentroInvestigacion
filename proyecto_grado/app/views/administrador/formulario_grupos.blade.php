@@ -1,6 +1,7 @@
 @extends('administrador.panel_admin')
 
 
+
 @section('css-nuevos')
     {{-- datepicker --}}
     <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">
@@ -23,16 +24,63 @@
     <script type="text/javascript">
          $('.date').datepicker()
     </script>
+
+  <script type="text/javascript">
+        function eliminacionArchivo1(idBLoque1, idBloque2, idHidden){
+
+            $("#"+idBLoque1).hide();
+            $("#"+idBloque2).show();
+            $("#"+idHidden).val('si');
+
+        }
+  </script>
 @stop
 
 
 @section('cuerpo')
 <div>  
-    <form id="form-grupos" autocomplete="on" 
-      enctype="multipart/form-data" 
-      action="{{URL::to('creacion/formulariogrupos')}}" method="POST">
-
+    <form id="form-grupos" enctype="multipart/form-data" action="{{URL::to('creacion/formulariogrupos')}}"method="POST">
          @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+
+
+
+ <!-- datos quemados del mismo formulario en su propia tabla-->
+<?php
+  $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
+  $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
+
+?>
+
+<div> 
+
+  <form id="form-grupos" autocomplete="on" enctype="multipart/form-data"
+     @if(isset($grupos))
+        action="{{URL::to('edicion/formulariogrupos')}}"
+     @else
+        action="{{URL::to('creacion/formulariogrupos')}}"
+        <?php 
+        $grupos = null;
+        ?>
+     @endif 
+
+  method="post">   
+
+    <!-- en caso de no existir el id-->
+        @if(isset($accion) && $accion=="editar")
+              
+            @if(!isset($grupos) || !$grupos)
+                <fieldset style="margin-bottom: 2px;
+                        margin-top: 5px;
+                        padding: 2px;">
+
+                        <div  style="margin: 0px;" class="alert alert-danger">No existe el Grupo</div> 
+                </fieldset>  
+ 
+            @endif    
+        @endif
+
+        @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
                     padding: 2px;">
@@ -46,51 +94,79 @@
             </fieldset>
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Agregar un nuevo grupo</h2></div>
-            <ul>
+
+        @if(isset($grupos['codigo_grupo']))
+
+            <input type="hidden" name="id_grupos" value="{{$grupos['codigo_grupo']}}">
+        @endif
+
+        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+           
+            @if(isset($grupos['codigo_grupo']))
+              Edicion Grupos
+            @else 
+                 Crear Grupo
+            @endif
+
+        </h2></div>
+        <ul>
                 <fieldset>  
                     <li class="@if($errors->has('nombre')) has-error @endif">
                       <label for="nombre" >Nombre del grupo: </label>
-                        <input type="text" id="nombre" name="nombre"  value="{{Input::old('nombre')}}" required="required"/>                
+                        <input type="text" id="nombre" name="nombre"  value="{{ Input::old('nombre')!=null? Input::old('nombre'): (isset($grupos['nombre_grupo'])? $grupos['nombre_grupo']:'')}}" required="required"/>                
                          @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
                          @endif
                     </li> 
 
+
                     <li class="@if($errors->has('coord')) has-error @endif">
                       <label for="coord">Coordinador:</label>
-                        <input type="text" id="coord" name="coord" value="" required="required"/>
+                        <input style="text-transform:capitalize;" type="text" id="coord" name="coord" value="" required="required"/>
                         <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
                           <span id="advertencias">
                             <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
                           </span>
                           @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
                          @endif
+
+                    <li class="@if($errors->has('coord')) has-error @endif" >
+                        <label for="coord">Coordinador:</label>
+                        <input type="text" id="coor-linea" name="coord" value="{{isset($grupos['nombre_director'])? $grupos['nombre_director']:''}}" /> 
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="{{isset($grupos['director_grupo'])? $grupos['director_grupo']:''}}"/>
+                            <span id="advertencias">
+                                <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
+                            </span> 
+                         @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> @endif
                     </li>
 
                     <li class="@if($errors->has('email')) has-error @endif">
                       <label for="email">Email:</label>
-                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
-                          @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
+
+                        <input  type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
+                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{ Input::old('email')!=null? Input::old('email'): (isset($grupos['email'])? $grupos['email']:'')}}" required="required" />   @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
                          @endif          
                     </li>
 
                     <li class="@if($errors->has('pagina')) has-error @endif">
                       <label for="pagina">P&aacute;gina web:</label>
-                        <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+
+                        <input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+                        <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{ Input::old('pagina')!=null? Input::old('pagina'): (isset($grupos['pagina_web'])? $grupos['pagina_web']:'')}}"  autofocus="autofocus" />
                          @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
                          @endif                        
                     </li>
 
                     <li class="@if($errors->has('telefono')) has-error @endif">
                       <label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')}}"/>
+                        <input type="tel" id="telefono" name="telefono" value="{{ Input::old('telefono')!=null? Input::old('telefono'): (isset($grupos['telefono'])? $grupos['telefono']:'')}}"/>
                          @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
                          @endif                   
                     </li>
 
                     <li class="@if($errors->has('direccion')) has-error @endif">
                       <label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
+                        <input onchange="letrasCapital(this)" type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
+                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'): (isset($grupos['direccion_grupo'])? $grupos['direccion_grupo']:'')}}" required="required"/>
                          @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
                          @endif                     
                     </li>
@@ -102,7 +178,7 @@
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" style="cursor:pointer" 
-                                            readonly id="creacion-grupo" class="date form-control" data-format="dd/MM/yyyy" name="creacion-grupo" value="{{Input::old('creacion-grupo')}}" required="required" />
+                                            readonly id="creacion-grupo" class="date form-control" data-format="yyyy-mm-dd" name="creacion-grupo" value="{{ Input::old('creacion-grupo')!=null? Input::old('creacion-grupo'): (isset($grupos['ano_creacion'])? $grupos['ano_creacion']:'')}}" required="required" />
                                              @if ($errors->has('creacion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-grupo') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -115,42 +191,50 @@
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
                       <label for="unidad">Unidad academica:</label>
-                        <select required="required" name="unidad">
-                          <option value="Departamento de biologia y quimica">
-                            Departamento de biolog&iacute;a y qu&iacute;mica</option>
-                          <option value="Departamento de matematicas y fisica">
-                            Departamento de matem&aacute;ticas y f&iacute;sica</option>
-                          <option value="Escuela de ingenieria">
-                            Escuela de ingenier&iacute;a</option>
-                          <option value="Instituto de ciencias ambientales">
-                            Instituto de ciencias ambientales</option>
+                        <select required="required" name="unidad" value="{{Input::old('unidad')!=null? Input::old('unidad'): (isset($grupos['unidad_academica'])? $grupos['unidad_academica']:'')}}">
+
+                          @foreach ($tipo_unidad_academica as $elemento)
+
+                            @if(isset($grupos['unidad_academica']) && $elemento==$grupos['unidad_academica'])
+                                <option value="{{$elemento}}" selected>{{$elemento}}</option>
+                            @else 
+                                <option value="{{$elemento}}">{{$elemento}}</option>
+                            @endif         
+                          @endforeach
+
                         </select>
-                         @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p> 
-                         @endif                        
+                         @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p>@endif                        
                     </li>
 
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
-                        <select required="required" name="categoria">
-                          <option value="A1">A1</option>
-                          <option value="A2">A2</option>
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="C">C</option>
-                          <option value="D">D</option>
-                          <option value="reconocido">Reconocido</option>
-                          <option value="institucional-unillanos">Institucional-Unillanos</option>
-                          <option value="no reconocido">No reconocido</option>
+
+                        <select required="required" name="categoria" value="{{Input::old('categoria')!=null? Input::old('categoria'): (isset($grupos['categoria'])? $grupos['categoria']:'')}}">
+
+                          @foreach ($tipo_categoria as $elemento)
+
+                            @if(isset($grupos['categoria']) && $elemento==$grupos['categoria'])
+                                <option value="{{$elemento}}" selected>{{$elemento}}</option>
+                            @else 
+                                <option value="{{$elemento}}">{{$elemento}}</option>
+                            @endif         
+                          @endforeach
                         </select>
-                         @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>
-                         @endif                        
+                         @if ($errors->has('categoria')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('categoria') }}</p>@endif                        
                     </li>
 
-                    <li ><label for="tipo">Tipo:</label> 
+                    <li><label for="tipo">Tipo:</label> 
                         <select name="tipo" required="required">
+
                               @if(isset($tipos))
                                 @foreach($tipos as $tipo)
-                                    <option value="{{$tipo['id']}}" > {{$tipo['tipo_grupo']}}</option>
+                                  @if(isset($grupos['inv_tipo_grupos']) && $tipo['id'] == $grupos['inv_tipo_grupos'])
+                                    <option value="{{$tipo['id']}}" selected> {{$tipo['tipo_grupo']}}</option>
+
+                                  @else 
+                                   <option value="{{$tipo['id']}}"> {{$tipo['tipo_grupo']}}</option>
+                                  @endif
+
                                 @endforeach
                               @endif    
 
@@ -158,7 +242,6 @@
                     </li> 
                 </fieldset>
             </ul>
-            
                 <fieldset>                   
                     <div class="row">
                         <div class="col-md-2"><label>Integrantes: </label></div>
@@ -181,6 +264,10 @@
                              <button type="button" class="btn btn-primary"  
                                 id="bton_integrantes-grupos"
                               style="background:#1A6D71; display:none;"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                              <span id="advertencias">
+                                <p>*Ingrese el número de documento o nombres y espere a que el autocompletado lo muestre.
+                                </p>
+                              </span>
                           </div>
                           
                           <div class="modal-body">
@@ -196,6 +283,17 @@
 
                               <tbody>
 
+                                @if(isset($integrantes))
+                                  @foreach($integrantes as $personagrupos)
+                                      <tr id="integrantemodal_{{$personagrupos->cedula}}">
+                                        <td><input type="hidden" data-info="1" name="integrantes[]" value="1">{{$personagrupos->cedula}}</td> 
+                                        <td>{{$personagrupos->datos_personales}}</td> 
+                                        <td><a href="#" onclick="eliminarModalIntegranteGrupo('{{$grupos['codigo_grupo']}}','{{$personagrupos->cedula}}')" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
+                                      </tr>
+
+                                  @endforeach
+                                @endif
+
                               </tbody>
                             </table>
                           </div>
@@ -206,9 +304,29 @@
                       </div>
                     </div>
 
-                    
-                    <!--*******************************************
-                    ******************-->
+                  <!--Modal de Verificacion de Eliminar integrantes grupos-->
+                  <div>    
+                   <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+                      <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Confirmaci&oacute;n</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>¿Esta seguro que desea eliminarlo?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="eliminarintegrantemodal();"
+                          style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                      </div>
+                    </div>
+                  </div>
+
+                    <!--modal 2 de lineas-->
 
                     <div class="row">
                         <div class="col-md-2"><label>Lineas: </label></div>
@@ -228,10 +346,15 @@
 
                             <!--Agregando nuevas lineas-->
                             <label  style="width:inherit">L&iacute;nea: </label>
-                             <input type="text" id="linea-grupos"  value="" />
-                             <button type="button" class="btn btn-primary"  
+                              <input type="text" id="linea-grupos"  value="" />
+                              <button type="button" class="btn btn-primary"  
                                 id="bton_linea-grupos"
-                              style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar</button> 
+                                style="background:#1A6D71; display:none; width:inherit"><span class="glyphicon glyphicon-plus"></span> Agregar
+                              </button> 
+                              <span id="advertencias">
+                                <p>*Ingrese el nombre de la línea y espere a que el autocompletado lo muestre.
+                                </p>
+                              </span>
                           </div>
                           
                           <div class="modal-body">
@@ -245,7 +368,17 @@
                               </thead>
 
                               <tbody>
-                            
+                                @if(isset($lineasintegrantes))
+                                @foreach($lineasintegrantes as $personalineas)
+                                    <tr id="lineamodal_{{$personalineas->id_lineas}}">
+                                      <td><input type="hidden" data-info="1" name="integrantes[]" value="1">{{$personalineas->id_lineas}}</td> 
+                                      <td>{{$personalineas->nombre_linea}}</td> 
+                                      <td><a href="#" onclick="eliminarModalLineaGrupo('{{$grupos['codigo_grupo']}}','{{$personalineas->id_lineas}}')" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
+                                    </tr>
+
+                                @endforeach
+                                @endif
+                                                 
                               </tbody>
                             </table>
                           </div>
@@ -255,73 +388,132 @@
                         </div>
                       </div>
                     </div>
+                    <!--Modal de Verificacion de Eliminar lineas grupos-->
+                  <div>    
+                   <div class="modal fade bs-example-modal-lg" id="eliminar-linea" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+                      <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Confirmaci&oacute;n</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>¿Esta seguro que desea eliminarlo?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="eliminarLineaamodal();"
+                          style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                      </div>
+                    </div>
+                  </div>
 
-                    <!--*******************************************
-                    ******************-->
                 </fieldset>
             </ul> 
 
-            <ul>
-                <fieldset>
-                        <li class="@if($errors->has('objetivos')) has-error @endif">
-                          <label for="objetivos">Objetivos:</label>
-                          <textarea id="objetivos" name="objetivos" required="required" value="{{Input::old('objetivos')}}"></textarea>
-                           @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
-                           @endif
-                        </li>  
+        <ul>
+          <fieldset>
+              <li class="@if($errors->has('objetivos')) has-error @endif">
+                <label for="objetivos">Objetivos:</label>
+                <textarea id="objetivos" name="objetivos" required="required" value="{{ Input::old('objetivos')!=null? Input::old('objetivos'): (isset($grupos['objetivos'])? $grupos['objetivos']:'')}}"></textarea>
+                 @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
+                 @endif
+              </li>  
 
-                        <li class="@if($errors->has('gruplac')) has-error @endif">
-                          <label for="gruplac">Link Gruplac: </label>
-                            <input type="text" id="gruplac" name="gruplac" value="{{Input::old('gruplac')}}"/>
-                           @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
-                           @endif                            
-                        </li>
+              <li class="@if($errors->has('gruplac')) has-error @endif">
+                <label for="gruplac">Link Gruplac: </label>
+                  <input type="text" id="gruplac" name="gruplac" value="{{ Input::old('gruplac')!=null? Input::old('gruplac'): (isset($grupos['link_gruplac'])? $grupos['link_gruplac']:'')}}"/>
+                 @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
+                 @endif                            
+              </li>
 
-                        <li class="@if($errors->has('logog')) has-error @endif">
-                          <label for="logog">Logo del grupo:</label>
-                            <input type="file"  id="logog" name="logog"  required="required" value="{{Input::old('logog')}}" />
-                           @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> 
-                           @endif                            
-                        </li>
 
-                        <li class="@if($errors->has('afiche')) has-error @endif">
-                          <label for="afiche">Ruta del afiche: </label>
-                            <input type="file" id="afiche" name="afiche"/>
-                          @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> 
-                          @endif                            
-                        </li>
+              <li class="@if($errors->has('logog')) has-error @endif">
+                        <label for="logog">Logo del grupo:</label>
+                        
+                         
+                        <div id="block1_archivo1" style="@if(!(isset($grupos) &&  $grupos['logo_grupo']!="")) display:none @endif">
+                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_logo')">
+                            <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['logo_grupo']}}">Descargar archivo </a>
+                            <input  type="hidden" id="id_indicador_cambio_archivo_logo" name="edicion_dct-logo"  value="no">
+                        </div>
 
-                        <li class="@if($errors->has('img1')) has-error @endif">
-                          <label for="img1">Imagen 1: </label>
-                            <input type="file"  id="img1" name="img1" value="{{Input::old('img1')}}"/>
-                          @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> 
-                          @endif 
-                        </li>
+                         <div id="block2_archivo1" style="@if((isset($grupos) &&  $grupos['logo_grupo']!="")) display:none @endif"> 
+                            <input type="file" id="logog" name="logog" value="{{ Input::old('logog')!=null? Input::old('logog'): (isset($grupos['logo_grupo'])? $grupos['logo_grupo']:'')}}" />
+                            @if ($errors->has('logog')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('logog') }}</p> @endif
+                        </div>
+              </li>
 
-                        <li class="@if($errors->has('img2')) has-error @endif">
-                          <label for="img2">Imagen 2: </label>
-                            <input type="file"  id="img2" name="img2" value="{{Input::old('img2')}}" />
-                          @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> 
-                         @endif
-                        </li> 
+              <li class="@if($errors->has('afiche')) has-error @endif">
+                        <label for="afiche">Ruta del afiche:</label>
+                         
+                        <div id="block1_archivo1" style="@if(!(isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif">
+                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_afiche')">
+                            <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['ruta_afiche']}}">Descargar archivo </a>
+                            <input  type="hidden" id="id_indicador_cambio_archivo_afiche" name="edicion_afiche-grupo"  value="no">
+                        </div>
 
-                </fieldset> 
-            </ul>   
-            <table id="botones-formularios">
-                <thead>
-                    <th id="crear">
-                        <button id="crear-grupo" type="submit" >
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear grupo
-                        </button>
-                    </th>
-                    <th id="borrar">
-                        <button id="reset-button" type="reset">
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
-                        Borrar todo
-                    </th>
-                </thead>
-            </table> 
+                        <div id="block2_archivo1" style="@if((isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif"> 
+                            <input type="file" id="afiche" name="afiche" value="{{ Input::old('afiche')!=null? Input::old('afiche'): (isset($grupos['ruta_afiche'])? $grupos['ruta_afiche']:'')}}" />
+                            @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> @endif
+                        </div>
+              </li>
+
+              <li class="@if($errors->has('img1')) has-error @endif">
+
+
+                        <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img1')">
+                            <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['imagen1']}}">descargar archivo </a>
+                            <input  type="hidden" id="id_indicador_cambio_archivo_img1" name="edicion_img1-grupo"  value="no">
+                        </div>
+
+                        <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                            <label for="img1">Imagen 1: </label>
+                            <input type="file" id="img1" name="img1" value="{{ Input::old('img1')!=null? Input::old('img1'): (isset($grupos['imagen1'])? $grupos['imagen1']:'')}}" />
+                            @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> @endif
+                         </div>
+              </li> 
+
+              <li class="@if($errors->has('img2')) has-error @endif">
+
+
+                        <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['imagen2']!="")) display:none @endif">
+                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img2')">
+                            <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['imagen2']}}">Descargar archivo </a>
+                            <input  type="hidden" id="id_indicador_cambio_archivo_img2" name="edicion_img2-grupo"  value="no">
+                        </div>
+
+                        <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                            <label for="img2">Imagen 2: </label>
+                            <input type="file" id="img2" name="img2" value="{{ Input::old('img2')!=null? Input::old('img2'): (isset($grupos['imagen2'])? $grupos['imagen2']:'')}}" />
+                            @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> @endif
+                         </div>
+              </li> 
+          </fieldset> 
+        </ul>   
+        
+        <table id="botones-formularios">
+            <thead>
+                <th id="crear">
+                    <button id="crear-grupo" type="submit" >
+                    <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                      @if(isset($grupos['codigo_grupo']))
+                              Editar Grupo
+                            @else 
+                                Crear Grupo
+                      @endif
+                    </button>
+                </th>
+                <th id="borrar">
+                    <button id="reset-button" type="button" onclick="limpiaForm('#form-grupos')" >
+                    <img alt="mal" src="images/ml.png" width="16" height="16" />
+                    Limpiar Formulario
+                </th>
+            </thead>
+        </table> 
     </form>    
 </div>  
 @stop    

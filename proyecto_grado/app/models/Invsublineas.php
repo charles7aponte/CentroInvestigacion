@@ -13,13 +13,20 @@ class InvSublineas extends Eloquent  {
 	protected $primaryKey = "id_sublinea";
 
 
-		// reglas
+		// reglas validacion de creacion
 	public 	static $reglasValidacion = array(
-			'nombre-sublinea'             =>'required|unique:inv_sublineas,nombre_sublinea|max:50', 
-			'estado-sublinea'            => 'max:30', 	
-			'decr-sublinea'				=>'required'
+		'nombre-sublinea'             =>'required|unique:inv_sublineas,nombre_sublinea|max:50', 
+		'estado-sublinea'            => 'max:30', 	
+		'decr-sublinea'				=>'required'
 				
-		);
+	);
 
+		// reglas validacion de edicion
 
+	public 	static $reglasValidacionEdicion = array(
+		'nombre-sublinea'             =>'required|max:50', 
+		'estado-sublinea'            => 'max:30', 	
+		'decr-sublinea'				=>'required'
+				
+	);
 }

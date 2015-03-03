@@ -1,1 +1,1 @@
-$('.date').datepicker({language:"es"});
+$('.date').datepicker({language:"es", format: 'yyyy-mm-dd',});

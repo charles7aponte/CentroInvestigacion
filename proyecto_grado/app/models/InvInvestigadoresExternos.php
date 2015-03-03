@@ -13,7 +13,7 @@ class InvInvestigadoresExternos extends Eloquent  {
 	protected $primaryKey = "codinv_ext";
 
 
-		// reglas
+	// reglas validacion creacion...
 	public 	static $reglasValidacion = array(
 			'cedula'                 => 'required',
 			'nombre1'                => 'required|max:15|',
@@ -24,9 +24,22 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'entidad-investigadores' => 'required|max:200|',	
 			'numero_contrato'        => 'max:100',
 			'creacion_inicio'        => 'required',
-			'creacion_fin'           => 'required',
+			'creacion_fin'           => 'required',		
+	);
 
-		);
+	// reglas validacion edicion...
+	public 	static $reglasValidacionEdicion = array(
+			'cedula'                 => 'required',
+			'nombre1'                => 'required|max:15|',
+			'apellido1'			     => 'required|max:15|', 
+			'perfil' 	             => 'required|max:30|',
+			'creacion-perfil' 	 	 => 'required',
+			'profesion' 			 => 'required|max:100|',
+			'entidad-investigadores' => 'required|max:200|',	
+			'numero_contrato'        => 'max:100',
+			'creacion_inicio'        => 'required',
+			'creacion_fin'           => 'required',		
+	);
 
 
 }

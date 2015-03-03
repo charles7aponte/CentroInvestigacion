@@ -87,11 +87,7 @@ class ControlTipoGrupos extends Controller {
 
 				if (is_null($form_tipogrupo)==false){
 
-					$form_tipogrupo->estado=0;
-					$form_tipogrupo->tipo_grupo.="*";
-					$form_tipogrupo->save();
-
-					//$form_tipogrupo->delete();
+					$form_tipogrupo->delete();
 
 					return Response::json(array("respuesta"=>true));
 

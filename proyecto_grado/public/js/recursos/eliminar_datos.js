@@ -1,5 +1,6 @@
 
-  var ID_principal=null;
+
+  var ID=null;
   var URL;
   var fila_info;
 
@@ -13,6 +14,9 @@ return false;
 
 }
 
+
+
+
 //eliminacion de los registros sub-tablas
 function eliminacionremota(){
   $.ajax({
@@ -24,7 +28,10 @@ function eliminacionremota(){
     if(data.respuesta)
       {
 
+        
         $(fila_info+ID).remove();
+
+
 
       }
     else{

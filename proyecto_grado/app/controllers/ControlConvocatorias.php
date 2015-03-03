@@ -23,8 +23,8 @@ class ControlConvocatorias extends Controller {
 		$dateApertura = new DateTime($fecha_apertura);
 		$dateCierre = new DateTime($fecha_cierre);
 
-		$fecha_apertura=$dateApertura->format('d/m/Y');
-		$fecha_cierre=$dateCierre->format('d/m/Y');
+		$fecha_apertura=$dateApertura->format('Y-m-d');
+		$fecha_cierre=$dateCierre->format('Y-m-d');
 		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 
@@ -169,8 +169,8 @@ class ControlConvocatorias extends Controller {
 		$dateApertura = new DateTime($fecha_apertura);
 		$dateCierre = new DateTime($fecha_cierre);
 
-		$fecha_apertura=$dateApertura->format('d/m/Y');
-		$fecha_cierre=$dateCierre->format('d/m/Y');
+		$fecha_apertura=$dateApertura->format('Y-m-d');
+		$fecha_cierre=$dateCierre->format('Y-m-d');
 		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 
@@ -306,8 +306,8 @@ class ControlConvocatorias extends Controller {
 					$dateApertura = new DateTime($convocatoria->fecha_apertura);
 					$dateCierre = new DateTime($convocatoria->fecha_cierre);
 
-					$convocatoria->fecha_apertura=$dateApertura->format('d/m/Y');
-					$convocatoria->fecha_cierre=$dateCierre->format('d/m/Y');
+					$convocatoria->fecha_apertura=$dateApertura->format('Y-m-d');
+					$convocatoria->fecha_cierre=$dateCierre->format('Y-m-d');
 					
 				}
 

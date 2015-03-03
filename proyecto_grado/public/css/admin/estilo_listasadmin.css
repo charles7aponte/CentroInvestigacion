@@ -6,7 +6,10 @@
 #tabla-listaempresas,
 #tabla-listaproyectos,
 #tabla-listafinanciamiento-proyectos,
-#tabla-eventos-noticias{
+#tabla-eventos-noticias,
+#tabla-listaproductosgrupos,
+#tabla-listaintegrantegrupos,
+#tabla-listaproyectogrupos{
   width: 100%;
 }
 
@@ -19,7 +22,10 @@
 #titulo-listaempresas h2,
 #titulo-listaproyectos h2, 
 #titulo-listaproyecto-financiado h2,
-#titulo-listaeventos-noticias h2{
+#titulo-listaeventos-noticias h2,
+#titulo-listaproductosgrupo h2,
+#titulo-listaintegrantegrupo h2,
+#titulo-listaproyectogrupo h2{
   text-align:right;
   padding-right: 30px; /* The padding is just there to move the h1 element to the center of the div */
   padding-top: 10px;
@@ -45,7 +51,8 @@ table#listaproductos,
 table#listaempresas,
 table#listaproyectos,
 table#tabla-listafinanciamiento-proyectos,
-table#listaeventosnoticias {
+table#listaeventosnoticias,
+table#listaproductogrupo{
   color: #333;
   font-family: sans-serif;
   font-size: .9em;
@@ -66,7 +73,8 @@ table#listaproductos th,
 table#listaempresas th,
 table#listaproyectos th,
 table#tabla-listafinanciamiento-proyectos th,
-table#listaeventosnoticias th{
+table#listaeventosnoticias th,
+table#listaproductogrupo th{
   font-weight: bold;
   font-size: 15px;
 }
@@ -78,7 +86,8 @@ table#listaproductos th:first-child, td:first-child,
 table#listaempresas th:first-child, td:first-child,
 table#listaproyectos th:first-child, td:first-child,
 table#tabla-listafinanciamiento-proyectos th:first-child, td:first-child,
-table#listaeventosnoticias th:first-child, td:first-child {
+table#listaeventosnoticias th:first-child, td:first-child,
+table#listaproductogrupo th:first-child, td:first-child{
   padding: 0 15px 0 20px;
 }
 
@@ -90,7 +99,8 @@ table#listaproductos thead tr:last-child th,
 table#listaempresas thead tr:last-child th,
 table#listaproyectos thead tr:last-child th,
 table#tabla-listafinanciamiento-proyectos thead tr:last-child th,
-table#listaeventosnoticias thead tr:last-child th {
+table#listaeventosnoticias thead tr:last-child th,
+table#listaproductogrupo thead tr:last-child th  {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
 }
@@ -103,7 +113,8 @@ table#listaproductos tbody tr:hover,
 table#listaempresas tbody tr:hover,
 table#listaproyectos tbody tr:hover,
 table#tabla-listafinanciamiento-proyectos tbody tr:hover,
-table#listaeventosnoticias tbody tr:hover {
+table#listaeventosnoticias tbody tr:hover,
+table#listaproductosgrupos tbody tr:hover{
   background-color: #ECEBEB;
 }
 
@@ -115,7 +126,8 @@ table#listaproductos tbody tr:last-child td,
 table#listaempresas tbody tr:last-child td,
 table#listaproyectos tbody tr:last-child td,
 table#tabla-listafinanciamiento-proyectos tbody tr:last-child td,
-table#listaeventosnoticias tbody tr:last-child td {
+table#listaeventosnoticias tbody tr:last-child td,
+table#listaproductosgrupos tbody tr:last-child td {
   border: none;
 }
 
@@ -127,7 +139,8 @@ table#listaproductos tbody td,
 table#listaempresas tbody td,
 table#listaproyectos tbody td,
 table#tabla-listafinanciamiento-proyectos tbody td,
-table#listaeventosnoticias tbody td {
+table#listaeventosnoticias tbody td,
+table#listaproductosgrupos tbody td{
   border-bottom: 1px solid #ddd;
 }
 
@@ -139,7 +152,8 @@ table#listaproductos tbody tr,
 table#listaempresas tbody tr,
 table#listaproyectos tbody tr,
 table#tabla-listafinanciamiento-proyectos tbody tr,
-table#listaeventosnoticias tbody tr {
+table#listaeventosnoticias tbody tr,
+table#listaproductosgrupos tbody tr {
   background-color:#F8F9FE;
 }
 
@@ -151,7 +165,8 @@ table#listaproductos td:last-child,
 table#listaempresas td:last-child,
 table#listaproyectos td:last-child,
 table#tabla-listafinanciamiento-proyectos td:last-child,
-table#listaeventosnoticias td:last-child {
+table#listaeventosnoticias td:last-child,
+table#listaproductosgrupos td:last-child {
   text-align: right;
   padding-right: 10px;
   width: 400px;

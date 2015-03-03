@@ -4,7 +4,7 @@ function limpiaForm(miForm) {
 	var type = this.type;
 	var tag = this.tagName.toLowerCase();
 	//limpiamos los valores de los campos…
-	if (type == 'text' || type == 'password' || tag == 'textarea')
+	if (type == 'text' || type == 'password' || tag == 'textarea' || type == 'email' || type=='tel')
 	this.value =" ";
 	// excepto de los checkboxes y radios, le quitamos el checked
 	// pero su valor no debe ser cambiado

@@ -88,7 +88,6 @@
               <!--insertando en la tabla los registros-->
               @if(isset($tipogrupos))      
                 @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
-                  @if($tipogrupo['estado']==1 ) 
                     <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
                       <td>{{$tipogrupo['id']}}</td>
                       <td>{{$tipogrupo['tipo_grupo']}}</td>
@@ -97,7 +96,6 @@
                          </b>
                       </td>
                     </tr>
-                  @endif
                 @endforeach
               @endif        
               </tbody>

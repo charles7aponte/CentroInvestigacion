@@ -213,14 +213,15 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-producto" type="submit"                        <img alt="bien"  src="images/bn.png" width="16" height="16">
+                        <button id="crear-producto" type="submit" 
+                        <img alt="bien"  src="images/bn.png" width="16" height="16">
                         Crear producto
                         </button>
                     </th>
                     <th id="borrar">
-                        <button id="reset-button" type="reset">
+                        <button id="reset-button" type="button" onclick="limpiaForm('#form-productos')" >
                         <img alt="mal" src="images/ml.png" width="16" height="16">
-                        Borrar todo
+                        Limpiar Formulario
                     </th>
                 </thead>
             </table>
