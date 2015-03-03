@@ -9,7 +9,7 @@ class ControlInfoListasGrupos extends Controller {
 		$grupos = InvGrupos::find($idgrupo);
 
 		$perfil  = InvPerfiles::find($idperfil);
-			$listaintegrantesgrupos =null;
+			$listaintegrantesgrupos = array();
 	
 			if($perfil)
 			{
@@ -19,15 +19,23 @@ class ControlInfoListasGrupos extends Controller {
 				
 				$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
 							->whereIn("cedula",$listaParticipanteGrupos)
-							->paginate(1);
+									->paginate(1);
+
 			}
 
-		$paginacion=$listaintegrantesgrupos->links();
+
+		$paginacion="";
+		if(count($listaintegrantesgrupos)>0)
+		{
+			$paginacion=$listaintegrantesgrupos->links();
+
+		}
 		$datos= array(
 			'lista_integrantes_grupos'=>$listaintegrantesgrupos,
 			'lista_nombre_grupos' =>$grupos,
 			'registro_perfiles' =>$perfil,
-			'campo_lista'=>$listaintegrantesgrupos,'links'=>$paginacion
+			'campo_lista'=>$listaintegrantesgrupos,
+			'links'=>$paginacion
 			);
 
 

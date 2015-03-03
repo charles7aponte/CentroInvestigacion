@@ -85,17 +85,32 @@
 
                     <tbody>
                         <tr>
-                            <th id="fil-principal">Nombre Completo</th>
+                            <th id="fil-principal">Profesion</th>
                             <td id="col-principal" id="cuadro">frddedsswwssdeeddfrgt</td>
                         </tr>
 
                          <tr>
-                            <th id="fil-principal">C&eacute;dula</th>
+                            <th id="fil-principal">C&oacute;digo Convocatoria</th>
                             <td id="col-principal" id="cuadro">2221111111</td>
                         </tr>
 
                          <tr>
-                            <th id="fil-principal">Perfil</th>
+                            <th id="fil-principal">Nombre Convocatoria</th>
+                            <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                        </tr>
+
+                        <tr>
+                            <th id="fil-principal">Numero del contrato</th>
+                            <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                        </tr>
+
+                        <tr>
+                            <th id="fil-principal">Fecha Inicio</th>
+                            <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                        </tr>
+
+                        <tr>
+                            <th id="fil-principal">Fecha Fin</th>
                             <td id="col-principal" id="cuadro">Felipe Corredor</td>
                         </tr>
                     </tbody>
