@@ -7,9 +7,7 @@
 
 @section('javascript-nuevos2')
 
-<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script> 
-<script type="text/javascript" src="{{URL::to('/js')}}/js-infgrupos.js"></script>
+<script type="text/javascript" src="{{URL::to('/js')}}/js-infproductos.js"></script> 
 
 
 <script>
@@ -176,7 +174,19 @@
                     </tr>
                 </tbody>
             </table>
+    </fieldset>
 
+    <fieldset id="secundario1">
+        <div class="titulo-tabla-producto" id="cuadro">             
+            <h4 id="boton_producto"  style="width:50%;"><li class="glyphicon glyphicon-list-alt"></li><li class="glyphicon glyphicon-minus-list-alt"></li><a href="#" onclick="return false">Productividad</a></h4>
+        </div>
+      <div id="tabla_producto">
+          <div class="list-group">
+            <a href="" class="list-group-item">
+             Articulos
+           </a>
+          </div>
+      </div>
     </fieldset>
 </div>
 @stop

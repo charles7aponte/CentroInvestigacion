@@ -218,7 +218,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="creacion_inicio" class="date form-control" data-format="dd/MM/yyyy" name="creacion_inicio" value="{{ Input::old('creacion_inicio')!=null? Input::old('creacion_inicio'): (isset($investigador['fecha_inicio'])? $investigador['fecha_inicio']:'')}}" required="required" /> 
+                                            readonly id="creacion_inicio" class="date form-control" data-format="yyyy-mm-dd" name="creacion_inicio" value="{{ Input::old('creacion_inicio')!=null? Input::old('creacion_inicio'): (isset($investigador['fecha_inicio'])? $investigador['fecha_inicio']:'')}}" required="required" /> 
                                             @if ($errors->has('creacion_inicio')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion_inicio') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -237,7 +237,7 @@
                                         <div class='input-group date' id='datetimepicker2'>
                                             <input type="" 
                                             style="cursor:pointer"   
-                                            readonly id="creacion_fin" class="date form-control" data-format="dd/MM/yyyy" name="creacion_fin" value="{{ Input::old('creacion_fin')!=null? Input::old('creacion_fin'): (isset($investigador['fecha_fin'])? $investigador['fecha_fin']:'')}}" required="required" /> 
+                                            readonly id="creacion_fin" class="date form-control" data-format="yyyy-mm-dd" name="creacion_fin" value="{{ Input::old('creacion_fin')!=null? Input::old('creacion_fin'): (isset($investigador['fecha_fin'])? $investigador['fecha_fin']:'')}}" required="required" /> 
                                             @if ($errors->has('creacion_fin')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion_fin') }}</p> @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
