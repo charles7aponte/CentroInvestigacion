@@ -131,10 +131,26 @@
                     </tr>
 
                     <tr>
-                        <th id="fil-principal">Ruta Afiche</th>
+                        <th id="fil-principal">Afiche</th>
                         <td id="col-principal" id="cuadro">
                             @if($grupos['ruta_afiche']!="")
-                                <a href="{{URL::to('archivos_db/grupos/')}}/{{$grupos['ruta_afiche']}}" target="_blank"><i class="icon-file"></i> {{$grupos['ruta_afiche']}}
+                                <a href="{{URL::to('archivos_db/grupos/')}}/{{$grupos['ruta_afiche']}}" target="_blank"><i class="glyphicon glyphicon-picture"></i>Afiche ({{$grupos['ruta_afiche']}})
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Archivos</th>
+                        <td id="col-principal" id="cuadro">
+                            @if($grupos['imagen1']!="" && $grupos['imagen2']!="")
+                                <a href="{{URL::to('archivos_db/grupos/')}}/{{$grupos['imagen1']}}" target="_blank">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                    Archivo 1 ({{$grupos['imagen1']}})
+                                <p></p>
+                                <a href="{{URL::to('archivos_db/grupos/')}}/{{$grupos['imagen2']}}"  target="_blank">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                    Archivo 2 ({{$grupos['imagen2']}})
                                 </a>
                             @endif
                         </td>

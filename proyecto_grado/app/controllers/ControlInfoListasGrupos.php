@@ -63,6 +63,7 @@ class ControlInfoListasGrupos extends Controller {
 	public function ContruirListaProductosGrupos($idgrupo,$idsubtipo){
 		$grupos = InvGrupos::find($idgrupo);
 		$subtipo=InvSubtipoProductos::find($idsubtipo);
+		$paginacion="";
 
 		$productos=InvProductos::where("inv_codigo_grupo","=",$idgrupo)
 						->where("inv_subtipo_producto","=",$idsubtipo)

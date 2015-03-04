@@ -97,7 +97,7 @@
             background: -o-linear-gradient(top,#1A6D71,#122d3e);  
             background: linear-gradient(to bottom,#1A6D71,#122d3e);  
             filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;
-            text-align:center;">
+            text-align:center; line-height:2;">
             
 
           </th>
