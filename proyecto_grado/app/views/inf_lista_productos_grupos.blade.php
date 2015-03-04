@@ -14,7 +14,7 @@
     <div id="titulo-listaproductosgrupo" id="cuadro"> 
         @if($lista_productos_grupos &&  count($lista_productos_grupos)>0)
         <h2>{{$lista_nombre_grupos['nombre_grupo']}}</h2>
-        @else      <p></p>   
+        @else   
         @endif
     </div>
 
@@ -31,7 +31,7 @@
               </tr>
           <tr>
             <th>COD.</th>
-            <th >NOMBRE PRODUCTO</th>
+            <th>NOMBRE PRODUCTO</th>
             <th>SUBTIPO</th>
           </tr>
         </thead>
@@ -48,11 +48,11 @@
                   {{$lista_producto_grupo->nombre_subtipo_producto}}
                 </td>
               </tr>
-            <@endforeach
+            @endforeach
           </tbody>
       </table>      
       <div style="margin-left:30px; margin-right:30px;"> 
-         
+        {{$links}} 
       </div>
     </div>
   </form>

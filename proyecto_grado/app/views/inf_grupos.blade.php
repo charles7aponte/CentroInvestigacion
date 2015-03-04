@@ -54,7 +54,7 @@
 
                     <tr>
                         <th id="fil-principal">A&ntilde;o de Creaci&oacute;n</th>
-                        <td id="col-principal" id="cuadro" style="text-transform:lowercase;">
+                        <td id="col-principal" id="cuadro">
                               <?php 
                                 if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
                                 {
@@ -100,14 +100,14 @@
         
                     <tr>
                         <th id="fil-principal">Objetivos</th>
-                        <td id="col-principal" id="cuadro" style="text-transform:none;">
+                        <td id="col-principal" id="cuadro">
                             {{$grupos['objetivos']}}
                         </td>  
                     </tr>
         
                     <tr>
                         <th id="fil-principal">Email</th>
-                        <td id="col-principal" id="cuadro" style="text-transform: lowercase;">
+                        <td id="col-principal" id="cuadro">
                             {{$grupos['email']}}
                         </td>
                     </tr>
@@ -122,7 +122,7 @@
                     <tr>
                         <th id="fil-principal">P&aacute;gina Web</th>
                         <td id="col-principal" id="cuadro">
-                            <a style="color:blue; text-transform: lowercase;" href= "<?php
+                            <a style="color:blue;" href= "<?php
                                 $url = ($grupos['pagina_web']);
                                 echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);
                                 ?>">{{$grupos['pagina_web']}}

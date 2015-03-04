@@ -214,7 +214,6 @@ fieldset#secundario{
     vertical-align: middle;
     border-collapse: separate;
     border-spacing: 2px;
-    text-transform: capitalize;
 }
 
 .tabla-infconvocatorias thead tr th, 

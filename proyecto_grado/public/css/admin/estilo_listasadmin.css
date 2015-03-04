@@ -1,3 +1,15 @@
+/*Botones de paginacion*/
+#form-integrantegrupos ul.pagination li.active>span,
+#form-producosgrupos ul.pagination li.active>span,
+#form-proyectosgrupos ul.pagination li.active>span{
+    border-color:#122d3e;
+    background:#122d3e;
+}
+
+table {
+border-collapse: inherit !important; 
+}
+
 #tabla-listagrupos, 
 #tabla-listaconvocatorias, 
 #tabla-listalineas,

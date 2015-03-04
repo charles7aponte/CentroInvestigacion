@@ -7,6 +7,7 @@ class ControlInfoListasGrupos extends Controller {
 	public function ConstruirListaIntegrantesGrupos($idgrupo, $idperfil){
 
 		$grupos = InvGrupos::find($idgrupo);
+		$paginacion="";
 
 		$perfil  = InvPerfiles::find($idperfil);
 			$listaintegrantesgrupos = array();
@@ -19,12 +20,10 @@ class ControlInfoListasGrupos extends Controller {
 				
 				$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
 							->whereIn("cedula",$listaParticipanteGrupos)
-									->paginate(1);
+									->paginate(25);
 
 			}
 
-
-		$paginacion="";
 		if(count($listaintegrantesgrupos)>0)
 		{
 			$paginacion=$listaintegrantesgrupos->links();
@@ -48,7 +47,7 @@ class ControlInfoListasGrupos extends Controller {
 
 		$grupos = InvGrupos::find($idgrupo);
 
-		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(1);
+		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);
 
 		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
@@ -62,17 +61,27 @@ class ControlInfoListasGrupos extends Controller {
 
 	//lista de productos por  grupos
 	public function ContruirListaProductosGrupos($idgrupo,$idsubtipo){
-		$grupos=InvGrupos::find($idgrupo);
-		$listaproductosgrupos=DB::select(DB::raw("select ip.codigo_producto, ip.nombre_producto, isp.nombre_subtipo_producto
-			from inv_grupos ig, inv_participacion_productos ipp, inv_productos ip, inv_subtipo_productos isp
-			where ig.codigo_grupo=ipp.inv_codigo_grupo 
-			and ipp.inv_codigo_producto=ip.codigo_producto and isp.id_subtipo_producto=ip.inv_subtipo_producto
-			and ig.codigo_grupo=$idgrupo and ip.inv_subtipo_producto=$idsubtipo"
-			));
+		$grupos = InvGrupos::find($idgrupo);
+		$subtipo=InvSubtipoProductos::find($idsubtipo);
+
+		$productos=InvProductos::where("inv_codigo_grupo","=",$idgrupo)
+						->where("inv_subtipo_producto","=",$idsubtipo)
+						->paginate(25);
+
+		for($i=0;$i< count($productos);$i++){
+			$productos[$i]->nombre_subtipo_producto=$subtipo['nombre_subtipo_producto'];
+		}				
+
+		if(count($productos)>0)
+		{
+			$paginacion=$productos->links();
+
+		}
 		
 		$datos=array(
-			'lista_productos_grupos' =>$listaproductosgrupos,
-			'lista_nombre_grupos' =>$grupos 
+			'lista_productos_grupos' =>$productos,
+			'lista_nombre_grupos' =>$grupos,
+			'links'=>$paginacion
 			);
 
 		return View::make('inf_lista_productos_grupos',$datos);
