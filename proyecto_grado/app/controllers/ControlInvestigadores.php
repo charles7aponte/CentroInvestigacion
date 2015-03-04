@@ -98,7 +98,7 @@ class ControlInvestigadores extends Controller {
 				'max'=>'El campo no debe ser mayor a :max.',
 				'email' =>'No es una dirección de email válida.',
 				'numeric'=>'No es un valor valido.',
-				'unique'=>'Verifique, es posible que ya exista el producto.'
+				'unique'=>'Verifique, es posible que ya exista el investigador.'
 
 			);
 
@@ -123,7 +123,6 @@ class ControlInvestigadores extends Controller {
 					try
 					{
 
-
 						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
 						$persona->foto=$archivo1;
 
@@ -144,6 +143,8 @@ class ControlInvestigadores extends Controller {
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El investigador ha sido creado");
+
+								
 				}
 			
 			}
@@ -312,7 +313,7 @@ class ControlInvestigadores extends Controller {
 				'max'=>'El campo no debe ser mayor a :max.',
 				'email' =>'No es una dirección de email válida.',
 				'numeric'=>'No es un valor valido.',
-				'unique'=>'Verifique, es posible que ya exista el producto.'
+				'unique'=>'Verifique, es posible que ya exista el investigador.'
 
 			);
 
@@ -371,7 +372,7 @@ class ControlInvestigadores extends Controller {
 					
 					return Redirect::to('formularioinvestigadores/edit/'.$id)
 						//->withInput($todosDatos)
-						->with('mensaje_success',"El Investigador ha sido editada.");	
+						->with('mensaje_success',"El Investigador ha sido editado.");	
 			}
 				
 	}

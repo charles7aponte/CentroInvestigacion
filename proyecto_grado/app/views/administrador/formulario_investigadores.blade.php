@@ -41,7 +41,7 @@
         action="{{URL::to('creacion/formularioinvestigadores')}}"
         <?php 
             $investigador = null;
-            //$personaiv = array();
+         
         ?>
      @endif 
     method="post">    
@@ -90,56 +90,52 @@
         </h2></div>
         <ul>
 
+            @if(isset($personaiv))
                 <fieldset>  
                     <li><label for="cedula">C&eacute;dula:</label>
-                        <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'):((isset($investigador) &&  isset($investigador['cedula_persona']))? $investigador['cedula_persona']:'')}}" required="required"/>
+                        <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'): (isset($investigador['cedula_persona'])? $investigador['cedula_persona']:'')}}" required="required"/>
                          @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
                     </li>    
                     <li><label for="nombre1">Primer Nombre:</label>
-                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'):((isset($personaiv) && isset($personaiv['nombre1']))? $personaiv['nombre1']:'')}}" required="required"/>
+                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'): (isset($personaiv) && isset($personaiv['nombre1'])? $personaiv['nombre1']:'')}}" required="required"/>
                         @if ($errors->has('nombre1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre1') }}</p> @endif
                     </li>
                     <li><label for="nombre2">Segundo Nombre:</label>
-                        <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'):((isset($personaiv) && isset($personaiv['nombre2']))? $personaiv['nombre2']:'')}}"/>
+                        <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'): (isset($personaiv) && isset($personaiv['nombre2'])? $personaiv['nombre2']:'')}}"/>
                         @if ($errors->has('nombre2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre2') }}</p> @endif
                     </li>                   
                     <li><label for="apellido1">Primer Apellido:</label>
-                        <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):((isset($personaiv) && isset($personaiv['apellido1']))? $personaiv['apellido1']:'')}}" required="required"/>
-                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endif
+                        <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):(isset($personaiv) && isset($personaiv['apellido1'])? $personaiv['apellido1']:'')}}" required="required"/>
+                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endifirecci
                     </li>
-
-
-
                     <li><label for="apellido2">Segundo Apellido:</label>
-                        <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'):((isset($personaiv) && isset($personaiv['apellido2']))? $personaiv['apellido2']:'')}}"/>
+                        <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'): (isset($personaiv) && isset($personaiv['apellido2'])? $personaiv['apellido2']:'')}}"/>
                         @if ($errors->has('apellido2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido2') }}</p> @endif
                     </li>
                     <li><label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'):((isset($personaiv) && isset($personaiv['direccion']))? $personaiv['direccion']:'')}}"/>
+                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'): (isset($personaiv) && isset($personaiv['direccion'])? $personaiv['direccion']:'')}}"/>
                         @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p> @endif
                     </li>
                     <li><label for="telefono">Tel&eacute;fono Contacto:</label>
-                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'):((isset($personaiv) && isset($personaiv['telefono']))? $personaiv['telefono']:'')}}"/>
+                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'): (isset($personaiv) && isset($personaiv['telefono'])? $personaiv['telefono']:'')}}"/>
                         @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
                     </li>
                     <li><label for="celular">Celular:</label>
-                        <input type="text" id="celular" name="celular" value="{{Input::old('celular')!=null? Input::old('celular'):(isset($personaiv) && isset($personaiv['celular'])? $personaiv['celular']:'')}}"/>
+                        <input type="text" id="celular" name="celular" value="{{Input::old('celular')!=null? Input::old('celular'): (isset($personaiv) && isset($personaiv['celular'])? $personaiv['celular']:'')}}"/>
                         @if ($errors->has('celular')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('celular') }}</p> @endif
                     </li>
                     <li><label for="email">Email:</label>
-                        <input type="text" id="email" name="email" value="{{Input::old('email')!=null? Input::old('email'):((isset($personaiv) && isset($personaiv['mail']))? $personaiv['mail']:'')}}"/>
+                        <input type="text" id="email" name="email" value="{{Input::old('email')!=null? Input::old('email'): (isset($personaiv) && isset($personaiv['mail'])? $personaiv['mail']:'')}}"/>
                         @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif
                     </li>
                     <li class="@if($errors->has('foto')) has-error @endif">
                         <label for="foto">Foto:</label>
                          
-                        @if(isset($personaiv) ) 
-                            <div id="block1_archivo1" style="@if(!(isset($personaiv) && ( $personaiv['foto']!=""))) display:none @endif">
-                                <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_foto')">
-                                <a target="_blank" href="{{URL::to('archivos_db/investigadores')}}/{{$personaiv['foto']}}">Descargar archivo </a>
-                                <input  type="hidden" id="id_indicador_cambio_archivo_foto" name="edicion_dct-foto"  value="no">
-                            </div>
-                        @endif
+                        <div id="block1_archivo1" style="@if(!(isset($personaiv) && ( $personaiv['foto']!=""))) display:none @endif">
+                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_foto')">
+                            <a target="_blank" href="{{URL::to('archivos_db/investigadores')}}/{{$personaiv['foto']}}">Descargar archivo </a>
+                            <input  type="hidden" id="id_indicador_cambio_archivo_foto" name="edicion_dct-foto"  value="no">
+                        </div>
 
                         <div id="block2_archivo1" style="@if((isset($personaiv) &&  $personaiv['foto']!="")) display:none @endif"> 
                             <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): (isset($personaiv) && isset($personaiv['foto'])? $personaiv['foto']:'')}}" />
@@ -184,6 +180,87 @@
                     </li>
                 </fieldset>
 
+                @else
+
+                 <fieldset>  
+                    <li><label for="cedula">C&eacute;dula:</label>
+                        <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'):''}}" required="required"/>
+                         @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
+                    </li>    
+                    <li><label for="nombre1">Primer Nombre:</label>
+                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'):''}}" required="required"/>
+                        @if ($errors->has('nombre1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre1') }}</p> @endif
+                    </li>
+                    <li><label for="nombre2">Segundo Nombre:</label>
+                        <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'):''}}"/>
+                        @if ($errors->has('nombre2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre2') }}</p> @endif
+                    </li>                   
+                    <li><label for="apellido1">Primer Apellido:</label>
+                        <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):''}}" required="required"/>
+                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endifirecci
+                    </li>
+                    <li><label for="apellido2">Segundo Apellido:</label>
+                        <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'):''}}"/>
+                        @if ($errors->has('apellido2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido2') }}</p> @endif
+                    </li>
+                    <li><label for="direccion">Direcci&oacute;n:</label>
+                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'):''}}"/>
+                        @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p> @endif
+                    </li>
+                    <li><label for="telefono">Tel&eacute;fono Contacto:</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'):''}}"/>
+                        @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
+                    </li>
+                    <li><label for="celular">Celular:</label>
+                        <input type="text" id="celular" name="celular" value="{{Input::old('celular')!=null? Input::old('celular'):''}}"/>
+                        @if ($errors->has('celular')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('celular') }}</p> @endif
+                    </li>
+                    <li><label for="email">Email:</label>
+                        <input type="text" id="email" name="email" value="{{Input::old('email')!=null? Input::old('email'):''}}"/>
+                        @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif
+                    </li>
+                    <li class="@if($errors->has('foto')) has-error @endif">
+                        <label for="foto">Foto:</label>
+                        
+                            <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): ''}}" />
+                            @if ($errors->has('foto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto') }}</p> @endif        
+                    </li>
+
+                    <li><label for="perfil">Perfil:</label>
+
+                        <select name="perfil" required="required">
+
+                        @if(isset($perfiles))
+                            @foreach($perfiles as $perfilinv)
+                            @if(isset($investigador['codperfil']) && $perfilinv['codperfil'] == $investigador['codperfil'])
+                             <option value="{{$perfilinv['codperfil']}}" selected>{{$perfilinv['nombreperfil']}}</option>
+                            @else
+                                <option value="{{$perfilinv['codperfil']}}">{{$perfilinv['nombreperfil']}}</option>
+
+                            @endif
+                            @endforeach
+                        @endif
+                        </select>                          
+                    </li> 
+                    <li><label for="">Fecha Perfil:</label>
+                        <div class="container">
+                            <div class="row">
+                                <div class='col-sm-5' style="padding:0px;">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="yyyy-mm-dd" name="creacion-perfil" value="{{Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'):''}}" required="required" /> 
+                                            @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </li>
+                </fieldset>
+            @endif
 
                 <fieldset>
                     <li><label for="profesion">Profesi&oacute;n:</label>

@@ -144,7 +144,7 @@ CREATE TABLE inv_productos
   inv_codigo_grupo integer NOT NULL,
   inv_id_linea integer NOT NULL,
   inv_subtipo_producto integer NOT NULL,
-  nit integer NOT NULL,
+  inv_nit integer NOT NULL,
   nombre_producto text NOT NULL,
   observaciones_producto text NOT NULL,
   fecha_producto date,
@@ -153,12 +153,12 @@ CREATE TABLE inv_productos
   soporte_producto text,
   tipo_soporte character varying(100),
   foto_producto text,
-  estado char default 1
+  estado character(1) DEFAULT 1,
   CONSTRAINT inv_productos_pkey PRIMARY KEY (codigo_producto),
-  CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT inv_subtipo_producto_fkey FOREIGN KEY (inv_subtipo_producto) REFERENCES inv_subtipo_productos ON DELETE CASCADE ON UPDATE CASCADE, 
-  CONSTRAINT inv_nit_fk FOREIGN KEY (nit) REFERENCES empresa ON DELETE CASCADE ON UPDATE CASCADE   
+  CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos (codigo_grupo) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas (id_lineas) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT inv_nit_fkey FOREIGN KEY (inv_nit) REFERENCES empresa (nit) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT inv_subtipo_producto_fkey FOREIGN KEY (inv_subtipo_producto) REFERENCES inv_subtipo_productos (id_subtipo_producto) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE inv_investigadores_externos

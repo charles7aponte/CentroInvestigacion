@@ -55,7 +55,7 @@ class ControlProductos extends Controller {
 		$entidad->inv_subtipo_producto=$subtipo_producto;
 		$entidad->inv_codigo_grupo=$grupo_producto;
 		$entidad->inv_id_linea=$linea_producto;
-		$entidad->nit=$entidad_producto;
+		$entidad->inv_nit=$entidad_producto;
 		$entidad->reconocimiento_producto=$reconocimiento_producto;
 		$entidad->observaciones_producto=$descrip_producto;
 		$entidad->foto_producto=$foto_producto;
@@ -79,7 +79,7 @@ class ControlProductos extends Controller {
 			$validator = Validator::make(Input::all(), InvProductos::$reglasValidacion,$messages);
 
 
-			if ($validator->fails()) {
+			if ($validator->fails()){
 				$messages = $validator->messages();
 
 
@@ -88,10 +88,10 @@ class ControlProductos extends Controller {
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
-		} else {
-
-
-
+			} 
+		
+			else 
+			{
 					try
 					{
 					
@@ -101,7 +101,7 @@ class ControlProductos extends Controller {
 
 						$archivo2=$this->ArchivosProductos('soporte-producto',$direccion);
 						$entidad->soporte_producto=$archivo2;
-
+					
 						
 
 						$entidad->save();
@@ -133,13 +133,13 @@ class ControlProductos extends Controller {
 						->with('mensaje_error',"Error en el servidor.");
 					}
 					
-						return Redirect::to('formularioproductos')
-								->withInput($todosDatos)
-								->with('mensaje_success',"El producto ha sido creado.");
+					return Redirect::to('formularioproductos')
+						->withInput($todosDatos)
+						->with('mensaje_success',"El producto ha sido creado.");
 				
 				}
 			
-			}
+		}
 
 
 

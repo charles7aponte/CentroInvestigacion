@@ -367,9 +367,9 @@ class ControlGrupos extends Controller {
 					    'integrantes' =>$integrantes,
 					    'lineasintegrantes' =>$lineasintegrantes);
 
-			//print_r($datos);
 			return View::make('administrador/formulario_grupos',$datos);
 	}
+
 
 	// funcion para editar los integrantes del modal de grupos a traves de consultas con la bd!!
 	public function listaUsuarios($id)

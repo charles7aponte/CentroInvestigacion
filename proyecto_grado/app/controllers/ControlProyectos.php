@@ -21,7 +21,7 @@ class ControlProyectos extends Controller {
 
 		$dateinicio = new DateTime($fecha_inicio);
 
-		$fecha_inicio=$dateinicio->format('d/m/Y');
+		$fecha_inicio=$dateinicio->format('Y-m-d');
 		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 
@@ -205,7 +205,7 @@ class ControlProyectos extends Controller {
 
 		$dateinicio = new DateTime($fecha_inicio);
 
-		$fecha_inicio=$dateinicio->format('d/m/Y');
+		$fecha_inicio=$dateinicio->format('Y-m-d');
 		
 		$conv_proyecto=Input::get('convocatoria-proyecto');
 		$linea_proyecto=Input::get('linea-proyecto');
@@ -321,5 +321,36 @@ class ControlProyectos extends Controller {
 			}			
 	}	
 
-	
+	function cargarEditar($id)
+	{
+
+		$proyectos = InvProyectos::find($id);	
+		$listaConvocatorias = InvConvocatorias::all();
+		$listaLineas = InvLineas::all();
+		$listaGrupos = InvGrupos::all();
+		$listaGrupos1 = InvGrupos::all();
+
+		
+		if($proyectos)
+		{
+			// esto es solo en caso de fechas .. para darle formato .. pues no lo retona diferente
+			$dateinicio = new DateTime($proyectos->fecha_proyecto);
+			$proyectos->fecha_proyecto=$dateinicio->format('Y-m-d');
+					
+		}	
+
+			//$integrantes=$this->listaUsuarios($id);
+			//$lineasintegrantes=$this->listaLineas($id);
+
+
+			$datos=array('proyectos' => $proyectos,
+					    'accion'=>'editar',
+					    'convocatorias' =>$listaConvocatorias,
+					    'lineas' =>$listaLineas,
+					    'grupos' =>$listaGrupos,
+					    'grupos1' =>$listaGrupos1); 
+
+
+			return View::make('administrador/formulario_proyectos',$datos);
+	}	
 }

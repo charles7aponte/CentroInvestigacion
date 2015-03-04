@@ -38,12 +38,7 @@
 
 
 @section('cuerpo')
-<div>  
-    <form id="form-grupos" enctype="multipart/form-data" action="{{URL::to('creacion/formulariogrupos')}}"method="POST">
-         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
-
-
-
+ 
  <!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
   $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
