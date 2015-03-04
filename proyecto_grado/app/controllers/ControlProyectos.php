@@ -139,10 +139,7 @@ class ControlProyectos extends Controller {
 			
 			}//el
 
-		}	
-
-
-
+		}
 
 
 		/*********** carga el formulario para cargar los datos desde la tabla*/
@@ -198,7 +195,7 @@ class ControlProyectos extends Controller {
 	public function guardarEdicion(){
 
 		$id=Input::get('id_proyecto');
-		
+
 		$nombre_proyecto=Input::get('nombre-proyecto');
 		$estado_proyecto=Input::get('estado-proy');
 		
@@ -209,9 +206,7 @@ class ControlProyectos extends Controller {
 		$dateinicio = new DateTime($fecha_inicio);
 
 		$fecha_inicio=$dateinicio->format('d/m/Y');
-		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
-
-
+		
 		$conv_proyecto=Input::get('convocatoria-proyecto');
 		$linea_proyecto=Input::get('linea-proyecto');
 		$grupo1_proyecto=Input::get('grupo1-proyecto');	
@@ -231,9 +226,11 @@ class ControlProyectos extends Controller {
 		$todosDatos = Input::except('actaini-proyectos','propuesta-proyecto','informe-proyecto');
 	
 
-		
 
-		$entidad=new InvProyectos();
+		$entidad=InvProyectos::find($id);
+
+		$numeroProyectoAnterior = $entidad->codigo_proyecto;
+
 		
 		$entidad->nombre_proyecto=$nombre_proyecto;
 		$entidad->estado_proyecto=$estado_proyecto;
@@ -258,75 +255,71 @@ class ControlProyectos extends Controller {
 
 			);
 
+			$validator=false;
+
 
 			// execute la validacin 
 
-			$validator = Validator::make(Input::all(), InvProyectos::$reglasValidacion,$messages);
+			if($numeroProyectoAnterior ==  $entidad->codigo_proyecto)
+			{
+				$validator = Validator::make(Input::all(), InvProyectos::$reglasValidacionEdicion,$messages);
 
+			}
+
+			else{
+				$validator = Validator::make(Input::all(), InvProyectos::$reglasValidacion,$messages);
+			}
 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
-
-
-				return Redirect::to('formularioproyectos')
+				return Redirect::to('formularioproyectos/edit/'.$id."/")
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
-		} else {
+			}
 
-			
+			else 
+			{
+	
+				if(Input::get('edicion_dct-archacta')=="si")
+				{
+					$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);
+					$entidad->archivo_actainicio=$archivo1;					
+				}
 
-			
-					try
-					{
-						$archivo1=$this->ArchivosProyectos('actaini-proyectos',$direccion);//archivoshtml
-						$entidad->archivo_actainicio=$archivo1;//base
-
-						$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
-						$entidad->archivo_propuesta=$archivo2;
-
-						$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
-						$entidad->informe_final=$archivo3;
-
-						$entidad->save();
-
-						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
-						$listatiempos=Input::get("tiempo");
-						$listatipoinvestigador=Input::get("tipoinvestigador");
-
-
-						for($i=0;$i<count($listaIntegrantes);$i++)
-						{
-
-							$modelIntegrante=new InvParticipacionProyectos();
-							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
-							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
-							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
-							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
-							$modelIntegrante->save();
-
-						}
-					}
-
-					catch(PDOException $e)
-					{
-						//return 'existe un error' + $e;
-						
-						return Redirect::to('formularioproyectos')
-						->withInput($todosDatos)
-						->with('mensaje_error',"Error en el servidor.");
-					}
+				if(Input::get('edicion_propuesta-proyecto')=="si")
+				{
+					$archivo2=$this->ArchivosProyectos('propuesta-proyecto',$direccion);
+					$entidad->archivo_propuesta=$archivo2;
 					
-						return Redirect::to('formularioproyectos')
-								->withInput($todosDatos)
-								->with('mensaje_success',"El proyecto ha sido creado.");
-			
-				
-			
-			}//el
+				}	
 
-		}	
+				if(Input::get('edicion_informe-proyecto')=="si")
+				{
+
+					$archivo3=$this->ArchivosProyectos('informe-proyecto',$direccion);
+					$entidad->informe_final=$archivo3;
+				}	
+
+					$entidad->save();
+
+
+				try{
+
+					}
+
+				catch(PDOException $e)
+				{
+					return Redirect::to('formularioproyectos/edit/'.$id)
+					->withInput($todosDatos)
+					->with('mensaje_error',"Error en el servidor.");
+				}
+					
+				return Redirect::to('formularioproyectos/edit/'.$id)
+					->with('mensaje_success',"El proyecto ha sido editado.");		
+			}			
+	}	
 
 	
 }

@@ -111,12 +111,14 @@ Route::get('formularioeventosnoticias/edit/{id}','ControlEventosNoticias@cargarE
 
 Route::get('formulariogrupos/edit/{id}','ControlGrupos@cargarEditar');
 
-//--------------eliminar de los modales del formulario grupos-------------------
+//--------------eliminar de los modales del formulario grupos servicios de eliminar-------------------
 Route::get('formulariogrupos/eliminarintegrante/{idgrupo}/{idintegrante}','ControlGrupos@EliminarIntegrantesGrupos');
 
 Route::get('formulariogrupos/eliminarlinea/{idgrupo}/{idlinea}','ControlGrupos@EliminarlineaGrupos');
 
 Route::get('formularioinvestigadores/edit/{id}','ControlInvestigadores@cargarEditar');
+
+Route::get('formularioproyectos/edit/{id}','ControlProyectos@cargarEditar');
 
 
 
@@ -168,6 +170,8 @@ Route::post('edicion/formularioeventosnoticias','ControlEventosNoticias@guardarE
 Route::post('edicion/formulariogrupos','ControlGrupos@guardarEdicion');
 
 Route::post('edicion/formularioinvestigadores','ControlInvestigadores@guardarEdicion');
+
+Route::post('edicion/formularioproyectos','ControlProyectos@guardarEdicion');
 
 
 
