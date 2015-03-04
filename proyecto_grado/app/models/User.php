@@ -9,16 +9,16 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
     use UserTrait, RemindableTrait;
 
 
-    protected $table = 'usuarios1'; 
-    protected $primaryKey = "nombre";
+    protected $table = 'persona'; 
+    protected $primaryKey = "cedula";
     public $timestamps = false; 
 
 
-    protected $username = 'nombre';//username a utilizar de la tabla usuarios
+    protected $username = 'cedula';//username a utilizar de la tabla usuarios
  
-    protected $password = 'cont2';
+    protected $password = 'clavep';
 
-    protected $fillable = array('id', 'nombre', 'cont2');
+    protected $fillable = array('clavep');
 
 
 
@@ -40,7 +40,7 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
      */
     public function getAuthIdentifier()
     {
-        return $this->nombre;
+        return $this->cedula;
     }
 
 
@@ -52,7 +52,7 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
      */
     public function getAuthPassword()
     {
-        return $this->cont2;
+        return $this->clavep;
     }
 
 

@@ -6,7 +6,6 @@ Paginas generales--------------------
 
 Route::get('/', function() { return View::make('cuerpo'); });
 
-Route::get('login','ControlLogin@login');
 
 Route::get('login', function() { return View::make('login'); });
 
@@ -17,7 +16,7 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 /********************************************************************************************************************************
 -----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------
 *********************************************************************************************************************************/
-Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
+Route::get('administrador', function() { return View::make('administrador/panel_admin'); })->before('auth');;
 
 /*--------------1-FORMULARIOS-----------------
 **********************************************/
@@ -248,6 +247,18 @@ Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasP
 
 //financiamiento
 Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
+
+
+
+// manejo de login
+Route::post('inicio_sesion', 'ControlLogin@milogin');
+Route::get('logout', 'ControlLogin@logOut'); // Finalizar sesión
+
+
+Route::group(['before' => 'auth'], function()
+{
+    //Route::get('/', 'HomeController@showWelcome'); // Vista de inicio
+});
 
 
 

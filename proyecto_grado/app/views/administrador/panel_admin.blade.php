@@ -51,6 +51,8 @@ switch($mes){
 
 	<title>Panel</title>
 	
+
+
 	<!--css-->
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_paneladmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_formadmin.css')}}">
@@ -62,6 +64,14 @@ switch($mes){
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.theme.css')}}">
+
+
+    <style>
+    .ui-autocomplete-loading {
+	    background: white url("{{URL::to('/')}}/images/ui-anim_basic_16x16.gif") right center no-repeat !important;
+	    background-color:#4B5F9B;
+	  }
+    </style>
 
 
 	@section("css-nuevos")
@@ -89,7 +99,8 @@ switch($mes){
 	<div class="contenedor">
 	<header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="{{URL::to('/')}}/index.html">Panel de administraci&oacute;n</a></h1>
+			<h1 class="site_title"><a href="{{URL::to('/')}}/index.html">Panel de administraci&oacute;n</a>
+</h1>
 			<a href="{{URL::to('/')}}" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->
@@ -110,7 +121,7 @@ switch($mes){
 			    <li><a href="#">Registro de actividad</a></li>
 			    <li><a href="#">...</a></li>
 			    <li class="divider"></li>
-			    <li><a href="#">Salir</a></li>
+			    <li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
 			  </ul>
 			</div>		
 		</div>

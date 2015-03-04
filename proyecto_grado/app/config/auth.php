@@ -20,9 +20,9 @@ return array(
 
 
 
-    'username' => 'nombre',//username a utilizar de la tabla usuarios
+    'username' => 'cedula',//username a utilizar de la tabla usuarios
  
-    'password' => 'cont2',//password a utilizar de la tabla usuarios
+    'password' => 'clavep',//password a utilizar de la tabla usuarios
 
 
 	/*
@@ -49,7 +49,7 @@ return array(
 	|
 	*/
 
-	'table' => 'usuarios1',
+	'table' => 'persona',
 
 	/*
 	|--------------------------------------------------------------------------

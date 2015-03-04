@@ -4,6 +4,8 @@ class ControlPersona extends Controller {
 
 
 
+
+
 	/*********************
 	* retorna las coincidencias en nombre , apellido o cedula
 	*/
