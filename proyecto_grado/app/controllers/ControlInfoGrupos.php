@@ -85,13 +85,11 @@ class ControlInfoGrupos extends Controller {
 
 	//contar cantidad de integrantes
 	public function ContarIntegrantes($perfil, $id_grupo){
-	$listaIntegrantesGrupos=DB::select(DB::raw("select count(*) , pf.codperfil
-				from persona ps,perfil pf, personaperfil pp, inv_participacion_grupos ipg,
-				inv_grupos ig
-				where pp.codperfil=pf.codperfil and 
-				ps.cedula=pp.cedula and ipg.cedula_persona=ps.cedula and ig.codigo_grupo=ipg.inv_codigo_grupo
-				and lower(trim(nombreperfil))  like lower('$perfil') and ipg.inv_codigo_grupo=$id_grupo
-				group by pf.codperfil;")
+	$listaIntegrantesGrupos=DB::select(DB::raw("select count(*), pf.codperfil
+				from inv_participacion_grupos ipg, persona p, personaperfil pp, perfil pf
+				where ipg.cedula_persona=p.cedula and p.cedula=pp.cedula and pf.codperfil=pp.codperfil
+				and lower(trim(pf.nombreperfil)) like lower('$perfil') and ipg.inv_codigo_grupo=$id_grupo
+				group by pf.codperfil")
 			);
 
 		if($listaIntegrantesGrupos && count($listaIntegrantesGrupos)>0)
@@ -106,10 +104,10 @@ class ControlInfoGrupos extends Controller {
 
 	//contar cantidad de prodcutos por grupo
 	public function Contarproductos($subtipo,$id_grupo){
-		$listaProductosGrupos=DB::select(DB::raw("select count(*) 
-				from inv_participacion_productos ipp, inv_productos ip
-				where ip.codigo_producto=ipp.inv_codigo_producto and ip.inv_subtipo_producto=$subtipo
-				and ipp.inv_codigo_grupo=$id_grupo;")
+		$listaProductosGrupos=DB::select(DB::raw("select count(*)
+				from inv_productos ip, inv_subtipo_productos isp
+				where ip.inv_subtipo_producto=isp.id_subtipo_producto and ip.inv_subtipo_producto=$subtipo
+				and ip.inv_codigo_grupo=$id_grupo;")
 		);
 
 		if($listaProductosGrupos && count($listaProductosGrupos)>0){

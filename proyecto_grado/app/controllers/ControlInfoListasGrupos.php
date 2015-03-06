@@ -6,35 +6,35 @@ class ControlInfoListasGrupos extends Controller {
 	//controlador lineas
 	public function ConstruirListaIntegrantesGrupos($idgrupo, $idperfil){
 
-		$grupos = InvGrupos::find($idgrupo);
+		$grupos =InvGrupos::find($idgrupo);
 		$paginacion="";
 
-		$perfil  = InvPerfiles::find($idperfil);
-			$listaintegrantesgrupos = array();
-	
-			if($perfil)
-			{
-				$listaParticipanteGrupos = InvParticipacionGrupos::where("inv_codigo_grupo","=",$idgrupo)->lists("cedula_persona");
-				$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->lists("cedula");
-				//$invPerfil1= InvInvestigadoresExternos::where("codperfil","=",$idperfil)->lists("cedula");
-				
-				$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
-							->whereIn("cedula",$listaParticipanteGrupos)
-									->paginate(25);
+/*
+		$perfil=InvPerfiles::find($idperfil);
+		$listaintegrantesgrupos = array();
 
-			}
+		$listaParticipanteGrupos = InvParticipacionGrupos::where("inv_codigo_grupo","=",$idgrupo)->lists('cedula_persona');
+		$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->lists("cedula");*/
+				//$invPerfil1= InvInvestigadoresExternos::where("codperfil","=",$idperfil)->lists("cedula");
+		$listaintegrantesgrupos=DB::select(DB::raw("select *
+				from persona p, inv_participacion_grupos ipg, personaperfil pp, perfil pf
+				where p.cedula=ipg.cedula_persona and pp.cedula=p.cedula and pp.codperfil=pf.codperfil
+				and pf.codperfil=$idperfil and inv_codigo_grupo=$idgrupo;"));
+
+				/*$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
+							->paginate(2);
+			
 
 		if(count($listaintegrantesgrupos)>0)
 		{
 			$paginacion=$listaintegrantesgrupos->links();
 
-		}
+		}*/
 		$datos= array(
 			'lista_integrantes_grupos'=>$listaintegrantesgrupos,
 			'lista_nombre_grupos' =>$grupos,
-			'registro_perfiles' =>$perfil,
-			'campo_lista'=>$listaintegrantesgrupos,
-			'links'=>$paginacion
+			//'registro_perfiles' =>$perfil,
+			//'links'=>$paginacion
 			);
 
 

@@ -4,6 +4,9 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('/css')}}/estilo_temasprincipales.css" />
 @stop
 
+@section("javascript-nuevos")
+<script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+@stop
 
 @section('javascript-nuevos2')
 <script type="text/javascript" src="{{URL::to('/js')}}/js-inflineas.js"></script>
@@ -104,13 +107,14 @@
                 </tr>
         
                 <tr>
-                    <th id="fil-principal"><li class="glyphicon glyphicon-book"></li>archivo</th>
-                    <td class="link-archivo" id="col-principal" id="cuadro"><li class="glyphicon glyphicon-save"></li>
+                    <th id="fil-principal"></li>archivo</th>
+                    <td class="link-archivo" id="col-principal" id="cuadro">
                        @if($lineas['ruta_archivo']!="")
                           <a href="{{URL::to('archivos_db/lineas/')}}/{{$lineas['ruta_archivo']}}" target="_blank">
-                           ruta_archivo</a>
+                           <i class="glyphicon glyphicon-file"></i>
+                           Archivo ({{$lineas['ruta_archivo']}})
+                         </a>
                        @endif
-
                     </td>
                 </tr>
             </tbody>
@@ -120,13 +124,15 @@
  <!-- menus desplegables de las lineas-->
      <fieldset id="secundario1">
         <div class="titulo-tabla-proyecto" id="cuadro">             
-            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Subl&iacute;neas</a></h4>
+            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Subl&iacute;neas Vinculadas </a></h4>
         </div>
       <div id="tabla_sublinea">
           <div class="list-group">
             @if($sublineas && count($sublineas)>0)
               @foreach($sublineas as $sublinea)
-                <a class="list-group-item" data-toggle="modal" data-target="#myModal" >
+                <a  class="list-group-item" data-toggle="modal" data-target="#myModal" 
+                 onclick="cargarmodal_descripcion(this);"
+                >
                  {{$sublinea->nombre_sublinea}}
                </a>
              @endforeach
@@ -135,6 +141,18 @@
                 No hay Subl&iacute;neas asociadas a esta l&iacute;nea.
               </p>
             @endif 
+          </div>
+      </div>
+    </fieldset>
+
+    <fieldset id="secundario1">
+        <div class="titulo-tabla-proyecto" id="cuadro">             
+            <h4 id="boton_grupos"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Grupos vinculados</a></h4>
+        </div>
+        
+        <div id="tabla_grupos">
+          <div class="list-group">
+            <a href=""  class="list-group-item">jjdjd</a>
           </div>
       </div>
     </fieldset>
@@ -153,7 +171,7 @@
       </div>
       <div id="proyecto">
           <div class="list-group">
-              <a href="{{URL::to('/')}}" class="list-group-item">
+              <a href="{{URL::to('/')}}/listaproyectoslineas/linea/{{$lineas['id_lineas']}}" class="list-group-item">
                   <span class="badge" id="total">
                           {{$Lista_proyectos}}
                   </span>
@@ -178,7 +196,7 @@
       <div id="producto">
           <div class="list-group">
               @foreach($Lista_productos as $lista_producto)   
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaproductos/linea/{{$lineas['id_lineas']}}/subtipo/{{$lista_producto['id_subtipo_producto']}}">
                   <li class="list-group-item">
                     <span class="badge">
                         {{$lista_producto['total']}}

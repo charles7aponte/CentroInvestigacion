@@ -1,3 +1,4 @@
+
 @extends('administrador.panel_admin')
 
 @section('css-nuevos')
@@ -6,9 +7,7 @@
 @stop
 
 @section('javascript-nuevos2')
-
-<script type="text/javascript" src="{{URL::to('/js')}}/js-infproductos.js"></script> 
-
+  
 
 <script>
     function cargarModal1(elemento)
@@ -17,43 +16,41 @@
 
         var valor= $elemento.attr("data-foto");
         $("#id_img_modal").attr("src",valor);
-
     }
 </script>
 
 @stop
 
-
 @section('cuerpo')
 
 <!-- modal para la foto producto-->
 <div id="modal-internos">
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="modal-dialog" style="width:700px">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="background:none;">Foto Producto</h4>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" style="width:auto; margin:70px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background:#eee;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="background:none">Foto</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <img id="id_img_modal" style="width:auto; height:auto;" src="{{URL::to('archivos_db/productos/')}}">
+                            </td>
+                        </tr>    
+                    </table>
+                </center>
+            </div>
         </div>
-        <div class="modal-body">
-            <center>
-            <table>
-                <tr>
-                    <td><img id="id_img_modal" style="width: 200px;
-                    height: auto;" src=""></td>
-                </tr>    
-            </table>
-
-        </center>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
-<div id="capa" class="infproductos">
+<div id="capa" class="infgrupos">
     <fieldset id="principal">
-
         @if(isset($productos['codigo_producto'])==false)
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -66,7 +63,7 @@
                 <h2> {{$productos['nombre_producto']}}</h2>  
             </div>
 
-            <table class="tabla-infproductos">
+            <table class="tabla-infgrupos">
             
                 <thead>    
                     <tr>
@@ -83,28 +80,36 @@
                 <tbody>
 
                     <tr>
-                        <th id="fil-principal">c&oacute;digo Producto</th>
+                        <th id="fil-principal">Tipo </th>
+                        <td id="col-principal" id="cuadro">
+                             {{$productos['codigo_producto']}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Subtipo </th>
+                        <td id="col-principal" id="cuadro">
+                             {{$productos['codigo_producto']}}
+                        </td>
+                    </tr>
+
+        
+                    <tr>
+                        <th id="fil-principal">Grupo principal asociado</th>
+                        <td id="col-principal" id="cuadro">
+                             {{$productos['nombre_producto']}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">L&iacute;nea asociada al producto</th>
                         <td id="col-principal" id="cuadro">
                              {{$productos['codigo_producto']}}
                         </td>
                     </tr>
         
                     <tr>
-                        <th id="fil-principal">Nombre Producto</th>
-                        <td id="col-principal" id="cuadro">
-                             {{$productos['nombre_producto']}}
-                        </td>
-                    </tr>
-        
-                    <tr>
-                        <th id="fil-principal">Observaciones Producto</th>
-                        <td id="col-principal" id="cuadro">
-                          {{$productos['observaciones_producto']}}  
-                        </td>
-                    </tr>
-        
-                    <tr>
-                        <th id="fil-principal">Fecha Producto</th>
+                        <th id="fil-principal">Fecha</th>
                         <td id="col-principal" id="cuadro">
 
                              <?php 
@@ -116,23 +121,29 @@
                               ?>
                         </td>
                     </tr>
-        
                     <tr>
-                        <th id="fil-principal">Reconocimiento Producto</th>
+                        <th id="fil-principal">Observaciones del Producto</th>
+                        <td id="col-principal" id="cuadro">
+                          {{$productos['observaciones_producto']}}  
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Reconocimiento del Producto</th>
                         <td id="col-principal" id="cuadro">
                            {{$productos['reconocimiento_producto']}}  
                         </td>  
                     </tr>
-        
+                    
                     <tr>
-                        <th id="fil-principal">Observaciones Soporte</th>
+                        <th id="fil-principal">Entidad vinculada</th>
                         <td id="col-principal" id="cuadro">
-                           {{$productos['observaciones_soporte']}}   
+                             {{$productos['entidad']}}  
                         </td>
                     </tr>
-        
+
                     <tr>
-                        <th id="fil-principal">Soporte Producto</th>
+                        <th id="fil-principal">Soporte del Producto</th>
                         <td id="col-principal" id="cuadro">
                             <a style="color:blue;" href= "<?php
                                 $url = ($productos['soporte_producto']);
@@ -143,7 +154,7 @@
                     </tr>
 
                     <tr>
-                        <th id="fil-principal">Tipo Soporte</th>
+                        <th id="fil-principal">Tipo del Soporte</th>
                         <td id="col-principal" id="cuadro">
                             <a style="color:blue;" href= "<?php
                                 $url = ($productos['tipo_soporte']);
@@ -154,9 +165,9 @@
                     </tr>
 
                     <tr>
-                        <th id="fil-principal">Entidad Vinculada</th>
+                        <th id="fil-principal">Observaciones del Soporte</th>
                         <td id="col-principal" id="cuadro">
-                             {{$productos['entidad']}}  
+                           {{$productos['observaciones_soporte']}}   
                         </td>
                     </tr>
 
@@ -164,29 +175,55 @@
                     <th id="fil-principal">Imagen Producto</th>
                     <td id="col-principal" id="cuadro">
                       <ol>
-                        <li style="list-style-type: square; text-decoration:underline;" class="glyphicon glyphicon-hand-right"><a  data-toggle="modal" data-target="#myModal" style="color:blue;" 
+                        <li style="list-style-type: square; text-decoration:underline;">
+                            <a  data-toggle="modal" data-target="#myModal" style="color:blue;" 
                              onclick="cargarModal1(this)" data-foto="<?php
                                 $url = ($productos['foto_producto']);
                                 echo $url_actual = URL::to('archivos_db/productos')."/".parse_url($url, PHP_URL_PATH);
-                                ?>")>{{$productos['foto_producto']}}</a></li>
+                                ?>")>
+                                    {{$productos['foto_producto']}} zzzz
+                            </a>
+                        </li>
                       </ol>                  
                     </td>
                     </tr>
                 </tbody>
             </table>
     </fieldset>
-
+    
     <fieldset id="secundario1">
-        <div class="titulo-tabla-producto" id="cuadro">             
-            <h4 id="boton_producto"  style="width:50%;"><li class="glyphicon glyphicon-list-alt"></li><li class="glyphicon glyphicon-minus-list-alt"></li><a href="#" onclick="return false">Productividad</a></h4>
-        </div>
-      <div id="tabla_producto">
-          <div class="list-group">
-            <a href="" class="list-group-item">
-             Articulos
-           </a>
-          </div>
-      </div>
-    </fieldset>
+        <table id="tabla_producto" class="lista-integrantes">
+        <thead>
+            <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  
+                  color:white;">
+                Autores
+                </th>
+            </tr>
+            <tr>
+                <th style="border-right:none;">CEDULA</th>
+                <th>NOMBRES Y APELLIDOS</th>
+                <th>GRUPO</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td style="width:60px;">
+                       1123445678
+                    </td> 
+                    <td style="text-align:left;width:500px;">
+                      <a href="">Andrea de los angeles camargo aldonado</a>
+                    </td> 
+                    <td style="width:120px; margin-right:3px;">
+                      HH
+                    </td>
+                </tr>
+            </tbody>
+        </table>      
+    </fieldset> 
 </div>
 @stop

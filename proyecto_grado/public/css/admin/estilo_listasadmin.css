@@ -1,7 +1,9 @@
 /*Botones de paginacion*/
 #form-integrantegrupos ul.pagination li.active>span,
 #form-producosgrupos ul.pagination li.active>span,
-#form-proyectosgrupos ul.pagination li.active>span{
+#form-proyectosgrupos ul.pagination li.active>span,
+#form-proyectolineas ul.pagination li.active>span,
+#form-proyectolinea ul.pagination li.active>span{
     border-color:#122d3e;
     background:#122d3e;
 }
@@ -21,7 +23,8 @@ border-collapse: inherit !important;
 #tabla-eventos-noticias,
 #tabla-listaproductosgrupos,
 #tabla-listaintegrantegrupos,
-#tabla-listaproyectogrupos{
+#tabla-listaproyectogrupos,
+{
   width: 100%;
 }
 
@@ -37,7 +40,9 @@ border-collapse: inherit !important;
 #titulo-listaeventos-noticias h2,
 #titulo-listaproductosgrupo h2,
 #titulo-listaintegrantegrupo h2,
-#titulo-listaproyectogrupo h2{
+#titulo-listaproyectogrupo h2,
+#titulo-listaproyectolinea h2,
+#titulo-listaproductolinea h2 {
   text-align:right;
   padding-right: 30px; /* The padding is just there to move the h1 element to the center of the div */
   padding-top: 10px;

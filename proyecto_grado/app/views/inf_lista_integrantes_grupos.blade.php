@@ -42,7 +42,7 @@
                   {{$lista_integrante_grupo->cedula}}
                 </td> 
                 <td>
-                  <a href="">
+                  <a href="{{URL::to('/')}}/listapersonas/{{$lista_integrante_grupo['cedula']}}">
                     {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
                     {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}</a>
                 </td>
@@ -54,7 +54,7 @@
           </tbody>
       </table>      
       <div style="margin-left:30px; margin-right:30px;"> 
-        {{$links}} 
+     
       </div>
     </div>
   </form>

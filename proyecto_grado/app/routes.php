@@ -212,7 +212,7 @@ Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipal
 
 Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
 
-Route::get('personas', function() {return View::make('inf_personas');});
+Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
 
 
 //sublistas de fichas principales
@@ -224,6 +224,12 @@ Route::get('listaproductosgrupos/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','C
 
 Route::get('listaproyectosgrupos/grupo/{idgrupo}','ControlInfoListasGrupos@ConstruirListaProyectosGrupos');
 
+//lineas
+Route::get('listaproyectoslineas/linea/{idlinea}','ControlInfoListasLineas@ConstruirListaProyectosLineas');
+
+Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
+
+//personas
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)

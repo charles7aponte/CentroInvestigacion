@@ -11,7 +11,7 @@
   <div id="tabla-listaproductos">
     <table id="listaproductos">
       <thead>
-        <tr><th colspan="3" style="background: #1A6D71;
+        <tr><th colspan="4" style="background: #1A6D71;
             background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
             background: -moz-linear-gradient(top,#1A6D71,#122d3e);
             background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -19,7 +19,7 @@
             filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">PRODUCTOS</th></tr>
         <tr>
           <th> </th>
-          <th colspan="2">NOMBRE DEL PRODUCTO</th>
+          <th colspan="3">NOMBRE DEL PRODUCTO</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +30,7 @@
                 <b>{{$campo['codigo_producto']}}</b>
               </td> 
               <td>
-                <a href="">{{$campo['nombre_producto']}}</a>
+                <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>

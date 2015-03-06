@@ -5,19 +5,32 @@
 
 @section('cuerpo')
 <fieldset id="marco-persona">
+
+@if(isset($datos_integrantes['cedula'])==false)
+    <fieldset style="margin-bottom: 2px;
+            margin-top: 5px;
+            padding: 2px;">
+            <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para esa persona</div>   
+    </fieldset>
+@endif
+
     <div id="capa" class="infpersonas">
         <fieldset id="principal">
             <table id="encabezado-persona">
                 <tbody>
                     <tr>
                         <th style="background:none;">
+                            @if($datos_integrantes['foto']!="")
                             <div id="foto-persona">
-                              <img  src="images/macrypt.jpg">  
-                            </div> 
+                                <img align="right" src="{{URL::to('archivos_db/investigadores/')}}/{{$datos_integrantes['foto']}}">
+                            </div>    
+                            @endif  
                         </th> 
                         <th style="background:none;">
                             <div  class="talkbubble" id="cuadro"  style="box-shadow: 8px 8px 5px #BDBDBD;"> 
-                                <h1 id="nombre-persona">Felipe Andres Corredor Chavarro</h1>  
+                                <h1 id="nombre-persona">
+                                    {{$datos_integrantes['nombre1']}} {{$datos_integrantes['apellido1']}} {{$datos_integrantes['apellido2']}}
+                                </h1>  
                             </div>  
                         </th> 
                     </tr>
@@ -38,14 +51,16 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <th id="fil-principal">Nombre Completo</th>
-                            <td id="col-principal" id="cuadro">frddedsswwssdeeddfrgt</td>
-                        </tr>
-
                          <tr>
                             <th id="fil-principal">C&eacute;dula</th>
-                            <td id="col-principal" id="cuadro">2221111111</td>
+                            <td id="col-principal" id="cuadro">{{$datos_integrantes['cedula']}}</td>
+                        </tr>
+
+                        <tr>
+                            <th id="fil-principal">Nombre Completo</th>
+                            <td id="col-principal" id="cuadro">                                           {{$datos_integrantes['nombre1']}} {{$datos_integrantes['nombre2']}}
+                                {{$datos_integrantes['apellido1']}} {{$datos_integrantes['apellido2']}}
+                            </td>
                         </tr>
 
                          <tr>
@@ -55,22 +70,22 @@
             
                         <tr>
                             <th id="fil-principal">Direcci&oacute;n</th>
-                            <td id="col-principal" id="cuadro">Felipe Corredor</td>
+                            <td id="col-principal" id="cuadro">{{$datos_integrantes['direccion']}}</td>
                         </tr>
             
                         <tr>
                             <th id="fil-principal">Tel&eacute;fono</th>
-                            <td id="col-principal" id="cuadro">jjdfjjeifjeifjeij cjeijfijeiji</td>
+                            <td id="col-principal" id="cuadro">{{$datos_integrantes['telefono']}}</td>
                         </tr>
             
                         <tr>
                             <th id="fil-principal">Celular</th>
-                            <td id="col-principal" id="cuadro">D</td>
+                            <td id="col-principal" id="cuadro">{{$datos_integrantes['celular']}}</td>
                         </tr>
             
                         <tr>
                             <th id="fil-principal">Email</th>
-                            <td id="col-principal" id="cuadro">grupo horientado a la aplicaciones libresffffffffffffff rffffffffffffffffffffffff ffffffffffffff ddddddddddddddd ssssssssssssss ssssssssss dddddddddddddddddddddddddddd sssssssssssssssssss</td>  
+                            <td id="col-principal" id="cuadro">{{$datos_integrantes['mail']}}</td>  
                         </tr>
                     </tbody>
         	</table> 
