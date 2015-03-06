@@ -169,13 +169,6 @@ class ControlSublineas extends Controller {
 			}
 	
 			else {
-
-				/*if(Input::get('edicion_dct-linea')=="si")
-					{
-						$archivoF=$this->guardarArchivos('archivo-linea',$direccion);//archivoshtml
-						$entidad->ruta_archivo=$archivoF;
-							
-					}	*/
 		
 					$entidad->save();
 

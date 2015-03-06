@@ -156,10 +156,12 @@ class ControlProyectos extends Controller {
 					'convocatorias' =>$listaConvocatorias,
 					'lineas' =>$listaLineas,
 					'grupos' =>$listaGrupos,
-					'grupos1' =>$listaGrupos1 );
+					'grupos1' =>$listaGrupos1);
+
+				//print_r($datos);
 
 			  return View::make('administrador/formulario_proyectos',$datos); 
-			}//
+			}
 
 
 			function ArchivosProyectos($name,$direccion){
@@ -325,8 +327,8 @@ class ControlProyectos extends Controller {
 	{
 
 		$proyectos = InvProyectos::find($id);	
-		$listaConvocatorias = InvConvocatorias::all();
-		$listaLineas = InvLineas::all();
+		$listaConvocatorias = InvConvocatorias::where('estado1','=','1')->get();
+		$listaLineas = InvLineas::where('estado','=','1')->get();
 		$listaGrupos = InvGrupos::all();
 		$listaGrupos1 = InvGrupos::all();
 
@@ -339,8 +341,8 @@ class ControlProyectos extends Controller {
 					
 		}	
 
-			//$integrantes=$this->listaUsuarios($id);
-			//$lineasintegrantes=$this->listaLineas($id);
+			$integrantesproyecto=$this->listaUsuariosProyectos($id);
+			
 
 
 			$datos=array('proyectos' => $proyectos,
@@ -348,9 +350,42 @@ class ControlProyectos extends Controller {
 					    'convocatorias' =>$listaConvocatorias,
 					    'lineas' =>$listaLineas,
 					    'grupos' =>$listaGrupos,
-					    'grupos1' =>$listaGrupos1); 
+					    'grupos1' =>$listaGrupos1,
+					    'integrantesproyecto' =>$integrantesproyecto); 
 
 
 			return View::make('administrador/formulario_proyectos',$datos);
+	}
+
+	// servicio del modal de integrantes de proyectos para guardar en la bd..............
+
+	public function listaUsuariosProyectos($id)
+	{	
+
+		$listaPersonas=	DB::select(DB::raw("select (nombre1||''||nombre2||''||apellido1||''||apellido2)as datos_personales,p.cedula,ivp.tipo_investigador,ivp.dedicacion_tiempo
+		from persona p,inv_participacion_proyectos ivp
+		where p.cedula=ivp.cedula_persona and ivp.inv_codigo_proyecto=$id"));
+
+		return $listaPersonas;	
 	}	
+
+	// servicio para eliminar de el modal integrantes de los proyectos.........
+	public function EliminarIntegrantesProyectos($idproyecto,$idintegrante){
+			
+				$integranteproyecto= InvParticipacionProyectos::where("cedula_persona","=",$idintegrante)
+										->where("inv_codigo_proyecto","=",$idproyecto)->first(); 
+
+										/*->where("dedicacion_tiempo","=",$idtiempo)->first();
+										->where("tipo_investigador","=",$idtipoinvestigador)->first();*/
+
+
+				if (is_null($integranteproyecto)==false){
+
+					$integranteproyecto->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+	}
 }

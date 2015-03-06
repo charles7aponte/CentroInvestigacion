@@ -13,12 +13,19 @@ class InvFinanciamiento extends Eloquent  {
 	protected $primaryKey = "id_financiacion";
 
 
-		// reglas
+	// reglas validacion creacion...........
 	public 	static $reglasValidacion = array(
-			'modo-financiada'        =>'required',
-			'valor-financiado'  	=>'required|numeric'
-					
-		);
+		'modo-financiada'        =>'required|unique:inv_financiacion,modo_financiamiento',
+		'valor-financiado'  	=>'required|numeric',
+		'fecha-financiamiento' => 'required',
+		'entidad-financiada'   =>'required',				
+	);
 
-
+	// reglas validacion edicion...........
+	public 	static $reglasValidacionEdicion = array(
+		'modo-financiada'        =>'required',
+		'valor-financiado'  	=>'required|numeric',
+		'fecha-financiamiento' => 'required',
+		'entidad-financiada'   =>'required',				
+	);
 }

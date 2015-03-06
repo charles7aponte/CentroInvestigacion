@@ -80,7 +80,7 @@
                          <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
                           @if(isset($lineas))
                           
-                             @foreach ($lineas as $linea) <!--array--- nombre del campo en la bd-->
+                             @foreach ($lineas as $linea)
                                 @if(isset($sublinea['inv_id_linea']) && $linea['id_lineas'] == $sublinea['inv_id_linea'])
                                     <option value="{{$linea['id_lineas']}}"  selected>{{$linea['nombre_linea']}}</option>
                                 @else 

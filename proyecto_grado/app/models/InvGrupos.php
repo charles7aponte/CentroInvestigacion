@@ -41,8 +41,4 @@ class InvGrupos extends Eloquent  {
 
 		return $this->belongsToMany('Persona','inv_participacion_grupos','inv_codigo_grupo','cedula_persona');
 	}
-
-
-
-
 }

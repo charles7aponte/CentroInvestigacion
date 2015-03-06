@@ -118,7 +118,8 @@ Route::get('formulariogrupos/eliminarlinea/{idgrupo}/{idlinea}','ControlGrupos@E
 Route::get('formularioinvestigadores/edit/{id}','ControlInvestigadores@cargarEditar');
 
 Route::get('formularioproyectos/edit/{id}','ControlProyectos@cargarEditar');
-
+//--------------eliminar de los modales del formulario proyectos servicio de eliminar-------------------
+Route::get('formularioproyectos/eliminarintegrante/{idproyecto}/{idintegrante}','ControlProyectos@EliminarIntegrantesProyectos');
 
 
 /***********   Creacion de formularios (almacenando en la bd) -----------

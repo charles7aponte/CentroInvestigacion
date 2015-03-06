@@ -1,6 +1,8 @@
 var jsonIntegrante=null;
 var jsontiempo=null;
 var jsoninvestigador=null;
+var Idproyecto=null;
+var IdIntegrante=null;
 
 
 $(document).ready(function(){
@@ -161,17 +163,62 @@ $("#guardar-cambios").click(function(){
 /******
 *** elimina la fila del la table
  **********/
- function eliminarFila(elemento){
+function eliminarFila(elemento){
 
  	$fila = $(elemento).parent().parent();
 
  	$fila.remove();
 
  	return false;
- }   
+} 
+
+function eliminarintegrantemodal(){
+
+    $.ajax(
+            {
+                type:"GET" 
+                ,url:URL_SERVIDOR+"/formularioproyectos/eliminarintegrante/"+Idproyecto+"/"+IdIntegrante+"/",   
+                success: function(result){       
+
+                   
+                    if(result && result.respuesta)
+                    {
+                        $fila = $("#integrantemodal_"+IdIntegrante);
+                        $fila.remove();
+
+                    }    
+                    else{
+
+                        alert("El integrante no ha sido eliminado.");
+                    }
+            }
+            ,error:function(){
+
+                alert("El servidor ha fallado intentalo nuevamente.");
+            }
+            ,dataType:'json'
+        });
+
+      $("#eliminar-confirmar").modal('hide');  
+
+   /*
+
+    return false;*/
+} 
 
 
+function eliminarModalIntegranteProyecto(idproyecto,idintegrante){
 
-    function split( val ) {
+    Idproyecto=idproyecto;
+    IdIntegrante=idintegrante;
+    
+
+  $("#eliminar-confirmar").modal('show');
+
+return false;
+
+} 
+
+function split( val ) {
       return val.split( /,\s*/ );
-    }
+}
