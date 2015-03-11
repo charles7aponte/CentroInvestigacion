@@ -65,7 +65,7 @@
                     	background: -moz-linear-gradient(top,#286388,#122d3e);
                     	background: -o-linear-gradient(top,#286388,#122d3e);  
                     	background: linear-gradient(to bottom,#286388,#122d3e);  
-                    	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Informaci&oacute;n general de la linea
+                    	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&acute;sicos de la l&iacute;nea
                 	</th>
              	</tr>
             </thead>
@@ -150,7 +150,7 @@
             <h4 id="boton_grupos"  style="width:50%;">
               <li class="glyphicon glyphicon-plus-sign"></li>
               <li class="glyphicon glyphicon-minus-sign"></li>
-              <a href="#" onclick="return false">Grupos vinculados</a>
+              <a href="#" onclick="return false">Grupos</a>
             </h4>
         </div>
         <div id="tabla_grupos">
@@ -179,7 +179,7 @@
                   background: -o-linear-gradient(top,#286388,#122d3e);  
                   background: linear-gradient(to bottom,#286388,#122d3e);  
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
-                  Proyectos asociados a la L&iacute;nea</p>
+                  Proyectos</p>
         </h4>
       </div>
       <div id="proyecto">
@@ -203,7 +203,7 @@
                   background: -o-linear-gradient(top,#286388,#122d3e);  
                   background: linear-gradient(to bottom,#286388,#122d3e);  
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
-                  Productos asociados a la L&iacute;nea</p>
+                  Productividad</p>
         </h4>
       </div>
       <div id="producto">

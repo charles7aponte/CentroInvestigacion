@@ -72,12 +72,25 @@
                           background: -moz-linear-gradient(top,#286388,#122d3e);
                           background: -o-linear-gradient(top,#286388,#122d3e);  
                           background: linear-gradient(to bottom,#286388,#122d3e);  
-                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&aacute;sicos
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&aacute;sicos del producto
                         </th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <tr>
+                        <th id="fil-principal">Fecha </th>
+                        <td id="col-principal" id="cuadro">
+                              <?php 
+                                if(isset($productos['fecha_producto']) && $productos['fecha_producto']!="")
+                                {
+                                    
+                                    $fecha= new DateTime($productos['fecha_producto']);
+                                     echo $fecha->format(' d')." de ".$fecha->format('m')." ".$fecha->format('Y'); 
+                                }
+                              ?>
+                        </td>
+                    </tr>
 
                     <tr>
                         <th id="fil-principal">Tipo </th>
@@ -102,25 +115,12 @@
                     </tr>
 
                     <tr>
-                        <th id="fil-principal">L&iacute;nea asociada al producto</th>
+                        <th id="fil-principal">L&iacute;nea asociada</th>
                         <td id="col-principal" id="cuadro">
                              {{$productos['codigo_producto']}}
                         </td>
                     </tr>
-        
-                    <tr>
-                        <th id="fil-principal">Fecha</th>
-                        <td id="col-principal" id="cuadro">
 
-                             <?php 
-                                if(isset($productos['fecha_producto']) && $productos['fecha_producto']!="")
-                                {
-                                    $fecha= new DateTime($productos['fecha_producto']);
-                                     echo $fecha->format('M-d-Y'); 
-                                }
-                              ?>
-                        </td>
-                    </tr>
                     <tr>
                         <th id="fil-principal">Observaciones del Producto</th>
                         <td id="col-principal" id="cuadro">
@@ -145,22 +145,19 @@
                     <tr>
                         <th id="fil-principal">Soporte del Producto</th>
                         <td id="col-principal" id="cuadro">
-                            <a style="color:blue;" href= "<?php
-                                $url = ($productos['soporte_producto']);
-                                echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);
-                                ?>">{{$productos['soporte_producto']}}
-                            </a>
+                            @if($productos['soporte_producto']!="")
+                                <a href="{{URL::to('archivos_db/productos/')}}/{{$productos['soporte_producto']}}" target="_blank">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                     Archivo ({{$productos['soporte_producto']}})
+                                </a>
+                            @endif
                         </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Tipo del Soporte</th>
                         <td id="col-principal" id="cuadro">
-                            <a style="color:blue;" href= "<?php
-                                $url = ($productos['tipo_soporte']);
-                                echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);
-                                ?>">{{$productos['tipo_soporte']}}
-                            </a>
+                                {{$productos['tipo_soporte']}}
                         </td>
                     </tr>
 
@@ -174,17 +171,16 @@
                     <tr>
                     <th id="fil-principal">Imagen Producto</th>
                     <td id="col-principal" id="cuadro">
-                      <ol>
-                        <li style="list-style-type: square; text-decoration:underline;">
-                            <a  data-toggle="modal" data-target="#myModal" style="color:blue;" 
+                        @if($productos['foto_producto']!="")
+                            <a  data-toggle="modal" data-target="#myModal" 
                              onclick="cargarModal1(this)" data-foto="<?php
                                 $url = ($productos['foto_producto']);
                                 echo $url_actual = URL::to('archivos_db/productos')."/".parse_url($url, PHP_URL_PATH);
                                 ?>")>
-                                    {{$productos['foto_producto']}} zzzz
-                            </a>
-                        </li>
-                      </ol>                  
+                                    <i class="glyphicon glyphicon-picture"></i>
+                                     Imagen ({{$productos['foto_producto']}})
+                            </a> 
+                        @endif              
                     </td>
                     </tr>
                 </tbody>

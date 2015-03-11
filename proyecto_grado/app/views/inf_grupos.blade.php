@@ -45,7 +45,7 @@
                           background: -moz-linear-gradient(top,#286388,#122d3e);
                           background: -o-linear-gradient(top,#286388,#122d3e);  
                           background: linear-gradient(to bottom,#286388,#122d3e);  
-                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&aacute;sicos
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&aacute;sicos del grupo
                         </th>
                     </tr>
                 </thead>
@@ -59,14 +59,14 @@
                                 if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
                                 {
                                     $fecha= new DateTime($grupos['ano_creacion']);
-                                     echo $fecha->format('M').$fecha->format(' d')." de ".$fecha->format('Y'); 
+                                      echo $fecha->format(' d')." de ".$fecha->format('m')." ".$fecha->format('Y');
                                 }
                               ?>
                         </td>
                     </tr>
         
                     <tr>
-                        <th id="fil-principal">Director Grupo</th>
+                        <th id="fil-principal">Coordinador</th>
                         <td id="col-principal" id="cuadro">
                             {{$grupos['nombre_director']}}
                         </td>
@@ -75,10 +75,10 @@
                     <tr>
                         <th id="fil-principal">Tipo: </th>
                         <td id="col-principal" id="cuadro" >
-                            @if($grupos['tipo_grupo_band']==1)
-                                {{$grupos['tipo_grupo_']}}
+                            @if($grupos['inv_tipo_grupos']!="")
+                                {{$grupos['inv_tipo_grupos']}}
                             @else
-                               <p style="color:#122d3e; font-weight:bold;">{{$grupos['tipo_grupo_']}} </p>         
+                               <p style="color:#122d3e; font-weight:bold;">{{$grupos['inv_tipo_grupos']}} </p>         
                             @endif
                             
                         </td>
@@ -131,6 +131,14 @@
                     </tr>
 
                     <tr>
+                        <th id="fil-principal">Direcci&oacute;n Grupo</th>
+                        <td id="col-principal" id="cuadro">
+                            {{$grupos['direccion_grupo']}}
+                        </td>
+                    </tr>
+
+
+                    <tr>
                         <th id="fil-principal">Afiche</th>
                         <td id="col-principal" id="cuadro">
                             @if($grupos['ruta_afiche']!="")
@@ -155,14 +163,6 @@
                             @endif
                         </td>
                     </tr>
-
-                    <tr>
-                        <th id="fil-principal">Direcci&oacute;n Grupo</th>
-                        <td id="col-principal" id="cuadro">
-                            {{$grupos['direccion_grupo']}}
-                        </td>
-                    </tr>
-
                     <tr>
                         <th id="fil-principal">Link gruplac</th>
                         <td id="col-principal" id="cuadro">
