@@ -26,11 +26,13 @@ class ControlInfoLineas extends Controller {
 
 		$listadeSublineaLineas= $this->Sublineasporlinea($id_linea);
 		$proyectos_lineas= $this->ContarProyectosporlinea($id_linea);
+		$listaGruposLineas= $this->Gruposporsunlinea($id_linea);
 		
 		$datos = array('lineas' =>$lineas, 
 					   'sublineas' =>$listadeSublineaLineas,
 					   'Lista_productos' =>$productos,
-					   'Lista_proyectos' =>$proyectos_lineas
+					   'Lista_proyectos' =>$proyectos_lineas, 
+					   'lista_grupos' => $listaGruposLineas
 
 			);
 
@@ -39,11 +41,21 @@ class ControlInfoLineas extends Controller {
 
 	//sublineas por linea
 	public function Sublineasporlinea($id_linea){	
-		$listaSublineaLineas=	DB::select(DB::raw("select nombre_sublinea
+		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea
 				from inv_sublineas 
 				where inv_id_linea=$id_linea;")
 			);
 		return $listaSublineaLineas;
+	}
+
+	public function Gruposporsunlinea($id_linea){
+		$listaGruposLineas=DB::select(DB::raw("select *
+			from inv_linea_grupos ilg, inv_grupos ig
+			where ilg.inv_codigo_grupo=ig.codigo_grupo
+			 and ilg.inv_id_linea =$id_linea;")
+		);
+
+		return $listaGruposLineas;
 	}
 	
 	//contar productos por linea

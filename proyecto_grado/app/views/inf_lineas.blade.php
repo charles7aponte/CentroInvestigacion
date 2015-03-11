@@ -147,12 +147,25 @@
 
     <fieldset id="secundario1">
         <div class="titulo-tabla-proyecto" id="cuadro">             
-            <h4 id="boton_grupos"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Grupos vinculados</a></h4>
+            <h4 id="boton_grupos"  style="width:50%;">
+              <li class="glyphicon glyphicon-plus-sign"></li>
+              <li class="glyphicon glyphicon-minus-sign"></li>
+              <a href="#" onclick="return false">Grupos vinculados</a>
+            </h4>
         </div>
-        
         <div id="tabla_grupos">
           <div class="list-group">
-            <a href=""  class="list-group-item">jjdjd</a>
+            @if($lista_grupos && count($lista_grupos)>0)
+              @foreach($lista_grupos as $lista_grupo)
+                <a href="{{URL::to('/')}}/grupo/id/{{$lista_grupo->codigo_grupo}}" class="list-group-item">
+                  {{$lista_grupo->nombre_grupo}} 
+                </a>
+              @endforeach
+              @else
+                <p style="margin-left:5px; color:#122d3e; font-weight:bold; font-size: 13px;">
+                No hay Grupos asociados a esta l&iacute;nea.
+              </p>
+            @endif
           </div>
       </div>
     </fieldset>
