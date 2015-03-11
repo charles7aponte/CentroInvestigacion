@@ -39,7 +39,7 @@
 
 @section('cuerpo')
  
- <!-- datos quemados del mismo formulario en su propia tabla-->
+<!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
   $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
   $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
@@ -108,7 +108,7 @@
                 <fieldset>  
                     <li class="@if($errors->has('nombre')) has-error @endif">
                       <label for="nombre" >Nombre del grupo: </label>
-                        <input  type="text" id="nombre" name="nombre"  value="{{ Input::old('nombre')!=null? Input::old('nombre'): (isset($grupos['nombre_grupo'])? $grupos['nombre_grupo']:'')}}" required="required"/>                
+                        <input type="text" id="nombre" name="nombre"  value="{{ Input::old('nombre')!=null? Input::old('nombre'): (isset($grupos['nombre_grupo'])? $grupos['nombre_grupo']:'')}}" required="required"/>                
                          @if ($errors->has('nombre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre') }}</p> 
                          @endif
                     </li> 
@@ -116,7 +116,7 @@
 
                     <li class="@if($errors->has('coord')) has-error @endif">
                       <label for="coord">Coordinador:</label>
-                        <input onchange="letrasCapital(this)" style="text-transform:capitalize;" type="text" id="coord" name="coord" value="" required="required"/>
+                        <input style="text-transform:capitalize;" type="text" id="coord" name="coord" value="" required="required"/>
                         <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
                           <span id="advertencias">
                             <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
@@ -186,7 +186,7 @@
 
                     <li class="@if($errors->has('unidad')) has-error @endif">
                       <label for="unidad">Unidad academica:</label>
-                        <select onchange="letrasCapital(this)" required="required" name="unidad" value="{{Input::old('unidad')!=null? Input::old('unidad'): (isset($grupos['unidad_academica'])? $grupos['unidad_academica']:'')}}">
+                        <select required="required" name="unidad" value="{{Input::old('unidad')!=null? Input::old('unidad'): (isset($grupos['unidad_academica'])? $grupos['unidad_academica']:'')}}">
 
                           @foreach ($tipo_unidad_academica as $elemento)
 
@@ -204,7 +204,7 @@
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
 
-                        <select onchange="letrasCapital(this)" required="required" name="categoria" value="{{Input::old('categoria')!=null? Input::old('categoria'): (isset($grupos['categoria'])? $grupos['categoria']:'')}}">
+                        <select required="required" name="categoria" value="{{Input::old('categoria')!=null? Input::old('categoria'): (isset($grupos['categoria'])? $grupos['categoria']:'')}}">
 
                           @foreach ($tipo_categoria as $elemento)
 
@@ -224,8 +224,8 @@
                               @if(isset($tipos))
                                 @foreach($tipos as $tipo)
                                   @if(isset($grupos['inv_tipo_grupos']) && $tipo['id'] == $grupos['inv_tipo_grupos'])
-                                    <option value="{{$tipo['id']}}" selected> {{$tipo['tipo_grupo']}}
-                                    </option>
+                                    <option value="{{$tipo['id']}}" selected> {{$tipo['tipo_grupo']}}</option>
+
                                   @else 
                                    <option value="{{$tipo['id']}}"> {{$tipo['tipo_grupo']}}</option>
                                   @endif
@@ -412,14 +412,14 @@
           <fieldset>
               <li class="@if($errors->has('objetivos')) has-error @endif">
                 <label for="objetivos">Objetivos:</label>
-                <textarea id="objetivos" name="objetivos" required="required" value="{{ Input::old('objetivos')!=null? Input::old('objetivos'): (isset($grupos['objetivos'])? $grupos['objetivos']:'')}}"></textarea>
+                <textarea id="objetivos" name="objetivos" required="required">{{Input::old('objetivos')!=null? Input::old('objetivos'): (isset($grupos['objetivos'])? $grupos['objetivos']:'')}}</textarea>
                  @if ($errors->has('objetivos')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('objetivos') }}</p> 
                  @endif
               </li>  
 
               <li class="@if($errors->has('gruplac')) has-error @endif">
                 <label for="gruplac">Link Gruplac: </label>
-                  <input style="text-transform:lowercase;" type="text" id="gruplac" name="gruplac" value="{{ Input::old('gruplac')!=null? Input::old('gruplac'): (isset($grupos['link_gruplac'])? $grupos['link_gruplac']:'')}}"/>
+                  <input type="text" id="gruplac" name="gruplac" value="{{ Input::old('gruplac')!=null? Input::old('gruplac'): (isset($grupos['link_gruplac'])? $grupos['link_gruplac']:'')}}"/>
                  @if ($errors->has('gruplac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('gruplac') }}</p> 
                  @endif                            
               </li>

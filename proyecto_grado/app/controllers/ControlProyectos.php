@@ -117,6 +117,8 @@ class ControlProyectos extends Controller {
 							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
 							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
 							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
+
+							echo ($listaIntegrantes[$i]);
 							$modelIntegrante->save();
 
 						}
@@ -137,7 +139,7 @@ class ControlProyectos extends Controller {
 			
 				
 			
-			}//el
+			}
 
 		}
 
@@ -158,9 +160,9 @@ class ControlProyectos extends Controller {
 					'grupos' =>$listaGrupos,
 					'grupos1' =>$listaGrupos1);
 
-				//print_r($datos);
+			//	print_r($datos);
 
-			  return View::make('administrador/formulario_proyectos',$datos); 
+			 return View::make('administrador/formulario_proyectos',$datos); 
 			}
 
 
@@ -375,9 +377,7 @@ class ControlProyectos extends Controller {
 				$integranteproyecto= InvParticipacionProyectos::where("cedula_persona","=",$idintegrante)
 										->where("inv_codigo_proyecto","=",$idproyecto)->first(); 
 
-										/*->where("dedicacion_tiempo","=",$idtiempo)->first();
-										->where("tipo_investigador","=",$idtipoinvestigador)->first();*/
-
+										
 
 				if (is_null($integranteproyecto)==false){
 

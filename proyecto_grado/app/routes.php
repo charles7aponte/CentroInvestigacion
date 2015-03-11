@@ -121,6 +121,9 @@ Route::get('formularioproyectos/edit/{id}','ControlProyectos@cargarEditar');
 //--------------eliminar de los modales del formulario proyectos servicio de eliminar-------------------
 Route::get('formularioproyectos/eliminarintegrante/{idproyecto}/{idintegrante}','ControlProyectos@EliminarIntegrantesProyectos');
 
+Route::get('formulariofinanciamiento/edit/{id}','ControlFinanciamiento@cargarEditar');
+
+
 
 /***********   Creacion de formularios (almacenando en la bd) -----------
 -----------------------*/
@@ -173,6 +176,7 @@ Route::post('edicion/formularioinvestigadores','ControlInvestigadores@guardarEdi
 
 Route::post('edicion/formularioproyectos','ControlProyectos@guardarEdicion');
 
+Route::post('edicion/formulariofinanciamiento','ControlFinanciamiento@guardarEdicion');
 
 
 /**********-------------listas de cada tema -------------

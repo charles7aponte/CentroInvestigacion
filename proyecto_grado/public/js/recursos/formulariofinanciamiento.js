@@ -2,6 +2,7 @@ var jsonProyecto=null;
 
 
 
+
 $(document).ready(function(){
 
 
@@ -43,8 +44,9 @@ $("#guardar-cambios").click(function(){
 
 			//console.log(response)
 			//console.info(request)
+			
 
-			$.getJSON("servicios/financiados/"+request.term,{
+			$.getJSON(URL_SERVIDOR+"/servicios/financiados/"+request.term,{
 	//			term:  ( request.term )
 			},response);//fin get JSON
 
@@ -87,7 +89,7 @@ $("#guardar-cambios").click(function(){
 
 
 
- function generaFilaProyecto( json, name ) {
+function generaFilaProyecto( json, name ) {
  
  	if(json)
  	{  
@@ -113,24 +115,39 @@ $("#guardar-cambios").click(function(){
             }
             
 	}
-   }
+}
 
 
 
 /******
 *** elimina la fila del la table
  **********/
- function eliminarFila(elemento){
+function eliminarFila(elemento){
 
  	$fila = $(elemento).parent().parent();
 
  	$fila.remove();
 
  	return false;
- }   
+}
 
-
-
-    function split( val ) {
+function split( val ) {
       return val.split( /,\s*/ );
-    }
+}
+
+function eliminarvisualmente(){
+
+	if($("[data-info]").length==1){
+
+		$("#form-financiamiento-proyectos").submit();
+		return true;
+	}
+
+	else 
+	{
+		alert("Seleccione un proyecto financiado.");
+		return false;
+	}
+
+
+}

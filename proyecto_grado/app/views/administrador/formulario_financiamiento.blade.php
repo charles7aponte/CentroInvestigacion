@@ -22,9 +22,40 @@
 @stop
 @section('cuerpo') 
 
-<div>  
-    <form id="form-financiamiento-proyectos" autocomplete="on"   action="{{URL::to('creacion/formulariofinanciamiento')}}" method="post">
+<?php 
+  $valor_especie=array('efectivo','especie');
+?>
+
+<div> 
+
+  <form id="form-financiamiento-proyectos" autocomplete="on" enctype="multipart/form-data"
+ 
+     @if(isset($financiamiento))
+        action="{{URL::to('edicion/formulariofinanciamiento')}}"
+     @else
+        action="{{URL::to('creacion/formulariofinanciamiento')}}"
+        <?php 
+         $financiamiento = null;
+        ?>
+     @endif 
+
+    method="post">  
+
+    <!-- en caso de no existir el id-->
+        @if(isset($accion) && $accion=="editar")
+              
+            @if(!isset($financiamiento) || !$financiamiento)
+                <fieldset style="margin-bottom: 2px;
+                        margin-top: 5px;
+                        padding: 2px;">
+
+                        <div  style="margin: 0px;" class="alert alert-danger">No existe el Financiamiento</div> 
+                </fieldset>  
+            @endif    
+        @endif
+
         @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
+
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
                     padding: 2px;">
@@ -39,8 +70,21 @@
         @endif
 
 
+        @if(isset($financiamiento['id_financiacion']))
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />Financiamiento del proyecto</h2></div>           
+            <input type="hidden" name="id_financiamiento" value="{{$financiamiento['id_financiacion']}}">
+        @endif
+
+        <div id="titulo"><h2><li class="glyphicon glyphicon-pencil" style="font-size: 20px;">
+           
+            @if(isset($financiamiento['id_financiacion']))
+              Edicion Financiamiento
+            @else 
+                Financiamiento del Proyecto
+            @endif
+
+        </h2></div> 
+              
             <ul>
                 <fieldset style="border-color:transparent">
 
@@ -82,15 +126,48 @@
 
                               <tbody>
 
+                                @if(isset($proyectofinanciados))
+                                  
+                                      <tr id="integrantemodal_{{$proyectofinanciados->codigo_proyecto}}">
+                                        <td><input type="hidden" data-info="{{$proyectofinanciados->codigo_proyecto}}" name="integrantes[]" value="{{$proyectofinanciados->codigo_proyecto}}">{{$proyectofinanciados->codigo_proyecto}}</td> 
+                                        <td>{{$proyectofinanciados->nombre_proyecto}}</td> 
+                                        <td><a href="#" onclick="eliminarFila(this)" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
+                                      </tr>
+
+                                 
+                                @endif
                               </tbody>
                             </table>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="guardar-cambios" style="background:#1A6D71">Guardar Cambios</button>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                    <!--Modal de Verificacion de Eliminar proyectos financiados-->
+                    <div>    
+                       <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                        <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
+                          <div class="modal-content">
+                           <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Confirmaci&oacute;n</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>¿Esta seguro que desea eliminarlo?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" onclick="eliminarproyectomodal();"
+                              style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                          </div><!-- /.modal-content -->
+                          </div>
+                        </div>
+                    </div>
+                    <!--..................................................... -->
                   <li><label for="fecha-financiamiento">Fecha:</label>
                       <div class="container">
                           <div class="row">
@@ -98,7 +175,7 @@
                                   <div class="form-group">
                                       <div class='input-group date' id='datetimepicker2'>
                                           <input type="" style="cursor:pointer" 
-                                          readonly id="fecha-financiamiento" class="date form-control" data-format="dd/MM/yyyy" name="fecha-financiamiento" value="{{Input::old('fecha-financiamiento')}}" required="required"/>
+                                          readonly id="fecha-financiamiento" class="date form-control" data-format="yyyy-mm-dd" name="fecha-financiamiento" value="{{Input::old('fecha-financiamiento')!=null? Input::old('fecha-financiamiento'): (isset($financiamiento['fecha'])? $financiamiento['fecha']:'')}}" required="required"/>
                                            @if ($errors->has('fecha-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-financiamiento') }}</p> @endif
                                           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                           </span>
@@ -113,27 +190,38 @@
                       <select name="entidad-financiada" required="required">
                               @if(isset($empresas))
                                 @foreach($empresas as $empresa)
-                                    <option value="{{$empresa['nit']}}" > {{$empresa['razon_social']}}</option>
+                                @if(isset($financiamiento['inv_nit_empresa']) && $empresa['nit'] == $financiamiento['inv_nit_empresa'])
+                                  <option value="{{$empresa['nit']}}" selected>{{$empresa['razon_social']}}</option>
+                                @else
+                                  <option value="{{$empresa['nit']}}">{{$empresa['razon_social']}}</option>
+                                @endif
                                 @endforeach
-                              @endif    
-                        </select>    
+                              @endif 
+   
+                      </select>    
                     </li>         
 
                     <li class="@if($errors->has('modo-financiada')) has-error @endif">
                       <label for="modo-financiada" >Modo de financiamiento:</label> 
-                      <select  value="{{Input::old('modo-financiada')}}" name="modo-financiada">
-                        <option id="efectivo">Efectivo</option>
-                        <option id="especie">Especie</option>
+                      <select  value="{{Input::old('modo-financiada')!=null? Input::old('modo-financiada'): (isset($financiamiento['modo_financiamiento'])? $financiamiento['modo_financiamiento']:'')}}" name="modo-financiada">
+
+                        @foreach ($valor_especie as $elemento)
+
+                            @if(isset($financiamiento['modo_financiamiento']) && $elemento==$financiamiento['modo_financiamiento'])
+                                <option value="{{$elemento}}" selected>{{$elemento}}</option>
+                            @else 
+                                <option value="{{$elemento}}">{{$elemento}}</option>
+                            @endif         
+                        @endforeach
                       </select>
-                          @if ($errors->has('modo-financiada')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('modo-financiada') }}</p>
-                          @endif    
+                          @if ($errors->has('modo-financiada')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('modo-financiada') }}</p>@endif    
                     </li> 
 
                     <li class="@if($errors->has('valor-financiado')) has-error @endif">
                         <label for="valor-financiado">Valor:</label> 
                         <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input id="valor-financiado" name="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')}}" style="width: 567px;"/>
+                          <input id="valor-financiado" name="valor-financiado" type="text" class="form-control" required="required" value="{{Input::old('valor-financiado')!=null? Input::old('valor-financiado'): (isset($financiamiento['valor_financiado'])? $financiamiento['valor_financiado']:'')}}" style="width: 567px;"/>
                         </div> 
                         @if ($errors->has('valor-financiado')) <p  style="margin-left: 173px;" class="help-block">{{ $errors->first('valor-financiado') }}</p>
                         @endif
@@ -142,7 +230,7 @@
                     <li class="@if($errors->has('descripcion-financiamiento')) has-error @endif">
                       <label for="descripcion-financiamiento">
                       Descripci&oacute;n:</label>
-                    <textarea id="descripcion-financiamiento" name="descripcion-financiamiento" value="{{Input::old('descripcion-financiamiento')}}"></textarea>
+                    <textarea id="descripcion-financiamiento" name="descripcion-financiamiento">{{Input::old('descripcion-financiamiento')!=null? Input::old('descripcion-financiamiento'): (isset($financiamiento['descripcion_financiamiento'])? $financiamiento['descripcion_financiamiento']:'')}}</textarea>
                       @if ($errors->has('descripcion-financiamiento')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('descripcion-financiamiento') }}</p> @endif
                     </li>   
                 </fieldset> 
@@ -150,9 +238,13 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="agregar-financiamiento" type="submit">
+                        <button id="agregar-financiamiento" type="button" onclick="eliminarvisualmente()">
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Agregar 
+                        @if(isset($financiamiento['id_financiacion']))
+                              Editar Financiamiento
+                            @else 
+                                Crear Financiamiento
+                        @endif 
                         </button>
                     </th>
                     <th id="borrar">

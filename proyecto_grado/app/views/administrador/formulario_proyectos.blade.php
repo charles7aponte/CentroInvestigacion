@@ -79,7 +79,7 @@
             <input type="hidden" name="id_proyecto" value="{{$proyectos['codigo_proyecto']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+        <div id="titulo"><h2><li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
            
             @if(isset($proyectos['codigo_proyecto']))
               Edicion Proyectos
@@ -135,9 +135,12 @@
                               @if(isset($convocatorias))
 
                                 @foreach($convocatorias as $convocatoria)
+
+
                                 @if(isset($proyectos['inv_numero_convocatoria']) && $convocatoria['numero_convocatoria'] == $proyectos['inv_numero_convocatoria'])
                                     <option value="{{$convocatoria['numero_convocatoria']}}" selected>{{$convocatoria['titulo_convocatoria']}}</option>
-                                else
+                                @else
+
                                     <option value="{{$convocatoria['numero_convocatoria']}}"> {{$convocatoria['titulo_convocatoria']}}</option>
                                 @endif
                                 @endforeach
@@ -151,7 +154,7 @@
                                 @foreach($lineas as $linea)
                                 @if(isset($proyectos['inv_id_linea']) && $linea['id_lineas'] == $proyectos['inv_id_linea'])
                                     <option value="{{$linea['id_lineas']}}" selected>{{$linea['nombre_linea']}}</option>
-                                else 
+                                @else 
                                     <option value="{{$linea['id_lineas']}}">{{$linea['nombre_linea']}}</option>
                                 @endif  
                                 @endforeach
@@ -165,7 +168,7 @@
                                 @foreach($grupos as $grupo)
                                 @if(isset($proyectos['inv_codigo_grupo']) && $grupo['codigo_grupo'] == $proyectos['inv_codigo_grupo'])
                                     <option value="{{$grupo['codigo_grupo']}}" selected>{{$grupo['nombre_grupo']}}</option>
-                                else
+                                @else
                                     <option value="{{$grupo['codigo_grupo']}}">{{$grupo['nombre_grupo']}}</option>
                                 @endif
                                 @endforeach
@@ -179,7 +182,7 @@
                                 @foreach($grupos1 as $grupo1)
                                 @if(isset($proyectos['inv_codigo_grupo']) && $grupo1['codigo_grupo'] == $proyectos['inv_codigo_grupo'])
                                     <option value="{{$grupo1['codigo_grupo']}}" selected> {{$grupo1['nombre_grupo']}}</option>
-                                else
+                                @else
                                     <option value="{{$grupo1['codigo_grupo']}}"> {{$grupo1['nombre_grupo']}}</option>
                                 @endif
                                 @endforeach
@@ -319,14 +322,19 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-proyecto" type="submit" class="submit-button">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear proyecto
+                        <button id="crear-proyecto" type="submit" class="submit-button"  style="height:37px">
+
+                        <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li> 
+                        @if(isset($proyectos['codigo_proyecto']))
+                              Editar Proyecto
+                            @else 
+                                Crear Proyecto
+                        @endif
                         </button>
                     </th>
                     <th id="borrar">
                         <button id="reset-button" type="button" onclick="limpiaForm('#form-proyectos')" >
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                         Limpiar Formulario
                     </th>
                 </thead>
