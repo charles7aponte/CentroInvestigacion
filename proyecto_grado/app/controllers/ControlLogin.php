@@ -61,7 +61,7 @@
 
 
 						$persona=User::find($raw[0]->cedula);
-						Auth::login($persona,true);
+						Auth::login($persona);
 						
 
 						return Redirect::to("administrador");

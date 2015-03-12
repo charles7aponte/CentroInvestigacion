@@ -113,17 +113,6 @@
                          @endif
                     </li> 
 
-
-                    <li class="@if($errors->has('coord')) has-error @endif">
-                      <label for="coord">Coordinador:</label>
-                        <input style="text-transform:capitalize;" type="text" id="coord" name="coord" value="" required="required"/>
-                        <input type="hidden" id="cedula-persona" name="cedula-persona" value="" />
-                          <span id="advertencias">
-                            <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
-                          </span>
-                          @if ($errors->has('coord')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coord') }}</p> 
-                         @endif
-
                     <li class="@if($errors->has('coord')) has-error @endif" >
                         <label for="coord">Coordinador:</label>
                         <input type="text" id="coor-linea" name="coord" value="{{isset($grupos['nombre_director'])? $grupos['nombre_director']:''}}" /> 
@@ -136,34 +125,40 @@
 
                     <li class="@if($errors->has('email')) has-error @endif">
                       <label for="email">Email:</label>
+                      <input type="email" id="email" name="email" required="required" value="{{Input::old('email')!=null? Input::old('email'):(isset($grupos['email'])? $grupos['email']:'')}}" /> 
+                         @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif 
 
-                        <input  type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
-                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{ Input::old('email')!=null? Input::old('email'): (isset($grupos['email'])? $grupos['email']:'')}}" required="required" />   @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> 
-                         @endif          
+                        <!--<input  type="email" id="email" name="email" value="{{Input::old('email')}}" required="required" />
+                        <input style="text-transform: lowercase;" type="email" id="email" name="email" value="{{ Input::old('email')!=null? Input::old('email'): (isset($grupos['email'])? $grupos['email']:'')}}" required="required" />@if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p>  @endif-->  
                     </li>
 
                     <li class="@if($errors->has('pagina')) has-error @endif">
                       <label for="pagina">P&aacute;gina web:</label>
 
-                        <input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
+                        <input type="text" id="pagina" name="pagina" required="required" value="{{Input::old('pagina')!=null? Input::old('pagina'):(isset($grupos['pagina_web'])? $grupos['pagina_web']:'')}}" /> 
+                         @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif 
+                        <!--<input type="text" id="pagina" name="pagina" value="{{Input::old('pagina')}}"  autofocus="autofocus" />
                         <input style="text-transform: lowercase;" type="text" id="pagina" name="pagina" value="{{ Input::old('pagina')!=null? Input::old('pagina'): (isset($grupos['pagina_web'])? $grupos['pagina_web']:'')}}"  autofocus="autofocus" />
                          @if ($errors->has('pagina')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('pagina') }}</p> 
-                         @endif                        
+                         @endif  -->                      
                     </li>
 
                     <li class="@if($errors->has('telefono')) has-error @endif">
                       <label for="telefono">Tel&eacute;fono:</label>
-                        <input type="tel" id="telefono" name="telefono" value="{{ Input::old('telefono')!=null? Input::old('telefono'): (isset($grupos['telefono'])? $grupos['telefono']:'')}}"/>
+                      <input type="tel" id="telefono" name="telefono" value="{{ Input::old('telefono')!=null? Input::old('telefono'): (isset($grupos['telefono'])? $grupos['telefono']:'')}}"/>
                          @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
                          @endif                   
                     </li>
 
                     <li class="@if($errors->has('direccion')) has-error @endif">
                       <label for="direccion">Direcci&oacute;n:</label>
-                        <input onchange="letrasCapital(this)" type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
+                      <input type="text" id="direccion" name="direccion" value="{{ Input::old('direccion')!=null? Input::old('direccion'): (isset($grupos['direccion_grupo'])? $grupos['direccion_grupo']:'')}}"/>
+                         @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> 
+                         @endif
+                        <!--<input onchange="letrasCapital(this)" type="text" id="direccion" name="direccion" value="{{Input::old('direccion')}}" required="required"/>
                         <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'): (isset($grupos['direccion_grupo'])? $grupos['direccion_grupo']:'')}}" required="required"/>
                          @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p>
-                         @endif                     
+                         @endif -->                    
                     </li>
 
                     <li><label for="creacion-grupo">Año de creaci&oacute;n:</label>
@@ -504,7 +499,7 @@
                 </th>
                 <th id="borrar">
                     <button id="reset-button" type="button" onclick="limpiaForm('#form-grupos')" >
-                    <img alt="mal" src="images/ml.png" width="16" height="16" />
+                    <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                     Limpiar Formulario
                 </th>
             </thead>

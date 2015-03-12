@@ -75,7 +75,8 @@
             <input type="hidden" name="id_financiamiento" value="{{$financiamiento['id_financiacion']}}">
         @endif
 
-        <div id="titulo"><h2><li class="glyphicon glyphicon-pencil" style="font-size: 20px;">
+        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16"/>
+           <!--<li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>--> <!--cambie el logo en el editar-->
            
             @if(isset($financiamiento['id_financiacion']))
               Edicion Financiamiento
@@ -249,7 +250,7 @@
                     </th>
                     <th id="borrar">
                         <button id="reset-button" type="button" onclick="limpiaForm('#form-financiamiento-proyectos')" >
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                         Limpiar Formulario
                       </button>
                     </th>
