@@ -146,7 +146,7 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formulariolineas')}}">Agregar nueva l&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('formulariosublineas')}}">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('listadelineas')}}">Ver/Editar una l&iacute;nea</a></li>
-			<li class=""><a href="{{URL::to('listadesublineas')}}">Ver/Editar una subl&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('listadesublineas')}}">Editar/Eliminar una subl&iacute;nea</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
@@ -156,7 +156,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioconvocatorias')}}">Crear nueva convocatoria</a></li>
-			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar convocatorias</a></li>
+			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar una convocatoria</a></li>
 		</ul>
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">

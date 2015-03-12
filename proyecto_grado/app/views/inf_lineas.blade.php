@@ -5,7 +5,7 @@
 @stop
 
 @section("javascript-nuevos")
-<script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+<script src="{{URL::to('/js')}}/recursos/eliminar_datos.js" type="text/javascript"></script> 
 @stop
 
 @section('javascript-nuevos2')
@@ -19,16 +19,21 @@
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog" style="width:700px">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="background:none;">sublinea 1</h4>
+          <h4 class="modal-title" id="myModalLabel" style="background:none; font-weight:bold;"> </h4>
         </div>
         <div class="modal-body">
           <label for="estado-sublinea"><b>Estado:</b></label>
-            <div id="estado-sublinea"> Aprobado</div>
+            <div id="estado-sublinea"> </div>
           </br>
           <label for="descripcion-sublinea"><b>Descripci&oacute;n: </b></label>
-            <div id="descripcion-sublinea">Este es el titulo de la linea de investigacion numero uno de la ciudad de villavicencion de la universidad de los llanos </div>
+            <div id="descripcion-sublinea">       </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -65,14 +70,14 @@
                     	background: -moz-linear-gradient(top,#286388,#122d3e);
                     	background: -o-linear-gradient(top,#286388,#122d3e);  
                     	background: linear-gradient(to bottom,#286388,#122d3e);  
-                    	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos B&acute;sicos de la l&iacute;nea
+                    	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">Datos Básicos de la línea
                 	</th>
              	</tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <th id="fil-principal">c&oacute;digo</th>
+                    <th id="fil-principal">código</th>
                     <td  class="codigo" id="col-principal" id="cuadro">
                       {{$lineas['id_lineas']}}
                     </td>
@@ -81,12 +86,15 @@
                 <tr>
                     <th id="fil-principal">Coordinador</th>
                     <td class="coordinador" id="col-principal" id="cuadro">
-                      {{$lineas['coordinador_linea']}}
+                      @foreach($Lista_coordinadores as $Lista_coordinador)
+                        {{$Lista_coordinador['nombre1']}} {{$Lista_coordinador['nombre2']}} 
+                        {{$Lista_coordinador['apellido1']}} {{$Lista_coordinador['apellido2']}}
+                      @endforeach
                     </td>
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Definici&oacute;n</th>
+                    <th id="fil-principal">Definición</th>
                     <td class="definicion-linea" id="col-principal" id="cuadro" style="text-transform:none;">
                       {{$lineas['definicion_linea']}}
                     </td>
@@ -100,7 +108,7 @@
                 </tr>
         
                 <tr>
-                    <th id="fil-principal">Objetivo de la l&iacute;nea</th>
+                    <th id="fil-principal">Objetivo de la línea</th>
                     <td class="objetivo-linea" id="col-principal" id="cuadro" style="text-transform:none;">
                       {{$lineas['objetivo_linea']}}
                     </td>
@@ -124,14 +132,17 @@
  <!-- menus desplegables de las lineas-->
      <fieldset id="secundario1">
         <div class="titulo-tabla-proyecto" id="cuadro">             
-            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Subl&iacute;neas Vinculadas </a></h4>
+            <h4 id="boton_sublinea"  style="width:50%;"><li class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Sublíneas</a></h4>
         </div>
       <div id="tabla_sublinea">
           <div class="list-group">
             @if($sublineas && count($sublineas)>0)
               @foreach($sublineas as $sublinea)
                 <a  class="list-group-item" data-toggle="modal" data-target="#myModal" 
-                 onclick="cargarmodal_descripcion(this);"
+                data-infoestado="{{$sublinea->estado}}"
+                data-infonombre="{{$sublinea->nombre_sublinea}}"
+                data-infodescripcionsublinea="{{$sublinea->descripcion_sublinea}}"
+                 onclick="cargarmodal_descripcion_lineas_sublineas(this);"
                 >
                  {{$sublinea->nombre_sublinea}}
                </a>
@@ -150,7 +161,7 @@
             <h4 id="boton_grupos"  style="width:50%;">
               <li class="glyphicon glyphicon-plus-sign"></li>
               <li class="glyphicon glyphicon-minus-sign"></li>
-              <a href="#" onclick="return false">Grupos</a>
+              <a href="#" onclick="return false">Grupos Vinculados</a>
             </h4>
         </div>
         <div id="tabla_grupos">
@@ -163,7 +174,7 @@
               @endforeach
               @else
                 <p style="margin-left:5px; color:#122d3e; font-weight:bold; font-size: 13px;">
-                No hay Grupos asociados a esta l&iacute;nea.
+                No hay Grupos vinculados a esta línea.
               </p>
             @endif
           </div>

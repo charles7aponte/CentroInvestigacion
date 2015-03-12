@@ -75,12 +75,12 @@
                     <tr>
                         <th id="fil-principal">Tipo: </th>
                         <td id="col-principal" id="cuadro" >
-                            @if($grupos['inv_tipo_grupos']!="")
-                                {{$grupos['inv_tipo_grupos']}}
-                            @else
-                               <p style="color:#122d3e; font-weight:bold;">{{$grupos['inv_tipo_grupos']}} </p>         
-                            @endif
-                            
+                           
+                                @if($grupos['tipo_grupo_']!="")
+                                    {{$grupos['tipo_grupo_']}}
+                                @else
+                                   <p style="color:#122d3e; font-weight:bold;">{{$grupos['tipo_grupo_']}}</p>         
+                                @endif
                         </td>
                     </tr>
         

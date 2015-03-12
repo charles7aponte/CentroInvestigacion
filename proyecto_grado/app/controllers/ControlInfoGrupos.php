@@ -25,13 +25,10 @@ class ControlInfoGrupos extends Controller {
 
 		$grupos->nombre_director=$persona->nombre1." ".$persona->nombre2." ".$persona->apellido1." ".$persona->apellido2;
 		
-		$grupos->tipo_grupo_="No definido. ";
-		$grupos->tipo_grupo_band=0;
 
-		if($tipo->estado==1){
-			$grupos->tipo_grupo_=$tipo->tipo_grupo;	
-			$grupos->tipo_grupo_band=1;
-		} 
+		if($tipo=""){
+			$grupos->tipo_grupo_="No definido. ";
+		} $grupos->tipo_grupo_=$tipo->tipo_grupo;	
 	
 		
 
@@ -66,7 +63,8 @@ class ControlInfoGrupos extends Controller {
 					   'Lista_integrantes'=>$this->listaIntegrantesGrupos,
 					   'Lista_perfiles'=> $this->idperfiles,
 					   'Lista_productos' =>$productos,
-					   'Lista_proyectos' =>$proyectos_grupos
+					   'Lista_proyectos' =>$proyectos_grupos,
+					   'Lista_tipos' =>$tipo
 			);
 
 

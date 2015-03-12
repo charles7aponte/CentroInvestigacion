@@ -58,3 +58,20 @@ function verinfo(){
   var desc= $fila.attr("data-info"); 
   $('#contenido_modal').html(desc);
 }
+
+
+
+//ver descripcion en los mdoal
+function cargarmodal_descripcion_lineas_sublineas(elemento){
+  var $fila = $(elemento);
+  var desc= $fila.attr("data-infodescripcionsublinea"); 
+  $('#descripcion-sublinea').html(desc);
+
+
+  var estado= $fila.attr("data-infoestado"); 
+  $('#estado-sublinea').html(estado);
+
+
+   var nombre= $fila.attr("data-infonombre"); 
+  $('#myModalLabel').html(nombre);
+}

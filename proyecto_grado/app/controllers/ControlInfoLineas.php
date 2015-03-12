@@ -13,6 +13,7 @@ class ControlInfoLineas extends Controller {
 
 
 		$lineas= InvLineas::find($id_linea);
+		$coordinador =Persona::where("cedula","=",$lineas->coordinador_linea)->get();
 
 		//productos-subtipos por linea
 		$productos=InvSubtipoProductos::all();
@@ -32,7 +33,8 @@ class ControlInfoLineas extends Controller {
 					   'sublineas' =>$listadeSublineaLineas,
 					   'Lista_productos' =>$productos,
 					   'Lista_proyectos' =>$proyectos_lineas, 
-					   'lista_grupos' => $listaGruposLineas
+					   'lista_grupos' => $listaGruposLineas,
+					   'Lista_coordinadores'=> $coordinador
 
 			);
 
@@ -41,7 +43,7 @@ class ControlInfoLineas extends Controller {
 
 	//sublineas por linea
 	public function Sublineasporlinea($id_linea){	
-		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea
+		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea , estado  , descripcion_sublinea
 				from inv_sublineas 
 				where inv_id_linea=$id_linea;")
 			);
