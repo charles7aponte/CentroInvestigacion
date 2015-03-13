@@ -10,8 +10,7 @@ class ControlInfoPersonas extends Controller {
 		
 		$integrantes=Persona::find($cedula);
 		$investigadores=InvInvestigadoresExternos::all();
-
-		
+	
 		$datos = array('datos_integrantes' =>$integrantes
 
 			);

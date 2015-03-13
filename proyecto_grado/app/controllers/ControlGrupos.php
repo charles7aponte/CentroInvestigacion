@@ -146,7 +146,7 @@ class ControlGrupos extends Controller {
 
 			public function cargarFormularioGrupo(){
 
-				$listatipogrupos = InvTipoGrupos::all();
+				$listatipogrupos = InvTipoGrupos::where("estado","=","1")->get();;
 
 				$datos=  array(
 					'tipos' =>$listatipogrupos);
@@ -426,4 +426,23 @@ class ControlGrupos extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 	}
+
+		public function EliminarFormularioGrupo($id){
+			
+				$form_grupo= InvGrupos::find($id); //de donde necesito
+
+				if (is_null($form_grupo)==false){
+
+					$form_grupo->estado=0;
+					//$form_grupo->nombre_grupo.="*";
+					//$form_grupo->save();
+
+					$form_grupo->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 
 }

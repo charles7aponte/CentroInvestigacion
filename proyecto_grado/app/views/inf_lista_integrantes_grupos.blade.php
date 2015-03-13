@@ -13,8 +13,8 @@
           
     <div id="titulo-listaintegrantegrupo" id="cuadro"> 
         @if($lista_integrantes_grupos &&  count($lista_integrantes_grupos)>0)
-        <h2>{{$lista_nombre_grupos['nombre_grupo']}}</h2>
-        @else      <p></p>   
+          <h2>{{$lista_nombre_grupos['nombre_grupo']}}</h2>
+          @else     <p></p>   
         @endif
     </div>
 
@@ -27,11 +27,11 @@
                   background: -o-linear-gradient(top,#286388,#122d3e);  
                   background: linear-gradient(to bottom,#286388,#122d3e);  
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
-                Integrantes</th>
+                Integrantes del grupo</th>
               </tr>
           <tr>
             <th># DOCUMENTO</th>
-            <th >NOMBRES Y APELLIDOS</th>
+            <th>NOMBRES Y APELLIDOS</th>
             <th>PERFÍL</th>
           </tr>
         </thead>
@@ -52,9 +52,10 @@
               </tr>
             @endforeach  
           </tbody>
-      </table>      
+      </table> 
+           
       <div style="margin-left:30px; margin-right:30px;"> 
-     
+        {{$links}}
       </div>
     </div>
   </form>

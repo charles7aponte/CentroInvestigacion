@@ -15,16 +15,14 @@
 @section('cuerpo')
 
 <div id="capa" class="infgrupos">
-    <fieldset id="principal">
-
-         @if(isset($grupos['codigo_grupo'])==false)
+        @if(isset($grupos['codigo_grupo'])==false)
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
                     padding: 2px;">
                     <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para ese grupo</div>   
             </fieldset>
         @endif
-
+    <fieldset id="principal">
             <table id="titulo-infgrupos" id="cuadro" >
                 <tbody>
                    <th><h2>{{$grupos['nombre_grupo']}}</h2></th> 
@@ -68,19 +66,24 @@
                     <tr>
                         <th id="fil-principal">Coordinador</th>
                         <td id="col-principal" id="cuadro">
-                            {{$grupos['nombre_director']}}
+                            <?php
+                            if($grupos['nombre_director']!="")
+                                echo $grupos['nombre_director'];
+                            ?>
                         </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Tipo: </th>
                         <td id="col-principal" id="cuadro" >
-                           
-                                @if($grupos['tipo_grupo_']!="")
-                                    {{$grupos['tipo_grupo_']}}
-                                @else
-                                   <p style="color:#122d3e; font-weight:bold;">{{$grupos['tipo_grupo_']}}</p>         
-                                @endif
+                            <?php
+                                if($grupos['estado']!=0)
+                                    echo $grupos['tipo_grupo_'];
+                                else
+                                   
+                                    echo $grupos['tipo_grupo_'];
+                                          
+                            ?>    
                         </td>
                     </tr>
         

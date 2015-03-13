@@ -2,6 +2,7 @@ CREATE TABLE inv_tipo_grupos
 (
   id serial NOT NULL,
   tipo_grupo character varying(50) NOT NULL, 
+  estado char default 1,
   CONSTRAINT inv_tipo_grupos_pkey PRIMARY KEY (id)
 );
 

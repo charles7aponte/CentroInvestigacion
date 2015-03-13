@@ -60,7 +60,7 @@
                         margin-top: 5px;
                         padding: 2px;">
 
-                        <div  style="margin: 0px;" class="alert alert-danger">NO existe la convocatoria!!</div> 
+                        <div  style="margin: 0px;" class="alert alert-danger">NO existe la convocatoria</div> 
                     </fieldset>  
                 @endif 
             

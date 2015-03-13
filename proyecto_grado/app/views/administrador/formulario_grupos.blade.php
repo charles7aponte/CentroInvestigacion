@@ -220,11 +220,9 @@
                                 @foreach($tipos as $tipo)
                                   @if(isset($grupos['inv_tipo_grupos']) && $tipo['id'] == $grupos['inv_tipo_grupos'])
                                     <option value="{{$tipo['id']}}" selected> {{$tipo['tipo_grupo']}}</option>
-
                                   @else 
-                                   <option value="{{$tipo['id']}}"> {{$tipo['tipo_grupo']}}</option>
+                                    <option value="{{$tipo['id']}}"> {{$tipo['tipo_grupo']}}</option>
                                   @endif
-
                                 @endforeach
                               @endif    
 

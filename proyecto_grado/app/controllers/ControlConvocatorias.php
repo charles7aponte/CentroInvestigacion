@@ -3,13 +3,6 @@
 
 class ControlConvocatorias extends Controller {
 
-
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-
 	public function CrearFormulario(){
 
 		$numero=Input::get('numero-conv');
@@ -25,7 +18,6 @@ class ControlConvocatorias extends Controller {
 
 		$fecha_apertura=$dateApertura->format('Y-m-d');
 		$fecha_cierre=$dateCierre->format('Y-m-d');
-		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
 
 
 		$telefono=Input::get('telefono');
@@ -70,7 +62,6 @@ class ControlConvocatorias extends Controller {
 
 			);
 
-
 			// execute la validacin 
 
 			$validator = Validator::make(Input::all(), InvConvocatorias::$reglasValidacion,$messages);
@@ -78,7 +69,6 @@ class ControlConvocatorias extends Controller {
 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
-
 
 
 				return Redirect::to('formularioconvocatorias')
@@ -117,10 +107,6 @@ class ControlConvocatorias extends Controller {
 					}
 				
 			}
-
-
-
-
 
 
 
@@ -234,9 +220,6 @@ class ControlConvocatorias extends Controller {
 			}
 
 
-
-
-
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
@@ -314,10 +297,7 @@ class ControlConvocatorias extends Controller {
 
 				return View::make('administrador/formulario_convocatorias',$datos);
 
-
 			}
-
-
 
 
 		public function EliminarFormularioConvocatoria($id){

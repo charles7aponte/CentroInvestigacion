@@ -25,6 +25,7 @@
                                 <img align="right" src="{{URL::to('archivos_db/investigadores/')}}/{{$datos_integrantes['foto']}}">
                             </div>    
                             @endif  
+                            
                         </th> 
                         <th style="background:none;">
                             <div  class="talkbubble" id="cuadro"  style="box-shadow: 8px 8px 5px #BDBDBD;"> 

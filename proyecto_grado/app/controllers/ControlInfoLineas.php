@@ -12,8 +12,18 @@ class ControlInfoLineas extends Controller {
 	public function CargarInfoPrincipales($id_linea){
 
 
-		$lineas= InvLineas::find($id_linea);
-		$coordinador =Persona::where("cedula","=",$lineas->coordinador_linea)->get();
+		$lineas= InvLineas::where("id_lineas","=",$id_linea)->where("estado","=","1")->get();
+		$coordinador= array();
+		if(count($lineas)>0)
+		{
+			$lineas=$lineas[0];
+			$coordinador =Persona::where("cedula","=",$lineas->coordinador_linea)->get();
+		}
+		else{
+			$lineas=null;
+		}
+
+		
 
 		//productos-subtipos por linea
 		$productos=InvSubtipoProductos::all();

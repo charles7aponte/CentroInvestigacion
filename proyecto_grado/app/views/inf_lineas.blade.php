@@ -57,7 +57,9 @@
 
         <div id="titulo-lineas" id="cuadro"> 
             <h2>
-              {{$lineas['nombre_linea']}}
+              @if(isset($lineas) && $lineas!=null && isset($lineas['nombre_linea']))
+                {{$lineas['nombre_linea']}}
+              @endif
             </h2>  
         </div>
 
@@ -79,7 +81,9 @@
                 <tr>
                     <th id="fil-principal">código</th>
                     <td  class="codigo" id="col-principal" id="cuadro">
+                      @if(isset($lineas) && $lineas )
                       {{$lineas['id_lineas']}}
+                      @endif
                     </td>
                 </tr>
         
@@ -96,28 +100,34 @@
                 <tr>
                     <th id="fil-principal">Definición</th>
                     <td class="definicion-linea" id="col-principal" id="cuadro" style="text-transform:none;">
+                      @if(isset($lineas) && $lineas)
                       {{$lineas['definicion_linea']}}
+                      @endif
                     </td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Objeto de estudio</th>
                     <td class="objeto-estudio" id="col-principal" id="cuadro" style="text-transform:none;">
+                      @if(isset($lineas) && $lineas)
                        {{$lineas['objetivo_estudio']}}
+                       @endif
                     </td>  
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Objetivo de la línea</th>
                     <td class="objetivo-linea" id="col-principal" id="cuadro" style="text-transform:none;">
-                      {{$lineas['objetivo_linea']}}
+                      @if(isset($lineas) && $lineas )
+                        {{$lineas['objetivo_linea']}}
+                      @endif
                     </td>
                 </tr>
         
                 <tr>
                     <th id="fil-principal"></li>archivo</th>
                     <td class="link-archivo" id="col-principal" id="cuadro">
-                       @if($lineas['ruta_archivo']!="")
+                       @if(isset($lineas) && $lineas && $lineas['ruta_archivo']!="")
                           <a href="{{URL::to('archivos_db/lineas/')}}/{{$lineas['ruta_archivo']}}" target="_blank">
                            <i class="glyphicon glyphicon-file"></i>
                            Archivo ({{$lineas['ruta_archivo']}})
@@ -219,6 +229,8 @@
       </div>
       <div id="producto">
           <div class="list-group">
+
+            @if(isset($lineas) && $lineas)
               @foreach($Lista_productos as $lista_producto)   
                 <a href="{{URL::to('/')}}/listaproductos/linea/{{$lineas['id_lineas']}}/subtipo/{{$lista_producto['id_subtipo_producto']}}">
                   <li class="list-group-item">
@@ -228,7 +240,8 @@
                     {{$lista_producto['nombre_subtipo_producto']}}
                   </li>
                 </a>  
-              @endforeach  
+              @endforeach 
+            @endif 
           </div>
       </div>
     </fieldset>

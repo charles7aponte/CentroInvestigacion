@@ -16,20 +16,27 @@ class ControlInfoGrupos extends Controller {
 		// recibimos el id con la variable de arriba
 		
 		$grupos= InvGrupos::find($id_grupo)	;
+//validamos si existe el grupo si no no realizamos nada .. desde el blade se valida para mostra un mensaje
+		 if($grupos)
+		 {
+		 	
+			$persona = Persona::where("cedula","=",$grupos->director_grupo)->get();
+			$persona=$persona[0];
 
-		$persona = Persona::where("cedula","=",$grupos->director_grupo)->get();
-		$persona=$persona[0];
+			$tipo = InvTipoGrupos::where("id","=",$grupos->inv_tipo_grupos)->get();
+			$tipo=$tipo[0];
 
-		$tipo = InvTipoGrupos::where("id","=",$grupos->inv_tipo_grupos)->get();
-		$tipo=$tipo[0];
+			$grupos->nombre_director=$persona->nombre1." ".$persona->nombre2." ".$persona->apellido1." ".$persona->apellido2;
+			
+			$grupos->tipo_grupo_="No definido";
+			$grupos->tipo_grupo_band=0;
 
-		$grupos->nombre_director=$persona->nombre1." ".$persona->nombre2." ".$persona->apellido1." ".$persona->apellido2;
+			if($tipo->estado==1){
+				$grupos->tipo_grupo_=$tipo->tipo_grupo;	
+				$grupos->tipo_grupo_band=1;
+			} 
 		
-
-		if($tipo=""){
-			$grupos->tipo_grupo_="No definido. ";
-		} $grupos->tipo_grupo_=$tipo->tipo_grupo;	
-	
+		 }
 		
 
 		foreach ($this->listaIntegrantesGrupos as $keyintegrante => $integrante) {
@@ -63,8 +70,7 @@ class ControlInfoGrupos extends Controller {
 					   'Lista_integrantes'=>$this->listaIntegrantesGrupos,
 					   'Lista_perfiles'=> $this->idperfiles,
 					   'Lista_productos' =>$productos,
-					   'Lista_proyectos' =>$proyectos_grupos,
-					   'Lista_tipos' =>$tipo
+					   'Lista_proyectos' =>$proyectos_grupos
 			);
 
 

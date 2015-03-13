@@ -23,6 +23,8 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 
 /*---------------crear grupo------------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
+/*---------------eliminar grupo----------------*/
+Route::get('formulariogrupos/eliminar/{id}','ControlGrupos@EliminarFormularioGrupo');
 
 
 /*---------------crear sublinea-----------------*/

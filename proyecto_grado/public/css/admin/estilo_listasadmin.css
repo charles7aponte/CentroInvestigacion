@@ -8,6 +8,14 @@
     background:#122d3e;
 }
 
+#buscador-lista{
+  margin: 30px;
+}
+
+#form-grupos input.form-control{
+  display: inline-block;
+}
+
 table {
 border-collapse: inherit !important; 
 }
