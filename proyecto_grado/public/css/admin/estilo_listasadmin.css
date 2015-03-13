@@ -12,7 +12,8 @@
   margin: 30px;
 }
 
-#form-grupos input.form-control{
+#form-grupos input.form-control,
+#form-convocatorias input.form-control{
   display: inline-block;
 }
 

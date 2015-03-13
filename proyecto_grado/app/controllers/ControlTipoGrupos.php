@@ -69,7 +69,7 @@ class ControlTipoGrupos extends Controller {
 
 			public function cargarFormularioTipoGrupo(){
 
-			$form_tipogrupo= InvTipoGrupos::all(); //de donde necesito
+			$form_tipogrupo= InvTipoGrupos::where("estado","=","1")->get(); //de donde necesito
 
 			$datos=  array(
 				'tipogrupos' =>$form_tipogrupo);

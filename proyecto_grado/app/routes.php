@@ -86,9 +86,8 @@ Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLin
 //---------------crear convocatorias
 Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});  
 
-
-/*---------------crear convocatorias------------------*/
-//Route::get('formularioconvocatorias', function() { return View::make('administrador/formulario_convocatorias');});
+/*---------------eliminar convocatorias------------------*/
+Route::get('formularioconvocatorias/eliminar/{id}','ControlConvocatorias@EliminarFormularioConvocatoria');
 
 
 /*---------------cerar eventos y noticias------------------*/

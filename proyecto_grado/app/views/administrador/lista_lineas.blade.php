@@ -64,7 +64,7 @@
                     <a href="{{URL::to('linea/id')}}/{{$campo['id_lineas']}}">{{$campo['nombre_linea']}}</a>
                   </td>
                   <td style="width:90px;">
-                    <a href="edicion/formulariolineas" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                    <a href="formulariolineas/edit/{{$campo['id_lineas']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                   </td>
                   <td style="width:92px;">
                     <b onclick="eliminartipo({{$campo['id_lineas']}})">

@@ -89,7 +89,7 @@
         
                 <tr>
                     <th id="fil-principal">Coordinador</th>
-                    <td class="coordinador" id="col-principal" id="cuadro">
+                    <td class="coordinador" id="col-principal" id="cuadro" style="text-transform:capitalize;">
                       @foreach($Lista_coordinadores as $Lista_coordinador)
                         {{$Lista_coordinador['nombre1']}} {{$Lista_coordinador['nombre2']}} 
                         {{$Lista_coordinador['apellido1']}} {{$Lista_coordinador['apellido2']}}

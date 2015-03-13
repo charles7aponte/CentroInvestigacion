@@ -199,7 +199,7 @@
                     <li class="@if($errors->has('categoria')) has-error @endif">
                       <label for="categoria">Categor&iacute;a:</label>
 
-                        <select required="required" name="categoria" value="{{Input::old('categoria')!=null? Input::old('categoria'): (isset($grupos['categoria'])? $grupos['categoria']:'')}}">
+                        <select  required="required" name="categoria" value="{{Input::old('categoria')!=null? Input::old('categoria'): (isset($grupos['categoria'])? $grupos['categoria']:'')}}">
 
                           @foreach ($tipo_categoria as $elemento)
 

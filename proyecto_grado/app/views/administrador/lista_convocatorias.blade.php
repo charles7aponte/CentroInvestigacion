@@ -35,6 +35,16 @@
       <div id="titulo-listaconvocatoria" id="cuadro"> 
         <h2>Lista de Convocatorias</h2>
       </div>
+
+      <div id="buscador-lista">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="">
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>Buscar</button>
+          </div>
+        </form>
+      </div>
+      
         <div id="tabla-listaconvocatorias">
           <table id="listaconvocatorias">
             <thead>

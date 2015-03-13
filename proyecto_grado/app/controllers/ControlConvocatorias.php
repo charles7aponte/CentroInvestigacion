@@ -307,7 +307,7 @@ class ControlConvocatorias extends Controller {
 				if (is_null($form_convocatoria)==false){
 
 					$form_convocatoria->estado1=0;
-					$form_convocatoria->titulo_convocatoria="*";
+					$form_convocatoria->titulo_convocatoria.="*";
 					$form_convocatoria->save();
 
 					//$form_tipogrupo->delete();

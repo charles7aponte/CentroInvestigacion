@@ -25,12 +25,14 @@
     <fieldset id="principal">
             <table id="titulo-infgrupos" id="cuadro" >
                 <tbody>
+                @if(isset($grupos) && $grupos!=null && isset($grupos['codigo_grupo']))
                    <th><h2>{{$grupos['nombre_grupo']}}</h2></th> 
                    <th>
                         @if($grupos['logo_grupo']!="")
                         <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
                         @endif
                     </th>
+                @endif    
                 </tbody>     
             </table>
 
@@ -57,7 +59,7 @@
                                 if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
                                 {
                                     $fecha= new DateTime($grupos['ano_creacion']);
-                                      echo $fecha->format(' d')." de ".$fecha->format('m')." ".$fecha->format('Y');
+                                      echo $fecha->format(' d')." -".$fecha->format('m')." -".$fecha->format('Y');
                                 }
                               ?>
                         </td>
@@ -65,25 +67,21 @@
         
                     <tr>
                         <th id="fil-principal">Coordinador</th>
-                        <td id="col-principal" id="cuadro">
-                            <?php
-                            if($grupos['nombre_director']!="")
-                                echo $grupos['nombre_director'];
-                            ?>
+                        <td id="col-principal" id="cuadro" style="text-transform:capitalize;">
+                            @if($grupos['nombre_director']!="")
+                                {{$grupos['nombre_director']}}
+                            @endif
                         </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Tipo: </th>
                         <td id="col-principal" id="cuadro" >
-                            <?php
-                                if($grupos['estado']!=0)
-                                    echo $grupos['tipo_grupo_'];
-                                else
-                                   
-                                    echo $grupos['tipo_grupo_'];
-                                          
-                            ?>    
+                                @if($grupos['estado']!=0)
+                                    {{$grupos['tipo_grupo_']}}
+                                @else
+                                    {{$grupos['tipo_grupo_']}}
+                                @endif   
                         </td>
                     </tr>
         
@@ -96,7 +94,7 @@
         
                     <tr>
                         <th id="fil-principal">Categoría</th>
-                        <td id="col-principal" id="cuadro">
+                        <td id="col-principal" id="cuadro" style="text-transform:capitalize;">
                             {{$grupos['categoria']}}
                         </td>
                     </tr>
@@ -110,7 +108,7 @@
         
                     <tr>
                         <th id="fil-principal">Email</th>
-                        <td id="col-principal" id="cuadro">
+                        <td id="col-principal" id="cuadro" style="text-transform:lowercase;">
                             {{$grupos['email']}}
                         </td>
                     </tr>
@@ -124,7 +122,7 @@
 
                     <tr>
                         <th id="fil-principal">P&aacute;gina Web</th>
-                        <td id="col-principal" id="cuadro">
+                        <td id="col-principal" id="cuadro" style="text-transform:lowecase;">
                             <a style="color:blue;" href= "<?php
                                 $url = ($grupos['pagina_web']);
                                 echo $url_actual = "http://" .parse_url($url, PHP_URL_PATH);

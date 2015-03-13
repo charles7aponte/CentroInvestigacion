@@ -82,7 +82,7 @@ class ControlInfoGrupos extends Controller {
 	public function Lineasporgrupos($id_grupo){	
 		$listaLineasGrupos=	DB::select(DB::raw("select id_lineas, nombre_linea
 				from inv_lineas il, inv_linea_grupos  ilg, inv_grupos ig
-				where ilg.inv_codigo_grupo=$id_grupo and ilg.inv_codigo_grupo=ig.codigo_grupo and ilg.inv_id_linea=il.id_lineas;")
+				where ilg.inv_codigo_grupo=$id_grupo and ilg.inv_codigo_grupo=ig.codigo_grupo and ilg.inv_id_linea=il.id_lineas and il.estado='1';")
 			);
 		return $listaLineasGrupos;
 	}

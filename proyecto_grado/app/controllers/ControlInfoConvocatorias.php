@@ -9,8 +9,11 @@ class ControlInfoConvocatorias extends Controller {
 
 	public function CargarInfoPrincipales($id_convocatoria){
 
-		$convocatorias= InvConvocatorias::find($id_convocatoria);
+		$convocatorias= InvConvocatorias::where("numero_convocatoria","=",$id_convocatoria)->where("estado1","=","1")->get();
 
+		if(count($convocatorias)>0){
+			$convocatorias=$convocatorias[0];
+		}
 
 		foreach ($this->listaEstadoProyecto as $keyestado => $integrante) {
 
