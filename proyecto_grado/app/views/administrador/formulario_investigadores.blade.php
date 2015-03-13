@@ -91,23 +91,28 @@
         <ul>
 
             @if(isset($personaiv))
+
                 <fieldset>  
                     <li><label for="cedula">C&eacute;dula:</label>
                         <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'): (isset($investigador['cedula_persona'])? $investigador['cedula_persona']:'')}}" required="required"/>
                          @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
-                    </li>    
+                    </li>
+
                     <li><label for="nombre1">Primer Nombre:</label>
-                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'): (isset($personaiv) && isset($personaiv['nombre1'])? $personaiv['nombre1']:'')}}" required="required"/>
+                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'):(isset($personaiv) && isset($personaiv['nombre1'])? $personaiv['nombre1']:'')}}" required="required"/>
                         @if ($errors->has('nombre1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre1') }}</p> @endif
                     </li>
+
                     <li><label for="nombre2">Segundo Nombre:</label>
                         <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'): (isset($personaiv) && isset($personaiv['nombre2'])? $personaiv['nombre2']:'')}}"/>
                         @if ($errors->has('nombre2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre2') }}</p> @endif
-                    </li>                   
+                    </li> 
+
                     <li><label for="apellido1">Primer Apellido:</label>
                         <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):(isset($personaiv) && isset($personaiv['apellido1'])? $personaiv['apellido1']:'')}}" required="required"/>
-                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endifirecci
+                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endif
                     </li>
+
                     <li><label for="apellido2">Segundo Apellido:</label>
                         <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'): (isset($personaiv) && isset($personaiv['apellido2'])? $personaiv['apellido2']:'')}}"/>
                         @if ($errors->has('apellido2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido2') }}</p> @endif
@@ -130,17 +135,18 @@
                     </li>
                     <li class="@if($errors->has('foto')) has-error @endif">
                         <label for="foto">Foto:</label>
-                         
-                        <div id="block1_archivo1" style="@if(!(isset($personaiv) && ( $personaiv['foto']!=""))) display:none @endif">
-                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_foto')">
-                            <a target="_blank" href="{{URL::to('archivos_db/investigadores')}}/{{$personaiv['foto']}}">Descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_foto" name="edicion_dct-foto"  value="no">
-                        </div>
+    
+                        @if(isset($personaiv) ) 
+                            <div id="block1_archivo1" style="@if(!(isset($personaiv) && ( $personaiv['foto']!=""))) display:none @endif">
+                                <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_foto')">
+                                <a target="_blank" href="{{URL::to('archivos_db/investigadores')}}/{{$personaiv['foto']}}">Descargar archivo </a>
+                                <input  type="hidden" id="id_indicador_cambio_archivo_foto" name="edicion_dct-foto"  value="no">
+                            </div>
+                        @endif
 
                         <div id="block2_archivo1" style="@if((isset($personaiv) &&  $personaiv['foto']!="")) display:none @endif"> 
-                            <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): (isset($personaiv) && isset($personaiv['foto'])? $personaiv['foto']:'')}}" />
-                            @if ($errors->has('foto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto') }}</p> @endif
-                        </div>
+                        <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): (isset($personaiv) && isset($personaiv['foto'])? $personaiv['foto']:'')}}" />
+
                     </li>
 
 

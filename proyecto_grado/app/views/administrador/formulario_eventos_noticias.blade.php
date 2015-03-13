@@ -157,7 +157,7 @@
                         <label for="dcto-even-noti">Documento:</label>
                        
                        <div id="block1_archivo1" style="@if(!(isset($evento) &&  $evento['enlace_documento']!="")) display:none @endif">
-                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_arch_evento')">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_arch_evento')">
                             <a  target="_blank" href="{{URL::to('archivos_db/eventosnoticias')}}/{{$evento['enlace_documento']}}">Descargar archivo </a>
                             <input  type="hidden" id="id_indicador_cambio_arch_evento" name="edicion_dct-evento"  value="no">
                         </div>
@@ -184,7 +184,7 @@
                 </th>
                 <th id="borrar">
                     <button id="reset-button" type="button" onclick="limpiaForm('#form-eventos-noticias')" >
-                    <img alt="mal" src="images/ml.png" width="16" height="16" />
+                    <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                     Limpiar Formulario
                 </th>
             </thead>

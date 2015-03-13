@@ -13,7 +13,7 @@ class InvProductos extends Eloquent  {
 	protected $primaryKey = "codigo_producto";
 
 
-		// reglas
+	// reglas de validacion de creacion........
 	public 	static $reglasValidacion = array(
 			'titulo-producto'        =>'required|unique:inv_productos,nombre_producto',
 			'creacion-producto'      => 'required',
@@ -23,7 +23,16 @@ class InvProductos extends Eloquent  {
 			'desc-conv' 			 => 'required',	
 			'entidad-prod'           =>'required',
 			
-		);
+	);
 
-
+	// reglas de validacion de edicion........
+	public 	static $reglasValidacionEdicion = array(
+			'titulo-producto'        =>'required',
+			'creacion-producto'      => 'required',
+			'subtipo-proy'			 => 'required', 
+			'grupo-proy' 	         => 'required',
+			'linea-proy' 	 		 => 'required',
+			'desc-conv' 			 => 'required',	
+			'entidad-prod'           =>'required',			
+	);
 }

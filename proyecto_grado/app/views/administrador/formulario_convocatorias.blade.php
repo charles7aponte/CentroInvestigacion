@@ -193,7 +193,7 @@
                         <!-- la maquetacion estilo tu lo aplicas si? SIP ok-->
                          
                         <div id="block1_archivo1" style="@if(!(isset($convocatoria) &&  $convocatoria['archivo_convocatoria']!="")) display:none @endif">
-                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_dct_conv')">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_dct_conv')">
                             <a  target="_blank" href="{{URL::to('archivos_db/convocatorias')}}/{{$convocatoria['archivo_convocatoria']}}">descargar archivo </a>
                             <input  type="hidden" id="id_indicador_cambio_archivo_dct_conv" name="edicion_dct-conv"  value="no">
                         </div>
@@ -208,16 +208,15 @@
                     </li> 
 
                     <li class="@if($errors->has('img-conv')) has-error @endif">
-
+                        <label for="dcto-conv">Imagen:</label>
 
                         <div id="block1_archivo2" style="@if(!(isset($convocatoria) &&  $convocatoria['archivo_imagen']!="")) display:none @endif">
-                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img_conv')">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img_conv')">
                             <a  target="_blank" href="{{URL::to('archivos_db/convocatorias')}}/{{$convocatoria['archivo_imagen']}}">descargar archivo </a>
                             <input  type="hidden" id="id_indicador_cambio_archivo_img_conv" name="edicion_img-conv"  value="no">
                         </div>
 
                         <div id="block2_archivo2" style="@if((isset($convocatoria) &&  $convocatoria['archivo_imagen']!="")) display:none @endif">
-                            <label for="img-conv">Imagen: </label>
                             <input type="file" id="img-conv" name="img-conv" value="{{ Input::old('img-conv')!=null? Input::old('img-conv'): (isset($convocatoria['archivo_imagen'])? $convocatoria['archivo_imagen']:'')}}" />
                             @if ($errors->has('imf-conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img-conv') }}</p> @endif
                          </div>
@@ -239,7 +238,7 @@
                     </th>
                     <th id="borrar">
                         <button id="reset-button" type="button" onclick="limpiaForm('#form-convocatorias')" >
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                         Limpiar Formulario
                     </th>
                 </thead>

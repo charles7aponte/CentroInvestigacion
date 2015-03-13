@@ -1,4 +1,6 @@
 var jsonIntegrante=null;
+var Idproducto=null;
+var IdIntegrante=null;
 
 
 
@@ -137,24 +139,67 @@ $("#guardar-cambios").click(function(){
             }
             
 	}
-   }
+}
 
 
 
 /******
 *** elimina la fila del la table
  **********/
- function eliminarFila(elemento){
+function eliminarFila(elemento){
 
  	$fila = $(elemento).parent().parent();
 
  	$fila.remove();
 
  	return false;
- }   
+}   
 
+function eliminarintegrantemodal(){
 
+    $.ajax(
+            {
+                type:"GET" 
+                ,url:URL_SERVIDOR+"/formularioproductos/eliminarintegrante/"+Idproducto+"/"+IdIntegrante+"/",   
+                success: function(result){       
 
-    function split( val ) {
+                   
+                    if(result && result.respuesta)
+                    {
+                        $fila = $("#integrantemodal_"+IdIntegrante);
+                        $fila.remove();
+
+                    }    
+                    else{
+
+                        alert("El integrante no ha sido eliminado.");
+                    }
+            }
+            ,error:function(){
+
+                alert("El servidor ha fallado intentalo nuevamente.");
+            }
+            ,dataType:'json'
+        });
+
+      $("#eliminar-confirmar").modal('hide');  
+
+   /*
+
+    return false;*/
+} 
+
+function eliminarModalIntegranteProducto(idproducto,idintegrante){
+
+    Idproducto=idproducto;
+    IdIntegrante=idintegrante;
+    
+
+  $("#eliminar-confirmar").modal('show');
+
+return false;
+} 
+
+function split( val ) {
       return val.split( /,\s*/ );
-    }
+}

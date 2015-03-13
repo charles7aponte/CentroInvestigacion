@@ -125,6 +125,10 @@ Route::get('formularioproyectos/eliminarintegrante/{idproyecto}/{idintegrante}',
 
 Route::get('formulariofinanciamiento/edit/{id}','ControlFinanciamiento@cargarEditar');
 
+Route::get('formularioproductos/edit/{id}','ControlProductos@cargarEditar');
+//--------------eliminar de los modales del formulario productos-------------------
+Route::get('formularioproductos/eliminarintegrante/{idproducto}/{idintegrante}','ControlProductos@EliminarIntegrantesProductos');
+
 
 
 /***********   Creacion de formularios (almacenando en la bd) -----------
@@ -179,6 +183,8 @@ Route::post('edicion/formularioinvestigadores','ControlInvestigadores@guardarEdi
 Route::post('edicion/formularioproyectos','ControlProyectos@guardarEdicion');
 
 Route::post('edicion/formulariofinanciamiento','ControlFinanciamiento@guardarEdicion');
+
+Route::post('edicion/formularioproductos','ControlProductos@guardarEdicion');
 
 
 /**********-------------listas de cada tema -------------

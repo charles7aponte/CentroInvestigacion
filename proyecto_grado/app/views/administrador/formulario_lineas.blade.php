@@ -124,8 +124,8 @@
                         <label for="archivo-linea">Ruta archivo: </label>
                        
                        <div id="block1_archivo1" style="@if(!(isset($linea) &&  $linea['ruta_archivo']!="")) display:none @endif">
-                            <input type="button" value="eliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_arch_linea')">
-                            <a  target="_blank" href="{{URL::to('archivos_db/lineas')}}/{{$linea['ruta_archivo']}}">descargar archivo </a>
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_arch_linea')">
+                            <a  target="_blank" href="{{URL::to('archivos_db/lineas')}}/{{$linea['ruta_archivo']}}">Descargar Archivo </a>
                             <input  type="hidden" id="id_indicador_cambio_arch_linea" name="edicion_dct-linea"  value="no">
                         </div>
 
@@ -156,7 +156,7 @@
                     </th>
                     <th id="borrar">
                         <button id="reset-button" type="button" onclick="limpiaForm('#form-lineas')" >
-                        <img alt="mal" src="images/ml.png" width="16" height="16" />
+                        <img alt="mal" src="{{URL::to('/images/ml.png')}}" width="16" height="16" />
                         Limpiar Formulario
                     </th>
                 </thead>
