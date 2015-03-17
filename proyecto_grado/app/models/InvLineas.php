@@ -25,7 +25,7 @@ class InvLineas extends Eloquent  {
 	// reglas validacion edicion
 
 	public 	static $reglasValidacionEdicion = array(
-			'nombre-linea'             =>'required|max:100|unique:inv_lineas,nombre_linea', 
+			'nombre-linea'             =>'required|max:100', 
 			'coor-linea'            => 'required|max:50', 	
 			'objetivo-estulinea'     => 'required',
 				

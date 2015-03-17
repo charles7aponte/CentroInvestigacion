@@ -33,7 +33,7 @@ $("#guardar-cambios1").click(function(){
 		source:function(request, response)
         {
 
-            $.getJSON(URL_SERVIDOR +"/servicios/personas/"+request.term,{ 
+            $.getJSON(URL_SERVIDOR +"/servicios/lineas/"+request.term,{ 
            //term:  ( request.term )
             },response);//fin get JSON
 

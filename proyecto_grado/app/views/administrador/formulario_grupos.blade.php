@@ -175,15 +175,15 @@
                       <label for="unidad">Unidad academica:</label>
                         <select required="required" name="unidad" value="{{Input::old('unidad')!=null? Input::old('unidad'): (isset($grupos['unidad_academica'])? $grupos['unidad_academica']:'')}}">
 
-                          @foreach ($tipo_unidad_academica as $elemento)
-
-                            @if(isset($grupos['unidad_academica']) && $elemento==$grupos['unidad_academica'])
-                                <option value="{{$elemento}}" selected>{{$elemento}}</option>
-                            @else 
-                                <option value="{{$elemento}}">{{$elemento}}</option>
-                            @endif         
-                          @endforeach
-
+                            @if(isset($unidades))
+                                @foreach($unidades as $unidad)
+                                  @if(isset($grupos['inv_unidad_academica']) && $unidad['id_unidad'] == $grupos['inv_unidad_academica'])
+                                    <option value="{{$unidad['id_unidad']}}" selected> {{$unidad['nombre_unidad']}}</option>
+                                  @else 
+                                    <option value="{{$unidad['id_unidad']}}"> {{$unidad['nombre_unidad']}}</option>
+                                  @endif
+                                @endforeach
+                            @endif    
                         </select>
                          @if ($errors->has('unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('unidad') }}</p>@endif                        
                     </li>

@@ -19,7 +19,7 @@ class InvGrupos extends Eloquent  {
 			'coord'         => 'required|max:50|', 	
 			'objetivos'     => 'required',
 			'categoria'		=>'max:30|required',
-			'unidad'		=>'required|max:100',			
+			'unidad'		=>'required|max:255',			
 	);
 
 	// reglas validacion edicion
@@ -29,7 +29,7 @@ class InvGrupos extends Eloquent  {
 			'coord'         => 'required|max:50|', 	
 			'objetivos'     => 'required',
 			'categoria'		=>'max:30|required',
-			'unidad'		=>'required|max:100',			
+			'unidad'		=>'required|max:255',			
 	);
 
 

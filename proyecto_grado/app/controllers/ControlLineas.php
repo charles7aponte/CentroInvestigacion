@@ -13,7 +13,8 @@ class ControlLineas extends Controller {
 		$coordinador=Input::get('cedula-persona');
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
-		$definicion=Input::get('defi-linea');	
+		$definicion=Input::get('defi-linea');
+
 		//$archivo=Input::get('archivo-linea');
 		$nombreNuevo="";
 
@@ -30,6 +31,10 @@ class ControlLineas extends Controller {
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
+		$entidad->foto_linea="";
+
+		$entidad->inv_unidad_academica="1";
+
 
 			// mensaje a mostrar
 			$messages = array(
