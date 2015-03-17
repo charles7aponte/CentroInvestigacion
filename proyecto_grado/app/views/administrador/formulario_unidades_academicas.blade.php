@@ -52,8 +52,7 @@
 
                     <li class="@if($errors->has('descripcion_unidad')) has-error @endif">
                         <label for="descripcion_unidad">Descripción:</label>
-                        <textarea id="descripcion_unidad" name="descripcion_unidad">
-                        </textarea>
+                        <textarea id="descripcion_unidad" name="descripcion_unidad"></textarea>
                          @if ($errors->has('descripcion_unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('descripcion_unidad') }}</p> @endif
                     </li>
                 </fieldset> 
