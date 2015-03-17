@@ -60,7 +60,9 @@
         @endif
 
             <div id="titulo-productos" id="cuadro"> 
-                <h2> {{$productos['nombre_producto']}}</h2>  
+                @if(isset($productos) && $productos!=null && isset($productos['nombre_producto']))
+                <h2> {{$productos['nombre_producto']}}</h2> 
+                @endif 
             </div>
 
             <table class="tabla-infgrupos">
@@ -79,6 +81,15 @@
 
                 <tbody>
                     <tr>
+                        <th id="fil-principal">. </th>
+                        <td id="col-principal" id="cuadro">
+                            @if(isset($lista_subtipo) && $lista_subtipo!=null && isset($lista_subtipo['nombre_subtipo_producto']))
+                             {{$lista_subtipo['nombre_subtipo_producto']}}
+                             @endif
+                        </td>
+                    </tr>
+
+                    <tr>
                         <th id="fil-principal">Fecha </th>
                         <td id="col-principal" id="cuadro">
                               <?php 
@@ -86,7 +97,7 @@
                                 {
                                     
                                     $fecha= new DateTime($productos['fecha_producto']);
-                                     echo $fecha->format(' d')." de ".$fecha->format('m')." ".$fecha->format('Y'); 
+                                     echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y'); 
                                 }
                               ?>
                         </td>
@@ -95,29 +106,28 @@
                     <tr>
                         <th id="fil-principal">Tipo </th>
                         <td id="col-principal" id="cuadro">
-                             {{$productos['codigo_producto']}}
+                            @if(isset($lista_tipos) && $lista_tipos!=null && isset($lista_tipos['nombre_tipo_producto']))
+                             {{$lista_tipos['nombre_tipo_producto']}}
+                            @endif 
                         </td>
                     </tr>
-
-                    <tr>
-                        <th id="fil-principal">Subtipo </th>
-                        <td id="col-principal" id="cuadro">
-                             {{$productos['codigo_producto']}}
-                        </td>
-                    </tr>
-
         
                     <tr>
                         <th id="fil-principal">Grupo principal asociado</th>
                         <td id="col-principal" id="cuadro">
-                             {{$productos['nombre_producto']}}
+                            @if(isset($lista_grupos) && $lista_grupos!=null && isset($lista_grupos['nombre_grupo']))
+                             {{$lista_grupos['nombre_grupo']}}
+                            @endif
+
                         </td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">L&iacute;nea asociada</th>
                         <td id="col-principal" id="cuadro">
-                             {{$productos['codigo_producto']}}
+                            @if(isset($lista_lineas) && $lista_lineas!=null && isset($lista_lineas['nombre_linea']))
+                             {{$lista_lineas['nombre_linea']}}
+                            @endif 
                         </td>
                     </tr>
 
@@ -138,7 +148,9 @@
                     <tr>
                         <th id="fil-principal">Entidad vinculada</th>
                         <td id="col-principal" id="cuadro">
-                             {{$productos['entidad']}}  
+                            @if(isset($lista_entidades) && $lista_entidades!=null && isset($lista_entidades['razon_social']))
+                             {{$lista_entidades['razon_social']}} 
+                            @endif  
                         </td>
                     </tr>
 

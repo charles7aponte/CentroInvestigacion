@@ -6,6 +6,16 @@ CREATE TABLE inv_tipo_grupos
   CONSTRAINT inv_tipo_grupos_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE inv_unidades_academicas
+(
+  id_unidad integer NOT NULL,
+  nombre_unidad character varying(255) NOT NULL, 
+  inv_cedula_coordinador bigint NOT NULL,
+  descripcion text,
+  CONSTRAINT inv_tipo_grupos_pkey PRIMARY KEY (id),
+  CONSTRAINT inv_cedula_coordinador_fkey FOREIGN KEY (inv_cedula_coordinador) REFERENCES persona  ON DELETE CASCADE ON UPDATE CASCADE 
+);
+
 
 CREATE TABLE inv_grupos
 (
@@ -13,7 +23,7 @@ CREATE TABLE inv_grupos
   inv_tipo_grupos integer NOT NULL,
   nombre_grupo text NOT NULL,
   director_grupo character varying(100) NOT NULL,
-  unidad_academica character varying(100) NOT NULL,
+  inv_unidad_academica integer NOT NULL,
   categoria character varying(30) NOT NULL,
   objetivos text NOT NULL,
   ano_creacion date NOT NULL,
@@ -26,21 +36,26 @@ CREATE TABLE inv_grupos
   imagen1 text,
   imagen2 text,
   logo_grupo text NOT NULL,
+  estado_activacion char default 1,
   CONSTRAINT inv_grupos_pkey PRIMARY KEY (codigo_grupo),
-  CONSTRAINT inv_tipo_grupos_fkey FOREIGN KEY (inv_tipo_grupos) REFERENCES inv_tipo_grupos  ON DELETE CASCADE ON UPDATE CASCADE 
+  CONSTRAINT inv_tipo_grupos_fkey FOREIGN KEY (inv_tipo_grupos) REFERENCES inv_tipo_grupos  ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT inv_unidad_academica_fkey FOREIGN KEY (inv_unidad_academica) REFERENCES inv_unidades_academicas  ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
 CREATE TABLE inv_lineas
 (
   id_lineas serial NOT NULL,
+  inv_unidad_academica integer NOT NULL,
   nombre_linea character varying(100) NOT NULL,
   definicion_linea text,
   coordinador_linea character varying(50) NOT NULL,
   objetivo_estudio text NOT NULL,
   objetivo_linea text,
   ruta_archivo text,
+  foto_linea text NOT NULL,
   estado char default 1,
   CONSTRAINT inv_lineas_pkey PRIMARY KEY (id_lineas)
+  CONSTRAINT inv_unidad_academica_fkey FOREIGN KEY (inv_unidad_academica) REFERENCES inv_unidades_academicas  ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
 CREATE TABLE inv_sublineas
@@ -123,7 +138,7 @@ CREATE TABLE inv_tipo_productos
   id_tipo_producto serial NOT NULL,
   nombre_tipo_producto text NOT NULL,
   descripcion_producto text,
-   estado character(1) DEFAULT 1,
+  estado character(1) DEFAULT 1,
   CONSTRAINT inv_tipo_productos_pkey PRIMARY KEY (id_tipo_producto)
 );
 
@@ -133,7 +148,7 @@ CREATE TABLE inv_subtipo_productos
   inv_id_tipo_producto integer NOT NULL,
   nombre_subtipo_producto text NOT NULL,
   descripcion_subtipo_producto text,
-   estado character(1) DEFAULT 1,
+  estado character DEFAULT 1,
   CONSTRAINT inv_subtipo_productos_pkey PRIMARY KEY (id_subtipo_producto),
   CONSTRAINT inv_id_tipo_producto_fkey FOREIGN KEY (inv_id_tipo_producto) REFERENCES inv_tipo_productos ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -153,7 +168,6 @@ CREATE TABLE inv_productos
   soporte_producto text,
   tipo_soporte character varying(100),
   foto_producto text,
-  estado character(1) DEFAULT 1,
   CONSTRAINT inv_productos_pkey PRIMARY KEY (codigo_producto),
   CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos (codigo_grupo) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas (id_lineas) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
@@ -173,7 +187,7 @@ CREATE TABLE inv_investigadores_externos
   numerocontrato character varying(100),
   fecha_inicio date,
   fecha_fin date,
-  estado char default 1,
+  link_cvlac text NOT NULL,
   CONSTRAINT inv_investigadores_externos_pkey PRIMARY KEY (codinv_ext),
   CONSTRAINT inv_cedula_persona_fkey FOREIGN KEY (cedula_persona) REFERENCES  persona ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT inv_codperfil_fkey FOREIGN KEY (codperfil) REFERENCES  perfil ON DELETE CASCADE ON UPDATE CASCADE
