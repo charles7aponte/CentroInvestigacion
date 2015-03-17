@@ -451,7 +451,6 @@
 
               <li class="@if($errors->has('img1')) has-error @endif">
                       <label for="afiche">Imagen1:</label>
-
                         <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
                             <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img1')">
                             <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['imagen1']}}">descargar archivo </a>
@@ -459,10 +458,9 @@
                         </div>
 
                         <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
-                            <label for="img1">Imagen 1: </label>
                             <input type="file" id="img1" name="img1" value="{{ Input::old('img1')!=null? Input::old('img1'): (isset($grupos['imagen1'])? $grupos['imagen1']:'')}}" />
                             @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> @endif
-                         </div>
+                        </div>
               </li> 
 
               <li class="@if($errors->has('img2')) has-error @endif">
@@ -475,10 +473,9 @@
                         </div>
 
                         <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
-                            <label for="img2">Imagen 2: </label>
                             <input type="file" id="img2" name="img2" value="{{ Input::old('img2')!=null? Input::old('img2'): (isset($grupos['imagen2'])? $grupos['imagen2']:'')}}" />
                             @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> @endif
-                         </div>
+                        </div>
               </li> 
           </fieldset> 
         </ul>   

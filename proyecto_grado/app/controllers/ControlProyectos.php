@@ -135,10 +135,7 @@ class ControlProyectos extends Controller {
 					
 						return Redirect::to('formularioproyectos')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El proyecto ha sido creado.");
-			
-				
-			
+								->with('mensaje_success',"El proyecto ha sido creado.");	
 			}
 
 		}
