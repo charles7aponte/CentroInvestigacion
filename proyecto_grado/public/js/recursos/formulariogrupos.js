@@ -8,22 +8,22 @@ var IdLinea=null;
 $(document).ready(function(){
 
 
-$("#bton_integrantes-grupos").click(function(){
+    $("#bton_integrantes-grupos").click(function(){
 
-	generaFilaPersona(jsonIntegrante,"integrantes");
+	   generaFilaPersona(jsonIntegrante,"integrantes");
 
-
-
-});
+    });
 
 
 $("#integrantes-grupos").keyup(function(e){
 	//console.log(e);
-    if(e.which!=13)            
-        $("#bton_integrantes-grupos").hide();
-    }
+        if(e.which!=13)            
+        {
+          $("#bton_integrantes-grupos").hide();  
+        } 
+    });
 
-});
+
 
 
 
@@ -70,7 +70,7 @@ $("#guardar-cambios").click(function(){
         .append( "<a>" + item.nombre + "<br>" + item.cedula + "</a>" )
         .appendTo( ul );
     };
-	;// fin defincion de autocompletado
+    // fin defincion de autocompletado
 
 
 });
