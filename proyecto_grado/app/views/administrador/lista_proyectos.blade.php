@@ -31,10 +31,10 @@
                 <b>{{$campo['codigo_proyecto']}}</b>
               </td> 
               <td>
-                <a href="">{{$campo['nombre_proyecto']}}</a>
+                <a href="{{URL::to('proyecto/id')}}/{{$campo['codigo_proyecto']}}">{{$campo['nombre_proyecto']}}</a>
               </td>
               <td style="width:90px;">
-                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                <a href="formularioproyectos/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>

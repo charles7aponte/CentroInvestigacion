@@ -41,7 +41,7 @@
                  {{$lista_proyecto_grupo->codigo_proyecto}}
                 </td> 
                 <td style="text-align:left; margin-right:3px;">
-                  <a href="">{{$lista_proyecto_grupo->nombre_proyecto}}</a>
+                  <a href="{{URL::to('/')}}/proyecto/id/{{$lista_proyecto_grupo->codigo_proyecto}}">{{$lista_proyecto_grupo->nombre_proyecto}}</a>
                 </td> 
               </tr>
             @endforeach

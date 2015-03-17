@@ -2,8 +2,8 @@
 
 @section('cuerpo')
 
-  <form id="form-proyectolineas" class="gradient">
-      @if(count($lista_proyectos_lineas)<=0)
+  <form id="form-proyectolinea" class="gradient">
+      @if(count($lista_proyectos_convocatorias)<=0)
         <fieldset style="margin-bottom: 2px;
           margin-top: 5px;
           padding: 2px;">
@@ -11,17 +11,17 @@
         </fieldset>
       @endif
           
-    <div id="titulo-listaproyectolinea" id="cuadro">
-      @if($lista_proyectos_lineas &&  count($lista_proyectos_lineas)>0) 
-        <h2>{{$lista_nombre_lineas['nombre_linea']}}</h2>
+    <div id="titulo-listaproductolinea" id="cuadro">
+      @if($lista_proyectos_convocatorias &&  count($lista_proyectos_convocatorias)>0) 
+        <h2>{{$lista_convocatorias['titulo_convocatoria']}}</h2>
         @else <p></p>
       @endif  
     </div>
 
     <div id="tabla-listaproyectogrupos">
-      <table id="listagrupos" style="border:none;">
+      <table id="listagrupos">
         <thead>
-          <tr><th colspan="4" style=" border-radius: 5px; background: #286388;
+          <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
                   background: -webkit-linear-gradient(top,#286388,#122d3e);
                   background: -moz-linear-gradient(top,#286388,#122d3e);
                   background: -o-linear-gradient(top,#286388,#122d3e);  
@@ -31,26 +31,29 @@
               </tr>
           <tr>
             <th>ID</th>
-            <th colspan="3">NOMBRE DEL PROYECTO</th>
+            <th>NOMBRE DEL PROYECTO</th>
+            <th style=" text-align:center; margin-right:13px;">ESTADO</th>
           </tr>
         </thead>
           <tbody>
-            @foreach($lista_proyectos_lineas as $lista_proyectos_lineas)
+            @foreach($lista_proyectos_convocatorias as $lista_proyecto_convocatoria)
               <tr >
                 <td style="width:70px;">
-                 {{$lista_proyectos_lineas->codigo_proyecto}}
+                 {{$lista_proyecto_convocatoria->codigo_proyecto}}
                 </td> 
-                <td style="text-align:left; margin-right:3px;">
-                  <a href="{{URL::to('/')}}/proyecto/id/{{$lista_proyectos_lineas->codigo_proyecto}}">{{$lista_proyectos_lineas->nombre_proyecto}}</a>
+                <td style="text-align:left; width:500px;">
+                  <a href="">{{$lista_proyecto_convocatoria->nombre_proyecto}}</a>
                 </td> 
+                <td style="width:120px; text-align:center;">
+                  {{$lista_proyecto_convocatoria->estado_proyecto}}
+                </td>
               </tr>
             @endforeach
           </tbody>
       </table>      
-      <div style="margin-left:30px; margin-right:30px;"> 
-        {{$links}}
-         
-      </div>
+    <div style="margin-left:30px; margin-right:30px;"> 
+      {{$links}} 
+    </div>
     </div>
   </form>
 @stop

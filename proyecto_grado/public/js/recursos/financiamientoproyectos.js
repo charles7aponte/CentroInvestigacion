@@ -18,7 +18,9 @@ var idP= $("#nombre_proyecto1").val();
                      {
 
                       total+=parseFloat(result[i].valor_financiado);
+                      
                       console.log(total);
+
                       mihtml+= crearfilafinanciamientoproyecto(result[i]);
                       
                      }

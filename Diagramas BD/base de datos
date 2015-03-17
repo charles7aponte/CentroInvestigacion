@@ -26,7 +26,6 @@ CREATE TABLE inv_grupos
   imagen1 text,
   imagen2 text,
   logo_grupo text NOT NULL,
-  estado char default 1, 
   CONSTRAINT inv_grupos_pkey PRIMARY KEY (codigo_grupo),
   CONSTRAINT inv_tipo_grupos_fkey FOREIGN KEY (inv_tipo_grupos) REFERENCES inv_tipo_grupos  ON DELETE CASCADE ON UPDATE CASCADE 
 );
@@ -73,7 +72,7 @@ CREATE TABLE inv_convocatorias
   titulo_convocatoria text NOT NULL,
   fecha_apertura date NOT NULL,
   fecha_cierre date NOT NULL,
-  cuantia real NOT NULL,
+  cuantia character varying(80) NOT NULL,
   descripcion_convocatoria text NOT NULL,
   email character varying(60) NOT NULL,
   telefono_contacto character varying(20),
@@ -88,7 +87,7 @@ CREATE TABLE inv_convocatorias
 CREATE TABLE inv_proyectos
 (
   codigo_proyecto serial NOT NULL,
-  inv_numero_convocatoria character varying(255) NOT NULL,
+  inv_numero_convocatoria character varying(50) NOT NULL,
   inv_id_linea integer NOT NULL,
   inv_codigo_grupo integer NOT NULL,
   nombre_proyecto text NOT NULL,
@@ -99,7 +98,6 @@ CREATE TABLE inv_proyectos
   fecha_proyecto date NOT NULL,
   grupo_auxiliar text,
   estado_proyecto character varying(30) NOT NULL,
-  estado char default 1,
   CONSTRAINT inv_proyectos_pkey PRIMARY KEY (codigo_proyecto),
   CONSTRAINT inv_numero_convocatoria_fkey FOREIGN KEY (inv_numero_convocatoria) REFERENCES inv_convocatorias ON DELETE CASCADE ON UPDATE CASCADE, 
   CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas ON DELETE CASCADE ON UPDATE CASCADE,
@@ -112,10 +110,9 @@ CREATE TABLE inv_financiacion
   inv_codigo_proyecto integer NOT NULL,
   inv_nit_empresa integer NOT NULL,
   fecha date,
-  valor_financiado real NOT NULL,
+  valor_financiado character varying(80) NOT NULL,
   descripcion_financiamiento text,
   modo_financiamiento character varying(10) NOT NULL,
-  estado char default 1,
   CONSTRAINT inv_financiacion_pkey PRIMARY KEY (id_financiacion),
   CONSTRAINT inv_codigo_proyecto_fkey FOREIGN KEY (inv_codigo_proyecto) REFERENCES inv_proyectos ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT inv_nit_empresa_fkey FOREIGN KEY (inv_nit_empresa) REFERENCES empresa ON DELETE CASCADE ON UPDATE CASCADE
@@ -126,6 +123,7 @@ CREATE TABLE inv_tipo_productos
   id_tipo_producto serial NOT NULL,
   nombre_tipo_producto text NOT NULL,
   descripcion_producto text,
+   estado character(1) DEFAULT 1,
   CONSTRAINT inv_tipo_productos_pkey PRIMARY KEY (id_tipo_producto)
 );
 
@@ -135,6 +133,7 @@ CREATE TABLE inv_subtipo_productos
   inv_id_tipo_producto integer NOT NULL,
   nombre_subtipo_producto text NOT NULL,
   descripcion_subtipo_producto text,
+   estado character(1) DEFAULT 1,
   CONSTRAINT inv_subtipo_productos_pkey PRIMARY KEY (id_subtipo_producto),
   CONSTRAINT inv_id_tipo_producto_fkey FOREIGN KEY (inv_id_tipo_producto) REFERENCES inv_tipo_productos ON DELETE CASCADE ON UPDATE CASCADE
 );

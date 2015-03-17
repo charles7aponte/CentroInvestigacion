@@ -81,6 +81,26 @@ fieldset#secundario{
 }
 /*fin ficha grupos*/
 
+/*css propio de la ficha proyectos*/
+.infproyectos fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;
+}
+
+.infproyectos .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+.infproyectos .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+/*fin ficha proyectos*/
 
 /*css propio de la ficha persona*/
 #marco-persona{

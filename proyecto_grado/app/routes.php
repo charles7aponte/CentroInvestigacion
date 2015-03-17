@@ -111,6 +111,8 @@ Route::get('formularioeventosnoticias/edit/{id}','ControlEventosNoticias@cargarE
 
 Route::get('formulariogrupos/edit/{id}','ControlGrupos@cargarEditar');
 
+Route::get('formularioproyectos/edit/{id}','ControlConvocatorias@cargarEditar');
+
 //--------------eliminar de los modales del formulario grupos servicios de eliminar-------------------
 Route::get('formulariogrupos/eliminarintegrante/{idgrupo}/{idintegrante}','ControlGrupos@EliminarIntegrantesGrupos');
 
@@ -241,7 +243,8 @@ Route::get('listaproyectoslineas/linea/{idlinea}','ControlInfoListasLineas@Const
 
 Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
 
-//personas
+//convocatorias
+Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');
 
 
 /***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)

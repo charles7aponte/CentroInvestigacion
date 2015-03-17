@@ -16,7 +16,7 @@ class ControlInfoGrupos extends Controller {
 		// recibimos el id con la variable de arriba
 		
 		$grupos= InvGrupos::find($id_grupo)	;
-//validamos si existe el grupo si no no realizamos nada .. desde el blade se valida para mostra un mensaje
+
 		 if($grupos)
 		 {
 		 	

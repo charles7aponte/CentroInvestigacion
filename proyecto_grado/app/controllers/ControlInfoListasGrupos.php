@@ -24,7 +24,7 @@ class ControlInfoListasGrupos extends Controller {
 		{
 			$listaintegrantesgrupos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteGrupos)
 							->whereIn("cedula",$invPerfil )	//ahora deben estar en las dos listas y usamos esa consulta q la tenimaos pendiente
-							->paginate(2);
+							->paginate(20);
 		}
 	
 

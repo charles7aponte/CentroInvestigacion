@@ -53,13 +53,13 @@
                 <tbody>
 
                     <tr>
-                        <th id="fil-principal">A&ntilde;o de Creaci&oacute;n</th>
+                        <th id="fil-principal">Fecha de Creaci&oacute;n</th>
                         <td id="col-principal" id="cuadro">
                               <?php 
                                 if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
                                 {
                                     $fecha= new DateTime($grupos['ano_creacion']);
-                                      echo $fecha->format(' d')." -".$fecha->format('m')." -".$fecha->format('Y');
+                                      echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
                                 }
                               ?>
                         </td>

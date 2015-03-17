@@ -141,7 +141,7 @@
                 <tr>
                     <th id="fil-principal">Documento de la Convocatoria</th>
                     <td class="documento-conv" id="col-principal" id="cuadro">
-                      @if(isset($convocatorias) && $convocatorias!=null && isset($convocatorias['archivo_convocatoria']))
+                      @if(isset($convocatorias) && $convocatorias!=null && $convocatorias['archivo_convocatoria']!=null)
                           <a href="{{URL::to('archivos_db/convocatorias/')}}/{{$convocatorias['archivo_convocatoria']}}" target="_blank"><i class="glyphicon glyphicon-file"></i> Archivo ({{$convocatorias['archivo_convocatoria']}})</a>
                        @endif
 
@@ -180,7 +180,7 @@
       <div id="producto">
           <div class="list-group">
                 <!-- aprobados -->
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Aprobado"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                     {{$Lista_estadoproyectos["Aprobado"]}}
@@ -190,7 +190,7 @@
                 </a>  
                 
                 <!-- rechazados -->
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["evaluacion"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                     {{$Lista_estadoproyectos["evaluacion"]}}
@@ -200,7 +200,7 @@
                 </a>  
                 
                 <!-- Rechazados -->
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Rechazado"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                         {{$Lista_estadoproyectos["Rechazado"]}}
@@ -211,5 +211,6 @@
           </div>
       </div>
     </fieldset>
+
 </div>       
 @stop
