@@ -65,6 +65,7 @@ class ControlInfoProyectos extends Controller {
 
 		$datos = array('proyectos' =>$proyectos,
 						'Lista_integrantes'=>$this->listaIntegrantesProyectos,
+						'Lista_perfiles' =>$this->idperfiles,
 					    'grupos'  =>$grupos,
 					    'grupos_auxiliares'  =>$grupos1,
 					    'lineas'  =>$lineas, 

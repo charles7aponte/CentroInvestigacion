@@ -174,7 +174,7 @@
         </div>
         <div id="lista_integrantes" class="lista-integrantes">
             <ul class="list-group">
-                <a href="{{URL::to('/')}}">  
+                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
                     <li class="list-group-item">
                     <span class="badge" id="total">
                     {{$Lista_integrantes["Docente"]}}

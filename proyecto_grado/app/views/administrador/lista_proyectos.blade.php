@@ -11,7 +11,7 @@
   <div id="tabla-listaproyectos">
       <table id="listaproyectos">
         <thead>
-          <tr><th colspan="4"  style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="5"  style=" border-radius: 5px; background: #1A6D71;
               background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
               background: -moz-linear-gradient(top,#1A6D71,#122d3e);
               background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -19,7 +19,7 @@
               filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">PROYECTOS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="3">NOMBRE DEL PROYECTO</th>
+            <th colspan="4">NOMBRE DEL PROYECTO</th>
           </tr>
         </thead>
 
@@ -35,6 +35,9 @@
               </td>
               <td style="width:90px;">
                 <a href="formularioproyectos/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+              </td>
+              <td style="width:100px;">
+                <a href="formulariofinanciamiento/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar Financiamiento</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>

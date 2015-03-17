@@ -236,7 +236,10 @@ Route::get('listaintegrantesgrupos/grupo/{idgrupo}/perfil/{idperfil}','ControlIn
 
 Route::get('listaproductosgrupos/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','ControlInfoListasGrupos@ContruirListaProductosGrupos');
 
+//proyectos
 Route::get('listaproyectosgrupos/grupo/{idgrupo}','ControlInfoListasGrupos@ConstruirListaProyectosGrupos');
+
+Route::get('listaintegrantesproyectos/proyecto/{idproyecto}/perfil/{idperfil}','ControlInfoListasProyectos@ConstruirListaIntegrantesProyectos');
 
 //lineas
 Route::get('listaproyectoslineas/linea/{idlinea}','ControlInfoListasLineas@ConstruirListaProyectosLineas');
