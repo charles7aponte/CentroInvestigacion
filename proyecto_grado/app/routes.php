@@ -26,6 +26,7 @@ Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 /*---------------eliminar grupo----------------*/
 Route::get('formulariogrupos/eliminar/{id}','ControlGrupos@EliminarFormularioGrupo');
 
+Route::get('formulariounidadesacademicas','ControlUnidadesAcademicas@cargarFormularioUnidades');
 
 /*---------------crear sublinea-----------------*/
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
@@ -152,6 +153,9 @@ Route::post('creacion/formulariotipogrupos', 'ControlTipoGrupos@CrearFormulario'
 Route::post('creacion/formulariolineas', 'ControlLineas@CrearFormulario');
 
 Route::post('creacion/formulariosublineas', 'ControlSublineas@CrearFormulario');
+
+//creacion de unidades 
+Route::post('creacion/formulariounidadesacademicas', 'ControlUnidadesAcademicas@CrearFormulario');
 
 //creacion proyectos y financiamientos
 

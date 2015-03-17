@@ -99,6 +99,12 @@
                             </span> 
                          @if ($errors->has('coor-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('coor-linea') }}</p> @endif
                     </li>
+                    <li>
+                        <label for="unidad-linea">Unidad Académica</label>
+                            <select required="required" id="unidades-linea" name="unidades-linea">
+                                
+                            </select>
+                    </li>
 
                     <li class="@if($errors->has('objetivo-linea')) has-error @endif">
                         <label for="objetivo-linea">Objetivo de la l&iacute;nea:</label>
