@@ -42,6 +42,7 @@ $(document).ready(function(){
 
     cargar("coord", "cedula-persona");
     cargar("coor-linea", "cedula-persona");
+    cargar("coor-unidad", "cedula-persona")
 });
 
 

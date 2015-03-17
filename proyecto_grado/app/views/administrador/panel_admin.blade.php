@@ -133,14 +133,21 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<a href="{{URL::to('/')}}/administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>
-		
+		<a href="{{URL::to('/')}}/administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>		
+	
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariogrupos')}}">Agregar nuevo grupo</a></li>
 			<li class=""><a href="{{URL::to('listadegrupos')}}">Ver/Editar un grupo</a></li>
 			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
+
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Unidades</h3>
+			<ul class="toggle">
+				<li class=""><a href="{{URL::to('formulariounidadesacademicas')}}">Agregar nueva unidad académica</a></li>
+			</ul>
+		</h3>
+		
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariolineas')}}">Agregar nueva l&iacute;nea</a></li>

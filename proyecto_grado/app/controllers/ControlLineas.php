@@ -15,6 +15,7 @@ class ControlLineas extends Controller {
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');	
 		//$archivo=Input::get('archivo-linea');
+		$unidad_academica=Input::get('unidades-linea');
 		$nombreNuevo="";
 
 		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
@@ -30,6 +31,7 @@ class ControlLineas extends Controller {
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
+		$entidad->inv_unidad_academica=$unidad_academica;
 
 			// mensaje a mostrar
 			$messages = array(
@@ -96,6 +98,19 @@ class ControlLineas extends Controller {
 					}
 			}
 
+
+			public function cargarFormularioLinea(){
+
+				$listaunidades = InvUnidadesAcademicas::where("estado","=","1")->get();
+
+				$datos=  array(
+					'unidades' =>$listaunidades);
+
+			 	return View::make('administrador/formulario_lineas',$datos); 
+
+
+			}//
+			
 			public function buscarlineaPorNombre($linea){
 				$lineas=InvLineas::where("nombre_linea","LIKE","%$linea%")->where("estado","=","1")->get();
 
