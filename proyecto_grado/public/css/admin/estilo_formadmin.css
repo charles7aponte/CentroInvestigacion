@@ -410,6 +410,10 @@ input#tipo-investigador{
 	margin-left:10px;
 }
 
+table {
+    border-collapse: collapse;
+}
+
 table#tabla-integrantes-grupos,
 table#tabla-lineas-grupos, 
 table#tabla-tipo-grupos,

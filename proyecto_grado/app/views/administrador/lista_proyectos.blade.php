@@ -8,6 +8,15 @@
       <h2>Lista de Proyectos</h2>
     </div>
 
+   <div id="buscador-lista">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="">
+          <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>Buscar</button>
+        </div>
+      </form>
+    </div>
+
   <div id="tabla-listaproyectos">
       <table id="listaproyectos">
         <thead>
@@ -36,7 +45,7 @@
               <td style="width:90px;">
                 <a href="formularioproyectos/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               </td>
-              <td style="width:100px;">
+              <td style="width:155px;">
                 <a href="formulariofinanciamiento/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar Financiamiento</a>
               </td>
               <td style="width:90px;">

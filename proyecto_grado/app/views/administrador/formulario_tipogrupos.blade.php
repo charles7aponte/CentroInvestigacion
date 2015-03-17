@@ -74,7 +74,7 @@
               </table>
         </form>  
         <ul>
-          <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px; border:none;">
+          <table id="tabla-tipo-grupos" style="margin-top:40px; width:950px; ">
               <thead>
                 <tr><th colspan="3">TIPOS DE GRUPO</th></tr>
                 <tr>

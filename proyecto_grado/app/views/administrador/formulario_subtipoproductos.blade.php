@@ -85,9 +85,8 @@
 
                 <li><label for="subtipo-tipo-producto">Tipo de producto:</label> 
                     <select name="subtipo-tipo-producto">
-                     <!--si existe .. esta variable llega del controlador, que a su vez lo pide el modelo -->
                       @if(isset($tipos))
-                         @foreach ($tipos as $tipo) <!--array--- nombre del campo en la bd-->
+                         @foreach ($tipos as $tipo)
                            <option value="{{$tipo['id_tipo_producto']}}">{{$tipo['nombre_tipo_producto']}}</option>
                          @endforeach 
 

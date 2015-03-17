@@ -13,12 +13,13 @@
 }
 
 #form-grupos input.form-control,
-#form-convocatorias input.form-control{
+#form-convocatorias input.form-control,
+#form-proyectos input.form-control{
   display: inline-block;
 }
 
 table {
-border-collapse: inherit !important; 
+border-collapse: collapse;
 }
 
 #tabla-listagrupos, 
@@ -32,7 +33,7 @@ border-collapse: inherit !important;
 #tabla-eventos-noticias,
 #tabla-listaproductosgrupos,
 #tabla-listaintegrantegrupos,
-#tabla-listaproyectogrupos,
+#tabla-listaproyectogrupos
 {
   width: 100%;
 }

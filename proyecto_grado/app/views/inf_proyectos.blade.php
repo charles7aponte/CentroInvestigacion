@@ -183,7 +183,7 @@
                   </li>
                 </a>
 
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
                   <li class="list-group-item">
                     <span class="badge" id="total">
                     {{$Lista_integrantes["Estudiante"]}}
@@ -192,7 +192,7 @@
                   </li>
                 </a>
                 
-                <a href="{{URL::to('/')}}">
+                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
                   <li class="list-group-item">
                     <span class="badge" id="total"> 
                     {{$Lista_integrantes["Joven Investigador"]}}
@@ -201,7 +201,7 @@
                   </li>
                 </a>
                 
-                <a href="{{URL::to('/')}}"> 
+                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
                   <li class="list-group-item">
                     <span class="badge" id="total">
                     {{$Lista_integrantes["Investigador Externo"]}}
@@ -218,9 +218,11 @@
             <h4 id="boton_proyectos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Financiamiento</a>
             </h4>
         </div>
-        <div id="lista_financiamiento" class="lista-integrantes">
-            ll kkk
-        </div>    
+        <div id="lista_financiamiento" class="lista-financiamiento">
+        <div class="panel panel-default">
+          <div class="panel-heading"></div>
+          
+        </div>
     </fieldset>
 
 </div>
