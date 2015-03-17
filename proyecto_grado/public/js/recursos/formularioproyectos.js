@@ -44,9 +44,6 @@ $("#guardar-cambios").click(function(){
 		source:function(request, response)
 		{
 
-			//console.log(response)
-			//console.info(request)
-
 			$.getJSON(URL_SERVIDOR +"/servicios/personas/"+request.term,{ 
 	       //term:  ( request.term )
 			},response);//fin get JSON

@@ -83,12 +83,13 @@
             <input type="hidden" name="id_producto" value="{{$productos['codigo_producto']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16"/>
-        <!--<li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>--> <!--cambie el logo en el editar-->
-           
+        <div id="titulo"><h2>
+         
             @if(isset($productos['codigo_producto']))
+              <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
               Edicion Producto
             @else 
+              <img alt="new" src="images/nuevo.png" width="16" height="16"/>
                  Crear Producto
             @endif
 
@@ -344,13 +345,14 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-producto" type="submit" 
-                        <img alt="bien"  src="images/bn.png" width="16" height="16">
-                        <!--<li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>--><!--logos para los editar--> 
+                        <button id="crear-producto" type="submit" >
+                      
                         @if(isset($productos['codigo_producto']))
+                            <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Producto
-                            @else 
-                                Crear Producto
+                          @else 
+                            <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                              Crear Producto
                         @endif
                         </button>
                     </th>

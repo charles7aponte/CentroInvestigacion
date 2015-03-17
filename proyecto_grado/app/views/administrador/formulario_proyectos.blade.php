@@ -80,8 +80,6 @@
         @endif
 
         <div id="titulo"><h2>
-        <!--<li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>-->
-        
             @if(isset($proyectos['codigo_proyecto']))
              <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
               Edicion Proyectos
@@ -358,9 +356,7 @@
                 <thead>
                     <th id="crear">
                         <button id="crear-proyecto" type="submit" class="submit-button">
-                        
 
-                        <!--<li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>--><!--logos para los editar--> 
                         @if(isset($proyectos['codigo_proyecto']))
                              <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Proyecto

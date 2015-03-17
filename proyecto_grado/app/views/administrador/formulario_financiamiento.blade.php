@@ -75,12 +75,13 @@
             <input type="hidden" name="id_financiamiento" value="{{$financiamiento['id_financiacion']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16"/>
-           <!--<li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>--> <!--cambie el logo en el editar-->
+        <div id="titulo"><h2>
            
             @if(isset($financiamiento['id_financiacion']))
+              <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
               Edicion Financiamiento
-            @else 
+            @else
+                <img alt="new" src="images/nuevo.png" width="16" height="16"/> 
                 Financiamiento del Proyecto
             @endif
 
@@ -240,10 +241,12 @@
                 <thead>
                     <th id="crear">
                         <button id="agregar-financiamiento" type="button" onclick="eliminarvisualmente()">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                        
                         @if(isset($financiamiento['id_financiacion']))
+                            <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Financiamiento
                             @else 
+                              <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear Financiamiento
                         @endif 
                         </button>

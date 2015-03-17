@@ -13,7 +13,7 @@ $("#bton_linea-grupos").click(function(){
 
 
 $("#linea-grupos").keyup(function(e){
-    if(e.which!=13)            //para cuando se da el evento de enter
+    if(e.which!=13)           
     {
        $("#bton_linea-grupos").hide();
     }
@@ -31,23 +31,13 @@ $("#guardar-cambios1").click(function(){
 	$("#linea-grupos").autocomplete({
 
 		source:function(request, response)
-		{
+        {
 
-			//console.log(response)
-			//console.info(request)
+            $.getJSON(URL_SERVIDOR +"/servicios/personas/"+request.term,{ 
+           //term:  ( request.term )
+            },response);//fin get JSON
 
-			$.getJSON("servicios/lineas/"+request.term,{ //routes
-	//			term:  ( request.term )
-			},response);//fin get JSON
-
-		}
-
-
-		/*,response:function(event, ui){
-
-			console.info(event)
-			console.log(ui.item)
-		}*/
+        }
 
 		, select:function(event, ui)
 		{

@@ -79,11 +79,13 @@
             <input type="hidden" name="id_investigador" value="{{$investigador['codinv_ext']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+        <div id="titulo"><h2>
            
             @if(isset($investigador['codinv_ext']))
-              Edicion Investigador
+                <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
+                Edicion Investigador
             @else 
+                <img alt="new" src="images/nuevo.png" width="16" height="16" />
                 Crear Investigador
             @endif
 
@@ -346,10 +348,12 @@
                 <thead>
                     <th id="crear">
                         <button id="crear-investigador" type="submit">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16">
+                        
                             @if(isset($investigador['codinv_ext']))
+                                <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                                  Editar Investigadores
                                 @else 
+                                <img alt="bien"  src="images/bn.png" width="16" height="16">
                                  Crear Investigadores
                             @endif
                         </button>

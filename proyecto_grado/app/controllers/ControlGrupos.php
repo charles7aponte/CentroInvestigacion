@@ -329,7 +329,7 @@ class ControlGrupos extends Controller {
 	{
 
 		$grupos = InvGrupos::find($id);	
-		$listatipogrupos = InvTipoGrupos::all();
+		$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
 
 
 		$nombrecor="";

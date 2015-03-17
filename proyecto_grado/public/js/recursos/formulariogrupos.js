@@ -19,8 +19,7 @@ $("#bton_integrantes-grupos").click(function(){
 
 $("#integrantes-grupos").keyup(function(e){
 	//console.log(e);
-    if(e.which!=13)            //para cuando se da el evento de enter
-    {
+    if(e.which!=13)            
         $("#bton_integrantes-grupos").hide();
     }
 
@@ -43,21 +42,11 @@ $("#guardar-cambios").click(function(){
 		source:function(request, response)
 		{
 
-			//console.log(response)
-			//console.info(request)
-
-			$.getJSON("servicios/personas/"+request.term,{
-	//			term:  ( request.term )
-			},response);//fin get JSON
+			$.getJSON(URL_SERVIDOR +"/servicios/personas/"+request.term,{ 
+           //term:  ( request.term )
+            },response);//fin get JSON
 
 		}
-
-
-		/*,response:function(event, ui){
-
-			console.info(event)
-			console.log(ui.item)
-		}*/
 
 		, select:function(event, ui)
 		{

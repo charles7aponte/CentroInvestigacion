@@ -70,11 +70,13 @@
             <input type="hidden" name="id_linea" value="{{$linea['id_lineas']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+        <div id="titulo"><h2>
            
             @if(isset($linea['id_lineas']))
+                <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
               Editar Linea 
             @else 
+                <img alt="new" src="images/nuevo.png" width="16" height="16" />
                  Crear nueva Linea
             @endif
         </h2></div>
@@ -144,11 +146,11 @@
                 <thead>
                     <th id="crear">
                         <button id="crear-linea" type="submit" class="submit-button">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        
                             @if(isset($linea['id_lineas']))
+                                <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Linea
                             @else 
+                                <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear Linea
                             @endif
 

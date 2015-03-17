@@ -88,11 +88,13 @@
             <input type="hidden" name="id_evento_noticia" value="{{$evento['id_evento']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+        <div id="titulo"><h2>
            
             @if(isset($evento['id_evento']))
-              Edicion Evento O Noticia 
+                <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
+                Edicion Evento O Noticia 
             @else 
+                <img alt="new" src="images/nuevo.png" width="16" height="16" />
                  Crear nuevo Evento o Noticia
             @endif
 
@@ -173,12 +175,13 @@
             <thead>
                 <th id="crear">
                     <button id="crear-even-noti" type="submit">
-                    <img alt="bien"  src="images/bn.png" width="16" height="16" />
                     
                     @if(isset($evento['id_evento']))
-                              Editar Evento o Noticia
-                            @else 
-                                Crear Evento o Noticia
+                        <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
+                        Editar Evento o Noticia
+                    @else 
+                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                        Crear Evento o Noticia
                     @endif
                     </button>
                 </th>

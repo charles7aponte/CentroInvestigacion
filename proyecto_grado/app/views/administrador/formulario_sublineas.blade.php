@@ -51,11 +51,13 @@
             <input type="hidden" name="id_sublineas" value="{{$sublinea['id_sublinea']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16"/>
+        <div id="titulo"><h2>
            
             @if(isset($sublinea['id_sublinea']))
+                <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
               Edicion Sublinea 
-            @else 
+            @else
+                <img alt="new" src="images/nuevo.png" width="16" height="16"/> 
                  Crear nueva Subl&iacute;nea
             @endif
         </h2></div>
@@ -108,11 +110,12 @@
                 <thead>
                     <th id="crear">
                         <button id="crear-sublinea" type="submit" class="submit-button">
-                        <img alt="bien"  src="images/bn.png" width="16" height="16" />
-
+                        
                          @if(isset($sublinea['id_sublinea']))
+                            <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Sublinea
                             @else 
+                                <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear Sublinea
                             @endif
                         </button>
