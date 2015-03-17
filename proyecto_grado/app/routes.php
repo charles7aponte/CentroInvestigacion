@@ -247,8 +247,7 @@ Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoList
 Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');
 
 
-/***********--------------------------------- creacion de servicios (modales integrantes, lineas, proyecto, producto)
-*************----------------**/
+/***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
 
 //Route::get('servicios/personas/{nombre}/','ControlPersona@getPersonaByName');
 

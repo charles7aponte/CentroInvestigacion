@@ -17,18 +17,16 @@ class InvLineas extends Eloquent  {
 		// reglas validacion creacion
 	public 	static $reglasValidacion = array(
 			'nombre-linea'             =>'required|max:100|unique:inv_lineas,nombre_linea', 
-			'coor-linea'            => 'required|max:50|', 	
+			'coor-linea'            => 'required|max:50', 	
 			'objetivo-estulinea'     => 'required',
 				
-		);
+	);
 
-
-
-		// reglas validacion edicion
+	// reglas validacion edicion
 
 	public 	static $reglasValidacionEdicion = array(
-			'nombre-linea'             =>'required|max:100', 
-			'coor-linea'            => 'required|max:50|', 	
+			'nombre-linea'             =>'required|max:100|unique:inv_lineas,nombre_linea', 
+			'coor-linea'            => 'required|max:50', 	
 			'objetivo-estulinea'     => 'required',
 				
 		);

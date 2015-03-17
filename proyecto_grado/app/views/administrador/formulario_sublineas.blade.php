@@ -51,7 +51,7 @@
             <input type="hidden" name="id_sublineas" value="{{$sublinea['id_sublinea']}}">
         @endif
 
-        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16" />
+        <div id="titulo"><h2><img alt="new" src="images/nuevo.png" width="16" height="16"/>
            
             @if(isset($sublinea['id_sublinea']))
               Edicion Sublinea 

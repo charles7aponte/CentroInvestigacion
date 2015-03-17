@@ -22,7 +22,7 @@ class ControlProyectos extends Controller {
 		$dateinicio = new DateTime($fecha_inicio);
 
 		$fecha_inicio=$dateinicio->format('Y-m-d');
-		//que pasa si es null? se debe validar desde el cliente .. actualmente esta colocando la fecha de hoy si esta en blanco
+		
 
 
 		$conv_proyecto=Input::get('convocatoria-proyecto');
@@ -111,7 +111,7 @@ class ControlProyectos extends Controller {
 
 						for($i=0;$i<count($listaIntegrantes);$i++)
 						{
-
+ 
 							$modelIntegrante=new InvParticipacionProyectos();
 							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
 							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
@@ -196,7 +196,12 @@ class ControlProyectos extends Controller {
 			return Response::json($proyectos1);
 		}
 
-	public function guardarEdicion(){
+
+
+
+
+
+	public function guardarEdicion(){  
 
 		$id=Input::get('id_proyecto');
 
@@ -285,6 +290,7 @@ class ControlProyectos extends Controller {
 
 			else 
 			{
+
 	
 				if(Input::get('edicion_dct-archacta')=="si")
 				{
@@ -307,6 +313,26 @@ class ControlProyectos extends Controller {
 				}	
 
 					$entidad->save();
+
+						//InvParticipacionProyectos::where("inv_codigo_proyecto","=", $entidad->codigo_proyecto);
+
+						$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+						$listatiempos=Input::get("tiempo");
+						$listatipoinvestigador=Input::get("tipoinvestigador");
+
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionProyectos();
+							$modelIntegrante->inv_codigo_proyecto=  $entidad->codigo_proyecto;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
+							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
+
+							echo ($listaIntegrantes[$i]);
+							$modelIntegrante->save();
+						}
 
 
 				try{
@@ -343,7 +369,7 @@ class ControlProyectos extends Controller {
 					
 		}	
 
-			$integrantesproyecto=$this->listaUsuariosProyectos($id);
+			$integrantesproyecto=$this->listaUsuariosProyectos($id); 
 			
 
 
@@ -361,7 +387,7 @@ class ControlProyectos extends Controller {
 
 	// servicio del modal de integrantes de proyectos para guardar en la bd..............
 
-	public function listaUsuariosProyectos($id)
+	public function listaUsuariosProyectos($id)  
 	{	
 
 		$listaPersonas=	DB::select(DB::raw("select (nombre1||''||nombre2||''||apellido1||''||apellido2)as datos_personales,p.cedula,ivp.tipo_investigador,ivp.dedicacion_tiempo

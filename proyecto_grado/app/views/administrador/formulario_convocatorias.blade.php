@@ -151,11 +151,11 @@
                         </div>
                         @if ($errors->has('fecha-cierre')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-cierre') }}</p> @endif
                     </li>
-                    <li class="@if($errors->has('telefono')) has-error @endif">
+                    <li class="@if($errors->has('telefono'))has-error @endif">
                         <label for="telefono">Tel&eacute;fono:</label>
                     
-                        <input type="text" id="telefono" name="telefono" value=" {{ Input::old('telefono')!=null? Input::old('telefono'): (isset($convocatoria['telefono_contacto'])? $convocatoria['telefono_contacto']:'')}}" />
-                        @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
+                        <input type="text" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'):(isset($convocatoria['telefono_contacto'])? $convocatoria['telefono_contacto']:'')}}" />
+                        @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{$errors->first('telefono')}}</p> @endif
                     </li>
                     <li class="@if($errors->has('email-conv')) has-error @endif">
                         <label for="email-conv">Email:</label>

@@ -47,18 +47,11 @@ $("#guardar-cambios").click(function(){
 			//console.log(response)
 			//console.info(request)
 
-			$.getJSON("servicios/personas/"+request.term,{
-	//			term:  ( request.term )
+			$.getJSON(URL_SERVIDOR +"/servicios/personas/"+request.term,{ 
+	       //term:  ( request.term )
 			},response);//fin get JSON
 
 		}
-
-
-		/*,response:function(event, ui){
-
-			console.info(event)
-			console.log(ui.item)
-		}*/
 
 		, select:function(event, ui)
 		{
@@ -73,6 +66,7 @@ $("#guardar-cambios").click(function(){
 
 			//generaFilaPersona(ui.item,"integrantes");
 			jsonIntegrante = ui.item;
+
 
 			return false;
 
@@ -91,10 +85,11 @@ $("#guardar-cambios").click(function(){
 
 
 
- function generaFilaPersona( json, name ) {
+ function generaFilaPersona( json, name ) { 
  
  	if(json)
  	{  
+
 
 
         var idTipoIntegrante= $("#tipo-investigador").val();
@@ -178,7 +173,8 @@ function eliminarintegrantemodal(){
             {
                 type:"GET" 
                 ,url:URL_SERVIDOR+"/formularioproyectos/eliminarintegrante/"+Idproyecto+"/"+IdIntegrante+"/",   
-                success: function(result){       
+
+                success: function(result){  
 
                    
                     if(result && result.respuesta)
