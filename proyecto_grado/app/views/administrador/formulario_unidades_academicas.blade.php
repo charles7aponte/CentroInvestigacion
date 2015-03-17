@@ -8,7 +8,7 @@
 @section('cuerpo')
 <div>  
 
-    <form id="form-sublineas" autocomplete="on" enctype="multipart/form-data" method="post">
+    <form id="form-sublineas" autocomplete="on" enctype="multipart/form-data" method="post" action="{{URL::to('/')}}/creacion/formulariounidadesacademicas">
 
 
          @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
