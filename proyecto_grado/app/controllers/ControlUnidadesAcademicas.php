@@ -7,7 +7,8 @@ class ControlUnidadesAcademicas extends Controller {
 	 *
 	 * @return void
 	 */
-	public function CrearFormulario(){
+	public function CrearFormulario()
+	{
 
 		$nombre=Input::get('nombre-unidad');
 		$descripcion=Input::get('descripcion_unidad');
@@ -29,84 +30,49 @@ class ControlUnidadesAcademicas extends Controller {
 			$messages = array(
 				'required' => '*Es obligatorio.',
 				'max'=>'No debe ser mayor a :max',
-				'unique'=>'Es posible que la sublinea ya exista.'
+				'unique'=>'Es posible que la unidad academica ya exista.'
 			);
 
 
 			// execute la validacin 
 			$validator = Validator::make(Input::all(), InvUnidadesAcademicas::$reglasValidacion,$messages);
 
-			if ($validator->fails()) {
+			if ($validator->fails()){
 				$messages = $validator->messages();
 
 
-				/*return Redirect::to('formulario_unidades_academicas')
+				return Redirect::to('formulariounidadesacademicas')
 					->withErrors($validator)
 					->withInput($todosDatos)
-					->with('mensaje_error',"Error al guardar.");*/
-			} else {
-
-
-	
-					
-					//try{
-						$entidad->save();
-				//	}
-					/*catch( PDOException $e)
-					{
-						//return 'existe un error' + $e;
-						
-						return Redirect::to('formulario_unidades_academicas')
-						->withInput($todosDatos)
-						->with('mensaje_error',"Error del servidor.");
-
-
-					}
-
-						return Redirect::to('formulario_unidades_academicas')
-								->withInput($todosDatos)
-								->with('mensaje_success',"Se ha Guardado");
-				*/
-					}
+					->with('mensaje_error',"Error al guardar.");
 			}
 
-
-			public function cargarFormularioUnidades(){
-
-				return View::make('administrador/formulario_unidades_academicas'); 	
-			}
-
-			/*public function cargarFormularioNuevaSublinea(){
-
-			$listaLineas = InvLineas::where("estado","=","1")->get();
-
-			$datos=  array(
-				'lineas' =>$listaLineas);
-
-
-		return View::make('administrador/formulario_sublineas',$datos); 
-
-
-			}//*/
-
-
-			/*public function EliminarFormularioSublinea($id){
+			else
+			{
 			
-				$form_sublinea= InvSublineas::find($id); //de donde necesito
-
-				if (is_null($form_sublinea)==false){
-
-					$form_sublinea->estado1=0;
-					$form_sublinea->nombre_sublinea.="*";
-					$form_sublinea->save();
-
-					//$form_tipogrupo->delete();
-
-					return Response::json(array("respuesta"=>true));
-
+				try{
+					
+					$entidad->save();
 				}
-				return Response::json(array("respuesta"=>false));
 
-			}*/
+				catch( PDOException $e)
+				{
+					//return 'existe un error' + $e;
+						
+					return Redirect::to('formulariounidadesacademicas')
+					->withInput($todosDatos)
+					->with('mensaje_error',"Error del servidor.");
+				}
 
+					return Redirect::to('formulariounidadesacademicas')
+						->withInput($todosDatos)
+						->with('mensaje_success',"Se ha Guardado");
+			}
+	}
+
+	public function cargarFormularioUnidades()
+	{
+
+		return View::make('administrador/formulario_unidades_academicas'); 	
+	}
 }

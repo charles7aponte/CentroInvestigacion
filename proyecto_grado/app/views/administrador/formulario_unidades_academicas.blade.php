@@ -8,7 +8,7 @@
 @section('cuerpo')
 <div>  
 
-    <form id="form-sublineas" autocomplete="on" enctype="multipart/form-data" method="post" action="{{URL::to('/')}}/creacion/formulariounidadesacademicas">
+    <form id="form-unidad-academica" autocomplete="on" enctype="multipart/form-data" method="post" action="{{URL::to('/')}}/creacion/formulariounidadesacademicas">
 
 
          @if(Session::has('mensaje_error') || Session::has('mensaje_success'))
@@ -35,7 +35,7 @@
                 <fieldset> 
                     <li class="@if($errors->has('nombre-unidad')) has-error @endif">
                         <label for="nombre-unidad">Nombre de la unidad:</label>
-                        <input type="text" id="nombre-unidad" name="nombre-unidad"required="required"/> 
+                        <input type="text" id="nombre-unidad" name="nombre-unidad" required="required"/> 
                         @if ($errors->has('nombre-unidad')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre-unidad') }}</p> 
                         @endif
                     </li>

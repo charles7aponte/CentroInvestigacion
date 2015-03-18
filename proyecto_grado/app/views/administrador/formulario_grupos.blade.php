@@ -42,7 +42,6 @@
 <!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
   $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
-
 ?>
 
 <div> 

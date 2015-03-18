@@ -47,7 +47,7 @@ class ControlGrupos extends Controller {
 		$entidad->telefono=$telefono;
 		$entidad->direccion_grupo=$direccion1;
 		$entidad->objetivos=$objetivos;
-		$entidad->unidad_academica=$unidad;
+		$entidad->inv_unidad_academica=$unidad;
 		$entidad->categoria=$categoria;
 		$entidad->inv_tipo_grupos=$tipo;
 		$entidad->link_gruplac=$gruplac;
@@ -155,8 +155,7 @@ class ControlGrupos extends Controller {
 
 			 	return View::make('administrador/formulario_grupos',$datos); 
 
-
-			}//
+			}
 
 
 
@@ -232,7 +231,7 @@ class ControlGrupos extends Controller {
 		$entidad->telefono=$telefono;
 		$entidad->direccion_grupo=$direccion1;
 		$entidad->objetivos=$objetivos;
-		$entidad->unidad_academica=$unidad;
+		$entidad->inv_unidad_academica=$unidad;
 		$entidad->categoria=$categoria;
 		$entidad->inv_tipo_grupos=$tipo;
 		$entidad->link_gruplac=$gruplac;
@@ -332,6 +331,7 @@ class ControlGrupos extends Controller {
 
 		$grupos = InvGrupos::find($id);	
 		$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
+		$listaunidadacademica = InvUnidadesAcademicas::all();
 
 
 		$nombrecor="";
@@ -366,6 +366,7 @@ class ControlGrupos extends Controller {
 			$datos=array('grupos' => $grupos,
 					    'accion'=>'editar',
 					    'tipos' =>$listatipogrupos,
+					    'unidades' =>$listaunidadacademica,
 					    'integrantes' =>$integrantes,
 					    'lineasintegrantes' =>$lineasintegrantes);
 
