@@ -84,12 +84,24 @@ class ControlListas extends Controller {
 
 				//controlador grupos
 	public function ConstruirListaGrupos(){
-		$listas=InvGrupos::all(); //traer registros
-		$paginacion=InvGrupos::paginate(20);
+	
+		$paginacion=InvGrupos::paginate(3);//traer registros
+
+
+		foreach ($paginacion as $key => $lista) {
+			$nombre_grupo=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
+			$nombre_grupo = $nombre_grupo->nombre_unidad;
+			$paginacion[$key]->nombre_unidad_academica=$nombre_grupo; 
+
+		}
+
+
+		
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion);
 		
 		return View::make('administrador/lista_grupos',$datos);
 	}

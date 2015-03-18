@@ -40,7 +40,7 @@
     <div id="tabla-listagrupos">
       <table id="listagrupos">
         <thead>
-          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="6" style=" border-radius: 5px; background: #1A6D71;
                 background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                 background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                 background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -49,6 +49,7 @@
           <tr>
             <th> </th>
             <th colspan="4">NOMBRE DEL GRUPO</th>
+            <th> </th>
             <th> </th>
           </tr>
         </thead>
@@ -67,9 +68,12 @@
                     <td style="width:100px;">
                       <b>{{$contador++}}</b>
                     </td> 
+
                     <td>
-                      <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
+                    <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
                     </td>
+
+                     <td>{{$campo['nombre_unidad_academica']}}</td>
 
                     <td style="width:92px;">
                       <a href="#"

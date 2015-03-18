@@ -20,7 +20,7 @@ function activacion_desactivacion (id,elemento){
 				$(elemento).attr('data-info-estado',0);
 			}
 			else {
-				$("#dato_grupo_"+id).css(  "background", "none");
+				$("#dato_grupo_"+id).css(  "background", "#F8F9FE");
 				$(elemento).find('p').html('<i class="glyphicon glyphicon-remove-circle"></i> Desactivar'); 
 				$(elemento).attr('data-info-estado',1);
 			}
