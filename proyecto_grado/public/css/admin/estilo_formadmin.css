@@ -503,7 +503,13 @@ table#tabla-periodos-academicos
  #tabla-proyecto-financiado  th:first-child, td:first-child,
  #tabla-periodos-academicos  th:first-child, td:first-child {
  	padding: 0 15px 0 20px;
+
  }
+
+
+#tabla-integrantes-grupos{
+  background: red;
+}
 
  #tabla-integrantes-grupos thead tr:last-child th, 
  #tabla-integrantes-proyectos thead tr:last-child th,
