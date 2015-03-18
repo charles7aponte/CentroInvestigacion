@@ -4,6 +4,9 @@
     margin:0;
 }
 
+table {
+border-collapse: collapse;
+}
 
  fieldset#principal{
     background-color: white;

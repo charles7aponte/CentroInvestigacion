@@ -1,7 +1,5 @@
 @extends('administrador.panel_admin')
 
-
-
 @section('css-nuevos')
     {{-- datepicker --}}
     <link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">

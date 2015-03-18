@@ -12,7 +12,6 @@
   margin: 30px;
 }
 
-#form-grupos input.form-control,
 #form-convocatorias input.form-control,
 #form-proyectos input.form-control{
   display: inline-block;
@@ -89,7 +88,7 @@ table#listaproductogrupo{
   border-spacing: 0;
   border: 1px solid #CED6D0;
   width: 980px;
-  margin: 20px auto;
+  margin: 15px auto;
 }
 
 table#listagrupos th, 
@@ -116,6 +115,7 @@ table#tabla-listafinanciamiento-proyectos th:first-child, td:first-child,
 table#listaeventosnoticias th:first-child, td:first-child,
 table#listaproductogrupo th:first-child, td:first-child{
   padding: 0 15px 0 20px;
+
 }
 
 table#listagrupos thead tr:last-child th, 

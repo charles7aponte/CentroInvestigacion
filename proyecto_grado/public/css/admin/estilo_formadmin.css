@@ -30,7 +30,8 @@
 #form-grupos #advertencias p,
 #f-lista-financiamiento p,
 #form-lineas #advertencias p,
-#form-financiamiento-proyectos #advertencias p {
+#form-financiamiento-proyectos #advertencias p,
+#form-unidad-academica #advertencias p{
     color:#1c7e84;
     font-size:11px; 
 }
@@ -432,7 +433,7 @@ table {
 table#tabla-integrantes-grupos,
 table#tabla-lineas-grupos, 
 table#tabla-tipo-grupos,
-table#tabla-proyecto-financiado {
+table#tabla-proyecto-financiado{
 	color: #333;
 	font-size: .9em;
 	font-weight: 300;
@@ -529,6 +530,7 @@ table#tabla-periodos-academicos
  #tabla-periodos-academicos  tbody tr:hover{
     background-color: #E5F7FE;
 }
+
  #tabla-integrantes-grupos tbody tr:last-child td, 
  #tabla-lineas-grupos tbody tr:last-child td,
  #tabla-tipo-grupos tbody tr:last-child td,

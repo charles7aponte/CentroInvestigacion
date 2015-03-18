@@ -62,7 +62,7 @@
                 <thead>
                     <th id="crear">
                         <button id="crear-unidad" type="submit" class="submit-button">
-                                <img alt="bien"  src="images/bn.png" width="16" height="16" />
+                            <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear Unidad Académica
                         </button>
                     </th>

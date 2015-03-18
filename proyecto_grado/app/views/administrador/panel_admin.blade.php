@@ -58,8 +58,8 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_formadmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
 
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
@@ -133,7 +133,7 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<a href="{{URL::to('/')}}/administrador"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>		
+		<a href="{{URL::to('administrador')}}"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>		
 	
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
