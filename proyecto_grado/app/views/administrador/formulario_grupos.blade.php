@@ -41,7 +41,6 @@
  
 <!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
-  $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
   $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
 
 ?>
@@ -175,12 +174,12 @@
                       <label for="unidad">Unidad academica:</label>
                         <select required="required" name="unidad" value="{{Input::old('unidad')!=null? Input::old('unidad'): (isset($grupos['unidad_academica'])? $grupos['unidad_academica']:'')}}">
 
-                            @if(isset($unidades))
-                                @foreach($unidades as $unidad)
-                                  @if(isset($grupos['inv_unidad_academica']) && $unidad['id_unidad'] == $grupos['inv_unidad_academica'])
-                                    <option value="{{$unidad['id_unidad']}}" selected> {{$unidad['nombre_unidad']}}</option>
+                            @if(isset($tipo_unidades_academicas))
+                                @foreach($tipo_unidades_academicas as $tipo_unidad_academica)
+                                  @if(isset($grupos['inv_unidad_academica']) && $tipo_unidad_academica['id_unidad'] == $grupos['inv_unidad_academica'])
+                                    <option value="{{$tipo_unidad_academica['id_unidad']}}" selected> {{$tipo_unidad_academica['nombre_unidad']}}</option>
                                   @else 
-                                    <option value="{{$unidad['id_unidad']}}"> {{$unidad['nombre_unidad']}}</option>
+                                    <option value="{{$tipo_unidad_academica['id_unidad']}}"> {{$tipo_unidad_academica['nombre_unidad']}}</option>
                                   @endif
                                 @endforeach
                             @endif    

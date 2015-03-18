@@ -146,10 +146,12 @@ class ControlGrupos extends Controller {
 
 			public function cargarFormularioGrupo(){
 
-				$listatipogrupos = InvTipoGrupos::where("estado","=","1")->get();;
+				$listatipogrupos = InvTipoGrupos::where("estado","=","1")->get();
+				$listaunidades=InvUnidadesAcademicas::all();
 
 				$datos=  array(
-					'tipos' =>$listatipogrupos);
+					'tipos' =>$listatipogrupos,
+					'tipo_unidades_academicas' =>$listaunidades);
 
 			 	return View::make('administrador/formulario_grupos',$datos); 
 

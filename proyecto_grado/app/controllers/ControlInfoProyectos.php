@@ -22,9 +22,8 @@ class ControlInfoProyectos extends Controller {
 		$grupos = InvGrupos::where("codigo_grupo","=",$proyectos->inv_codigo_grupo)->get();
 		$grupos1= InvGrupos::where("codigo_grupo","=",$proyectos->grupo_auxiliar)->get();
 		$lineas=InvLineas::where("id_lineas","=",$proyectos->inv_id_linea)->get();
-		
-
 		$convocatorias=InvConvocatorias::where("numero_convocatoria","=",$proyectos->inv_numero_convocatoria)->get();
+		
 		if(count($convocatorias)>0)
 		{
 			$convocatorias=$convocatorias[0];
