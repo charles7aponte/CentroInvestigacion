@@ -11,17 +11,17 @@ class ControlLineas extends Controller {
 
 		$nombre=Input::get('nombre-linea');
 		$coordinador=Input::get('cedula-persona');
+		$unidad_academica=Input::get('unidad');
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');
 
 		//$archivo=Input::get('archivo-linea');
-		$unidad_academica=Input::get('unidades-linea');
 		$nombreNuevo="";
 
 		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
 
-		$todosDatos = Input::except('archivo-linea');
+		$todosDatos = Input::except('archivo-linea','foto-linea');
 
 
 		/*objeto del modelo*/
@@ -29,16 +29,12 @@ class ControlLineas extends Controller {
 		
 		$entidad->nombre_linea=$nombre;
 		$entidad->coordinador_linea =$coordinador;
+		$entidad->inv_unidad_academica=$unidad_academica;
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
 
-		$entidad->foto_linea="";
-
-		$entidad->inv_unidad_academica="1";
-
-
-	
+		
 
 			// mensaje a mostrar
 			$messages = array(
@@ -58,75 +54,60 @@ class ControlLineas extends Controller {
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
-			} else {
+			} 
+			else
+			{
+				$archivo1=$this->guardarArchivos('archivo-linea',$direccion);
+				$entidad->ruta_archivo=$archivo1;
+
+				$archivo2=$this->guardarArchivos('foto-linea',$direccion);
+				$entidad->foto_linea=$archivo2;
+
+				$entidad->save();
 
 
+				try{
 
-					try{
+				}
 
-							//manejo de archivo
-
-							if(Input::hasFile('archivo-linea'))
-							{
-
-								$archivoF =Input::file('archivo-linea');
-								$nombreNuevo=$nombre."-".$archivoF->getClientOriginalName();
-
-
-								while (File::exists($direccion.$nombreNuevo) )
-								{
-									$nombre=rand(1,999);
-									$nombreNuevo=$nombre."-".$nombreNuevo;				
-								
-								}
-
-
-								$archivoF->move($direccion,$nombreNuevo);
-							}
-
-						$entidad->ruta_archivo=$nombreNuevo;
-						$entidad->save();
-					}
-
-					catch( PDOException $e)
-					{
-						//return 'existe un error' + $e;
+				catch( PDOException $e)
+				{
+					//return 'existe un error' + $e;
 						
-						return Redirect::to('formulariolineas')
-						->withInput($todosDatos)
-						->with('mensaje_error',"Verifique, es posible que ya exista la línea");
-					}
+					return Redirect::to('formulariolineas')
+					->withInput($todosDatos)
+					->with('mensaje_error',"Verifique, es posible que ya exista la línea");
+				}
 
-						return Redirect::to('formulariolineas')
+				return Redirect::to('formulariolineas')
 
-								->withInput($todosDatos)
-								->with('mensaje_success',"Se ha Guardado");
+					->withInput($todosDatos)
+					->with('mensaje_success',"Se ha Guardado");
 				
-					}
 			}
+	}
 
 
-			public function cargarFormularioLinea(){
+	public function cargarFormularioLinea(){
 
-				$listaunidades = InvUnidadesAcademicas::where("estado","=","1")->get();
+		$listaunidades = InvUnidadesAcademicas::all();
 
-				$datos=  array(
-					'unidades' =>$listaunidades);
+		$datos=  array(
+			'tipo_unidades_academicas' =>$listaunidades);
 
-			 	return View::make('administrador/formulario_lineas',$datos); 
+		return View::make('administrador/formulario_lineas',$datos); 
+	}
+	
 
-
-			}//
-			
-			public function buscarlineaPorNombre($linea){
+	public function buscarlineaPorNombre($linea){
 				$lineas=InvLineas::where("nombre_linea","LIKE","%$linea%")->where("estado","=","1")->get();
 
 				return Response::json($lineas);
 
-			}
+	}
 
 
-			public function EliminarFormularioLinea($id){
+	public function EliminarFormularioLinea($id){
 			
 				$form_linea= InvLineas::find($id); //de donde necesito
 
@@ -143,7 +124,7 @@ class ControlLineas extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 
-			}//			//elimina cada tipo de la tabla .. 
+	}//			//elimina cada tipo de la tabla .. 
 
 
 
@@ -153,6 +134,7 @@ class ControlLineas extends Controller {
 
 		$nombre=Input::get('nombre-linea');
 		$coordinador=Input::get('cedula-persona');
+		$unidad_academica=Input::get('unidad');
 		$objetivo=Input::get('objetivo-linea');
 		$objeto_estudio=Input::get('objetivo-estulinea');
 		$definicion=Input::get('defi-linea');	
@@ -162,7 +144,7 @@ class ControlLineas extends Controller {
 
 		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
 
-		$todosDatos = Input::except('archivo-linea');
+		$todosDatos = Input::except('archivo-linea','foto-linea');
 
 
 		/*objeto del modelo*/
@@ -174,6 +156,7 @@ class ControlLineas extends Controller {
 		
 		$entidad->nombre_linea=$nombre;
 		$entidad->coordinador_linea =$coordinador;
+		$entidad->inv_unidad_academica=$unidad_academica;
 		$entidad->objetivo_linea=$objetivo;
 		$entidad->objetivo_estudio =$objeto_estudio;
 		$entidad->definicion_linea=$definicion;
@@ -186,7 +169,6 @@ class ControlLineas extends Controller {
 				'max'=>'No debe ser mayor a :max',
 				'unique'=>'Es posible que ya exista la linea que ingreso.'
 			);
-
 
 
 			$validator= false;
@@ -214,15 +196,23 @@ class ControlLineas extends Controller {
 					->with('mensaje_error',"Error al guardar");
 			}
 
-			else {
+			else 
+			{
 
-				if(Input::get('edicion_dct-linea')=="si")
-					{
-						$archivoF=$this->guardarArchivos('archivo-linea',$direccion);//archivoshtml
-						$entidad->ruta_archivo=$archivoF;
+				if(Input::get('edicion_foto-linea')=="si")
+				{
+					$archivoF=$this->guardarArchivos('foto-linea',$direccion);
+					$entidad->foto_linea=$archivoF;
 							
-					}	
-		
+				}	
+			
+				if(Input::get('edicion_dct-linea')=="si")
+				{
+					$archivoF=$this->guardarArchivos('archivo-linea',$direccion);//archivoshtml
+					$entidad->ruta_archivo=$archivoF;
+							
+				}	
+					//echo (Input::get('edicion_dct-linea'));
 					$entidad->save();
 
 				try{
@@ -249,28 +239,29 @@ class ControlLineas extends Controller {
 	function cargarEditar($id)
 	{
 
-	
-	$linea = InvLineas::find($id);	
-
-	$nombre="";
-
-	if (is_numeric($linea->coordinador_linea))
-	 {
+		$linea=InvLineas::find($id);	
+		$listaunidades = InvUnidadesAcademicas::all();
 
 		
+		$nombrecor="";
+
+			if (is_numeric($linea->coordinador_linea))
+			{
+	
 		$nombre_persona= Persona::find($linea->coordinador_linea); 
 		//
 		if ($nombre_persona) 
 		{
-			$nombre = $nombre_persona->nombre1." ".$nombre_persona->apellido1;
+			$nombrecor = $nombre_persona->nombre1." ".$nombre_persona->apellido1;
 		}
 	}
 
 
-		$linea->nombre_coordinador=$nombre;
+		$linea->nombre_coordinador=$nombrecor;
 
 		$datos=array('linea' => $linea,
-					 'accion'=>'editar' );
+					 'accion'=>'editar',
+					 'tipo_unidades_academicas' =>$listaunidades);
 
 
 		return View::make('administrador/formulario_lineas',$datos);

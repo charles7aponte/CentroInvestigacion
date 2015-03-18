@@ -19,6 +19,8 @@ class InvLineas extends Eloquent  {
 			'nombre-linea'             =>'required|max:100|unique:inv_lineas,nombre_linea', 
 			'coor-linea'            => 'required|max:50', 	
 			'objetivo-estulinea'     => 'required',
+			'foto-linea'			=> 'required',
+			'unidad'				=> 'required',
 				
 	);
 
@@ -28,7 +30,8 @@ class InvLineas extends Eloquent  {
 			'nombre-linea'             =>'required|max:100', 
 			'coor-linea'            => 'required|max:50', 	
 			'objetivo-estulinea'     => 'required',
-				
+			'foto-linea' 			=> 'required',
+			'unidad'				=> 'required',
 		);
 
 

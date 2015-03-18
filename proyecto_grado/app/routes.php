@@ -79,7 +79,7 @@ Route::get('formularioinvestigadores/eliminar/{id}','ControlInvestigadores@Elimi
 
 
 /*---------------crear lineas------------------*/
-Route::get('formulariolineas', function() { return View::make('administrador/formulario_lineas'); });
+Route::get('formulariolineas', 'ControlLineas@cargarFormularioLinea');
 /*---------------eliminar lineas------------------*/
 Route::get('formulariolineas/eliminar/{id}','ControlLineas@EliminarFormularioLinea');
 
