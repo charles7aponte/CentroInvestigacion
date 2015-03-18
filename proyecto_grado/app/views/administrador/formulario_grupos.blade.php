@@ -41,9 +41,7 @@
  
 <!-- datos quemados del mismo formulario en su propia tabla-->
 <?php
-  $tipo_unidad_academica=array('Departamento de biologia y quimica','Departamento de matematicas y fisica','Escuela de ingenieria','Instituto de ciencias ambientales');
   $tipo_categoria=array('A1','A2','A','B','C','D','reconocido','institucional-unillanos','no reconocido');
-
 ?>
 
 <div> 

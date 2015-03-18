@@ -52,13 +52,12 @@ class ControlTipoProductos extends Controller {
 					}
 					catch( PDOException $e)
 					{
-					echo "entre entre";	//return 'existe un error' + $e;
 						
 						return Redirect::to('formulariotipoproductos')
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
 					}
-					echo "entre2";
+					
 
 						return Redirect::to('formulariotipoproductos')
 								->withInput($todosDatos)
