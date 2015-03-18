@@ -133,4 +133,26 @@ class ControlListas extends Controller {
 		
 		return View::make('administrador/lista_investigadores',$datos);
 	}
+
+
+	public function ActivarDesactivar($id,$estado){
+			
+		$form_grupo=InvGrupos::find($id); //de donde necesito
+
+		if (is_null($form_grupo)==false ){
+			if($estado==1){
+			$form_grupo->estado_activacion=0;
+		}
+		else {
+			   $form_grupo->estado_activacion=1;
+			}
+			$form_grupo->save();
+			return Response::json(array("respuesta"=>true,
+										"estado" =>	$form_grupo->estado_activacion
+										));
+
+		}
+		return Response::json(array("respuesta"=>false));
+
+	}//	
 }

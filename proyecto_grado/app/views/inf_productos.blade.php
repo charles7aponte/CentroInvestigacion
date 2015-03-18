@@ -106,8 +106,8 @@
                     <tr>
                         <th id="fil-principal">Tipo </th>
                         <td id="col-principal" id="cuadro">
-                            @if(isset($lista_tipos) && $lista_tipos!=null && isset($lista_tipos['nombre_tipo_producto']))
-                             {{$lista_tipos['nombre_tipo_producto']}}
+                            @if(isset($listatipos) && $listatipos!=null )
+                             {{$listatipos}}
                             @endif 
                         </td>
                     </tr>

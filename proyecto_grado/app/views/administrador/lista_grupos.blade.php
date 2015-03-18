@@ -1,7 +1,8 @@
 @extends('administrador.panel_admin')
 
 @section("javascript-nuevos")
-  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
+  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script>
+  <script src="js/ActivarDesactivarGrupo.js" type="text/javascript"></script>  
   <script >
       URL='formulariogrupos/eliminar/';
       fila_info="#dato_grupo_";
@@ -52,18 +53,36 @@
           </tr>
         </thead>
           <tbody>
+            <?php 
+              $contador=1;
+
+            ?>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-                  <tr id="dato_grupo_{{$campo['codigo_grupo']}}">
+                  <tr id="dato_grupo_{{$campo['codigo_grupo']}}" 
+                    @if($campo['estado_activacion']==0) 
+                    style="background:rgb(198, 124, 124)"
+                    @endif
+                   >
                     <td style="width:100px;">
-                      <b>{{$campo['codigo_grupo']}}</b>
+                      <b>{{$contador++}}</b>
                     </td> 
                     <td>
                       <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
                     </td>
 
-                    <td style="width:90px;">
-                      <a href=""><span class="glyphicon glyphicon-sort"></span> Desactivar</a>
+                    <td style="width:92px;">
+                      <a href="#"
+                       data-info-estado="{{$campo['estado_activacion']}}"
+                       onclick="activacion_desactivacion({{$campo['codigo_grupo']}},this)">
+                       <p style="margin:0;">
+                        @if($campo['estado_activacion']==0)
+                        <i class="glyphicon glyphicon-ok-circle"></i> Activar
+                        @else 
+                        <i class="glyphicon glyphicon-remove-circle"></i> Desactivar
+                        @endif
+                      </p>
+                     </a>
                     </td>
 
                     <td style="width:90px;">

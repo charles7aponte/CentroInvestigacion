@@ -263,6 +263,8 @@ Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre
 
 Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
 
+Route::get('servicios/estadolistagrupos/{id}/{estado}/','ControlListas@ActivarDesactivar');
+
 //financiamiento
 Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
 
@@ -270,7 +272,6 @@ Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPor
 Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
 
 //Proyectos
-
 
 //financiamiento
 Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
