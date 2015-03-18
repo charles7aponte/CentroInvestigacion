@@ -117,12 +117,8 @@ class ControlGrupos extends Controller {
 							$modelLinea->save();
 
 						}
-			
-
-			
+						
 					try{
-
-
 					}
 
 					catch(PDOException $e)
@@ -142,7 +138,7 @@ class ControlGrupos extends Controller {
 			
 			}
 
-					/*********** carga el formulario para cargar los datos desde la tabla*/
+			/*********** carga el formulario para cargar los datos desde la tabla*/
 
 			public function cargarFormularioGrupo(){
 
@@ -183,6 +179,9 @@ class ControlGrupos extends Controller {
 					return $nombreNuevo;
 		
 			}
+
+
+			
 
 	public function guardarEdicion(){
 
@@ -331,7 +330,7 @@ class ControlGrupos extends Controller {
 
 		$grupos = InvGrupos::find($id);	
 		$listatipogrupos = InvTipoGrupos::where('estado','=','1')->get();
-		$listaunidadacademica = InvUnidadesAcademicas::all();
+		$listaunidades=InvUnidadesAcademicas::all();
 
 
 		$nombrecor="";
@@ -344,7 +343,7 @@ class ControlGrupos extends Controller {
 			
 			if ($nombre_persona) 
 			{
-				$nombre = $nombre_persona->nombre1." ".$nombre_persona->apellido1;
+				$nombrecor = $nombre_persona->nombre1." ".$nombre_persona->apellido1;
 			}
 		}
 
@@ -366,7 +365,7 @@ class ControlGrupos extends Controller {
 			$datos=array('grupos' => $grupos,
 					    'accion'=>'editar',
 					    'tipos' =>$listatipogrupos,
-					    'unidades' =>$listaunidadacademica,
+					    'tipo_unidades_academicas' =>$listaunidades,
 					    'integrantes' =>$integrantes,
 					    'lineasintegrantes' =>$lineasintegrantes);
 
