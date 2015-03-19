@@ -91,11 +91,11 @@
 
         </h2></div>
         <ul>
-        <!--
+        
             @if(isset($personaiv))
 
                 <fieldset>  
-                    <!--<li><label for="cedula">C&eacute;dula:</label>
+                    <li><label for="cedula">C&eacute;dula:</label>
                         <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'): (isset($investigador['cedula_persona'])? $investigador['cedula_persona']:'')}}" required="required"/>
                          @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
                     </li>
@@ -204,7 +204,7 @@
                     </li>                   
                     <li><label for="apellido1">Primer Apellido:</label>
                         <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):''}}" required="required"/>
-                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endifirecci
+                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endif 
                     </li>
                     <li><label for="apellido2">Segundo Apellido:</label>
                         <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'):''}}"/>
@@ -341,7 +341,7 @@
                         </div>
                     </li>
                 </fieldset>
-            </ul>-->
+            </ul>
 
             <table id="botones-formularios">
                 <thead>

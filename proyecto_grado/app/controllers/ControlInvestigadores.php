@@ -162,7 +162,7 @@ class ControlInvestigadores extends Controller {
 					'perfiles'  =>$listaperfiles); 
 
 					
-			 // return View::make('administrador/formulario_investigadores',$datos); 
+			  return View::make('administrador/formulario_investigadores',$datos); 
 
 
 			}
