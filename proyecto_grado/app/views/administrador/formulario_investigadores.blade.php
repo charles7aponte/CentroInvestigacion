@@ -92,7 +92,7 @@
         </h2></div>
         <ul>
 
-            @if(isset($personaiv))
+            <!--@if(isset($personaiv))
 
                 <fieldset>  
                     <li><label for="cedula">C&eacute;dula:</label>
@@ -186,9 +186,8 @@
                             </div>
                         </div>
                     </li>
-                </fieldset>
-
-                @else
+                </fieldset>-->
+            @else
 
                  <fieldset>  
                     <li><label for="cedula">C&eacute;dula:</label>

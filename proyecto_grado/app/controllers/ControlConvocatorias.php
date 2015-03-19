@@ -265,7 +265,7 @@ class ControlConvocatorias extends Controller {
 					
 						return Redirect::to('formularioconvocatorias/edit/'.$id)
 								//->withInput($todosDatos)
-								->with('mensaje_success',"La convocatoria ha sido creada.");
+								->with('mensaje_success',"La convocatoria ha sido editada.");
 			
 					}
 				

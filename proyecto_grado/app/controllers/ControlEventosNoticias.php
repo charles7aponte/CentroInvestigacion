@@ -11,7 +11,6 @@ class ControlEventosNoticias extends Controller {
 
 	public function CrearFormulario(){
 
-		$nombre="";
 
 		$titulo=Input::get('titulo-even-noti');
 		$descripcion=Input::get('desc-even-noti');
@@ -21,7 +20,7 @@ class ControlEventosNoticias extends Controller {
 		$fecha=Input::get('fecha-even-noti');
 
 		$dateApertura = new DateTime($fecha);
-		$fecha=$dateApertura->format('d/m/Y');
+		$fecha=$dateApertura->format('Y-m-d');
 
 
 
@@ -112,7 +111,7 @@ class ControlEventosNoticias extends Controller {
 			}
 
 	public function guardarEdicion(){
-
+		
 		$id=Input::get('id_evento_noticia');
 
 		$titulo=Input::get('titulo-even-noti');
@@ -123,7 +122,7 @@ class ControlEventosNoticias extends Controller {
 		$fecha=Input::get('fecha-even-noti');
 
 		$dateApertura = new DateTime($fecha);
-		$fecha=$dateApertura->format('d/m/Y');
+		$fecha=$dateApertura->format('Y-m-d');
 
 
 
@@ -251,13 +250,11 @@ class ControlEventosNoticias extends Controller {
 			
 					$dateApertura = new DateTime($evento->fecha);
 
-					$evento->fecha=$dateApertura->format('d/m/Y');
+					$evento->fecha=$dateApertura->format('Y-m-d');
 					
 				}
 
-
 				return View::make('administrador/formulario_eventos_noticias',$datos);
-
 			}
 
 }

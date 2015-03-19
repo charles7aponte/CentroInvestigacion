@@ -46,7 +46,7 @@ $("#guardar-cambios").click(function(){
 			//console.log(response)
 			//console.info(request)
 
-			$.getJSON("servicios/persona_grupo/"+request.term,{
+			$.getJSON(URL_SERVIDOR + "/servicios/persona_grupo/"+request.term,{
 	//			term:  ( request.term )
 			},response);//fin get JSON
 
@@ -74,7 +74,9 @@ $("#guardar-cambios").click(function(){
 
 
 			//generaFilaPersona(ui.item,"integrantes");
+            console.info(ui.item);
 			jsonIntegrante = ui.item;
+            $("#grupo-integrante option[value="+ui.item.codigogrupo+"]").attr("selected",true)
 
 			return false;
 
@@ -100,14 +102,14 @@ $("#guardar-cambios").click(function(){
 
 
 
-      var idGrupoIntegrante= $("#grupo-integrante").val();
-      var textGrupoIntegrante= $("#grupo-integrante option:selected").text();
+      //var idGrupoIntegrante= $("#grupo-integrante").val();
+      //var textGrupoIntegrante= $("#grupo-integrante option:selected").text();
       
       
       var html ="<tr> ";
             html +="                   <td><input type='hidden' data-info='"+json.cedulapersona+"' name='"+name+"[]' value='"+json.cedulapersona+"'>"+json.cedulapersona+"</td> ";
             html +="                  <td>"+json.datospersonales+"</td> ";
-            html +="                  <td> <input type='hidden' ' name='idgrupo[]' value='"+idGrupoIntegrante+"'>"+textGrupoIntegrante+"</td> ";
+            html +="                  <td> <input type='hidden' ' name='idgrupo[]' value='"+json.codigogrupo+"'>"+json.nombregrupo+"</td> ";
             html +="                  <td> ";
             html +="                    <a href='#' onclick='eliminarFila(this)' class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a> ";
             html +="                </td> ";

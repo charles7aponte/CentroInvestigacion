@@ -332,9 +332,23 @@ class ControlProductos extends Controller {
 					
 					$entidad->save();
 
-				try{
+				try
+				{
+					$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
+						$listagrupos=Input::get("idgrupo"); // name del json del jquery
 
-					}
+
+						for($i=0;$i<count($listaIntegrantes);$i++)
+						{
+
+							$modelIntegrante=new InvParticipacionProductos();
+							$modelIntegrante->inv_codigo_producto=  $entidad->codigo_producto;
+							$modelIntegrante->cedula_persona =     $listaIntegrantes[$i];
+							$modelIntegrante->inv_codigo_grupo = $listagrupos[$i];
+							$modelIntegrante->save();
+
+						}
+				}
 
 				catch(PDOException $e)
 				{
@@ -384,9 +398,9 @@ class ControlProductos extends Controller {
 	public function listaUsuariosProductos($id)
 	{	
 
-		$listaPersonas=	DB::select(DB::raw("select (nombre1||''||nombre2||''||apellido1||''||apellido2)as datos_personales,p.cedula,g.nombre_grupo
+		$listaPersonas=	DB::select(DB::raw("select (nombre1||''||nombre2||''||apellido1||''||apellido2)as datos_personales,p.cedula,g.codigo_grupo, g.nombre_grupo
 		from persona p,inv_grupos g, inv_participacion_productos ivp
-		where p.cedula=ivp.cedula_persona and g.codigo_grupo=ivp.inv_codigo_grupo and ivp.inv_codigo_producto=3"));
+		where p.cedula=ivp.cedula_persona and g.codigo_grupo=ivp.inv_codigo_grupo and ivp.inv_codigo_producto=$id"));
 
 		return $listaPersonas;	
 	}	

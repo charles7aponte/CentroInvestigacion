@@ -311,7 +311,12 @@
                         <div id="block1_archivo1" style="@if(!(isset($proyectos) &&  $proyectos['archivo_actainicio']!="")) display:none @endif">
                             <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_acta_inicio')">
                             <a  target="_blank" href="{{URL::to('archivos_db/proyectos')}}/{{$proyectos['archivo_actainicio']}}">Descargar Archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_acta_inicio" name="edicion_dct-archacta"  value="no">
+                               
+                                @if(!(isset($proyectos) &&  $proyectos['archivo_actainicio']!=''))
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_acta_inicio" name="edicion_dct-archacta"  value="si">
+                                @else 
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_acta_inicio" name="edicion_dct-archacta"  value="no">
+                                @endif       
                         </div>
 
                         <div id="block2_archivo1" style="@if((isset($proyectos) &&  $proyectos['archivo_actainicio']!="")) display:none @endif"> 
@@ -323,13 +328,18 @@
                     <li>
                         <label for="propuesta-proyecto">Archivo de la propuesta: </label>
 
-                        <div id="block1_archivo1" style="@if(!(isset($proyectos) &&  $proyectos['archivo_propuesta']!="")) display:none @endif">
-                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_propuesta')">
+                        <div id="block1_archivo2" style="@if(!(isset($proyectos) &&  $proyectos['archivo_propuesta']!="")) display:none @endif">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_propuesta')">
                             <a  target="_blank" href="{{URL::to('archivos_db/proyectos')}}/{{$proyectos['archivo_propuesta']}}">Descargar Archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_propuesta" name="edicion_propuesta-proyecto"  value="no">
+                            
+                                @if(!(isset($proyectos) &&  $proyectos['archivo_propuesta']!=''))
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_propuesta" name="edicion_propuesta-proyecto"  value="si">
+                                @else 
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_acta_inicio" name="edicion_dct-archacta"  value="no">
+                                @endif     
                         </div>
 
-                        <div id="block2_archivo1" style="@if((isset($proyectos) &&  $proyectos['archivo_propuesta']!="")) display:none @endif"> 
+                        <div id="block2_archivo2" style="@if((isset($proyectos) &&  $proyectos['archivo_propuesta']!="")) display:none @endif"> 
                             <input type="file" id="propuesta-proyecto" name="propuesta-proyecto" value="{{Input::old('propuesta-proyecto')!=null? Input::old('propuesta-proyecto'): (isset($proyectos['archivo_propuesta'])? $proyectos['archivo_propuesta']:'')}}" />
                             @if ($errors->has('propuesta-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('propuesta-proyecto') }}</p> @endif 
                         </div>                           
@@ -338,13 +348,18 @@
                     <li>
                         <label for="informe-proyecto">Archivo del informe final: </label>
 
-                        <div id="block1_archivo1" style="@if(!(isset($proyectos) &&  $proyectos['informe_final']!="")) display:none @endif">
-                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_final')">
+                        <div id="block1_archivo3" style="@if(!(isset($proyectos) &&  $proyectos['informe_final']!="")) display:none @endif">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo3', 'block2_archivo3', 'id_indicador_cambio_archivo_final')">
                             <a  target="_blank" href="{{URL::to('archivos_db/proyectos')}}/{{$proyectos['informe_final']}}">Descargar Archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_final" name="edicion_informe-proyecto"  value="no">
+                            
+                                @if(!(isset($proyectos) &&  $proyectos['informe_final']!=''))   
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_final" name="edicion_informe-proyecto"  value="si">
+                                @else         
+                                    <input  type="hidden" id="id_indicador_cambio_archivo_final" name="edicion_informe-proyecto"  value="no">
+                                @endif
                         </div>
 
-                        <div id="block2_archivo1" style="@if((isset($proyectos) &&  $proyectos['informe_final']!="")) display:none @endif"> 
+                        <div id="block2_archivo3" style="@if((isset($proyectos) &&  $proyectos['informe_final']!="")) display:none @endif"> 
                             <input type="file" id="informe-proyecto" name="informe-proyecto" value="{{Input::old('informe-proyecto')!=null? Input::old('informe-proyecto'): (isset($proyectos['informe_final'])? $proyectos['informe_final']:'')}}" />
                             @if ($errors->has('informe-proyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('informe-proyecto') }}</p> @endif
                         </div>                              

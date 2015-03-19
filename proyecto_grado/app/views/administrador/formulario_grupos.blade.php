@@ -413,7 +413,12 @@
                         <div id="block1_archivo1" style="@if(!(isset($grupos) &&  $grupos['logo_grupo']!="")) display:none @endif">
                             <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_logo')">
                             <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['logo_grupo']}}">Descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_logo" name="edicion_dct-logo"  value="no">
+
+                              @if(!(isset($grupos) &&  $grupos['logo_grupo']!=''))
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_logo" name="edicion_dct-logo"  value="si">
+                              @else 
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_logo" name="edicion_dct-logo"  value="no">
+                              @endif                     
                         </div>
 
                          <div id="block2_archivo1" style="@if((isset($grupos) &&  $grupos['logo_grupo']!="")) display:none @endif"> 
@@ -425,13 +430,18 @@
               <li class="@if($errors->has('afiche')) has-error @endif">
                         <label for="afiche">Ruta del afiche:</label>
                          
-                        <div id="block1_archivo1" style="@if(!(isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif">
-                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_afiche')">
+                        <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_afiche')">
                             <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['ruta_afiche']}}">Descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_afiche" name="edicion_afiche-grupo"  value="no">
+
+                              @if(!(isset($grupos) &&  $grupos['ruta_afiche']!=''))
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_afiche" name="edicion_afiche-grupo"  value="si">
+                                @else 
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_afiche" name="edicion_afiche-grupo"  value="no">
+                              @endif 
                         </div>
 
-                        <div id="block2_archivo1" style="@if((isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif"> 
+                        <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['ruta_afiche']!="")) display:none @endif"> 
                             <input type="file" id="afiche" name="afiche" value="{{ Input::old('afiche')!=null? Input::old('afiche'): (isset($grupos['ruta_afiche'])? $grupos['ruta_afiche']:'')}}" />
                             @if ($errors->has('afiche')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('afiche') }}</p> @endif
                         </div>
@@ -439,13 +449,19 @@
 
               <li class="@if($errors->has('img1')) has-error @endif">
                       <label for="afiche">Imagen1:</label>
-                        <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
-                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img1')">
+                        <div id="block1_archivo3" style="@if(!(isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo3', 'block2_archivo3', 'id_indicador_cambio_archivo_img1')">
                             <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['imagen1']}}">descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_img1" name="edicion_img1-grupo"  value="no">
+
+                              @if(!(isset($grupos) &&  $grupos['imagen1']!=''))
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_img1" name="edicion_img1-grupo"  value="si">
+                                @else 
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_img1" name="edicion_img1-grupo"  value="no">
+                              @endif 
+                            
                         </div>
 
-                        <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                        <div id="block2_archivo3" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
                             <input type="file" id="img1" name="img1" value="{{ Input::old('img1')!=null? Input::old('img1'): (isset($grupos['imagen1'])? $grupos['imagen1']:'')}}" />
                             @if ($errors->has('img1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img1') }}</p> @endif
                         </div>
@@ -454,13 +470,17 @@
               <li class="@if($errors->has('img2')) has-error @endif">
                          <label for="afiche">Imagen2:</label>
 
-                        <div id="block1_archivo2" style="@if(!(isset($grupos) &&  $grupos['imagen2']!="")) display:none @endif">
-                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_archivo_img2')">
+                        <div id="block1_archivo4" style="@if(!(isset($grupos) &&  $grupos['imagen2']!="")) display:none @endif">
+                            <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo4', 'block2_archivo4', 'id_indicador_cambio_archivo_img2')">
                             <a  target="_blank" href="{{URL::to('archivos_db/grupos')}}/{{$grupos['imagen2']}}">Descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_archivo_img2" name="edicion_img2-grupo"  value="no">
+                              @if(!(isset($grupos) &&  $grupos['imagen2']!=''))
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_img2" name="edicion_img2-grupo"  value="si">
+                                @else 
+                                   <input  type="hidden" id="id_indicador_cambio_archivo_img2" name="edicion_img2-grupo"  value="no">
+                              @endif 
                         </div>
 
-                        <div id="block2_archivo2" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
+                        <div id="block2_archivo4" style="@if((isset($grupos) &&  $grupos['imagen1']!="")) display:none @endif">
                             <input type="file" id="img2" name="img2" value="{{ Input::old('img2')!=null? Input::old('img2'): (isset($grupos['imagen2'])? $grupos['imagen2']:'')}}" />
                             @if ($errors->has('img2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('img2') }}</p> @endif
                         </div>

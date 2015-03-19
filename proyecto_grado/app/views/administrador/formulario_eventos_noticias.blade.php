@@ -161,7 +161,12 @@
                        <div id="block1_archivo1" style="@if(!(isset($evento) &&  $evento['enlace_documento']!="")) display:none @endif">
                             <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_arch_evento')">
                             <a  target="_blank" href="{{URL::to('archivos_db/eventosnoticias')}}/{{$evento['enlace_documento']}}">Descargar archivo </a>
-                            <input  type="hidden" id="id_indicador_cambio_arch_evento" name="edicion_dct-evento"  value="no">
+                            
+                                @if(!(isset($evento) &&  $evento['enlace_documento']!=''))   
+                                    <input  type="hidden" id="id_indicador_cambio_arch_evento" name="edicion_dct-evento"  value="si">
+                                @else         
+                                    <input  type="hidden" id="id_indicador_cambio_arch_evento" name="edicion_dct-evento"  value="no">
+                                @endif        
                         </div>
 
                         <div id="block2_archivo1" style="@if((isset($evento) &&  $evento['enlace_documento']!="")) display:none @endif"> 

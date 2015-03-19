@@ -229,13 +229,12 @@
                               </thead>
 
                               <tbody>
-
                                 @if(isset($integrantesproducto))
                                   @foreach($integrantesproducto as $personaproductos)
                                       <tr id="integrantemodal_{{$personaproductos->cedula}}">
-                                        <td><input type="hidden" data-info="1" name="integrantes[]" value="1">{{$personaproductos->cedula}}</td> 
+                                        <td><input type="hidden" data-info="{{$personaproductos->cedula}}" name="integrantes[]" value="{{$personaproductos->cedula}}">{{$personaproductos->cedula}}</td> 
                                         <td>{{$personaproductos->datos_personales}}</td> 
-                                        <td>{{$personaproductos->nombre_grupo}}</td> 
+                                        <td><input type="hidden"  name="idgrupo[]" value="{{$personaproductos->codigo_grupo}}"> {{$personaproductos->nombre_grupo}}</td> 
                                         <td><a href="#" onclick="eliminarModalIntegranteProducto('{{$productos['codigo_producto']}}','{{$personaproductos->cedula}}')" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a></td>   
                                       </tr>
 
@@ -306,13 +305,18 @@
             <fieldset>
                 <li><label for="foto-producto">Foto del producto: </label>
 
-                    <div id="block1_archivo2" style="@if(!(isset($productos) &&  $productos['foto_producto']!="")) display:none @endif">
-                        <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_img_producto')">
+                    <div id="block1_archivo1" style="@if(!(isset($productos) &&  $productos['foto_producto']!="")) display:none @endif">
+                        <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_img_producto')">
                         <a  target="_blank" href="{{URL::to('archivos_db/productos')}}/{{$productos['foto_producto']}}">Descargar Archivo </a>
-                        <input  type="hidden" id="id_indicador_cambio_img_producto" name="edicion_producto-foto"  value="no">
+                        
+                          @if(!(isset($productos) &&  $productos['foto_producto']!=''))   
+                              <input  type="hidden" id="id_indicador_cambio_img_producto" name="edicion_producto-foto"  value="si">
+                            @else         
+                              <input  type="hidden" id="id_indicador_cambio_img_producto" name="edicion_producto-foto"  value="no">
+                          @endif
                     </div>
 
-                    <div id="block2_archivo2" style="@if((isset($productos) &&  $productos['foto_producto']!="")) display:none @endif">
+                    <div id="block2_archivo1" style="@if((isset($productos) &&  $productos['foto_producto']!="")) display:none @endif">
                         <input type="file" id="foto-producto" name="foto-producto" value="{{Input::old('foto-producto')!=null? Input::old('foto-producto'): (isset($productos['foto_producto'])? $productos['foto_producto']:'')}}">
                         @if ($errors->has('foto-producto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto-producto') }}</p> @endif
                     </div>
@@ -323,7 +327,12 @@
                     <div id="block1_archivo2" style="@if(!(isset($productos) &&  $productos['soporte_producto']!="")) display:none @endif">
                         <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo2', 'block2_archivo2', 'id_indicador_cambio_soporte_producto')">
                         <a  target="_blank" href="{{URL::to('archivos_db/productos')}}/{{$productos['soporte_producto']}}">Descargar Archivo </a>
-                        <input  type="hidden" id="id_indicador_cambio_soporte_producto" name="edicion_dto-soporte"  value="no">
+                        
+                          @if(!(isset($productos) &&  $productos['soporte_producto']!=''))   
+                              <input  type="hidden" id="id_indicador_cambio_soporte_producto" name="edicion_dto-soporte"  value="si">
+                            @else         
+                              <input  type="hidden" id="id_indicador_cambio_soporte_producto" name="edicion_dto-soporte"  value="no">
+                          @endif             
                     </div>
 
                     <div id="block2_archivo2" style="@if((isset($productos) &&  $productos['soporte_producto']!="")) display:none @endif">
