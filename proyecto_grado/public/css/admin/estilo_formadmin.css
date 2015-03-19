@@ -1,3 +1,5 @@
+
+
 /**----------------------------------------------------------
 ---------ESTILO DE FORMULARIO PARA AGREGAR <GRUPOS, CONVOCATORIAS, PROYECTOS, PRODUCTOS, EMPRESAS, LINEAS, SUBLINEAS...> ------------------
 -------------------------------------------------------------
@@ -193,7 +195,7 @@
 #form-investigadores input:focus, #form-investigadores textarea:focus,
 #form-periodos-academicos input:focus,
 #form-unidad-academica input:focus, #form-unidad-academica textarea:focus{
-    background: #fff;  , 
+    background: #fff;  
     border:1px solid #555; 
     box-shadow: 0 0 3px #aaa; 
     padding-right:80px;
@@ -337,7 +339,7 @@
 #botones-formularios th#crear{
     float: left;
     margin-left: 20px;
-    margin-bottom:;
+    margin-bottom:10px;
 }
 
 
@@ -385,7 +387,7 @@
 #form-investigadores #crear-investigador:hover,
 #form-periodos-academicos #crear-periodo:hover,
 #form-unidad-academica #crear-unidad:hover{
-{
+
     background:#1A5DB3;
     background-image: -webkit-linear-gradient(bottom,#5BA9AE,#1A5DB3);
     background-image: -moz-linear-gradient(bottom,#5BA9AE,#1A5DB3);
@@ -399,7 +401,6 @@
 /*arreglar tamaño del input de ingresar valores en convocatorias*/
 input#cuantia-conv{
 	width: 585px;
-	display: table-cell;
 }
 
 /*arreglar el legend en formulario-proyectos*/
@@ -506,11 +507,6 @@ table#tabla-periodos-academicos
 
  }
 
-
-#tabla-integrantes-grupos{
-  background: red;
-}
-
  #tabla-integrantes-grupos thead tr:last-child th, 
  #tabla-integrantes-proyectos thead tr:last-child th,
  #tabla-lineas-grupos thead tr:last-child th,
@@ -594,4 +590,6 @@ table#tabla-periodos-academicos
 	cursor: pointer;
 	color: #2C3333;
 }
+
+
 

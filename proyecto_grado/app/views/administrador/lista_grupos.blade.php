@@ -48,9 +48,11 @@
                 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">GRUPOS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="4">NOMBRE DEL GRUPO</th>
+            <th >NOMBRE DEL GRUPO</th>
+            <th>UNIDAD ACADÉMICA </th>
             <th> </th>
             <th> </th>
+            <th></th>
           </tr>
         </thead>
           <tbody>
