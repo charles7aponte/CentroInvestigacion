@@ -91,11 +91,11 @@
 
         </h2></div>
         <ul>
-
-            <!--@if(isset($personaiv))
+        <!--
+            @if(isset($personaiv))
 
                 <fieldset>  
-                    <li><label for="cedula">C&eacute;dula:</label>
+                    <!--<li><label for="cedula">C&eacute;dula:</label>
                         <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'): (isset($investigador['cedula_persona'])? $investigador['cedula_persona']:'')}}" required="required"/>
                          @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
                     </li>
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                     </li>
-                </fieldset>-->
+                </fieldset>
             @else
 
                  <fieldset>  
@@ -341,7 +341,7 @@
                         </div>
                     </li>
                 </fieldset>
-            </ul>
+            </ul>-->
 
             <table id="botones-formularios">
                 <thead>
