@@ -36,6 +36,22 @@ function numberFormat(numero){
     }
 
 
+function actualizar_total(){
+
+  var lista_valores=$("td[datainfo-valor]");
+  var suma=0;
+  for (var i = 0; i < lista_valores.length; i++) {
+    var auxiliar= Number($(lista_valores[i]).attr("datainfo-valor"));
+
+    if(isNaN(auxiliar)==false)
+    {
+     suma+=auxiliar;
+      
+    }
+  }
+  
+  $("#valor_mostrar").html('$'+ numberFormat(""+suma));
+}
 
 $("#verfinanciamiento").click(function(){
 
@@ -114,7 +130,7 @@ function crearfilafinanciamientoproyecto(proyecto){
       +"  <td style='width:90px;'>"+proyecto.fecha+"</td> "
       +"  <td style='width:300px; margin-right:5px;'>"+proyecto.nombre_empresa+" </td> "
       +"  <td style='width:100px; margin-rigth:5px;'>"+proyecto.modo_financiamiento+" </td>"
-      +"  <td style='width:90px; margin-left:5px;'>"+"$"+numberFormat(""+proyecto.valor_financiado)+" </td>"
+      +"  <td  datainfo-valor='"+proyecto.valor_financiado+"' style='width:90px; margin-left:5px;'>"+"$"+numberFormat(""+proyecto.valor_financiado)+" </td>"
       +"  <td style='width:120px;'> "
 
 
@@ -160,7 +176,7 @@ function mostrartotal(total){
       +"  <td style='width:90px;'></td> "
       +"  <td style='width:300px; margin-right:5px;'></td> "
       +"  <td style='width:100px; margin-rigth:5px; font-weight:bold;'>Total</td>"
-      +"  <td style='width:90px; margin-left:5px; font-weight:bold;'>"+"$"+ numberFormat(""+total)+" </td>"
+      +"  <td id='valor_mostrar' style='width:90px; margin-left:5px; font-weight:bold;'>"+"$"+ numberFormat(""+total)+" </td>"
       +"  <td style='width:120px;'> </td>"
       +"  <td style='width:100px;'> </td>"
       +"  </tr>"

@@ -30,6 +30,10 @@ function eliminacionremota(){
 
         
         $(fila_info+ID).remove();
+        if (actualizar_total) {
+          actualizar_total();
+        };
+        
 
 
 

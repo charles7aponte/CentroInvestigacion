@@ -1,11 +1,6 @@
 @extends('administrador.panel_admin')
 
 @section("javascript-nuevos")
-  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
-  <script >
-      URL='formularioinvestigadores/eliminar/';
-      fila_info="#dato_investigador_";
-  </script>
 
 @section('cuerpo')
 <div>
@@ -39,7 +34,7 @@
     <div id="tabla-listasublineas">
       <table id="listasublineas">
         <thead>
-          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="4" style=" border-radius: 5px; background: #1A6D71;
                   background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                   background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                   background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -49,7 +44,6 @@
             <th></th>
             <th>NOMBRE DE LOS INVESTIGADORES</th>
             <th>PERFÍL</th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -68,10 +62,6 @@
                     </td>
                     <td style="width:90px;">
                       <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                    </td>
-                    <td style="width:93px;">
-                      <b onclick="eliminartipo({{$campo['codinv_ext']}})">
-                      <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
               @endforeach
