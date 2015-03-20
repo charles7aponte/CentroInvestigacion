@@ -302,6 +302,13 @@
                         <input type="text" id="numero_contrato" name="numero_contrato" value="{{ Input::old('numero_contrato')!=null? Input::old('numero_contrato'): (isset($investigador['numerocontrato'])? $investigador['numerocontrato']:'')}}"/>
                         @if ($errors->has('numero_contrato')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero_contrato') }}</p> @endif
                     </li>
+
+                    <li>
+                        <label for="link-cvlac">Link cvlac</label>
+                        <input type="text" id="link-cvlac" name="link-cvlac" value="{{ Input::old('link-cvlac')!=null? Input::old('link-cvlac'): (isset($investigador['link_cvlac'])? $investigador['link_cvlac']:'')}}" required="required" />
+                        @if ($errors->has('link-cvlac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('link-cvlac') }}</p> @endif
+                    </li>
+
                     <li><label for="">Fecha Inicio:</label>
                         <div class="container">
                             <div class="row">

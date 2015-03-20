@@ -28,6 +28,7 @@ class ControlInvestigadores extends Controller {
 		$nombre_convocatoria=Input::get('nombre_conv');
 		$entida_conv=Input::get('entidad-investigadores');
 		$num_contrato=Input::get('numero_contrato');
+		$link_cvlac=Input::get('link-cvlac');
 			
 
 
@@ -87,6 +88,7 @@ class ControlInvestigadores extends Controller {
 		$entidad->nit=$entida_conv;
 		$entidad->codperfil=$perfil_invest;
 		$entidad->numerocontrato=$num_contrato;
+		$entidad->link_cvlac=$link_cvlac;
 		$entidad->fecha_inicio=$fecha_inicio;
 		$entidad->fecha_fin=$fecha_fin;
 
@@ -142,9 +144,7 @@ class ControlInvestigadores extends Controller {
 					
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El investigador ha sido creado");
-
-								
+								->with('mensaje_success',"El investigador ha sido creado");				
 				}
 			
 			}
@@ -235,6 +235,7 @@ class ControlInvestigadores extends Controller {
 		$nombre_convocatoria=Input::get('nombre_conv');
 		$entida_conv=Input::get('entidad-investigadores');
 		$num_contrato=Input::get('numero_contrato');
+		$link_cvlac=Input::get('link-cvlac');
 			
 
 
@@ -302,6 +303,7 @@ class ControlInvestigadores extends Controller {
 		$entidad->nit=$entida_conv;
 		$entidad->codperfil=$perfil_invest;
 		$entidad->numerocontrato=$num_contrato;
+		$entidad->link_cvlac=$link_cvlac;
 		$entidad->fecha_inicio=$fecha_inicio;
 		$entidad->fecha_fin=$fecha_fin;
 
@@ -382,12 +384,20 @@ class ControlInvestigadores extends Controller {
 	{
 
 				$investigador = InvInvestigadoresExternos::find($id);
+
+
+				$personaiv =null;	
+				$listaentidadinv = array();
+				$listaperfiles	=array();			
+
+				if($investigador)
+				{
+
 				$personaiv = Persona::where("cedula","=",$investigador->cedula_persona)->first();	
 				$listaentidadinv = InvEntidades:: all();
 				$listaperfiles = InvPerfiles:: all();
 
-				if($investigador)
-				{
+
 			
 					$dateperfil = new DateTime($personaiv->fecha_perfil);
 					$dateinicio = new DateTime($investigador->fecha_inicio);

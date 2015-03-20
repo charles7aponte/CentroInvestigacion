@@ -24,7 +24,8 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'entidad-investigadores' => 'required|max:200|',	
 			'numero_contrato'        => 'max:100',
 			'creacion_inicio'        => 'required',
-			'creacion_fin'           => 'required',		
+			'creacion_fin'           => 'required',
+			'link-cvlac'			 =>	'required',	
 	);
 
 	// reglas validacion edicion...
@@ -38,7 +39,8 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'entidad-investigadores' => 'required|max:200|',	
 			'numero_contrato'        => 'max:100',
 			'creacion_inicio'        => 'required',
-			'creacion_fin'           => 'required',		
+			'creacion_fin'           => 'required',	
+			'link-cvlac'			 =>	'required',	
 	);
 
 
