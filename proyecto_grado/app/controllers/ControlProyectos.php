@@ -147,7 +147,7 @@ class ControlProyectos extends Controller {
 
 				$listaConvocatorias = InvConvocatorias::where('estado1','=','1')->get();
 				$listaLineas = InvLineas::where('estado','=','1')->get();
-				$listaGrupos = InvGrupos::all();
+				$listaGrupos = InvGrupos::where('estado_activacion','=','1')->get();
 				$listaGrupos1 = InvGrupos::all();
 
 
@@ -354,7 +354,7 @@ class ControlProyectos extends Controller {
 		$proyectos = InvProyectos::find($id);	
 		$listaConvocatorias = InvConvocatorias::where('estado1','=','1')->get();
 		$listaLineas = InvLineas::where('estado','=','1')->get();
-		$listaGrupos = InvGrupos::all();
+		$listaGrupos = InvGrupos::where('estado_activacion','=','1')->get();
 		$listaGrupos1 = InvGrupos::all();
 
 		
