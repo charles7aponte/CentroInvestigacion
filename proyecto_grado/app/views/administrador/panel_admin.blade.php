@@ -173,7 +173,7 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formularioproyectos')}}">Agregar nuevo proyecto</a></li>
 			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
 			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
-			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar el financiamiento de un proyecto</a></li>
+			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar/Editar el financiamiento de un proyecto</a></li>
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>

@@ -145,7 +145,7 @@ class ControlProductos extends Controller {
 	public function cargarFormularioProductos(){
 
 		$listasubprod = InvSubtipoProductos::all();
-		$listagruposproducto = InvGrupos::all();
+		$listagruposproducto = InvGrupos::where("estado_activacion","=","1")->get();
 		$listaLineasproducto = InvLineas::where("estado","=","1")->get();
 		$listaentidadproducto = InvEntidades::all();				
 		
@@ -367,7 +367,7 @@ class ControlProductos extends Controller {
 
 		$productos = InvProductos::find($id);
 		$listasubprod = InvSubtipoProductos::all();
-		$listagruposproducto = InvGrupos::all();
+		$listagruposproducto = InvGrupos::where("estado_activacion","=","1")->get();
 		$listaLineasproducto = InvLineas::where("estado","=","1")->get();
 		$listaentidadproducto = InvEntidades::all();
 
