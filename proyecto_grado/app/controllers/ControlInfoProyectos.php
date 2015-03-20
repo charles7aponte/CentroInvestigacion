@@ -14,11 +14,12 @@ class ControlInfoProyectos extends Controller {
 	$grupos1=array();
 	$lineas=array();
 	$convocatorias=array();
+	$listaFinanciamientoProyectos=array();
 
 	if($proyectos)// cuando se usa el find se asegura que se trae 1objeto o null 
 	{
 		//$proyectos=$proyectos[0];
-
+		$listaFinanciamientoProyectos=$this->FinanciamientoProyecto($id_proyecto);
 		$grupos = InvGrupos::where("codigo_grupo","=",$proyectos->inv_codigo_grupo)->get();
 		$grupos1= InvGrupos::where("codigo_grupo","=",$proyectos->grupo_auxiliar)->get();
 		$lineas=InvLineas::where("id_lineas","=",$proyectos->inv_id_linea)->get();
@@ -61,17 +62,18 @@ class ControlInfoProyectos extends Controller {
 
 		}
 
-
+		
 		$datos = array('proyectos' =>$proyectos,
 						'Lista_integrantes'=>$this->listaIntegrantesProyectos,
 						'Lista_perfiles' =>$this->idperfiles,
 					    'grupos'  =>$grupos,
 					    'grupos_auxiliares'  =>$grupos1,
 					    'lineas'  =>$lineas, 
-					    'convocatorias' =>$convocatorias 
+					    'convocatorias' =>$convocatorias,
+					    'financiamiento' =>$listaFinanciamientoProyectos 
 					);
 
-	
+
 		return View::make("inf_proyectos",$datos);
 	}
 
@@ -93,6 +95,15 @@ class ControlInfoProyectos extends Controller {
 		}		
 
 		return array('count'=>0, 'codperfil'=>0);
+	}
+
+	public function FinanciamientoProyecto($id_proyecto){
+		$listaFinanciamientoProyectos=DB::select(DB::raw("select *
+			from inv_financiacion if, empresa e
+			where if.inv_nit_empresa=e.nit and if.inv_codigo_proyecto=$id_proyecto;")
+			);
+		
+		return $listaFinanciamientoProyectos;
 	}
 	
 }

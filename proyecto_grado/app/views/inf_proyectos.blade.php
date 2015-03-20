@@ -8,6 +8,7 @@
 @section('javascript-nuevos2')
  
 <script type="text/javascript" src="{{URL::to('/js')}}/js-infproyectos.js"></script>
+<script src="{{URL::to('/js')}}/recursos/eliminar_datos.js" type="text/javascript"></script>
 
 @stop
 
@@ -16,8 +17,29 @@
 
 
 <div id="capa" class="infproyectos">
-    <fieldset id="principal">
 
+    <!--Modal de ver descripcion-->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel" style="background:none;"><b>Descripci&oacute;n</b></h4>
+            </div>
+            <div class="modal-body">
+              <div id="contenido_modal">
+                
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <fieldset id="principal">
         @if(isset($proyectos['codigo_proyecto'])==false)
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -25,6 +47,8 @@
                     <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para este proyecto</div>   
             </fieldset>
         @endif
+
+        @if($proyectos)
 
             <div id="titulo-proyectos" id="cuadro"> 
                 @if(isset($proyectos) && $proyectos!=null && isset($proyectos['nombre_proyecto']))
@@ -162,55 +186,56 @@
 
 <!--Listas desplegables-->
     <fieldset id="secundario1">
-        <div class="titulo-listas" id="cuadro">
-             <h4>
-                <p style=" border-radius: 5px; background: #286388;
-                      background: -webkit-linear-gradient(top,#286388,#122d3e);
-                      background: -moz-linear-gradient(top,#286388,#122d3e);
-                      background: -o-linear-gradient(top,#286388,#122d3e);  
-                      background: linear-gradient(to bottom,#286388,#122d3e);  
-                      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">AUTORES</p>
-            </h4>
-        </div>
-        <div id="lista_integrantes" class="lista-integrantes">
-            <ul class="list-group">
-                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
-                    <li class="list-group-item">
-                    <span class="badge" id="total">
-                    {{$Lista_integrantes["Docente"]}}
-                    </span>
-                    Docentes
-                  </li>
-                </a>
 
-                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
-                  <li class="list-group-item">
-                    <span class="badge" id="total">
-                    {{$Lista_integrantes["Estudiante"]}}
-                    </span>
-                    Estudiantes
-                  </li>
-                </a>
-                
-                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
-                  <li class="list-group-item">
-                    <span class="badge" id="total"> 
-                    {{$Lista_integrantes["Joven Investigador"]}}
-                    </span>
-                    J&oacute;venes Investigadores
-                  </li>
-                </a>
-                
-                <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
-                  <li class="list-group-item">
-                    <span class="badge" id="total">
-                    {{$Lista_integrantes["Investigador Externo"]}}
-                    </span>
-                    Investigadores Externos
-                  </li>
-                </a>   
-            </ul>
-        </div>
+            <div class="titulo-listas" id="cuadro">
+                 <h4>
+                    <p style=" border-radius: 5px; background: #286388;
+                          background: -webkit-linear-gradient(top,#286388,#122d3e);
+                          background: -moz-linear-gradient(top,#286388,#122d3e);
+                          background: -o-linear-gradient(top,#286388,#122d3e);  
+                          background: linear-gradient(to bottom,#286388,#122d3e);  
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">AUTORES</p>
+                </h4>
+            </div>   
+            <div id="lista_integrantes" class="lista-integrantes">
+                <ul class="list-group">
+                    <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
+                        <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Docente"]}}
+                        </span>
+                        Docentes
+                      </li>
+                    </a>
+
+                    <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Estudiante"]}}
+                        </span>
+                        Estudiantes
+                      </li>
+                    </a>
+                    
+                    <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
+                      <li class="list-group-item">
+                        <span class="badge" id="total"> 
+                        {{$Lista_integrantes["Joven Investigador"]}}
+                        </span>
+                        J&oacute;venes Investigadores
+                      </li>
+                    </a>
+                    
+                    <a href="{{URL::to('/')}}/listaintegrantesproyectos/proyecto/{{$proyectos['codigo_proyecto']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Investigador Externo"]}}
+                        </span>
+                        Investigadores Externos
+                      </li>
+                    </a>   
+                </ul>
+            </div>
     </fieldset>
 
     <fieldset id="secundario1">
@@ -219,10 +244,62 @@
             </h4>
         </div>
         <div id="lista_financiamiento" class="lista-financiamiento">
-        <div class="panel panel-default">
-          <div class="panel-heading"></div>
           
-        </div>
+          @if(count($financiamiento)==0)
+              <li class="list-group-item">
+                <b>No hay financiamiento asociado al proyecto</b>
+              </li> 
+
+        @else
+        <table id="tabla-listafinanciamiento-proyectos" style="margin-top:40px; margin-left:30px;  width:950px;">
+            <thead>
+                <tr><th colspan="5"></th>
+                </tr>
+                <tr>
+                    <th style="width:150px;">Fecha</th>
+                    <th style="">Entidad</th>
+                    <th style="width:150px;">Modo</th>
+                    <th style="width:170px;">Valor</th>
+                    <th style="width:120px; text-align:center;">Descripción</th>
+                </tr>
+            </thead>
+
+
+            <?php
+                $total=0;
+            ?>
+            <tbody id="cuerpo_tabla_finaciamiento">
+                @foreach($financiamiento as $financimiento1) 
+                <tr>
+                    <td>{{$financimiento1->fecha}}</td>
+                    <td>{{$financimiento1->razon_social}}</td>
+                    <td style="margin-left:20px;">{{$financimiento1->modo_financiamiento}}</td>
+                    <td>$ {{number_format($financimiento1->valor_financiado)}}</td>
+                    <td style="text-align:center; width:120px;">    
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"data-target="#myModal" 
+                         data-info="{{$financimiento1->descripcion_financiamiento}}"
+                         onclick="cargarmodal_descripcion(this);"
+                         style="height:30px; width:120px; background:#E3E7E5;border-color:#E3E7E5; margin-right:15px; font-size:12px; color:#333;" >
+                         Ver descripci&oacute;n
+                        </button>                  
+                    </td>
+                </tr>
+                <?php
+                    $total+=(double)$financimiento1->valor_financiado;
+                ?>
+             @endforeach 
+             <tr>
+                 <td></td>
+                 <td></td>
+                 <td style="margin-left:20px;"></td>
+                 <td style="font-weight:bold;">$ {{number_format($total)}}</td>
+                 <td style="text-align:center; width:120px;"></td>
+             </tr>   
+            </tbody>
+        </table>
+         @endif
+        @endif
     </fieldset>
 
 </div>

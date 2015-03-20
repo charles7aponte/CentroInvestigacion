@@ -15,7 +15,7 @@ function activacion_desactivacion (id,elemento){
 	      {
 
 	      	if(data.estado==0){
-				$("#dato_grupo_"+id).css(  "background", "rgb(198, 124, 124)");
+				$("#dato_grupo_"+id).css(  "background", "#BDBDBD");
 				$(elemento).find('p').html('<i class="glyphicon glyphicon-ok-circle"></i> Activar') //encontrando el elemento de a
 				$(elemento).attr('data-info-estado',0);
 			}

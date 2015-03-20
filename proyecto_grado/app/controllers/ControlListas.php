@@ -7,15 +7,24 @@ class ControlListas extends Controller {
 	 *
 	 * @return void
 	 */
-
+	
 	//controlador lineas
 	public function ConstruirListaLineas(){
-		$listas=InvLineas::all(); //traer registros
-		$paginacion=InvLineas::paginate(20);
+		$paginacion=InvLineas::orderBy('inv_unidad_academica')->paginate(20);
 		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
+
+			foreach ($paginacion as $key => $lista) {
+			$nombre_linea=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
+			$nombre_linea = $nombre_linea->nombre_unidad;
+			$paginacion[$key]->nombre_unidad_academica=$nombre_linea; 
+
+		}
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 		
 		//print_r($a);
 		return View::make('administrador/lista_lineas',$datos);
@@ -85,23 +94,22 @@ class ControlListas extends Controller {
 				//controlador grupos
 	public function ConstruirListaGrupos(){
 	
-		$paginacion=InvGrupos::paginate(3);//traer registros
-
-
+		$paginacion=InvGrupos::orderBy('inv_unidad_academica')->paginate(20);//traer registros
+		$numeropaginacion=Input::get('page',1);
+		echo $numeropaginacion;
 		foreach ($paginacion as $key => $lista) {
 			$nombre_grupo=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
 			$nombre_grupo = $nombre_grupo->nombre_unidad;
 			$paginacion[$key]->nombre_unidad_academica=$nombre_grupo; 
 
 		}
-
-
 		
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
 			'campo_lista'=>$paginacion,
-			'links'=>$crear_paginacion);
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 		
 		return View::make('administrador/lista_grupos',$datos);
 	}
@@ -120,7 +128,7 @@ class ControlListas extends Controller {
 
 	//controlador investigadores
 	public function ConstruirListaInvestigadores(){
-		$listas=InvInvestigadoresExternos::all(); //traer registros
+	//traer registros
 		$paginacion=InvInvestigadoresExternos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 
@@ -129,7 +137,7 @@ class ControlListas extends Controller {
 			{
 				$paginacion[$i]->nombre_persona ="";
 				$persona = Persona::where("cedula","=", $paginacion[$i]->cedula_persona)->get();
-		
+				
 
 				if($persona && count($persona)>0)
 				{
@@ -137,7 +145,12 @@ class ControlListas extends Controller {
 				}				
 			}
 
+		foreach ($paginacion as $key => $lista) {
+			$nombre_perfil=InvPerfiles::find($lista->codperfil);
+			$nombre_perfil = $nombre_perfil->nombreperfil;
+			$paginacion[$key]->nombre_perfil=$nombre_perfil; 
 
+		}
 
 
 		$datos= array(

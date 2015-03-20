@@ -74,4 +74,5 @@ function cargarmodal_descripcion_lineas_sublineas(elemento){
 
    var nombre= $fila.attr("data-infonombre"); 
   $('#myModalLabel').html(nombre);
+  
 }

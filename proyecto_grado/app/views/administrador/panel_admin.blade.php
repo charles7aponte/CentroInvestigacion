@@ -133,7 +133,12 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<a href="{{URL::to('administrador')}}"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>		
+		<a href="{{URL::to('administrador')}}"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>	
+
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Unidades</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formulariounidadesacademicas')}}">Agregar nueva unidad académica</a></li>
+		</ul>	
 	
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
@@ -142,36 +147,35 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
 
-		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Unidades</h3>
-			<ul class="toggle">
-				<li class=""><a href="{{URL::to('formulariounidadesacademicas')}}">Agregar nueva unidad académica</a></li>
-			</ul>
-		</h3>
 		
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariolineas')}}">Agregar nueva l&iacute;nea</a></li>
-			<li class=""><a href="{{URL::to('formulariosublineas')}}">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('listadelineas')}}">Ver/Editar una l&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('formulariosublineas')}}">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('listadesublineas')}}">Editar/Eliminar una subl&iacute;nea</a></li>
 		</ul>
+
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioinvestigadores')}}">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
 			<li class=""><a href="{{URL::to('listadeinvestigadores')}}">Ver/editar informaci&oacute;n de un j&oacute;ven investigador o participante externo</a></li>			
 		</ul>
+
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioconvocatorias')}}">Crear nueva convocatoria</a></li>
 			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar una convocatoria</a></li>
 		</ul>
+
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioproyectos')}}">Agregar nuevo proyecto</a></li>
+			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
 			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
 			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar el financiamiento de un proyecto</a></li>
-			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
 		</ul>
+
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioproductos')}}"> Agregar nuevo producto</a></li>
@@ -179,6 +183,12 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formulariotipoproductos')}}">Agregar/eliminar un tipo de producto</a></li>
 			<li class=""><a href="{{URL::to('formulariosubtipoproductos')}}">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
+
+		<h3><span class="glyphicon glyphicon-calendar"></span> Periodos Acad&eacute;micos</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formularioperiodosacademicos')}}">Agregar un Periodo Acad&eacute;mico</a></li>	
+		</ul>
+
 		
 		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
 		<ul class="toggle">
@@ -186,17 +196,12 @@ switch($mes){
 			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento o noticia</a></li>	
 		</ul>
 
-		<h3><span class="glyphicon glyphicon-calendar"></span> Periodos Acad&eacute;micos</h3>
-		<ul class="toggle">
-			<li class=""><a href="{{URL::to('formularioperiodosacademicos')}}">Agregar un Periodo Acad&eacute;mico</a></li>	
-		</ul>
-
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
 		<ul class="toggle">
 			<li class=""><a href="#"></a></li>
 		</ul>
 		
-		<h3>Administrador</h3>
+		<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
 		<ul class="toggle">
 			<li class=""><a href="#">Opciones</a></li>
 			<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>

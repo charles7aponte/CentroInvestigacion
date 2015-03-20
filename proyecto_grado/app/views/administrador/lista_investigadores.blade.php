@@ -39,7 +39,7 @@
     <div id="tabla-listasublineas">
       <table id="listasublineas">
         <thead>
-          <tr><th colspan="4" style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
                   background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                   background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                   background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -47,19 +47,24 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">INVESTIGADORES</th></tr>
           <tr>
             <th></th>
-            <th colspan="4">NOMBRE DE LOS INVESTIGADORES</th>
+            <th>NOMBRE DE LOS INVESTIGADORES</th>
+            <th>PERFÍL</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-               <!-- @if($campo['estado']==1 ) -->
                   <tr id="dato_investigador_{{$campo['codinv_ext']}}">
                     <td style="width:130px;">
                       <a >{{$campo['cedula_persona']}} </a>
                     </td>
                     <td >
-                      <a href="">{{$campo['nombre_persona']}} </a>
+                      <a href="">{{$campo['nombre_persona']}}</a>
+                    </td>
+                    <td>
+                      {{$campo['nombre_perfil']}} 
                     </td>
                     <td style="width:90px;">
                       <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
@@ -69,7 +74,6 @@
                       <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
-                <!--@endif-->
               @endforeach
             @endif
       </table>

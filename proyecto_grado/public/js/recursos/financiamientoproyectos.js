@@ -1,3 +1,41 @@
+function numberFormat(numero){ 
+        // Variable que contendra el resultado final
+        var resultado = "";
+        
+        // Si el numero empieza por el valor "-" (numero negativo)
+        if(numero[0]=="-")
+        {
+            // Cogemos el numero eliminando los posibles puntos que tenga, y sin
+            // el signo negativo
+            nuevoNumero=numero.replace(/\./g,'').substring(1);
+        }else{
+            // Cogemos el numero eliminando los posibles puntos que tenga
+            nuevoNumero=numero.replace(/\./g,'');
+        }
+        
+        // Si tiene decimales, se los quitamos al numero
+        if(numero.indexOf(",")>=0)
+            nuevoNumero=nuevoNumero.substring(0,nuevoNumero.indexOf(","));
+
+        // Ponemos un punto cada 3 caracteres
+        for (var j, i = nuevoNumero.length - 1, j = 0; i >= 0; i--, j++) 
+            resultado = nuevoNumero.charAt(i) + ((j > 0) && (j % 3 == 0)? ".": "") + resultado; 
+        
+        // Si tiene decimales, se lo añadimos al numero una vez forateado con 
+        // los separadores de miles
+        if(numero.indexOf(",")>=0)
+            resultado+=numero.substring(numero.indexOf(","));
+
+        if(numero[0]=="-")
+        {
+            // Devolvemos el valor añadiendo al inicio el signo negativo
+            return "-"+resultado;
+        }else{
+            return resultado;
+        }
+    }
+
+
 
 $("#verfinanciamiento").click(function(){
 
@@ -24,6 +62,7 @@ var idP= $("#nombre_proyecto1").val();
                       mihtml+= crearfilafinanciamientoproyecto(result[i]);
                       
                      }
+
                      mihtml+= mostrartotal(total);
 
                      if(result.length==0)
@@ -50,6 +89,8 @@ var idP= $("#nombre_proyecto1").val();
 });
 
 
+
+
 //cargar info en el modal
 function pasarContenidoAModa(miBoton){
 
@@ -73,7 +114,7 @@ function crearfilafinanciamientoproyecto(proyecto){
       +"  <td style='width:90px;'>"+proyecto.fecha+"</td> "
       +"  <td style='width:300px; margin-right:5px;'>"+proyecto.nombre_empresa+" </td> "
       +"  <td style='width:100px; margin-rigth:5px;'>"+proyecto.modo_financiamiento+" </td>"
-      +"  <td style='width:90px; margin-left:5px;'>"+"$"+proyecto.valor_financiado+" </td>"
+      +"  <td style='width:90px; margin-left:5px;'>"+"$"+numberFormat(""+proyecto.valor_financiado)+" </td>"
       +"  <td style='width:120px;'> "
 
 
@@ -119,7 +160,7 @@ function mostrartotal(total){
       +"  <td style='width:90px;'></td> "
       +"  <td style='width:300px; margin-right:5px;'></td> "
       +"  <td style='width:100px; margin-rigth:5px; font-weight:bold;'>Total</td>"
-      +"  <td style='width:90px; margin-left:5px; font-weight:bold;'>"+"$"+total+" </td>"
+      +"  <td style='width:90px; margin-left:5px; font-weight:bold;'>"+"$"+ numberFormat(""+total)+" </td>"
       +"  <td style='width:120px;'> </td>"
       +"  <td style='width:100px;'> </td>"
       +"  </tr>"

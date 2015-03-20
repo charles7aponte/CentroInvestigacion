@@ -56,19 +56,21 @@
           </tr>
         </thead>
           <tbody>
-            <?php 
-              $contador=1;
-
+            <?php
+            $i=1;
+            $contador=(20*$numeropagina)-19;
             ?>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
                   <tr id="dato_grupo_{{$campo['codigo_grupo']}}" 
                     @if($campo['estado_activacion']==0) 
-                    style="background:rgb(198, 124, 124)"
+                    style="background:#BDBDBD"
                     @endif
                    >
                     <td style="width:100px;">
-                      <b>{{$contador++}}</b>
+                      <b> 
+                          {{$contador++;}}         
+                      </b>
                     </td> 
 
                     <td>
@@ -82,6 +84,7 @@
                        data-info-estado="{{$campo['estado_activacion']}}"
                        onclick="activacion_desactivacion({{$campo['codigo_grupo']}},this)">
                        <p style="margin:0;">
+
                         @if($campo['estado_activacion']==0)
                         <i class="glyphicon glyphicon-ok-circle"></i> Activar
                         @else 

@@ -49,7 +49,7 @@
     <div id="tabla-listaconvocatorias">
       <table id="listaconvocatorias">
         <thead>
-          <tr><th colspan="4" style=" border-radius: 5px; background: #1A6D71;
+          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
                   background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                   background: -moz-linear-gradient(top,#1A6D71,#122d3e);
                   background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -57,7 +57,10 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">CONVOCATORIAS</th></tr>
           <tr>
             <th> </th>
-            <th colspan="3">NOMBRE DE LA CONVOCATORIA</th>
+            <th >NOMBRE DE LA CONVOCATORIA</th>
+            <th>ESTADO</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +75,9 @@
                       <a href="{{URL::to('convocatoria/id')}}/{{$campo['numero_convocatoria']}}">
                         {{$campo['titulo_convocatoria']}}
                       </a>
+                    </td>
+                    <td style="text-transform:capitalize;">
+                      {{$campo['estado']}}
                     </td>
                     <td style="width:90px;">
                       <a href="formularioconvocatorias/edit/{{$campo['numero_convocatoria']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
