@@ -69,7 +69,6 @@ class ControlListas extends Controller {
 
 		//controlador proyectos
 	public function ConstruirListaProyectos(){
-		$listas=InvProyectos::all(); //traer registros
 		$paginacion=InvProyectos::paginate(20);
 		$crear_paginacion=$paginacion->links();
 

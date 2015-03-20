@@ -45,9 +45,6 @@
               <td style="width:90px;">
                 <a href="formularioproyectos/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               </td>
-              <td style="width:155px;">
-                <a href="formulariofinanciamiento/edit/{{$campo['codigo_proyecto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar Financiamiento</a>
-              </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
               </td>

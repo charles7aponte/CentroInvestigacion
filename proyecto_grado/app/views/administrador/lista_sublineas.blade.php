@@ -62,7 +62,7 @@
                       {{$campo['nombre_sublinea']}}
                     </td>
                     <td style="width:90px;">
-                      <a href="edicion/formulariosublineas" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="formulariosublineas/edit/{{$campo['id_sublinea']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
                       <b onclick="eliminartipo({{$campo['id_sublinea']}})">

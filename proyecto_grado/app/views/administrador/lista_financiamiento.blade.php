@@ -89,9 +89,9 @@
   </div>  
 
 
-  <table id="tabla-listafinanciamiento-proyectos" style="margin-top:40px; margin-left:40px; border:none; width:950px;">
+  <table id="tabla-listafinanciamiento-proyectos" style="margin-top:40px; margin-left:40px; border:none; width:980px;">
     <thead>
-      <tr ><th id="nombre-proyecto" colspan="6" style="background: #1A6D71;
+      <tr ><th id="nombre-proyecto" colspan="7" style="background: #1A6D71;
             background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
             background: -moz-linear-gradient(top,#1A6D71,#122d3e);
             background: -o-linear-gradient(top,#1A6D71,#122d3e);  
@@ -107,6 +107,7 @@
         <th>Entidad</th>
         <th>Modo</th>
         <th>Valor</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>

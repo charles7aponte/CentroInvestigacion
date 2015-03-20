@@ -33,7 +33,7 @@
                 <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
               </td>
               <td style="width:90px;">
-                <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                <a href="formularioproductos/edit/{{$campo['codigo_producto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
               </td>
               <td style="width:90px;">
                 <a href="#" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>

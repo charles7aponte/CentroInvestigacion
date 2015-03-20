@@ -61,7 +61,7 @@
                       {{$campo['nombre_perfil']}} 
                     </td>
                     <td style="width:90px;">
-                      <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="formularioinvestigadores/edit/{{$campo['codinv_ext']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                   </tr>
               @endforeach

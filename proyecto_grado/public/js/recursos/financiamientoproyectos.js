@@ -127,8 +127,8 @@ function crearfilafinanciamientoproyecto(proyecto){
 
     var html ="<tr id='principal"+proyecto.id_financiacion+"'> "
 
-      +"  <td style='width:90px;'>"+proyecto.fecha+"</td> "
-      +"  <td style='width:300px; margin-right:5px;'>"+proyecto.nombre_empresa+" </td> "
+      +"  <td style='width:100px;'>"+proyecto.fecha+"</td> "
+      +"  <td style='width:200px; margin-right:5px;'>"+proyecto.nombre_empresa+" </td> "
       +"  <td style='width:100px; margin-rigth:5px;'>"+proyecto.modo_financiamiento+" </td>"
       +"  <td  datainfo-valor='"+proyecto.valor_financiado+"' style='width:90px; margin-left:5px;'>"+"$"+numberFormat(""+proyecto.valor_financiado)+" </td>"
       +"  <td style='width:120px;'> "
@@ -164,6 +164,9 @@ function crearfilafinanciamientoproyecto(proyecto){
       +"    <a href='#' onclick=\"return false\" class='button'><span class='glyphicon glyphicon-trash'></span>Eliminar</a>"
       +"   </b>"
       +"  </td>"
+      +"<td style='width:100px;'>"
+      +"<a href=\"formulariofinanciamiento/edit/"+proyecto.id_financiacion+"\" class='button'><span class='glyphicon glyphicon-pencil'></span>Editar</a>"
+      +"</td>"
       +"</tr>"
 
 return html;
