@@ -96,4 +96,11 @@ class ControlInfoLineas extends Controller {
 		}
 		return 0;
 	}
+
+	//productividad por linea.... grafica 1 (tipo-subtipo-unidad academica)
+	/*public function ContarProductosTipos_Subtipos($id_linea){
+		$listaProyectosPorTipoLineas=DB::select(DB::raw("");
+			return ;
+
+	}*/
 }

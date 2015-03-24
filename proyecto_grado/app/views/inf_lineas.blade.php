@@ -55,13 +55,20 @@
             </fieldset>
         @endif
 
-        <div id="titulo-lineas" id="cuadro"> 
-            <h2>
-              @if(isset($lineas) && $lineas!=null && isset($lineas['nombre_linea']))
-                {{$lineas['nombre_linea']}}
-              @endif
-            </h2>  
-        </div>
+            <table id="titulo-infgrupos" id="cuadro" >
+              <tbody>
+                @if(isset($lineas) && $lineas!=null && isset($lineas['id_lineas']))
+                   <th><h2>{{$lineas['nombre_linea']}}</h2></th> 
+                   <th>
+                      @if($lineas['foto_linea']!="")
+                      <img align="right" src="{{URL::to('archivos_db/lineas/')}}/{{$lineas['foto_linea']}}" onerror="this.onerror=null;this.src='{{URL::to('/')}}images/ui-anim_basic_16x16.gif'">
+                      @else 
+
+                      @endif
+                    </th>
+                @endif    
+              </tbody>     
+            </table>
 
         <table class="tabla-inflineas">
 
