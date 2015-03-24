@@ -51,12 +51,16 @@
           </tr>
         </thead>
         <tbody>
+          <?php
+            $i=1;
+            $contador=(20*$numeropagina)-19;
+          ?>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
                 @if($campo['estado1']==1 ) 
                   <tr id="dato_sublinea_{{$campo['id_sublinea']}}">
                     <td style="width:100px;">
-                      <b>{{$campo['id_sublinea']}}</b>
+                      <b>{{$contador++}}</b>
                     </td> 
                     <td>
                       {{$campo['nombre_sublinea']}}

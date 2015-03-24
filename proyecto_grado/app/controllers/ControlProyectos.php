@@ -411,4 +411,19 @@ class ControlProyectos extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 	}
+
+	public function EliminarFormularioProyecto($id){
+	
+		$form_proyecto=InvProyectos::find($id); //de donde necesito
+
+		if (is_null($form_proyecto)==false){
+
+			$form_proyecto->delete();
+
+			return Response::json(array("respuesta"=>true));
+
+		}
+		return Response::json(array("respuesta"=>false));
+
+	}//			//elimina cada tipo de la tabla .. 	
 }

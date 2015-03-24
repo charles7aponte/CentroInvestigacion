@@ -13,7 +13,8 @@
 }
 
 #form-convocatorias input.form-control,
-#form-proyectos input.form-control{
+#form-proyectos input.form-control,
+#form-productos input.form-control{
   display: inline-block;
 }
 

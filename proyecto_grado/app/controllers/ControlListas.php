@@ -26,66 +26,89 @@ class ControlListas extends Controller {
 			'links'=>$crear_paginacion,
 			'numeropagina' =>$numeropaginacion);
 		
-		//print_r($a);
+
 		return View::make('administrador/lista_lineas',$datos);
 	}
 
 	//controlador sublineas
 	public function ConstruirListaSublineas(){
-		$listas=InvSublineas::all(); //traer registros
 		$paginacion=InvSublineas::paginate(20);
 		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
+
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 
 		return View::make('administrador/lista_sublineas',$datos);
 	}
 
-	//controlador convocatorias
-	public function ConstruirListaConvocatorias(){
-		$listas=InvConvocatorias::all(); //traer registros
-		$paginacion=InvConvocatorias::paginate(20);
+	//controlador convocatorias 
+
+	public function ConstruirListaConvocatorias($titulo=null){
+		$paginacion=array();
+
+		if($titulo)
+		{
+		$paginacion=InvConvocatorias::where("titulo_convocatoria","LIKE",'%'.$titulo.'%')->paginate(20); //traer registros	
+		}
+	else{
+		$paginacion=InvConvocatorias::paginate(20); //traer registros
+		
+	}
+		
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
-		
-		return View::make('administrador/lista_convocatorias',$datos);
+			'campo_lista'=>$paginacion,'links'=>$crear_paginacion,
+			'titulo'=>$titulo);
+		 return View::make('administrador/lista_convocatorias',$datos);
 	}
-
-		//controlador emoresas
-	public function ConstruirListaEmpresas(){
-		$listas=InvEntidades::all(); //traer registros
-		$paginacion=InvEntidades::paginate(20);
-		$crear_paginacion=$paginacion->links();
-
-		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
-		
-		return View::make('administrador/lista_empresas',$datos);
-	}
-	
 
 		//controlador proyectos
-	public function ConstruirListaProyectos(){
-		$paginacion=InvProyectos::paginate(20);
+	public function ConstruirListaProyectos($titulo=null){
+		$paginacion=array();
+
+		if($titulo)
+		{
+			$paginacion=InvProyectos::where("nombre_proyecto","LIKE",'%'.$titulo.'%')->paginate(20); //traer registros	
+		}
+		else{
+		$paginacion=InvProyectos::paginate(20); //traer registros
+		
+	}
 		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 		
 		return View::make('administrador/lista_proyectos',$datos);
 	}
 	
 			//controlador productos
-	public function ConstruirListaProductos(){
-		$listas=InvProductos::all(); //traer registros
-		$paginacion=InvProductos::paginate(20);
+	public function ConstruirListaProductos($titulo=null){
+	$paginacion=array();
+
+		if($titulo)
+		{
+			$paginacion=InvProductos::where("nombre_producto","LIKE",'%'.$titulo.'%')->paginate(20); //traer registros	
+		}
+		else{
+		$paginacion=InvProductos::paginate(20); //traer registros
+		
+	}
 		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 		
 		return View::make('administrador/lista_productos',$datos);
 	}
@@ -128,7 +151,7 @@ class ControlListas extends Controller {
 	//controlador investigadores
 	public function ConstruirListaInvestigadores(){
 	//traer registros
-		$paginacion=InvInvestigadoresExternos::paginate(20);
+		$paginacion=InvInvestigadoresExternos::orderBy('cedula_persona')->paginate(20);
 		$crear_paginacion=$paginacion->links();
 
 

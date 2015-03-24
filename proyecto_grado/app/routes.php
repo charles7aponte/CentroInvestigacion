@@ -54,6 +54,8 @@ Route::get('formulariotipoproductos/eliminar/{id}','ControlTipoProductos@Elimina
 
 /*---------------crear proyecto------------------*/
 Route::get('formularioproyectos', 'ControlProyectos@cargarFormularioProyectos');
+/*---------------eliminar proyecto------------------*/
+Route::get('formularioproyectos/eliminar/{id}','ControlProyectos@EliminarFormularioProyecto');
 
 
 /*---------------crear financiamiento------------------*/
@@ -70,6 +72,8 @@ Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademic
 
 /*---------------crear producto------------------*/
 Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
+/*---------------eliminar proyecto------------------*/
+Route::get('formularioproductos/eliminar/{id}','ControlProductos@EliminarFormularioProducto');
 
 
 /*---------------crear investigadores-----------------*/
@@ -199,16 +203,19 @@ Route::post('edicion/formularioproductos','ControlProductos@guardarEdicion');
 Route::get('listadegrupos','ControlListas@ConstruirListaGrupos');
 
 Route::get('listadeconvocatorias','ControlListas@ConstruirListaConvocatorias');
+Route::get('listadeconvocatorias/find/{titulo?}','ControlListas@ConstruirListaConvocatorias');
 
 Route::get('listadelineas','ControlListas@ConstruirListaLineas');
 
 Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 
 Route::get('listadeproductos','ControlListas@ConstruirListaProductos');
+Route::get('listadeproductos/find/{titulo?}','ControlListas@ConstruirListaProductos');
 
 Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
+Route::get('listadeproyectos/find/{titulo?}','ControlListas@ConstruirListaProyectos');
 
 Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
 
@@ -231,6 +238,9 @@ Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipal
 Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
 
 Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+
+Route::get('listadocentes/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+
 
 
 //sublistas de fichas principales

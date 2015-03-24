@@ -11,6 +11,4 @@ class InvPersonaPerfil extends Eloquent  {
 	protected $table = 'personaperfil';
 	public $timestamps = false;
 	protected $primaryKey = array("codperfil","cedula");
-
-
 }

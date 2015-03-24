@@ -423,5 +423,20 @@ class ControlProductos extends Controller {
 				}
 				return Response::json(array("respuesta"=>false));
 	}
+		
+
+		public function EliminarFormularioProducto($id){
 			
+				$form_producto= InvProductos::find($id); //de donde necesito
+
+				if (is_null($form_producto)==false){
+
+					$form_producto->delete();
+
+					return Response::json(array("respuesta"=>true));
+
+				}
+				return Response::json(array("respuesta"=>false));
+
+			}//			//elimina cada tipo de la tabla .. 		
 }
