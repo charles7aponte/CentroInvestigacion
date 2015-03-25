@@ -6,7 +6,6 @@ Paginas generales--------------------
 
 Route::get('/', function() { return View::make('cuerpo'); });
 
-
 Route::get('login', function() { return View::make('login'); });
 
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
@@ -297,6 +296,19 @@ Route::group(['before' => 'auth'], function()
 {
     //Route::get('/', 'HomeController@showWelcome'); // Vista de inicio
 });
+
+/********************************************************************************************************************************
+-----------------------------------------PAGINAS DEL INIVTADO----------------------------------
+*********************************************************************************************************************************/
+
+
+
+
+
+
+
+
+
 
 
 
