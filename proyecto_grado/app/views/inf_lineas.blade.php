@@ -6,6 +6,107 @@
 
 @section("javascript-nuevos")
 <script src="{{URL::to('/js')}}/recursos/eliminar_datos.js" type="text/javascript"></script> 
+
+<script>
+  var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+
+
+
+
+function getColor(numero){
+
+  numero=numero%3;
+
+  switch(numero){
+
+    case 0:
+        return "blue";
+      break;
+
+
+    case 1:
+        return "red";
+      break;
+
+
+    case 2:
+        return "green";
+      break;
+
+
+  }
+}
+
+
+  <?php 
+  $contador=1;
+
+  $contador_subtipos=0;
+  ?>
+
+
+
+
+window.onload = function(){
+          
+  @foreach ($Lista_portipo as  $key1 =>$fila1)
+
+
+    <?php 
+        $contador_subtipos=1;
+      ?>
+
+    var opciones{{$contador}}= {
+          responsive:true,
+          animation:false,
+          barValueSpacing:5,
+          barDatasetSpacing:1,
+          tooltipFillColor:"rgba(0,0,0,0.8)",
+          multiTooltipTemplate: "<%= datasetLabel %> - <%= value%>"
+      };
+
+
+     var barChartData{{$contador}} =
+        {
+
+            labels : ["{{$key1}}"],
+            datasets : [
+              @foreach($fila1 as $key2 =>$fila2)
+
+
+              {
+                label:"{{$key2}}",
+                fillColor : getColor({{$contador_subtipos}}),
+                strokeColor : "rgba(220,220,220,0.8)",
+                //highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                data : [{{$fila2}}]
+              },
+
+              <?php 
+                  $contador_subtipos++;
+                ?>
+              @endforeach
+            ]
+
+          };
+         
+
+          var ctx{{$contador}} = document.getElementById("canvas{{$contador}}").getContext("2d");
+            window.myBar{{$contador}} = new Chart(ctx{{$contador}}).Bar(barChartData{{$contador}} , opciones{{$contador}});
+          
+          <?php 
+          $contador++;
+         ?> 
+
+
+      @endforeach
+
+}
+
+
+  </script>
 @stop
 
 @section('javascript-nuevos2')
@@ -13,6 +114,25 @@
 @stop
 
 @section('cuerpo')
+
+<style>
+.contenedor_grafica_lineas{
+  background: #eee;
+  display: inline-block;
+  width: 320px;
+  height: 320px;
+  margin-right: 55px;
+  margin-left: 21px;
+  margin-bottom: 20px;
+}
+.grafica_lineas{
+  width: 300px;
+  height: 300px;
+ }
+
+
+</style>
+  
 
 <!-- Modal  de sublineas-->
 <div id="modal-internos">
@@ -236,7 +356,6 @@
       </div>
       <div id="producto">
           <div class="list-group">
-
             @if(isset($lineas) && $lineas)
               @foreach($Lista_productos as $lista_producto)   
                 <a href="{{URL::to('/')}}/listaproductos/linea/{{$lineas['id_lineas']}}/subtipo/{{$lista_producto['id_subtipo_producto']}}">
@@ -250,6 +369,29 @@
               @endforeach 
             @endif 
           </div>
+
+          <!--Grafica 1-->
+      <div class="titulo-listas" id="cuadro">             
+         <h4>
+            <p style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
+                  Gráfica de productividad</p>
+        </h4>
+      </div>
+
+     @for($i=1; $i<$contador;$i++)
+
+        <div id="grafica-producto{{$i}}" class="contenedor_grafica_lineas">
+          <canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
+        </div>
+   @endfor
+ 
+
+
       </div>
     </fieldset>
 </div>    

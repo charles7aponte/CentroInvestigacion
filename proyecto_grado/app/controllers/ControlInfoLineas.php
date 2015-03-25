@@ -38,13 +38,15 @@ class ControlInfoLineas extends Controller {
 		$listadeSublineaLineas= $this->Sublineasporlinea($id_linea);
 		$proyectos_lineas= $this->ContarProyectosporlinea($id_linea);
 		$listaGruposLineas= $this->Gruposporsunlinea($id_linea);
+		$listaProductoTiposSubtipos=$this->ContarProductosTipos_Subtipos($id_linea);
 		
 		$datos = array('lineas' =>$lineas, 
 					   'sublineas' =>$listadeSublineaLineas,
 					   'Lista_productos' =>$productos,
 					   'Lista_proyectos' =>$proyectos_lineas, 
 					   'lista_grupos' => $listaGruposLineas,
-					   'Lista_coordinadores'=> $coordinador
+					   'Lista_coordinadores'=> $coordinador,
+					   'Lista_portipo' =>$listaProductoTiposSubtipos
 
 			);
 
@@ -98,9 +100,29 @@ class ControlInfoLineas extends Controller {
 	}
 
 	//productividad por linea.... grafica 1 (tipo-subtipo-unidad academica)
-	/*public function ContarProductosTipos_Subtipos($id_linea){
-		$listaProyectosPorTipoLineas=DB::select(DB::raw("");
-			return ;
+	public function ContarProductosTipos_Subtipos($id_linea){
+		$listaProyectosPorTipoLineas=DB::select(DB::raw("select  itp.nombre_tipo_producto, itp.id_tipo_producto, isp.nombre_subtipo_producto, isp.id_subtipo_producto, count(*)
+			from inv_productos ip, inv_subtipo_productos isp, inv_tipo_productos itp
+			where ip.inv_subtipo_producto=isp.id_subtipo_producto and isp.inv_id_tipo_producto=itp.id_tipo_producto 
+			and ip.inv_id_linea=$id_linea
+			group by itp.id_tipo_producto, isp.id_subtipo_producto;")
+		);
 
-	}*/
+		$total=array();
+		foreach ($listaProyectosPorTipoLineas as $key => $tipos){
+			if( $tipos)
+			{
+				if (isset($total[$tipos->nombre_tipo_producto])==false){
+					$total[$tipos->nombre_tipo_producto]=array();
+				}
+					
+					$total[$tipos->nombre_tipo_producto][$tipos->nombre_subtipo_producto]=$tipos->count;
+				
+				
+			}
+		}
+
+		//print_r($total);
+		return $total;
+	}
 }

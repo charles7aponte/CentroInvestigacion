@@ -132,8 +132,10 @@
                 <tr>
                     <th id="fil-principal">P&aacute;gina Web</th>
                     <td class="pagina-conv" id="col-principal" id="cuadro" style="text-transform:lowercase;">
-                      @if(isset($convocatorias) && $convocatorias!=null && isset($convocatorias['descripcion_convocatoria']))
-                        {{$convocatorias['descripcion_convocatoria']}}
+                      @if(isset($convocatorias) && $convocatorias!=null && isset($convocatorias['pagina_convocatoria']))
+                         <a href="http://{{$convocatorias['pagina_convocatoria']}}">
+                           {{$convocatorias['pagina_convocatoria']}}
+                         </a> 
                       @endif  
                     </td>
                 </tr>
