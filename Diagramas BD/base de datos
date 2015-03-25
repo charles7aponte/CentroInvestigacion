@@ -237,7 +237,7 @@ CREATE TABLE inv_periodos_academicos
   CONSTRAINT inv_periodos_academicos_pkey PRIMARY KEY (codigo_periodo)
 );
 
-CREATE TABLE inv_evento_noticias
+CREATE TABLE inv_evento_noticias_documentos
 (
   id_evento serial NOT NULL,
   titulo_evento character varying(150) NOT NULL,

@@ -36,7 +36,7 @@
 @section('cuerpo')
 
 <?php
-  $tipo_evento=array('Evento','Noticia');
+  $tipo_evento=array('Evento','Noticia','Documento');
 
 ?>
 
@@ -62,7 +62,7 @@
                         margin-top: 5px;
                         padding: 2px;">
 
-                        <div  style="margin: 0px;" class="alert alert-danger">NO existe el Evento o Noticia!!</div> 
+                        <div  style="margin: 0px;" class="alert alert-danger">NO existe el Evento, Noticia o Documento!!</div> 
                 </fieldset>  
  
             @endif 
@@ -92,10 +92,10 @@
            
             @if(isset($evento['id_evento']))
                 <li class="glyphicon glyphicon-pencil" style="font-size: 20px;"></li>
-                Edicion Evento O Noticia 
+                Edicion Evento, Noticia o Documento
             @else 
                 <img alt="new" src="images/nuevo.png" width="16" height="16" />
-                 Crear nuevo Evento o Noticia
+                 Crear nuevo Evento, Noticia o Documento
             @endif
 
         </h2></div>
@@ -186,7 +186,7 @@
                         Editar Evento o Noticia
                     @else 
                         <img alt="bien"  src="images/bn.png" width="16" height="16" />
-                        Crear Evento o Noticia
+                        Crear Evento, Noticia o Documento
                     @endif
                     </button>
                 </th>

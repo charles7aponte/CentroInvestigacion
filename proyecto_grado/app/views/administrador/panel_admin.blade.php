@@ -190,11 +190,11 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formularioperiodosacademicos')}}">Agregar un Periodo Acad&eacute;mico</a></li>	
 		</ul>
 
-		
-		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias y eventos</h3>
+		<br>
+		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias, eventos y documentos</h3>
 		<ul class="toggle">
-			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un evento &oacute; Noticia</a></li>	
-			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento o noticia</a></li>	
+			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un nuevo evento, noticia o documento</a></li>	
+			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento, noticia o documento</a></li>	
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
