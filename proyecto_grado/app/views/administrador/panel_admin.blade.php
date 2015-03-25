@@ -101,7 +101,7 @@ switch($mes){
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title"><a href="{{URL::to('/')}}/index.html">Panel de administraci&oacute;n</a>
-</h1>
+			</h1>
 			<a href="{{URL::to('/')}}" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->

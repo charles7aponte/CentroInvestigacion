@@ -43,6 +43,8 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
 
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
+
 
     <link rel="stylesheet" type="text/css" href="css/estilo.css"> <!--css del estilo de la pagina principal-->
     <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
@@ -52,16 +54,13 @@
 	@section('css')
 	
 	@show
-
-
-
 	
     <!-- scripts -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/texto-imagenes-slider.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-
+    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="js/jquery-ui.min.js"></script>-->
 
     @section('css')
 	
@@ -69,7 +68,7 @@
 
 </head>
 	<body>
-		<div class="body">		
+		<div class="contenedor">		
 			<!-- Cabecera -->
 			<header class="capa-cabeza">
 					<div id="superior-principal"></div>
@@ -102,67 +101,140 @@
 						<a href="login" class="popups-form-reload">Ingresar</a>
 					</div>
 			</header>
-			<!-- Menu de navegacion -->
-			<section id="menu">
-				<ul>
-				  <li class="nivel1"><a href="{{URL::to('/')}}" class="nivel1">Inicio</a></li>
 
-				  <li class="nivel1"><a href="#" class="nivel1">Menu 2</a>
-				<!--[if lte IE 6]><a href="#" class="nivel1ie">Menu 2<table class="falsa"><tr><td><![endif]-->
-					<ul>
-						<li><a href="#">Menu 2.1</a></li>
-						<li><a href="#">Menu 2.2</a></li>
-						<li><a href="#">Menu 2.3</a></li>
-						<li><a href="#">Menu 2.4</a></li>
+
+
+			<!-- Menu de navegacion -->
+			<div class="row">
+				<section id="menu">
+					<ul class="nav nav-tabs">
+  						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:100px;">
+      							Inicio 
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Proyectos<span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Productos<span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Grupos<span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Lineas<span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Documentaci&oacute;n<span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Menu 1</a></li>
+      							<li><a href="#">Menu 1</a></li>
+    						</ul>
+ 						</li>
 					</ul>
-				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				</li>
-				  <li class="nivel1"><a href="#" class="nivel1">Menu 3</a>
-				<!--[if lte IE 6]><a href="#" class="nivel1ie">Menu 3<table class="falsa"><tr><td><![endif]-->
-					<ul>
-						<li><a href="#">Menu 3.1</a></li>
-						<li><a href="#">Menu 3.2</a></li>
-					</ul>
-				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				</li>
-				  <li class="nivel1"><a href="#" class="nivel1">Menu 4</a>
-				<!--[if lte IE 6]><a href="#" class="nivel1ie">Menu 4<table class="falsa"><tr><td><![endif]-->
-					<ul>
-						<li><a href="#">Menu 4.1</a></li>
-						<li><a href="#">Menu 4.2</a></li>
-						<li><a href="#">Menu 4.3</a></li>
-					</ul>
-				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				</li>
-				  <li class="nivel1"><a href="#" class="nivel1">Menu 5</a>
-				<!--[if lte IE 6]><a href="#" class="nivel1ie">Menu 5<table class="falsa"><tr><td><![endif]-->
-					<ul>
-						<li><a href="#">Menu 5.1</a></li>
-						<li><a href="#">Menu 5.2</a></li>
-					</ul>
-				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				</li>
-				</ul>
-			</section>
+				</section>
+			</div>
+
+
 			<div class="cl">&nbsp;</div>
 			<!--fin menu de navegacion-->
 			<!-- Slider -->
 				
 		    @section('contenido-principal')
 
-		    @show
+		    <div id="sidebar1" class="row1">
+		    	<div class="col-md-4">
+		    		 <ul>
+				 <li>
+					<h2>Convocatorias</h2>
+					<ul>
+						<li><a href="#">Aliquam libero</a></li>
+						<li><a href="#">Consectetuer adipiscing elit</a></li>
+						<li><a href="#">Metus aliquam pellentesque</a></li>
+						<li><a href="#">Suspendisse iaculis mauris</a></li>
+						<li><a href="#">Proin gravida orci porttitor</a></li>
+						<li><a href="#">Aliquam libero</a></li>
+						<li><a href="#">Consectetuer adipiscing elit</a></li>
+						<li><a href="#">Metus aliquam pellentesque</a></li>
+						<li><a href="#">Suspendisse iaculis mauris</a></li>
+						<li><a href="#">Proin gravida orci porttitor</a></li>
+					</ul>
+					<p class="links"><a href="#" class="more">&laquo;&laquo;&nbsp;&nbsp;ver todas&nbsp;&nbsp;&raquo;&raquo;</a></p>
+				 </li> 
+				</div>				
 			</div>
-			<div id="pie-pagina">
-					<div id="capa-pie">
-						<p>
-							<strong>Centro de Investigaciones, FCBI</strong>
-							<br>
-								Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000
-							<br>
-								Correo electronico contacto@xxxx.com
-						</p>
-					</div>
+
+		    <div class="row2">
+		
+				<div class="entry">
+					
+					<h3>Bulleted List:</h3>
+					<ul>
+						<li><a href="#">Telecomunicaciones</a></li>
+						<li><a href="#">Software</a></li>
+						<li><a href="#">Desarrollo web</a></li>
+					</ul>
+					<p class="links"><a href="#" class="more">&laquo;&laquo;&nbsp;&nbsp;Read More&nbsp;&nbsp;&raquo;&raquo;</a></p>
+					<h3>Noticias:</h3>
+					<ol>
+						<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+						<li>Phasellus nec erat sit amet nibh pellentesque congue.</li>
+						<li>Cras vitae metus aliquam risus pellentesque pharetra.</li>
+					</ol>
+					<p class="links"><a href="#" class="more">&laquo;&laquo;&nbsp;&nbsp;Read More&nbsp;&nbsp;&raquo;&raquo;</a></p>
 				</div>
+			</div>
+
+		    @show
+		
+		
+			<div id="pie-pagina">
+				<div id="capa-pie">
+					<p>
+						<strong>Centro de Investigaciones, FCBI</strong>
+						<br>
+							Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000
+						<br>
+							Correo electronico contacto@xxxx.com
+					</p>
+				</div>
+			</div>
 	</body>
 </html>	
 		
