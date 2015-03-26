@@ -1,0 +1,228 @@
+/*Botones de paginacion*/
+#form-integrantegrupos ul.pagination li.active>span,
+#form-producosgrupos ul.pagination li.active>span,
+#form-proyectosgrupos ul.pagination li.active>span,
+#form-proyectolineas ul.pagination li.active>span,
+#form-proyectolinea ul.pagination li.active>span{
+    border-color:#122d3e;
+    background:#122d3e;
+}
+
+#buscador-lista{
+  margin: 30px;
+}
+
+#form-convocatorias input.form-control,
+#form-proyectos input.form-control,
+#form-productos input.form-control{
+  display: inline-block;
+}
+
+table {
+border-collapse: collapse;
+}
+
+#tabla-listagrupos, 
+#tabla-listaconvocatorias, 
+#tabla-listalineas,
+#tabla-listasublineas,
+#tabla-listaproductos,
+#tabla-listaempresas,
+#tabla-listaproyectos,
+#tabla-listafinanciamiento-proyectos,
+#tabla-eventos-noticias,
+#tabla-listaproductosgrupos,
+#tabla-listaintegrantegrupos,
+#tabla-listaproyectogrupos
+{
+  width: 100%;
+}
+
+
+#titulo-listagrupo h2, 
+#titulo-listaconvocatoria h2, 
+#titulo-listalineas h2, 
+#titulo-listasublineas h2, 
+#titulo-listaproductos h2,
+#titulo-listaempresas h2,
+#titulo-listaproyectos h2, 
+#titulo-listaproyecto-financiado h2,
+#titulo-listaeventos-noticias h2,
+#titulo-listaproductosgrupo h2,
+#titulo-listaintegrantegrupo h2,
+#titulo-listaproyectogrupo h2,
+#titulo-listaproyectolinea h2,
+#titulo-listaproductolinea h2 {
+  text-align:right;
+  padding-right: 30px; /* The padding is just there to move the h1 element to the center of the div */
+  padding-top: 10px;
+  font-family:Arial, Helvetica, sans-serif;;
+  font-size: 35px;
+  color: #122d3e;
+  font-weight: bold;
+
+  margin-right: 30px;
+  margin-left: 30px;
+  text-shadow: 1px 1px 1px #AFEEEE;
+  background: none repeat scroll 0 0 #F3F3F3;
+  border-radius: 5px;
+  border-bottom: 1px solid #DCDCDC;
+  width: auto;
+}
+
+table#listagrupos,
+table#listaconvocatorias, 
+table#listalineas, 
+table#listasublineas, 
+table#listaproductos, 
+table#listaempresas,
+table#listaproyectos,
+table#tabla-listafinanciamiento-proyectos,
+table#listaeventosnoticias,
+table#listaproductogrupo{
+  color: #333;
+  font-family: sans-serif;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 40px;
+  border-spacing: 0;
+  border: 1px solid #CED6D0;
+  width: 900px;
+  margin: 28px auto;
+}
+
+table#listagrupos th, 
+table#listaconvocatorias th, 
+table#listalineas th, 
+table#listasublineas th, 
+table#listaproductos th,
+table#listaempresas th,
+table#listaproyectos th,
+table#tabla-listafinanciamiento-proyectos th,
+table#listaeventosnoticias th,
+table#listaproductogrupo th{
+  font-weight: bold;
+  font-size: 15px;
+}
+table#listagrupos th:first-child, td:first-child, 
+table#listaconvocatorias th:first-child, td:first-child, 
+table#listalineas th:first-child, td:first-child, 
+table#listasublineas th:first-child, td:first-child , 
+table#listaproductos th:first-child, td:first-child,
+table#listaempresas th:first-child, td:first-child,
+table#listaproyectos th:first-child, td:first-child,
+table#tabla-listafinanciamiento-proyectos th:first-child, td:first-child,
+table#listaeventosnoticias th:first-child, td:first-child,
+table#listaproductogrupo th:first-child, td:first-child{
+  padding: 0 15px 0 20px;
+
+}
+
+table#listagrupos thead tr:last-child th, 
+table#listaconvocatorias thead tr:last-child th, 
+table#listalineas thead tr:last-child th, 
+table#listasublineas thead tr:last-child th, 
+table#listaproductos thead tr:last-child th,
+table#listaempresas thead tr:last-child th,
+table#listaproyectos thead tr:last-child th,
+table#tabla-listafinanciamiento-proyectos thead tr:last-child th,
+table#listaeventosnoticias thead tr:last-child th,
+table#listaproductogrupo thead tr:last-child th  {
+  border-bottom: 2px solid #ddd; 
+  background: #F8F9FE;
+}
+
+table#listagrupos tbody tr:hover, 
+table#listaconvocatorias tbody tr:hover, 
+table#listalineas tr:hover, 
+table#listasublineas tbody tr:hover, 
+table#listaproductos tbody tr:hover,
+table#listaempresas tbody tr:hover,
+table#listaproyectos tbody tr:hover,
+table#tabla-listafinanciamiento-proyectos tbody tr:hover,
+table#listaeventosnoticias tbody tr:hover,
+table#listaproductosgrupos tbody tr:hover{
+  background-color: #ECEBEB;
+}
+
+table#listagrupos tr:last-child td, 
+table#listaconvocatorias tr:last-child td, 
+table#listalineas tr:last-child td, 
+table#listasublineas tr:last-child td, 
+table#listaproductos tbody tr:last-child td,
+table#listaempresas tbody tr:last-child td,
+table#listaproyectos tbody tr:last-child td,
+table#tabla-listafinanciamiento-proyectos tbody tr:last-child td,
+table#listaeventosnoticias tbody tr:last-child td,
+table#listaproductosgrupos tbody tr:last-child td {
+  border: none;
+}
+
+table#listagrupos td, 
+table#listaconvocatorias td, 
+table#listalineas td, 
+table#listasublineas td, 
+table#listaproductos tbody td,
+table#listaempresas tbody td,
+table#listaproyectos tbody td,
+table#tabla-listafinanciamiento-proyectos tbody td,
+table#listaeventosnoticias tbody td,
+table#listaproductosgrupos tbody td{
+  border-bottom: 1px solid #ddd;
+}
+
+table#listagrupos tr, 
+table#listaconvocatorias tr, 
+table#listalineas tr, 
+table#listasublineas tr, 
+table#listaproductos tbody tr,
+table#listaempresas tbody tr,
+table#listaproyectos tbody tr,
+table#tabla-listafinanciamiento-proyectos tbody tr,
+table#listaeventosnoticias tbody tr,
+table#listaproductosgrupos tbody tr {
+  background-color:#F8F9FE;
+}
+
+table#listagrupos td:last-child, 
+table#listaconvocatorias td:last-child, 
+table#listalineas td:last-child, 
+table#listasublineas td:last-child, 
+table#listaproductos td:last-child,
+table#listaempresas td:last-child,
+table#listaproyectos td:last-child,
+table#tabla-listafinanciamiento-proyectos td:last-child,
+table#listaeventosnoticias td:last-child,
+table#listaproductosgrupos td:last-child {
+  text-align: left;
+  padding-right: 10px;
+  width: 400px;
+  word-wrap: normal;
+}
+
+.button {
+  color: #16063E;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 15px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+ul.pagination li a{
+  color:#1A6D71;
+}
+
+ul.pagination li.active > span{
+    border-color:#1A6D71;
+    background: #1A6D71;
+}
+
+ul.pagination li.active > span:hover{
+    border-color:#1A6D71;
+    background: #1A6D71;
+}
