@@ -6,6 +6,7 @@ Paginas generales--------------------
 
 Route::get('/', function() { return View::make('cuerpo'); });
 
+
 Route::get('login', function() { return View::make('login'); });
 
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
@@ -15,7 +16,7 @@ Route::get('contrasena', function() { return View::make('olvido_clave'); });
 /********************************************************************************************************************************
 -----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------
 *********************************************************************************************************************************/
-Route::get('administrador', function() { return View::make('administrador/panel_admin'); })->before('auth');;
+Route::get('administrador', function() { return View::make('administrador/panel_admin'); })->before('auth');
 
 /*--------------1-FORMULARIOS-----------------
 **********************************************/
@@ -262,6 +263,8 @@ Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoList
 //convocatorias
 Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');
 
+//productos
+Route::get('listaintegrantesproductos/producto/{idproducto}/perfil/{idperfil}','ControlInfoListasProductos@ConstruirListaIntegrantesProductos');
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
 
@@ -296,23 +299,6 @@ Route::group(['before' => 'auth'], function()
 {
     //Route::get('/', 'HomeController@showWelcome'); // Vista de inicio
 });
-
-/********************************************************************************************************************************
------------------------------------------PAGINAS DEL INVITADO----------------------------------
-*********************************************************************************************************************************/
-/*1-Convocatorias*/
-/*2-Grupos*/
-/*3-Lineas*/
-
-
-
-
-
-
-
-
-
-
 
 
 

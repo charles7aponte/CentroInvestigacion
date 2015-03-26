@@ -186,6 +186,37 @@
                     </tr>
                 </tbody>
             </table> 
+
+            
+            <table class="tabla-infpersonas"> 
+                <thead style=" border-radius: 5px; background: #286388;
+                              background: -webkit-linear-gradient(top,#286388,#122d3e);
+                              background: -moz-linear-gradient(top,#286388,#122d3e);
+                              background: -o-linear-gradient(top,#286388,#122d3e);  
+                              background: linear-gradient(to bottom,#286388,#122d3e);  
+                              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">    
+                    <tr>
+                        <th>POSTGRADO</th>
+                         <div style="border-bottom:2px solid #eee; margin:0; padding:1px;;"></div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="fil-principal">Nivel de postgrado</th>
+                        <td id="col-principal" id="cuadro"></td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Fecha Inicio</th>
+                        <td id="col-principal"></td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Fecha Fin</th>
+                        <td id="col-principal"></td>
+                    </tr>
+                </tbody>
+            </table> 
             <table class="tabla-infpersonas">
                 <thead style=" border-radius: 5px; background: #286388;
                               background: -webkit-linear-gradient(top,#286388,#122d3e);

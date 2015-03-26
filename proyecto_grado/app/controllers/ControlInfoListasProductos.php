@@ -1,45 +1,45 @@
 <?php
 
-class ControlInfoListasProyectos extends Controller {
+class ControlInfoListasProductos extends Controller {
 
 
 	//controlador lineas
-	public function ConstruirListaIntegrantesProyectos($idproyecto, $idperfil){
+	public function ConstruirListaIntegrantesProductos($idproducto, $idperfil){
 
-		$proyectos =InvProyectos::find($idproyecto);
-		$listaintegrantesproyectos= array();
+		$productos =InvProductos::find($idproducto);
+		$listaintegrantesproductos= array();
 		$paginacion="";
 
 
 		$perfil=InvPerfiles::find($idperfil);
 
-		$listaParticipanteProyectos = InvParticipacionProyectos::where("inv_codigo_proyecto","=",$idproyecto)->lists('cedula_persona');
+		$listaParticipanteProductos= InvParticipacionProductos::where("inv_codigo_producto","=",$idproducto)->lists('cedula_persona');
 		$invPerfil = InvPersonaPerfil::where("codperfil","=",$idperfil)->lists("cedula");
 
 	
 		//validamos q tengan elementos 
-		if(count($listaParticipanteProyectos)>0 && count($invPerfil))
+		if(count($listaParticipanteProductos)>0 && count($invPerfil))
 		{
-			$listaintegrantesproyectos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteProyectos)
+			$listaintegrantesproductos= $listaPersonas = Persona::whereIn("cedula",$listaParticipanteProductos)
 							->whereIn("cedula",$invPerfil )	
 							->paginate(20);
 		}
 	
 
-		if(count($listaintegrantesproyectos)>0)
+		if(count($listaintegrantesproductos)>0)
 		{
-			$paginacion=$listaintegrantesproyectos->links();
+			$paginacion=$listaintegrantesproductos->links();
 
 		}
 		$datos= array(
-			'lista_integrantes_proyectos'=>$listaintegrantesproyectos,
-			'lista_nombre_proyectos' =>$proyectos,
+			'lista_integrante_producto'=>$listaintegrantesproductos,
+			'lista_nombre_productos' =>$productos,
 			'registro_perfiles' =>$perfil,
 			'links'=>$paginacion
 			);
 
 
-		return View::make('inf_lista_integrantes_proyectos',$datos);
+		return View::make('inf_lista_integrantes_productos',$datos);
 	}
 
 }
