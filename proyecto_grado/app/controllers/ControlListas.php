@@ -118,7 +118,6 @@ class ControlListas extends Controller {
 	
 		$paginacion=InvGrupos::orderBy('inv_unidad_academica')->paginate(20);//traer registros
 		$numeropaginacion=Input::get('page',1);
-		echo $numeropaginacion;
 		foreach ($paginacion as $key => $lista) {
 			$nombre_grupo=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
 			$nombre_grupo = $nombre_grupo->nombre_unidad;

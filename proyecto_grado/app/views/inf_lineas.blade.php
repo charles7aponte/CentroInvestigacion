@@ -223,7 +223,19 @@ window.onload = function(){
                       @endforeach
                     </td>
                 </tr>
+
+                <tr>
+                    <th id="fil-principal">Unidad Académica</th>
+                    <td class="unidad" id="col-principal" id="cuadro" style="text-transform:capitalize;">
+                      @if(isset($lineas) && $lineas )
+                        @foreach($Lista_unidades as $Lista_unidad)
+                        {{$Lista_unidad['nombre_unidad']}}
+                        @endforeach
+                      @endif
+                    </td>
+                </tr>
         
+
                 <tr>
                     <th id="fil-principal">Definición</th>
                     <td class="definicion-linea" id="col-principal" id="cuadro" style="text-transform:none;">

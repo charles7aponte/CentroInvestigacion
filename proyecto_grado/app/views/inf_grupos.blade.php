@@ -87,7 +87,9 @@
                     <tr>
                         <th id="fil-principal">Unidad Académica</th>
                         <td id="col-principal" id="cuadro">
-                            {{$grupos['unidad_academica']}}
+                            @foreach($Lista_unidades as $Lista_unidad)
+                                {{$Lista_unidad['nombre_unidad']}}
+                            @endforeach
                         </td>
                     </tr>
         
@@ -275,7 +277,7 @@
 
             <fieldset id="secundario1">
                 <div class="titulo-listas" id="cuadro">
-                 <h4 id="boton_productos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productos</a></h4>
+                 <h4 id="boton_productos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productividad</a></h4>
                 </div>
                     <div id="lista_productos" class="lista_productos">
                         <ul class="list-group">
