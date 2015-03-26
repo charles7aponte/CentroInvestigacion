@@ -10,14 +10,14 @@
 @section('cuerpo')
 <div>
     
-    <form id="form-lineas">
+    <form id="form-lineas1">
         
-       <div id="titulo-listalineas" id="cuadro"> 
+       <div id="titulo-listalineas1" id="cuadro"> 
           <h2>L&iacute;neas</h2>
         </div>
 
-      <div id="tabla-listalineas">
-          <table id="listalineas">
+      <div id="tabla-listalineas1">
+          <table id="listalineas1">
             <thead>
               <tr><th colspan="3"  style=" border-radius: 5px; background: #286388;
                   background: -webkit-linear-gradient(top,#286388,#122d3e);

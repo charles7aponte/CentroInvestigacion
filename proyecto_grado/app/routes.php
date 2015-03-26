@@ -303,8 +303,8 @@ Route::group(['before' => 'auth'], function()
 
 //1-lineas
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
-
-/*1-Convocatorias*/
+//2-Convocatorias
+Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
 /*2-Grupos*/
 /*3-Lineas*/
 

@@ -64,7 +64,7 @@ class ControlListasInvitado extends Controller {
 		$datos= array(
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion,
 			'titulo'=>$titulo);
-		 return View::make('administrador/lista_convocatorias',$datos);
+		 return View::make('invitado/lista_convocatorias_invitado',$datos);
 	}
 
 		//controlador proyectos
