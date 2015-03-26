@@ -7,7 +7,7 @@
 @stop
 
 @section('javascript-nuevos2')
-  
+
 
 <script>
     function cargarModal1(elemento)
@@ -81,15 +81,6 @@
 
                 <tbody>
                     <tr>
-                        <th id="fil-principal">. </th>
-                        <td id="col-principal" id="cuadro">
-                            @if(isset($lista_subtipo) && $lista_subtipo!=null && isset($lista_subtipo['nombre_subtipo_producto']))
-                             {{$lista_subtipo['nombre_subtipo_producto']}}
-                             @endif
-                        </td>
-                    </tr>
-
-                    <tr>
                         <th id="fil-principal">Fecha </th>
                         <td id="col-principal" id="cuadro">
                               <?php 
@@ -109,6 +100,15 @@
                             @if(isset($listatipos) && $listatipos!=null )
                              {{$listatipos}}
                             @endif 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th id="fil-principal">Subtipo</th>
+                        <td id="col-principal" id="cuadro">
+                            @if(isset($lista_subtipo) && $lista_subtipo!=null && isset($lista_subtipo['nombre_subtipo_producto']))
+                             {{$lista_subtipo['nombre_subtipo_producto']}}
+                             @endif
                         </td>
                     </tr>
         
@@ -198,40 +198,52 @@
                 </tbody>
             </table>
     </fieldset>
-    
+
+<!--Arreglar esto.. no terminado-->
     <fieldset id="secundario1">
-        <table id="tabla_producto" class="lista-integrantes">
-        <thead>
-            <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
-                  background: -webkit-linear-gradient(top,#286388,#122d3e);
-                  background: -moz-linear-gradient(top,#286388,#122d3e);
-                  background: -o-linear-gradient(top,#286388,#122d3e);  
-                  background: linear-gradient(to bottom,#286388,#122d3e);  
-                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  
-                  color:white;">
-                Autores
-                </th>
-            </tr>
-            <tr>
-                <th style="border-right:none;">CEDULA</th>
-                <th>NOMBRES Y APELLIDOS</th>
-                <th>GRUPO</th>
-            </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td style="width:60px;">
-                       1123445678
-                    </td> 
-                    <td style="text-align:left;width:500px;">
-                      <a href="">Andrea de los angeles camargo aldonado</a>
-                    </td> 
-                    <td style="width:120px; margin-right:3px;">
-                      HH
-                    </td>
-                </tr>
-            </tbody>
-        </table>      
+        <div class="titulo-listas" id="cuadro">
+            <div class="titulo-listas" id="cuadro">
+                 <h4>
+                    <p style=" border-radius: 5px; background: #286388;
+                          background: -webkit-linear-gradient(top,#286388,#122d3e);
+                          background: -moz-linear-gradient(top,#286388,#122d3e);
+                          background: -o-linear-gradient(top,#286388,#122d3e);  
+                          background: linear-gradient(to bottom,#286388,#122d3e);  
+                          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">AUTORES</p>
+                </h4>
+            </div>
+            <div id="lista_integrantes" class="lista-integrantes">
+                <ul class="list-group">
+                        <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Docente"]}}
+                        </span>
+                        Docentes
+                      </li>
+
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Estudiante"]}}
+                        </span>
+                        Estudiantes
+                      </li>
+                    
+                      <li class="list-group-item">
+                        <span class="badge" id="total"> 
+                        {{$Lista_integrantes["Joven Investigador"]}}
+                        </span>
+                        J&oacute;venes Investigadores
+                      </li>
+
+
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Investigador Externo"]}}
+                        </span>
+                        Investigadores Externos
+                      </li> 
+                </ul>
+            </div>
     </fieldset> 
 </div>
 @stop

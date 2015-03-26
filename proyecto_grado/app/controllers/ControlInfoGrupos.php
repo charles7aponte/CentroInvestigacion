@@ -16,7 +16,7 @@ class ControlInfoGrupos extends Controller {
 		// recibimos el id con la variable de arriba
 		
 		$grupos= InvGrupos::find($id_grupo)	;
-
+		$unidades=array();
 		 if($grupos)
 		 {
 		 	
@@ -30,6 +30,8 @@ class ControlInfoGrupos extends Controller {
 			
 			$grupos->tipo_grupo_="No definido";
 			$grupos->tipo_grupo_band=0;
+
+			$unidades=InvUnidadesAcademicas::where("id_unidad","=",$grupos->inv_unidad_academica)->get();
 
 			if($tipo->estado==1){
 				$grupos->tipo_grupo_=$tipo->tipo_grupo;	
@@ -70,7 +72,8 @@ class ControlInfoGrupos extends Controller {
 					   'Lista_integrantes'=>$this->listaIntegrantesGrupos,
 					   'Lista_perfiles'=> $this->idperfiles,
 					   'Lista_productos' =>$productos,
-					   'Lista_proyectos' =>$proyectos_grupos
+					   'Lista_proyectos' =>$proyectos_grupos,
+					   'Lista_unidades' =>$unidades
 			);
 
 

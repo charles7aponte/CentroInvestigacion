@@ -11,13 +11,14 @@ class ControlInfoLineas extends Controller {
 	 */
 	public function CargarInfoPrincipales($id_linea){
 
-
 		$lineas= InvLineas::where("id_lineas","=",$id_linea)->where("estado","=","1")->get();
+		$unidades=array();
 		$coordinador= array();
 		if(count($lineas)>0)
 		{
 			$lineas=$lineas[0];
 			$coordinador =Persona::where("cedula","=",$lineas->coordinador_linea)->get();
+			$unidades=InvUnidadesAcademicas::where("id_unidad","=",$lineas->inv_unidad_academica)->get();
 		}
 		else{
 			$lineas=null;
@@ -46,7 +47,8 @@ class ControlInfoLineas extends Controller {
 					   'Lista_proyectos' =>$proyectos_lineas, 
 					   'lista_grupos' => $listaGruposLineas,
 					   'Lista_coordinadores'=> $coordinador,
-					   'Lista_portipo' =>$listaProductoTiposSubtipos
+					   'Lista_portipo' =>$listaProductoTiposSubtipos,
+					   'Lista_unidades' =>$unidades
 
 			);
 

@@ -3,6 +3,8 @@
 
 class ControlInfoProductos extends Controller {
 
+	public $listaIntegrantesProductos=array('Docente' => 0,'Estudiante' => 0,'Joven Investigador'=>0, 'Investigador Externo'=>0 );
+	public $idperfiles=array();
 
 	public function CargarInfoPrincipales($id_producto){
 
@@ -47,13 +49,25 @@ class ControlInfoProductos extends Controller {
 
 		}
 
-		
+		foreach ($this->listaIntegrantesProductos as $keyintegrante => $integrante) {
+
+
+			$temporal=$this->ContarIntegrantes($keyintegrante,$id_producto);
+
+
+			$this->listaIntegrantesProductos[$keyintegrante]=$temporal['count'];
+			$this->idperfiles[$keyintegrante]=$temporal['codperfil'];
+
+		}
+
 		$datos = array('productos' =>$productos,
 					   'lista_subtipo' =>$subtipo,
 					   'lista_grupos' =>$grupo,
 					   'lista_lineas' =>$linea,
 					   'lista_entidades' =>$entidad,
-					   'listatipos'=>$listatipos
+					   'listatipos'=>$listatipos,
+					   'Lista_integrantes'=>$this->listaIntegrantesProductos,
+					   'Lista_perfiles'=> $this->idperfiles
 					   );
 
 
@@ -73,5 +87,25 @@ class ControlInfoProductos extends Controller {
 			return "No  esta definido";
 
 	}
+
+		//contar cantidad de integrantes
+	public function ContarIntegrantes($perfil, $id_producto){
+	$listaIntegrantesProductos=DB::select(DB::raw("select count(*), pf.codperfil
+				from inv_participacion_productos ipp, persona p, personaperfil pp, perfil pf
+				where ipp.cedula_persona=p.cedula and p.cedula=pp.cedula and pf.codperfil=pp.codperfil
+				and lower(trim(pf.nombreperfil)) like lower('$perfil') and ipp.inv_codigo_producto=$id_producto
+				group by pf.codperfil")
+			);
+
+		if($listaIntegrantesProductos && count($listaIntegrantesProductos)>0)
+		{
+
+
+			return  array('count'=>$listaIntegrantesProductos[0]->count, 'codperfil'=>$listaIntegrantesProductos[0]->codperfil);
+		}		
+
+		return array('count'=>0, 'codperfil'=>0);
+	}
+	
 	
 }
