@@ -300,6 +300,19 @@ Route::group(['before' => 'auth'], function()
     //Route::get('/', 'HomeController@showWelcome'); // Vista de inicio
 });
 
+/********************************************************************************************************************************
+-----------------------------------------PAGINAS DEL INVITADO----------------------------------
+*********************************************************************************************************************************/
+
+//1-lineas
+Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
+//2-Convocatorias
+Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
+/*2-Grupos*/
+/*3-Lineas*/
+
+
+
 
 
 /***************

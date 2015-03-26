@@ -57,6 +57,8 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_paneladmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_formadmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
+
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
 
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
@@ -101,7 +103,7 @@ switch($mes){
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title"><a href="{{URL::to('/')}}/index.html">Panel de administraci&oacute;n</a>
-</h1>
+			</h1>
 			<a href="{{URL::to('/')}}" class="boton negro"><span class="glyphicon glyphicon-hand-right"></span> Ver Sitio</a>
 		</hgroup>
 	</header> <!-- end of header bar -->
