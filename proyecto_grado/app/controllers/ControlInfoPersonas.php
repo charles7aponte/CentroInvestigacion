@@ -8,13 +8,22 @@ class ControlInfoPersonas extends Controller {
 
 		$docentes=array();
 		$integrantes=Persona::find($cedula);
+		$universidades=array();
 
 		if($integrantes)
 		{
-
 			$docentes=Docente::where("cedula","=",$integrantes->cedula)->get();
+			$universidades=InvUniversidades::all();
+
 
 		}	
+
+				foreach ($docentes as $key => $lista) {
+			$nombreuniversidades=InvUniversidades::find($lista->inv_unidad_academica);
+			$nombre_grupo = $nombre_grupo->nombre_unidad;
+			$paginacion[$key]->nombre_unidad_academica=$nombre_grupo; 
+
+		}
 
 		//tieen datos en  docentes si es un docente .  y de ese modo para los otros .. la relacion es la q manda la parada .. 
 		// la otra seria consultar los perficiles pero tendriamos q saber el nombre exacto q tiene .. s
@@ -22,21 +31,24 @@ class ControlInfoPersonas extends Controller {
 		// ok 
 		if(count($docentes)>0){// esto se hace si es un docente 
 			$docentes=$docentes[0];
+		}
+
+		if(count($universidades)>0){// esto se hace si es un docente 
+			$universidades=$universidades[0];
+		}
 
 			$datos = array('datos_integrantes' =>$integrantes,
-				'docente'=>$docentes
+				'docente'=>$docentes,
+				'lista_universidades' =>$universidades
 
 			);
 
 			return View::make("inf_personas_docentes",$datos);
-		}
-		else {
-			// esto se realiza si no es un docente ... oki.. igual lo de perfiles lo dejo luego voy a ir haviendo esto
-		}//en el blade para quitar o poner la parte q es de estduainte o docente necesitaria traer perfil verdad¡ no .. pero no creo q gastemo mucho recuros ... una desicion q no afecta mucho .. ah plo
+	}
+//en el blade para quitar o poner la parte q es de estduainte o docente necesitaria traer perfil verdad¡ no .. pero no creo q gastemo mucho recuros ... una desicion q no afecta mucho .. ah plo
 
-		}
 
-			
+}			
 //osea ... yo cargo aca para estudiantes pero el return ya no es para "inf_personas_docentes" es otro blade ... 
 
 		/*
@@ -54,5 +66,4 @@ class ControlInfoPersonas extends Controller {
 			);*/
 
 //los mando tambien en datos?o debo validar algo o ese se hace desde el blade? pero lo del return :/
-	}}
-}
+	

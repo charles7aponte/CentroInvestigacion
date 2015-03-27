@@ -109,7 +109,15 @@
 
                     <tr>
                         <th id="fil-principal">Universidad</th>
-                        <td id="col-principal" id="cuadro">{{$lista_universidades['uni_preg1']}}</td>
+                        <td id="col-principal" id="cuadro">
+                          
+                            @foreach($lista_universidades as $lista_universidad)
+                            @if($docente['uni_preg1']==$lista_universidad['universidad'])  
+                            {{$lista_universidad['universidad']}}
+                            @endif
+                            @endforeach
+                            
+                        </td>
                     </tr>
 
                      <tr>
