@@ -109,7 +109,7 @@
 
                     <tr>
                         <th id="fil-principal">Universidad</th>
-                        <td id="col-principal" id="cuadro">{{$docente['uni_preg1']}}</td>
+                        <td id="col-principal" id="cuadro">{{$lista_universidades['uni_preg1']}}</td>
                     </tr>
 
                      <tr>
@@ -142,17 +142,17 @@
                 <tbody>
                     <tr>
                         <th id="fil-principal">Titulo</th>
-                        <td id="col-principal" id="cuadro"></td>
+                        <td id="col-principal" id="cuadro">{{$docente['uni_preg1']}}</td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Fecha Inicio</th>
-                        <td id="col-principal"></td>
+                        <td id="col-principal">{{$docente['uni_preg1']}}</td>
                     </tr>
 
                     <tr>
                         <th id="fil-principal">Fecha Fin</th>
-                        <td id="col-principal"></td>
+                        <td id="col-principal">{{$docente['uni_preg1']}}</td>
                     </tr>
                 </tbody>
             </table> 
