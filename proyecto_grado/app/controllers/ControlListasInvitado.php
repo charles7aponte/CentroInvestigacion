@@ -49,6 +49,7 @@ class ControlListasInvitado extends Controller {
 
 	public function ConstruirListaConvocatorias($titulo=null){
 		$paginacion=array();
+		$numeropaginacion=Input::get('page',1);
 
 		if($titulo)
 		{
@@ -63,7 +64,8 @@ class ControlListasInvitado extends Controller {
 
 		$datos= array(
 			'campo_lista'=>$paginacion,'links'=>$crear_paginacion,
-			'titulo'=>$titulo);
+			'titulo'=>$titulo,
+			'numeropagina' =>$numeropaginacion);
 		 return View::make('invitado/lista_convocatorias_invitado',$datos);
 	}
 

@@ -41,7 +41,8 @@
    <div id="buscador-lista">
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >         <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatorias/find/" 
+          <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >        
+          <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatorias/find/" 
           class="btn btn-default"
           onclick="buscar_listas()" 
           ><i class="glyphicon glyphicon-search"></i>Buscar</button>

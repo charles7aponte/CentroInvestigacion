@@ -4,12 +4,14 @@
 Paginas generales--------------------
 ***************/
 
-Route::get('/', function() { return View::make('cuerpo'); });
+Route::get('/', function() { return View::make('panel_cuerpo'); });
 
 
 Route::get('login', function() { return View::make('login'); });
 
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
+
+Route::get('contenido', function() { return View::make('contenido'); });
 
 
 
@@ -308,6 +310,7 @@ Route::group(['before' => 'auth'], function()
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
+Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
 /*2-Grupos*/
 /*3-Lineas*/
 

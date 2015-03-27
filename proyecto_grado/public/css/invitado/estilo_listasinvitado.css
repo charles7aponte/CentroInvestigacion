@@ -8,13 +8,15 @@
     background:#122d3e;
 }
 
-#buscador-lista{
+#buscador-lista1{
   margin: 30px;
+  margin-left: 70px;
 }
 
 #form-convocatorias1 input.form-control
 {
   display: inline-block;
+  width: 600px;
 }
 
 table
@@ -76,11 +78,16 @@ table#listaconvocatorias1 th:first-child, td:first-child
 }
  
 table#listalineas1 thead tr:last-child th,
-table#listaconvocatorias1 thead tr:last-child th 
 {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
   width: 900px;
+}
+
+table#listaconvocatorias1 thead tr:last-child th 
+{
+  border-bottom: 2px solid #ddd; 
+  background: #F8F9FE;  
 }
  
 table#listalineas1 tr:hover,

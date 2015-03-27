@@ -16,10 +16,11 @@
       <h2>Convocatorias</h2>
    </div>
    
-   <div id="buscador-lista">
+   <div id="buscador-lista1">
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >         <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatorias/find/" 
+          <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >
+          <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatoriasinv/find/" 
           class="btn btn-default"
           onclick="buscar_listas()" 
           ><i class="glyphicon glyphicon-search"></i>Buscar</button>
@@ -39,32 +40,36 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  color:white;">CONVOCATORIAS</th></tr>
           <tr>
             <th> </th>
-            <th >T&iacute;TULO CONVOCATORIA</th>
-            <th>ESTADO</th>
-            <th>FECHA APERTURA</th>
-            <th>FECHA CIERRE</th>
+            <th style="width:300px; font-size:12px;">T&Iacute;TULO CONVOCATORIA</th>
+            <th style="width:100px; font-size:12px;">ESTADO</th>
+            <th style="width:200px; font-size:12px;">FECHA APERTURA</th>
+            <th style="width:200px; font-size:12px;">FECHA CIERRE</th>
           </tr>
         </thead>
+
+        <?php
+          $contador=(20*$numeropagina)-19;
+        ?>
         <tbody>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
                 @if($campo['estado1']==1 ) 
                   <tr id="dato_sublinea_{{$campo['numero_convocatoria']}}">
                     <td style="width:100px;">
-                      <b>{{$campo['numero_convocatoria']}}</b>
+                      <b>{{$contador++}}</b>
                     </td> 
-                    <td>
+                    <td style="width:689px;">
                       <a href="{{URL::to('convocatoria/id')}}/{{$campo['numero_convocatoria']}}">
                         {{$campo['titulo_convocatoria']}}
                       </a>
                     </td>
-                    <td style="text-transform:capitalize;">
+                    <td style="text-transform:capitalize; width:100px;">
                       {{$campo['estado']}}
                     </td>
-                    <td style="text-transform:capitalize;">
+                    <td style="text-transform:capitalize; width:100px;">
                       {{$campo['fecha_apertura']}}
                     </td>
-                    <td style="text-transform:capitalize;">
+                    <td style="text-transform:capitalize; width:100px;">
                       {{$campo['fecha_cierre']}}
                     </td>
                   </tr>
