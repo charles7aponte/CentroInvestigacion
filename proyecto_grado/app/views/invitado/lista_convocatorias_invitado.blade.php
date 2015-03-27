@@ -1,12 +1,5 @@
 @extends('administrador.panel_admin')
 
-@section("javascript-nuevos")
-  <script src="{{URL::to('/')}}/js/recursos/eliminar_datos.js" type="text/javascript"></script> 
-  <script src="{{URL::to('/')}}/js/recursos/buscador_listas.js" type="text/javascript"></script>
-  <script >
-      URL='{{URL::to('/')}}/formularioconvocatorias/eliminar/';
-      fila_info="#dato_convocatoria_";
-  </script>
 
 @section('cuerpo')
 

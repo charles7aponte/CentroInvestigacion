@@ -25,13 +25,17 @@ border-collapse: collapse;
 }
 
 #tabla-listalineas1,
-#tabla-listaconvocatorias1
+#tabla-listaconvocatorias1,
+#tabla-listagrupos1,
+#tabla-noticias
 {
   width: 100%;
 }
 
 #titulo-listalineas1 h2,
-#titulo-listaconvocatoria1 h2
+#titulo-listaconvocatoria1 h2,
+#titulo-listagrupo1 h2,
+#titulo-noticias1 h2
 {
   text-align:right;
   padding-right: 30px; 
@@ -49,7 +53,9 @@ border-collapse: collapse;
 }
 
 table#listalineas1,
-table#listaconvocatorias1
+table#listaconvocatorias1,
+table#listagrupos1,
+table#listanoticias
 {
   color: #333;
   font-family: sans-serif;
@@ -64,20 +70,26 @@ table#listaconvocatorias1
 }
 
 table#listalineas1 th,
-table#listaconvocatorias1 th
+table#listaconvocatorias1 th,
+table#listagrupos1 th,
+table#listanoticias th
 {
   font-weight: bold;
   font-size: 15px;
 }
 
 table#listalineas1 th:first-child, td:first-child,
-table#listaconvocatorias1 th:first-child, td:first-child
+table#listaconvocatorias1 th:first-child, td:first-child,
+table#listagrupos1 th:first-child, td:first-child,
+table#listanoticias th:first-child, td:first-child
 {
   padding: 0 15px 0 20px;
 
 }
  
 table#listalineas1 thead tr:last-child th,
+table#listagrupos1 thead tr:last-child th,
+table#listanoticias thead tr:last-child th
 {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
@@ -91,32 +103,42 @@ table#listaconvocatorias1 thead tr:last-child th
 }
  
 table#listalineas1 tr:hover,
-table#listaconvocatorias1 tr:hover
+table#listaconvocatorias1 tr:hover,
+table#listagrupos1 tr:hover,
+table#listanoticias tr:hover
+
 {
   background-color: #ECEBEB;
 }
 
 table#listalineas1 tr:last-child td,
-table#listaconvocatorias1 tr:last-child td
+table#listaconvocatorias1 tr:last-child td,
+table#listagrupos1 tr:last-child td,
+table#listanoticias tr:last-child td
 {
   border: none;
 }
 
 table#listalineas1 td,
-table#listaconvocatorias1 td
+table#listaconvocatorias1 td,
+table#listagrupos1 td,
+table#listanoticias td
 {
   border-bottom: 1px solid #ddd;
 }
  
 table#listalineas1 tr,
-table#listaconvocatorias1 tr
+table#listaconvocatorias1 tr,
+table#listagrupos1 tr,
+table#listanoticias tr
 {
   background-color:#F8F9FE;
 }
 
-
 table#listalineas1 td:last-child,
-table#listaconvocatorias1 td:last-child
+table#listaconvocatorias1 td:last-child,
+table#listagrupos1 td:last-child,
+table#listanoticias td:last-child
 {
   text-align: left;
   padding-right: 10px;

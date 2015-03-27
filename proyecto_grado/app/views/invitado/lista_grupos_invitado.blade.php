@@ -10,49 +10,26 @@
 
 @section('cuerpo')
 <div>
-    <!--Alerta de confirmar eliminacion de datos-->
-    <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
-      <div class="modal-dialog modal-lg"  style="width:500px;margin-left:400px;" >
-        <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Confirmaci&oacute;n</h4>
-          </div>
-          <div class="modal-body">
-            <p>¿Esta seguro que desea eliminarlo?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="eliminacionremota();"
-            style=" border-radius: 5px; background: #1A6D71; border-color:white; color:white;">Aceptar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-          </div>
-        </div><!-- /.modal-content -->
-        </div>
-      </div>
-    </div>
-
-  <form id="form-grupos" class="gradient">
+  <form id="form-grupos1" class="gradient">
           
-    <div id="titulo-listagrupo" id="cuadro"> 
+    <div id="titulo-listagrupo1" id="cuadro"> 
         <h2>Grupos</h2>
     </div>
 
-    <div id="tabla-listagrupos">
-      <table id="listagrupos">
+    <div id="tabla-listagrupos1">
+      <table id="listagrupos1">
         <thead>
-          <tr><th colspan="6" style=" border-radius: 5px; background: #1A6D71;
-                background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-                background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-                background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-                background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">GRUPOS</th></tr>
+          <tr><th colspan="4" style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  color:white;">GRUPOS</th></tr>
           <tr>
             <th> </th>
             <th>NOMBRE DEL GRUPO</th>
             <th>UNIDAD ACADÉMICA </th>
-            <th> </th>
-            <th> </th>
-            <th></th>
+            <th>DIRECTOR GRUPO</th>
           </tr>
         </thead>
           <tbody>
@@ -65,8 +42,7 @@
                   <tr id="dato_grupo_{{$campo['codigo_grupo']}}" 
                     @if($campo['estado_activacion']==0) 
                     style="background:#BDBDBD"
-                    @endif
-                   >
+                    @endif>
                     <td style="width:100px;">
                       <b> 
                           {{$contador++;}}         
@@ -74,33 +50,12 @@
                     </td> 
 
                     <td>
-                    <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
+                      <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
                     </td>
 
-                     <td>{{$campo['nombre_unidad_academica']}}</td>
+                    <td>{{$campo['nombre_unidad_academica']}}</td>
 
-                    <td style="width:92px;">
-                      <a href="#"
-                       data-info-estado="{{$campo['estado_activacion']}}"
-                       onclick="activacion_desactivacion({{$campo['codigo_grupo']}},this)">
-                       <p style="margin:0;">
-
-                        @if($campo['estado_activacion']==0)
-                        <i class="glyphicon glyphicon-ok-circle"></i> Activar
-                        @else 
-                        <i class="glyphicon glyphicon-remove-circle"></i> Desactivar
-                        @endif
-                      </p>
-                     </a>
-                    </td>
-
-                    <td style="width:90px;">
-                      <a href="formulariogrupos/edit/{{$campo['codigo_grupo']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                    </td>
-                    <td style="width:92px;">
-                      <b  onclick="eliminartipo({{$campo['codigo_grupo']}})">
-                      <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                    </td>
+                    <td>{{$campo['nombre_coordinador_grupo']}}</td>
                   </tr>
               @endforeach
             @endif

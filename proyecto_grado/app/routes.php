@@ -311,8 +311,11 @@ Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
 Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
-/*2-Grupos*/
-/*3-Lineas*/
+//3-Grupos
+Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
+//3-Noticias
+Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+
 
 
 

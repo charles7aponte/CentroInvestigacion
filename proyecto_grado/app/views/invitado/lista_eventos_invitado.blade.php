@@ -39,12 +39,12 @@
     <div id="tabla-eventos-noticias">
       <table id="listaeventosnoticias">
         <thead>
-          <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
-                  background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -moz-linear-gradient(top,#1A6D71,#122d3e);
-                  background: -o-linear-gradient(top,#1A6D71,#122d3e);  
-                  background: linear-gradient(to bottom,#1A6D71,#122d3e);  
-                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">EVENTOS, NOTICIAS Y DOCUMENTOS</th></tr>
+          <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
+                  background: -webkit-linear-gradient(top,#286388,#122d3e);
+                  background: -moz-linear-gradient(top,#286388,#122d3e);
+                  background: -o-linear-gradient(top,#286388,#122d3e);  
+                  background: linear-gradient(to bottom,#286388,#122d3e);  
+                  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  color:white;">EVENTOS</th></tr>
           <tr>
             <th> </th>
             <th>T&Iacute;TULO</th>
