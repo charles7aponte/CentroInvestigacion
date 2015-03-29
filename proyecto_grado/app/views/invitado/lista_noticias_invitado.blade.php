@@ -1,6 +1,6 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
-@section('cuerpo')
+@section('contenido-principal')
 <div>
    
   <form id="form-noticias1">

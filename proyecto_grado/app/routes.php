@@ -313,11 +313,12 @@ Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvoc
 Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
 //3-Grupos
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
-//3-Noticias
+//3-Noticias y eventod
 Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+//Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias')
 
-
-
+/// ESTE ES SOLO UN EJEMPLO lo puedes adpatar o cambiarlo totalmente
+Route::get("cargalista/{tipo_lista}",'ControlListasInvitado@cargarListaNoticiasEventos');
 
 
 

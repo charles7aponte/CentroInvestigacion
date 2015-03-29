@@ -1,4 +1,4 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
 @section("javascript-nuevos")
   <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
@@ -7,7 +7,7 @@
       fila_info="#dato_linea_";
   </script>
 
-@section('cuerpo')
+@section('contenido-principal')
 <div>
     
     <form id="form-lineas1">

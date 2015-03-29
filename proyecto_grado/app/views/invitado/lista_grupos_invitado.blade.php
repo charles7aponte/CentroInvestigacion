@@ -1,4 +1,4 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
 @section("javascript-nuevos")
   <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script>
@@ -8,7 +8,7 @@
       fila_info="#dato_grupo_";
   </script>
 
-@section('cuerpo')
+@section('contenido-principal')
 <div>
   <form id="form-grupos1" class="gradient">
           

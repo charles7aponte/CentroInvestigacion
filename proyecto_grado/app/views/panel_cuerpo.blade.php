@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
-    <link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
     <!--<link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">-->

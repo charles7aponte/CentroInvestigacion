@@ -1,7 +1,7 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
 
-@section('cuerpo')
+@section('contenido-principal')
 
   <form id="form-convocatorias1">
           
@@ -60,10 +60,15 @@
                       {{$campo['estado']}}
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
-                      {{$campo['fecha_apertura']}}
+                      {{InvConvocatorias::formato_fecha($campo['fecha_apertura'])}}
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
-                      {{$campo['fecha_cierre']}}
+
+
+                      {{InvConvocatorias::formato_fecha($campo['fecha_cierre'])}}
+                      dia :{{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"dia")}}, 
+                      mes : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"mes")}}
+                      año : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"a")}}
                     </td>
                   </tr>
                 @endif
