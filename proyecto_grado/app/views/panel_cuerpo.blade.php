@@ -40,11 +40,11 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
 	    <!-- css -->
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}"> <!--css del estilo de la pagina principal-->
-	    <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
-	    <link rel="stylesheet" type="text/css" href="css/estilo_login.css">
-	    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-	    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
-	    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_slider.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_login.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
+	    
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_temasprincipalesinvitado.css')}}">
 
@@ -57,10 +57,10 @@
 		@show
 		
 	    <!-- scripts -->
-	    <script type="text/javascript" src="js/jquery.js"></script>
-	    <script type="text/javascript" src="js/scripts.js"></script>
-	    <script type="text/javascript" src="js/texto-imagenes-slider.js"></script>
-	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
+	    <script type="text/javascript" src="{{URL::to('js/jquery.js')}}"></script>
+	    <script type="text/javascript" src="{{URL::to('js/scripts.js')}}"></script>
+	    <script type="text/javascript" src="{{URL::to('js/texto-imagenes-slider.js')}}"></script>
+	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript')}}"></script>
 	    <!--<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
 	    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>-->
 	</head>
@@ -102,26 +102,26 @@
 	 						</li>
 
 	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadegruposinv')}}" role="button" aria-expanded="false" style="width:148px;">
 	      							Grupos
 	    						</a>
 	 						</li>
 
 	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadelineasinv')}}" role="button" aria-expanded="false" style="width:148px;">
 	      							Líneas
 	    						</a>
 	 						</li>
 
 	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadeconvocatoriasinv')}}" role="button" aria-expanded="false" style="width:148px;">
 	      							Convocatorias
 	    						</a>
 	 						</li>
 
 	 						<li role="presentation" class="dropdown">
 	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
-	      							Productos<span class="caret"></span>
+	      							Productos <span class="caret"></span>
 	    						</a>
 	    						<ul class="dropdown-menu" role="menu">
 	      							<li><a href="#">Unidad academica 1</a></li>
@@ -132,7 +132,7 @@
 
 	 						<li role="presentation" class="dropdown">
 	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
-	      							Documentaci&oacute;n<span class="caret"></span>
+	      							Documentaci&oacute;n <span class="caret"></span>
 	    						</a>
 	    						<ul class="dropdown-menu" role="menu">
 	      							<li><a href="#">Menu 1</a></li>
