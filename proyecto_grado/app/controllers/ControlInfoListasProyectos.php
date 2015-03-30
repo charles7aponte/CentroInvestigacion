@@ -39,7 +39,7 @@ class ControlInfoListasProyectos extends Controller {
 			);
 
 
-		return View::make('inf_lista_integrantes_proyectos',$datos);
+		return View::make('administrador/inf_lista_integrantes_proyectos',$datos);
 	}
 
 }

@@ -59,7 +59,7 @@ switch($mes){
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
 
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_temasprincipales.css')}}">
 
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
 

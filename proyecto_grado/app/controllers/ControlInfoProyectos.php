@@ -74,7 +74,7 @@ class ControlInfoProyectos extends Controller {
 					);
 
 
-		return View::make("inf_proyectos",$datos);
+		return View::make("administrador/inf_proyectos",$datos);
 	}
 
 

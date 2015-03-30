@@ -42,7 +42,7 @@
                    {{$lista_producto_grupo->codigo_producto}}
                 </td> 
                 <td> 
-                   <a href="">{{$lista_producto_grupo->nombre_producto}}</a> 
+                   <a href="{{URL::to('/')}}/producto/id/{{$lista_producto_grupo->codigo_producto}}">{{$lista_producto_grupo->nombre_producto}}</a> 
                 </td>
                 <td style="text-align:left; width:200px;">
                   {{$lista_producto_grupo->nombre_subtipo_producto}}

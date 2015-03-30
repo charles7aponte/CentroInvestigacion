@@ -1,8 +1,7 @@
 <?php
 
 
-class ControlInfoLineas extends Controller {
-
+class ControlInfoLineasInvitado extends Controller {
 
 	/**
 	 * Setup the layout used by the controller.
@@ -38,7 +37,7 @@ class ControlInfoLineas extends Controller {
 
 		$listadeSublineaLineas= $this->Sublineasporlinea($id_linea);
 		$proyectos_lineas= $this->ContarProyectosporlinea($id_linea);
-		$listaGruposLineas= $this->Gruposporsunlinea($id_linea);
+		$listaGruposLineas= $this->Gruposporsublinea($id_linea);
 		$listaProductoTiposSubtipos=$this->ContarProductosTipos_Subtipos($id_linea);
 		
 		$datos = array('lineas' =>$lineas, 
@@ -52,7 +51,7 @@ class ControlInfoLineas extends Controller {
 
 			);
 
-		return View::make("administrador/inf_lineas",$datos);
+		return View::make("invitado/inf_lineas_invitado",$datos);
 	}	
 
 	//sublineas por linea
@@ -64,7 +63,7 @@ class ControlInfoLineas extends Controller {
 		return $listaSublineaLineas;
 	}
 
-	public function Gruposporsunlinea($id_linea){
+	public function Gruposporsublinea($id_linea){
 		$listaGruposLineas=DB::select(DB::raw("select *
 			from inv_linea_grupos ilg, inv_grupos ig
 			where ilg.inv_codigo_grupo=ig.codigo_grupo

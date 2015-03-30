@@ -41,7 +41,7 @@ class ControlInfoListasGrupos extends Controller {
 			);
 
 
-		return View::make('inf_lista_integrantes_grupos',$datos);
+		return View::make('administrador/inf_lista_integrantes_grupos',$datos);
 	}
 
 
@@ -59,7 +59,7 @@ class ControlInfoListasGrupos extends Controller {
 			'campo_lista'=>$listaproyectosgrupos,'links'=>$paginacion
 			);
 
-		return View::make('inf_lista_proyectos_grupos',$datos);
+		return View::make('administrador/inf_lista_proyectos_grupos',$datos);
 	}
 
 	//lista de productos por  grupos
@@ -88,7 +88,7 @@ class ControlInfoListasGrupos extends Controller {
 			'links'=>$paginacion
 			);
 
-		return View::make('inf_lista_productos_grupos',$datos);
+		return View::make('administrador/inf_lista_productos_grupos',$datos);
 
 	}
 }

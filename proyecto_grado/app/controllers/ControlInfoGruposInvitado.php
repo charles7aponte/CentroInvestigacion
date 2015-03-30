@@ -1,7 +1,7 @@
 <?php
 
 
-class ControlInfoGrupos extends Controller {
+class ControlInfoGruposInvitado extends Controller {
 	
 	public $listaIntegrantesGrupos=array('Docente' => 0,'Estudiante' => 0,'Joven Investigador'=>0, 'Investigador Externo'=>0 );
 	public $idperfiles=array();
@@ -77,7 +77,7 @@ class ControlInfoGrupos extends Controller {
 			);
 
 
-	return View::make("administrador/inf_grupos",$datos);
+	return View::make("invitado/inf_grupos_invitado",$datos);
 
 	}
 

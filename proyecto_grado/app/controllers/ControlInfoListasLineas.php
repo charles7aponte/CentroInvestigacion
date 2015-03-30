@@ -18,7 +18,7 @@ class ControlInfoListasLineas extends Controller {
 			'links'=>$paginacion
 			);
 
-		return View::make('inf_lista_proyectos_lineas',$datos);
+		return View::make('administrador/inf_lista_proyectos_lineas',$datos);
 	}
 
 
@@ -49,7 +49,7 @@ class ControlInfoListasLineas extends Controller {
 			'links'=>$paginacion
 			);
 
-		return View::make('inf_lista_productos_lineas',$datos);
+		return View::make('administrador/inf_lista_productos_lineas',$datos);
 	}
 
 }

@@ -71,7 +71,7 @@ class ControlInfoProductos extends Controller {
 					   );
 
 
-		return View::make("inf_productos",$datos);
+		return View::make("administrador/inf_productos",$datos);
 	}
 
 	public function tipo_producto($idsubtipo){

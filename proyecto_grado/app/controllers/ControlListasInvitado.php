@@ -56,11 +56,10 @@ class ControlListasInvitado extends Controller {
 
 
 
-
 	//controlador grupos
 	public function ConstruirListaGrupos(){
 	
-		$paginacion=InvGrupos::orderBy('inv_unidad_academica')->paginate(20);//traer registros
+		$paginacion=InvGrupos::where("estado_activacion","=","1")->orderBy('inv_unidad_academica')->paginate(20);//traer registros
 		$numeropaginacion=Input::get('page',1);
 		//echo $numeropaginacion;
 		foreach ($paginacion as $key => $lista) {

@@ -43,6 +43,8 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_temasprincipalesinvitado.css')}}">
+
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
     <!--<link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">-->
@@ -64,13 +66,6 @@
     <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
     <!--<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>-->
-
-   
-
-    @section('css')
-	
-	@show
-
 </head>
 	<body>
 		<div class="contenedor">		
@@ -86,15 +81,7 @@
 						<p>
 							{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
 						</p>
-					</div>
-					<!-- Redes sociales -->
-					<div id="redes-cabecera">
-						<ul> <!--poner target...abrir en otra pagina-->
-						  <li><a href="#" target="_blank" class="facebook"></a></li>
-					      <li><a href="#" target="_blank" class="twitter"></a></li>
-					      <li><a href="#" target="_blank" class="googlemas"></a></li>
-						</ul>
-					</div><!--Fin redes sociales cabecera-->					
+					</div>					
 					<!-- Iniciar sesion -->
 					<div id="ingreso-encabezado">
 
@@ -113,20 +100,18 @@
     						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:100px;">
       							Inicio 
     						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
  						</li>
 
  						<li role="presentation" class="dropdown">
     						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Proyectos<span class="caret"></span>
+      							Grupos
     						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
+ 						</li>
+
+ 						<li role="presentation" class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
+      							Líneas
+    						</a>
  						</li>
 
  						<li role="presentation" class="dropdown">
@@ -134,6 +119,7 @@
       							Productos<span class="caret"></span>
     						</a>
     						<ul class="dropdown-menu" role="menu">
+      							<li><a href="#">Unidad academica 1</a></li>
       							<li><a href="#">Menu 1</a></li>
       							<li><a href="#">Menu 1</a></li>
     						</ul>
@@ -141,27 +127,7 @@
 
  						<li role="presentation" class="dropdown">
     						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Grupos<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Lineas<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Documentaci&oacute;n<span class="caret"></span>
+      							Documentaci&oacute;n Y normatividad<span class="caret"></span>
     						</a>
     						<ul class="dropdown-menu" role="menu">
       							<li><a href="#">Menu 1</a></li>
