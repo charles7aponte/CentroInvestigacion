@@ -310,7 +310,7 @@ Route::group(['before' => 'auth'], function()
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
-Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
+Route::get('listadeconvocatoriasinv/find/{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
 //3-Grupos
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
 //3-Noticias y eventod

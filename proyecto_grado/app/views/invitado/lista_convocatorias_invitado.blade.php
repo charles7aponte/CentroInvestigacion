@@ -1,5 +1,7 @@
 @extends('panel_cuerpo')
 
+@section("javascript-nuevos")
+  <script src="{{URL::to('/')}}/js/recursos/buscador_listas.js" type="text/javascript"></script>
 
 @section('contenido-principal')
 
