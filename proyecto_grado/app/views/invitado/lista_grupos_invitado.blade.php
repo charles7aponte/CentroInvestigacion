@@ -1,12 +1,6 @@
 @extends('panel_cuerpo')
 
 @section("javascript-nuevos")
-  <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script>
-  <script src="js/ActivarDesactivarGrupo.js" type="text/javascript"></script>  
-  <script >
-      URL='formulariogrupos/eliminar/';
-      fila_info="#dato_grupo_";
-  </script>
 
 @section('contenido-principal')
 <div>
@@ -39,11 +33,8 @@
             ?>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-                  <tr id="dato_grupo_{{$campo['codigo_grupo']}}" 
-                    @if($campo['estado_activacion']==0) 
-                    style="background:#BDBDBD"
-                    @endif>
-                    <td style="width:100px;">
+                  <tr id="dato_grupo_{{$campo['codigo_grupo']}}"> 
+                    <td style="width:auto;">
                       <b> 
                           {{$contador++;}}         
                       </b>

@@ -13,16 +13,16 @@
    
    <div id="buscador-lista1">
       <form class="navbar-form navbar-left" role="search">
+        
         <div class="form-group">
           <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >
           <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatoriasinv/find/" 
           class="btn btn-default"
           onclick="buscar_listas()" 
           ><i class="glyphicon glyphicon-search"></i>Buscar</button>
-
         </div>
       </form>
-    </div>
+   </div>
 
     <div id="tabla-listaconvocatorias1">
       <table id="listaconvocatorias1">
@@ -76,14 +76,11 @@
                 @endif
               @endforeach
             @endif
-          </tbody> 
+        </tbody> 
       </table> 
-
           <div style="margin-left:30px; margin-right:30px;"> 
               {{$links}}
           </div>
-      </div>
     </div>
   </form>
-</div>
 @stop
