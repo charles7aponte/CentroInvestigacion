@@ -315,6 +315,8 @@ Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
 //3-Noticias
 Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+//4-Eventos
+Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias');
 
 
 

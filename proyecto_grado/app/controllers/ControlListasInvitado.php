@@ -85,21 +85,27 @@ class ControlListasInvitado extends Controller {
 	
 	//controlador  eventos
 	public function ConstruirListaEventosNoticias(){
-		$listas_noticias=InvEventosNoticias::where("tipo","=","Noticia")->paginate(20); //traer registros
-		$paginacion=InvEventosNoticias::paginate(20);
-		$crear_paginacion=$paginacion->links();
+
+		$listas=InvEventosNoticias::where("tipo","=","noticia")->get();
+		$listas1=InvEventosNoticias::where("tipo","=","Evento")->get(); //traer registros
 		$numeropaginacion=Input::get('page',1);
 
-		echo $listas_noticias;
 
-		if(count($listas_noticias)>0){
+		if(count($listas)>0){
 
-			$datos= array(
-			'campo_lista'=>$listas_noticias,
-			'links'=>$crear_paginacion,
+		$datos= array(
+			'campo_lista'=>$listas,
 			'numeropagina'=>$numeropaginacion);
 		
-		return View::make('invitado/lista_noticias_invitado',$datos);	
+		return View::make('invitado/lista_noticias_invitado',$datos);
+		}
+
+		else {
+			$datos= array(
+			'campo_lista'=>$listas1,
+			'numeropagina'=>$numeropaginacion);
+		
+		return View::make('invitado/lista_eventos_invitado',$datos);
 		}
 
 

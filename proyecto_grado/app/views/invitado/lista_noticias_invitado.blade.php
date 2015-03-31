@@ -5,7 +5,7 @@
    
   <form id="form-noticias1">
           
-   <div id="titulo-noticias1" id="cuadro"> 
+   <div id="titulo-noticias" id="cuadro"> 
       <h2>Noticias</h2>
     </div>
     <div id="tabla-noticias">
@@ -49,9 +49,6 @@
             @endif
       </table>
 
-          <div style="margin-left:30px; margin-right:30px;"> 
-              {{$links}}
-          </div>
       </div>
     </div>
   </form>

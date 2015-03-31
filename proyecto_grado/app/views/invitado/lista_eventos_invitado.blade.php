@@ -31,56 +31,50 @@
     </div>
 
 
-  <form id="form-eventos-noticias">
+  <form id="form-eventos">
           
-   <div id="titulo-listaeventos-noticias" id="cuadro"> 
-      <h2>Lista de Eventos y Noticias</h2>
+   <div id="titulo-listaeventos" id="cuadro"> 
+      <h2>Eventos</h2>
     </div>
-    <div id="tabla-eventos-noticias">
-      <table id="listaeventosnoticias">
+    <div id="tabla-eventos">
+      <table id="listaeventos">
         <thead>
-          <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
+          <tr><th colspan="3" style=" border-radius: 5px; background: #286388;
                   background: -webkit-linear-gradient(top,#286388,#122d3e);
                   background: -moz-linear-gradient(top,#286388,#122d3e);
                   background: -o-linear-gradient(top,#286388,#122d3e);  
                   background: linear-gradient(to bottom,#286388,#122d3e);  
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  color:white;">EVENTOS</th></tr>
           <tr>
-            <th> </th>
-            <th>T&Iacute;TULO</th>
-            <th>TIPO</th>
-            <th></th>
-            <th></th>
+            <th style="width:100px;"> </th>
+            <th style="width:700px;">T&Iacute;TULO</th>
+            <th style="width:100px;">FECHA</th>
           </tr>
         </thead>
+        <?php
+          $contador=(20*$numeropagina)-19;
+        ?>
         <tbody>
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
-                  <tr id="dato_eventonoticia_{{$campo['id_evento']}}">
+                  <tr>
                     <td style="width:100px;">
-                      <b>{{$campo['id_evento']}}</b>
+                      <b>{{$contador++}}</b>
                     </td> 
-                    <td>
+                    <td style="width:700px;">
                       <a href="">{{$campo['titulo_evento']}}</a>
                     </td>
-                    <td style="width:90px;">
-                      <a href="">{{$campo['tipo']}}</a>
-                    </td>
-                    <td style="width:90px;">
-                      <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-                    </td>
-                    <td style="width:93px;">
-                      <b onclick="eliminartipo({{$campo['id_evento']}})">
-                      <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                    <td style="width:100px;">
+                      
+                      <?php 
+                        $fecha= new DateTime($campo['fecha']);
+                        echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
+                      ?>
                     </td>
                   </tr>
               @endforeach
             @endif
       </table>
-
-          <div style="margin-left:30px; margin-right:30px;"> 
-              {{$links}}
-          </div>
       </div>
     </div>
   </form>

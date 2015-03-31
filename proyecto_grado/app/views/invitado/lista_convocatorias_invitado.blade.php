@@ -60,10 +60,17 @@
                       {{$campo['estado']}}
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
-                      {{$campo['fecha_apertura']}}
+                      <?php 
+                        $fecha= new DateTime($campo['fecha_apertura']);
+                        echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
+                      ?>
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
-                      {{$campo['fecha_cierre']}}
+                      <?php 
+                        $fecha= new DateTime($campo['fecha_cierre']);
+                        $nueva= date("d-m-Y", strtotime($fecha));
+
+                      ?>
                     </td>
                   </tr>
                 @endif
