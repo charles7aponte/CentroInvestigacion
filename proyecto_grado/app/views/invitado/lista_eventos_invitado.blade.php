@@ -1,4 +1,4 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
 @section("javascript-nuevos")
   <script src="js/recursos/eliminar_datos.js" type="text/javascript"></script> 
@@ -7,7 +7,7 @@
       fila_info="#dato_eventonoticia_";
   </script>
 
-@section('cuerpo')
+@section('contenido-principal')
 <div>
     <!--Alerta de confirmar eliminacion de datos-->
     <div class="modal fade bs-example-modal-lg" id="eliminar-confirmar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >

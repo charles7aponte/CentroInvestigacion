@@ -54,10 +54,12 @@ class ControlListasInvitado extends Controller {
 		 return View::make('invitado/lista_convocatorias_invitado',$datos);
 	}
 
+
+
 	//controlador grupos
 	public function ConstruirListaGrupos(){
 	
-		$paginacion=InvGrupos::orderBy('inv_unidad_academica')->paginate(20);//traer registros
+		$paginacion=InvGrupos::where("estado_activacion","=","1")->orderBy('inv_unidad_academica')->paginate(20);//traer registros
 		$numeropaginacion=Input::get('page',1);
 		//echo $numeropaginacion;
 		foreach ($paginacion as $key => $lista) {
@@ -108,6 +110,26 @@ class ControlListasInvitado extends Controller {
 		return View::make('invitado/lista_eventos_invitado',$datos);
 		}
 
-
 	}
+
+
+
+		//$tipo puede ser "noticia", "evento"
+		public function cargarListaNoticiasEventos($tipo)
+		{
+
+			if($tipo=="noticia")
+			{
+				//hace sus respectivas consulta y proceso q le corresponda
+				return View::make('inf_personas_docentes');	//el trato de abri esta vista no existe 
+			}
+
+			if($tipo=="evento")
+			{
+				//hace sus respectivas consulta y proceso q le corresponda
+				return View::make('inf_lista_integrantes_grupos');
+			}
+
+			return View::make('inf_personas_docentes');
+		}
 }

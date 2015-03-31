@@ -39,7 +39,7 @@ class ControlInfoListasProductos extends Controller {
 			);
 
 
-		return View::make('inf_lista_integrantes_productos',$datos);
+		return View::make('administrador/inf_lista_integrantes_productos',$datos);
 	}
 
 }

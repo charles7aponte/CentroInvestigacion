@@ -308,9 +308,13 @@ Route::group(['before' => 'auth'], function()
 
 //1-lineas
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
+Route::get('lineainv/id/{id_linea}','ControlInfoLineasInvitado@CargarInfoPrincipales');
+
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
-Route::get('re{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
+Route::get('listadeconvocatoriasinv/find/{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
+Route::get('convocatoriainv/id/{id_conv}','ControlInfoConvocatoriasInvitado@CargarInfoPrincipales');
+
 //3-Grupos
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
 //3-Noticias
@@ -319,7 +323,15 @@ Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoti
 Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias');
 
 
+Route::get('grupoinv/id/{id_grupo}','ControlInfoGruposInvitado@CargarInfoPrincipales');
 
+
+//3-Noticias y eventos
+Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+//Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias')
+
+/// ESTE ES SOLO UN EJEMPLO lo puedes adpatar o cambiarlo totalmente
+Route::get("cargalista/{tipo_lista}",'ControlListasInvitado@cargarListaNoticiasEventos');
 
 
 

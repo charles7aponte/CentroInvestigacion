@@ -1,7 +1,7 @@
 <?php
 
 
-class ControlInfoConvocatorias extends Controller {
+class ControlInfoConvocatoriasInvitado extends Controller {
 
 	public $listaEstadoProyecto=array('Aprobado'=>0,'evaluacion'=>0,'Rechazado'=>0);
 	public $idestados=array();
@@ -32,7 +32,7 @@ class ControlInfoConvocatorias extends Controller {
 				           'Lista_estados'=> $this->idestados);
 
 
-		return View::make("administrador/inf_convocatorias",$datos);
+		return View::make("invitado/inf_convocatorias_invitado",$datos);
 
 	}
 

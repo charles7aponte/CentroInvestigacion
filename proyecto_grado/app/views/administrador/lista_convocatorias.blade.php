@@ -89,7 +89,7 @@
                     </td>
                     <td style="width:93px;">
                       <b onclick="eliminartipo({{$campo['id_sublinea']}})">
-                      <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                      <a href="#" onclick="return fa lse" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
                 @endif

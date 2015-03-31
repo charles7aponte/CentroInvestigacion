@@ -7,52 +7,51 @@ class ControlInfoPersonas extends Controller {
 	public function CargarInfoPrincipales($cedula){
 
 		$docentes=array();
+		$estudiantes=array();
+		$investigadores=array();
 		$integrantes=Persona::find($cedula);
+		$universidades=array();
 
 		if($integrantes)
 		{
-
 			$docentes=Docente::where("cedula","=",$integrantes->cedula)->get();
+			$estudiantes=Estudiante::where("cedula","=",$integrantes->cedula)->get();
+			$investigadores=InvInvestigadoresExternos::where("cedula_persona","=",$integrantes->cedula)->get();
 
 		}	
 
-		//tieen datos en  docentes si es un docente .  y de ese modo para los otros .. la relacion es la q manda la parada .. 
-		// la otra seria consultar los perficiles pero tendriamos q saber el nombre exacto q tiene .. s
-		// cual te parece mejor ?o mas bn perfiles para docentes noo.. pero para investigadores si y estudiantes ... es q la ficha del docnete es totalmente difereente
-		// ok 
 		if(count($docentes)>0){// esto se hace si es un docente 
 			$docentes=$docentes[0];
 
+			$docentes['nombre_univ_preg1'] =$this->NombresUniversidades($docentes->uni_preg1);//
+			$docentes['nombre_univ_preg2'] =$this->NombresUniversidades($docentes->uni_preg2);
+			$docentes['nombre_univ_post1'] =$this->NombresUniversidades($docentes->uni_post1);
+			$docentes['nombre_univ_post2'] =$this->NombresUniversidades($docentes->uni_post2);
+			$docentes['nombre_univ_post3'] =$this->NombresUniversidades($docentes->uni_post3);
+		
 			$datos = array('datos_integrantes' =>$integrantes,
 				'docente'=>$docentes
-
 			);
-
 			return View::make("inf_personas_docentes",$datos);
 		}
-		else {
-			// esto se realiza si no es un docente ... oki.. igual lo de perfiles lo dejo luego voy a ir haviendo esto
-		}//en el blade para quitar o poner la parte q es de estduainte o docente necesitaria traer perfil verdad¡ no .. pero no creo q gastemo mucho recuros ... una desicion q no afecta mucho .. ah plo
+		else if(count($estudiantes)>0){
 
+			return View::make("inf_personas",$datos);
 		}
+	}
 
-			
-//osea ... yo cargo aca para estudiantes pero el return ya no es para "inf_personas_docentes" es otro blade ... 
 
-		/*
-		pero quieres usar la misma direccion ??
-		si me hago entender . 
-		osea en route es otraaaa... osea es q no me hago entender..
-		por ejemplo como hago para cargar en este mismo contrlador decirle .. si es docente retorne a esta ficha
-		si es estudiante o investigador a esta otra ficha ...si me entendiye?
-		si que pena con su merced hermosa ajajaj
-		$estudiantes=Estudiante::all();
-		$investigadores=InvInvestigadoresExternos::all();
-	
-		$datos = array('datos_integrantes' =>$integrantes,
+	//funcion traer universidades
+    public function NombresUniversidades($iduniversidad){
+    	if($iduniversidad && $iduniversidad!="" )//se verifica q no sea null y q sea diferente a "" 
+    	{
+    		$nombre=InvUniversidades::find($iduniversidad);
+    		if($nombre)
+    			return $nombre->universidad;
 
-			);*/
+    		return "No hay Universidad definida";	
+    	}
+    	else return "No hay Universidad definida";
 
-//los mando tambien en datos?o debo validar algo o ese se hace desde el blade? pero lo del return :/
-	}}
-}
+    }
+}			

@@ -1,7 +1,9 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
+@section("javascript-nuevos")
+  <script src="{{URL::to('/')}}/js/recursos/buscador_listas.js" type="text/javascript"></script>
 
-@section('cuerpo')
+@section('contenido-principal')
 
   <form id="form-convocatorias1">
           
@@ -11,16 +13,16 @@
    
    <div id="buscador-lista1">
       <form class="navbar-form navbar-left" role="search">
+        
         <div class="form-group">
           <input id="titulo_buscar" type="text" class="form-control" value="{{(isset($titulo) && $titulo)?$titulo:'' }}" placeholder="" >
           <button id="bton_buscar_titulo" type="button" href="{{URL::to('/')}}/listadeconvocatoriasinv/find/" 
           class="btn btn-default"
           onclick="buscar_listas()" 
           ><i class="glyphicon glyphicon-search"></i>Buscar</button>
-
         </div>
       </form>
-    </div>
+   </div>
 
     <div id="tabla-listaconvocatorias1">
       <table id="listaconvocatorias1">
@@ -60,6 +62,7 @@
                       {{$campo['estado']}}
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
+<<<<<<< HEAD
                       <?php 
                         $fecha= new DateTime($campo['fecha_apertura']);
                         echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
@@ -71,19 +74,27 @@
                         $nueva= date("d-m-Y", strtotime($fecha));
 
                       ?>
+=======
+                      {{InvConvocatorias::formato_fecha($campo['fecha_apertura'])}}
+                    </td>
+                    <td style="text-transform:capitalize; width:100px;">
+
+
+                      {{InvConvocatorias::formato_fecha($campo['fecha_cierre'])}}
+                      dia :{{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"dia")}}, 
+                      mes : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"mes")}}
+                      año : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"a")}}
+>>>>>>> origin/master
                     </td>
                   </tr>
                 @endif
               @endforeach
             @endif
-          </tbody> 
+        </tbody> 
       </table> 
-
           <div style="margin-left:30px; margin-right:30px;"> 
               {{$links}}
           </div>
-      </div>
     </div>
   </form>
-</div>
 @stop

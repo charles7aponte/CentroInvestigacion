@@ -33,163 +33,134 @@
 	} 
 ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="es">
-<head>
-    <title>CENTRO DE INVESTIGACIONES--(FCBI) Universidad de los llanos</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme">
-    <link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="es" style="background-color:#eee;">
+	<head>
+	    <title>CENTRO DE INVESTIGACIONES--(FCBI) Universidad de los llanos</title>
+	    <meta charset="utf-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+	    <!-- css -->
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}"> <!--css del estilo de la pagina principal-->
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_slider.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_login.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
+	    
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_temasprincipalesinvitado.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
-    <!--<link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">-->
+
+	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
+	    <!--<link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">-->
+
+		@section('css')
+		
+		@show
+		
+	    <!-- scripts -->
+	    <script type="text/javascript" src="{{URL::to('js/jquery.js')}}"></script>
+	    <script type="text/javascript" src="{{URL::to('js/scripts.js')}}"></script>
+	    <script type="text/javascript" src="{{URL::to('js/texto-imagenes-slider.js')}}"></script>
+	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript')}}"></script>
+	    <!--<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
+	    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>-->
+	</head>
+		<body style="background-color:#eee;">
+			<div class="contenedor">		
+				<!-- Cabecera -->
+				<header class="capa-cabeza">
+						<div id="superior-principal"></div>
+					<!-- logo -->
+						<div id="logo-encabezado">
+							<img src="{{URL::to('images/1.png')}}" alt="" width="450" height="100"/>
+						</div>
+						<!-- Fecha -->
+						<div id="fecha-encabezado">
+							<p>
+								{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
+							</p>
+						</div>					
+						<!-- Iniciar sesion -->
+						<div id="ingreso-encabezado">
+
+							<form action="login" id="myForm" method="POST"> 
+								<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
+									<span class="glyphicon glyphicon-user"></span> Ingresar
+								</a>
+							</form>	
+						</div>
+				</header>
 
 
-    <link rel="stylesheet" type="text/css" href="css/estilo.css"> <!--css del estilo de la pagina principal-->
-    <link rel="stylesheet" type="text/css" href="css/estilo_slider.css">
-    <link rel="stylesheet" type="text/css" href="css/estilo_login.css">
-	
+				<!-- Menu de navegacion -->
+				<div class="row">
+					<section id="menu">
+						<ul class="nav nav-tabs">
+	  						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	      							Inicio 
+	    						</a>
+	 						</li>
 
-	@section('css')
-	
-	@show
-	
-    <!-- scripts -->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/texto-imagenes-slider.js"></script>
-    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
-    <!--<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>-->
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadegruposinv')}}" role="button" aria-expanded="false" style="width:148px;">
+	      							Grupos
+	    						</a>
+	 						</li>
 
-   
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadelineasinv')}}" role="button" aria-expanded="false" style="width:148px;">
+	      							Líneas
+	    						</a>
+	 						</li>
 
-    @section('css')
-	
-	@show
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadeconvocatoriasinv')}}" role="button" aria-expanded="false" style="width:148px;">
+	      							Convocatorias
+	    						</a>
+	 						</li>
 
-</head>
-	<body>
-		<div class="contenedor">		
-			<!-- Cabecera -->
-			<header class="capa-cabeza">
-					<div id="superior-principal"></div>
-				<!-- logo -->
-					<div id="logo-encabezado">
-						<img src="images/1.png" alt="" width="450" height="100"/>
-					</div>
-					<!-- Fecha -->
-					<div id="fecha-encabezado">
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	      							Productos <span class="caret"></span>
+	    						</a>
+	    						<ul class="dropdown-menu" role="menu">
+	      							<li><a href="#">Unidad academica 1</a></li>
+	      							<li><a href="#">Menu 1</a></li>
+	      							<li><a href="#">Menu 1</a></li>
+	    						</ul>
+	 						</li>
+
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	      							Documentaci&oacute;n <span class="caret"></span>
+	    						</a>
+	    						<ul class="dropdown-menu" role="menu">
+	      							<li><a href="#">Menu 1</a></li>
+	      							<li><a href="#">Menu 1</a></li>
+	    						</ul>
+	 						</li>
+						</ul>
+					</section>
+				</div>
+
+				<section>
+					@section('contenido-principal')
+
+			    	@show
+				</section>	
+			    	
+				<div id="pie-pagina">
+					<div id="capa-pie">
 						<p>
-							{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
+							<strong>Centro de Investigaciones, FCBI</strong>
+							<br>
+								Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000
+							<br>
+								Correo electronico contacto@xxxx.com
 						</p>
 					</div>
-					<!-- Redes sociales -->
-					<div id="redes-cabecera">
-						<ul> <!--poner target...abrir en otra pagina-->
-						  <li><a href="#" target="_blank" class="facebook"></a></li>
-					      <li><a href="#" target="_blank" class="twitter"></a></li>
-					      <li><a href="#" target="_blank" class="googlemas"></a></li>
-						</ul>
-					</div><!--Fin redes sociales cabecera-->					
-					<!-- Iniciar sesion -->
-					<div id="ingreso-encabezado">
-
-						<form action="login" id="myForm" method="POST"> 
-							<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">Ingresar</a>
-						</form>	
-					</div>
-			</header>
-
-
-			<!-- Menu de navegacion -->
-			<div class="row">
-				<section id="menu">
-					<ul class="nav nav-tabs">
-  						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:100px;">
-      							Inicio 
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Proyectos<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Productos<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Grupos<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Lineas<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-
- 						<li role="presentation" class="dropdown">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:120px;">
-      							Documentaci&oacute;n<span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu" role="menu">
-      							<li><a href="#">Menu 1</a></li>
-      							<li><a href="#">Menu 1</a></li>
-    						</ul>
- 						</li>
-					</ul>
-				</section>
-			</div>
-
-			<section>
-				@section('contenido-principal')
-
-		    	@show
-			</section>	
-		    	
-			<div id="pie-pagina">
-				<div id="capa-pie">
-					<p>
-						<strong>Centro de Investigaciones, FCBI</strong>
-						<br>
-							Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000
-						<br>
-							Correo electronico contacto@xxxx.com
-					</p>
 				</div>
 			</div>
-		</div>
-	</body>
+		</body>
 </html>	
 		

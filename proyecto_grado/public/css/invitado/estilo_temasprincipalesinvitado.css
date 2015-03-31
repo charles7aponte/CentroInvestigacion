@@ -1,0 +1,539 @@
+
+#titulo-infconv, .titulo-conv1, #titulo-infgrupos, #titulo-proyectos{
+    width: auto;
+    margin:0;
+}
+
+table {
+border-collapse: collapse;
+}
+
+ fieldset#principal{
+    background-color: white;
+    border-radius: 15px;
+    margin: 5px 15px 5px 15px;
+    padding-bottom: 5px;
+}
+
+fieldset#secundario{
+    background-color: white;
+    border:1px solid #E1E1E1;
+    border-radius: 15px;
+    box-shadow:0 0 10px #E1E1E1;
+    margin: 5px 15px 5px 15px;
+    padding-bottom: 10px;
+    padding:5px;
+}
+/*css propio de la ficha lineas*/
+.inflineas fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;  
+}
+
+.inflineas .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+.inflineas .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+.inflineas .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+/*css propio de la ficha producto*/
+.infproductos fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;  
+}
+
+/*css propio de la ficha grupos*/
+.infgrupos .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+/*css propio de la ficha grupos*/
+.infgrupos fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;
+}
+.infgrupos .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+.infgrupos .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+/*fin ficha grupos*/
+
+/*css propio de la ficha proyectos*/
+.infproyectos fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;
+}
+
+.infproyectos .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+.infproyectos .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+/*fin ficha proyectos*/
+
+/*css propio de la ficha persona*/
+#marco-persona{
+  margin: 10px;
+  padding: 3px 10px; 
+  border: #F2F2F2 5px double; 
+  border-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
+
+.infpersonas #nombre-persona{
+  text-align: center;
+  font-weight: bold;
+  color: #122d3e;
+}
+
+#foto-persona{
+   padding:8px; 
+   margin-left: 20px;
+   margin-top: 10px;
+   background-color: #f5f5f5; 
+   border: 1px solid #E6E6E6; 
+}
+
+#foto-persona img{
+   border: 1px solid #FAFAFA; 
+   width: 180px; 
+   height: 220px;
+}
+
+/*fin ficha persona*/
+
+
+/*css propio de la ficha convocatoria*/
+.infconvocatoria fieldset#secundario1{
+  background-color: none;
+  margin: 5px 15px 5px 15px;
+  padding-bottom:10px;
+  padding:5px;  
+}
+
+.infconvocatoria .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+.infconvocatoria .titulo-listas h4 p{
+  margin-left: 5px;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: bold;
+}
+.infconvocatoria .titulo-listas h4{
+  width: 100%;
+  height: 30px;
+}
+
+/*fin de la ficha convocatoria*/
+
+#titulo-infconv h2,
+#titulo-lineas h2,
+#titulo-productos h2,
+#titulo-proyectos h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align: center;
+   color:#122d3e;
+   background: none repeat scroll 0 0 #eee;
+   display: block;
+   font-size:30px;
+   text-transform: uppercase;
+   font-weight: bold;
+   text-shadow: 1px 1px 1px #AFEEEE;
+   border-radius: 5px;
+   width: auto;
+   padding:2px;
+
+}
+
+#titulo-infgrupos{
+   text-shadow: 1px 1px 1px #AFEEEE;
+   background: none repeat scroll 0 0 #FBFBFB;
+   border-radius: 5px;
+   border-bottom:  2px solid #DCDCDC;
+   width: 100%;
+   min-height: 200px;
+   padding:2px;
+
+}
+
+#titulo-infgrupos h2{
+   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   text-align:left;
+   font-weight: bold;
+   line-height:30px;
+   color:#122d3e; 
+   font-size:20px;
+   text-transform: uppercase;
+   margin-left: 15px;
+   margin-right: 5px;
+ }
+
+/*-------------------logos de los grupos-----------------------*/
+#titulo-infgrupos img, #titulo-personas img{
+    position: relative;
+    width: 300px;
+    max-height: 200px;
+    vertical-align: middle;
+    margin: 5px;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow:0 0 20px #ccc;
+    -moz-box-shadow:0 0 20px #ccc ;
+    box-shadow:0 0 20px #ccc;
+}
+
+.tabla-infconvocatorias,
+.tabla-infgrupos,
+.tabla-inflineas,
+.tabla-infproductos,
+.tabla-infpersonas,
+.tabla-infproyectos{
+    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    line-height: 20px;
+    border-spacing: 1px;
+    text-align: left;
+    font-style:normal;
+    margin: 20px auto;
+    width: 100%;
+    margin-top: 25px;
+    vertical-align: middle;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+.tabla-infconvocatorias thead tr th, 
+.tabla-infgrupos thead tr th,
+.tabla-inflineas thead tr th,
+.tabla-infproductos thead tr th,
+.tabla-infpersonas thead tr th,
+.tabla-infproyectos thead tr th{
+  font-size:15px;
+}
+
+
+.tabla-infconvocatorias th:first-child, 
+.tabla-infgrupos th:first-child,
+.tabla-inflineas th:first-child,
+.tabla-infproductos th:first-child,
+.tabla-infpersonas th:first-child,
+.tabla-infproyectos th:first-child{
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding: 5px;
+}
+
+.tabla-infconvocatorias thead, 
+.tabla-infgrupos thead,
+.tabla-inflineas thead,
+.tabla-infpersonas thead,
+.tabla-infproyectos thead{
+    cursor: pointer;
+}
+
+.tabla-infconvocatorias #fil-principal,
+.tabla-infgrupos #fil-principal,
+.tabla-inflineas #fil-principal,
+.tabla-infpersonas #fil-principal,
+.tabla-infproyectos #fil-principal{
+    width: 150px;
+    padding:0.5em;
+    border: 5px solid white;
+    border-width:0 1px 1px 0;
+    margin-left: 15px;
+    padding-left: 13px;
+}
+.tabla-infconvocatorias #col-principal,
+.tabla-infgrupos #col-principal,
+.tabla-inflineas #col-principal,
+.tabla-infpersonas #col-principal,
+.tabla-infproyectos #col-principal{
+    width: 600px;
+    padding:3px;
+    border-right: none;
+    border-width:0 2px 2px 0;
+}
+
+thead th {
+    padding-bottom: 10px;
+    vertical-align: middle;
+}
+          
+thead th[colspan],thead th[rowspan]{             /*************color de la cabecera de la tabla **/ 
+  
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 10px;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+
+}
+
+tbody th {                                      /**********color de la colunma de los datos principales*  #EEFCF9*/            
+    text-align:left;
+    background:#eee;
+    font-size: 13px;
+    text-transform: bold;
+    margin: 30px;
+    color: #122d3e;
+    vertical-align: inherit;
+}
+        
+tbody td{
+    text-align:left;
+    background:none;
+    vertical-align: inherit;
+    font-size: 13px;
+    color: #333;
+    margin: 20px;
+}
+        
+tbody tr.odd td { 
+    background:none;
+    vertical-align: inherit;
+    color: #333;
+}
+
+/******************TABLA DE PROYECTOS DE LAS CUANTIAS propiedades menus desplegables*****************************************/
+
+
+.titulo-conv1 h2, .titulo-listas h4, 
+.titulo-tabla-productividad h4,
+.titulo-tabla-proyecto h4,
+.titulo-tabla-producto h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  text-align: left;
+  display: block;
+  font-size:18px;
+  width: 210px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px; 
+  background: #286388;
+  background: -webkit-linear-gradient(top,#286388,#122d3e);
+  background: -moz-linear-gradient(top,#286388,#122d3e);
+  background: -o-linear-gradient(top,#286388,#122d3e);  
+  background: linear-gradient(to bottom,#286388,#122d3e);  
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););
+  color:white;
+  padding: 2px;
+}
+
+.titulo-listas h4 a, 
+.titulo-tabla-productividad h4 a,
+.titulo-tabla-proyecto h4 a,
+.titulo-tabla-producto h4 a{
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  color:white !important;
+  font-size: 15px;
+  text-decoration: none;
+  padding:5px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+h4:hover{
+  background: gray;
+}
+
+.tabla-conv thead td{
+  padding-bottom: 5px;
+  background:#122d3e;
+  text-align: center;
+  border:1px solid #fff;
+  border-width:0px 2px 2px 0px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-border-radius: 5px ;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.tabla-conv tbody th {
+  text-align:center;
+  background:#eee;
+  margin: 20px;
+  border:5px solid #fff;
+  font-weight: bold;
+  border-width:0px 2px 2px 0px;
+  color: #122d3e;
+  width: 960px;
+  -webkit-border-radius: 5px ;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  vertical-align: inherit;
+  padding: 3px;
+}
+
+.tabla-conv tbody td {
+  text-align:left;
+  background:none;
+  margin: 20px;
+  border:5px solid #fff;
+  border-width:0px 2px 2px 0px;
+  color: #333;
+  width: 960px;
+  -webkit-border-radius: 5px ;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  vertical-align: inherit;
+  padding: 3px;
+}
+/*------------botones pagina grupos---------------------------------------*/
+ul.galeria-grupos li{
+    display: block;
+    text-indent: 10px;
+    border: 2px solid #CED6D0;
+    width: 400px;
+}
+
+ul.galeria-grupos li:hover{
+   background-color: #ECEBEB;
+}
+
+ul.galeria-grupos li a{
+    font-size: 14px;
+    line-height: 1.5em;
+    color: #122d3e;
+    margin-bottom: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    padding: 5px;
+    text-decoration: none;
+}
+
+ul.galeria-grupos li a.editar{
+    float: right;
+    padding: 1px;
+    margin-bottom: 0px;
+    font-size: 10px;
+}
+
+ul.galeria-grupos li a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*******************CSS BOTONES DESPLEGABLES LINEAS**********************************************************/
+table#tabla_producto, table#tabla_proyecto{
+  color: #333;
+  font-family: sans-serif;
+  font-size: .9em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 40px;
+  border-spacing: 0;
+  border: 1px solid #CED6D0;
+  width: 980px;
+  margin: 20px auto;
+}
+table#tabla_producto th, table#tabla_proyecto th{
+  font-weight: bold;
+  font-size: 15px;
+  width: 200px;
+}
+table#tabla_producto th:first-child, td:first-child, table#tabla_proyecto th:first-child, td:first-child{
+  padding: 0 15px 0 20px;
+}
+table#tabla_producto th:first-child,table#tabla_proyecto th:first-child{
+  border-right: 1px solid #ddd;
+}
+table#tabla_producto thead tr:last-child th, table#tabla_proyecto thead tr:last-child th{
+  border-bottom: 2px solid #ddd; 
+  background: #F8F9FE;
+}
+table#tabla_producto tbody tr:hover, table#tabla_proyecto tbody tr:hover{
+  background-color: #ECEBEB;
+}
+table#tabla_producto tbody tr:last-child td, table#tabla_proyecto tbody tr:last-child td{
+  border right: 1px solid #ddd;
+}
+table#tabla_producto tbody td, table#tabla_proyecto tbody td{
+  border-bottom: 1px solid #ddd;
+  width: 50px;
+
+}
+table#tabla_producto tbody tr, table#tabla_proyecto tbody tr{
+  background-color:#F8F9FE;
+}
+table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
+  text-align: left;
+  border-right: 1px solid #ddd;
+  padding-right: 10px;
+  width: 400px;
+  word-wrap: normal;
+}
+
+
+/*<!MODAL... sublineas lineas--->*/
+
+/*<!Forma de encabezado-->*/
+.infpersonas .talkbubble {
+   width: 700px;
+   height: 100px;
+   margin-left:35px; 
+   background: #eee;
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
+
+}
+
+.infpersonas .talkbubble:before{
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 40px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid #eee;
+   border-bottom: 13px solid transparent;
+}
+.talkbubble h1{
+    vertical-align:inherit;
+    line-height: 1.5em;
+    padding: 20px;
+}

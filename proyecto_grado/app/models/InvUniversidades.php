@@ -1,6 +1,6 @@
 <?php
 
-class InvProductos extends Eloquent  {
+class InvUniversidades extends Eloquent  {
 
 
 	/**
