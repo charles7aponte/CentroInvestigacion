@@ -229,12 +229,13 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">   
-                        <button id="crear-convocatoria" type="submit">
-                       
+                        
                          @if(isset($convocatoria['numero_convocatoria']))
+                            <button id="crear-convocatoria" type="submit" style=" height:36px; padding-top:1px;">
                             <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar convocatoria
                             @else 
+                            <button id="crear-convocatoria" type="submit">
                             <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear convocatoria
                             @endif
