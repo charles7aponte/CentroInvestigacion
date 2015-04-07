@@ -1,6 +1,6 @@
 <?php
 
-class ControlInfoListasConvocatorias extends Controller {
+class ControlInfoListasConvocatoriasInvitado extends Controller {
 
 
 	//lista de proyectos por lineas
@@ -15,6 +15,7 @@ class ControlInfoListasConvocatorias extends Controller {
 		{
 		$paginacion=$convocatorias_proyectos->links();
 		}
+
 		
 		$datos=array(
 			'lista_proyectos_convocatorias' =>$convocatorias_proyectos,
@@ -22,7 +23,7 @@ class ControlInfoListasConvocatorias extends Controller {
 			'links'=>$paginacion
 			);
 
-		return View::make('administrador/inf_lista_proyectos_convocatorias',$datos);
+		return View::make('invitado/inf_lista_proyectos_convocatorias_invitado',$datos);
 	}
 
 }

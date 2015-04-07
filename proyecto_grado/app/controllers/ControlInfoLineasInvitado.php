@@ -56,7 +56,7 @@ class ControlInfoLineasInvitado extends Controller {
 
 	//sublineas por linea
 	public function Sublineasporlinea($id_linea){	
-		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea , estado  , descripcion_sublinea
+		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea, estado, descripcion_sublinea
 				from inv_sublineas 
 				where inv_id_linea=$id_linea and estado1='1';")
 			);

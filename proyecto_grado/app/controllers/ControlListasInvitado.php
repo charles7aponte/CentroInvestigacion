@@ -85,45 +85,64 @@ class ControlListasInvitado extends Controller {
 		return View::make('invitado/lista_grupos_invitado',$datos);
 	}
 	
-	//controlador  eventos
-	public function ConstruirListaEventosNoticias(){
-		$listas_noticias=InvEventosNoticias::where("tipo","=","Noticia")->paginate(20); //traer registros
-		$paginacion=InvEventosNoticias::paginate(20);
-		$crear_paginacion=$paginacion->links();
-		$numeropaginacion=Input::get('page',1);
 
-		echo $listas_noticias;
+	//$tipo puede ser "noticia", "evento"
+		public function ConstruirListaNoticiasEventos($tipo,$fecha=null)
+		{
+			$evento_noticia=InvEventosNoticias::where("tipo","ILIKE",$tipo)
+												->where("fecha","=",$fecha)
+												->paginate(20);
+			$crear_paginacion=$evento_noticia->links();
+			$numeropaginacion=Input::get('page',1);
 
-		if(count($listas_noticias)>0){
+			{
+				if($tipo=="noticia")
+				{
 
-			$datos= array(
-			'campo_lista'=>$listas_noticias,
-			'links'=>$crear_paginacion,
-			'numeropagina'=>$numeropaginacion);
-		
-		return View::make('invitado/lista_noticias_invitado',$datos);	
+					$datos= array(
+					'campo_lista'=>$evento_noticia,
+					'links'=>$crear_paginacion,
+					'numeropagina'=>$numeropaginacion,
+					'tipo'=>$tipo);
+
+					return View::make('invitado/lista_noticias_eventos_invitado',$datos);	
+				}
+
+				if($tipo=="evento")
+				{
+
+					$datos= array(
+					'campo_lista'=>$evento_noticia,
+					'links'=>$crear_paginacion,
+					'numeropagina'=>$numeropaginacion,
+					'tipo'=>$tipo);
+
+					
+					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
+				}
+			}	
 		}
 
-	}
-
-
-
-		//$tipo puede ser "noticia", "evento"
-		public function cargarListaNoticiasEventos($tipo)
+		public function ConstruirListaEventos($tipo)
 		{
+			$evento_noticia=InvEventosNoticias::where("tipo","ILIKE",$tipo)
+												->paginate(20);
+			$crear_paginacion=$evento_noticia->links();
+			$numeropaginacion=Input::get('page',1);
 
-			if($tipo=="noticia")
 			{
-				//hace sus respectivas consulta y proceso q le corresponda
-				return View::make('inf_personas_docentes');	//el trato de abri esta vista no existe 
-			}
+				if($tipo=="evento")
+				{
 
-			if($tipo=="evento")
-			{
-				//hace sus respectivas consulta y proceso q le corresponda
-				return View::make('inf_lista_integrantes_grupos');
-			}
+					$datos= array(
+					'campo_lista'=>$evento_noticia,
+					'links'=>$crear_paginacion,
+					'numeropagina'=>$numeropaginacion,
+					'tipo'=>$tipo);
 
-			return View::make('inf_personas_docentes');
+					
+					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
+				}
+			}	
 		}
 }

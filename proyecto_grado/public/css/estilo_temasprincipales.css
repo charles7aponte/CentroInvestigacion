@@ -373,10 +373,6 @@ tbody tr.odd td {
   font-style: normal;
 }
 
-h4:hover{
-  background: gray;
-}
-
 .tabla-conv thead td{
   padding-bottom: 5px;
   background:#122d3e;

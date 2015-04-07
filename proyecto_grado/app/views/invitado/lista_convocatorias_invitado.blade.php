@@ -54,7 +54,7 @@
                       <b>{{$contador++}}</b>
                     </td> 
                     <td style="width:689px;">
-                      <a href="{{URL::to('convocatoria/id')}}/{{$campo['numero_convocatoria']}}">
+                      <a href="{{URL::to('convocatoriainv/id')}}/{{$campo['numero_convocatoria']}}">
                         {{$campo['titulo_convocatoria']}}
                       </a>
                     </td>
@@ -65,12 +65,7 @@
                       {{InvConvocatorias::formato_fecha($campo['fecha_apertura'])}}
                     </td>
                     <td style="text-transform:capitalize; width:100px;">
-
-
                       {{InvConvocatorias::formato_fecha($campo['fecha_cierre'])}}
-                      dia :{{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"dia")}}, 
-                      mes : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"mes")}}
-                      año : {{InvConvocatorias::formato_fecha($campo['fecha_cierre'],"a")}}
                     </td>
                   </tr>
                 @endif

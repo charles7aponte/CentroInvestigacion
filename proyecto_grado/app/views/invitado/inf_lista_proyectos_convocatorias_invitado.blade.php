@@ -1,6 +1,6 @@
-@extends('administrador.panel_admin')
+@extends('panel_cuerpo')
 
-@section('cuerpo')
+@section('contenido-principal')
 
   <form id="form-proyectolinea" class="gradient">
       @if(count($lista_proyectos_convocatorias)<=0)
@@ -42,8 +42,7 @@
                  {{$lista_proyecto_convocatoria->codigo_proyecto}}
                 </td> 
                 <td style="text-align:left; width:500px;">
-                  <a  href="{{URL::to('proyecto/id')}}/{{$lista_proyecto_convocatoria->codigo_proyecto}}">
-                    {{$lista_proyecto_convocatoria->nombre_proyecto}}</a>
+                    {{$lista_proyecto_convocatoria->nombre_proyecto}}
                 </td> 
                 <td style="width:120px; text-align:center;">
                   {{$lista_proyecto_convocatoria->estado_proyecto}}

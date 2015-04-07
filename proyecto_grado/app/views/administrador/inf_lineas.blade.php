@@ -5,132 +5,135 @@
 @stop
 
 @section("javascript-nuevos")
-<script src="{{URL::to('/js')}}/recursos/eliminar_datos.js" type="text/javascript"></script> 
-
 <script>
   var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+  function getColor(numero){
 
+    numero=numero%11;
 
-
-
-
-function getColor(numero){
-
-  numero=numero%3;
-
-  switch(numero){
-
-    case 0:
-        return "blue";
-      break;
-
-
-    case 1:
-        return "red";
-      break;
-
-
-    case 2:
-        return "green";
-      break;
-
-
+    switch(numero){
+      case 0:
+          return "#D0E20E";
+        break;
+      case 1:
+          return "#E25F0E";
+        break;
+      case 2:
+          return "#0EE2C6";
+        break;
+      case 3:
+          return "#660EE2";
+        break;
+      case 4:
+          return "#4DF400";
+        break;
+      case 5:
+          return "#0E3FE2";
+        break;
+      case 6:
+          return "#E20E0E";
+        break;
+      case 7:
+          return "#E20E6A";
+        break;
+      case 8:
+          return "#0B9A44";
+        break;   
+      case 9:
+          return "#F5C30C";
+        break; 
+      case 10:
+          return "#794222";
+        break;    
+      case 11:
+          return "#FF0051";
+        break;                                                
+    }
   }
-}
-
-
-  <?php 
-  $contador=1;
-
-  $contador_subtipos=0;
-  ?>
-
-
-
-
-window.onload = function(){
-          
-  @foreach ($Lista_portipo as  $key1 =>$fila1)
-
 
     <?php 
-        $contador_subtipos=1;
-      ?>
+    $contador=1;
 
-    var opciones{{$contador}}= {
-          responsive:true,
-          animation:false,
-          barValueSpacing:5,
-          barDatasetSpacing:1,
-          tooltipFillColor:"rgba(0,0,0,0.8)",
-          multiTooltipTemplate: "<%= datasetLabel %> - <%= value%>"
-      };
+    $contador_subtipos=0;
+    ?>
+  window.onload = function(){
+            
+    @foreach ($Lista_portipo as  $key1 =>$fila1)
 
 
-     var barChartData{{$contador}} =
-        {
+      <?php 
+          $contador_subtipos=1;
+        ?>
 
-            labels : ["{{$key1}}"],
-            datasets : [
-              @foreach($fila1 as $key2 =>$fila2)
-
-
-              {
-                label:"{{$key2}}",
-                fillColor : getColor({{$contador_subtipos}}),
-                strokeColor : "rgba(220,220,220,0.8)",
-                //highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data : [{{$fila2}}]
-              },
-
-              <?php 
-                  $contador_subtipos++;
-                ?>
-              @endforeach
-            ]
-
-          };
-         
-
-          var ctx{{$contador}} = document.getElementById("canvas{{$contador}}").getContext("2d");
-            window.myBar{{$contador}} = new Chart(ctx{{$contador}}).Bar(barChartData{{$contador}} , opciones{{$contador}});
-          
-          <?php 
-          $contador++;
-         ?> 
+      var opciones{{$contador}}= {
+            responsive:true,
+            animation:false,
+            barValueSpacing:5,
+            barDatasetSpacing:1,
+            tooltipFillColor:"rgba(0,0,0,0.8)",
+            multiTooltipTemplate: "<%= datasetLabel %> - <%= value%>"
+        };
 
 
-      @endforeach
+       var barChartData{{$contador}} =
+          {
 
-}
+              labels : ["{{$key1}}"],
+              datasets : [
+                @foreach($fila1 as $key2 =>$fila2)
 
 
-  </script>
+                {
+                  label:"{{$key2}}",
+                  fillColor : getColor({{$contador_subtipos}}),
+                  strokeColor : "rgba(220,220,220,0.8)",
+                  //highlightFill: "rgba(220,220,220,0.75)",
+                  highlightStroke: "rgba(220,220,220,1)",
+                  data : [{{$fila2}}]
+                },
+
+                <?php 
+                    $contador_subtipos++;
+                  ?>
+                @endforeach
+              ]
+
+            };
+           
+
+            var ctx{{$contador}} = document.getElementById("canvas{{$contador}}").getContext("2d");
+              window.myBar{{$contador}} = new Chart(ctx{{$contador}}).Bar(barChartData{{$contador}} , opciones{{$contador}});
+            
+            <?php 
+            $contador++;
+           ?> 
+
+
+        @endforeach
+  }
+</script>
 @stop
 
 @section('javascript-nuevos2')
 <script type="text/javascript" src="{{URL::to('/js')}}/js-inflineas.js"></script>
+<script src="{{URL::to('js')}}/recursos/eliminar_datos.js" type="text/javascript"></script>
 @stop
 
 @section('cuerpo')
-
 <style>
-.contenedor_grafica_lineas{
-  background: #eee;
-  display: inline-block;
-  width: 320px;
-  height: 320px;
-  margin-right: 55px;
-  margin-left: 21px;
-  margin-bottom: 20px;
-}
-.grafica_lineas{
-  width: 300px;
-  height: 300px;
- }
-
-
+  .contenedor_grafica_lineas{
+    background: #eee;
+    display: inline-block;
+    width: 350px;
+    height: 350px;
+    margin-right: 30px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+  }
+  .grafica_lineas{
+    width: 300px;
+    height: 300px;
+   }
 </style>
   
 
@@ -163,10 +166,8 @@ window.onload = function(){
   </div>
 </div>
 
-
 <div id="capa" class="inflineas">
-    <fieldset id="principal">
-       
+    <fieldset id="principal"> 
         @if(isset($lineas['id_lineas'])==false)
             <fieldset style="margin-bottom: 2px;
                     margin-top: 5px;
@@ -396,13 +397,10 @@ window.onload = function(){
       </div>
 
      @for($i=1; $i<$contador;$i++)
-
         <div id="grafica-producto{{$i}}" class="contenedor_grafica_lineas">
           <canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
         </div>
-   @endfor
- 
-
+    @endfor
 
       </div>
     </fieldset>

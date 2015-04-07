@@ -20,8 +20,7 @@
                     padding: 2px;">
                     <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para ese grupo</div>   
             </fieldset>
-        @endif
-    <fieldset id="principal">
+        @endif  <fieldset id="principal">
             <table id="titulo-infgrupos" id="cuadro" >
                 <tbody>
                 @if(isset($grupos) && $grupos!=null && isset($grupos['codigo_grupo']))
@@ -102,7 +101,7 @@
         
                     <tr>
                         <th id="fil-principal">Objetivos</th>
-                        <td id="col-principal" id="cuadro">
+                        <td id="col-principal" id="cuadro" style="text-align:justify;">
                             {{$grupos['objetivos']}}
                         </td>  
                     </tr>
@@ -178,7 +177,7 @@
             </h4>
             </div> 
                 <div class="list-group">
-                        <a href="{{URL::to('/')}}/listaproyectosgrupos/grupo/{{$grupos['codigo_grupo']}}" class="list-group-item">
+                        <a href="{{URL::to('/')}}/listaproyectosgruposinv/grupo/{{$grupos['codigo_grupo']}}" class="list-group-item">
                             <span class="badge" id="total">
                                     {{$Lista_proyectos}}
                             </span>
@@ -196,7 +195,7 @@
 
 
                         <ul class="list-group">
-                            <a href="{{URL::to('/')}}/listaintegrantesgrupos/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
+                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
                                 <li class="list-group-item">
                                 <span class="badge" id="total">
                                 {{$Lista_integrantes["Docente"]}}
@@ -205,7 +204,7 @@
                               </li>
                             </a>
 
-                            <a href="{{URL::to('/')}}/listaintegrantesgrupos/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
+                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
                               <li class="list-group-item">
                                 <span class="badge" id="total">
                                 {{$Lista_integrantes["Estudiante"]}}
@@ -214,7 +213,7 @@
                               </li>
                             </a>
                             
-                            <a href="{{URL::to('/')}}/listaintegrantesgrupos/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
+                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
                               <li class="list-group-item">
                                 <span class="badge" id="total"> 
                                 {{$Lista_integrantes["Joven Investigador"]}}
@@ -223,7 +222,7 @@
                               </li>
                             </a>
                             
-                            <a href="{{URL::to('/')}}/listaintegrantesgrupos/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
+                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
                               <li class="list-group-item">
                                 <span class="badge" id="total">
                                 {{$Lista_integrantes["Investigador Externo"]}}
@@ -242,7 +241,7 @@
                     <div id="lista_productos" class="lista_productos">
                         <ul class="list-group">
                         @foreach($Lista_productos as $lista_producto)   
-                            <a href="{{URL::to('/')}}/listaproductosgrupos/grupo/{{$grupos['codigo_grupo']}}/subtipoproducto/{{$lista_producto['id_subtipo_producto']}}">
+                            <a href="{{URL::to('/')}}/listaproductosgruposinv/grupo/{{$grupos['codigo_grupo']}}/subtipoproducto/{{$lista_producto['id_subtipo_producto']}}">
                               <li class="list-group-item">
                                 <span class="badge">
                                     {{$lista_producto['total']}}

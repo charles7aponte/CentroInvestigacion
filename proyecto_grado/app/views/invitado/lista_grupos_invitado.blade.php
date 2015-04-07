@@ -41,12 +41,12 @@
                     </td> 
 
                     <td>
-                      <a  href="{{URL::to('grupo/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
+                      <a  href="{{URL::to('grupoinv/id')}}/{{$campo['codigo_grupo']}}">{{$campo['nombre_grupo']}}</a>
                     </td>
 
                     <td>{{$campo['nombre_unidad_academica']}}</td>
 
-                    <td>{{$campo['nombre_coordinador_grupo']}}</td>
+                    <td><a href="">{{$campo['nombre_coordinador_grupo']}}</a></td>
                   </tr>
               @endforeach
             @endif

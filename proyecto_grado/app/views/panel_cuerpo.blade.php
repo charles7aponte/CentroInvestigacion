@@ -33,40 +33,50 @@
 	} 
 ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="es" style="background-color:#eee;">
+<html  lang="es" style="background-color:#eee;">
 	<head>
-	    <title>CENTRO DE INVESTIGACIONES--(FCBI) Universidad de los llanos</title>
-	    <meta charset="utf-8"/>
-	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	    <title>CENTRO DE INVESTIGACIONES(FCBI) Universidad de los llanos</title>
+
 	    <!-- css -->
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}"> <!--css del estilo de la pagina principal-->
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_slider.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_login.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
-	    
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_temasprincipalesinvitado.css')}}">
-
-
+		<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
+
 	    <!--<link rel="stylesheet" href="{{URL::to('css/')}}/datepicker.css">-->
 
-		@section('css')
-		
+		@section("css-nuevos")	
 		@show
 		
 	    <!-- scripts -->
 	    <script type="text/javascript" src="{{URL::to('js/jquery.js')}}"></script>
+
+	<!--	<script src="{{URL::to('js/jquery-1.5.2.min.js')}}" type="text/javascript"></script>
+-->
+		<script src="{{URL::to('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 	    <script type="text/javascript" src="{{URL::to('js/scripts.js')}}"></script>
+	 
 	    <script type="text/javascript" src="{{URL::to('js/texto-imagenes-slider.js')}}"></script>
-	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript')}}"></script>
-	    <!--<script type="text/javascript" src="{{URL::to('/js')}}/bootstrap-datepicker.js"></script>
-	    <script type="text/javascript" src="{{URL::to('/js')}}/locales/bootstrap-datepicker.es.js"></script>-->
+	    
+	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
+
+		@section("javascript-nuevos")
+		@show
+
 	</head>
 		<body style="background-color:#eee;">
-			<div class="contenedor">		
-				<!-- Cabecera -->
+			<div class="contenedor"   style="  box-shadow: 0 0 15px 5px #AFAFB0;
+									   -webkit-box-shadow:0 0 15px 5px #AFAFB0;
+									   -moz-box-shadow: 0 0 15px 5px #AFAFB0;">		
+			<!-- Cabecera -->
 				<header class="capa-cabeza">
 						<div id="superior-principal"></div>
 					<!-- logo -->
@@ -90,44 +100,14 @@
 						</div>
 				</header>
 
-
 				<!-- Menu de navegacion -->
 				<div class="row">
 					<section id="menu">
 						<ul class="nav nav-tabs">
 	  						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	    						<a class="dropdown-toggle enlaces_dobles" data-toggle="dropdown" href="{{URL::to('/')}}" role="button" aria-expanded="false" style="width:148px;">
 	      							Inicio 
 	    						</a>
-	 						</li>
-
-	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadegruposinv')}}" role="button" aria-expanded="false" style="width:148px;">
-	      							Grupos
-	    						</a>
-	 						</li>
-
-	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadelineasinv')}}" role="button" aria-expanded="false" style="width:148px;">
-	      							Líneas
-	    						</a>
-	 						</li>
-
-	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{URL::to('listadeconvocatoriasinv')}}" role="button" aria-expanded="false" style="width:148px;">
-	      							Convocatorias
-	    						</a>
-	 						</li>
-
-	 						<li role="presentation" class="dropdown">
-	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
-	      							Productos <span class="caret"></span>
-	    						</a>
-	    						<ul class="dropdown-menu" role="menu">
-	      							<li><a href="#">Unidad academica 1</a></li>
-	      							<li><a href="#">Menu 1</a></li>
-	      							<li><a href="#">Menu 1</a></li>
-	    						</ul>
 	 						</li>
 
 	 						<li role="presentation" class="dropdown">
@@ -139,28 +119,78 @@
 	      							<li><a href="#">Menu 1</a></li>
 	    						</ul>
 	 						</li>
+
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle enlaces_dobles" data-toggle="dropdown" href="{{URL::to('listadegruposinv')}}" role="button" aria-expanded="false" style="width:148px;">
+	      							Grupos
+	    						</a>
+	 						</li>
+
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle enlaces_dobles" data-toggle="dropdown" href="{{URL::to('listadelineasinv')}}" role="button" aria-expanded="false" style="width:148px;">
+	      							Líneas
+	    						</a>
+	 						</li>
+
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:148px;">
+	      							Productos <span class="caret"></span>
+	    						</a>
+	    						
+		    						<ul class="dropdown-menu" role="menu">
+		      								<li><a href="#"></a></li>
+		      							
+		      						</ul>	
+	 						</li>
+
+	 						<li role="presentation" class="dropdown">
+	    						<a class="dropdown-toggle enlaces_dobles" 
+	    						data-toggle="dropdown" 
+	    						href="{{URL::to('listadeconvocatoriasinv')}}"  
+	    						role="button" 
+	    						aria-expanded="false" 
+	    						style="width:148px;"
+	    						>
+	      							Convocatorias
+	    						</a>
+	 						</li>
 						</ul>
 					</section>
 				</div>
+				<div style="border-bottom:1px solid rgb(235, 235, 235); width:900px; margin-left:30px;"></div>
 
 				<section>
 					@section('contenido-principal')
 
 			    	@show
 				</section>	
-			    	
-				<div id="pie-pagina">
-					<div id="capa-pie">
-						<p>
-							<strong>Centro de Investigaciones, FCBI</strong>
-							<br>
-								Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000
-							<br>
-								Correo electronico contacto@xxxx.com
-						</p>
+			    <footer>
+					<div id="pie-pagina">
+						<div id="capa-pie">
+							<p>Centro de Investigaciones, FCBI
+							Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000  
+							Correo electronico contacto@xxxx.com</p>
+						</div>
 					</div>
-				</div>
+				</footer>
 			</div>
+
+
+			<script>
+
+			//esta funcion carga la direcion url que le demos
+			function cambiarURL(url){
+					location.href = url;
+				}
+			//busca todos los elementos q tenga la clase enlaces_dobles 
+			$(".enlaces_dobles").click(function(){
+				cambiarURL($(this).attr("href"));
+			})
+		    </script>
 		</body>
+
+	@section("javascript-nuevos2")
+
+	@show	
 </html>	
 		

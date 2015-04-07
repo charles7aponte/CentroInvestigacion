@@ -1,5 +1,3 @@
-
-
   var ID=null;
   var URL;
   var fila_info;
@@ -13,8 +11,6 @@ function eliminartipo(id){
 return false;
 
 }
-
-
 
 
 //eliminacion de los registros sub-tablas

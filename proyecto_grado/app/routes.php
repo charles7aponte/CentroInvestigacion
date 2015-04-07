@@ -4,14 +4,17 @@
 Paginas generales--------------------
 ***************/
 
-Route::get('/', function() { return View::make('panel_cuerpo'); });
 
 
 Route::get('login', function() { return View::make('login'); });
 
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
 
-Route::get('contenido', function() { return View::make('contenido'); });
+//PAGINA PRINCIPAL
+Route::get('/', 'ControlPaginaInicio@CrearPagina');
+//Route::get('/', 'ControlPaginaInicio@CrearPaginaMenu');
+
+//Route::get('/', function() { return View::make('contenido'); });
 
 
 
@@ -306,25 +309,30 @@ Route::group(['before' => 'auth'], function()
 -----------------------------------------PAGINAS DEL INVITADO----------------------------------
 *********************************************************************************************************************************/
 
+
 //1-lineas
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
 Route::get('lineainv/id/{id_linea}','ControlInfoLineasInvitado@CargarInfoPrincipales');
 
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
-Route::get('listadeconvocatoriasinv/find/{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
+Route::get('listadeconvocatoriasinv/find/{titulo?}','ControlListasInvitado@ConstruirListaConvocatorias');
+Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
 Route::get('convocatoriainv/id/{id_conv}','ControlInfoConvocatoriasInvitado@CargarInfoPrincipales');
+Route::get('listaproyectosinv/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatoriasInvitado@ConstruirListaProyectosConvocatorias');
 
 //3-Grupos
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
 Route::get('grupoinv/id/{id_grupo}','ControlInfoGruposInvitado@CargarInfoPrincipales');
+Route::get('listaproyectosgruposinv/grupo/{idgrupo}','ControlInfoListasGruposInvitado@ConstruirListaProyectosGrupos');
+Route::get('listaintegrantesgruposinv/grupo/{idgrupo}/perfil/{idperfil}','ControlInfoListasGruposInvitado@ConstruirListaIntegrantesGrupos');
+Route::get('listaproductosgruposinv/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','ControlInfoListasGruposInvitado@ContruirListaProductosGrupos');
 
 //3-Noticias y eventos
-Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
-//Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias')
+Route::get('listade/{tipo_lista}/{mi_fecha?}','ControlListasInvitado@ConstruirListaNoticiasEventos');
+Route::get('eventonoticia/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
+Route::get('listadeeventosinv/{tipo_lista}','ControlListasInvitado@ConstruirListaEventos');
 
-/// ESTE ES SOLO UN EJEMPLO lo puedes adpatar o cambiarlo totalmente
-Route::get("cargalista/{tipo_lista}",'ControlListasInvitado@cargarListaNoticiasEventos');
 
 
 

@@ -48,25 +48,18 @@ switch($mes){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-
-	<title>Panel</title>
+	<title>Administrador</title>
 	
-
-
 	<!--css-->
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_paneladmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_formadmin.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_listasadmin.css')}}">
-
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/invitado/estilo_listasinvitado.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_temasprincipales.css')}}">
-
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.theme.css')}}">
-
 
     <style>
     .ui-autocomplete-loading {
@@ -74,7 +67,6 @@ switch($mes){
 	    background-color:#4B5F9B;
 	  }
     </style>
-
 
 	@section("css-nuevos")
 	@show
@@ -90,13 +82,9 @@ switch($mes){
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/Chart.js')}}" type="text/javascript"type=""></script>
 
-
 	@section("javascript-nuevos")
 	@show
-
-	
 </head>
-
 
 <body>
 	<div class="contenedor">

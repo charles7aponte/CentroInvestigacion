@@ -46,7 +46,7 @@
                         </b>
                       </td> 
                       <td>
-                        <a href="{{URL::to('linea/id')}}/{{$campo['id_lineas']}}">{{$campo['nombre_linea']}}</a>
+                        <a href="{{URL::to('lineainv/id')}}/{{$campo['id_lineas']}}">{{$campo['nombre_linea']}}</a>
                       </td>
                       <td>{{$campo['nombre_unidad_academica']}}</td>
                     </tr>

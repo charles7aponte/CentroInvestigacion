@@ -182,7 +182,7 @@
       <div id="producto">
           <div class="list-group">
                 <!-- aprobados -->
-                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Aprobado"]}}">
+                <a href="{{URL::to('/')}}/listaproyectosinv/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Aprobado"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                     {{$Lista_estadoproyectos["Aprobado"]}}
@@ -192,7 +192,7 @@
                 </a>  
                 
                 <!-- rechazados -->
-                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["evaluacion"]}}">
+                <a href="{{URL::to('/')}}/listaproyectosinv/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["evaluacion"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                     {{$Lista_estadoproyectos["evaluacion"]}}
@@ -202,7 +202,7 @@
                 </a>  
                 
                 <!-- Rechazados -->
-                <a href="{{URL::to('/')}}/listaproyectos/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Rechazado"]}}">
+                <a href="{{URL::to('/')}}/listaproyectosinv/convocatoria/{{$convocatorias['numero_convocatoria']}}/estado/{{$Lista_estados["Rechazado"]}}">
                   <li class="list-group-item">
                     <span class="badge">
                         {{$Lista_estadoproyectos["Rechazado"]}}

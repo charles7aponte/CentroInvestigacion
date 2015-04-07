@@ -1,5 +1,9 @@
 /*Botones de paginacion*/
-#form-grupos1 ul.pagination li.active > span{
+#form-grupos1 ul.pagination li.active > span,
+#form-proyectolinea ul.pagination li.active>span,
+#form-integrantegrupos ul.pagination li.active>span,
+#form-proyectosgrupos ul.pagination li.active>span,
+#form-proyectogrupos ul.pagination li.active>span{
     border-color:#122d3e;
     background:#122d3e;
 }
@@ -23,7 +27,11 @@ border-collapse: collapse;
 #tabla-listalineas1,
 #tabla-listaconvocatorias1,
 #tabla-listagrupos1,
-#tabla-noticias
+#tabla-noticias,
+#tabla-listaproyectogrupos,
+#tabla-listaintegrantegrupos,
+#tabla-listaproductosgrupos,
+#tabla-listaproyectogrupos
 {
   max-width: 960px;
 }
@@ -31,7 +39,11 @@ border-collapse: collapse;
 #titulo-listalineas1 h2,
 #titulo-listaconvocatoria1 h2,
 #titulo-listagrupo1 h2,
-#titulo-noticias1 h2
+#titulo-noticias1 h2,
+#titulo-listaproductolinea h2,
+#titulo-listaintegrantegrupo h2,
+#titulo-listaproductosgrupo h2,
+#titulo-listaproyectogrupo h2
 {
   text-align:right;
   padding-right: 30px; 
@@ -51,8 +63,10 @@ border-collapse: collapse;
 table#listalineas1,
 table#listaconvocatorias1,
 table#listagrupos1,
-table#listanoticias
+table#listanoticias,
+table#listagrupos
 {
+  border-collapse: inherit;
   color: #333;
   font-family: sans-serif;
   font-size: .9em;
@@ -67,7 +81,8 @@ table#listanoticias
 table#listalineas1 th,
 table#listaconvocatorias1 th,
 table#listagrupos1 th,
-table#listanoticias th
+table#listanoticias th,
+table#listagrupos th
 {
   font-weight: bold;
   font-size: 15px;
@@ -76,7 +91,8 @@ table#listanoticias th
 table#listalineas1 th:first-child, td:first-child,
 table#listaconvocatorias1 th:first-child, td:first-child,
 table#listagrupos1 th:first-child, td:first-child,
-table#listanoticias th:first-child, td:first-child
+table#listanoticias th:first-child, td:first-child,
+table#listagrupos th:first-child, td:first-child
 {
   padding: 0 15px 0 20px;
 
@@ -84,13 +100,15 @@ table#listanoticias th:first-child, td:first-child
  
 table#listalineas1 thead tr:last-child th,
 table#listagrupos1 thead tr:last-child th,
-table#listanoticias thead tr:last-child th
+table#listanoticias thead tr:last-child th,
+table#listagrupos thead tr:last-child th
 {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
 }
 
-table#listaconvocatorias1 thead tr:last-child th 
+table#listaconvocatorias1 thead tr:last-child th,
+table#listagrupos thead tr:last-child th
 {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;  
@@ -99,7 +117,8 @@ table#listaconvocatorias1 thead tr:last-child th
 table#listalineas1 tr:hover,
 table#listaconvocatorias1 tr:hover,
 table#listagrupos1 tr:hover,
-table#listanoticias tr:hover
+table#listanoticias tr:hover,
+table#listagrupos tr:hover
 
 {
   background-color: #ECEBEB;
@@ -108,7 +127,8 @@ table#listanoticias tr:hover
 table#listalineas1 tr:last-child td,
 table#listaconvocatorias1 tr:last-child td,
 table#listagrupos1 tr:last-child td,
-table#listanoticias tr:last-child td
+table#listanoticias tr:last-child td,
+table#listagrupos tr:last-child td
 {
   border: none;
 }
@@ -116,7 +136,8 @@ table#listanoticias tr:last-child td
 table#listalineas1 td,
 table#listaconvocatorias1 td,
 table#listagrupos1 td,
-table#listanoticias td
+table#listanoticias td,
+table#listagrupos td
 {
   border-bottom: 1px solid #ddd;
 }
@@ -124,7 +145,8 @@ table#listanoticias td
 table#listalineas1 tr,
 table#listaconvocatorias1 tr,
 table#listagrupos1 tr,
-table#listanoticias tr
+table#listanoticias tr,
+table#listagrupos tr
 {
   background-color:#F8F9FE;
 }
@@ -132,7 +154,8 @@ table#listanoticias tr
 table#listalineas1 td:last-child,
 table#listaconvocatorias1 td:last-child,
 table#listagrupos1 td:last-child,
-table#listanoticias td:last-child
+table#listanoticias td:last-child,
+table#listagrupos td:last-child
 {
   text-align: left;
   padding-right: 10px;
