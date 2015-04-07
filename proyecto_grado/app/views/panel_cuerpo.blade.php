@@ -118,7 +118,7 @@
 									@foreach($lista_documentos as $lista_documento)
 								        @if($lista_documento['enlace_documento']!="")
 			                               	<li>
-			                               	<a style="white-space:pre-line;" href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$lista_documento['enlace_documento']}}" target="_blank">{{$lista_documento['titulo_evento']}}</a>
+			                               	<a style="white-space:pre-line; text-decoration:underline;" href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$lista_documento['enlace_documento']}}" target="_blank">{{$lista_documento['titulo_evento']}}</a>
 			                               	</li>
 			                            @endif	
 									@endforeach
