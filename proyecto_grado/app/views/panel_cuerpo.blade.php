@@ -138,7 +138,7 @@
 	    						</a>
 	    						
 		    						<ul class="dropdown-menu" role="menu">
-		    							@foreach($lista_unidades as $lista_unidad )
+		    							@foreach($lista_unidades as $lista_unidad)
 		      							<li><a href="#">{{$lista_unidad['nombre_unidad']}}</a></li>	
 		      							@endforeach	
 		      						</ul>	

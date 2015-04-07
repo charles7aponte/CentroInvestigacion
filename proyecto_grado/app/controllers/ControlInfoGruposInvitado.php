@@ -19,7 +19,7 @@ class ControlInfoGruposInvitado extends Controller {
 		$unidades=array();
 		 if($grupos)
 		 {
-		 	
+
 			$persona = Persona::where("cedula","=",$grupos->director_grupo)->get();
 			$persona=$persona[0];
 
@@ -32,6 +32,7 @@ class ControlInfoGruposInvitado extends Controller {
 			$grupos->tipo_grupo_band=0;
 
 			$unidades=InvUnidadesAcademicas::where("id_unidad","=",$grupos->inv_unidad_academica)->get();
+			$unidades_academicas=InvUnidadesAcademicas::all();
 
 			if($tipo->estado==1){
 				$grupos->tipo_grupo_=$tipo->tipo_grupo;	
@@ -73,7 +74,8 @@ class ControlInfoGruposInvitado extends Controller {
 					   'Lista_perfiles'=> $this->idperfiles,
 					   'Lista_productos' =>$productos,
 					   'Lista_proyectos' =>$proyectos_grupos,
-					   'Lista_unidades' =>$unidades
+					   'Lista_unidades' =>$unidades,
+					   'lista_unidades'=>$unidades_academicas
 			);
 
 

@@ -203,6 +203,20 @@ Cuerpo
      box-shadow: #aaa 1px 1px 6px;
  
 }
+.noticias-principal span{
+    font-weight:bold;
+    font-size:13px;
+    font-family:sans-serif, Arial, Verdana, Helvetica;
+    padding:3px;
+    margin-top: 15px;
+    -webkit-border-radius: .5em ; 
+    -moz-border-radius: .5em ;
+    border-radius: .5em ;
+    -webkit-box-shadow: #0B0B3B 1px 1px 6px;
+     -moz-box-shadow: #0B0B3B 1px 1px 6px;
+     box-shadow: #0B0B3B 1px 1px 6px;
+
+}
 
 /* ===================================
 Parte despues del slider

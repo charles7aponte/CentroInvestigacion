@@ -13,6 +13,7 @@ class ControlListasInvitado extends Controller {
 		$paginacion=InvLineas::orderBy('inv_unidad_academica')->paginate(20);
 		$crear_paginacion=$paginacion->links();
 		$numeropaginacion=Input::get('page',1);
+		$unidades_academicas=InvUnidadesAcademicas::all();
 
 			foreach ($paginacion as $key => $lista) {
 			$nombre_linea=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
@@ -24,7 +25,8 @@ class ControlListasInvitado extends Controller {
 		$datos= array(
 			'campo_lista'=>$paginacion,
 			'links'=>$crear_paginacion,
-			'numeropagina' =>$numeropaginacion);
+			'numeropagina' =>$numeropaginacion,
+			'lista_unidades'=>$unidades_academicas);
 		
 
 		return View::make('invitado/lista_lineas_invitado',$datos);
@@ -35,22 +37,25 @@ class ControlListasInvitado extends Controller {
 	public function ConstruirListaConvocatorias($titulo=null){
 		$paginacion=array();
 		$numeropaginacion=Input::get('page',1);
+		$unidades_academicas=InvUnidadesAcademicas::all();
 
 		if($titulo)
 		{
-		$paginacion=InvConvocatorias::where("titulo_convocatoria","LIKE",'%'.$titulo.'%')->paginate(20); //traer registros	
+			$paginacion=InvConvocatorias::where("titulo_convocatoria","LIKE",'%'.$titulo.'%')->paginate(20); //traer registros	
 		}
-	else{
-		$paginacion=InvConvocatorias::paginate(20); //traer registros
-		
-	}
+		else{
+			$paginacion=InvConvocatorias::paginate(20); //traer registros
+		}
 		
 		$crear_paginacion=$paginacion->links();
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion,
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
 			'titulo'=>$titulo,
-			'numeropagina' =>$numeropaginacion);
+			'numeropagina' =>$numeropaginacion,
+			'lista_unidades'=>$unidades_academicas);
+
 		 return View::make('invitado/lista_convocatorias_invitado',$datos);
 	}
 
@@ -61,6 +66,7 @@ class ControlListasInvitado extends Controller {
 	
 		$paginacion=InvGrupos::where("estado_activacion","=","1")->orderBy('inv_unidad_academica')->paginate(20);//traer registros
 		$numeropaginacion=Input::get('page',1);
+		$unidades_academicas=InvUnidadesAcademicas::all();
 		//echo $numeropaginacion;
 		foreach ($paginacion as $key => $lista) {
 			$nombre_grupo=InvUnidadesAcademicas::find($lista->inv_unidad_academica);
@@ -80,7 +86,8 @@ class ControlListasInvitado extends Controller {
 		$datos= array(
 			'campo_lista'=>$paginacion,
 			'links'=>$crear_paginacion,
-			'numeropagina' =>$numeropaginacion);
+			'numeropagina' =>$numeropaginacion,
+			'lista_unidades'=>$unidades_academicas);
 		
 		return View::make('invitado/lista_grupos_invitado',$datos);
 	}
@@ -94,8 +101,8 @@ class ControlListasInvitado extends Controller {
 												->paginate(20);
 			$crear_paginacion=$evento_noticia->links();
 			$numeropaginacion=Input::get('page',1);
+			$unidades_academicas=InvUnidadesAcademicas::all();
 
-			{
 				if($tipo=="noticia")
 				{
 
@@ -103,6 +110,7 @@ class ControlListasInvitado extends Controller {
 					'campo_lista'=>$evento_noticia,
 					'links'=>$crear_paginacion,
 					'numeropagina'=>$numeropaginacion,
+					'lista_unidades'=>$unidades_academicas,
 					'tipo'=>$tipo);
 
 					return View::make('invitado/lista_noticias_eventos_invitado',$datos);	
@@ -115,13 +123,14 @@ class ControlListasInvitado extends Controller {
 					'campo_lista'=>$evento_noticia,
 					'links'=>$crear_paginacion,
 					'numeropagina'=>$numeropaginacion,
+					'lista_unidades'=>$unidades_academicas,
 					'tipo'=>$tipo);
 
 					
 					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
 				}
-			}	
-
+		}	
+/*
 	public function ConstruirListaEventosNoticias(){
 
 		$listas=InvEventosNoticias::where("tipo","=","noticia")->get();
@@ -144,8 +153,8 @@ class ControlListasInvitado extends Controller {
 			'numeropagina'=>$numeropaginacion);
 		
 		return View::make('invitado/lista_eventos_invitado',$datos);
->>>>>>> origin/master
 		}
+	}	*/
 
 		public function ConstruirListaEventos($tipo)
 		{
@@ -153,8 +162,9 @@ class ControlListasInvitado extends Controller {
 												->paginate(20);
 			$crear_paginacion=$evento_noticia->links();
 			$numeropaginacion=Input::get('page',1);
+			$unidades_academicas=InvUnidadesAcademicas::all();
 
-			{
+
 				if($tipo=="evento")
 				{
 
@@ -162,11 +172,12 @@ class ControlListasInvitado extends Controller {
 					'campo_lista'=>$evento_noticia,
 					'links'=>$crear_paginacion,
 					'numeropagina'=>$numeropaginacion,
+					'lista_unidades'=>$unidades_academicas,
 					'tipo'=>$tipo);
 
 					
 					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
 				}
-			}	
+				
 		}
 }

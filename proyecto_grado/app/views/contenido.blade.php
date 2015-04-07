@@ -63,19 +63,21 @@
 				<aside class="noticias">
 					<div id="enunciado"><p>Noticias</p></div> 
 					<div id="cargar-noticias">
-					   <h4>Lorem ipsum
-					   <span>27.09.2011</span></h4>
-					   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. 	
-					   <span class="readmore"><a href="#">Read more..</a></span></p>
+						@foreach($lista_noticias as $lista_noticia)
+						<div class="noticias-principal">
+						   <h4>{{$lista_noticia['titulo_evento']}}</h4>
+						   		<span>{{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"mes")}}
+							   		  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"dia")}} de
+	                      			  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"a")}}
+	                      		</span>
+	                    </div>  		
+						   <p align="justify">{{substr($lista_noticia['descripcion'],0,200)}} 	
+						   <span class="readmore"><a href="#">Leer mas..</a></span></p>
+					   @endforeach
 
-	   				   <h4>Lorem ipsum
-					   <span>27.09.2011</span></h4>
-					   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec molestie. Sed aliquam sem ut arcu. 	
-					   <span class="readmore"><a href="#">Read more..</a></span></p>
 					</div>
 				</aside>
 			</section>
-				
 				<?php
 					$cont=1;
 				?>
@@ -85,12 +87,12 @@
 				   @foreach($lista_convocatorias as $lista_convocatoria)
 					   <article class="holder_news">
 						   <div class="convocatoria">{{$lista_convocatoria['numero_convocatoria']}} 
-							   	<span>{{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"mes")}}
+							   	<br><span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"mes")}}
 							   		  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"dia")}} de
 	                      			  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"a")}}
 	                      		</span>
                       		</div>
-						   <p align="justify">Convocatoria para la formación de capital humano de alto nivel para el Departamento de Atlántico 2014-Jóvenes Investigadores e Innovadores(Modalidad fortalecimiento a Grupos de Menor Trayectoria)<span class="readmore">
+						   <p align="justify">{{$lista_convocatoria['titulo_convocatoria']}}<span class="readmore">
 						   <a href="#">Leer mas..</a></span></p>  
 					   </article>
 					@endforeach   
