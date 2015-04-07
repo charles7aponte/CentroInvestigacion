@@ -60,7 +60,7 @@
 						</a>
 				</aside>
 
-				<aside class="noticias">
+				<aside class="noticias" >
 					<div id="enunciado"><p>Noticias</p></div> 
 					<div id="cargar-noticias">
 						@foreach($lista_noticias as $lista_noticia)
@@ -74,16 +74,17 @@
 						   <p align="justify">{{substr($lista_noticia['descripcion'],0,200)}} 	
 						   <span class="readmore"><a href="#">Leer mas..</a></span></p>
 					   @endforeach
-
+			   			<div class="ver-todo-otros">
+						  ver todas las noticias <span class="glyphicon glyphicon-plus-sign"></span>
+						</div>
 					</div>
 				</aside>
 			</section>
 				<?php
 					$cont=1;
 				?>
-
-			   <aside class="group2">
-			   <div id="enunciado"><p>Convocatorias</p></div> 
+		   <aside class="group2">
+		   <div id="enunciado"><p>Convocatorias</p></div> 
 				   @foreach($lista_convocatorias as $lista_convocatoria)
 					   <article class="holder_news">
 						   <div class="convocatoria">{{$lista_convocatoria['numero_convocatoria']}} 
@@ -91,13 +92,15 @@
 							   		  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"dia")}} de
 	                      			  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"a")}}
 	                      		</span>
-                      		</div>
+	                  		</div>
 						   <p align="justify">{{$lista_convocatoria['titulo_convocatoria']}}<span class="readmore">
 						   <a href="#">Leer mas..</a></span></p>  
 					   </article>
-					@endforeach   
-    
-			</aside>
+					@endforeach 	  
+					<div class="ver-todo-otros">
+				  		ver todas las convocatorias <span class="glyphicon glyphicon-plus-sign"></span>
+					</div>
+		   </aside>
 		</div>		
    	</div>		
    	<!--end holder-->	

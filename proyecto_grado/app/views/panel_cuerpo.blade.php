@@ -115,8 +115,13 @@
 	      							Documentaci&oacute;n <span class="caret"></span>
 	    						</a>
 	    						<ul class="dropdown-menu" role="menu">
-	      							<li><a href="#">Menu 1</a></li>
-	      							<li><a href="#">Menu 1</a></li>
+									@foreach($lista_documentos as $lista_documento)
+								        @if($lista_documento['enlace_documento']!="")
+			                               	<li>
+			                               	<a style="white-space:pre-line;" href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$lista_documento['enlace_documento']}}" target="_blank">{{$lista_documento['titulo_evento']}}</a>
+			                               	</li>
+			                            @endif	
+									@endforeach
 	    						</ul>
 	 						</li>
 
