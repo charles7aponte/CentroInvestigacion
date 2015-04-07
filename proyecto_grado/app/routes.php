@@ -323,10 +323,17 @@ Route::get('listaproyectosinv/convocatoria/{idconvocatoria}/estado/{idestado}','
 
 //3-Grupos
 Route::get('listadegruposinv','ControlListasInvitado@ConstruirListaGrupos');
+//3-Noticias
+Route::get('listadenoticiasinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+//4-Eventos
+Route::get('listadeeventosinv','ControlListasInvitado@ConstruirListaEventosNoticias');
+
+
 Route::get('grupoinv/id/{id_grupo}','ControlInfoGruposInvitado@CargarInfoPrincipales');
 Route::get('listaproyectosgruposinv/grupo/{idgrupo}','ControlInfoListasGruposInvitado@ConstruirListaProyectosGrupos');
 Route::get('listaintegrantesgruposinv/grupo/{idgrupo}/perfil/{idperfil}','ControlInfoListasGruposInvitado@ConstruirListaIntegrantesGrupos');
 Route::get('listaproductosgruposinv/grupo/{idgrupo}/subtipoproducto/{idsubtipo}','ControlInfoListasGruposInvitado@ContruirListaProductosGrupos');
+
 
 //3-Noticias y eventos
 Route::get('listade/{tipo_lista}/{mi_fecha?}','ControlListasInvitado@ConstruirListaNoticiasEventos');

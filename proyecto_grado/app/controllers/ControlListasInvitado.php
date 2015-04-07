@@ -84,7 +84,7 @@ class ControlListasInvitado extends Controller {
 		
 		return View::make('invitado/lista_grupos_invitado',$datos);
 	}
-	
+
 
 	//$tipo puede ser "noticia", "evento"
 		public function ConstruirListaNoticiasEventos($tipo,$fecha=null)
@@ -121,6 +121,30 @@ class ControlListasInvitado extends Controller {
 					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
 				}
 			}	
+
+	public function ConstruirListaEventosNoticias(){
+
+		$listas=InvEventosNoticias::where("tipo","=","noticia")->get();
+		$listas1=InvEventosNoticias::where("tipo","=","Evento")->get(); //traer registros
+		$numeropaginacion=Input::get('page',1);
+
+
+		if(count($listas)>0){
+
+		$datos= array(
+			'campo_lista'=>$listas,
+			'numeropagina'=>$numeropaginacion);
+		
+		return View::make('invitado/lista_noticias_invitado',$datos);
+		}
+
+		else {
+			$datos= array(
+			'campo_lista'=>$listas1,
+			'numeropagina'=>$numeropaginacion);
+		
+		return View::make('invitado/lista_eventos_invitado',$datos);
+>>>>>>> origin/master
 		}
 
 		public function ConstruirListaEventos($tipo)

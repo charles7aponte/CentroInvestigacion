@@ -28,10 +28,10 @@ border-collapse: collapse;
 #tabla-listaconvocatorias1,
 #tabla-listagrupos1,
 #tabla-noticias,
-#tabla-listaproyectogrupos,
 #tabla-listaintegrantegrupos,
 #tabla-listaproductosgrupos,
-#tabla-listaproyectogrupos
+#tabla-listaproyectogrupos,
+#tabla-eventos
 {
   max-width: 960px;
 }
@@ -43,7 +43,9 @@ border-collapse: collapse;
 #titulo-listaproductolinea h2,
 #titulo-listaintegrantegrupo h2,
 #titulo-listaproductosgrupo h2,
-#titulo-listaproyectogrupo h2
+#titulo-listaproyectogrupo h2,
+#titulo-noticias h2,
+#titulo-listaeventos h2
 {
   text-align:right;
   padding-right: 30px; 
@@ -64,7 +66,8 @@ table#listalineas1,
 table#listaconvocatorias1,
 table#listagrupos1,
 table#listanoticias,
-table#listagrupos
+table#listagrupos,
+table#listaeventos
 {
   border-collapse: inherit;
   color: #333;
@@ -82,7 +85,8 @@ table#listalineas1 th,
 table#listaconvocatorias1 th,
 table#listagrupos1 th,
 table#listanoticias th,
-table#listagrupos th
+table#listagrupos th,
+table#listaeventos th
 {
   font-weight: bold;
   font-size: 15px;
@@ -92,7 +96,8 @@ table#listalineas1 th:first-child, td:first-child,
 table#listaconvocatorias1 th:first-child, td:first-child,
 table#listagrupos1 th:first-child, td:first-child,
 table#listanoticias th:first-child, td:first-child,
-table#listagrupos th:first-child, td:first-child
+table#listagrupos th:first-child, td:first-child,
+table#listaeventos th:first-child, td:first-child
 {
   padding: 0 15px 0 20px;
 
@@ -101,7 +106,8 @@ table#listagrupos th:first-child, td:first-child
 table#listalineas1 thead tr:last-child th,
 table#listagrupos1 thead tr:last-child th,
 table#listanoticias thead tr:last-child th,
-table#listagrupos thead tr:last-child th
+table#listagrupos thead tr:last-child th,
+table#listaeventos thead tr:last-child th
 {
   border-bottom: 2px solid #ddd; 
   background: #F8F9FE;
@@ -118,8 +124,8 @@ table#listalineas1 tr:hover,
 table#listaconvocatorias1 tr:hover,
 table#listagrupos1 tr:hover,
 table#listanoticias tr:hover,
-table#listagrupos tr:hover
-
+table#listagrupos tr:hover,
+table#listaeventos tr:hover
 {
   background-color: #ECEBEB;
 }
@@ -128,7 +134,8 @@ table#listalineas1 tr:last-child td,
 table#listaconvocatorias1 tr:last-child td,
 table#listagrupos1 tr:last-child td,
 table#listanoticias tr:last-child td,
-table#listagrupos tr:last-child td
+table#listagrupos tr:last-child td,
+table#listaeventos tr:last-child td
 {
   border: none;
 }
@@ -137,7 +144,8 @@ table#listalineas1 td,
 table#listaconvocatorias1 td,
 table#listagrupos1 td,
 table#listanoticias td,
-table#listagrupos td
+table#listagrupos td,
+table#listaeventos td
 {
   border-bottom: 1px solid #ddd;
 }
@@ -146,7 +154,8 @@ table#listalineas1 tr,
 table#listaconvocatorias1 tr,
 table#listagrupos1 tr,
 table#listanoticias tr,
-table#listagrupos tr
+table#listagrupos tr,
+table#listaeventos tr
 {
   background-color:#F8F9FE;
 }
@@ -155,7 +164,8 @@ table#listalineas1 td:last-child,
 table#listaconvocatorias1 td:last-child,
 table#listagrupos1 td:last-child,
 table#listanoticias td:last-child,
-table#listagrupos td:last-child
+table#listagrupos td:last-child,
+table#listaeventos td:last-child
 {
   text-align: left;
   padding-right: 10px;
