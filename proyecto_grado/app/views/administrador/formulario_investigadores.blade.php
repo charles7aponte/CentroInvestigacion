@@ -353,12 +353,13 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-investigador" type="submit">
                         
                             @if(isset($investigador['codinv_ext']))
+                                <button id="crear-investigador" type="submit" style=" height:36px; padding-top:1px;">
                                 <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                                  Editar Investigadores
-                                @else 
+                                @else
+                                <button id="crear-investigador" type="submit"> 
                                 <img alt="bien"  src="images/bn.png" width="16" height="16">
                                  Crear Investigadores
                             @endif

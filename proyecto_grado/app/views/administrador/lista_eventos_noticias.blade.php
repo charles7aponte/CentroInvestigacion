@@ -67,7 +67,7 @@
                       <a href="">{{$campo['tipo']}}</a>
                     </td>
                     <td style="width:90px;">
-                      <a href="#" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="formularioeventosnoticias/edit/{{$campo['id_evento']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
                       <b onclick="eliminartipo({{$campo['id_evento']}})">

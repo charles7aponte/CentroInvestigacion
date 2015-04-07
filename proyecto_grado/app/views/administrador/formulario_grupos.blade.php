@@ -491,11 +491,13 @@
         <table id="botones-formularios">
             <thead>
                 <th id="crear">
-                    <button id="crear-grupo" type="submit" >
+                    
                       @if(isset($grupos['codigo_grupo']))
+                          <button id="crear-grupo" type="submit" style=" height:36px; padding-top:1px;">
                           <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                             Editar Grupo
-                        @else 
+                        @else
+                          <button id="crear-grupo" type="submit"> 
                           <img alt="bien"  src="images/bn.png" width="16" height="16" />
                             Crear Grupo
                       @endif

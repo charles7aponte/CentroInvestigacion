@@ -109,12 +109,13 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="crear-sublinea" type="submit" class="submit-button">
                         
                          @if(isset($sublinea['id_sublinea']))
+                            <button id="crear-sublinea" type="submit" class="submit-button" style=" height:36px; padding-top:1px;">
                             <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
                               Editar Sublinea
                             @else 
+                                <button id="crear-sublinea" type="submit" class="submit-button">
                                 <img alt="bien"  src="images/bn.png" width="16" height="16" />
                                 Crear Sublinea
                             @endif
