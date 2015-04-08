@@ -45,6 +45,7 @@
                   <?php
                     $perfil=strtoupper($registro_perfiles['nombreperfil']);
                   ?>
+                   {{$perfil}}
                       <a href="{{URL::to('/')}}/listadocentes/{{$lista_integrante_grupo['cedula']}}">
                       {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
                       {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}

@@ -102,8 +102,7 @@ Route::get('formularioconvocatorias/eliminar/{id}','ControlConvocatorias@Elimina
 
 /*---------------cerar eventos y noticias------------------*/
 
-Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');
-});
+Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');});
 /*---------------eliminar eventos y noticias------------------*/
 Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@EliminarFormularioEventosNoticias');
 
@@ -242,9 +241,9 @@ Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipal
 
 Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
 
-Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+//Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
 
-Route::get('listadocentes/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+//Route::get('listadocentes/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
 
 
 
@@ -340,6 +339,9 @@ Route::get('listade/{tipo_lista}/{mi_fecha?}','ControlListasInvitado@ConstruirLi
 Route::get('eventonoticia/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
 Route::get('listadeeventosinv/{tipo_lista}','ControlListasInvitado@ConstruirListaEventos');
 
+Route::get('listadocentes/{cedula}','ControlInfoPersonasInvitado@CargarInfoPrincipales');
+
+Route::get('productividadunidad/{id_unidad}', 'ControlProductividad@CrearProductos'); 
 
 
 
