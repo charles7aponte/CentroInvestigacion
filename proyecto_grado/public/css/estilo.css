@@ -282,16 +282,51 @@ Parte despues del slider
 }
 
 
-/*Carrousel de convocatorias*/
-#myCarousel a {
+
+
+
+/* ===================================
+Pie de pagina
+==================================== */
+#pie-pagina { 
+    padding: 10px 0 0 0;
+}
+
+#capa-pie{
+    background: url(../images/bg-footer.jpg); 
+    color: #FFF;
+    margin: 0 0 10px 0;
+    height: 120px;
+    width:100%;
+    display: flex;
+    padding: 10px 43px;
+}
+
+#capa-pie p{
+    color: #FFF;
+    font-family: sans-serif, Arial, Verdana, Helvetica;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    margin-left: 50px;
+    padding: 0;
+    text-align: center;
+}
+
+
+
+
+
+#mycarouselBase img { max-width:100% !important; }
+
+#mycarouselBase a {
     -webkit-transition: all 150ms ease;
     -moz-transition: all 150ms ease;
     -ms-transition: all 150ms ease;
     -o-transition: all 150ms ease;
     transition: all 150ms ease; 
     }
-
-#myCarousel a:hover {
+   #mycarouselBase  a:hover {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
         filter: alpha(opacity=50); /* IE7 */
         opacity: 0.6;
@@ -300,17 +335,17 @@ Parte despues del slider
 
 
 /* Container */
-#myCarousel .container-fluid {
+#mycarouselBase.container-fluid {
     background: #FFFFFF;
-    margin: 40px auto 10px;
+   /* margin: 40px auto 10px;*/
     padding: 20px 40px 0;
-    max-width: 960px;
+    max-width: 960px !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 
 /* Page Header */
-#myCarousel .page-header {
+#mycarouselBase .page-header {
     background: #f9f9f9;
     margin: -30px -40px 40px;
     padding: 20px 40px;
@@ -318,33 +353,33 @@ Parte despues del slider
     color: #999;
     text-transform: uppercase;
     }
-#myCarousel .page-header h3 {
+    #mycarouselBase .page-header h3 {
         line-height: 0.88rem;
         color: #000;
         }
 
-
+#mycarouselBase .item.active{
+    left: 20px;
+}
 
 /* Thumbnail Box */
-#myCarousel .caption h4 {
-    font-size: 1rem;
+#mycarouselBase .caption h4 {
+   
     color: #444;
     }
-#myCarousel .caption p {
-        font-size: 0.75rem;
+    #mycarouselBase .caption p {
+        font-size: 12px;
         color: #999;
         }
-#myCarousel .btn.btn-mini {
-            font-size: 0.63rem;
-            }
+
 
 
 /* Carousel Control */
-#myCarousel .control-box {
+#mycarouselBase .control-box {
     text-align: right;
-    width: 100%;
+    width: 100% !important;
     }
-#myCarousel .carousel-control{
+    #mycarouselBase .carousel-control{
         background: #666;
         border: 0px;
         border-radius: 0px;
@@ -356,21 +391,55 @@ Parte despues del slider
         padding: 4px 10px 0px;
         position: static;
         height: 30px;
-        width: 15px;
+        width: 15px !important;
         }
+#mycarouselBase  .carousel {
+  position: relative;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+#mycarouselBase  .row-fluid .span3  {
+  width: 23.404255319148934%;
+  display: inline-block;
+  margin-left:5px; 
+}
+
+#mycarouselBase  li {
+  line-height: 20px;
+}
+
+#mycarouselBase .thumbnails {
+  margin-left: -20px;
+  list-style: none;
+}
+
+  #mycarouselBase .caption{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+      font-size: 14px ;
+      line-height: 20px;
+      color: #333 ;
+
+  }
+
+
+
+
+
 
 
 /* Mobile Only */
 @media (max-width: 767px) {
-    .page-header, .control-box {
+    ##mycarouselBase .page-header, .control-box {
     text-align: center;
     } 
 }
 @media (max-width: 479px) {
-    .caption {
+    ##mycarouselBase .caption {
     word-break: break-all;
     }
 }
+
 
 
 /* ADD-ON
@@ -388,9 +457,6 @@ background-color:hsla(270,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}
 background-color:hsla(300,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}
 @media only screen and (min-width:1024px){body:after{content:"1024 and up";background-color:hsla(360,60%,40%,0.7);
 height:20px;padding-top:0;margin-left:0}}
-
-::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
-::-moz-selection { background: #ff5e99; color: #FFFFFF; }
 
 #myCarousel a, a:focus, a:active, a:hover, object, embed { outline: none; }
 :-moz-any-link:focus { outline: none; }
@@ -425,3 +491,4 @@ Pie de pagina
     padding: 0;
     text-align: center;
 }
+
