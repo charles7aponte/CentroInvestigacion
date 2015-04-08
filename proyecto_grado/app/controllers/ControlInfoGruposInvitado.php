@@ -33,6 +33,7 @@ class ControlInfoGruposInvitado extends Controller {
 
 			$unidades=InvUnidadesAcademicas::where("id_unidad","=",$grupos->inv_unidad_academica)->get();
 			$unidades_academicas=InvUnidadesAcademicas::all();
+			$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 
 			if($tipo->estado==1){
 				$grupos->tipo_grupo_=$tipo->tipo_grupo;	
@@ -75,7 +76,8 @@ class ControlInfoGruposInvitado extends Controller {
 					   'Lista_productos' =>$productos,
 					   'Lista_proyectos' =>$proyectos_grupos,
 					   'Lista_unidades' =>$unidades,
-					   'lista_unidades'=>$unidades_academicas
+					   'lista_unidades'=>$unidades_academicas,
+					   'lista_documentos' =>$documentos
 			);
 
 

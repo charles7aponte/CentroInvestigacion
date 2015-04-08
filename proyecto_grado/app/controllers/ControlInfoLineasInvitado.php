@@ -13,11 +13,16 @@ class ControlInfoLineasInvitado extends Controller {
 		$lineas= InvLineas::where("id_lineas","=",$id_linea)->where("estado","=","1")->get();
 		$unidades=array();
 		$coordinador= array();
+		$unidades_academicas=array();
+		$documentos=array();
+
 		if(count($lineas)>0)
 		{
 			$lineas=$lineas[0];
 			$coordinador =Persona::where("cedula","=",$lineas->coordinador_linea)->get();
 			$unidades=InvUnidadesAcademicas::where("id_unidad","=",$lineas->inv_unidad_academica)->get();
+			$unidades_academicas=InvUnidadesAcademicas::all();
+			$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		}
 		else{
 			$lineas=null;
@@ -47,7 +52,9 @@ class ControlInfoLineasInvitado extends Controller {
 					   'lista_grupos' => $listaGruposLineas,
 					   'Lista_coordinadores'=> $coordinador,
 					   'Lista_portipo' =>$listaProductoTiposSubtipos,
-					   'Lista_unidades' =>$unidades
+					   'Lista_unidades' =>$unidades,
+					   'lista_unidades'=>$unidades_academicas,
+					   'lista_documentos' =>$documentos
 
 			);
 

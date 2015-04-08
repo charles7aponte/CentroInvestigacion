@@ -9,6 +9,8 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$grupos =InvGrupos::find($idgrupo);
 		$listaintegrantesgrupos= array();
 		$paginacion="";
+		$unidades_academicas=InvUnidadesAcademicas::all();
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 
 
 		$perfil=InvPerfiles::find($idperfil);
@@ -37,7 +39,9 @@ class ControlInfoListasGruposInvitado extends Controller {
 			'lista_integrantes_grupos'=>$listaintegrantesgrupos,
 			'lista_nombre_grupos' =>$grupos,
 			'registro_perfiles' =>$perfil,
-			'links'=>$paginacion
+			'links'=>$paginacion,
+			'lista_unidades'=>$unidades_academicas,
+			'lista_documentos' =>$documentos
 			);
 
 

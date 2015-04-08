@@ -10,7 +10,8 @@ class ControlInfoConvocatoriasInvitado extends Controller {
 	public function CargarInfoPrincipales($id_convocatoria){
 		
 		$convocatorias=InvConvocatorias::where("numero_convocatoria","=",$id_convocatoria)->where("estado1","=","1")->get();
-		
+		$unidades_academicas=InvUnidadesAcademicas::all();
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		
 		if(count($convocatorias)>0){
 			$convocatorias=$convocatorias[0];
@@ -29,7 +30,9 @@ class ControlInfoConvocatoriasInvitado extends Controller {
 
 			$datos = array('convocatorias'=> $convocatorias,
 				           'Lista_estadoproyectos'=> $this->listaEstadoProyecto,  
-				           'Lista_estados'=> $this->idestados);
+				           'Lista_estados'=> $this->idestados,
+				           'lista_unidades'=>$unidades_academicas,
+						   'lista_documentos' =>$documentos);
 
 
 		return View::make("invitado/inf_convocatorias_invitado",$datos);

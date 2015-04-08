@@ -50,10 +50,10 @@
               @foreach ($campo_lista as $campo)
                 @if($campo['estado1']==1 ) 
                   <tr id="dato_sublinea_{{$campo['numero_convocatoria']}}">
-                    <td style="width:100px;">
+                    <td style="width:90px;">
                       <b>{{$contador++}}</b>
                     </td> 
-                    <td style="width:689px;">
+                    <td style="width:650px; margin-left:5px;">
                       <a href="{{URL::to('convocatoriainv/id')}}/{{$campo['numero_convocatoria']}}">
                         {{$campo['titulo_convocatoria']}}
                       </a>
@@ -61,10 +61,10 @@
                     <td style="text-transform:capitalize; width:100px;">
                       {{$campo['estado']}}
                     </td>
-                    <td style="text-transform:capitalize; width:100px;">
+                    <td style="text-transform:capitalize; width:110px;">
                       {{InvConvocatorias::formato_fecha($campo['fecha_apertura'])}}
                     </td>
-                    <td style="text-transform:capitalize; width:100px;">
+                    <td style="text-transform:capitalize; width:110px;">
                       {{InvConvocatorias::formato_fecha($campo['fecha_cierre'])}}
                     </td>
                   </tr>
