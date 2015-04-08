@@ -68,7 +68,7 @@
 	    
 	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
 
-	    <script src="{{URL::to('recursos/colores-graficas.js')}}" type="text/javascript"></script>
+	    <script src="{{URL::to('js/recursos/colores-graficas.js')}}" type="text/javascript"></script>
 
 		@section("javascript-nuevos")
 		@show

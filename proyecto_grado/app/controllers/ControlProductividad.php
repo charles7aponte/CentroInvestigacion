@@ -6,9 +6,12 @@ class ControlProductividad extends Controller {
 
 		$unidades_academicas=InvUnidadesAcademicas::all();
 		$unidadproducto=$this->productividad_unidad($id_unidad);
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		//print_r($unidadproducto);
 
-		$datos = array('lista_unidades'=>$unidades_academicas,);
+		$datos = array('lista_unidades'=>$unidades_academicas,
+					   'lista_documentos' =>$documentos,
+					   'unidadproducto' =>$unidadproducto);
 		return View::make("invitado/productividad_unidad",$datos);
 			
 	}

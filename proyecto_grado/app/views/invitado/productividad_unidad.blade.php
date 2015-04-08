@@ -2,7 +2,95 @@
 
 @section('css-nuevos')
 <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
+<style>
+	.contenedor_grafica_lineas{
+	  background: #eee;
+	  display: inline-block;
+	  width: 350px;
+	  height: 350px;
+	  margin-right: 30px;
+	  margin-left: 60px;
+	  margin-bottom: 20px;"
+	}
+</style>
 @stop
+
+
+@section('javascript-nuevos')
+
+	<script src="{{URL::to('js/Chart.js')}}" type="text/javascript"></script>
+
+	<script>
+
+
+
+    <?php 
+	    $contador=1;
+
+	    $contador_subtipos=0;
+    ?>
+
+		window.onload = function(){
+
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+		@foreach($unidadproducto as $key1 => $unidaproductividad1)	
+
+
+			var barChartData{{$contador}} = {
+				labels : ["{{$key1}}"],
+
+				datasets : [
+					@foreach($unidaproductividad1 as $key2 => $valor)
+				
+						{
+							label:"{{$key2}}",
+							fillColor : "rgba(220,220,220,0.5)",
+							strokeColor : "rgba(220,220,220,0.8)",
+							highlightFill: "rgba(220,220,220,0.75)",
+							highlightStroke: "rgba(220,220,220,1)",
+							data : [{{$valor}}]
+							},
+						@endforeach
+					
+				]
+				
+			
+			}
+			
+			
+			
+			
+			 var optiones{{$contador}}={
+			responsive : true,
+			   animation: true,
+			   barValueSpacing : 5,
+			   barDatasetSpacing : 1,
+			   tooltipFillColor: "rgba(0,0,0,0.8)",                
+			   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
+				
+			};
+			
+			
+				var ctx{{$contador}} = document.getElementById("canvas{{$contador}}").getContext("2d");
+				window.myBar{{$contador}} = new Chart(ctx{{$contador}}).Bar(barChartData{{$contador}}, optiones{{$contador}});
+						
+
+
+
+				<?php
+					$contador++; 
+				?>
+
+			@endforeach
+	}
+
+	</script>
+
+@stop
+
+
+
 @section('contenido-principal') 
 
 	<div>
@@ -26,9 +114,16 @@
     	</div>
 
     	<fieldset>
-    		<div style="width:700px; height:400px; background:red; margin-left:130px;margin-top:30px;">
+    	<!--	<div style="width:700px; height:400px; background:red; margin-left:130px;margin-top:30px;">
     			<canvas id="canvas" height="450" width="600"></canvas>
    			</div>
+   		-->
+
+   			 @for($i=1; $i<$contador;$i++)
+		        <div id="grafica-producto{{$i}}" class="contenedor_grafica_lineas">
+		          <canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
+		        </div>
+		    @endfor
 
 
    			<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
@@ -42,17 +137,17 @@
     </thead>
     <tbody>
         <tr>
-            <td>Rocky</td>
+            <td rowspan="3">Rocky</td>
             <td>Balboa</td>
             <td>rockybalboa@mail.com</td>
         </tr>
         <tr>
-            <td>Peter</td>
+    
             <td>Parker</td>
             <td>peterparker@mail.com</td>
         </tr>
         <tr>
-            <td>John</td>
+            
             <td>Rambo</td>
             <td>johnrambo@mail.com</td>
         </tr>
@@ -62,53 +157,5 @@
     	</fieldset>
 	</div>
 
-	<script>
-		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-
-	var barChartData = {
-		labels : ["January","February","March","April","May","June","July"],
-		datasets : [
-			{
-				label:"gatio",
-				fillColor : "rgba(220,220,220,0.5)",
-				strokeColor : "rgba(220,220,220,0.8)",
-				highlightFill: "rgba(220,220,220,0.75)",
-				highlightStroke: "rgba(220,220,220,1)",
-				data : [1,2,3,4,5,6]
-				},
-			{
-				label:"gatio2",
-				fillColor : "rgba(151,187,205,0.5)",
-				strokeColor : "rgba(151,187,205,0.8)",
-				highlightFill : "rgba(151,187,205,0.75)",
-				highlightStroke : "rgba(151,187,205,1)",
-				data : [100,10,1,2,2,2]
-			}
-		]
-		
 	
-	}
-	
-	
-	
-	
-	 var optiones={
-	responsive : true,
-	   animation: true,
-	   barValueSpacing : 5,
-	   barDatasetSpacing : 1,
-	   tooltipFillColor: "rgba(0,0,0,0.8)",                
-	   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
-		
-	};
-	
-	
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myBar = new Chart(ctx).Bar(barChartData, optiones);
-		
-		document.getElementById("legendDiv").innerHTML =window.myBar.generateLegend();
-	
-
-
-	</script>
 @stop
