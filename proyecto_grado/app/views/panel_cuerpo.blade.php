@@ -57,8 +57,8 @@
 		@show
 		
 	    <!-- scripts -->
-<!--	    <script type="text/javascript" src="{{URL::to('js/jquery.js')}}"></script>
-
+	    <script type="text/javascript" src="{{URL::to('js/jquery.js')}}"></script>
+<!--
 		<script src="{{URL::to('js/jquery-1.5.2.min.js')}}" type="text/javascript"></script>
 -->
 		<script src="{{URL::to('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
