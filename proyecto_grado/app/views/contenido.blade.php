@@ -16,10 +16,6 @@
 	@section('contenido-principal') 
 
 
-
-
-
-
 	<div id="slider1" style="width:800px;">
 		<div class="wrap">
 		    <div id="slide-holder">
@@ -63,161 +59,93 @@
 					</a>
 				</aside>
 			</div>
-			  <div class="col-md-4">	
-				<aside class="noticias" >
-					<div id="enunciado"><p>Noticias</p></div> 
-					<div id="cargar-noticias">
-						@foreach($lista_noticias as $lista_noticia)
-							<div class="noticias-principal">
-							   <h4>{{$lista_noticia['titulo_evento']}}</h4>
-						   		<span>{{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"mes")}}
-							   		  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"dia")}} de
-				          			  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"a")}}
-				          		</span>
-				            </div>  		
-						   	<p align="justify">{{substr($lista_noticia['descripcion'],0,200)}} 	
-						   	<span class="readmore"><a href="#">Leer mas..</a></span></p>
-					   	@endforeach
-		   				<div class="ver-todo-otros">ver todas las noticias <span class="glyphicon glyphicon-plus-sign"></span></div>
-					</div>
-				</aside>
-			</div>
+
+		  <div class="col-md-4">	
+			<aside class="noticias" >
+				<div id="enunciado"><p>Noticias</p></div> 
+				<div id="cargar-noticias">
+					@foreach($lista_noticias as $lista_noticia)
+						<div class="noticias-principal">
+						   <h4>{{$lista_noticia['titulo_evento']}}</h4>
+					   		<span>{{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"mes")}}
+						   		  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"dia")}} de
+			          			  {{InvEventosNoticias::formato_fecha($lista_noticia['fecha'],"a")}}
+			          		</span>
+			            </div>  		
+					   	<p align="justify">{{substr($lista_noticia['descripcion'],0,200)}} 	
+					   	<span class="readmore"><a href="#">Leer mas..</a></span></p>
+				   	@endforeach
+	   				<div class="ver-todo-otros">ver todas las noticias <span class="glyphicon glyphicon-plus-sign"></span></div>
+				</div>
+			</aside>
 		</div>
+	</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<aside class="group2">
-				   <div id="enunciado"><p>Convocatorias</p></div> 
-					   @foreach($lista_convocatorias as $lista_convocatoria)
-						   <article class="holder_news">
-							   <div class="convocatoria">{{$lista_convocatoria['numero_convocatoria']}} 
-								   	<br><span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"mes")}}
-								   		  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"dia")}} de
-		                      			  {{InvConvocatorias::formato_fecha($lista_convocatoria['fecha_apertura'],"a")}}
-		                      		</span>
-		                  		</div>
-							   <p align="justify">{{$lista_convocatoria['titulo_convocatoria']}}<span class="readmore">
-							   <a href="#">Leer mas..</a></span></p>  
-						   </article>
-						@endforeach 	  
-						<div class="ver-todo-otros">
-					  		ver todas las convocatorias <span class="glyphicon glyphicon-plus-sign"></span>
-					    </div>
-					</div>    
-				</aside>
-			</div>	
-		</div>	
+	<div class="row">
+		<div class="col-md-12">
+		   <div id="enunciado"><p>Convocatorias</p></div>
+				<div class="container-fluid" id="mycarouselBase">
+					<div class="row-fluid">
+						<div class="span12">        
+							<div class="carousel slide" id="myCarousel">
+				    			<div class="carousel-inner">
+								@for($i=0; $i<count($lista_convocatorias);$i=$i+3)
 
+							        <div class="item {{$i==0? 'active' :'' ;}}">
+							                <ul class="thumbnails">
+							                	@if(isset($lista_convocatorias[$i]))
+								                    <li class="span3">
+								                        <div class="caption" id="convocatoria">
+								            				<p align="center">{{$lista_convocatorias[$i]['titulo_convocatoria']}}</p>
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
+													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"dia")}} de
+							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"a")}}
+							                      			</span>
+								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+								                        </div>
+								                    </li>
+							                    @endif
 
+							                	@if(isset($lista_convocatorias[$i+1]))
+								                    <li class="span3">
+								                        <div class="caption" id="convocatoria">
+								            				<p align="center">{{$lista_convocatorias[$i+1]['titulo_convocatoria']}}</p>
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
+													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"dia")}} de
+							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"a")}}
+							                      			</span>
+								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+								                        </div>
+								                    </li>
+							                    @endif
 
-<div class="container-fluid" id="mycarouselBase">
-<div class="row-fluid">
-<div class="span12">
-
-  
-        
-    <div class="carousel slide" id="myCarousel">
-        <div class="carousel-inner">
-            <div class="item active">
-                    <ul class="thumbnails">
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                    </ul>
-              </div><!-- /Slide1 --> 
-            <div class="item">
-                    <ul class="thumbnails">
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                        <li class="span3">
-                            <div class="caption">
-                                <h4>Praesent commodo</h4>
-                				<p>Nullam Condimentum Nibh Etiam Sem</p>
-                                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-                            </div>
-                        </li>
-                    </ul>
-              </div><!-- /Slide2 --> 
-          
-        </div>
-        
-        <div class="control-box">                            
-            <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-            <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-        </div><!-- /.control-box -->   
-                              
-    </div><!-- /#myCarousel -->
-        
-</div><!-- /.span12 -->          
-</div><!-- /.row --> 
-</div><!-- /.container -->
-
-                            
-
-
-
-
-
-
-	</div><!--Parte de abajo del slider-->
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
+							                    @if(isset($lista_convocatorias[$i+2]))
+								                    <li class="span3">
+								                        <div class="caption" id="convocatoria">
+								            				<p align="center">{{$lista_convocatorias[$i+2]['titulo_convocatoria']}}</p>
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
+													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"dia")}} de
+							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"a")}}
+							                      			</span>
+								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+								                        </div>
+								                    </li>
+							                    @endif
+							                </ul>
+							          </div><!-- /Slide1 --> 
+							    @endfor      
+				    		</div>
+						    <div class="control-box">                            
+						        <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+						        <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+						    </div><!-- /.control-box -->                         
+						</div><!-- /#myCarousel -->    
+					</div><!-- /.span12 -->          
+				</div><!-- /.row --> 
+			</div><!-- /.container -->
+		</div>    
+	</div>	
+</div>
 
  <!--fin holder-->	
 @stop
