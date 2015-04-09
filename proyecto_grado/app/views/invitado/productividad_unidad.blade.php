@@ -22,44 +22,42 @@
 
 	<script>
 
-
-
     <?php 
 	    $contador=1;
 
 	    $contador_subtipos=0;
+	    $titulos= array();
     ?>
 
-		window.onload = function(){
-
-		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+	window.onload = function(){
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
 		@foreach($unidadproducto as $key1 => $unidaproductividad1)	
 
-
 			var barChartData{{$contador}} = {
-				labels : ["{{$key1}}"],
+				labels : [" "],
 
 				datasets : [
 					@foreach($unidaproductividad1 as $key2 => $valor)
 				
 						{
 							label:"{{$key2}}",
-							fillColor : "rgba(220,220,220,0.5)",
+							fillColor : getColor({{$contador_subtipos}}),
 							strokeColor : "rgba(220,220,220,0.8)",
-							highlightFill: "rgba(220,220,220,0.75)",
+							highlightFill: getColor({{$contador_subtipos}}),
 							highlightStroke: "rgba(220,220,220,1)",
 							data : [{{$valor}}]
 							},
+
+							<?php 
+								$contador_subtipos++;
+							?>
 						@endforeach
 					
 				]
 				
 			
 			}
-			
-			
-			
 			
 			 var optiones{{$contador}}={
 			responsive : true,
@@ -79,7 +77,8 @@
 
 
 				<?php
-					$contador++; 
+					$contador++;
+					$titulos[]=$key1; 
 				?>
 
 			@endforeach
@@ -97,7 +96,7 @@
 		<div id="titulo-productividad" id="cuadro" style="text-align:right;
   			padding-right: 30px;
   			padding-top: 10px;
-  			font-family:Arial, Helvetica, sans-serif;;
+  			font-family:Arial, Helvetica, sans-serif;
   			font-size: 35px;
   			color: #B40404;
   			font-weight: bold;
@@ -113,49 +112,70 @@
           <h2>Productividad Por Unidad Ac&aacute;demica</h2>
     	</div>
 
-    	<fieldset>
-    	<!--	<div style="width:700px; height:400px; background:red; margin-left:130px;margin-top:30px;">
-    			<canvas id="canvas" height="450" width="600"></canvas>
-   			</div>
-   		-->
+    <fieldset>
 
-   			 @for($i=1; $i<$contador;$i++)
-		        <div id="grafica-producto{{$i}}" class="contenedor_grafica_lineas">
-		          <canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
+   			@for($i=1; $i<$contador;$i++)
+		        <div id="grafica-producto{{$i}}"  style="height:100%;" class="contenedor_grafica_lineas">
+		        	<div>
+            			<h2 style="font-size: 20px;
+						  padding-left: 20px;
+						  font-family: Arial, Helvetica, sans-serif;
+						  font-weight: bold;
+						  text-align: center;">{{$titulos[$i-1]}}</h2>
+          			</div>
+		          	<canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
 		        </div>
 		    @endfor
 
 
-   			<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
-   				<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Tipos</th>
-            <th>Subtipos</th>
-            <th>Cantidad</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="3">Rocky</td>
-            <td>Balboa</td>
-            <td>rockybalboa@mail.com</td>
-        </tr>
-        <tr>
-    
-            <td>Parker</td>
-            <td>peterparker@mail.com</td>
-        </tr>
-        <tr>
-            
-            <td>Rambo</td>
-            <td>johnrambo@mail.com</td>
-        </tr>
-    </tbody>
-</table>
-    		</div>
-    	</fieldset>
-	</div>
+   		<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
+   			<table class="table table-bordered table-hover">
+    			<thead>
+        			<tr>
+			            <th>Tipos</th>
+			            <th>Subtipos</th>
+			            <th>Cantidad</th>
+        			</tr>
+    			</thead>
+    			<tbody>
+    				<?php
+    					$contador_tipos=0;
+    					$contador_subtipos=0;
+    				?>
+    				
+        			<tr>
+        				@foreach($unidadproducto as $key1 =>$datostabulados)
 
-	
+
+							<?php  
+        						$contador_subtipos=0;
+        					?>
+
+        					@foreach($datostabulados as $key2 => $cantidad)
+        						<tr>
+        						@if($contador_subtipos==0)
+        							<td rowspan="{{count($datostabulados)}}">{{$key1}}</td>
+        						@endif
+
+        							<td>{{$key2}}</td>
+        							<td>{{$cantidad}}</td>		
+
+        						</tr>
+
+	        					<?php  
+	        						$contador_subtipos++;
+	        					?>
+
+        					@endforeach
+
+        					<?php  
+        						$contador_tipos++;
+        					?>
+        				@endforeach
+    			</tbody>
+			</table>
+    	</div>
+    </fieldset>
+
+</div>	
 @stop

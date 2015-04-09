@@ -55,7 +55,9 @@
     $contador=1;
 
     $contador_subtipos=0;
+    $titulos= array();
     ?>
+
   window.onload = function(){
             
     @foreach ($Lista_portipo as  $key1 =>$fila1)
@@ -63,6 +65,7 @@
 
       <?php 
           $contador_subtipos=1;
+          $titulos[]=$key1;
         ?>
 
       var opciones{{$contador}}= {
@@ -78,7 +81,7 @@
        var barChartData{{$contador}} =
           {
 
-              labels : ["{{$key1}}"],
+              labels : [" "],
               datasets : [
                 @foreach($fila1 as $key2 =>$fila2)
 
@@ -105,12 +108,13 @@
               window.myBar{{$contador}} = new Chart(ctx{{$contador}}).Bar(barChartData{{$contador}} , opciones{{$contador}});
             
             <?php 
-            $contador++;
+              $contador++;
            ?> 
 
 
         @endforeach
   }
+
 </script>
 @stop
 
@@ -398,6 +402,9 @@
 
      @for($i=1; $i<$contador;$i++)
         <div id="grafica-producto{{$i}}" class="contenedor_grafica_lineas">
+          <div>
+            <h2>{{$titulos[$i-1]}}</h2>
+          </div>
           <canvas id="canvas{{$i}}" class="grafica_lineas"></canvas>
         </div>
     @endfor

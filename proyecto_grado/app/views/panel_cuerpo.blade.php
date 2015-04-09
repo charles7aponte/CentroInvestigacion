@@ -146,7 +146,7 @@
 	    						
 		    						<ul class="dropdown-menu" role="menu">
 		    							@foreach($lista_unidades as $lista_unidad)
-		      							<li><a href="#">{{$lista_unidad['nombre_unidad']}}</a></li>	
+		      							<li><a href="{{URL::to('/')}}/productividadunidad/{{$lista_unidad['id_unidad']}}">{{$lista_unidad['nombre_unidad']}}</a></li>	
 		      							@endforeach	
 		      						</ul>	
 		      					
