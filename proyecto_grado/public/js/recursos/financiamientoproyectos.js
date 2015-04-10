@@ -61,7 +61,7 @@ var idP= $("#nombre_proyecto1").val();
         $.ajax(
             {
                 type:"GET" 
-                ,url: "servicios/financiamientoPorProyecto/"+idP+"/", 
+                ,url: URL_SERVIDOR+"/servicios/financiamientoPorProyecto/"+idP+"", 
                 success: function(result){
                      
                      var mihtml=""; 

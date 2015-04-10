@@ -3,7 +3,7 @@
 
 a { font-size:10px;}
         
-#jMonthCalendar { position:relative; }
+#jMonthCalendar { position:relative;   margin-left: 10px;}
 .MonthlyCalendar .MonthNavigation { clear:both; height:20px; padding:5px 10px 0 10px; }
 .barra{margin-bottom: 5px; margin-top: 5px; border-bottom:solid 3px #ddd;}
 .MonthlyCalendar .MonthNavPrev, .MonthlyCalendar .MonthNavNext, .MonthlyCalendar .TodayLink { width:7%; float:left; }

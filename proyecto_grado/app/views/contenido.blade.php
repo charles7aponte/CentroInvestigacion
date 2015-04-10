@@ -46,8 +46,8 @@
 	<!--Parte de abajo del slider-->
 	<div id="contenedor-cuerpo-principal">
 		<div class="row">
-			<div class="col-md-8">
-				<aside>
+			<div class="col-md-8" >
+				<aside id="eventos-principal">
 					<div id="enunciado"><p>Calendario de Eventos</p></div> 
 					<div class="calendario">
 						<div id="jMonthCalendar"></div> 
@@ -55,7 +55,7 @@
 					<a href="{{URL::to('/')}}/listadeeventosinv/evento">
 					<div class="ver-todo">
 						  ver todos los eventos <span class="glyphicon glyphicon-plus-sign"></span>
-						</div>
+					</div>
 					</a>
 				</aside>
 			</div>
@@ -83,7 +83,7 @@
 
 	<div class="row">
 		<div class="col-md-12">
-		   <div id="enunciado"><p>Convocatorias</p></div>
+		   <div id="enunciado1"><p>Convocatorias</p></div>
 				<div class="container-fluid" id="mycarouselBase">
 					<div class="row-fluid">
 						<div class="span12">        
@@ -126,9 +126,9 @@
 								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
 													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"dia")}} de
 							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"a")}}
-							                      			</span>
-								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+							                      			</span> 
 								                        </div>
+								                        <div class="readmore"><a href="#">Leer mas..</a></p>
 								                    </li>
 							                    @endif
 							                </ul>
@@ -138,7 +138,10 @@
 						    <div class="control-box">                            
 						        <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
 						        <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-						    </div><!-- /.control-box -->                         
+						    </div><!-- /.control-box -->  
+						    						    <div class="ver-todo-otros">
+						  		ver todos las convocatorias <span class="glyphicon glyphicon-plus-sign"></span>
+							</div>  
 						</div><!-- /#myCarousel -->    
 					</div><!-- /.span12 -->          
 				</div><!-- /.row --> 

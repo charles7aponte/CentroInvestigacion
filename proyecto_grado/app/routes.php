@@ -21,7 +21,7 @@ Route::get('/', 'ControlPaginaInicio@CrearPagina');
 /********************************************************************************************************************************
 -----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------
 *********************************************************************************************************************************/
-Route::get('administrador', function() { return View::make('administrador/panel_admin'); })->before('auth');
+Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
 /*--------------1-FORMULARIOS-----------------
 **********************************************/

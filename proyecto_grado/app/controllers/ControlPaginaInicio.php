@@ -7,7 +7,7 @@ class ControlPaginaInicio extends Controller {
 
 		$eventos_noticias=InvEventosNoticias::where("tipo","ILIKE","evento")->get();
 		$unidades_academicas=InvUnidadesAcademicas::all();
-		$noticias=InvEventosNoticias::where("tipo","ILIKE","noticia")->take(3)->get();
+		$noticias=InvEventosNoticias::where("tipo","ILIKE","noticia")->take(2)->get();
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		$convocatorias=InvConvocatorias::where("estado","LIKE","%abiert%")->orderBy('fecha_apertura','desc')->take(5)->get();
 
