@@ -2081,6 +2081,18 @@ CREATE TABLE personaperfil (
 ALTER TABLE public.personaperfil OWNER TO postgres;
 
 --
+-- Name: universidad; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE universidad (
+    cod_uni integer NOT NULL,
+    universidad character varying(120)
+);
+
+
+ALTER TABLE public.universidad OWNER TO postgres;
+
+--
 -- Name: id_evento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2408,6 +2420,7 @@ COPY disponibilidad_docente (coddocente, codhoras, year, periodo) FROM stdin;
 --
 
 COPY docente (coddocente, cedula, codubicacion, pregrado1, uni_preg1, ano_preg1, pregrado2, uni_preg2, ano_preg2, postgrado1, uni_post1, ano_post1, postgrado2, uni_post2, ano_post2, postgrado3, uni_post3, ano_post3, nivel_post1, nivel_post2, nivel_post3, codtipo_docente, estado, cvlac, perfil_corto) FROM stdin;
+1	444	1	pregrado1	2	2015	pregrado2	1	2015	pregrado2	2	2015	postgrado1	3	2015	postgrado2	4	2015	3	2	1	1 	t	www.google.com	este es el perfil corto "este es el perfil corto" "este es el perfil corto" "este es el perfil corto"
 \.
 
 
@@ -2565,6 +2578,11 @@ COPY facultad (nombrefacultad, descfacultad, codfacultad) FROM stdin;
 --
 
 COPY inv_convocatorias (numero_convocatoria, estado, titulo_convocatoria, fecha_apertura, fecha_cierre, cuantia, descripcion_convocatoria, email, telefono_contacto, pagina_convocatoria, archivo_convocatoria, archivo_imagen, convocatoria_dirigida, estado1) FROM stdin;
+fffffqaa	abiert	Convocatoria para proyectos de investigación o desarrollo tecnológico que aspiran a obtener deducciones tributarias por inversiones o donaciones a partir del año 2015	2015-03-30	2015-03-17	13000	dm,d	a@dkdk.com	6678976	www.google.com			djddjdj	1
+0001	abierta	Convocatoria a proyectos regionales de investigación aplicada para el desarrollo de pruebas de concepto relacionadas con nuevas tecnologías biológicas, biomédicas o asociadas al uso sustentable de energía – 2014	2015-01-30	2015-08-31	12345678	LCKFDKLLDLKFKKKFLD	a@fjjff.com	5567898	www.hotmai..con	\N	\N	fnnfnnfnf fnfnnf	1
+1234	abierta	convocatoria1	2015-02-01	2015-03-20	123000	MMMMMMMMMM MMMMMMMMMMMMM MMMMMMMMMMMMMMMMMM UUIJggg	a@dkdk.com	6678976	www.google.com	Hoja de contacto-003 copia (3).jpg	Hoja de contacto-006 copia.jpg	nn	1
+fkfdkfk	abiert	Convocatoria para proyectos de investigación o desarrollo tecnológico que aspiran a obtener deducciones tributarias por inversiones o donaciones a partir del año 2015	2015-04-07	2015-06-09	234000	nffnfnfnfn,	qer@jgjgjg.com	4444	www.reee.com	\N	\N	ffjfjfjjfj	1
+vldl	abiert	Convocatoria2	2015-05-06	2015-05-06	6780000	cmkkvkxlklvz kvkvkvkvk	e@gkgkkg.com	4456778	www.kkk.com	\N	\N	kfkkdkdkkdkdkdk	1
 \.
 
 
@@ -2573,6 +2591,12 @@ COPY inv_convocatorias (numero_convocatoria, estado, titulo_convocatoria, fecha_
 --
 
 COPY inv_evento_noticias (id_evento, titulo_evento, tipo, descripcion, enlace_documento, fecha) FROM stdin;
+6	Noticia 5	Noticia	mjfkgdjgjg fwkkfkflflkfskklsf  fkfkkfkf aallald gkfkfk		2015-09-02
+3	Evento 3	noticia	Caray un amigo me pregunta ¿como puedo tener un texto sobre un fondo transparente sin que el texto se haga también transparente?\r\n\r\nInicialmente me dije, esto se resuelve en 10min, así que intenté hacerlo y para mi sorpresa me sucedía exactamente lo que mi amigo e había dicho y dije hoooo!! no puede ser!! (aunque lo veía y no lo creía)\r\n\r\nAsí que decidí buscar como resolverlo y al parece ser que no es algo muy común o al menos la solución no lo es, pero haciendo prueba, tras prueba, tras prueba, tras prueba …. hasta el agotamiento! (ok! ya no exagero!) he logrado obtener una solución por demás simple y elegante		2015-04-06
+4	Noticia 1	Evento	Caray un amigo me pregunta ¿como puedo tener un texto sobre un fondo transparente sin que el texto se haga también transparente?\r\n\r\nInicialmente me dije, esto se resuelve en 10min, así que intenté hacerlo y para mi sorpresa me sucedía exactamente lo que mi amigo e había dicho y dije hoooo!! no puede ser!! (aunque lo veía y no lo creía)\r\n\r\nAsí que decidí buscar como resolverlo y al parece ser que no es algo muy común o al menos la solución no lo es, pero haciendo prueba, tras prueba, tras prueba, tras prueba …. hasta el agotamiento! (ok! ya no exagero!) he logrado obtener una solución por demás simple y elegante		2015-04-03
+2	Noticia 1	evento	Caray un amigo me pregunta ¿como puedo tener un texto sobre un fondo transparente sin que el texto se haga también transparente?\r\n\r\nInicialmente me dije, esto se resuelve en 10min, así que intenté hacerlo y para mi sorpresa me sucedía exactamente lo que mi amigo e había dicho y dije hoooo!! no puede ser!! (aunque lo veía y no lo creía)\r\n\r\nAsí que decidí buscar como resolverlo y al parece ser que no es algo muy común o al menos la solución no lo es, pero haciendo prueba, tras prueba, tras prueba, tras prueba …. hasta el agotamiento! (ok! ya no exagero!) he logrado obtener una solución por demás simple y elegante		2015-05-27
+5	Noticia 4	noticia	Caray un amigo me pregunta ¿como puedo tener un texto sobre un fondo transparente sin que el texto se haga también transparente?\r\n\r\nInicialmente me dije, esto se resuelve en 10min, así que intenté hacerlo y para mi sorpresa me sucedía exactamente lo que mi amigo e había dicho y dije hoooo!! no puede ser!! (aunque lo veía y no lo creía)\r\n\r\nAsí que decidí buscar como resolverlo y al parece ser que no es algo muy común o al menos la solución no lo es, pero haciendo prueba, tras prueba, tras prueba, tras prueba …. hasta el agotamiento! (ok! ya no exagero!) he logrado obtener una solución por demás simple y elegante		2015-05-03
+1	Taller Colciencias con apoyo del BID "Construyendo el ecosistema de apoyo a la innovación y al emprendimiento en Colombia"	Documento	 el BID y Tecnos realizaron este taller que trató fundamentos económicos, administrativos, financieros y de política que se deben tener en cuenta en la construcción de instrumentos e incentivos para la financiación de inversión en ciencia, tecnología e innovación.\r\n\r\nEl Departamento Administrativo de Ciencia, Tecnología e Innovación – Colciencias, el Banco Interamericano de Desarrollo (BID) y la Fundación Tecnos realizaron el Taller “Mejores Prácticas en Diseño y Gestión de Instrumentos Financieros de Fomento a la Innovación”, el cual abarcó fundamentos económicos, administrativos, financieros y de política que se deben tener en cuenta en la construcción de instrumentos e incentivos para la financiación de inversión en ciencia, tecnología e innovación.\r\n\r\nDurante la instalación del Taller, el director del Departamento Administrativo, Jaime Restrepo Cuartas, resaltó la importancia que tiene el tema financiero para Colciencias, el cual no se limita a adelantar la Reforma Constitucional para lograr el 10% de las regalías para el sector, sino que además se enfoca en encontrar diversas formas para que el Gobierno sea más eficiente en el manejo de los recursos y el sector privado invierta en ciencia e innovación.\r\n\r\nRestrepo Cuartas se refirió a cuatro líneas estratégicas para la institución y las categorizó así: financiación, regionalización, Plan Padrino y formación. De esta manera Colciencias concentrará los esfuerzos de la universidad, la empresa y el Estado para que “el conocimiento sí resuelva problemas de la sociedad”.	noticia 1-1.jpg	2015-11-29
 \.
 
 
@@ -2580,7 +2604,7 @@ COPY inv_evento_noticias (id_evento, titulo_evento, tipo, descripcion, enlace_do
 -- Name: inv_evento_noticias_id_evento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_evento_noticias_id_evento_seq', 1, false);
+SELECT pg_catalog.setval('inv_evento_noticias_id_evento_seq', 5, true);
 
 
 --
@@ -2588,6 +2612,7 @@ SELECT pg_catalog.setval('inv_evento_noticias_id_evento_seq', 1, false);
 --
 
 COPY inv_financiacion (id_financiacion, inv_codigo_proyecto, inv_nit_empresa, fecha, valor_financiado, descripcion_financiamiento, modo_financiamiento) FROM stdin;
+5	1	10	2015-03-03	123450	ddjdjd	especie
 \.
 
 
@@ -2595,7 +2620,7 @@ COPY inv_financiacion (id_financiacion, inv_codigo_proyecto, inv_nit_empresa, fe
 -- Name: inv_financiacion_id_financiacion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_financiacion_id_financiacion_seq', 1, false);
+SELECT pg_catalog.setval('inv_financiacion_id_financiacion_seq', 5, true);
 
 
 --
@@ -2603,9 +2628,13 @@ SELECT pg_catalog.setval('inv_financiacion_id_financiacion_seq', 1, false);
 --
 
 COPY inv_grupos (codigo_grupo, inv_tipo_grupos, nombre_grupo, director_grupo, inv_unidad_academica, categoria, objetivos, ano_creacion, email, telefono, direccion_grupo, pagina_web, ruta_afiche, link_gruplac, imagen1, imagen2, logo_grupo, estado_activacion) FROM stdin;
-2	1	grupo3	63345889	2	A1	maamamam	2015-03-02	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com						1
-3	1	grupo34	1	1	A1	maamamam	2015-03-02	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com						1
+2	1	grupo3	63345889	2	A1	maamamam	2015-03-02	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com						0
 1	1	Desarrollo Humano y Apropiación de TIC	63345889	1	A1	Plan de trabajo: Línea 1: Gestión Empresarial. A corto plazo: se pretende generar aportes significativos en la búsqueda de soluciones novedosas, que propendan por el mejoramiento de las condiciones de vida y el crecimiento económico de la región, desarrollando investigaciones que generen impacto en cuanto al crecimiento económico y desarrollo sostenible, especialmente en el departamento de Boyacá y Casanare. A mediano plazo se abordarán estudios sobre cadenas de producción, clúster empresariales y formas de hacer alianzas estratégicas para la competitividad. Línea 2: Estudios Sectoriales. A corto plazo: Desarrollar las potencialidades estructurales de cada uno de los sectores para promover el análisis de las diferentes organizaciones, caracterizando la gestión de las empresas en aspectos contables, administrativos, fiscales y formas de control como modelo administrativo. A mediano plazo: se propone elaborar herramientas de apoyo a la gestión de las empresas como la presentación de instrumentos para la elaboración y seguimiento de los planes de negocios, así como de control de gestión. A largo plazo se espera contar con productos resultantes la gestión y evaluación aplicados a distintos sectores en el ámbito empresarial y de producción, tanto a nivel nacional como internacional. Línea 3: Administración y gestión de proyectos. A corto plazo: Se proyecta desarrollar proyectos en los sectores productivos y empresariales de Boyacá y Casanare, en temas financieros, tributarios, de comercio internacional, mercadeo y gerencia de proyectos, promoviendo el desarrollo empresarial y productivo de las diferentes organizaciones. A mediano plazo se ha propuesto la elaboración de herramientas de gestión, apoyo, evaluación y control de los proyectos aplicados. Línea 3: Contabililidad y auditoria. Esta línea pretende dar una mirada a los estandares internacionales que por ley se imponen en Colombia desde el ámbito mundial, como resultado del proceso de globalización, revisando lo \r\nEstado del arte: El entorno empresarial actual tiene un proceso dinámico y continuo de adaptación al nuevo sistema de mercado, donde la competencia y los cambios tecnológicos son la expresión de una creciente complejidad. Para que las empresas puedan competir exitosamente en esta nueva generación, se hace necesario implementar sistemas de medición que permitan observar, detectar y tomar los correctivos o pautas por seguir al evaluar la gestión empresarial, tanto administrativa[26].isCheckedcked=on 	2015-03-02	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com	Hoja de contacto-006 copia (1).jpg		Hoja de contacto-006 copia (2).jpg	Hoja de contacto-006 copia.jpg	Hoja de contacto-003 copia.jpg	1
+3	1	grupo34	1	1	A1	maamamam	2015-03-02	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com						0
+7	1	xxxx1232	212	1	A1	 ssmsmsms smsmsmms msmsmsmsm	2015-03-16	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com					Hoja de contacto-085 copia.jpg	1
+5	1	xxxx	1	2	D	 ssmsmsms smsmsmms msmsmsmsm	2015-03-16	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com					Hoja de contacto-051 copia.jpg	1
+6	1	xxxx123	444	1	A1	 ssmsmsms smsmsmms msmsmsmsm	2015-03-16	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com						1
+4	1	GITECX	1	1	D	Debido a la gran importancia de los sistemas basados en unix y las arquitecturas abiertas, donde se soporta la mayoría de servicios telemáticos a nivel mundial, el software GNU/Linux y en general las tecnologías de Software Libre, como alternativa real, sólida y económica al software propietario, y su gran estabilidad, flexibilidad, robustez y seguridad en beneficio de la sociedad, Se ha decidido la conformación del GITECX GRUPO DE INVESTIGACION TELEINFORMÁTICA CON SOFTWARE DE CODIGO ABIERTO”, el cual refleja la evolución del grupo de estudio GLULL	2015-02-22	jj@h.com	6678976	Calle 17 #20-34 barrio las bolitas	www.pagina1.com.com		http://201.234.78.173:8080/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000005589			214-Hoja de contacto-006 copia (1).jpg	1
 \.
 
 
@@ -2613,7 +2642,7 @@ COPY inv_grupos (codigo_grupo, inv_tipo_grupos, nombre_grupo, director_grupo, in
 -- Name: inv_grupos_codigo_grupo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_grupos_codigo_grupo_seq', 3, true);
+SELECT pg_catalog.setval('inv_grupos_codigo_grupo_seq', 7, true);
 
 
 --
@@ -2621,6 +2650,8 @@ SELECT pg_catalog.setval('inv_grupos_codigo_grupo_seq', 3, true);
 --
 
 COPY inv_investigadores_externos (codinv_ext, cedula_persona, nit, codperfil, profesion, codconvocatoria, nombreconvocatoria, numerocontrato, fecha_inicio, fecha_fin, link_cvlac) FROM stdin;
+2	12	1	1	ingeniero	1234	hahhaha	jajajajjaja	2015-04-23	\N	www.google.com
+4	8	1	1	ingeniero 	1234	jjjj	bbb	2015-03-24	2015-03-28	gggg.com
 \.
 
 
@@ -2628,7 +2659,7 @@ COPY inv_investigadores_externos (codinv_ext, cedula_persona, nit, codperfil, pr
 -- Name: inv_investigadores_externos_codinv_ext_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_investigadores_externos_codinv_ext_seq', 1, false);
+SELECT pg_catalog.setval('inv_investigadores_externos_codinv_ext_seq', 4, true);
 
 
 --
@@ -2637,6 +2668,7 @@ SELECT pg_catalog.setval('inv_investigadores_externos_codinv_ext_seq', 1, false)
 
 COPY inv_linea_grupos (id_linea_grupos, inv_codigo_grupo, inv_id_linea) FROM stdin;
 1	2	4
+2	5	4
 \.
 
 
@@ -2644,7 +2676,7 @@ COPY inv_linea_grupos (id_linea_grupos, inv_codigo_grupo, inv_id_linea) FROM std
 -- Name: inv_linea_grupos_id_linea_grupos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_linea_grupos_id_linea_grupos_seq', 1, true);
+SELECT pg_catalog.setval('inv_linea_grupos_id_linea_grupos_seq', 2, true);
 
 
 --
@@ -2652,7 +2684,11 @@ SELECT pg_catalog.setval('inv_linea_grupos_id_linea_grupos_seq', 1, true);
 --
 
 COPY inv_lineas (id_lineas, inv_unidad_academica, nombre_linea, definicion_linea, coordinador_linea, objetivo_estudio, objetivo_linea, ruta_archivo, foto_linea, estado) FROM stdin;
-4	1	Teleinformatica	jajajajajjaja	1	mmxmxm	mxmxmms	\N	"Software-Penguins.jpg"	1
+5	1	S pollitos dicen pio pio los pollitos dicen pio pio los pollitos dicen pio pio		63345889	mmmmm	s,,s,s,s,s,s		Hoja de contacto-006 copia (1).jpg	1
+6	1	S pollitos di		1	mmmmm	s,,s,s,s,s,s		Hoja de contacto-009 copia.jpg	1
+7	4	Linea1	mmxmmxmx	63345889	xmxmmxmxmx	mmcmcmc	Hoja de contacto-003 copia (1).jpg	Hoja de contacto-004 copia (1).jpg	1
+8	3	Linea #23	mmxmmxmx	212324499999	xmxmmxmxmx	mmcmcmc		Hoja de contacto-010 copia.jpg	1
+4	1	Teleinformatica	jajajajajjaja	1	mmxmxm	mxmxmms	\N	283-Chrysanthemum.jpg	1
 \.
 
 
@@ -2660,7 +2696,7 @@ COPY inv_lineas (id_lineas, inv_unidad_academica, nombre_linea, definicion_linea
 -- Name: inv_lineas_id_lineas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_lineas_id_lineas_seq', 4, true);
+SELECT pg_catalog.setval('inv_lineas_id_lineas_seq', 8, true);
 
 
 --
@@ -2670,6 +2706,10 @@ SELECT pg_catalog.setval('inv_lineas_id_lineas_seq', 4, true);
 COPY inv_participacion_grupos (id_participacion_grupos, inv_codigo_grupo, cedula_persona) FROM stdin;
 1	1	63345889
 2	2	63345889
+3	4	63345889
+4	4	1
+5	4	212
+6	5	1121889
 \.
 
 
@@ -2677,7 +2717,7 @@ COPY inv_participacion_grupos (id_participacion_grupos, inv_codigo_grupo, cedula
 -- Name: inv_participacion_grupos_id_participacion_grupos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_participacion_grupos_id_participacion_grupos_seq', 2, true);
+SELECT pg_catalog.setval('inv_participacion_grupos_id_participacion_grupos_seq', 6, true);
 
 
 --
@@ -2686,6 +2726,9 @@ SELECT pg_catalog.setval('inv_participacion_grupos_id_participacion_grupos_seq',
 
 COPY inv_participacion_productos (id_participacion_productos, inv_codigo_grupo, inv_codigo_producto, cedula_persona) FROM stdin;
 1	1	1	63345889
+3	1	4	63345889
+4	4	4	1
+5	1	6	63345889
 \.
 
 
@@ -2693,7 +2736,7 @@ COPY inv_participacion_productos (id_participacion_productos, inv_codigo_grupo, 
 -- Name: inv_participacion_productos_id_participacion_productos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_participacion_productos_id_participacion_productos_seq', 1, true);
+SELECT pg_catalog.setval('inv_participacion_productos_id_participacion_productos_seq', 5, true);
 
 
 --
@@ -2701,6 +2744,9 @@ SELECT pg_catalog.setval('inv_participacion_productos_id_participacion_productos
 --
 
 COPY inv_participacion_proyectos (id_participacion_proyectos, tipo_investigador, inv_codigo_proyecto, cedula_persona, dedicacion_tiempo) FROM stdin;
+1	investigador principal	1	1	13horas
+2	investigador principal	3	63345889	12horas
+3	coinvestigador	3	2123	12horas
 \.
 
 
@@ -2708,7 +2754,7 @@ COPY inv_participacion_proyectos (id_participacion_proyectos, tipo_investigador,
 -- Name: inv_participacion_proyectos_id_participacion_proyectos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_participacion_proyectos_id_participacion_proyectos_seq', 1, false);
+SELECT pg_catalog.setval('inv_participacion_proyectos_id_participacion_proyectos_seq', 3, true);
 
 
 --
@@ -2716,6 +2762,7 @@ SELECT pg_catalog.setval('inv_participacion_proyectos_id_participacion_proyectos
 --
 
 COPY inv_periodos_academicos (codigo_periodo, ano, periodo, fecha_inicio, fecha_fin) FROM stdin;
+1	d	d	2015-04-07	2015-04-02
 \.
 
 
@@ -2723,7 +2770,7 @@ COPY inv_periodos_academicos (codigo_periodo, ano, periodo, fecha_inicio, fecha_
 -- Name: inv_periodos_academicos_codigo_periodo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_periodos_academicos_codigo_periodo_seq', 1, false);
+SELECT pg_catalog.setval('inv_periodos_academicos_codigo_periodo_seq', 1, true);
 
 
 --
@@ -2731,7 +2778,16 @@ SELECT pg_catalog.setval('inv_periodos_academicos_codigo_periodo_seq', 1, false)
 --
 
 COPY inv_productos (codigo_producto, inv_codigo_grupo, inv_id_linea, inv_subtipo_producto, inv_nit, nombre_producto, observaciones_producto, fecha_producto, reconocimiento_producto, observaciones_soporte, soporte_producto, tipo_soporte, foto_producto) FROM stdin;
+5	6	4	3	1	producto2	jkj klkkksla	2015-03-02					
 1	1	4	1	1	producto1	mzmzmzmsmsmamsmsm	2015-03-02	ansmsmsmsnans	smsmsmms	Hoja de contacto-006 copia (2).jpg	mzmzmms	Hoja de contacto-006 copia (1).jpg
+4	1	4	2	1	producto prueba 1	mx,<mx,xm<,	2015-02-23	ansmsmsmsnans		Hoja de contacto-001 copia (1).jpg		Hoja de contacto-002 copia (3).jpg
+6	4	4	4	10	producto3	,fdv,.vm.v,z..vx	2015-03-02					
+7	1	4	5	1	producto4	,fdv,.vm.v,z..vx	2015-03-02					
+8	1	4	6	1	producto43	,fdv,.vm.v,z..vx	2015-03-02					
+9	7	4	7	1	producto3f	bfxgxgg gggxg	2015-03-17	mn				
+10	4	4	8	1	producto3fvggf	bfxgxgg gggxg	2015-03-17	mn				
+11	1	4	9	1	producto prueba 5y	mmmmm	2015-04-14					
+12	3	4	10	10	prodcutico	mdmmdmdmmd	2015-05-06	mcmcmcsmd	dakdkadla	\N	\N	\N
 \.
 
 
@@ -2739,7 +2795,7 @@ COPY inv_productos (codigo_producto, inv_codigo_grupo, inv_id_linea, inv_subtipo
 -- Name: inv_productos_codigo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 1, true);
+SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 13, true);
 
 
 --
@@ -2747,6 +2803,9 @@ SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 1, true);
 --
 
 COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_linea, inv_codigo_grupo, nombre_proyecto, objetivo_general, archivo_actainicio, archivo_propuesta, informe_final, fecha_proyecto, grupo_auxiliar, estado_proyecto) FROM stdin;
+1	1234	5	1	nnnnn	mmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmm				2015-02-22	2	aprobado
+3	1234	7	7	xxxxxxj	mnzmzmz				2015-03-17	7	aprobado
+4	fffffqaa	6	7	hajhdjas	mnzmzmz				2015-03-17	1	rechazado
 \.
 
 
@@ -2754,7 +2813,7 @@ COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_linea, inv_
 -- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 1, false);
+SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 4, true);
 
 
 --
@@ -2762,6 +2821,9 @@ SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 1, false);
 --
 
 COPY inv_sublineas (id_sublinea, inv_id_linea, nombre_sublinea, estado, descripcion_sublinea, estado1) FROM stdin;
+2	5	sublinea2	estado1	Wwwjwq dkjwdkjdkw	1
+3	7	3	estado2	Wwwjwq dkjwdkjdkw	1
+1	5	sublinea1*	activo	Mmmmmmmmmmm mmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmm \r\n1. wwww\r\n2. sss\r\n3. ggg	0
 \.
 
 
@@ -2769,7 +2831,7 @@ COPY inv_sublineas (id_sublinea, inv_id_linea, nombre_sublinea, estado, descripc
 -- Name: inv_sublineas_id_sublinea_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_sublineas_id_sublinea_seq', 1, false);
+SELECT pg_catalog.setval('inv_sublineas_id_sublinea_seq', 3, true);
 
 
 --
@@ -2778,6 +2840,16 @@ SELECT pg_catalog.setval('inv_sublineas_id_sublinea_seq', 1, false);
 
 COPY inv_subtipo_productos (id_subtipo_producto, inv_id_tipo_producto, nombre_subtipo_producto, descripcion_subtipo_producto, estado) FROM stdin;
 1	1	subtipo1 producto	smsmmsms	1
+2	1	subtipo2 producto		1
+3	1	subtipo3 producto		1
+4	1	subtipo4 producto	cmzkc,z	1
+5	1	subtipo5 producto	,,	1
+6	1	subtipo6 producto	,,	1
+7	1	subtipo7 producto	,,	1
+8	1	subtipo8 producto	,,	1
+9	1	subtipo9 producto	,,	1
+10	1	subtipo10	csskskjsfk	1
+11	1	subtipo11 prodcuto	nksksfjk	1
 \.
 
 
@@ -2785,7 +2857,7 @@ COPY inv_subtipo_productos (id_subtipo_producto, inv_id_tipo_producto, nombre_su
 -- Name: inv_subtipo_productos_id_subtipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_subtipo_productos_id_subtipo_producto_seq', 1, true);
+SELECT pg_catalog.setval('inv_subtipo_productos_id_subtipo_producto_seq', 9, true);
 
 
 --
@@ -2794,6 +2866,8 @@ SELECT pg_catalog.setval('inv_subtipo_productos_id_subtipo_producto_seq', 1, tru
 
 COPY inv_tipo_grupos (id, tipo_grupo, estado) FROM stdin;
 1	Estudio 	1
+2	Investigacion	1
+3	Tipo 3 de estudio	1
 \.
 
 
@@ -2801,7 +2875,7 @@ COPY inv_tipo_grupos (id, tipo_grupo, estado) FROM stdin;
 -- Name: inv_tipo_grupos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_tipo_grupos_id_seq', 1, true);
+SELECT pg_catalog.setval('inv_tipo_grupos_id_seq', 3, true);
 
 
 --
@@ -2810,6 +2884,9 @@ SELECT pg_catalog.setval('inv_tipo_grupos_id_seq', 1, true);
 
 COPY inv_tipo_productos (id_tipo_producto, nombre_tipo_producto, descripcion_producto, estado) FROM stdin;
 1	Nuevo conocimiento		1
+2	tipo1 producto	jrjrjrj jrjrjjrrj	1
+3	tipo 2 producto		1
+4	tipo3 producto		1
 \.
 
 
@@ -2817,7 +2894,7 @@ COPY inv_tipo_productos (id_tipo_producto, nombre_tipo_producto, descripcion_pro
 -- Name: inv_tipo_productos_id_tipo_producto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_tipo_productos_id_tipo_producto_seq', 1, true);
+SELECT pg_catalog.setval('inv_tipo_productos_id_tipo_producto_seq', 5, true);
 
 
 --
@@ -2827,6 +2904,8 @@ SELECT pg_catalog.setval('inv_tipo_productos_id_tipo_producto_seq', 1, true);
 COPY inv_unidades_academicas (id_unidad, nombre_unidad, inv_cedula_coordinador, descripcion) FROM stdin;
 1	Escuela de ingenieria	1121889	                    smmsms
 2	Departamento de Biologia y Quimica	63345889	jsjsjsjs sjjsjsjjs
+3	Departamento de Matemáticas y Fisica	63345889	msmam dmdmmdd ddmdmdmmd
+4	Instituto de Ciencias	1121889	mdmdmmdm
 \.
 
 
@@ -2834,7 +2913,7 @@ COPY inv_unidades_academicas (id_unidad, nombre_unidad, inv_cedula_coordinador, 
 -- Name: inv_unidades_academicas_id_unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_unidades_academicas_id_unidad_seq', 2, true);
+SELECT pg_catalog.setval('inv_unidades_academicas_id_unidad_seq', 4, true);
 
 
 --
@@ -2862,7 +2941,6 @@ COPY perfil (codperfil, nombreperfil, descperfil) FROM stdin;
 --
 
 COPY persona (cedula, nombre1, direccion, telefono, celular, apellido1, nombre2, apellido2, mail, clavep, fecha_perfil, foto) FROM stdin;
-444	g2	g2                                                                                                  	2         	22        	g2             	g21	g22            	1                                                 	g2dd	2014-11-05 00:00:00	d
 212	joh	J                                                                                                   	J         	3         	q              	s	J              	J@SDA                                             	\N	2015-02-02 00:00:00	
 2123	joh	J                                                                                                   	J         	3         	q              	s	J              	J@SDA                                             	\N	2015-02-02 00:00:00	
 21232	joh	J                                                                                                   	J         	3         	q              	s	J              	J@SDA                                             	\N	2015-02-02 00:00:00	
@@ -2871,6 +2949,9 @@ COPY persona (cedula, nombre1, direccion, telefono, celular, apellido1, nombre2,
 1	g1	gato@co.co                                                                                          	323       	1234      	apellido       	nombre2	apellido2      	miemal@.com                                       	123	\N	d
 22	g2	g2                                                                                                  	2         	22        	g2             	g21	g22            	g2@d                                              	g2dd	2014-11-05 00:00:00	59-Hydrangeas.jpg
 1121889	andrea	CALLE 17 NO.12 A 27                                                                                 	6678976   	3204530642	camargo        		               	jj@h.com                                          	\N	2015-02-10 00:00:00	59-Hydrangeas.jpg
+12	pedro	                                                                                                    	6657890   	3056789089	gonzalez       	jose	ramirez        	                                                  		2015-03-12 00:00:00	
+444	g2	g2                                                                                                  	2         	22        	g2             	g21	g22            	email@hot.com                                     	g2dd	2014-11-05 00:00:00	d
+8	andrea	Calle 17 #20-34 barrio las bolitas                                                                  	6678976   	32045     	camargo        	s	J              	jj@h.com                                          	\N	2015-03-03 00:00:00	
 \.
 
 
@@ -2886,6 +2967,18 @@ COPY personaperfil (codperfil, cedula, clave, username, habilitado, tiempoextra)
 3	63345889	111                                     	usuario7            	t	3
 4	212324499999	333                                     	pepito              	t	1
 3	22	11                                      	user1               	t	2
+1	12	33                                      	usser3456           	t	0
+\.
+
+
+--
+-- Data for Name: universidad; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY universidad (cod_uni, universidad) FROM stdin;
+1	Universidad Nacional de Colombia
+2	Universidad de los llanos
+3	Universidad Javeriana
 \.
 
 
@@ -2895,6 +2988,22 @@ COPY personaperfil (codperfil, cedula, clave, username, habilitado, tiempoextra)
 
 ALTER TABLE ONLY persona
     ADD CONSTRAINT cedula_persona_pkey PRIMARY KEY (cedula);
+
+
+--
+-- Name: cod_docente_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY docente
+    ADD CONSTRAINT cod_docente_pk PRIMARY KEY (coddocente);
+
+
+--
+-- Name: cod_uni_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY universidad
+    ADD CONSTRAINT cod_uni_pk PRIMARY KEY (cod_uni);
 
 
 --

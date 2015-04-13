@@ -43,7 +43,9 @@
 
 	    <!-- css -->
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}"> <!--css del estilo de la pagina principal-->
-	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_slider.css')}}">
+	    {{ HTML::style('css/estilo_slider.css') }}
+	    {{ HTML::script('') }}
+	   
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo_login.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.css')}}">
 	    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery-ui.structure.css')}}">

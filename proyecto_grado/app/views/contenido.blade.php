@@ -167,7 +167,6 @@
 							return true;
 						},
 						onEventLinkClick: function(event) { 
-							alert("event link click");
 							return true; 
 						},
 						onEventBlockClick: function(event) { 
