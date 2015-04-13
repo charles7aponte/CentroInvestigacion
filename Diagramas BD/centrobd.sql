@@ -1824,6 +1824,7 @@ CREATE TABLE inv_proyectos (
     archivo_propuesta text,
     informe_final text,
     fecha_proyecto date NOT NULL,
+    fecha_finproyecto date,
     grupo_auxiliar text,
     estado_proyecto character varying(30) NOT NULL
 );
@@ -1832,10 +1833,23 @@ CREATE TABLE inv_proyectos (
 ALTER TABLE public.inv_proyectos OWNER TO postgres;
 
 --
--- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: inv_slider; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE SEQUENCE inv_proyectos_codigo_proyecto_seq
+CREATE TABLE inv_slider (
+    id_slider integer NOT NULL,
+    ruta_imagen text NOT NULL,
+    descripcion text
+);
+
+
+ALTER TABLE public.inv_slider OWNER TO postgres;
+
+--
+-- Name: inv_slider_id_slider_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE inv_slider_id_slider_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1843,13 +1857,13 @@ CREATE SEQUENCE inv_proyectos_codigo_proyecto_seq
     CACHE 1;
 
 
-ALTER TABLE public.inv_proyectos_codigo_proyecto_seq OWNER TO postgres;
+ALTER TABLE public.inv_slider_id_slider_seq OWNER TO postgres;
 
 --
--- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: inv_slider_id_slider_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE inv_proyectos_codigo_proyecto_seq OWNED BY inv_proyectos.codigo_proyecto;
+ALTER SEQUENCE inv_slider_id_slider_seq OWNED BY inv_slider.id_slider;
 
 
 --
@@ -2170,10 +2184,10 @@ ALTER TABLE ONLY inv_productos ALTER COLUMN codigo_producto SET DEFAULT nextval(
 
 
 --
--- Name: codigo_proyecto; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_slider; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY inv_proyectos ALTER COLUMN codigo_proyecto SET DEFAULT nextval('inv_proyectos_codigo_proyecto_seq'::regclass);
+ALTER TABLE ONLY inv_slider ALTER COLUMN id_slider SET DEFAULT nextval('inv_slider_id_slider_seq'::regclass);
 
 
 --
@@ -2802,18 +2816,23 @@ SELECT pg_catalog.setval('inv_productos_codigo_producto_seq', 13, true);
 -- Data for Name: inv_proyectos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_linea, inv_codigo_grupo, nombre_proyecto, objetivo_general, archivo_actainicio, archivo_propuesta, informe_final, fecha_proyecto, grupo_auxiliar, estado_proyecto) FROM stdin;
-1	1234	5	1	nnnnn	mmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmm				2015-02-22	2	aprobado
-3	1234	7	7	xxxxxxj	mnzmzmz				2015-03-17	7	aprobado
-4	fffffqaa	6	7	hajhdjas	mnzmzmz				2015-03-17	1	rechazado
+COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_linea, inv_codigo_grupo, nombre_proyecto, objetivo_general, archivo_actainicio, archivo_propuesta, informe_final, fecha_proyecto, fecha_finproyecto, grupo_auxiliar, estado_proyecto) FROM stdin;
 \.
 
 
 --
--- Name: inv_proyectos_codigo_proyecto_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Data for Name: inv_slider; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('inv_proyectos_codigo_proyecto_seq', 4, true);
+COPY inv_slider (id_slider, ruta_imagen, descripcion) FROM stdin;
+\.
+
+
+--
+-- Name: inv_slider_id_slider_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('inv_slider_id_slider_seq', 1, false);
 
 
 --
@@ -3039,6 +3058,14 @@ ALTER TABLE ONLY inv_grupos
 
 
 --
+-- Name: inv_id_slider_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY inv_slider
+    ADD CONSTRAINT inv_id_slider_pkey PRIMARY KEY (id_slider);
+
+
+--
 -- Name: inv_investigadores_externos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -3100,14 +3127,6 @@ ALTER TABLE ONLY inv_periodos_academicos
 
 ALTER TABLE ONLY inv_productos
     ADD CONSTRAINT inv_productos_pkey PRIMARY KEY (codigo_producto);
-
-
---
--- Name: inv_proyectos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY inv_proyectos
-    ADD CONSTRAINT inv_proyectos_pkey PRIMARY KEY (codigo_proyecto);
 
 
 --
@@ -3226,14 +3245,6 @@ ALTER TABLE ONLY inv_investigadores_externos
 -- Name: inv_codigo_grupo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY inv_proyectos
-    ADD CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos(codigo_grupo) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: inv_codigo_grupo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
 ALTER TABLE ONLY inv_productos
     ADD CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos(codigo_grupo) ON UPDATE CASCADE ON DELETE CASCADE;
 
@@ -3271,22 +3282,6 @@ ALTER TABLE ONLY inv_participacion_productos
 
 
 --
--- Name: inv_codigo_proyecto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY inv_financiacion
-    ADD CONSTRAINT inv_codigo_proyecto_fkey FOREIGN KEY (inv_codigo_proyecto) REFERENCES inv_proyectos(codigo_proyecto) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: inv_codigo_proyecto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY inv_participacion_proyectos
-    ADD CONSTRAINT inv_codigo_proyecto_fkey FOREIGN KEY (inv_codigo_proyecto) REFERENCES inv_proyectos(codigo_proyecto) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
 -- Name: inv_codperfil_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3299,14 +3294,6 @@ ALTER TABLE ONLY inv_investigadores_externos
 --
 
 ALTER TABLE ONLY inv_sublineas
-    ADD CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas(id_lineas) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: inv_id_linea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY inv_proyectos
     ADD CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas(id_lineas) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
@@ -3348,14 +3335,6 @@ ALTER TABLE ONLY inv_financiacion
 
 ALTER TABLE ONLY inv_productos
     ADD CONSTRAINT inv_nit_fkey FOREIGN KEY (inv_nit) REFERENCES empresa(nit) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: inv_numero_convocatoria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY inv_proyectos
-    ADD CONSTRAINT inv_numero_convocatoria_fkey FOREIGN KEY (inv_numero_convocatoria) REFERENCES inv_convocatorias(numero_convocatoria) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
