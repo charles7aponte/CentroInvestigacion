@@ -18,11 +18,20 @@ class ControlProductividad extends Controller {
 
 	public function productividad_unidad($id_unidad){
 
-		$listaProductividadUnidades=	DB::select(DB::raw("select isp.nombre_subtipo_producto,itp.nombre_tipo_producto,isp.id_subtipo_producto,itp.id_tipo_producto,count(*)
-		from inv_grupos ig, inv_productos ip, inv_subtipo_productos isp, inv_tipo_productos itp
-		where itp.id_tipo_producto=isp.inv_id_tipo_producto and isp.id_subtipo_producto=ip.inv_subtipo_producto and ig.codigo_grupo=ip.inv_codigo_grupo and ig.inv_unidad_academica=$id_unidad
-		group by isp.nombre_subtipo_producto,itp.nombre_tipo_producto,isp.id_subtipo_producto,itp.id_tipo_producto"));
-	
+		$listaProductividadUnidades=	DB::select(DB::raw("select  nombre_subtipo_producto,nombre_tipo_producto,id_subtipo_producto,id_tipo_producto,count(*)
+			FROM (select distinct isp.nombre_subtipo_producto,itp.nombre_tipo_producto,isp.id_subtipo_producto,itp.id_tipo_producto,ip.codigo_producto
+
+			from inv_productos ip, inv_subtipo_productos isp, inv_tipo_productos itp,inv_unidades_academicas iua,docente d,inv_participacion_productos ipp
+
+			where itp.id_tipo_producto=isp.inv_id_tipo_producto 
+				and isp.id_subtipo_producto=ip.inv_subtipo_producto 
+				and iua.id_unidad=$id_unidad
+				and iua.id_unidad=d.unidad_academica 
+				and ip.codigo_producto=ipp.inv_codigo_producto
+				and d.cedula=ipp.cedula_persona
+			) as subconsultaunidad
+			group by nombre_subtipo_producto,nombre_tipo_producto,id_subtipo_producto,id_tipo_producto"));
+				
 
 		$totalUnidad=array();
 		foreach ($listaProductividadUnidades as $key => $productividad){
