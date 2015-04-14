@@ -39,6 +39,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+
 	    <title>CENTRO DE INVESTIGACIONES(FCBI) Universidad de los llanos</title>
 
 	    <!-- css -->
@@ -81,28 +82,29 @@
 									   -webkit-box-shadow:0 0 15px 5px #AFAFB0;
 									   -moz-box-shadow: 0 0 15px 5px #AFAFB0;">		
 			<!-- Cabecera -->
-				<header class="capa-cabeza">
-						<div id="superior-principal"></div>
-					<!-- logo -->
-						<div id="logo-encabezado">
-							<img src="{{URL::to('images/1.png')}}" alt="" width="450" height="100"/>
-						</div>
-						<!-- Fecha -->
+									<!-- Fecha -->
 						<div id="fecha-encabezado">
 							<p>
 								{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
+							
 							</p>
-						</div>					
-						<!-- Iniciar sesion -->
-						<div id="ingreso-encabezado">
 
-							<form action="login" id="myForm" method="POST"> 
-								<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
-									<span class="glyphicon glyphicon-user"></span> Ingresar
-								</a>
-							</form>	
+						</div>					
+				<header class="capa-cabeza">
+					<!-- logo -->
+						<div id="logo-encabezado">
+							<img src="{{URL::to('images/descarga.jpg')}}" alt="" width="960" height="140"/>
 						</div>
-				</header>
+				</header>					
+				<!-- Iniciar sesion -->
+				<div id="ingreso-encabezado">
+
+					<form action="login" id="myForm" method="POST"> 
+						<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
+							<span class="glyphicon glyphicon-user"></span> Ingresar
+						</a>
+					</form>	
+				</div>
 
 				<!-- Menu de navegacion -->
 				<div class="row">

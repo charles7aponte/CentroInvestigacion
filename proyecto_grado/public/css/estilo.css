@@ -68,19 +68,19 @@ Encabezado
 
 #logo-encabezado{
     color: #FFF;
-    float: left;
 }
 #logo-encabezado img{
-    margin: 5px 0;
-    padding-left: 18px;
-
+  margin:5px;  
 }
+
 #fecha-encabezado{
     color: rgb(151, 151, 151);
     clear: none;
-    font-size: 1.1em;
+    font-size: 1em;
     height: 20px;
-    text-align: right;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 3px;
 }
 
 #fecha-encabezado p{
@@ -89,7 +89,6 @@ Encabezado
 
 #ingreso-encabezado{
     text-align: right;
-    margin-top: 60px;
 }
 
 #ingreso-encabezado a{

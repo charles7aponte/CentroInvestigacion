@@ -64,7 +64,7 @@
               @foreach ($campo_lista as $campo)
                   <tr id="dato_grupo_{{$campo['codigo_grupo']}}" 
                     @if($campo['estado_activacion']==0) 
-                    style="background:#BDBDBD"
+                    style=" background-color: #ede6c2;"
                     @endif
                    >
                     <td style="width:100px;">

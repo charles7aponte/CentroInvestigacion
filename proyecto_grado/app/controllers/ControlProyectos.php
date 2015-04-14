@@ -21,7 +21,7 @@ class ControlProyectos extends Controller {
 
 
 		$dateinicio = new DateTime($fecha_inicio);
-		$datefin= new DateTime($fecha_fin;
+		$datefin= new DateTime($fecha_fin);
 
 		$fecha_inicio=$dateinicio->format('Y-m-d');
 		$fecha_fin=$datefin->format('Y-m-d');
@@ -54,6 +54,7 @@ class ControlProyectos extends Controller {
 		$entidad->nombre_proyecto=$nombre_proyecto;
 		$entidad->estado_proyecto=$estado_proyecto;
 		$entidad->fecha_proyecto=$fecha_inicio;
+		$entidad->fecha_finproyecto=$fecha_fin;
 		$entidad->inv_numero_convocatoria=$conv_proyecto;
 		$entidad->inv_id_linea=$linea_proyecto;
 		$entidad->inv_codigo_grupo=$grupo1_proyecto;
