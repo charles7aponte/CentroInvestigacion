@@ -138,8 +138,7 @@
                                 <div class='col-sm-5' style="padding:0px;">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer" 
-                                            readonly id="fecha-proyecto" class="date form-control" data-format="yyyy-mm-dd" name="fecha-finproyecto" />
+                                            <input type="" style="cursor:pointer" readonly id="fecha-proyecto" class="date form-control" data-format="yyyy-mm-dd" name="fecha-finproyecto" value="{{Input::old('fecha-finproyecto')!=null? Input::old('fecha-finproyecto'): (isset($proyectos['fecha_finproyecto'])? $proyectos['fecha_finproyecto']:'')}}" />
                                              @if ($errors->has('fecha-finproyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-finproyecto') }}</p> 
                                              @endif
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>

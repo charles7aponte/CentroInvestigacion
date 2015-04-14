@@ -248,6 +248,7 @@ class ControlProyectos extends Controller {
 		$entidad->nombre_proyecto=$nombre_proyecto;
 		$entidad->estado_proyecto=$estado_proyecto;
 		$entidad->fecha_proyecto=$fecha_inicio;
+		$entidad->fecha_finproyecto=$fecha_fin;
 		$entidad->inv_numero_convocatoria=$conv_proyecto;
 		$entidad->inv_id_linea=$linea_proyecto;
 		$entidad->inv_codigo_grupo=$grupo1_proyecto;
@@ -334,7 +335,7 @@ class ControlProyectos extends Controller {
 							$modelIntegrante->dedicacion_tiempo = $listatiempos[$i];
 							$modelIntegrante->tipo_investigador = $listatipoinvestigador[$i];
 
-							echo ($listaIntegrantes[$i]);
+							//echo ($listaIntegrantes[$i]);
 							$modelIntegrante->save();
 						}
 
@@ -369,7 +370,9 @@ class ControlProyectos extends Controller {
 		{
 			// esto es solo en caso de fechas .. para darle formato .. pues no lo retona diferente
 			$dateinicio = new DateTime($proyectos->fecha_proyecto);
+			$datefin = new DateTime($proyectos->fecha_finproyecto);
 			$proyectos->fecha_proyecto=$dateinicio->format('Y-m-d');
+			$proyectos->fecha_finproyecto=$datefin->format('Y-m-d');
 					
 		}	
 
