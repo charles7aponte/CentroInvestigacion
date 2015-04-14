@@ -227,3 +227,30 @@ ul.pagination li.active > span:hover{
     border-color:#1A6D71;
     background: #1A6D71;
 }
+
+
+
+/*ESTILO DE LOS REPORTES*/
+#titulo-reporte{
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color:  #3E3B36;
+}
+
+#reportes{
+  background-color: #fcf8e3;
+  border-radius: 10px;
+  margin: 50px;
+  width: auto;
+}
+
+.bs-callout {
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid  #faebcc;
+  border-left-width: 8px;
+  border-radius: 10px;
+  height: 100px;
+}
+
+

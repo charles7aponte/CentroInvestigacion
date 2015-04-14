@@ -32,6 +32,8 @@ Route::post('creacion/formularioslider', 'ControlSlider@CrearFormulario');
 
 Route::get('formularioslider/eliminar/{id}','ControlSlider@EliminarFormularioSlider');
 
+//reportes
+Route::get('listadereportes', function() { return View::make('administrador/inf_reportes'); });
 
 /*---------------crear grupo------------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
