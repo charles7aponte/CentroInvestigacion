@@ -53,7 +53,8 @@ Encabezado
 ==================================== */
 .capa-cabeza{
     font-family: sans-serif, Arial, Verdana, Helvetica;
-    background: #ebebeb url(../images/header-bg.jpg) center top repeat-x;
+    width: 960px;
+    background: #ebebeb url(../images/1.png);
     color: #000;
     height: 135px;
     padding: 15px 15px 9px 15px;
@@ -66,12 +67,6 @@ Encabezado
     width: 44%;
 }
 
-#logo-encabezado{
-    color: #FFF;
-}
-#logo-encabezado img{
-  margin:5px;  
-}
 
 #fecha-encabezado{
     color: rgb(151, 151, 151);
@@ -97,6 +92,7 @@ Encabezado
     font-weight: bold;
     font-size: 13px;
     padding: 2px;
+    margin-right:37px;
     border-left: 1px solid #2A0505;
 }
 /* ===================================

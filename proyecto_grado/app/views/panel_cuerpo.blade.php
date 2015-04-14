@@ -86,17 +86,12 @@
 						<div id="fecha-encabezado">
 							<p>
 								{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
-							
+							<!-- Iniciar sesion -->
 							</p>
-
 						</div>					
 				<header class="capa-cabeza">
-					<!-- logo -->
-						<div id="logo-encabezado">
-							<img src="{{URL::to('images/descarga.jpg')}}" alt="" width="960" height="140"/>
-						</div>
-				</header>					
-				<!-- Iniciar sesion -->
+					<!--aca foto del encabezado-->
+				</header>		
 				<div id="ingreso-encabezado">
 
 					<form action="login" id="myForm" method="POST"> 
@@ -104,8 +99,7 @@
 							<span class="glyphicon glyphicon-user"></span> Ingresar
 						</a>
 					</form>	
-				</div>
-
+				</div>			
 				<!-- Menu de navegacion -->
 				<div class="row">
 					<section id="menu">
