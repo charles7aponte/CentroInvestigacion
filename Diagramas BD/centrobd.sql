@@ -1839,7 +1839,8 @@ ALTER TABLE public.inv_proyectos OWNER TO postgres;
 CREATE TABLE inv_slider (
     id_slider integer NOT NULL,
     ruta_imagen text NOT NULL,
-    descripcion text
+    descripcion text,
+    estado_activacion character(1) DEFAULT 1
 );
 
 
@@ -2824,7 +2825,7 @@ COPY inv_proyectos (codigo_proyecto, inv_numero_convocatoria, inv_id_linea, inv_
 -- Data for Name: inv_slider; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY inv_slider (id_slider, ruta_imagen, descripcion) FROM stdin;
+COPY inv_slider (id_slider, ruta_imagen, descripcion, estado_activacion) FROM stdin;
 \.
 
 

@@ -256,5 +256,24 @@ class ControlEventosNoticias extends Controller {
 
 				return View::make('administrador/formulario_eventos_noticias',$datos);
 			}
+			
 
+	public function EliminarFormularioEventosNoticias($id){
+	
+		$form_eventos_noticias= InvEventosNoticias::find($id); //de donde necesito
+
+		if (is_null($form_eventos_noticias)==false){
+
+			//$form_slider->estado=0;
+			//$form_slider->nombre_grupo.="*";
+			//$form_slider->save();
+
+			$form_eventos_noticias->delete();
+
+			return Response::json(array("respuesta"=>true));
+
+		}
+		return Response::json(array("respuesta"=>false));
+
+	}
 }

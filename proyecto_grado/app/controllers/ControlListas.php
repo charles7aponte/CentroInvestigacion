@@ -7,6 +7,22 @@ class ControlListas extends Controller {
 	 *
 	 * @return void
 	 */
+
+	//controlador slider 
+	public function ConstruirListaSlider(){
+		$paginacion=InvSlider::where("estado_activacion","=","1")->paginate(20);
+		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
+
+		$datos= array(
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
+		
+
+		return View::make('administrador/lista_slider',$datos);
+	}
+
 	
 	//controlador lineas
 	public function ConstruirListaLineas(){
@@ -140,9 +156,12 @@ class ControlListas extends Controller {
 		$listas=InvEventosNoticias::all(); //traer registros
 		$paginacion=InvEventosNoticias::paginate(20);
 		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
 
 		$datos= array(
-			'campo_lista'=>$paginacion,'links'=>$crear_paginacion);
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
 		
 		return View::make('administrador/lista_eventos_noticias',$datos);
 	}
@@ -201,4 +220,26 @@ class ControlListas extends Controller {
 		return Response::json(array("respuesta"=>false));
 
 	}//	
+
+		public function ActivarDesactivar1($id,$estado){
+			
+		$form_slider=InvSlider::find($id); //de donde necesito
+
+		if (is_null($form_slider)==false ){
+			if($estado==1){
+			$form_slider->estado_activacion=0;
+		}
+		else {
+			   $form_slider->estado_activacion=1;
+			}
+			$form_slider->save();
+			return Response::json(array("respuesta"=>true,
+										"estado" =>	$form_slider->estado_activacion
+										));
+
+		}
+		return Response::json(array("respuesta"=>false));
+
+	}//
 }
+

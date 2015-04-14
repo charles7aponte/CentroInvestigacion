@@ -39,6 +39,9 @@
     <div id="tabla-eventos-noticias">
       <table id="listaeventosnoticias">
         <thead>
+          <?php
+            $contador=(20*$numeropagina)-19;
+          ?>
           <tr><th colspan="5" style=" border-radius: 5px; background: #1A6D71;
                   background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
                   background: -moz-linear-gradient(top,#1A6D71,#122d3e);
@@ -58,7 +61,7 @@
               @foreach ($campo_lista as $campo)
                   <tr id="dato_eventonoticia_{{$campo['id_evento']}}">
                     <td style="width:100px;">
-                      <b>{{$campo['id_evento']}}</b>
+                      <b>{{$contador++}}</b>
                     </td> 
                     <td>
                       <a href="">{{$campo['titulo_evento']}}</a>

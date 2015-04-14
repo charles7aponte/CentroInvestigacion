@@ -191,6 +191,12 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="#"></a></li>
 		</ul>
+
+		<h3><span class="glyphicon glyphicon-picture"></span> Slider de imagenes</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formularioslider')}}">Agregar nueva imagen</a></li>
+			<li class=""><a href="{{URL::to('listaimageneslider')}}">Ver/eliminar una imagen</a></li>
+		</ul>	
 		
 		<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
 		<ul class="toggle">

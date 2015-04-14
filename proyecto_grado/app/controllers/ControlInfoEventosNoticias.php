@@ -18,5 +18,5 @@ class ControlInfoEventosNoticias extends Controller {
 
 	}
 
-		
+	
 }

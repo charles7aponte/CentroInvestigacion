@@ -25,6 +25,13 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 
 /*--------------1-FORMULARIOS-----------------
 **********************************************/
+//slider
+Route::get('formularioslider','ControlSlider@cargarFormularioSlider');
+
+Route::post('creacion/formularioslider', 'ControlSlider@CrearFormulario');
+
+Route::get('formularioslider/eliminar/{id}','ControlSlider@EliminarFormularioSlider');
+
 
 /*---------------crear grupo------------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
@@ -205,6 +212,8 @@ Route::post('edicion/formularioproductos','ControlProductos@guardarEdicion');
 *********************/
 
 Route::get('listadegrupos','ControlListas@ConstruirListaGrupos');
+
+Route::get('listaimageneslider','ControlListas@ConstruirListaSlider');
 
 Route::get('listadeconvocatorias','ControlListas@ConstruirListaConvocatorias');
 Route::get('listadeconvocatorias/find/{titulo?}','ControlListas@ConstruirListaConvocatorias');

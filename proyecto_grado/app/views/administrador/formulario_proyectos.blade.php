@@ -131,6 +131,24 @@
                             </div>
                         </div>    
                     </li>
+
+                    <li><label for="fecha-proyecto">Fecha Fin:</label>
+                        <div class="container">
+                            <div class="row">
+                                <div class='col-sm-5' style="padding:0px;">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type="" style="cursor:pointer" 
+                                            readonly id="fecha-finproyecto" class="date form-control" data-format="yyyy-mm-dd" name="fecha-finproyecto" required="required" />
+                                             @if ($errors->has('fecha-finproyecto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-finproyecto') }}</p> @endif
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </div>    
+                    </li>
                     <li><label for="convocatoria-proyecto">Convocatoria:</label> 
                         <select name="convocatoria-proyecto" required="required">
                               @if(isset($convocatorias))
