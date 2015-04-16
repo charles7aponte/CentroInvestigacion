@@ -1,3 +1,7 @@
+<?php
+	$i=1;
+?>
+
 @extends('panel_cuerpo')
 
 	@section('css-nuevos')
@@ -11,22 +15,28 @@
 		<script src="{{URL::to('js/jquery-1.3.min.js')}}" type="text/javascript"></script>
     	<script src="{{URL::to('js/jMonthCalendar.min.js')}}" type="text/javascript"></script>
 		<script src="{{URL::to('js/jMonthCalendar.js')}}" type="text/javascript"></script>
+		<script >
+		    if(!window.slider) var slider={};slider.data=[
+		    @foreach($lista_imagenes as $lista_imagen)
+		    {"id":"slide-img-{{$i++}}","client":"{{$lista_imagen['descripcion']}}","desc":""},
+		    @endforeach 
+		    ];
+
+		</script>
     @stop	
 
 	@section('contenido-principal') 
-
 
 	<div id="slider1" style="width:800px;">
 		<div class="wrap">
 		    <div id="slide-holder">
 		        <div id="slide-img" >
-			        <a href=""><img id="slide-img-1" src="images/slider-fotos/2.png" class="slide" alt="" /></a>
-			        <a href=""><img id="slide-img-2" src="images/slider-fotos/2.png" class="slide" alt="" /></a>
-			       
-			        <a href=""><img id="slide-img-4" src="images/slider-fotos/2.png" class="slide" alt="" /></a>
-			        <a href=""><img id="slide-img-5" src="images/slider-fotos/2.png" class="slide" alt="" /></a>
-			        <a href=""><img id="slide-img-6" src="images/slider-fotos/2.png" class="slide" alt="" /></a>
-			        <a href=""><img id="slide-img-7" src="images/slider-fotos/2.png" class="slide" alt="" /></a> 
+		        	<?php
+		        		$i=1;
+		        	?>
+		        	@foreach($lista_imagenes as $lista_imagen)
+			        <a href=""><img id="slide-img-{{$i++}}" src="{{URL::to('archivos_db/slider/')}}/{{$lista_imagen['ruta_imagen']}}" class="slide" alt="" /></a>
+			        @endforeach 
 		        </div>
 	            <!--contenido del slider -->
 	            <div class="botones-slider">
@@ -73,9 +83,9 @@
 			          		</span>
 			            </div>  		
 					   	<p align="justify">{{substr($lista_noticia['descripcion'],0,200)}} 	
-					   	<span class="readmore"><a href="#">Leer mas..</a></span></p>
+					   	<span class="readmore"><a href="{{URL::to('eventonoticiainv/id')}}/{{$lista_noticia['id_evento']}}">Leer mas..</a></span></p>
 				   	@endforeach
-	   				<div class="ver-todo-otros">ver todas las noticias <span class="glyphicon glyphicon-plus-sign"></span></div>
+	   				<a href="{{URL::to('/')}}/listadeeventosinv/noticia"><div class="ver-todo-otros">ver todas las noticias <span class="glyphicon glyphicon-plus-sign"></span></div></a>
 				</div>
 			</aside>
 		</div>
@@ -101,7 +111,7 @@
 													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"dia")}} de
 							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"a")}}
 							                      			</span>
-								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+								                            <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i]['numero_convocatoria']}}">Leer mas..</a></p> 
 								                        </div>
 								                    </li>
 							                    @endif
@@ -114,7 +124,7 @@
 													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"dia")}} de
 							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"a")}}
 							                      			</span>
-								                            <div class="readmore"><a href="#">Leer mas..</a></p> 
+								                            <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i+1]['numero_convocatoria']}}">Leer mas..</a></p> 
 								                        </div>
 								                    </li>
 							                    @endif
@@ -128,7 +138,7 @@
 							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"a")}}
 							                      			</span> 
 								                        </div>
-								                        <div class="readmore"><a href="#">Leer mas..</a></p>
+								                        <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i+2]['numero_convocatoria']}}">Leer mas..</atitulo_convocatoria></p>
 								                    </li>
 							                    @endif
 							                </ul>
@@ -139,9 +149,11 @@
 						        <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
 						        <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
 						    </div><!-- /.control-box -->  
-						    						    <div class="ver-todo-otros">
+						    	<a href="{{URL::to('/')}}/listadeconvocatoriasinv">
+						    	<div class="ver-todo-otros">
 						  		ver todos las convocatorias <span class="glyphicon glyphicon-plus-sign"></span>
-							</div>  
+								</div> 
+								</a> 
 						</div><!-- /#myCarousel -->    
 					</div><!-- /.span12 -->          
 				</div><!-- /.row --> 

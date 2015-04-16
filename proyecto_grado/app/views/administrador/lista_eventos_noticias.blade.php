@@ -64,13 +64,13 @@
                       <b>{{$contador++}}</b>
                     </td> 
                     <td>
-                      <a href="">{{$campo['titulo_evento']}}</a>
+                      <a href="{{URL::to('/')}}/eventosnoticias/id/{{$campo['id_evento']}}">{{$campo['titulo_evento']}}</a>
                     </td>
                     <td style="width:90px;">
                       <a href="">{{$campo['tipo']}}</a>
                     </td>
                     <td style="width:90px;">
-                      <a href="formularioeventosnoticias/edit/{{$campo['id_evento']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="{{URL::to('/')}}/formularioeventosnoticias/edit/{{$campo['id_evento']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
                       <b onclick="eliminartipo({{$campo['id_evento']}})">

@@ -71,10 +71,19 @@ class ControlSlider extends Controller {
 
 
 							$archivoF->move($direccion,$nombreNuevo);
+											
+
+
 						}
 
 						$entidad->ruta_imagen =$nombreNuevo;
+
+						if(count(InvSlider::where("estado_activacion","=","1")->get())<7)
 						$entidad->save();
+						else 
+						return Redirect::to('formularioslider')
+						->withInput($todosDatos)
+						->with('mensaje_error',"Por favor elimine alguna imagen, maximo de fotos.");
 
 					}
 

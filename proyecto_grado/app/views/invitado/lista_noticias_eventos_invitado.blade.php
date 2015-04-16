@@ -57,7 +57,7 @@
                         <b>{{$contador++}}</b>
                       </td> 
                       <td style="width:700px;">
-                        <a href="{{URL::to('eventonoticia/id')}}/{{$campo->id_evento}}">{{$campo["titulo_evento"]}} </a>
+                        <a href="{{URL::to('eventonoticiainv/id')}}/{{$campo->id_evento}}">{{$campo["titulo_evento"]}} </a>
 
 
                       </td>

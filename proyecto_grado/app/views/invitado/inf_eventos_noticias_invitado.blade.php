@@ -13,24 +13,25 @@
             </fieldset>
         @endif
 
-    <div id="capa" class="infpersonas">
+    <div id="capa" class="infeventos">
         <fieldset id="principal">
-            <table id="encabezado-persona">
+            <table id="encabezado-evento">
                 <tbody>
                 @if(isset($info_eventos) && $info_eventos!=null && isset($info_eventos['titulo_evento']))
                     <tr>
                         <th style="background:none;">
-                            <h3 id="nombre-persona">
+                            <h3 id="titulo-evento">
                                 {{$info_eventos['titulo_evento']}}
                             </h3>  
-                            <div id="fecha-evento-noticia" style="text-align:right;">
-                                {{InvEventosNoticias::formato_fecha($info_eventos['fecha'])}}
-                            </div>
                         </th> 
                     </tr>
                 @endif    
                 </tbody>
             </table>
+
+            <div id="fecha-evento-noticia" style="text-align:right;">
+                <p>{{InvEventosNoticias::formato_fecha($info_eventos['fecha'])}}</p>
+            </div>
             
             <table class="tabla-infgrupos">
                 <tbody>
@@ -58,6 +59,7 @@
                             @if($info_eventos['enlace_documento']!="")
                                 <a href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$info_eventos['enlace_documento']}}" target="_blank"><i class="glyphicon glyphicon-file"></i>Dcto({{$info_eventos['enlace_documento']}})
                                 </a>
+                                @else <p style="color:gray;">Vacio</p>
                             @endif
                         </td>
                     </tr>

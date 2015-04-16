@@ -189,6 +189,19 @@ class ControlListasInvitado extends Controller {
 					
 					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
 				}
+
+				else 
+
+					$datos= array(
+					'campo_lista'=>$evento_noticia,
+					'links'=>$crear_paginacion,
+					'numeropagina'=>$numeropaginacion,
+					'lista_unidades'=>$unidades_academicas,
+					'tipo'=>$tipo,
+					'lista_documentos' =>$documentos);
+
+					
+					return View::make('invitado/lista_noticias_eventos_invitado',$datos);
 				
 		}
 }

@@ -13,9 +13,7 @@
 @stop
 
 
-
 @section('javascript-nuevos2')
-
 
 @stop
 

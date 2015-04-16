@@ -53,10 +53,9 @@ Encabezado
 ==================================== */
 .capa-cabeza{
     font-family: sans-serif, Arial, Verdana, Helvetica;
-    width: 960px;
-    background: #ebebeb url(../images/1.png);
+    background:url(../images/2.png) no-repeat;
     color: #000;
-    height: 135px;
+    min-height:170px ;
     padding: 15px 15px 9px 15px;
     margin-top: 5px;
 }
@@ -74,12 +73,16 @@ Encabezado
     font-size: 1em;
     height: 20px;
     text-align: left;
-    margin-left: 5px;
-    margin-top: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 #fecha-encabezado p{
     font-family: sans-serif, Arial, Verdana, Helvetica;
+    width: 70%;
+    float: left;
+    margin-left: 10px;
+    margin-top:5px;
 }
 
 #ingreso-encabezado{
@@ -87,13 +90,14 @@ Encabezado
 }
 
 #ingreso-encabezado a{
-    color: #2A0505;
+    width: 30%;
+    color: #122d3e;
     text-decoration: none;
     font-weight: bold;
     font-size: 13px;
     padding: 2px;
     margin-right:37px;
-    border-left: 1px solid #2A0505;
+    border-left: 1px solid #122d3e;
 }
 /* ===================================
 Menu de navegacion

@@ -252,6 +252,9 @@ Route::get('producto/id/{id_producto}','ControlInfoProductos@CargarInfoPrincipal
 
 Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipales');
 
+Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
+
+
 //Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
 
 //Route::get('listadocentes/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
@@ -347,11 +350,14 @@ Route::get('listaproductosgruposinv/grupo/{idgrupo}/subtipoproducto/{idsubtipo}'
 
 //3-Noticias y eventos
 Route::get('listade/{tipo_lista}/{mi_fecha?}','ControlListasInvitado@ConstruirListaNoticiasEventos');
-Route::get('eventonoticia/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
+Route::get('eventonoticiainv/id/{id_evento}','ControlInfoEventosNoticiasInvitado@CargarInfoPrincipales');
 Route::get('listadeeventosinv/{tipo_lista}','ControlListasInvitado@ConstruirListaEventos');
+ 
+
+
+
 
 Route::get('listadocentes/{cedula}','ControlInfoPersonasInvitado@CargarInfoPrincipales');
-
 Route::get('productividadunidad/{id_unidad}', 'ControlProductividad@CrearProductos'); 
 
 

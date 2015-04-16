@@ -66,8 +66,6 @@
 -->
 		<script src="{{URL::to('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 	    <script type="text/javascript" src="{{URL::to('js/scripts.js')}}"></script>
-	 
-	    <script type="text/javascript" src="{{URL::to('js/texto-imagenes-slider.js')}}"></script>
 	    
 	    <script src="{{URL::to('js/bootstrap.js')}}" type="text/javascript"></script>
 
@@ -81,25 +79,24 @@
 			<div class="contenedor"   style="  box-shadow: 0 0 15px 5px #AFAFB0;
 									   -webkit-box-shadow:0 0 15px 5px #AFAFB0;
 									   -moz-box-shadow: 0 0 15px 5px #AFAFB0;">		
-			<!-- Cabecera -->
-									<!-- Fecha -->
-						<div id="fecha-encabezado">
-							<p>
-								{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
+					<!-- Cabecera -->
+					<!-- Fecha -->
+					<div id="fecha-encabezado">
+					<p>
+						{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
 							<!-- Iniciar sesion -->
-							</p>
-						</div>					
+						<div id="ingreso-encabezado">
+							<form action="login" id="myForm" method="POST"> 
+								<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
+									<span class="glyphicon glyphicon-user"></span> Ingresar
+								</a>
+							</form>	
+						</div>	
+					</p>
+					</div>					
 				<header class="capa-cabeza">
 					<!--aca foto del encabezado-->
-				</header>		
-				<div id="ingreso-encabezado">
-
-					<form action="login" id="myForm" method="POST"> 
-						<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
-							<span class="glyphicon glyphicon-user"></span> Ingresar
-						</a>
-					</form>	
-				</div>			
+				</header>				
 				<!-- Menu de navegacion -->
 				<div class="row">
 					<section id="menu">
@@ -177,6 +174,7 @@
 							<p>Centro de Investigaciones, FCBI
 							Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000  
 							Correo electronico contacto@xxxx.com</p>
+							
 						</div>
 					</div>
 				</footer>

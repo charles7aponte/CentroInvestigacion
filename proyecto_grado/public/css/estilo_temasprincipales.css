@@ -114,10 +114,12 @@ fieldset#secundario{
   border-bottom-right-radius: 20px; 
 }
 
-.infpersonas #nombre-persona{
+.infpersonas #nombre-persona,
+.infeventos #titulo-evento{
   text-align: center;
-  font-weight: bold;
+  font-weight: bolder;
   color: #122d3e;
+  font-size:15px;   
 }
 
 #foto-persona{
@@ -498,14 +500,14 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
   border-right: 1px solid #ddd;
   padding-right: 10px;
   width: 400px;
-  word-wrap: normal;
+  word-wrap: normal
 }
 
 
 /*<!MODAL... sublineas lineas--->*/
 
 /*<!Forma de encabezado-->*/
-.infpersonas .talkbubble {
+.infpersonas .talkbubble, {
    width: 700px;
    height: 100px;
    margin-left:35px; 
@@ -532,4 +534,28 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
     vertical-align:inherit;
     line-height: 1.5em;
     padding: 20px;
+}
+
+#fecha-evento-noticia{
+  font-weight: bold;
+  font-size: 13px;
+  width: 170px;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: sans-serif, Arial, Verdana, Helvetica;
+  padding: 3px;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-shadow: #0B0B3B 1px 1px 6px;
+  -moz-box-shadow: #0B0B3B 1px 1px 6px;
+  box-shadow: #0B0B3B 1px 1px 6px;
+  background: rgba(246, 255, 7, 0.47);
+
+}
+
+#fecha-evento-noticia p{
+  text-align:center;
+  padding-top: 5px;
 }
