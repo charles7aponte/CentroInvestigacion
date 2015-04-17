@@ -19,11 +19,9 @@
                 <tbody>
                     <tr>
                         <th style="background:none;">
-                            
                             <div id="foto-persona">
-                                <img align="right" src="{{URL::to('archivos_db/investigadores/')}}/{{$datos_integrantes['foto']}}">
-                            </div>    
-                             
+                                <img align="right" src="">
+                            </div>  
                         </th> 
                         <th style="background:none;">
                             <div  class="talkbubble" id="cuadro"  style="box-shadow: 8px 8px 5px #BDBDBD;"> 

@@ -55,12 +55,17 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$grupos = InvGrupos::find($idgrupo);
 
 		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);
+		$unidades_academicas=InvUnidadesAcademicas::all();
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 
 		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
 			'lista_proyectos_grupos' =>$listaproyectosgrupos,
 			'lista_nombre_grupos' =>$grupos,
-			'campo_lista'=>$listaproyectosgrupos,'links'=>$paginacion
+			'campo_lista'=>$listaproyectosgrupos,
+			'links'=>$paginacion,
+			'lista_unidades'=>$unidades_academicas,
+			'lista_documentos' =>$documentos
 			);
 
 		return View::make('invitado/inf_lista_proyectos_grupos_invitado',$datos);
@@ -71,6 +76,8 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$grupos = InvGrupos::find($idgrupo);
 		$subtipo=InvSubtipoProductos::find($idsubtipo);
 		$paginacion="";
+		$unidades_academicas=InvUnidadesAcademicas::all();
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 
 		$productos=InvProductos::where("inv_codigo_grupo","=",$idgrupo)
 						->where("inv_subtipo_producto","=",$idsubtipo)
@@ -89,7 +96,9 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$datos=array(
 			'lista_productos_grupos' =>$productos,
 			'lista_nombre_grupos' =>$grupos,
-			'links'=>$paginacion
+			'links'=>$paginacion,
+			'lista_unidades'=>$unidades_academicas,
+			'lista_documentos' =>$documentos
 			);
 
 		return View::make('invitado/inf_lista_productos_grupos_invitado',$datos);

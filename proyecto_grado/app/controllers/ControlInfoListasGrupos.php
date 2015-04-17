@@ -1,7 +1,9 @@
 <?php
 
 class ControlInfoListasGrupos extends Controller {
-
+	
+	public $listaIntegrantesGrupos=array('Docente' => 0,'Estudiante' => 0,'Joven Investigador'=>0, 'Investigador Externo'=>0 );
+	public $idperfiles=array();
 
 	//controlador lineas
 	public function ConstruirListaIntegrantesGrupos($idgrupo, $idperfil){

@@ -1,4 +1,3 @@
-
 @extends('panel_cuerpo')
 
 @section('css-nuevos')
@@ -20,7 +19,8 @@
                     padding: 2px;">
                     <div  style="margin: 0px;" class="alert alert-danger">No hay informaci&oacute;n registrada para ese grupo</div>   
             </fieldset>
-        @endif  <fieldset id="principal">
+        @endif  
+        <fieldset id="principal">
             <table id="titulo-infgrupos" id="cuadro" >
                 <tbody>
                 @if(isset($grupos) && $grupos!=null && isset($grupos['codigo_grupo']))
@@ -35,7 +35,6 @@
             </table>
 
             <table class="tabla-infgrupos">
-            
                 <thead>    
                     <tr>
                         <th scope="col" colspan="2" style=" border-radius: 5px; background: #286388;
@@ -136,124 +135,112 @@
                     </tr>
                 </tbody>
             </table>
-    </fieldset>
-
+        </fieldset>
         <!-- menus desplegables-->
         <fieldset id="secundario1">
             <div class="titulo-listas" id="cuadro">             
-             <h4>
-                <p style=" border-radius: 5px; background: #286388;
+                <h4>
+                    <p style=" border-radius: 5px; background: #286388;
                       background: -webkit-linear-gradient(top,#286388,#122d3e);
                       background: -moz-linear-gradient(top,#286388,#122d3e);
                       background: -o-linear-gradient(top,#286388,#122d3e);  
                       background: linear-gradient(to bottom,#286388,#122d3e);  
                       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">L&Iacute;NEAS</p>
-            </h4>
+                </h4>
             </div> 
-                <div class="list-group">
-
-                    @if($Lineas_grupos && count($Lineas_grupos)>0)
-                        @foreach($Lineas_grupos as $Linea_grupo)
-                          <a href="{{URL::to('/')}}/lineainv/id/{{$Linea_grupo->id_lineas}}" class="list-group-item">
-                            {{$Linea_grupo->nombre_linea}}
-                          </a>
-                        @endforeach  
-
-                    @else 
-                    <p style="margin-left:5px; color:#122d3e; font-weight:bold; font-size: 13px;">
-                        No hay L&iacute;neas asociadas a este grupo.</p>
-                    @endif    
-                </div>
-
+            <div class="list-group">
+                @if($Lineas_grupos && count($Lineas_grupos)>0)
+                    @foreach($Lineas_grupos as $Linea_grupo)
+                      <a href="{{URL::to('/')}}/lineainv/id/{{$Linea_grupo->id_lineas}}" class="list-group-item">
+                        {{$Linea_grupo->nombre_linea}}
+                      </a>
+                    @endforeach  
+                @else 
+                    <p style="margin-left:5px; color:#122d3e; font-weight:bold; font-size: 13px;">No hay L&iacute;neas asociadas a este grupo.</p>
+                @endif    
+            </div>
             <!--PROYECTOS-->
             <div class="titulo-listas" id="cuadro">             
-             <h4>
-                <p style=" border-radius: 5px; background: #286388;
+                <h4>
+                    <p style=" border-radius: 5px; background: #286388;
                       background: -webkit-linear-gradient(top,#286388,#122d3e);
                       background: -moz-linear-gradient(top,#286388,#122d3e);
                       background: -o-linear-gradient(top,#286388,#122d3e);  
                       background: linear-gradient(to bottom,#286388,#122d3e);  
                       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">PROYECTOS</p>
-            </h4>
+                </h4>
             </div> 
-                <div class="list-group">
-                        <a href="{{URL::to('/')}}/listaproyectosgruposinv/grupo/{{$grupos['codigo_grupo']}}" class="list-group-item">
-                            <span class="badge" id="total">
-                                    {{$Lista_proyectos}}
-                            </span>
-                            Total Proyectos
-                        </a>
-                </div>
-            </fieldset> 
-
-
-            <fieldset id="secundario1">
-                <div class="titulo-listas" id="cuadro">
+            <div class="list-group">
+                <a href="{{URL::to('/')}}/listaproyectosgruposinv/grupo/{{$grupos['codigo_grupo']}}" class="list-group-item">
+                    <span class="badge" id="total">
+                            {{$Lista_proyectos}}
+                    </span>
+                    Total Proyectos
+                </a>
+            </div>
+        </fieldset> 
+        <fieldset id="secundario1">
+            <div class="titulo-listas" id="cuadro">
                  <h4 id="boton_integrantes" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Integrantes</a></h4>
+            </div>
+            <div id="lista_integrantes" class="lista-integrantes">
+               <ul class="list-group">
+                    <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
+                        <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Docente"]}}
+                        </span>
+                        Docentes
+                      </li>
+                    </a>
+
+                    <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Estudiante"]}}
+                        </span>
+                        Estudiantes
+                      </li>
+                    </a>
+                    
+                    <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
+                      <li class="list-group-item">
+                        <span class="badge" id="total"> 
+                        {{$Lista_integrantes["Joven Investigador"]}}
+                        </span>
+                        J&oacute;venes Investigadores
+                      </li>
+                    </a>
+                    
+                    <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
+                      <li class="list-group-item">
+                        <span class="badge" id="total">
+                        {{$Lista_integrantes["Investigador Externo"]}}
+                        </span>
+                        Investigadores Externos
+                      </li>
+                    </a>   
+                </ul>
+            </div>
+        </fieldset> 
+        <fieldset id="secundario1">
+            <div class="titulo-listas" id="cuadro">
+             <h4 id="boton_productos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productividad</a></h4>
+            </div>
+                <div id="lista_productos" class="lista_productos">
+                    <ul class="list-group">
+                    @foreach($Lista_productos as $lista_producto)   
+                        <a href="{{URL::to('/')}}/listaproductosgruposinv/grupo/{{$grupos['codigo_grupo']}}/subtipoproducto/{{$lista_producto['id_subtipo_producto']}}">
+                          <li class="list-group-item">
+                            <span class="badge">
+                                {{$lista_producto['total']}}
+                            </span>
+                            {{$lista_producto['nombre_subtipo_producto']}}
+                          </li>
+                        </a>  
+                    @endforeach  
+                    </ul>
                 </div>
-                    <div id="lista_integrantes" class="lista-integrantes">
-
-
-                        <ul class="list-group">
-                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Docente"]}}">  
-                                <li class="list-group-item">
-                                <span class="badge" id="total">
-                                {{$Lista_integrantes["Docente"]}}
-                                </span>
-                                Docentes
-                              </li>
-                            </a>
-
-                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Estudiante"]}}">
-                              <li class="list-group-item">
-                                <span class="badge" id="total">
-                                {{$Lista_integrantes["Estudiante"]}}
-                                </span>
-                                Estudiantes
-                              </li>
-                            </a>
-                            
-                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Joven Investigador"]}}">
-                              <li class="list-group-item">
-                                <span class="badge" id="total"> 
-                                {{$Lista_integrantes["Joven Investigador"]}}
-                                </span>
-                                J&oacute;venes Investigadores
-                              </li>
-                            </a>
-                            
-                            <a href="{{URL::to('/')}}/listaintegrantesgruposinv/grupo/{{$grupos['codigo_grupo']}}/perfil/{{$Lista_perfiles["Investigador Externo"]}}"> 
-                              <li class="list-group-item">
-                                <span class="badge" id="total">
-                                {{$Lista_integrantes["Investigador Externo"]}}
-                                </span>
-                                Investigadores Externos
-                              </li>
-                            </a>   
-                        </ul>
-                    </div>
-            </fieldset> 
-
-            <fieldset id="secundario1">
-                <div class="titulo-listas" id="cuadro">
-                 <h4 id="boton_productos" style= "width:50%;"><li  style="margin-left:3px;" class="glyphicon glyphicon-plus-sign"></li><li class="glyphicon glyphicon-minus-sign"></li><a href="#" onclick="return false">Productividad</a></h4>
-                </div>
-                    <div id="lista_productos" class="lista_productos">
-                        <ul class="list-group">
-                        @foreach($Lista_productos as $lista_producto)   
-                            <a href="{{URL::to('/')}}/listaproductosgruposinv/grupo/{{$grupos['codigo_grupo']}}/subtipoproducto/{{$lista_producto['id_subtipo_producto']}}">
-                              <li class="list-group-item">
-                                <span class="badge">
-                                    {{$lista_producto['total']}}
-                                </span>
-                                {{$lista_producto['nombre_subtipo_producto']}}
-                              </li>
-                            </a>  
-                        @endforeach  
-                        </ul>
-                    </div>
-            </fieldset>
-        </div>  
-    </div>  
+        </fieldset> 
 </div>
 @stop

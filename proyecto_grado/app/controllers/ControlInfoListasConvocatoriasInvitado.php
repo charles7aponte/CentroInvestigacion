@@ -9,7 +9,6 @@ class ControlInfoListasConvocatoriasInvitado extends Controller {
 		$paginacion="";
 		$unidades_academicas=InvUnidadesAcademicas::all();
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
-
 		$convocatorias_proyectos =InvProyectos::where("inv_numero_convocatoria","=",$idconvocatoria)
 											  ->where("estado_proyecto","=",$estadop)	
 											  ->paginate(20);								  

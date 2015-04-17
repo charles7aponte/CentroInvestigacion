@@ -191,7 +191,7 @@
         <div class="list-group">
           @if($lista_grupos && count($lista_grupos)>0)
             @foreach($lista_grupos as $lista_grupo)
-              <a href="{{URL::to('/')}}/grupo/id/{{$lista_grupo->codigo_grupo}}" class="list-group-item">
+              <a href="{{URL::to('/')}}/grupoinv/id/{{$lista_grupo->codigo_grupo}}" class="list-group-item">
                 {{$lista_grupo->nombre_grupo}} 
               </a>
             @endforeach
@@ -218,7 +218,7 @@
     </div>
     <div id="proyecto">
         <div class="list-group">
-            <a href="{{URL::to('/')}}/listaproyectoslineas/linea/{{$lineas['id_lineas']}}" class="list-group-item">
+            <a href="{{URL::to('/')}}/listaproyectoslineasinv/linea/{{$lineas['id_lineas']}}" class="list-group-item">
                 <span class="badge" id="total">
                         {{$Lista_proyectos}}
                 </span>
@@ -244,7 +244,7 @@
         <div class="list-group">
           @if(isset($lineas) && $lineas)
             @foreach($Lista_productos as $lista_producto)   
-              <a href="{{URL::to('/')}}/listaproductos/linea/{{$lineas['id_lineas']}}/subtipo/{{$lista_producto['id_subtipo_producto']}}">
+              <a href="{{URL::to('/')}}/listaproductoslineasinv/linea/{{$lineas['id_lineas']}}/subtipo/{{$lista_producto['id_subtipo_producto']}}">
                 <li class="list-group-item">
                   <span class="badge">
                       {{$lista_producto['total']}}

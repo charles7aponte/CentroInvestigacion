@@ -42,13 +42,13 @@
                   {{$lista_integrante_grupo->cedula}}
                 </td> 
                 <td>
-                  <a href="{{URL::to('/')}}/listapersonas/{{$lista_integrante_grupo['cedula']}}">
+                  <?php echo "entr1"; echo $registro_perfiles['nombreperfil']; ?>
+                   <a href="{{URL::to('/')}}/listadocentes/{{$lista_integrante_grupo['cedula']}}">
                     {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
                     {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}</a>
+  
                 </td>
-                <td style="width:250px; text-align:left;">
-                  {{$registro_perfiles['nombreperfil']}}
-                </td>
+                <td style="width:250px; text-align:left;">{{$registro_perfiles['nombreperfil']}}</td>
               </tr>
             @endforeach  
           </tbody>

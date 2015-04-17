@@ -24,7 +24,7 @@
 
 
         <div id="titulo-infconv" id="cuadro"> 
-            <h2>
+            <h2 style="font-size:20px;">
               @if(isset($convocatorias) && $convocatorias!=null && isset($convocatorias['titulo_convocatoria']))
                 {{$convocatorias['titulo_convocatoria']}}
               @endif
@@ -86,28 +86,15 @@
         
                 <tr>
                     <th id="fil-principal">Fecha de Apertura</th>
-                    <td class="fecha-apertura" id="col-principal" style="font-weight:bold;">
-                      <?php 
-                         if(isset($convocatorias['fecha_apertura']) && $convocatorias['fecha_apertura']!="")
-                          {
-                              $fecha= new DateTime($convocatorias['fecha_apertura']);
-                                echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
-                          }
-                      ?>
+                    <td class="fecha-apertura" id="col-principal" >
+                        {{InvConvocatorias::formato_fecha($convocatorias['fecha_apertura'])}}
                     </td>  
                 </tr>
         
                 <tr>
                     <th id="fil-principal">Fecha de Cierre</th>
-                    <td class="fecha-cierre" id="col-principal" id="cuadro" style="font-weight:bold;">
-                      <?php 
-                         if(isset($convocatorias['fecha_cierre']) && $convocatorias['fecha_cierre']!="")
-                          {
-                              setlocale(LC_TIME,"es_ES");
-                              $fecha= new DateTime($convocatorias['fecha_cierre']);
-                                echo strftime ($fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y'));
-                          }
-                      ?>
+                    <td class="fecha-cierre" id="col-principal" id="cuadro">
+                        {{InvConvocatorias::formato_fecha($convocatorias['fecha_cierre'])}}
                     </td>
                 </tr>
         
@@ -145,6 +132,7 @@
                     <td class="documento-conv" id="col-principal" id="cuadro">
                       @if(isset($convocatorias) && $convocatorias!=null && $convocatorias['archivo_convocatoria']!=null)
                           <a href="{{URL::to('archivos_db/convocatorias/')}}/{{$convocatorias['archivo_convocatoria']}}" target="_blank"><i class="glyphicon glyphicon-file"></i> Archivo ({{$convocatorias['archivo_convocatoria']}})</a>
+                          @else No hay documentos relacionados
                        @endif
 
                     </td>

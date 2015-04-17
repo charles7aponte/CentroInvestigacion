@@ -254,11 +254,13 @@ Route::get('proyecto/id/{id_proyecto}','ControlInfoProyectos@CargarInfoPrincipal
 
 Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
 
+//fichas persona admin
 
-//Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+///Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+Route::get('listadocentes/{cedula}','ControlInfoDocentes@CargarInfoPrincipales');
+//(Route::get('listadocentes/{cedula}', function() { return View::make('administrador/inf_personas_docentes'); });
 
-//Route::get('listadocentes/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
-
+//fichas persona invitado
 
 
 //sublistas de fichas principales
@@ -276,7 +278,7 @@ Route::get('listaintegrantesproyectos/proyecto/{idproyecto}/perfil/{idperfil}','
 //lineas
 Route::get('listaproyectoslineas/linea/{idlinea}','ControlInfoListasLineas@ConstruirListaProyectosLineas');
 
-Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
+//Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
 
 //convocatorias
 Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');
@@ -326,6 +328,8 @@ Route::group(['before' => 'auth'], function()
 //1-lineas
 Route::get('listadelineasinv','ControlListasInvitado@ConstruirListaLineas');
 Route::get('lineainv/id/{id_linea}','ControlInfoLineasInvitado@CargarInfoPrincipales');
+Route::get('listaproyectoslineasinv/linea/{idlinea}','ControlInfoListasLineasInvitado@ConstruirListaProyectosLineas');
+Route::get('listaproductoslineasinv/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineasInvitado@ContruirListaProductosLineas');
 
 //2-Convocatorias
 Route::get('listadeconvocatoriasinv','ControlListasInvitado@ConstruirListaConvocatorias');
@@ -354,10 +358,6 @@ Route::get('eventonoticiainv/id/{id_evento}','ControlInfoEventosNoticiasInvitado
 Route::get('listadeeventosinv/{tipo_lista}','ControlListasInvitado@ConstruirListaEventos');
  
 
-
-
-
-Route::get('listadocentes/{cedula}','ControlInfoPersonasInvitado@CargarInfoPrincipales');
 Route::get('productividadunidad/{id_unidad}', 'ControlProductividad@CrearProductos'); 
 
 

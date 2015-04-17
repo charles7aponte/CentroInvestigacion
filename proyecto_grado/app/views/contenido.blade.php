@@ -107,9 +107,7 @@
 								                    <li class="span3">
 								                        <div class="caption" id="convocatoria">
 								            				<p align="center">{{$lista_convocatorias[$i]['titulo_convocatoria']}}</p>
-								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
-													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"dia")}} de
-							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"a")}}
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'])}}
 							                      			</span>
 								                            <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i]['numero_convocatoria']}}">Leer mas..</a></p> 
 								                        </div>
@@ -120,9 +118,7 @@
 								                    <li class="span3">
 								                        <div class="caption" id="convocatoria">
 								            				<p align="center">{{$lista_convocatorias[$i+1]['titulo_convocatoria']}}</p>
-								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
-													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"dia")}} de
-							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'],"a")}}
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+1]['fecha_apertura'])}}
 							                      			</span>
 								                            <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i+1]['numero_convocatoria']}}">Leer mas..</a></p> 
 								                        </div>
@@ -133,9 +129,7 @@
 								                    <li class="span3">
 								                        <div class="caption" id="convocatoria">
 								            				<p align="center">{{$lista_convocatorias[$i+2]['titulo_convocatoria']}}</p>
-								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i]['fecha_apertura'],"mes")}}
-													   		  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"dia")}} de
-							                      			  {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'],"a")}}
+								            				<span> Apertura: {{InvConvocatorias::formato_fecha($lista_convocatorias[$i+2]['fecha_apertura'])}}
 							                      			</span> 
 								                        </div>
 								                        <div class="readmore"><a href="{{URL::to('convocatoriainv/id')}}/{{$lista_convocatorias[$i+2]['numero_convocatoria']}}">Leer mas..</atitulo_convocatoria></p>

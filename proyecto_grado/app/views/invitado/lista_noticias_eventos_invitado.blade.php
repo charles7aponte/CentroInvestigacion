@@ -41,7 +41,7 @@
             <tr>
               <th style="width:100px;"> </th>
               <th style="width:700px;">T&Iacute;TULO</th>
-              <th style="width:100px;">FECHA</th>
+              <th style="width:100px;">FECHA DE INICIO</th>
             </tr>
           </thead>
 

@@ -1,22 +1,18 @@
 <?php
 
 
-class ControlInfoPersonas extends Controller {
+class ControlInfoDocentes extends Controller {
 	
 
 	public function CargarInfoPrincipales($cedula){
 
 		$docentes=array();
-		$estudiantes=array();
-		$investigadores=array();
 		$integrantes=Persona::find($cedula);
 		$universidades=array();
 
 		if($integrantes)
 		{
 			$docentes=Docente::where("cedula","=",$integrantes->cedula)->get();
-			$estudiantes=Estudiante::where("cedula","=",$integrantes->cedula)->get();
-			$investigadores=InvInvestigadoresExternos::where("cedula_persona","=",$integrantes->cedula)->get();
 
 		}	
 
@@ -32,10 +28,7 @@ class ControlInfoPersonas extends Controller {
 			$datos = array('datos_integrantes' =>$integrantes,
 						   'docente'=>$docentes);
 
-			return View::make("inf_personas_docentes",$datos);
-		}
-		else if(count($estudiantes)>0 && count($investigadores)>0){
-			return View::make("inf_personas",$datos);
+			return View::make("administrador/inf_grupos",$datos);
 		}
 	}
 

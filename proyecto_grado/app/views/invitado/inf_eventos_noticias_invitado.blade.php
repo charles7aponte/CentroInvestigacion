@@ -30,6 +30,7 @@
             </table>
 
             <div id="fecha-evento-noticia" style="text-align:right;">
+                Fecha de inicio
                 <p>{{InvEventosNoticias::formato_fecha($info_eventos['fecha'])}}</p>
             </div>
             
@@ -37,7 +38,7 @@
                 <tbody>
                 @if(isset($info_eventos) && $info_eventos!=null && isset($info_eventos['tipo']))  
                     <tr>
-                        <th id="fil-principal"> </th>
+                        <th id="fil-principal">Tipo</th>
                         <td id="col-principal" id="cuadro">
                             <b>{{$info_eventos['tipo']}}</b>
                         </td>
@@ -46,23 +47,22 @@
                 @if(isset($info_eventos) && $info_eventos!=null && isset($info_eventos['descripcion']))
                     <tr>
                         <th id="fil-principal">Descripción</th>
-                        <td id="col-principal" id="cuadro">
+                        <td id="col-principal" id="cuadro" >
                             {{$info_eventos['descripcion']}}
                         </td>
                     </tr>
                 @endif
 
                 @if(isset($info_eventos) && $info_eventos!=null && isset($info_eventos['enlace_documento']))
+                    @if($info_eventos['enlace_documento']!="")
                     <tr>
                         <th id="fil-principal">Documento</th>
                         <td id="col-principal" id="cuadro" style="text-transform:capitalize;">
-                            @if($info_eventos['enlace_documento']!="")
-                                <a href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$info_eventos['enlace_documento']}}" target="_blank"><i class="glyphicon glyphicon-file"></i>Dcto({{$info_eventos['enlace_documento']}})
-                                </a>
-                                @else <p style="color:gray;">Vacio</p>
-                            @endif
+                            <a href="{{URL::to('archivos_db/eventosnoticias/')}}/{{$info_eventos['enlace_documento']}}" target="_blank"><i class="glyphicon glyphicon-file"></i>Dcto({{$info_eventos['enlace_documento']}})
+                            </a>
                         </td>
                     </tr>
+                    @endif
                 @endif    
                 </tbody>
             </table>

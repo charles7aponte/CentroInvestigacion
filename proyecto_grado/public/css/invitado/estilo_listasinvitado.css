@@ -3,7 +3,8 @@
 #form-proyectolinea ul.pagination li.active>span,
 #form-integrantegrupos ul.pagination li.active>span,
 #form-proyectosgrupos ul.pagination li.active>span,
-#form-proyectogrupos ul.pagination li.active>span{
+#form-proyectogrupos ul.pagination li.active>span,
+#form-proyectolineas ul.pagination li.active>span{
     border-color:#122d3e;
     background:#122d3e;
 }
@@ -31,7 +32,8 @@ border-collapse: collapse;
 #tabla-listaintegrantegrupos,
 #tabla-listaproductosgrupos,
 #tabla-listaproyectogrupos,
-#tabla-eventos
+#tabla-eventos,
+#tabla-listaproyectolineas
 {
   max-width: 960px;
 }
@@ -45,7 +47,8 @@ border-collapse: collapse;
 #titulo-listaproductosgrupo h2,
 #titulo-listaproyectogrupo h2,
 #titulo-noticias h2,
-#titulo-listaeventos h2
+#titulo-listaeventos h2,
+#titulo-listaproyectolinea h2
 {
   text-align:right;
   padding-right: 30px; 

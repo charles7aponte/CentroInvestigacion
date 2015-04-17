@@ -3,15 +3,12 @@
 @section("javascript-nuevos")
 
 @section('contenido-principal')
-<div>
-  <form id="form-grupos1" class="gradient">
-          
-    <div id="titulo-listagrupo1" id="cuadro"> 
-        <h2>Grupos</h2>
-    </div>
 
-    <div id="tabla-listagrupos1">
-      <table id="listagrupos1">
+<div>
+  <form id="form-grupos1" class="gradient">      
+      <div id="titulo-listagrupo1" id="cuadro"> <h2>Grupos</h2></div>
+      <div id="tabla-listagrupos1">
+        <table id="listagrupos1">
         <thead>
           <tr><th colspan="4" style=" border-radius: 5px; background: #286388;
                   background: -webkit-linear-gradient(top,#286388,#122d3e);
@@ -23,7 +20,7 @@
             <th> </th>
             <th>NOMBRE DEL GRUPO</th>
             <th>UNIDAD ACADÉMICA </th>
-            <th>DIRECTOR GRUPO</th>
+            <th>DIRECTOR DEL GRUPO</th>
           </tr>
         </thead>
           <tbody>
@@ -46,17 +43,14 @@
 
                     <td>{{$campo['nombre_unidad_academica']}}</td>
 
-                    <td><a href="">{{$campo['nombre_coordinador_grupo']}}</a></td>
+                    <td>{{$campo['nombre_coordinador_grupo']}}</td>
                   </tr>
               @endforeach
             @endif
           </tbody>
-      </table>
-        
-          <div style="margin-left:30px; margin-right:30px;"> 
-              {{$links}}
-          </div>
-    </div>
+        </table>
+          <div style="margin-left:30px; margin-right:30px;"> {{$links}}</div>
+      </div>
   </form>
 </div>
 @stop
