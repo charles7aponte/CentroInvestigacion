@@ -54,9 +54,11 @@ class ControlInfoListasGruposInvitado extends Controller {
 
 		$grupos = InvGrupos::find($idgrupo);
 
-		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);
+		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);		
 		$unidades_academicas=InvUnidadesAcademicas::all();
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
+		$numeropaginacion=Input::get('page',1);
+
 
 		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
@@ -65,7 +67,8 @@ class ControlInfoListasGruposInvitado extends Controller {
 			'campo_lista'=>$listaproyectosgrupos,
 			'links'=>$paginacion,
 			'lista_unidades'=>$unidades_academicas,
-			'lista_documentos' =>$documentos
+			'lista_documentos' =>$documentos,
+			'numeropagina' =>$numeropaginacion
 			);
 
 		return View::make('invitado/inf_lista_proyectos_grupos_invitado',$datos);

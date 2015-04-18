@@ -257,7 +257,7 @@ Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarIn
 //fichas persona admin
 
 ///Route::get('listapersonas/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
-Route::get('listadocentes/{cedula}','ControlInfoDocentes@CargarInfoPrincipales');
+Route::get('infdocentesinv/{cedula}','ControlInfoDocentesInvitado@CargarInfoPrincipales');
 //(Route::get('listadocentes/{cedula}', function() { return View::make('administrador/inf_personas_docentes'); });
 
 //fichas persona invitado
@@ -278,7 +278,7 @@ Route::get('listaintegrantesproyectos/proyecto/{idproyecto}/perfil/{idperfil}','
 //lineas
 Route::get('listaproyectoslineas/linea/{idlinea}','ControlInfoListasLineas@ConstruirListaProyectosLineas');
 
-//Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
+Route::get('listaproductos/linea/{idlinea}/subtipo/{idsubtipo}','ControlInfoListasLineas@ContruirListaProductosLineas');
 
 //convocatorias
 Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');

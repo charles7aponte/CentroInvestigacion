@@ -114,7 +114,14 @@ fieldset#secundario{
   border-bottom-right-radius: 20px; 
 }
 
-.infpersonas #nombre-persona,
+.infpersonas #nombre-persona{
+  text-align: center;
+  font-weight: bolder;
+  color: #122d3e;
+  font-size:20px;  
+  padding-bottom: 10px;
+}
+
 .infeventos #titulo-evento{
   text-align: center;
   font-weight: bolder;
@@ -507,35 +514,19 @@ table#tabla_producto td:last-child, table#tabla_proyecto td:last-child {
 
 /*<!MODAL... sublineas lineas--->*/
 
-/*<!Forma de encabezado-->*/
-.infpersonas .talkbubble, {
-   width: 700px;
-   height: 100px;
-   margin-left:35px; 
-   background: #eee;
-   position: relative;
-   -moz-border-radius:    10px;
-   -webkit-border-radius: 10px;
-   border-radius:         10px;
+/*<!Forma de encabezado ficha personas-->*/
+#encabezado-persona .talkbubble{
+  background:rgba(247, 247, 247, 0.93);
+  width:400px;
+  padding: 10px 8px 10px 8px;
+  position: relative;
+  z-index: 33;
+  border-radius: 15px;
 
 }
 
-.infpersonas .talkbubble:before{
-   content:"";
-   position: absolute;
-   right: 100%;
-   top: 40px;
-   width: 0;
-   height: 0;
-   border-top: 13px solid transparent;
-   border-right: 26px solid #eee;
-   border-bottom: 13px solid transparent;
-}
-.talkbubble h1{
-    vertical-align:inherit;
-    line-height: 1.5em;
-    padding: 20px;
-}
+/**/
+
 
 #fecha-evento-noticia{
   font-weight: bold;

@@ -3,7 +3,8 @@
 @section('contenido-principal')
 
   <form id="form-proyectogrupos" class="gradient">
-      @if(count($lista_proyectos_grupos)<=0)
+
+     @if(count($lista_proyectos_grupos)<=0)
         <fieldset style="margin-bottom: 2px;
           margin-top: 5px;
           padding: 2px;">
@@ -29,20 +30,24 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e););  color:white;">
                 Proyectos</th>
               </tr>
+              <?php 
+                 $contador=(20*$numeropagina)-19;
+              ?>
           <tr>
-            <th>ID</th>
-            <th colspan="3">NOMBRE DEL PROYECTO</th>
+            <th></th>
+            <th colspan="2">NOMBRE DEL PROYECTO</th>
+            <th>AUTORES</th>
           </tr>
         </thead>
           <tbody>
             @foreach($lista_proyectos_grupos as $lista_proyecto_grupo)
-              <tr >
-                <td style="width:70px;">
-                 {{$lista_proyecto_grupo->codigo_proyecto}}
-                </td> 
+              <tr > 
+                <td>{{$contador++}}</td>
                 <td style="text-align:left; margin-right:3px;">
                   {{$lista_proyecto_grupo->nombre_proyecto}}
                 </td> 
+                <td>
+                </td>
               </tr>
             @endforeach
           </tbody>

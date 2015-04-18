@@ -52,13 +52,7 @@
                     <tr>
                         <th id="fil-principal">Fecha de Creaci&oacute;n</th>
                         <td id="col-principal" id="cuadro">
-                              <?php 
-                                if(isset($grupos['ano_creacion']) && $grupos['ano_creacion']!="")
-                                {
-                                    $fecha= new DateTime($grupos['ano_creacion']);
-                                      echo $fecha->format(' d')."/".$fecha->format('m')."/".$fecha->format('Y');
-                                }
-                              ?>
+                            {{InvGrupos::formato_fecha($grupos['ano_creacion'])}}                              
                         </td>
                     </tr>
         
@@ -66,7 +60,7 @@
                         <th id="fil-principal">Coordinador</th>
                         <td id="col-principal" id="cuadro" style="text-transform:capitalize;">
                             @if($grupos['nombre_director']!="")
-                                <a href="">{{$grupos['nombre_director']}}</a> 
+                                <a href="{{URL::to('/')}}/infdocentesinv/{{$persona['cedula']}}">{{$grupos['nombre_director']}}</a> 
                             @endif
                         </td>
                     </tr>

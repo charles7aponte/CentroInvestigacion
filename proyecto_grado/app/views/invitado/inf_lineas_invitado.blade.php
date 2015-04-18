@@ -93,8 +93,10 @@
               <th id="fil-principal">Coordinador</th>
               <td class="coordinador" id="col-principal" id="cuadro" style="text-transform:capitalize;">
                 @foreach($Lista_coordinadores as $Lista_coordinador)
+                <a href="{{URL::to('/')}}/infdocentesinv/{{$Lista_coordinador['cedula']}}">
                   {{$Lista_coordinador['nombre1']}} {{$Lista_coordinador['nombre2']}} 
                   {{$Lista_coordinador['apellido1']}} {{$Lista_coordinador['apellido2']}}
+                </a>  
                 @endforeach
               </td>
           </tr>

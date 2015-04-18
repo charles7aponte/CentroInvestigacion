@@ -70,6 +70,7 @@ class ControlInfoGruposInvitado extends Controller {
 		$proyectos_grupos= $this->ContarProyectos($id_grupo);
 		
 		$datos = array('grupos' =>$grupos,
+					   'persona' =>$persona,
 					   'Lineas_grupos' =>$lineas_grupos,
 					   'Lista_integrantes'=>$this->listaIntegrantesGrupos,
 					   'Lista_perfiles'=> $this->idperfiles,
