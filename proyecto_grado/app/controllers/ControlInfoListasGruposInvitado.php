@@ -54,7 +54,58 @@ class ControlInfoListasGruposInvitado extends Controller {
 
 		$grupos = InvGrupos::find($idgrupo);
 
-		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);		
+		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);	
+
+
+		foreach ($listaproyectosgrupos as $key => $proyecto) {
+		    
+		    $nombresInvestigadores="";
+		    $nombresCoInvestigadores="";
+		    $listaNombreInvistigadores=array();
+		    $listaNombreCoInvistigadores=array();
+
+		    //busqueda de invsitgadores principales
+		    $listaCedulaParticipantesInvestigadores=InvParticipacionProyectos::where("inv_codigo_proyecto","=",$proyecto->codigo_proyecto)
+		    ->where("tipo_investigador","ILIKE","investigador principal")
+		    ->lists("cedula_persona"); /// como es el model para la tabal particpates proyectos porfa
+		    
+		    if(count($listaCedulaParticipantesInvestigadores)>0)
+			{
+			    $autoresInvestigadores = Persona::find($listaCedulaParticipantesInvestigadores);
+			    
+			    foreach ($autoresInvestigadores as $autor) {
+			    		 $listaNombreInvestigadores[]=trim($autor->nombre1." ".$autor->apellido1." ".$autor->apellido2);
+			    }
+
+			    $nombresInvestigadores= implode(","." ",$listaNombreInvestigadores);
+			}
+
+
+
+		    //busqueda de los coinvest
+		     $listaCedulaParticipantesCoInvestigadores=InvParticipacionProyectos::where("inv_codigo_proyecto","=",$proyecto->codigo_proyecto)
+		    ->where("tipo_investigador","ILIKE","coinvestigador")
+		    ->lists("cedula_persona"); 
+		   	
+		   	if(count($listaCedulaParticipantesCoInvestigadores)>0)
+		   	{
+
+			    $autoresCoInvestigadores = Persona::find($listaCedulaParticipantesCoInvestigadores);
+			    foreach ($autoresCoInvestigadores as  $autor) {
+			    		 $listaNombreCoInvestigadores[]=trim($autor->nombre1." ".$autor->apellido1);
+			    }
+
+			    $nombresCoInvestigadores= implode(","." ",$listaNombreCoInvestigadores);
+		   		
+		   	}
+
+
+
+		    $listaproyectosgrupos[$key]['autor_investigadores']= $nombresInvestigadores;
+		    $listaproyectosgrupos[$key]['autor_coinvestigadores']= $nombresCoInvestigadores;
+		     
+		}
+
 		$unidades_academicas=InvUnidadesAcademicas::all();
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		$numeropaginacion=Input::get('page',1);
@@ -62,7 +113,7 @@ class ControlInfoListasGruposInvitado extends Controller {
 
 		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
-			'lista_proyectos_grupos' =>$listaproyectosgrupos,
+			'lista_proyectos_grupos' =>$listaproyectosgrupos, 
 			'lista_nombre_grupos' =>$grupos,
 			'campo_lista'=>$listaproyectosgrupos,
 			'links'=>$paginacion,

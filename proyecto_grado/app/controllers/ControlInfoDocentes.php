@@ -28,7 +28,7 @@ class ControlInfoDocentes extends Controller {
 			$datos = array('datos_integrantes' =>$integrantes,
 						   'docente'=>$docentes);
 
-			return View::make("administrador/inf_grupos",$datos);
+			return View::make("administrador/inf_personas_docentes",$datos);
 		}
 	}
 

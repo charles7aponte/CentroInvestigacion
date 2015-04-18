@@ -27,7 +27,7 @@
                 @if(isset($grupos) && $grupos!=null && isset($grupos['codigo_grupo']))
                    <th><h2>{{$grupos['nombre_grupo']}}</h2></th> 
                    <th>
-                        @if($grupos['logo_grupo']!="")
+                        @if ($grupos['logo_grupo']!="")
                         <img align="right" src="{{URL::to('archivos_db/grupos/')}}/{{$grupos['logo_grupo']}}">
                         @endif
                     </th>
@@ -67,8 +67,8 @@
                     <tr>
                         <th id="fil-principal">Coordinador</th>
                         <td id="col-principal" id="cuadro" style="text-transform:capitalize;">
-                            @if($grupos['nombre_director']!="")
-                                {{$grupos['nombre_director']}}
+                            @if( $grupos['nombre_director']!="")
+                                <a href="{{URL::to('/')}}/infdocentes/{{$Lista_personas['cedula']}}">{{$grupos['nombre_director']}}</a>
                             @endif
                         </td>
                     </tr>
