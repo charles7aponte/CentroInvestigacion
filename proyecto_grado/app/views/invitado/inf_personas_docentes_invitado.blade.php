@@ -21,7 +21,7 @@
                         @if(isset($datos_integrantes['foto']) && $datos_integrantes['foto']!="")
                             <th style="background:none;">
                                 <div id="foto-persona">
-                                    <img align="right" src="{{URL::to('/')}}/{{$datos_integrantes['foto']}}">
+                                    <img align="right" src="">
                                 </div>  
                             </th> 
                         @endif
@@ -51,12 +51,6 @@
                     </thead>
 
                     <tbody>
-                         <tr>
-                            <th id="fil-principal">C&eacute;dula</th>
-                            <td id="col-principal" id="cuadro">
-                                {{$datos_integrantes['cedula']}}
-                            </td>
-                        </tr>
 
                         <tr>
                             <th id="fil-principal">Nombre Completo</th>
@@ -65,13 +59,6 @@
                                 {{$datos_integrantes['nombre2']}} 
                                 {{$datos_integrantes['apellido1']}} 
                                 {{$datos_integrantes['apellido2']}}
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <th id="fil-principal">Celular</th>
-                            <td id="col-principal" id="cuadro">
-                                {{$datos_integrantes['celular']}}
                             </td>
                         </tr>
         

@@ -30,19 +30,26 @@
                 Proyectos</th>
               </tr>
           <tr>
-            <th>ID</th>
-            <th colspan="3">NOMBRE DEL PROYECTO</th>
+            <th></th>
+            <th>NOMBRE DEL PROYECTO</th>
+            <th>INVESTIGADOR PRINCIPAL</th>
+            <th>CO-INVESTIGADORES</th>
           </tr>
         </thead>
+        <?php
+           $contador=(20*$numeropagina)-19;
+        ?>
           <tbody>
             @foreach($lista_proyectos_lineas as $lista_proyectos_lineas)
               <tr >
-                <td style="width:70px;">
-                 {{$lista_proyectos_lineas->codigo_proyecto}}
+                <td id="col1">
+                 {{$contador++}}
                 </td> 
-                <td style="text-align:left; margin-right:3px;">
+                <td id="col2">
                  {{$lista_proyectos_lineas->nombre_proyecto}}
                 </td> 
+                <td id="col3">{{$lista_proyectos_lineas['autor_investigadores']}}</td>
+                <td id="col4">{{$lista_proyectos_lineas['autor_coinvestigadores']}}</td>
               </tr>
             @endforeach
           </tbody>

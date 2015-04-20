@@ -53,12 +53,9 @@ class ControlInfoListasGruposInvitado extends Controller {
 	public function ConstruirListaProyectosGrupos($idgrupo){
 
 		$grupos = InvGrupos::find($idgrupo);
-
 		$listaproyectosgrupos=InvProyectos::where("inv_codigo_grupo","=",$idgrupo)->paginate(25);	
 
-
-		foreach ($listaproyectosgrupos as $key => $proyecto) {
-		    
+	foreach ($listaproyectosgrupos as $key => $proyecto) {
 		    $nombresInvestigadores="";
 		    $nombresCoInvestigadores="";
 		    $listaNombreInvistigadores=array();
@@ -79,8 +76,6 @@ class ControlInfoListasGruposInvitado extends Controller {
 
 			    $nombresInvestigadores= implode(","." ",$listaNombreInvestigadores);
 			}
-
-
 
 		    //busqueda de los coinvest
 		     $listaCedulaParticipantesCoInvestigadores=InvParticipacionProyectos::where("inv_codigo_proyecto","=",$proyecto->codigo_proyecto)
@@ -110,7 +105,6 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
 		$numeropaginacion=Input::get('page',1);
 
-
 		$paginacion=$listaproyectosgrupos->links();
 		$datos=array(
 			'lista_proyectos_grupos' =>$listaproyectosgrupos, 
@@ -125,6 +119,9 @@ class ControlInfoListasGruposInvitado extends Controller {
 		return View::make('invitado/inf_lista_proyectos_grupos_invitado',$datos);
 	}
 
+
+
+
 	//lista de productos por  grupos
 	public function ContruirListaProductosGrupos($idgrupo,$idsubtipo){
 		$grupos = InvGrupos::find($idgrupo);
@@ -132,27 +129,53 @@ class ControlInfoListasGruposInvitado extends Controller {
 		$paginacion="";
 		$unidades_academicas=InvUnidadesAcademicas::all();
 		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
+		$numeropaginacion=Input::get('page',1);
 
 		$productos=InvProductos::where("inv_codigo_grupo","=",$idgrupo)
-						->where("inv_subtipo_producto","=",$idsubtipo)
-						->paginate(25);
+								->where("inv_subtipo_producto","=",$idsubtipo)
+								->paginate(25);
 
 		for($i=0;$i< count($productos);$i++){
 			$productos[$i]->nombre_subtipo_producto=$subtipo['nombre_subtipo_producto'];
 		}				
+
+
+			foreach ($productos as $key => $producto) {
+		    $nombresInvestigadores="";
+		    $listaNombreInvestigadores=array();
+
+		    //busqueda de invsitgadores principales
+		    $listaCedulaParticipantes=InvParticipacionProductos::where("inv_codigo_producto","=",$producto->codigo_producto)
+		    																	->lists("cedula_persona"); 
+		    
+		    if(count($listaCedulaParticipantes)>0)
+			{
+			    $autoresInvestigadores = Persona::find($listaCedulaParticipantes);
+			    
+			    foreach ($autoresInvestigadores as $autor) {
+			    		 $listaNombreInvestigadores[]=trim($autor->nombre1." ".$autor->apellido1);
+			    }
+
+			    $nombresInvestigadores= implode(","." ",$listaNombreInvestigadores);
+			}
+		    $productos[$key]['autor_investigadores']= $nombresInvestigadores;		     
+		}
+
 
 		if(count($productos)>0)
 		{
 			$paginacion=$productos->links();
 
 		}
-		
+
+
 		$datos=array(
 			'lista_productos_grupos' =>$productos,
 			'lista_nombre_grupos' =>$grupos,
 			'links'=>$paginacion,
 			'lista_unidades'=>$unidades_academicas,
-			'lista_documentos' =>$documentos
+			'lista_documentos' =>$documentos,
+			'numeropagina' =>$numeropaginacion
 			);
 
 		return View::make('invitado/inf_lista_productos_grupos_invitado',$datos);

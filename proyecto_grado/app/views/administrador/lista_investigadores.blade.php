@@ -55,13 +55,13 @@
                       <a >{{$campo['cedula_persona']}} </a>
                     </td>
                     <td >
-                      <a href="">{{$campo['nombre_persona']}}</a>
+                      <a href="{{URL::to('/')}}/infinvestigadores/{{$campo['cedula_persona']}}">{{$campo['nombre_persona']}}</a>
                     </td>
                     <td>
-                      {{$campo['nombre_perfil']}} 
+                      {{$campo['nombre_perfil']}}
                     </td>
                     <td style="width:90px;">
-                      <a href="formularioinvestigadores/edit/{{$campo['codinv_ext']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                      <a href="{{URL::to('/')}}/formularioinvestigadores/edit/{{$campo['codinv_ext']}}"><span class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                   </tr>
               @endforeach

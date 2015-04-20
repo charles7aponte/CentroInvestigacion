@@ -32,20 +32,23 @@
           <tr>
             <th>ID</th>
             <th>NOMBRE DEL PRODUCTO</th>
-            <th>SUBTIPO</th>
+            <th>AUTORES</th>
           </tr>
         </thead>
+        <?php
+          $contador=(20*$numeropagina)-19;
+        ?>
           <tbody>
             @foreach($productosporlineas as $productoporlinea)
               <tr >
-                <td style="width:70px;">
-                 {{$productoporlinea->codigo_producto}}
+                <td style="width:100px;">
+                 {{$contador++}}
                 </td> 
-                <td style="text-align:left;w idth:500px;">
+                <td id="col2">
                   <a  href="{{URL::to('producto/id')}}/{{$productoporlinea->codigo_producto}}">{{$productoporlinea->nombre_producto}}</a>
                 </td> 
-                <td style="width:120px; margin-right:3px;">
-                  {{$lista_subtipo['nombre_subtipo_producto']}}
+                <td  id="col3">
+                  {{$productoporlinea->autor_investigadores}}
                 </td>
               </tr>
             @endforeach

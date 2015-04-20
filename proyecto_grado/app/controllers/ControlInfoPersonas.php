@@ -5,52 +5,38 @@ class ControlInfoPersonas extends Controller {
 	
 
 	public function CargarInfoPrincipales($cedula){
-
-		$docentes=array();
 		$estudiantes=array();
 		$investigadores=array();
 		$integrantes=Persona::find($cedula);
-		$universidades=array();
 
 		if($integrantes)
 		{
-			$docentes=Docente::where("cedula","=",$integrantes->cedula)->get();
 			$estudiantes=Estudiante::where("cedula","=",$integrantes->cedula)->get();
 			$investigadores=InvInvestigadoresExternos::where("cedula_persona","=",$integrantes->cedula)->get();
-
 		}	
 
-		if(count($docentes)>0){// esto se hace si es un docente 
-			$docentes=$docentes[0];
+		 if(count($investigadores)>0){	
+		 	$investigadores=$investigadores[0];
 
-			$docentes['nombre_univ_preg1'] =$this->NombresUniversidades($docentes->uni_preg1);//
-			$docentes['nombre_univ_preg2'] =$this->NombresUniversidades($docentes->uni_preg2);
-			$docentes['nombre_univ_post1'] =$this->NombresUniversidades($docentes->uni_post1);
-			$docentes['nombre_univ_post2'] =$this->NombresUniversidades($docentes->uni_post2);
-			$docentes['nombre_univ_post3'] =$this->NombresUniversidades($docentes->uni_post3);
-		
 			$datos = array('datos_integrantes' =>$integrantes,
-						   'docente'=>$docentes);
+						   'investigadores' =>$investigadores
+						   //'perfil_investigadores' =>$invPerfilInvestigadores
+						  );
 
-			return View::make("inf_personas_docentes",$datos);
+			return View::make("administrador/inf_personas",$datos);
 		}
-		else if(count($estudiantes)>0 && count($investigadores)>0){
-			return View::make("inf_personas",$datos);
+
+		else {
+
+			$estudiantes=$estudiantes[0];
+
+			$datos = array('datos_integrantes' =>$integrantes,
+						   'estudiantes' =>$estudiantes
+						   //'perfil_investigadores' =>$invPerfilInvestigadores
+						  );
+
+			return View::make("administrador/inf_personas",$datos);
+
 		}
 	}
-
-
-	//funcion traer universidades
-    public function NombresUniversidades($iduniversidad){
-    	if($iduniversidad && $iduniversidad!="" )//se verifica q no sea null y q sea diferente a "" 
-    	{
-    		$nombre=InvUniversidades::find($iduniversidad);
-    		if($nombre)
-    			return $nombre->universidad;
-
-    		return "No hay Universidad definida";	
-    	}
-    	else return "No hay Universidad definida";
-
-    }
 }			

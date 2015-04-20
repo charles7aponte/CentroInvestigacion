@@ -42,11 +42,15 @@
                   {{$lista_integrante_grupo->cedula}}
                 </td> 
                 <td>
-                  <?php echo "entr1"; echo $registro_perfiles['nombreperfil']; ?>
-                   <a href="{{URL::to('/')}}/listadocentes/{{$lista_integrante_grupo['cedula']}}">
+                   @if(strnatcasecmp(trim($registro_perfiles['nombreperfil']),"Docente")==0)
+                   <a href="{{URL::to('/')}}/infdocentes/{{$lista_integrante_grupo['cedula']}}">
                     {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
                     {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}</a>
-  
+                        @else 
+                        <a href="{{URL::to('/')}}/infinvestigadores/{{$lista_integrante_grupo['cedula']}}">
+                        {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
+                        {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}</a> 
+                  @endif
                 </td>
                 <td style="width:250px; text-align:left;">{{$registro_perfiles['nombreperfil']}}</td>
               </tr>

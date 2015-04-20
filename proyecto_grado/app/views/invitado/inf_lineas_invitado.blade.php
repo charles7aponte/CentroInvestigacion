@@ -80,15 +80,7 @@
       </thead>
       
       <tbody>
-          <tr>
-              <th id="fil-principal">código</th>
-              <td  class="codigo" id="col-principal" id="cuadro">
-                @if(isset($lineas) && $lineas )
-                {{$lineas['id_lineas']}}
-                @endif
-              </td>
-          </tr>
-  
+ 
           <tr>
               <th id="fil-principal">Coordinador</th>
               <td class="coordinador" id="col-principal" id="cuadro" style="text-transform:capitalize;">

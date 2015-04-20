@@ -29,6 +29,8 @@ Route::get('administrador', function() { return View::make('administrador/panel_
 //persona
 Route::get('infdocentes/{cedula}','ControlInfoDocentes@CargarInfoPrincipales');
 
+Route::get('infinvestigadores/{cedula}','ControlInfoPersonas@CargarInfoPrincipales');
+
 //slider
 Route::get('formularioslider','ControlSlider@cargarFormularioSlider');
 

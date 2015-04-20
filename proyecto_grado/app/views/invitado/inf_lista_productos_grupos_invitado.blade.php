@@ -29,23 +29,26 @@
                   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#286388, endColorstr=#122d3e);); color:white;">
                 Productividad</th>
               </tr>
+              <?php 
+                 $contador=(20*$numeropagina)-19;
+              ?>
           <tr>
-            <th>COD.</th>
+            <th></th>
             <th>NOMBRE PRODUCTO</th>
-            <th>SUBTIPO</th>
+            <th>AUTORES</th>
           </tr>
         </thead>
           <tbody>
             @foreach($lista_productos_grupos as $lista_producto_grupo)
               <tr>
                 <td style="width:100px;">
-                   {{$lista_producto_grupo->codigo_producto}}
+                   {{$contador++}}
                 </td> 
-                <td> 
-                   <a href="{{URL::to('/')}}/producto/id/{{$lista_producto_grupo->codigo_producto}}">{{$lista_producto_grupo->nombre_producto}}</a> 
+                <td id="col2"> 
+                   {{$lista_producto_grupo->nombre_producto}}
                 </td>
-                <td style="text-align:left; width:200px;">
-                  {{$lista_producto_grupo->nombre_subtipo_producto}}
+                <td id="col3">
+                  {{$lista_producto_grupo['autor_investigadores']}}
                 </td>
               </tr>
             @endforeach

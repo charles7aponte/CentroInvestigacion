@@ -21,7 +21,7 @@
     <div id="tabla-listaintegrantegrupos">
       <table id="listagrupos" style="border:none;">
         <thead>
-          <tr><th colspan="5" style=" border-radius: 5px; background: #286388;
+          <tr><th colspan="4" style=" border-radius: 5px; background: #286388;
                   background: -webkit-linear-gradient(top,#286388,#122d3e);
                   background: -moz-linear-gradient(top,#286388,#122d3e);
                   background: -o-linear-gradient(top,#286388,#122d3e);  
@@ -30,7 +30,6 @@
                 Integrantes del grupo</th>
               </tr>
           <tr>
-            <th># DOCUMENTO</th>
             <th>NOMBRES Y APELLIDOS</th>
             <th>PERFÍL</th>
           </tr>
@@ -38,12 +37,9 @@
           <tbody>
             @foreach($lista_integrantes_grupos as $lista_integrante_grupo)
               <tr>
-                <td style="width:300px;">
-                  {{$lista_integrante_grupo->cedula}}
-                </td> 
                 <td>
                     @if(strnatcasecmp(trim($registro_perfiles['nombreperfil']),"Docente")==0)
-                      <a href="{{URL::to('/')}}/listadocentes/{{$lista_integrante_grupo['cedula']}}">
+                      <a href="{{URL::to('/')}}/infdocentesinv/{{$lista_integrante_grupo['cedula']}}">
                       {{$lista_integrante_grupo->nombre1}} {{$lista_integrante_grupo->nombre2}} 
                       {{$lista_integrante_grupo->apellido1}} {{$lista_integrante_grupo->apellido2}}
                       </a>

@@ -42,17 +42,16 @@
         </thead>
           <tbody>
             @foreach($lista_proyectos_grupos as $lista_proyecto_grupo)
-              <tr > 
-                <td>{{$contador++}}</td>
-
-                <td style="text-align:left; margin-right:3px; width:350px;">
+              <tr> 
+                <td id="col1">{{$contador++}}</td>
+                <td id="col2">
                   {{$lista_proyecto_grupo->nombre_proyecto}}
                 </td> 
-                <td style="text-align:left; margin-left:3px; width:200px;">
+                <td id="col3">
                   {{$lista_proyecto_grupo['autor_investigadores']}}
                   
                 </td>
-                <td style="margin-left:3px; width:200px;">
+                <td id="col4">
                   {{$lista_proyecto_grupo['autor_coinvestigadores']}}
                 </td>
               </tr>
