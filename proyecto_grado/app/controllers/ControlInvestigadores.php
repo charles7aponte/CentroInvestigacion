@@ -109,10 +109,6 @@ class ControlInvestigadores extends Controller {
 
 			$validator = Validator::make(Input::all(), InvInvestigadoresExternos::$reglasValidacion,$messages);
 	
-			
-
-
-
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 

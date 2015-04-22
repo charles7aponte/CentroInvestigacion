@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 $("#bton_proyecto-financiado").click(function(){
 
-
 	generaFilaProyecto(jsonProyecto,"proyectos");
 
 

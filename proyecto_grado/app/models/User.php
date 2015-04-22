@@ -14,6 +14,8 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
     public $timestamps = false; 
 
 
+
+
     protected $username = 'cedula';//username a utilizar de la tabla usuarios
  
     protected $password = 'clavep';
@@ -129,4 +131,25 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
     {
         return 'remember_token';
     }*/
+
+
+
+
+    public static function tipoUsuarioSI($persona){
+       
+        $perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
+        if(count($perfiles_persona)>0)
+        {
+            $perfiles_persona=$perfiles_persona[0];
+            $perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
+            $perfiles=$perfiles[0];
+
+            $persona->nombreperfil=$perfiles['nombreperfil'];
+             
+                return $persona->nombreperfil;           
+                
+        }
+
+        return null;               
+    }
 }

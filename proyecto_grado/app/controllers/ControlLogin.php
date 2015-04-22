@@ -35,12 +35,13 @@
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
-
+				echo "$cedula && $pass";
 
 				return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
 					->with('mensaje_error',"Verifique por favor los datos del usuario");
+			
 				}
 				// paso la validacion
 				else {
@@ -61,20 +62,41 @@
 
 
 						$persona=User::find($raw[0]->cedula);
-						Auth::login($persona);
+						$perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
+						if(count($perfiles_persona)>0)
+						{
+
+							$perfiles_persona=$perfiles_persona[0];
+							$perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
+							$perfiles=$perfiles[0];
+
+							$persona->nombreperfil=$perfiles['nombreperfil'];
+							$persona["nombreperfil"]=$persona->nombreperfil;
+							 
+
+							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0)
+							{
+								Auth::login($persona);
+							   return Redirect::to("administrador");
+								
+							}
+						}
 						
 
-						return Redirect::to("administrador");
+					}
 
-					}	
-
+					return Redirect::to('login')
+					->withErrors($validator)
+					->withInput()
+					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");
+				
 
 				}		
 
 
 
 
-		return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
+		//return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
 
 
 		
@@ -89,6 +111,7 @@
     {
         // Cerramos la sesión
         Auth::logout();
+        Session::flush();
         return Redirect::to('login')->with('mensaje_success', 'Ha cerrado sesión correctamente');
     }
 
@@ -117,6 +140,19 @@
 			$valor = str_ireplace("\"","\\\"",$valor);
 			return $valor;
 		}
+
+
+
+	public function CargarInfoPrincipales(){
+		$unidades_academicas=InvUnidadesAcademicas::all();
+		$documentos=InvEventosNoticias::where("tipo","ILIKE","documento")->get();
+
+		$datos=array('lista_unidades' =>$unidades_academicas,
+					 'lista_documentos'=>$documentos
+					);
+
+		return View::make("login",$datos);
+	}	
 
 
 

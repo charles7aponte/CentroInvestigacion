@@ -48,6 +48,7 @@ switch($mes){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+
 	<title>Administrador</title>
 	
 	<!--css-->
@@ -99,12 +100,18 @@ switch($mes){
 	
 	<section id="secondary_bar">
 
+
 		<div class="user" >
 			<!-- Split button -->
 			<div class="btn-group" id="usuario-admin">
 			  <button type="button" class="btn btn-default" style="padding-bottom: 1px; /* width: 100px; */height: 34px; background-color: tr;">
-			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Administrador</span></p>
+					@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Docente")==0)
+			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Docente</span></p>
+			  		@elseif(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola,Administrador</span></p>
+			  		@endif
 			  </button>
+
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 			    <span class="caret"></span>
 			    <span class="sr-only">Toggle Dropdown</span>
@@ -127,6 +134,7 @@ switch($mes){
 		<hr/>
 		<a href="{{URL::to('administrador')}}"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>	
 
+		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Unidades</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariounidadesacademicas')}}">Agregar nueva unidad académica</a></li>
@@ -167,11 +175,19 @@ switch($mes){
 			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
 			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar/Editar el financiamiento de un proyecto</a></li>
 		</ul>
+		@endif
 
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
 		<ul class="toggle">
+
+		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Docente")==0 || strnatcasecmp(trim(User::tipoUsuarioSI(User::user())),"Admin centro investigaciones")==0)
+         
 			<li class=""><a href="{{URL::to('formularioproductos')}}"> Agregar nuevo producto</a></li>
-			<li class=""><a href="{{URL::to('listadeproductos')}}">Ver/Editar un producto</a></li>			
+		@endif
+
+		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+			<li class=""><a href="{{URL::to('listadeproductos')}}">Ver/Editar un producto</a></li>	
+
 			<li class=""><a href="{{URL::to('formulariotipoproductos')}}">Agregar/eliminar un tipo de producto</a></li>
 			<li class=""><a href="{{URL::to('formulariosubtipoproductos')}}">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
@@ -196,13 +212,22 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioslider')}}">Agregar nueva imagen</a></li>
 			<li class=""><a href="{{URL::to('listaimageneslider')}}">Ver/eliminar una imagen</a></li>
-		</ul>	
-		
-		<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
-		<ul class="toggle">
-			<li class=""><a href="#">Opciones</a></li>
-			<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
 		</ul>
+		@endif
+
+		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+			<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
+				<ul class="toggle">
+					<li class=""><a href="#">Opciones</a></li>
+					<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
+				</ul>
+			@else 
+				<h3><span class="glyphicon glyphicon-user"></span> Docente</h3>
+					<ul class="toggle">
+						<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
+					</ul>
+		@endif			
+
 	</aside><!-- end of sidebar -->
 	
 	<section id="main" class="column">

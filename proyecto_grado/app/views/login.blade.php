@@ -1,4 +1,4 @@
-@extends('cuerpo')
+@extends('panel_cuerpo')
 
 @section('contenido-principal')
 <div class="container-login"> 

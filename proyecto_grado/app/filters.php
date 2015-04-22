@@ -48,6 +48,29 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('permisosadmin',function(){
+
+	if (Auth::guest())
+	{
+		$persona = Auth::user();
+	    $perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
+	    if(count($perfiles_persona)>0)
+	    {
+
+	        $perfiles_persona=$perfiles_persona[0];
+	        $perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
+	        $perfiles=$perfiles[0];
+
+	        $persona->nombreperfil=$perfiles['nombreperfil'];
+	        if(!(strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0))
+	         {
+	         	return Redirect::to('/');
+	         }
+	     }
+	}     
+                          
+});
+
 
 Route::filter('auth.basic', function()
 {
@@ -67,7 +90,8 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) 
+		return Redirect::to('/');
 });
 
 /*

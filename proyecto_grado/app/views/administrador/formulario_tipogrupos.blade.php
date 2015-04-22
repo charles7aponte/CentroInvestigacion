@@ -83,13 +83,15 @@
                   <th></th>
                 </tr>
               </thead>
-
+              <?php
+                $contador=1;
+              ?>
               <tbody>  
               <!--insertando en la tabla los registros-->
               @if(isset($tipogrupos))      
                 @foreach ($tipogrupos as $tipogrupo) <!--array- que viene del controlador-->
                     <tr id="dato_tipogrupo_{{$tipogrupo['id']}}">
-                      <td>{{$tipogrupo['id']}}</td>
+                      <td>{{$contador++}}</td>
                       <td>{{$tipogrupo['tipo_grupo']}}</td>
                       <td>
                          <b onclick="eliminartipo({{$tipogrupo['id']}})" > <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>

@@ -8,7 +8,7 @@ class InvEventosNoticias extends Eloquent  {
 	 *
 	 * @var string
 	 */
-	protected $table = 'inv_evento_noticias';
+	protected $table = 'inv_evento_noticias_documentos';
 	public $timestamps = false;
 	protected $primaryKey = "id_evento";
 	public $incrementing = true;

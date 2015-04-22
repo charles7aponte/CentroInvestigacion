@@ -4,11 +4,20 @@
 Paginas generales--------------------
 ***************/
 
+Route::group(array('before'=>'permisosadmin'), function(){
+Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
+/*---------------eliminar grupo----------------*/
+Route::get('formulariogrupos/eliminar/{id}','ControlGrupos@EliminarFormularioGrupo');
+
+Route::get('formulariounidadesacademicas','ControlUnidadesAcademicas@cargarFormularioUnidades');
 
 
-Route::get('login', function() { return View::make('login'); });
+});
+
+Route::get('login','ControlLogin@CargarInfoPrincipales');
 
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
+
 
 //PAGINA PRINCIPAL
 Route::get('/', 'ControlPaginaInicio@CrearPagina');
@@ -43,11 +52,6 @@ Route::get('listadereportes', function() { return View::make('administrador/inf_
 
 
 /*---------------crear grupo------------------*/
-Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
-/*---------------eliminar grupo----------------*/
-Route::get('formulariogrupos/eliminar/{id}','ControlGrupos@EliminarFormularioGrupo');
-
-Route::get('formulariounidadesacademicas','ControlUnidadesAcademicas@cargarFormularioUnidades');
 
 /*---------------crear sublinea-----------------*/
 Route::get('formulariosublineas','ControlSublineas@cargarFormularioNuevaSublinea');
@@ -92,7 +96,7 @@ Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademic
 
 
 /*---------------crear producto------------------*/
-Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
+Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos')->before('auth');
 /*---------------eliminar proyecto------------------*/
 Route::get('formularioproductos/eliminar/{id}','ControlProductos@EliminarFormularioProducto');
 

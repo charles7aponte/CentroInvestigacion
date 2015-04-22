@@ -1,18 +1,18 @@
 CREATE TABLE inv_tipo_grupos
 (
   id serial NOT NULL,
-  tipo_grupo character varying(50) NOT NULL, 
-  estado char default 1,
+  tipo_grupo character varying(50) NOT NULL,
+  estado character(1) DEFAULT 1,
   CONSTRAINT inv_tipo_grupos_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE inv_unidades_academicas
 (
-  id_unidad integer NOT NULL,
-  nombre_unidad character varying(255) NOT NULL, 
+  id_unidad serial NOT NULL,
+  nombre_unidad character varying(255) NOT NULL,
   inv_cedula_coordinador bigint NOT NULL,
   descripcion text,
-  CONSTRAINT inv_tipo_grupos_pkey PRIMARY KEY (id),
+  CONSTRAINT inv_unidad_academica_pkey PRIMARY KEY (id_unidad),
   CONSTRAINT inv_cedula_coordinador_fkey FOREIGN KEY (inv_cedula_coordinador) REFERENCES persona  ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
@@ -36,9 +36,9 @@ CREATE TABLE inv_grupos
   imagen1 text,
   imagen2 text,
   logo_grupo text NOT NULL,
-  estado_activacion char default 1,
+  estado_activacion character(1) DEFAULT 1,
   CONSTRAINT inv_grupos_pkey PRIMARY KEY (codigo_grupo),
-  CONSTRAINT inv_tipo_grupos_fkey FOREIGN KEY (inv_tipo_grupos) REFERENCES inv_tipo_grupos  ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT inv_tipo_grupos_fkey FOREIGN KEY (inv_tipo_grupos) REFERENCES inv_tipo_grupos  ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT inv_unidad_academica_fkey FOREIGN KEY (inv_unidad_academica) REFERENCES inv_unidades_academicas  ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
@@ -53,8 +53,8 @@ CREATE TABLE inv_lineas
   objetivo_linea text,
   ruta_archivo text,
   foto_linea text NOT NULL,
-  estado char default 1,
-  CONSTRAINT inv_lineas_pkey PRIMARY KEY (id_lineas)
+  estado character(1) DEFAULT 1,
+  CONSTRAINT inv_lineas_pkey PRIMARY KEY (id_lineas),
   CONSTRAINT inv_unidad_academica_fkey FOREIGN KEY (inv_unidad_academica) REFERENCES inv_unidades_academicas  ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE inv_sublineas
   nombre_sublinea text NOT NULL,
   estado character varying(30),
   descripcion_sublinea text NOT NULL,
-  estado1 char default 1,
+  estado1 character(1) DEFAULT 1,
   CONSTRAINT inv_sublineas_pkey PRIMARY KEY (id_sublinea),
   CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas  ON DELETE CASCADE ON UPDATE CASCADE 
  );
@@ -95,7 +95,7 @@ CREATE TABLE inv_convocatorias
   archivo_convocatoria text,
   archivo_imagen text,
   convocatoria_dirigida text NOT NULL,
-  estado1 char default 1,
+  estado1 character(1) DEFAULT 1,
   CONSTRAINT inv_convocatorias_pkey PRIMARY KEY (numero_convocatoria)
 );
 
@@ -111,6 +111,7 @@ CREATE TABLE inv_proyectos
   archivo_propuesta text,
   informe_final text,
   fecha_proyecto date NOT NULL,
+  fecha_finproyecto date,
   grupo_auxiliar text,
   estado_proyecto character varying(30) NOT NULL,
   CONSTRAINT inv_proyectos_pkey PRIMARY KEY (codigo_proyecto),
@@ -148,7 +149,7 @@ CREATE TABLE inv_subtipo_productos
   inv_id_tipo_producto integer NOT NULL,
   nombre_subtipo_producto text NOT NULL,
   descripcion_subtipo_producto text,
-  estado character DEFAULT 1,
+  estado character(1) DEFAULT 1,
   CONSTRAINT inv_subtipo_productos_pkey PRIMARY KEY (id_subtipo_producto),
   CONSTRAINT inv_id_tipo_producto_fkey FOREIGN KEY (inv_id_tipo_producto) REFERENCES inv_tipo_productos ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -168,6 +169,7 @@ CREATE TABLE inv_productos
   soporte_producto text,
   tipo_soporte character varying(100),
   foto_producto text,
+  estado_activacion character(1) DEFAULT 1,
   CONSTRAINT inv_productos_pkey PRIMARY KEY (codigo_producto),
   CONSTRAINT inv_codigo_grupo_fkey FOREIGN KEY (inv_codigo_grupo) REFERENCES inv_grupos (codigo_grupo) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT inv_id_linea_fkey FOREIGN KEY (inv_id_linea) REFERENCES inv_lineas (id_lineas) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE,
@@ -180,7 +182,7 @@ CREATE TABLE inv_investigadores_externos
   codinv_ext serial NOT NULL,
   cedula_persona bigint NOT NULL,
   nit integer NOT NULL,
-  codperfil INTEGER NOT NULL,
+  codperfil integer NOT NULL,
   profesion character varying(100) NOT NULL,
   codconvocatoria integer,
   nombreconvocatoria text,
@@ -245,5 +247,15 @@ CREATE TABLE inv_evento_noticias_documentos
   descripcion text NOT NULL,
   enlace_documento text NOT NULL,
   fecha date,
+  fecha_fin date,
   CONSTRAINT inv_evento_noticias_pkey PRIMARY KEY (id_evento)
 );
+
+CREATE TABLE inv_slider
+(
+  id_slider serial NOT NULL,
+  ruta_imagen text NOT NULL,
+  descripcion text,
+  estado_activacion character DEFAULT 1,
+  CONSTRAINT inv_id_slider_pkey PRIMARY KEY (id_slider)
+)

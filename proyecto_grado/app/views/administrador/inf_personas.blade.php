@@ -21,9 +21,16 @@
                     <tr>
                         <th style="background:none;">
                             @if($datos_integrantes['foto']!="")
-                            <div id="foto-persona">
-                                <img align="right" src="{{URL::to('archivos_db/investigadores/')}}/{{$datos_integrantes['foto']}}">
-                            </div>    
+                                @if(isset($investigadores))
+                                    <div id="foto-persona">
+                                        <img align="right" src="{{URL::to('archivos_db/investigadores/')}}/{{$datos_integrantes['foto']}}">
+                                    </div>   
+                                @else
+                                    <div id="foto-persona">
+                                        <img align="right" src="http://{{$datos_integrantes['foto']}}">
+                                    </div>
+
+                                @endif     
                             @endif  
                             
                         </th> 
@@ -37,7 +44,6 @@
                     </tr>
                 </tbody>
             </table>
-
     		<table class="tabla-infpersonas">
                 
                     <thead>    
@@ -84,19 +90,21 @@
                             <td id="col-principal" id="cuadro">{{$datos_integrantes['mail']}}</td>  
                         </tr>
                     </tbody>
-        	</table> 
-
+        	</table>
             <table class="tabla-infpersonas">      
                 <thead>    
                     <tr>
 
                     </tr>
                 </thead>
-                @if($investigadores)
+
+                @if(isset($investigadores))
                 <tbody>
                     <tr>
                         <th id="fil-principal">CVLAC</th>
-                        <td id="col-principal" id="cuadro"><a href="http://{{$investigadores['link_cvlac']}}">{{$investigadores['link_cvlac']}}</a></td>
+                        <td id="col-principal" id="cuadro">
+                            <a href="http://{{$investigadores['link_cvlac']}}">{{$investigadores['link_cvlac']}}</a>
+                        </td>
                     </tr>
                     <tr>
                         <th id="fil-principal">Profesion</th>
@@ -129,7 +137,21 @@
                     </tr>
                 </tbody>
                 @else
-                hola
+                <tbody>
+                    <tr>
+                        <th id="fil-principal">Edad</th>
+                        <td id="col-principal" id="cuadro">{{$estudiantes['edad']}}</td>
+                    </tr>
+                    <tr>
+                        <th id="fil-principal">Especialidad</th>
+                        <td id="col-principal" id="cuadro">{{$estudiantes['especialidad']}}</td>
+                    </tr>
+
+                     <tr>
+                        <th id="fil-principal">Otros Estudios</th>
+                        <td id="col-principal" id="cuadro">{{$estudiantes['otrosestudios']}}</td>
+                    </tr>
+                </tbody>
                 @endif
             </table> 
         </fieldset>		    
