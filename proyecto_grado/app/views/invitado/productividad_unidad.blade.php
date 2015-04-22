@@ -131,13 +131,13 @@
    		<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
    			<table class="table table-bordered table-hover">
     			<thead>
-        			<tr>
+        			<tr style="background:#FE2945">
 			            <th>Tipos</th>
 			            <th>Subtipos</th>
 			            <th>Cantidad</th>
         			</tr>
     			</thead>
-    			<tbody>
+    			<tbody style="background:#FEF6C7">
     				<?php
     					$contador_tipos=0;
     					$contador_subtipos=0;
@@ -146,32 +146,30 @@
         			<tr>
         				@foreach($unidadproducto as $key1 =>$datostabulados)
 
-
 							<?php  
         						$contador_subtipos=0;
         					?>
 
         					@foreach($datostabulados as $key2 => $cantidad)
         						<tr>
-        						@if($contador_subtipos==0)
-        							<td rowspan="{{count($datostabulados)}}">{{$key1}}</td>
-        						@endif
+        							@if($contador_subtipos==0)
+        								<td rowspan="{{count($datostabulados)}}">{{$key1}}</td>
+        							@endif
 
         							<td>{{$key2}}</td>
         							<td>{{$cantidad}}</td>		
-
         						</tr>
 
 	        					<?php  
 	        						$contador_subtipos++;
-	        					?>
-
+	        					?>		
         					@endforeach
 
         					<?php  
         						$contador_tipos++;
         					?>
         				@endforeach
+        			</tr>
     			</tbody>
 			</table>
     	</div>

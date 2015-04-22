@@ -119,18 +119,13 @@ class ControlFinanciamiento extends Controller {
 				$listaempresas = InvEntidades::all();
 
 				$datos=  array(
-					'empresas' =>$listaempresas
-					);
-
-			
+					'empresas' =>$listaempresas);
 
 			 	return View::make('administrador/formulario_financiamiento',$datos); 
-
-
 			}
 
 
-				public function financiamientoPorProyecto($idproyecto){
+			public function financiamientoPorProyecto($idproyecto){
 					$proyecto=InvFinanciamiento::where("inv_codigo_proyecto","=","$idproyecto")->get();
 
 					
@@ -142,11 +137,10 @@ class ControlFinanciamiento extends Controller {
 
 					}
 					return Response::json($proyecto);
-				}
-
-				
-				//funcion eliminar
-				public function EliminarListaFinanciamiento($id){
+			}
+	
+			//funcion eliminar
+			public function EliminarListaFinanciamiento($id){
 			
 				$form_lista_financiamiento= InvFinanciamiento::find($id); //de donde necesito
 

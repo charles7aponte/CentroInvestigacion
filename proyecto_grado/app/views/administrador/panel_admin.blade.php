@@ -81,6 +81,7 @@ switch($mes){
 	<script src="{{URL::to('js/limpiarformularios.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/jquery-ui.min.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('js/Chart.js')}}" type="text/javascript"type=""></script>
+	<script src="{{URL::to('js/recursos/colores-graficas.js')}}" type="text/javascript"></script>
 
 	@section("javascript-nuevos")
 	@show

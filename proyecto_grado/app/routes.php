@@ -41,6 +41,7 @@ Route::get('formularioslider/eliminar/{id}','ControlSlider@EliminarFormularioSli
 //reportes
 Route::get('listadereportes', function() { return View::make('administrador/inf_reportes'); });
 
+
 /*---------------crear grupo------------------*/
 Route::get('formulariogrupos','ControlGrupos@cargarFormularioGrupo');
 /*---------------eliminar grupo----------------*/
@@ -291,6 +292,15 @@ Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','Con
 
 //productos
 Route::get('listaintegrantesproductos/producto/{idproducto}/perfil/{idperfil}','ControlInfoListasProductos@ConstruirListaIntegrantesProductos');
+
+
+/***********--------creacion de graficas reportes: productividad por grupos,proyectos,productos,lineas ------------*/
+
+Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
+
+Route::get('reporte/proyectolineas/', 'ControlReportes@CrearReporteProyectos');
+
+
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
 

@@ -35,13 +35,13 @@ class ControlProductividad extends Controller {
 
 		$totalUnidad=array();
 		foreach ($listaProductividadUnidades as $key => $productividad){
-			if( $productividad)
+			if($productividad)
 			{
 				if (isset($totalUnidad[$productividad->nombre_tipo_producto])==false){
 					$totalUnidad[$productividad->nombre_tipo_producto]=array();
 				}
 					
-					$totalUnidad[$productividad->nombre_tipo_producto][$productividad->nombre_subtipo_producto]=$productividad->count;				
+				$totalUnidad[$productividad->nombre_tipo_producto][$productividad->nombre_subtipo_producto]=$productividad->count;				
 			}
 		}
 
