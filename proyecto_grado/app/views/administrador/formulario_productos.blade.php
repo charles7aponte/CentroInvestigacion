@@ -173,7 +173,7 @@
                 </li>
                 <div class="row">
                         <li>
-                            <div class="col-md-2"><label>Integrantes: </label></div>
+                            <div class="col-md-2"><label>Autores: </label></div>
                              <div class="col-md-2"> 
                                 <input style="margin-left: 30px;" type="button"  data-toggle="modal" data-target="#myModal-integrantes-producto" id="botones-especiales" value="Agregar/Ver Autores">
                             </div>

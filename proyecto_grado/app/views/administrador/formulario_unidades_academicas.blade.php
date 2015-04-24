@@ -42,8 +42,8 @@
 
                     <li class="@if($errors->has('coor-unidad')) has-error @endif" >
                         <label for="coor-unidad">Coordinador de la unidad:</label>
-                        <input type="text" id="coor-linea" name="coor-unidad" /> 
-                        <input type="hidden" id="cedula-persona" name="cedula-persona"/>
+                        <input type="text" id="coor-linea" name="coor-unidad"  required="required" /> 
+                        <input type="hidden" id="cedula-persona" name="cedula-persona" />
                             <span id="advertencias">
                                 <p>*Ingrese el n&uacute;mero de documento o nombres y espere a que el autocompletado lo muestre.</p>
                             </span> 

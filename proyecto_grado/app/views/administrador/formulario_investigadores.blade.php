@@ -185,11 +185,17 @@
                         <input type="text" id="profesion" name="profesion" value="{{ Input::old('profesion')!=null? Input::old('profesion'): (isset($investigador['profesion'])? $investigador['profesion']:'')}}" required="required"/>
                         @if ($errors->has('profesion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('profesion') }}</p> @endif
                     </li>
+
+                    <li>
+                        <label for="link-cvlac">Link cvlac</label>
+                        <input type="text" id="link-cvlac" name="link-cvlac" value="{{ Input::old('link-cvlac')!=null? Input::old('link-cvlac'): (isset($investigador['link_cvlac'])? $investigador['link_cvlac']:'')}}" required="required" />
+                        @if ($errors->has('link-cvlac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('link-cvlac') }}</p> @endif
+                    </li>
                     <li><label for="codigo_cov">C&oacute;d. Convocatoria:</label>
                         <input type="text" id="codigo_conv" name="codigo_conv" value="{{ Input::old('codigo_conv')!=null? Input::old('codigo_conv'): (isset($investigador['codconvocatoria'])? $investigador['codconvocatoria']:'')}}" />
                         @if ($errors->has('codigo_conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('codigo_conv') }}</p> @endif
                     </li>
-                    <li><label for="nombre_conv">Nombre Conv.</label>
+                    <li><label for="nombre_conv">Convocatoria</label>
                         <input type="text" id="nombre_conv" name="nombre_conv" value="{{ Input::old('nombre_conv')!=null? Input::old('nombre_conv'): (isset($investigador['nombreconvocatoria'])? $investigador['nombreconvocatoria']:'')}}" />
                         @if ($errors->has('nombre_conv')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre_conv') }}</p> @endif
                     </li>
@@ -209,15 +215,9 @@
                         </select>
 
                     </li>
-                    <li><label for="numero_contrato">N. Contrato</label>
+                    <li><label for="numero_contrato">Nº Contrato</label>
                         <input type="text" id="numero_contrato" name="numero_contrato" value="{{ Input::old('numero_contrato')!=null? Input::old('numero_contrato'): (isset($investigador['numerocontrato'])? $investigador['numerocontrato']:'')}}"/>
                         @if ($errors->has('numero_contrato')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('numero_contrato') }}</p> @endif
-                    </li>
-
-                    <li>
-                        <label for="link-cvlac">Link cvlac</label>
-                        <input type="text" id="link-cvlac" name="link-cvlac" value="{{ Input::old('link-cvlac')!=null? Input::old('link-cvlac'): (isset($investigador['link_cvlac'])? $investigador['link_cvlac']:'')}}" required="required" />
-                        @if ($errors->has('link-cvlac')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('link-cvlac') }}</p> @endif
                     </li>
 
                     <li><label for="">Fecha Inicio:</label>

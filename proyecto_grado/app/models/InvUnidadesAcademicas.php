@@ -16,6 +16,7 @@ class InvUnidadesAcademicas extends Eloquent  {
 		// reglas validacion de creacion
 	public 	static $reglasValidacion = array(
 		'nombre-unidad'             =>'required|unique:inv_unidades_academicas,nombre_unidad|max:255', 
+		'coor-unidad'				=>'required'
 				
 	);
 
