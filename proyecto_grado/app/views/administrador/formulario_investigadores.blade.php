@@ -97,43 +97,6 @@
                 <fieldset>  
                     <li><label for="cedula">C&eacute;dula: {{$investigador['cedula_persona']}}</label>
                     </li>
-
-                    <li><label for="nombre1">Nombres: {{$personaiv['nombre1'] $personaiv['nombre2']}} </label>
-                    </li>
-
-                    <li><label for="perfil">Perfil:</label>
-
-                        <select name="perfil" required="required">
-
-                        @if(isset($perfiles))
-                            @foreach($perfiles as $perfilinv)
-                            @if(isset($investigador['codperfil']) && $perfilinv['codperfil'] == $investigador['codperfil'])
-                             <option value="{{$perfilinv['codperfil']}}" selected>{{$perfilinv['nombreperfil']}}</option>
-                            @else
-                                <option value="{{$perfilinv['codperfil']}}">{{$perfilinv['nombreperfil']}}</option>
-
-                            @endif
-                            @endforeach
-                        @endif
-                        </select>                          
-                    </li> 
-                    <li><label for="">Fecha Perfil:</label>
-                        <div class="container">
-                            <div class="row">
-                                <div class='col-sm-5' style="padding:0px;">
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="yyyy-mm-dd" name="creacion-perfil" value="{{Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'): (isset($personaiv) && isset($personaiv['fecha_perfil'])? $personaiv['fecha_perfil']:'')}}" required="required" /> 
-                                            @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </li>
                 </fieldset>
             @else
 
