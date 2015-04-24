@@ -24,14 +24,62 @@ class ControlReportes extends Controller {
 	}
 
 
-	public function CrearReporteProyectos()
+	public function CrearReporteProyectos($id_periodo=null)
 	{
 
-		$proyectolinea = $this->consulta_tablaproyectos();	
+		$proyectolinea = $this->consulta_tablaproyectos();
+		$graficaproyecto =array();	
+		$generarperiodo=InvPeriodos::all();
+
+
+
+		$periodo=null;
+		if($id_periodo!=null)
+		{
+			$periodo=InvPeriodos::find($id_periodo);
+		}
+		else{
+			$periodo=$generarperiodo[0];
+		}
+
+		$graficaproyecto=$this->grafica_proyecto_lineas($periodo->codigo_periodo);
+
 		
-		
-		$datos = array('reporteproyecto' =>$proyectolinea);
+		$datos = array('reporteproyectos' =>$proyectolinea,
+						'generarperiodo'=>$generarperiodo,
+						'periodo'=>$periodo,
+						'graficaproyecto'=>$graficaproyecto);
+
 		return View::make("administrador/reportes_proyectos",$datos);
+	}
+
+	public function CrearReporteProductos($id_periodo=null)
+
+	{
+		
+		$tablaproductos = $this->consulta_tablaproductos();
+		$generarperiodo=InvPeriodos::all();
+		$graficaproducto =array();
+
+
+		$periodo=null;
+		if($id_periodo!=null)
+		{
+			$periodo=InvPeriodos::find($id_periodo);
+		}
+		else{
+			$periodo=$generarperiodo[0];
+		}	
+		
+		$graficaproducto=$this->grafica_producto_subtipo($periodo->codigo_periodo);
+		
+		$datos = array('reporteproducto' =>$tablaproductos,
+						'generarperiodo'=>$generarperiodo,
+						'periodo'=>$periodo,
+						'graficaproducto'=>$graficaproducto);
+		
+		//print_r($datos);
+		return View::make("administrador/reporte_productos",$datos);
 	}
 
 	public function consulta_tabla1(){
@@ -127,81 +175,101 @@ class ControlReportes extends Controller {
 		return $graficagrupos;		
 	}
 
-	/*public function grafica_proyecto_lineas($id_periodo){
+	public function grafica_proyecto_lineas($id_periodo){
 
 		$GraficaProyectoLineas=DB::select(DB::raw("select count(*), il.id_lineas,il.nombre_linea,ipa.periodo
 			from inv_lineas il, inv_proyectos ip, inv_periodos_academicos ipa
 			where il.id_lineas=ip.inv_id_linea 	
-				and ipa.fecha_inicio<=ip.fecha_proyecto 
-				and ipa.fecha_fin>=ip.fecha_proyecto
+				and
+				(
+				 (ipa.fecha_inicio<=ip.fecha_proyecto and ipa.fecha_fin>=ip.fecha_proyecto)
+				 or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
+				 or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin)
+				)
+				and ipa.codigo_periodo=$id_periodo
 
-				group by il.id_lineas,il.nombre_linea,ipa.periodo"));
+			group by il.id_lineas,il.nombre_linea,ipa.periodo"));
 				
-		//////////////////////////////////////////////
-		$graficagrupos=array();
-		$lista_unidades=array();
 
-		//lista de unidades
-		foreach ($GraficaGruposUnidades as $key => $graficareportegrupos){
-			$lista_unidades[]=$graficareportegrupos->nombre_unidad;
-		}
-
-
-		$lista_unidades=array_unique($lista_unidades);
-
-		//principio degeneracion de matriz
-		foreach ($GraficaGruposUnidades as $key => $graficareportegrupos){
-			
-				if (isset($graficagrupos[$graficareportegrupos->nombreperfil])==false){
-					$graficagrupos[$graficareportegrupos->nombreperfil]=array();
-				}
-					
-				$graficagrupos[$graficareportegrupos->nombreperfil][$graficareportegrupos->nombre_unidad]= $graficareportegrupos->count;
-		}
-
-
-
-		foreach ($graficagrupos as $key => $graficareportegrupos){
-
-					foreach ($lista_unidades as  $unidad){
-						if(isset($graficagrupos[$key][$unidad])==false)
-						{
-						$graficagrupos[$key][$unidad]=0;	
-						}
-
-					}
-
-		}
-
-	
-		return $graficagrupos;		
+		return 	$GraficaProyectoLineas;	
 	}
 
-	*/
 	public function consulta_tablaproyectos(){
 
 		$listaProyectoLineas=DB::select(DB::raw("select ip.nombre_proyecto,il.nombre_linea,ipa.periodo
 			from inv_lineas il, inv_proyectos ip, inv_periodos_academicos ipa
 			where il.id_lineas=ip.inv_id_linea 	
-			and ipa.fecha_inicio<=ip.fecha_proyecto 
-			and ipa.fecha_fin>=ip.fecha_proyecto"));
-				
-		$matrizproyectos=array();
-
-		foreach ($listaProyectoLineas as $key => $reporteproyectos){
-			
-				if (isset($matrizproyectos[$reporteproyectos->nombre_proyecto])==false){
-					$matrizproyectos[$reporteproyectos->nombre_proyecto]=array();
-				}
-					
-				if (isset($matrizproyectos[$reporteproyectos->nombre_proyecto][$reporteproyectos->nombre_linea])==false)
-				{
-
-				$matrizproyectos[$reporteproyectos->nombre_proyecto][$reporteproyectos->nombre_linea]=array();
-				}
-				$matrizproyectos[$reporteproyectos->nombre_proyecto][$reporteproyectos->nombre_linea]["periodo"]=$reporteproyectos->periodo;
-		}
-		
-		return $matrizproyectos;		
+			and
+			(
+				(ipa.fecha_inicio<=ip.fecha_proyecto and ipa.fecha_fin>=ip.fecha_proyecto)
+				or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
+			    or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin)
+			)"));
+						
+		return $listaProyectoLineas;		
 	}
+
+	public function consulta_tablaproductos(){
+
+		$listaProductosperiodo=DB::select(DB::raw("select ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto
+			from inv_periodos_academicos ipa, inv_tipo_productos itp, inv_subtipo_productos isp, inv_productos ip
+			where itp.id_tipo_producto=isp.inv_id_tipo_producto
+      			and isp.id_subtipo_producto=ip.inv_subtipo_producto 
+      			and fecha_producto >=fecha_inicio
+      			and fecha_producto <=fecha_fin
+
+			order by ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto"));
+		
+		$matrizproductos=array();
+		$contador_tipos=array();
+		$contador_registros_productos=0;
+		$cantidadproductosperiodo=0;
+
+
+		foreach ($listaProductosperiodo as $key => $agruparproductos)
+		{
+			if (isset($matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano])==false){
+					$matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano]=array();
+					$cantidadproductosperiodo =0;
+					$contador_tipos[$agruparproductos->periodo."-".$agruparproductos->ano]=$cantidadproductosperiodo;
+			}
+					
+			if (isset($matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano][$agruparproductos->nombre_tipo_producto])==false)
+			{
+
+				$matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano][$agruparproductos->nombre_tipo_producto]=array();
+				$contador_registros_productos=0;
+			}
+
+			$matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano][$agruparproductos->nombre_tipo_producto][$contador_registros_productos]["nombre_subtipo_producto"]=$agruparproductos->nombre_subtipo_producto;
+			$matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano][$agruparproductos->nombre_tipo_producto][$contador_registros_productos]["codigo_producto"]=$agruparproductos->codigo_producto;
+			$matrizproductos[$agruparproductos->periodo."-".$agruparproductos->ano][$agruparproductos->nombre_tipo_producto][$contador_registros_productos]["nombre_producto"]=$agruparproductos->nombre_producto;
+				
+			$contador_registros_productos++;	
+			$cantidadproductosperiodo++;
+			$contador_tipos[$agruparproductos->periodo."-".$agruparproductos->ano]=$cantidadproductosperiodo;
+				
+		}				
+
+		return array('datos'=>$matrizproductos,
+				    'cantidad_productos_periodo'=>$contador_tipos);		
+	}
+
+	public function grafica_producto_subtipo($id_periodo){
+
+		$GraficaProductoPeriodo=DB::select(DB::raw("select ano,periodo, nombre_subtipo_producto, codigo_producto,count(*)
+			from (select  distinct ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto
+					from inv_periodos_academicos ipa, inv_tipo_productos itp, inv_subtipo_productos isp, inv_productos ip
+					where itp.id_tipo_producto=isp.inv_id_tipo_producto
+				      and isp.id_subtipo_producto=ip.inv_subtipo_producto 
+				      and fecha_producto >=fecha_inicio
+				      and fecha_producto <=fecha_fin
+				      and codigo_periodo=$id_periodo 
+					order by ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto)as pp
+
+			group by ano,periodo, nombre_subtipo_producto, codigo_producto"));
+				
+
+		return 	$GraficaProductoPeriodo;	
+	}	
 }

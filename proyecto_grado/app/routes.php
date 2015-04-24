@@ -302,7 +302,9 @@ Route::get('listaintegrantesproductos/producto/{idproducto}/perfil/{idperfil}','
 
 Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
 
-Route::get('reporte/proyectolineas/', 'ControlReportes@CrearReporteProyectos');
+Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteProyectos');
+
+Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
 
 
 

@@ -18,6 +18,4 @@ class ControlInfoEventosNoticias extends Controller {
 		return View::make("administrador/inf_eventos_noticias",$datos);
 
 	}
-
-	
 }

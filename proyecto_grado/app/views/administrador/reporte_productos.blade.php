@@ -23,7 +23,7 @@
 	<script>
 
 		<?php 
-			$contador=0;
+			$contadorcolores=0;
 		?>
 
 
@@ -33,18 +33,18 @@
 
 		var listalabel= [
 				
-				@foreach($graficaproyecto as $key => $filalinea)
+				@foreach($graficaproducto as $key => $filasubtipos)
 				{
 
-					label:"{{$filalinea->nombre_linea}}",
-					fillColor:getColor({{$contador}}),
+					label:"{{$filasubtipos->nombre_subtipo_producto}}",
+					fillColor:getColor({{$contadorcolores}}),
 					strokeColor : "rgba(220,220,220,0.8)",
-					highlightFill: getColor({{$contador}}),
+					highlightFill: getColor({{$contadorcolores}}),
 					highlightStroke:"rgba(220,220,220,1)",
-					data : [{{$filalinea->count}}],
+					data : [{{$filasubtipos->count}}],
 
 					<?php 
-					$contador++;
+					$contadorcolores++;
 					?>
 				},
 
@@ -86,25 +86,23 @@
 				}
 
 				$("#descripcion-tabla").html(html);
-
-
-
 		}
 	</script>
+	
 @stop
 
 @section('cuerpo') 
 	
 <div>
 
-	<div class="btn-group">
+<div class="btn-group">
     	<button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown">
       		Seleccione Periodo
       		<span class="caret"></span>
     	</button>
     	<ul class="dropdown-menu">
     		@foreach($generarperiodo as $key => $generarperiodografica)
-      		<li><a href="{{URL::to('/')}}/reporte/proyectolineas/{{$generarperiodografica->codigo_periodo}}">{{$generarperiodografica->periodo}}-{{$generarperiodografica->ano}}</a></li>
+      		<li><a href="{{URL::to('/')}}/reporte/productoperiodo/{{$generarperiodografica->codigo_periodo}}">{{$generarperiodografica->periodo}}-{{$generarperiodografica->ano}}</a></li>
       		
       			@endforeach
     	</ul>
@@ -156,19 +154,61 @@
    			<table class="table table-bordered table-hover">
     			<thead>
         			<tr>
-			            <th>Proyecto</th>
-			            <th>Nombre Linea</th>
-			            <th>Periodo</th>
+			            <th>Periodo Acad&eacute;mico</th>
+			            <th>Tipo Producto</th>
+			            <th>Subtipo Producto</th>
+			            <th>Id Producto</th>
+			            <th>Nombre Producto</th>
         			</tr>
     			</thead>
     			<tbody>	
 
-    				@foreach($reporteproyectos as $key1 =>$datostabuladosproyectos)
-				    	<tr>
-					        <td>{{$datostabuladosproyectos->nombre_proyecto}}</td>
-					        <td>{{$datostabuladosproyectos->nombre_linea}}</td>
-				        	<td>{{$datostabuladosproyectos->periodo}}</td>
-				        </tr>
+    				<?php  
+
+    					$keyperiodo="";
+    					$keytipo="";
+	    			?>
+
+    				@foreach($reporteproducto['datos'] as $periodo =>$periodos)
+
+    					@foreach($periodos as $tipo =>$tiposproducto)
+	    			
+	        				@for($i=0; $i<count($tiposproducto); $i++)
+			    				
+				    				<tr>
+
+			    						@if($keyperiodo!=$periodo)
+					        				<td rowspan="{{$reporteproducto['cantidad_productos_periodo'][$periodo]}}">
+					        					{{$periodo}}
+					        				</td>
+
+					        				<?php 
+					        				$keyperiodo=$periodo;
+
+					        					$keytipo="";
+					        				 ?>
+				        				@endif
+
+
+				        				@if($keytipo!=$tipo)
+					        				<td rowspan="{{count($tiposproducto)}}">
+					        					{{$tipo}}
+					        				</td>
+
+					        				<?php 
+					        					$keytipo=$tipo;
+					        					
+					        				?>
+				        				@endif
+
+				        				<td>{{$tiposproducto[$i]['nombre_subtipo_producto']}}</td>
+				        				<td>{{$tiposproducto[$i]['codigo_producto']}}</td>
+				        				<td>{{$tiposproducto[$i]['nombre_producto']}}</td>
+
+				        			</tr>	
+		        			@endfor
+						@endforeach
+
         			@endforeach
     			</tbody>
 			</table>

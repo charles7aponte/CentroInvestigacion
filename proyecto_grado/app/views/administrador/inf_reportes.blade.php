@@ -24,7 +24,7 @@
     <div class="bs-callout">
       <h4 id="titulo-reporte">Productividad de los productos, según el periodo académico.</h4>
       <p></p>
-     <a href="{{URL::to('reporte/proyectolineas/')}}" class="btn btn-default" role="button">Generar reporte</a>
+     <a href="{{URL::to('reporte/productoperiodo/')}}" class="btn btn-default" role="button">Generar reporte</a>
     </div>
 </div>
 

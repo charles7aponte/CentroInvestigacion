@@ -51,7 +51,5 @@ class ControlInfoConvocatorias extends Controller {
 		}	
 
 		return array('count'=>0, 'estado_proyecto'=>0);
-
-
 	}	
 }

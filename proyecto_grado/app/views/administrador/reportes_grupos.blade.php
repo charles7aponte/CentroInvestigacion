@@ -80,16 +80,13 @@
 		
 		}
 		
-		
-		
-		
-		 var optiones{{$contador}}={
+		var optiones{{$contador}}={
 		responsive : true,
-		   animation: true,
-		   barValueSpacing : 5,
-		   barDatasetSpacing : 1,
-		   tooltipFillColor: "rgba(0,0,0,0.8)",                
-		   multiTooltipTemplate: "perfil: <%= datasetLabel %>  cantidad:<%= value %>"
+		animation: true,
+	    barValueSpacing : 5,
+  	    barDatasetSpacing : 1,
+	    tooltipFillColor: "rgba(0,0,0,0.8)",                
+ 	    multiTooltipTemplate: "perfil: <%= datasetLabel %>  cantidad:<%= value %>"
 			
 		};
 		
