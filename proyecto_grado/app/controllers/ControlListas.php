@@ -219,27 +219,45 @@ class ControlListas extends Controller {
 		}
 		return Response::json(array("respuesta"=>false));
 
-	}//	
+	}
 
-		public function ActivarDesactivar1($id,$estado){
+	//docentes
+	public function ConstruirListaProductosDocentes(){
+	$paginacion=array();
+
+		$paginacion=InvProductos::where("estado_activacion","=","0")->paginate(20); //traer registros
+
+		$crear_paginacion=$paginacion->links();
+		$numeropaginacion=Input::get('page',1);
+
+		$datos= array(
+			'campo_lista'=>$paginacion,
+			'links'=>$crear_paginacion,
+			'numeropagina' =>$numeropaginacion);
+		
+		return View::make('administrador/lista_productos_docentes',$datos);
+	}
+
+		public function ActivarDesactivarDocente($id,$estado){
 			
-		$form_slider=InvSlider::find($id); //de donde necesito
+		$form_producto=InvProductos::find($id); //de donde necesito
 
-		if (is_null($form_slider)==false ){
+		if (is_null($form_producto)==false ){
 			if($estado==1){
-			$form_slider->estado_activacion=0;
+			$form_producto->estado_activacion=0;
 		}
 		else {
-			   $form_slider->estado_activacion=1;
+			   $form_producto->estado_activacion=1;
 			}
-			$form_slider->save();
+			$form_producto->save();
 			return Response::json(array("respuesta"=>true,
-										"estado" =>	$form_slider->estado_activacion
+										"estado" =>	$form_producto->estado_activacion
 										));
 
 		}
 		return Response::json(array("respuesta"=>false));
 
-	}//
+	}//	
+
 }
 

@@ -86,7 +86,7 @@
 						{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
 							<!-- Iniciar sesion -->
 						<div id="ingreso-encabezado">
-							<form action="login" id="myForm" method="POST"> 
+							<form action="login" id="myForm" method="GET"> 
 								<a href="login" onclick="document.getElementById('myForm').submit(); return false;" title="Inicie sesion" class="popups-form-reload">
 									<span class="glyphicon glyphicon-user"></span> Ingresar
 								</a>

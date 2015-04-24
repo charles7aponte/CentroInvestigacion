@@ -49,10 +49,11 @@
 					$datos =  array('cedula' => $cedula,
 								'password'=>$pass );
 
+					$pass_nu=md5($pass);
 					$raw=	DB::select(DB::raw("select *
 									from persona
 									where cedula = '$cedula'
-										and clavep = md5('$pass')")
+										and clavep ='$pass_nu' ")
 												);
 
 
@@ -74,13 +75,18 @@
 							$persona["nombreperfil"]=$persona->nombreperfil;
 							 
 
-							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0)
+							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0 
+								|| strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
 							{
 								Auth::login($persona);
 							   return Redirect::to("administrador");
 								
 							}
+
+							//aca el else?
+
 						}
+
 						
 
 					}
@@ -151,7 +157,7 @@
 					 'lista_documentos'=>$documentos
 					);
 
-		return View::make("login",$datos);
+		return View::make("login_user",$datos);
 	}	
 
 

@@ -238,6 +238,10 @@ Route::get('listadesublineas','ControlListas@ConstruirListaSublineas');
 Route::get('listadeproductos','ControlListas@ConstruirListaProductos');
 Route::get('listadeproductos/find/{titulo?}','ControlListas@ConstruirListaProductos');
 
+//lista del docente
+Route::get('listadeproductosdocentes','ControlListas@ConstruirListaProductosDocentes');
+Route::get('listadeproductosdocentes/find/{titulo?}','ControlListas@ConstruirListaProductos');
+
 Route::get('listadeempresas','ControlListas@ConstruirListaEmpresas');
 
 Route::get('listadeproyectos','ControlListas@ConstruirListaProyectos');
@@ -325,6 +329,7 @@ Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPor
 //Productos
 Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
 
+Route::get('servicios/estadolistaproductos/{id}/{estado}/','ControlListas@ActivarDesactivarDocente');
 //Proyectos
 
 //financiamiento

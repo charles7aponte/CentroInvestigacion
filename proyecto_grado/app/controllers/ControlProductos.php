@@ -12,6 +12,7 @@ class ControlProductos extends Controller {
 
 	public function CrearFormulario(){
 
+
 		$nombre_producto=Input::get('titulo-producto');
 		
 		
@@ -62,6 +63,23 @@ class ControlProductos extends Controller {
 		$entidad->soporte_producto=$soporte_producto;
 		$entidad->tipo_soporte=$sop_tipoproducto;
 		$entidad->observaciones_soporte=$obs_producto;
+
+//bueno lo q hicimos en blade
+$nombreUser= User::tipoUsuarioSI(Auth::user());
+//si es admin como deb ser el estado =?1para q se publique
+	if(strnatcasecmp(trim($nombreUser),"Admin Centro Investigaciones")==0)
+	{
+		$entidad->estado_activacion=1;
+	}
+
+
+	if(strnatcasecmp(trim($nombreUser),"Docente")==0)
+	{
+	
+		$entidad->estado_activacion=0;
+	}
+
+		
 		
 			// mensaje a mostrar segun errores o requerimientos
 			$messages = array(

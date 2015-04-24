@@ -49,7 +49,7 @@ switch($mes){
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 
-	<title>Administrador</title>
+	<title>Panel de administracion</title>
 	
 	<!--css-->
 	<link rel="stylesheet" type="text/css" href="{{URL::to('css/admin/estilo_paneladmin.css')}}">
@@ -108,7 +108,7 @@ switch($mes){
 					@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Docente")==0)
 			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Docente</span></p>
 			  		@elseif(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
-			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola,Administrador</span></p>
+			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Administrador</span></p>
 			  		@endif
 			  </button>
 
@@ -117,8 +117,7 @@ switch($mes){
 			    <span class="sr-only">Toggle Dropdown</span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="#">Registro de actividad</a></li>
-			    <li><a href="#">...</a></li>
+			    <li><a href="{{URL::to('listadeproductosdocentes')}}">Actividad de docentes</a></li>
 			    <li class="divider"></li>
 			    <li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
 			  </ul>
@@ -132,9 +131,16 @@ switch($mes){
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-		<a href="{{URL::to('administrador')}}"><h3><span class="glyphicon glyphicon-home"></span> INICIO</h3></li></a>	
+			@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+				<h3><span class="glyphicon glyphicon-home"></span><a href="{{URL::to('administrador')}}"> INICIO</a></h3>
+			@endif
 
 		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
+		<ul class="toggle">
+			<li class=""><a href="{{URL::to('listadereportes')}}">Generar reportes</a></li>
+		</ul>
+
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Unidades</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariounidadesacademicas')}}">Agregar nueva unidad académica</a></li>
@@ -142,9 +148,9 @@ switch($mes){
 	
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Grupos</h3>
 		<ul class="toggle">
+			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 			<li class=""><a href="{{URL::to('formulariogrupos')}}">Agregar nuevo grupo</a></li>
 			<li class=""><a href="{{URL::to('listadegrupos')}}">Ver/Editar un grupo</a></li>
-			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 		</ul>
 
 		
@@ -177,17 +183,16 @@ switch($mes){
 		</ul>
 		@endif
 
-		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productividad</h3>
+		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Productos</h3>
 		<ul class="toggle">
 
-		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Docente")==0 || strnatcasecmp(trim(User::tipoUsuarioSI(User::user())),"Admin centro investigaciones")==0)
+		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Docente")==0 || strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
          
 			<li class=""><a href="{{URL::to('formularioproductos')}}"> Agregar nuevo producto</a></li>
 		@endif
 
 		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
 			<li class=""><a href="{{URL::to('listadeproductos')}}">Ver/Editar un producto</a></li>	
-
 			<li class=""><a href="{{URL::to('formulariotipoproductos')}}">Agregar/eliminar un tipo de producto</a></li>
 			<li class=""><a href="{{URL::to('formulariosubtipoproductos')}}">Agregar/eliminar un subtipo de producto</a></li>			
 		</ul>
@@ -203,22 +208,19 @@ switch($mes){
 			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento, noticia o documento</a></li>	
 		</ul>
 
-		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
-		<ul class="toggle">
-			<li class=""><a href="{{URL::to('listadereportes')}}">Generar reportes</a></li>
-		</ul>
-
 		<h3><span class="glyphicon glyphicon-picture"></span> Slider de imagenes</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioslider')}}">Agregar nueva imagen</a></li>
 			<li class=""><a href="{{URL::to('listaimageneslider')}}">Ver/eliminar una imagen</a></li>
 		</ul>
+
 		@endif
+
 
 		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
 			<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
 				<ul class="toggle">
-					<li class=""><a href="#">Opciones</a></li>
+					<li class=""><a href="{{URL::to('listadeproductosdocentes')}}">Lista de productos agregados por el usuario docente</a></li>
 					<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
 				</ul>
 			@else 

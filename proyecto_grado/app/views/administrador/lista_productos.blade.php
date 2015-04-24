@@ -71,21 +71,39 @@
       ?>
         @if(isset($campo_lista))
           @foreach ($campo_lista as $campo)
-            <tr id="dato_convocatoria_{{$campo['codigo_producto']}}">
-              <td style="width:100px;">
-                <b>{{$contador++}}</b>
-              </td> 
-              <td>
-                <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
-              </td>
-              <td style="width:90px;">
-                <a href="formularioproductos/edit/{{$campo['codigo_producto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
-              </td>
-              <td style="width:93px;">
-                <b onclick="eliminartipo({{$campo['codigo_producto']}})">
-                <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-              </td>
-            </tr>
+            @if($campo['estado_activacion']==0)
+              <tr style="background:#F6F1B9;" id="dato_convocatoria_{{$campo['codigo_producto']}}">
+                <td style="width:100px;">
+                  <b>{{$contador++}}</b>
+                </td> 
+                <td>
+                  <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
+                </td>
+                <td style="width:90px;">
+                  <a href="formularioproductos/edit/{{$campo['codigo_producto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                </td>
+                <td style="width:93px;">
+                  <b onclick="eliminartipo({{$campo['codigo_producto']}})">
+                  <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                </td>
+              </tr>
+              @else 
+                <tr  id="dato_convocatoria_{{$campo['codigo_producto']}}">
+                  <td style="width:100px;">
+                    <b>{{$contador++}}</b>
+                  </td> 
+                  <td>
+                    <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
+                  </td>
+                  <td style="width:90px;">
+                    <a href="formularioproductos/edit/{{$campo['codigo_producto']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+                  </td>
+                  <td style="width:93px;">
+                    <b onclick="eliminartipo({{$campo['codigo_producto']}})">
+                    <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                  </td>
+                </tr>
+            @endif  
           @endforeach
           @endif
       </tbody>    

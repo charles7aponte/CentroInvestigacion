@@ -22,6 +22,10 @@ class ControlEventosNoticias extends Controller {
 		$dateApertura = new DateTime($fecha);
 		$fecha=$dateApertura->format('Y-m-d');
 
+		$fecha1=Input::get('fechafin-even-noti');
+		$datecierre = new DateTime($fecha1);
+		$fecha1=$datecierre->format('Y-m-d');
+
 
 
 		//$archivo=Input::get('dcto-conv');
@@ -41,6 +45,7 @@ class ControlEventosNoticias extends Controller {
 		$entidad->descripcion=$descripcion;
 		$entidad->tipo=$tipo;
 		$entidad->fecha=$fecha;
+		$entidad->fecha_fin=$fecha1;
 
 
 
@@ -74,13 +79,13 @@ class ControlEventosNoticias extends Controller {
 						{
 
 							$archivoF =Input::file('dcto-even-noti');
-							$nombreNuevo=$nombre."-".$archivoF->getClientOriginalName();
+							$nombreNuevo=$titulo."-".$archivoF->getClientOriginalName();
 
 
 							while (File::exists($direccion.$nombreNuevo) )
 							{
 								$nombre=rand(1,999);
-								$nombreNuevo=$nombre."-".$nombreNuevo;				
+								$nombreNuevo=$titulo."-".$nombreNuevo;				
 							
 							}
 
@@ -104,7 +109,7 @@ class ControlEventosNoticias extends Controller {
 					
 						return Redirect::to('formularioeventosnoticias')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El evento/noticia ya fue creado.");
+								->with('mensaje_success',"El evento/noticia/documento ya fue creado.");
 			
 					}
 				
@@ -124,7 +129,9 @@ class ControlEventosNoticias extends Controller {
 		$dateApertura = new DateTime($fecha);
 		$fecha=$dateApertura->format('Y-m-d');
 
-
+		$fecha1=Input::get('fechafin-even-noti');
+		$datecierre = new DateTime($fecha1);
+		$fecha1=$datecierre->format('Y-m-d');
 
 		//$archivo=Input::get('dcto-conv');
 		$nombreNuevo="";
@@ -145,7 +152,7 @@ class ControlEventosNoticias extends Controller {
 		$entidad->descripcion=$descripcion;
 		$entidad->tipo=$tipo;
 		$entidad->fecha=$fecha;
-
+		$entidad->fecha_fin=$fecha1;
 
 
 			// mensaje a mostrar segun errores o requerimientos

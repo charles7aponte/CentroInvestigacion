@@ -203,18 +203,22 @@ ul.pagination li.active > span:hover{
 
 /*Arreglo listas con integrantes*/
 #listagrupos td#col1,
-#listalineas1 td#col1{
+#listalineas1 td#col1,
+#listaproductos td#col1{
   width: auto;
 }
 #listagrupos td#col2,
-#listalineas1 td#col2{
+#listalineas1 td#col2,
+#listaproductos td#col2{
   width: 390px;
   padding-right: 10px;
   margin-right: 5px;
   text-align: justify;
 }
 #listagrupos td#col3,
-#listalineas1 td#col3{
+#listalineas1 td#col3,
+#listaproductos td#col3
+{
   width: 220px;
   padding-right: 5px;
   padding-left: 10px;

@@ -50,7 +50,7 @@ Route::filter('auth', function()
 
 Route::filter('permisosadmin',function(){
 
-	if (Auth::guest())
+	if (Auth::check())
 	{
 		$persona = Auth::user();
 	    $perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
@@ -64,7 +64,7 @@ Route::filter('permisosadmin',function(){
 	        $persona->nombreperfil=$perfiles['nombreperfil'];
 	        if(!(strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0))
 	         {
-	         	return Redirect::to('/');
+	         	return Redirect::to('/'); 
 	         }
 	     }
 	}     

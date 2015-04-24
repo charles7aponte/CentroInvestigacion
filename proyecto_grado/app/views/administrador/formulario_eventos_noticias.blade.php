@@ -62,7 +62,7 @@
                         margin-top: 5px;
                         padding: 2px;">
 
-                        <div  style="margin: 0px;" class="alert alert-danger">NO existe el Evento, Noticia o Documento!!</div> 
+                        <div  style="margin: 0px;" class="alert alert-danger">No existe el Evento, Noticia o Documento</div> 
                 </fieldset>  
  
             @endif 
@@ -132,7 +132,7 @@
                 </li>  
 
                 <li class="@if($errors->has('fecha-even-noti')) has-error @endif">
-                    <label for="fecha-even-noti">Fecha:</label>
+                    <label for="fecha-even-noti">Fecha inicio:</label>
                     <div class="container">
                         <div class="row">
                             <div class='col-sm-5' style="padding:0px;">
@@ -149,6 +149,26 @@
                     </div> 
                     @if ($errors->has('fecha-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-even-noti') }}</p> @endif   
                 </li>
+
+                <li class="@if($errors->has('fechafin-even-noti')) has-error @endif">
+                    <label for="fechafin-even-noti">Fecha fin:</label>
+                    <div class="container">
+                        <div class="row">
+                            <div class='col-sm-5' style="padding:0px;">
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        <input type="" style="cursor:pointer"   
+                                        readonly id="fechafin-even-noti" class="date form-control" data-format="dd/MM/yyyy" name="fechafin-even-noti" value="{{Input::old('fecha-even-noti')!=null? Input::old('fechafin-even-noti'): (isset($evento['fecha_fin'])? $evento['fecha_fin']:'')}}" required="required" /> 
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>                               
+                        </div>
+                    </div> 
+                    @if ($errors->has('fecha-even-noti')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('fecha-even-noti') }}</p> @endif   
+                </li>
+
 
                 </fieldset>
             </ul>
@@ -183,7 +203,7 @@
                     @if(isset($evento['id_evento']))
                       <button id="crear-even-noti" type="submit" style="height:36px; padding-top:1px;">
                         <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
-                        Editar Evento o Noticia
+                        Editar Evento, Noticia o Documento
                     @else 
 
                       <button id="crear-even-noti" type="submit">

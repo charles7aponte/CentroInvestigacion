@@ -16,7 +16,7 @@ class InvEventosNoticias extends Eloquent  {
 
 		// reglas validacion creacion
 	public 	static $reglasValidacion = array(
-			'titulo-even-noti'   =>'required|unique:inv_evento_noticias,titulo_evento|max:150|',  	
+			'titulo-even-noti'   =>'required|unique:inv_evento_noticias_documentos,titulo_evento|max:150|',  	
 			'desc-even-noti'	=>'required',
 			'tipo-even-noti'	=>'required',
 					
