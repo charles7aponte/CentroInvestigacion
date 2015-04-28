@@ -121,6 +121,8 @@ $nombreUser= User::tipoUsuarioSI(Auth::user());
 						$entidad->soporte_producto=$archivo2;
 					
 						
+						$usuario=Auth::user();
+						$entidad->autor_producto=$usuario->cedula;
 
 						$entidad->save();
 

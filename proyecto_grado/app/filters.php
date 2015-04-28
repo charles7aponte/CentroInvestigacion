@@ -66,9 +66,12 @@ Route::filter('permisosadmin',function(){
 	         {
 	         	return Redirect::to('/'); 
 	         }
+
 	     }
+	     else return Redirect::to('/'); 
 	}     
-                          
+       
+        else return Redirect::to('/');                   
 });
 
 

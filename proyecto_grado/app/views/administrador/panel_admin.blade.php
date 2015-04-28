@@ -99,8 +99,6 @@ switch($mes){
 	</header> <!-- end of header bar -->
 	
 	<section id="secondary_bar">
-
-
 		<div class="user" >
 			<!-- Split button -->
 			<div class="btn-group" id="usuario-admin">
@@ -126,6 +124,18 @@ switch($mes){
 			<div id="fecha">
 				{{ "Villavicencio,"." ". $dia_nombre." ".$dia_mes." de ".$mes_nombre." de ".$year}}
 			</div>	
+			@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+				@if(count(InvProductos::where("visto","=","0")->get())>0)
+						<div id="notificaciones" style="color:red">
+						<i  class="glyphicon glyphicon-bell"></i>
+						</div>
+					@else 
+						<div id="notificaciones"  style="color:blue">
+						<i class="glyphicon glyphicon-bell"></i>
+						</div>
+				@endif	
+			@endif	
+	
 	</section><!-- fin de la barra secundaria-->
 
 	
@@ -150,14 +160,14 @@ switch($mes){
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariotipogrupo')}}">Agregar/Eliminar un tipo de grupo</a></li>
 			<li class=""><a href="{{URL::to('formulariogrupos')}}">Agregar nuevo grupo</a></li>
-			<li class=""><a href="{{URL::to('listadegrupos')}}">Ver/Editar un grupo</a></li>
+			<li class=""><a href="{{URL::to('listadegrupos')}}">Ver/Editar/Eliminar un grupo</a></li>
 		</ul>
 
 		
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> L&iacute;neas y Subl&iacute;neas</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formulariolineas')}}">Agregar nueva l&iacute;nea</a></li>
-			<li class=""><a href="{{URL::to('listadelineas')}}">Ver/Editar una l&iacute;nea</a></li>
+			<li class=""><a href="{{URL::to('listadelineas')}}">Ver/Editar/Eliminar una l&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('formulariosublineas')}}">Agregar nueva subl&iacute;nea</a></li>
 			<li class=""><a href="{{URL::to('listadesublineas')}}">Editar/Eliminar una subl&iacute;nea</a></li>
 		</ul>
@@ -165,19 +175,19 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Participantes</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioinvestigadores')}}">Agregar nuevo j&oacute;ven investigador &oacute; participante externo</a></li>
-			<li class=""><a href="{{URL::to('listadeinvestigadores')}}">Ver/editar informaci&oacute;n de un j&oacute;ven investigador o participante externo</a></li>			
+			<li class=""><a href="{{URL::to('listadeinvestigadores')}}">Ver/Editar informaci&oacute;n de un j&oacute;ven investigador o participante externo</a></li>			
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Convocatorias</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioconvocatorias')}}">Crear nueva convocatoria</a></li>
-			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar una convocatoria</a></li>
+			<li class=""><a href="{{URL::to('listadeconvocatorias')}}">Ver/Editar/Eliminar una convocatoria</a></li>
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-circle-arrow-right"></span> Proyectos</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioproyectos')}}">Agregar nuevo proyecto</a></li>
-			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar un proyecto</a></li>
+			<li class=""><a href="{{URL::to('listadeproyectos')}}">Ver/Editar/Eliminar un proyecto</a></li>
 			<li class=""><a href="{{URL::to('formulariofinanciamiento')}}">Agregar Financiamiento a un proyecto</a></li>
 			<li class=""><a href="{{URL::to('listafinanciamiento')}}">Ver/eliminar/Editar el financiamiento de un proyecto</a></li>
 		</ul>
@@ -205,7 +215,7 @@ switch($mes){
 		<h3><span class="glyphicon glyphicon-calendar"></span> Noticias, eventos y documentos</h3>
 		<ul class="toggle">
 			<li class=""><a href="{{URL::to('formularioeventosnoticias')}}">Agregar un nuevo evento, noticia o documento</a></li>	
-			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/editar un evento, noticia o documento</a></li>	
+			<li class=""><a href="{{URL::to('listadeeventosynoticias')}}">Ver/Editar/Eliminar un evento, noticia o documento</a></li>	
 		</ul>
 
 		<h3><span class="glyphicon glyphicon-picture"></span> Slider de imagenes</h3>

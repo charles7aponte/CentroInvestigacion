@@ -223,13 +223,38 @@ class ControlListas extends Controller {
 
 	//docentes
 	public function ConstruirListaProductosDocentes(){
-	$paginacion=array();
 
-		$paginacion=InvProductos::where("estado_activacion","=","0")->paginate(20); //traer registros
+		$paginacion=array();
+
+		$listacedulasdocente=Docente::lists('cedula');
+
+		$paginacion=InvProductos::whereIn("autor_producto",$listacedulasdocente)->paginate(20); //traer registros
+		
+
+		foreach ($paginacion as $key => $producto) {
+			$autor= Persona::where('cedula',"=",$producto->autor_producto)->get();
+
+			if(count($autor)>0)
+			{
+				$autor=$autor[0];
+				$paginacion[$key]['nombre_autor']=trim($autor->nombre1." ".$autor->apellido1);
+
+
+			}
+
+			if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0){
+				$producto1=InvProductos::find($producto->codigo_producto);
+				$producto1->visto='1';
+				$producto1->save();
+			}
+
+		}
 
 		$crear_paginacion=$paginacion->links();
+
 		$numeropaginacion=Input::get('page',1);
 
+//print_r($paginacion);
 		$datos= array(
 			'campo_lista'=>$paginacion,
 			'links'=>$crear_paginacion,
@@ -237,6 +262,9 @@ class ControlListas extends Controller {
 		
 		return View::make('administrador/lista_productos_docentes',$datos);
 	}
+
+
+
 
 		public function ActivarDesactivarDocente($id,$estado){
 			

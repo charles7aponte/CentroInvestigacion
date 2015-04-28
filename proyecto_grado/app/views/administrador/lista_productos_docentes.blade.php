@@ -50,7 +50,7 @@
                   <a href="{{URL::to('producto/id')}}/{{$campo['codigo_producto']}}">{{$campo['nombre_producto']}}</a>
                 </td>
                 <td  id="col3">
-                  <span class="glyphicon glyphicon-user"></span> Nombre Usuario</a>
+                  <span class="glyphicon glyphicon-user"></span> {{$campo['nombre_autor']}}</a>
                 </td>
 
                 <td  id="col1">

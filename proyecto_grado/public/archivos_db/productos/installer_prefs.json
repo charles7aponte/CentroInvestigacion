@@ -1,0 +1,10 @@
+{
+   "all-installer-experiments": [ "scheduled-autoupdate@1" ],
+   "au_task_error_count": 0,
+   "enable_stats": true,
+   "import_browser_data": true,
+   "installer-experiments": [  ],
+   "language": "es",
+   "single_profile": false,
+   "welcome-url": "http://redir.opera.com/www.opera.com/firstrun/?utm_source=is&utm_campaign=extra&utm_medium=pb"
+}

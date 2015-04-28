@@ -105,6 +105,13 @@ header#header .negro:hover {
 
 /*** Bara secundaria ***/
 
+#notificaciones i{
+  
+  padding: 4px;
+  margin-left: 500px
+}
+
+
 section#secondary_bar {
 	height: 40px;
 	width: 100%;
