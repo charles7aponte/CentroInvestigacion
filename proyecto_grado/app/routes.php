@@ -310,6 +310,8 @@ Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteP
 
 Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
 
+Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
+
 
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/

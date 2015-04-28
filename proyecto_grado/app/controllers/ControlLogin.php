@@ -56,8 +56,6 @@
 										and clavep ='$pass_nu' ")
 												);
 
-
-					
 					if($raw && count($raw)>0)	
 					{
 
@@ -66,7 +64,6 @@
 						$perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
 						if(count($perfiles_persona)>0)
 						{
-
 							$perfiles_persona=$perfiles_persona[0];
 							$perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
 							$perfiles=$perfiles[0];
@@ -78,6 +75,7 @@
 							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0 
 								|| strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
 							{
+
 								Auth::login($persona);
 							   return Redirect::to("administrador");
 								

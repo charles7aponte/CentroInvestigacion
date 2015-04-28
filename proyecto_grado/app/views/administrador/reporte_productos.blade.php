@@ -102,9 +102,8 @@
     	</button>
     	<ul class="dropdown-menu">
     		@foreach($generarperiodo as $key => $generarperiodografica)
-      		<li><a href="{{URL::to('/')}}/reporte/productoperiodo/{{$generarperiodografica->codigo_periodo}}">{{$generarperiodografica->periodo}}-{{$generarperiodografica->ano}}</a></li>
-      		
-      			@endforeach
+      			<li><a href="{{URL::to('/')}}/reporte/productoperiodo/{{$generarperiodografica->codigo_periodo}}">{{$generarperiodografica->periodo}}-{{$generarperiodografica->ano}}</a></li>	
+      		@endforeach
     	</ul>
   	</div>
 

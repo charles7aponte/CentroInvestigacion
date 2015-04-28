@@ -30,9 +30,9 @@
 
 <div id="reportes">
     <div class="bs-callout">
-      <h4 id="titulo-reporte"></h4>
+      <h4 id="titulo-reporte">productividad docentes</h4>
       <p></p>
-     <a href="{{URL::to('reporte/unidadgrupos/')}}" class="btn btn-default" role="button">Generar reporte</a>
+     <a href="{{URL::to('reporte/productividaddocente/')}}" class="btn btn-default" role="button">Generar reporte</a>
     </div>
 </div>
 

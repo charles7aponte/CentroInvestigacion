@@ -110,6 +110,7 @@
     	</ul>
   	</div>
 
+	@if(count($reporteproyectos)>0)
 	<div id="titulo-productividad" id="cuadro" style="text-align:right;
   		padding-right: 30px;
   		padding-top: 10px;
@@ -167,12 +168,15 @@
 				    	<tr>
 					        <td>{{$datostabuladosproyectos->nombre_proyecto}}</td>
 					        <td>{{$datostabuladosproyectos->nombre_linea}}</td>
-				        	<td>{{$datostabuladosproyectos->periodo}}</td>
+				        	<td>{{$datostabuladosproyectos->periodo}}-{{$datostabuladosproyectos->ano}}</td>
 				        </tr>
         			@endforeach
     			</tbody>
 			</table>
     	</div>
     </fieldset>
+    @else
+    	no hay
+    @endif
 </div>		
 @stop

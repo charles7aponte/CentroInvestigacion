@@ -15,7 +15,7 @@ class ControlReportes extends Controller {
 		}
 		
 		
-		$unidadgrupo = $this->consulta_tabla1();	
+		$unidadgrupo = $this->consulta_tablagrupos();	
 		
 		
 		$datos = array('reportegrupo' =>$unidadgrupo,
@@ -27,7 +27,6 @@ class ControlReportes extends Controller {
 	public function CrearReporteProyectos($id_periodo=null)
 	{
 
-		$proyectolinea = $this->consulta_tablaproyectos();
 		$graficaproyecto =array();	
 		$generarperiodo=InvPeriodos::all();
 
@@ -43,8 +42,8 @@ class ControlReportes extends Controller {
 		}
 
 		$graficaproyecto=$this->grafica_proyecto_lineas($periodo->codigo_periodo);
-
-		
+		$proyectolinea = $this->consulta_tablaproyectos($periodo->codigo_periodo);
+					
 		$datos = array('reporteproyectos' =>$proyectolinea,
 						'generarperiodo'=>$generarperiodo,
 						'periodo'=>$periodo,
@@ -57,7 +56,6 @@ class ControlReportes extends Controller {
 
 	{
 		
-		$tablaproductos = $this->consulta_tablaproductos();
 		$generarperiodo=InvPeriodos::all();
 		$graficaproducto =array();
 
@@ -72,7 +70,8 @@ class ControlReportes extends Controller {
 		}	
 		
 		$graficaproducto=$this->grafica_producto_subtipo($periodo->codigo_periodo);
-		
+		$tablaproductos = $this->consulta_tablaproductos($periodo->codigo_periodo);
+
 		$datos = array('reporteproducto' =>$tablaproductos,
 						'generarperiodo'=>$generarperiodo,
 						'periodo'=>$periodo,
@@ -82,7 +81,17 @@ class ControlReportes extends Controller {
 		return View::make("administrador/reporte_productos",$datos);
 	}
 
-	public function consulta_tabla1(){
+	public function CrearReporteDocentes()
+
+	{
+		$productividaddocente = $this->consulta_productividaddocente();
+
+		$datos = array('productividaddocente' =>$productividaddocente);
+		print_r($datos);
+		//return View::make("administrador/reporte_docentes",$datos);
+	}
+
+	public function consulta_tablagrupos(){
 
 		$listaGruposUnidades=DB::select(DB::raw("select ig.nombre_grupo, itg.tipo_grupo, itg.id, trim(nombre1||' '||nombre2||' '||apellido1||' '||apellido2)as nombre_persona,p.cedula,pf.nombreperfil,iua.nombre_unidad
 		from inv_grupos ig, inv_tipo_grupos itg, persona p, perfil pf, inv_unidades_academicas iua, personaperfil pp,inv_participacion_grupos ipg
@@ -93,6 +102,7 @@ class ControlReportes extends Controller {
 			and p.cedula=ipg.cedula_persona 
 		
 			and ig.codigo_grupo=ipg.inv_codigo_grupo 
+			and ig.estado_activacion='1' 
 
 		order by ig.nombre_grupo, itg.tipo_grupo"));
 				
@@ -138,6 +148,7 @@ class ControlReportes extends Controller {
 			and p.cedula=ipg.cedula_persona 	
 			and ig.codigo_grupo=ipg.inv_codigo_grupo
 			and itg.id=$id_tipogrupo
+			and ig.estado_activacion='1' 
 		group by  itg.tipo_grupo,pf.nombreperfil,iua.nombre_unidad"));
 				
 		$graficagrupos=array();
@@ -183,8 +194,8 @@ class ControlReportes extends Controller {
 				and
 				(
 				 (ipa.fecha_inicio<=ip.fecha_proyecto and ipa.fecha_fin>=ip.fecha_proyecto)
-				 or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
-				 or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin)
+				  or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
+			      or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin and ipa.fecha_inicio<=ip.fecha_finproyecto)
 				)
 				and ipa.codigo_periodo=$id_periodo
 
@@ -194,22 +205,24 @@ class ControlReportes extends Controller {
 		return 	$GraficaProyectoLineas;	
 	}
 
-	public function consulta_tablaproyectos(){
+	public function consulta_tablaproyectos($id_periodo){
 
-		$listaProyectoLineas=DB::select(DB::raw("select ip.nombre_proyecto,il.nombre_linea,ipa.periodo
+		$listaProyectoLineas=DB::select(DB::raw("select ip.nombre_proyecto,il.nombre_linea,ipa.periodo,ipa.ano
 			from inv_lineas il, inv_proyectos ip, inv_periodos_academicos ipa
 			where il.id_lineas=ip.inv_id_linea 	
 			and
 			(
 				(ipa.fecha_inicio<=ip.fecha_proyecto and ipa.fecha_fin>=ip.fecha_proyecto)
 				or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
-			    or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin)
-			)"));
+			        or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin and ipa.fecha_inicio<=ip.fecha_finproyecto)
+			)
+
+			and ipa.codigo_periodo=$id_periodo"));
 						
 		return $listaProyectoLineas;		
 	}
 
-	public function consulta_tablaproductos(){
+	public function consulta_tablaproductos($id_periodo){
 
 		$listaProductosperiodo=DB::select(DB::raw("select ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto
 			from inv_periodos_academicos ipa, inv_tipo_productos itp, inv_subtipo_productos isp, inv_productos ip
@@ -217,6 +230,9 @@ class ControlReportes extends Controller {
       			and isp.id_subtipo_producto=ip.inv_subtipo_producto 
       			and fecha_producto >=fecha_inicio
       			and fecha_producto <=fecha_fin
+      			and ip.estado_activacion='1'
+
+      			and ipa.codigo_periodo=$id_periodo 
 
 			order by ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto"));
 		
@@ -264,12 +280,54 @@ class ControlReportes extends Controller {
 				      and isp.id_subtipo_producto=ip.inv_subtipo_producto 
 				      and fecha_producto >=fecha_inicio
 				      and fecha_producto <=fecha_fin
-				      and codigo_periodo=$id_periodo 
+				      and codigo_periodo=$id_periodo
+				      and ip.estado_activacion='1'  
 					order by ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto)as pp
 
 			group by ano,periodo, nombre_subtipo_producto, codigo_producto"));
 				
 
 		return 	$GraficaProductoPeriodo;	
+	}
+
+	public function consulta_productividaddocente(){
+
+		$listaProductividadDocente=DB::select(DB::raw("select iua.nombre_unidad,p.cedula,trim(nombre1||' '||nombre2||' '||apellido1||' '||apellido2)as nombre_persona,ip.nombre_producto,itp.nombre_tipo_producto,ip.soporte_producto
+		from inv_unidades_academicas iua, docente d, persona p,inv_tipo_productos itp,inv_subtipo_productos isp,inv_productos ip,inv_participacion_productos ipp
+		where iua.id_unidad=d.unidad_academica 
+	      and d.cedula=ipp.cedula_persona
+	      and itp.id_tipo_producto=isp.inv_id_tipo_producto
+	      and isp.id_subtipo_producto=ip.inv_subtipo_producto
+	      and ip.codigo_producto=ipp.inv_codigo_producto
+
+		order by iua.nombre_unidad,ip.nombre_producto,itp.nombre_tipo_producto,ip.soporte_producto"));
+				
+		$matrizdocente=array();
+		$contador_filas_unidaddocente=0;
+
+		$contador_registros_docente=1;
+		foreach ($listaProductividadDocente as $key => $reportedocente){
+			
+				if (isset($matrizdocente[$reportedocente->nombre_unidad])==false){
+					$matrizdocente[$reportedocente->nombre_unidad]=array();
+					$contador_filas_unidaddocente=0;
+				}
+					
+				if (isset($matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula])==false)
+				{
+
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]=array();
+				$contador_registros_docente=0;
+				}
+
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_persona"]=$reportedocente->nombre_persona;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_producto"]=$reportedocente->nombre_producto;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_tipo_producto"]=$reportedocente->nombre_tipo_producto;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["soporte_producto"]=$reportedocente->soporte_producto;
+				$contador_registros_docente++;
+				$contador_filas_unidaddocente++;
+		}
+		
+		return $matrizdocente;		
 	}	
 }
