@@ -86,9 +86,9 @@ class ControlReportes extends Controller {
 	{
 		$productividaddocente = $this->consulta_productividaddocente();
 
-		$datos = array('productividaddocente' =>$productividaddocente);
-		print_r($datos);
-		//return View::make("administrador/reporte_docentes",$datos);
+		$datos = array('reportedocente' =>$productividaddocente);
+		//print_r($datos);
+		return View::make("administrador/reporte_docentes",$datos);
 	}
 
 	public function consulta_tablagrupos(){
@@ -299,35 +299,42 @@ class ControlReportes extends Controller {
 	      and itp.id_tipo_producto=isp.inv_id_tipo_producto
 	      and isp.id_subtipo_producto=ip.inv_subtipo_producto
 	      and ip.codigo_producto=ipp.inv_codigo_producto
+	      and p.cedula=ipp.cedula_persona
 
 		order by iua.nombre_unidad,ip.nombre_producto,itp.nombre_tipo_producto,ip.soporte_producto"));
 				
 		$matrizdocente=array();
-		$contador_filas_unidaddocente=0;
+		$contadoresunidad=array();
+		$contador_registros_productounidad=0;
+		$cantidadproductosunidad=0;
 
-		$contador_registros_docente=1;
 		foreach ($listaProductividadDocente as $key => $reportedocente){
 			
 				if (isset($matrizdocente[$reportedocente->nombre_unidad])==false){
 					$matrizdocente[$reportedocente->nombre_unidad]=array();
-					$contador_filas_unidaddocente=0;
+					$cantidadproductosunidad=0;
+					$contadoresunidad[$reportedocente->nombre_unidad]=$cantidadproductosunidad;	
 				}
 					
 				if (isset($matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula])==false)
 				{
 
 				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]=array();
-				$contador_registros_docente=0;
+				$contador_registros_productounidad=0;
 				}
 
-				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_persona"]=$reportedocente->nombre_persona;
-				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_producto"]=$reportedocente->nombre_producto;
-				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["nombre_tipo_producto"]=$reportedocente->nombre_tipo_producto;
-				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula]["soporte_producto"]=$reportedocente->soporte_producto;
-				$contador_registros_docente++;
-				$contador_filas_unidaddocente++;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula][$contador_registros_productounidad]["nombre_persona"]=$reportedocente->nombre_persona;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula][$contador_registros_productounidad]["nombre_producto"]=$reportedocente->nombre_producto;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula][$contador_registros_productounidad]["nombre_tipo_producto"]=$reportedocente->nombre_tipo_producto;
+				$matrizdocente[$reportedocente->nombre_unidad][$reportedocente->cedula][$contador_registros_productounidad]["soporte_producto"]=$reportedocente->soporte_producto;
+
+				$contador_registros_productounidad++;	
+				$cantidadproductosunidad++;
+				$contadoresunidad[$reportedocente->nombre_unidad]=$cantidadproductosunidad;
+
 		}
 		
-		return $matrizdocente;		
+		return array('datos'=>$matrizdocente,
+				    'cantidad_productos_docente'=>$contadoresunidad);	
 	}	
 }

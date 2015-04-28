@@ -215,17 +215,6 @@ class ControlInvestigadores extends Controller {
 
 		$id=Input::get('id_investigador');
 
-		$c_persona=Input::get('cedula');
-		$nombre_1=Input::get('nombre1');
-		$nombre_2=Input::get('nombre2');
-		$apellido_1=Input::get('apellido1');
-		$apellido_2=Input::get('apellido2');
-		$direccion1=Input::get('direccion');
-		$telefono_contacto=Input::get('telefono');
-		$celular_contacto=Input::get('celular');
-		$email_contacto=Input::get('email');
-		$foto_investigador=Input::get('foto');
-		$perfil_invest=Input::get('perfil');
 		$profesion_investigador=Input::get('profesion');
 		$cod_conv=Input::get('codigo_conv');
 		$nombre_convocatoria=Input::get('nombre_conv');
@@ -236,26 +225,14 @@ class ControlInvestigadores extends Controller {
 
 
 		//manejo de fechas ..	
-		$fecha_perfil=Input::get('creacion-perfil');
-		$dateperfil = new DateTime($fecha_perfil);
-		//echo("-$fecha_perfil-");
-
-		$fecha_perfil=$dateperfil->format('Y-m-d');
-
-
-
+		
 		$fecha_inicio=Input::get('creacion_inicio');
-
 		$dateinicio = new DateTime($fecha_inicio);
-
 		$fecha_inicio=$dateinicio->format('Y-m-d');
 
 
 		$fecha_fin=Input::get('creacion_fin');
-
-
 		$datefin = new DateTime($fecha_fin);
-
 		$fecha_fin=$datefin->format('Y-m-d');
 		//actualmente esta colocando la fecha de hoy si esta en blanco
 
@@ -263,41 +240,21 @@ class ControlInvestigadores extends Controller {
  
 		$direccion = __DIR__."/../../public/archivos_db/investigadores/";
 
+
+		$todosDatos=Input::all();
+
+
 		//manejo de archivo
 
-
-		$todosDatos = Input::except('foto');
-
 		$entidad= InvInvestigadoresExternos::find($id);	
-		$persona= Persona::where("cedula","=",$entidad->cedula_persona)->first();
-
-
-
-
-		$numeropersonaAnterior = $persona->cedula;
-
-		$persona->cedula=$c_persona;
-		$persona->nombre1=$nombre_1;
-		$persona->nombre2=$nombre_2;
-		$persona->apellido1=$apellido_1;
-		$persona->apellido2=$apellido_2;
-		$persona->direccion=$direccion1;
-		$persona->telefono=$telefono_contacto;
-		$persona->celular=$celular_contacto;
-		$persona->mail=$email_contacto;
-		$persona->fecha_perfil=$fecha_perfil;
-		$persona->foto=$foto_investigador;
-
-
 	
 
+		$numeropersonaAnterior = $entidad->codinv_ext;
 
-		$entidad->cedula_persona=$c_persona;
 		$entidad->profesion=$profesion_investigador;
 		$entidad->codconvocatoria=$cod_conv;
 		$entidad->nombreconvocatoria=$nombre_convocatoria;
 		$entidad->nit=$entida_conv;
-		$entidad->codperfil=$perfil_invest;
 		$entidad->numerocontrato=$num_contrato;
 		$entidad->link_cvlac=$link_cvlac;
 		$entidad->fecha_inicio=$fecha_inicio;
@@ -345,14 +302,7 @@ class ControlInvestigadores extends Controller {
 			else 
 			{
 
-				if(Input::get('edicion_dct-foto')=="si")
-					{
-						$archivoF=$this->ArchivosInvestigadores('foto',$direccion);
-						$entidad->foto=$archivoF;
-							
-					}	
-					$persona->save();
-					$entidad->save();
+				$entidad->save();
 
 
 				try{
@@ -376,40 +326,33 @@ class ControlInvestigadores extends Controller {
 	}
 
 
+
+
+
 	function cargarEditar($id)
 	{
 
 				$investigador = InvInvestigadoresExternos::find($id);
-
-
-				$personaiv =null;	
-				$listaentidadinv = array();
-				$listaperfiles	=array();			
+	
+				$listaentidadinv = array();			
 
 				if($investigador)
 				{
-
-				$personaiv = Persona::where("cedula","=",$investigador->cedula_persona)->first();	
+	
 				$listaentidadinv = InvEntidades:: all();
-				$listaperfiles = InvPerfiles:: all();
 
-
-			
-					$dateperfil = new DateTime($personaiv->fecha_perfil);
 					$dateinicio = new DateTime($investigador->fecha_inicio);
 					$datefin    = new DateTime($investigador->fecha_fin);
 
-					$personaiv->fecha_perfil=$dateperfil->format('Y-m-d');
 					$investigador->fecha_inicio=$dateinicio->format('Y-m-d');
 					$investigador->fecha_fin=$datefin->format('Y-m-d');
 					
 				}
 
 				$datos=array('investigador' => $investigador,
-							 'personaiv' =>$personaiv,
 							 'accion'=>'editar',
-							 'entidades' =>$listaentidadinv,
-							 'perfiles'  =>$listaperfiles); 
+							 'entidades' =>$listaentidadinv);
+
 
 				return View::make('administrador/formulario_investigadores',$datos);
 	}

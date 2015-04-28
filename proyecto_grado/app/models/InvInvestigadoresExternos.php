@@ -30,11 +30,6 @@ class InvInvestigadoresExternos extends Eloquent  {
 
 	// reglas validacion edicion...
 	public 	static $reglasValidacionEdicion = array(
-			'cedula'                 => 'required',
-			'nombre1'                => 'required|max:15|',
-			'apellido1'			     => 'required|max:15|', 
-			'perfil' 	             => 'required|max:30|',
-			'creacion-perfil' 	 	 => 'required',
 			'profesion' 			 => 'required|max:100|',
 			'entidad-investigadores' => 'required|max:200|',	
 			'numero_contrato'        => 'max:100',

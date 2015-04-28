@@ -28,74 +28,67 @@
     	</div>
 
     <fieldset>
+    	<div style="width:100%">
+	    	<label></label>
+	    	<canvas id="canvas" heigth="600" width="600">
+	    </div>
 
-    	@for($i=0; $i<$contador;$i++)
-	    	<div style="width:100%">
-	    		<label>{{$titulo[$i]}}</label>
-	    		<canvas id="canvas{{$i}}" heigth="600" width="600">
-	    	</div>
-	    @endfor
    		<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
    			<table class="table table-bordered table-hover">
     			<thead>
         			<tr>
-			            <th>Grupo</th>
-			            <th>Tipo Grupo</th>
-			            <th>N° Identificaci&oacute;n</th>
-			            <th>Nombre Persona</th>
-			            <th>Perfil</th>
-			            <th>Unidad Ac&aacute;demica</th>
+			            <th>Unidad Acad&eacute;mica</th>
+			            <th>C&eacute;dula</th>
+			            <th>Nombre Docente</th>
+			            <th>Nombre Producto</th>
+			            <th>Tipo Producto</th>
+			            <th>Soporte Producto</th>
         			</tr>
     			</thead>
     			<tbody>	
 
 
     				<?php 
-    					$ke1_ant_grupo="";
-    					$ke2_ant_tipo_grupo="";
-    					$cambio_grupo=1;
+    					$keyunidad="";
+    					$keycedula="";
     				?>
 
-    				@foreach($reportegrupo as $key1 =>$datostabuladosgrupos)
+    				@foreach($reportedocente['datos'] as $unidad =>$unidades)
 
-
-
-    					@foreach($datostabuladosgrupos as $key2 =>$datostabuladostipos)
+    					@foreach($unidades as $cedula =>$cedulasdocentes)
 	    			
 
-	        				@for($i=0; $i<count($datostabuladostipos);$i++)
+	        				@for($i=0; $i<count($cedulasdocentes); $i++)
 			    				
-			    				@if($key2!="mi_#contador")
 				    				<tr>
-				    					@if($ke1_ant_grupo!=$key1)
-					        				<td rowspan="{{$datostabuladosgrupos['mi_#contador']}}">
-					        					{{$key1}}
-					        				</td>
 
-					        				<?php $ke1_ant_grupo=$key1;
-					        					$cambio_grupo=1;
-					        				 ?>
-				        				@endif
-
-
-				        				@if($cambio_grupo==1 || $ke2_ant_tipo_grupo!=$key2)
-					        				<td rowspan="{{count($datostabuladostipos)}}">
-					        					{{$key2}}
+			    						@if($keyunidad!=$unidad)
+					        				<td rowspan="{{$reportedocente['cantidad_productos_docente'][$unidad]}}">
+					        					{{$unidad}}
 					        				</td>
 
 					        				<?php 
-					        					$ke2_ant_tipo_grupo=$key2;
-					        					$cambio_grupo=0;
+					        					$keyunidad=$unidad;
+					        					$keycedula="";
 					        				?>
 				        				@endif
 
-				        				<td>{{$datostabuladostipos[$i]['nombre_persona']}}</td>
-				        				<td>{{$datostabuladostipos[$i]['cedula']}}</td>
-				        				<td>{{$datostabuladostipos[$i]['nombreperfil']}}</td>
-				        				<td>{{$datostabuladostipos[$i]['nombre_unidad']}}</td>
 
-				        			</tr>
-				        		@endif	
+				        				@if($keycedula!=$cedula)
+					        				<td rowspan="{{count($cedulasdocentes)}}">
+					        					{{$cedula}}
+					        				</td>
+
+					        				<?php 
+					        					$keycedula=$cedula;		
+					        				?>
+				        				@endif
+
+				        				<td>{{$cedulasdocentes[$i]['nombre_persona']}}</td>
+				        				<td>{{$cedulasdocentes[$i]['nombre_producto']}}</td>
+				        				<td>{{$cedulasdocentes[$i]['nombre_tipo_producto']}}</td>
+				        				<td>{{$cedulasdocentes[$i]['soporte_producto']}}</td>
+				        			</tr>	
 		        			@endfor
 						@endforeach
 

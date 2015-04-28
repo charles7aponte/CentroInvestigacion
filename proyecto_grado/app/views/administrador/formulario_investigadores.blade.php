@@ -92,6 +92,9 @@
         </h2></div>
         <ul>
         
+
+
+
             @if(isset($personaiv))
 
                 <fieldset>  
@@ -100,85 +103,107 @@
                 </fieldset>
             @else
 
-                 <fieldset>  
-                    <li><label for="cedula">C&eacute;dula:</label>
-                        <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'):''}}" required="required"/>
-                         @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
-                    </li>    
-                    <li><label for="nombre1">Primer Nombre:</label>
-                        <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'):''}}" required="required"/>
-                        @if ($errors->has('nombre1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre1') }}</p> @endif
-                    </li>
-                    <li><label for="nombre2">Segundo Nombre:</label>
-                        <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'):''}}"/>
-                        @if ($errors->has('nombre2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre2') }}</p> @endif
-                    </li>                   
-                    <li><label for="apellido1">Primer Apellido:</label>
-                        <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):''}}" required="required"/>
-                        @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endif 
-                    </li>
-                    <li><label for="apellido2">Segundo Apellido:</label>
-                        <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'):''}}"/>
-                        @if ($errors->has('apellido2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido2') }}</p> @endif
-                    </li>
-                    <li><label for="direccion">Direcci&oacute;n:</label>
-                        <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'):''}}"/>
-                        @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p> @endif
-                    </li>
-                    <li><label for="telefono">Tel&eacute;fono Contacto:</label>
-                        <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'):''}}"/>
-                        @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
-                    </li>
-                    <li><label for="celular">Celular:</label>
-                        <input type="text" id="celular" name="celular" value="{{Input::old('celular')!=null? Input::old('celular'):''}}"/>
-                        @if ($errors->has('celular')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('celular') }}</p> @endif
-                    </li>
-                    <li><label for="email">Email:</label>
-                        <input type="text" id="email" name="email" value="{{Input::old('email')!=null? Input::old('email'):''}}"/>
-                        @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif
-                    </li>
-                    <li class="@if($errors->has('foto')) has-error @endif">
-                        <label for="foto">Foto:</label>
-                        
-                            <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): ''}}" />
-                            @if ($errors->has('foto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto') }}</p> @endif        
-                    </li>
 
-                    <li><label for="perfil">Perfil:</label>
+            @if($accion=="editar")
 
-                        <select name="perfil" required="required">
+                <!-- editar  formulario -->
+                <fieldset> 
+                 <li><label for="cedula">C&eacute;dula:</label>
+                            <p style="margin-left: 169px;" class="help-block">{{$investigador['cedula_persona']}}</p>
+                </li>
+                  <!--fin  editar -->
+            </fieldset>    
 
-                        @if(isset($perfiles))
-                            @foreach($perfiles as $perfilinv)
-                            @if(isset($investigador['codperfil']) && $perfilinv['codperfil'] == $investigador['codperfil'])
-                             <option value="{{$perfilinv['codperfil']}}" selected>{{$perfilinv['nombreperfil']}}</option>
-                            @else
-                                <option value="{{$perfilinv['codperfil']}}">{{$perfilinv['nombreperfil']}}</option>
+            @else
+                <!-- crear formulario -->
+                     <fieldset>  
+                        <li><label for="cedula">C&eacute;dula:</label>
+                            <input type="text" id="cedula" name="cedula" value="{{Input::old('cedula')!=null? Input::old('cedula'):''}}" required="required"/>
+                             @if ($errors->has('cedula')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('cedula') }}</p> @endif
+                        </li>    
+                        <li><label for="nombre1">Primer Nombre:</label>
+                            <input type="text" id="nombre1" name="nombre1" value="{{Input::old('nombre1')!=null? Input::old('nombre1'):''}}" required="required"/>
+                            @if ($errors->has('nombre1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre1') }}</p> @endif
+                        </li>
+                        <li><label for="nombre2">Segundo Nombre:</label>
+                            <input type="nombre2" id="nombre2" name="nombre2" value="{{Input::old('nombre2')!=null? Input::old('nombre2'):''}}"/>
+                            @if ($errors->has('nombre2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('nombre2') }}</p> @endif
+                        </li>                   
+                        <li><label for="apellido1">Primer Apellido:</label>
+                            <input type="text" id="apellido1" name="apellido1" value="{{Input::old('apellido1')!=null? Input::old('apellido1'):''}}" required="required"/>
+                            @if ($errors->has('apellido1')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido1') }}</p> @endif 
+                        </li>
+                        <li><label for="apellido2">Segundo Apellido:</label>
+                            <input type="text" id="apellido2" name="apellido2" value="{{Input::old('apellido2')!=null? Input::old('apellido2'):''}}"/>
+                            @if ($errors->has('apellido2')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('apellido2') }}</p> @endif
+                        </li>
+                        <li><label for="direccion">Direcci&oacute;n:</label>
+                            <input type="text" id="direccion" name="direccion" value="{{Input::old('direccion')!=null? Input::old('direccion'):''}}"/>
+                            @if ($errors->has('direccion')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('direccion') }}</p> @endif
+                        </li>
+                        <li><label for="telefono">Tel&eacute;fono Contacto:</label>
+                            <input type="tel" id="telefono" name="telefono" value="{{Input::old('telefono')!=null? Input::old('telefono'):''}}"/>
+                            @if ($errors->has('telefono')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('telefono') }}</p> @endif
+                        </li>
+                        <li><label for="celular">Celular:</label>
+                            <input type="text" id="celular" name="celular" value="{{Input::old('celular')!=null? Input::old('celular'):''}}"/>
+                            @if ($errors->has('celular')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('celular') }}</p> @endif
+                        </li>
+                        <li><label for="email">Email:</label>
+                            <input type="text" id="email" name="email" value="{{Input::old('email')!=null? Input::old('email'):''}}"/>
+                            @if ($errors->has('email')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('email') }}</p> @endif
+                        </li>
+                        <li class="@if($errors->has('foto')) has-error @endif">
+                            <label for="foto">Foto:</label>
+                            
+                                <input type="file" id="foto" name="foto" value="{{Input::old('foto')!=null? Input::old('foto'): ''}}" />
+                                @if ($errors->has('foto')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto') }}</p> @endif        
+                        </li>
 
+                        <li><label for="perfil">Perfil:</label>
+
+                            <select name="perfil" required="required">
+
+                            @if(isset($perfiles))
+                                @foreach($perfiles as $perfilinv)
+                                @if(isset($investigador['codperfil']) && $perfilinv['codperfil'] == $investigador['codperfil'])
+                                 <option value="{{$perfilinv['codperfil']}}" selected>{{$perfilinv['nombreperfil']}}</option>
+                                @else
+                                    <option value="{{$perfilinv['codperfil']}}">{{$perfilinv['nombreperfil']}}</option>
+
+                                @endif
+                                @endforeach
                             @endif
-                            @endforeach
-                        @endif
-                        </select>                          
-                    </li> 
-                    <li><label for="">Fecha Perfil:</label>
-                        <div class="container">
-                            <div class="row">
-                                <div class='col-sm-5' style="padding:0px;">
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker2'>
-                                            <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="yyyy-mm-dd" name="creacion-perfil" value="{{Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'):''}}" required="required" /> 
-                                            @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
+                            </select>                          
+                        </li> 
+                        <li><label for="">Fecha Perfil:</label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-5' style="padding:0px;">
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type="" style="cursor:pointer"  readonly id="creacion-perfil" class="date form-control" data-format="yyyy-mm-dd" name="creacion-perfil" value="{{Input::old('creacion-perfil')!=null? Input::old('creacion-perfil'):''}}" required="required" /> 
+                                                @if ($errors->has('creacion-perfil')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('creacion-perfil') }}</p> @endif
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
+                                   
                                 </div>
-                               
                             </div>
-                        </div>
-                    </li>
-                </fieldset>
+                        </li>
+                    </fieldset>
+                <!--fin  crear formulario -->
+
+            
+                @endif            
+
             @endif
+
+
+
+
 
                 <fieldset>
                     <li><label for="profesion">Profesi&oacute;n:</label>

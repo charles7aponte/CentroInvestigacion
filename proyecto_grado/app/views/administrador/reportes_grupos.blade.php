@@ -193,8 +193,8 @@
 					        				?>
 				        				@endif
 
-				        				<td>{{$datostabuladostipos[$i]['nombre_persona']}}</td>
 				        				<td>{{$datostabuladostipos[$i]['cedula']}}</td>
+				        				<td>{{$datostabuladostipos[$i]['nombre_persona']}}</td>
 				        				<td>{{$datostabuladostipos[$i]['nombreperfil']}}</td>
 				        				<td>{{$datostabuladostipos[$i]['nombre_unidad']}}</td>
 
