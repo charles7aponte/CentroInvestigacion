@@ -234,24 +234,33 @@ ul.pagination li.active > span:hover{
 #titulo-reporte{
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  color:  #3E3B36;
+  color:  #122d3e;
+  text-shadow: 1px 1px 1px #AFEEEE;
   
 }
 
 #reportes{
-  background-color: #fcf8e3;
+  background: none repeat scroll 0 0 #F1F4F5;
   border-radius: 10px;
   margin: 50px;
   width: auto;
+  -webkit-box-shadow: 3px 3px 7px #999;
+  -moz-box-shadow: 3px 3px 7px #999;
+  filter: shadow(color=#999999, direction=135, strength=2);
 }
 
 .bs-callout {
   padding: 15px;
   margin: 15px 0;
-  border: 1px solid  #faebcc;
+  border: 1px solid  #1A6D71;
   border-left-width: 8px;
   border-radius: 10px;
   height: 100px;
+   
+}
+
+.btn-default a{
+  background: red !important;
 }
 
 

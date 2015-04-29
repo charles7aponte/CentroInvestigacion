@@ -111,37 +111,39 @@
 
 @section('cuerpo') 
 	<div>
-		<div id="titulo-productividad" id="cuadro" style="text-align:right;
-  			padding-right: 30px;
-	  		padding-top: 10px;
-	  		font-family:Arial, Helvetica, sans-serif;
-	 		font-size: 35px;
-	  		color: #1c7e84;
-	  		font-weight: bold;
-
-	  		margin-right: 30px;
-	  		margin-left: 30px;
-	  		text-shadow: 1px 1px 1px #AFEEEE;
-	  		text-transform: uppercase;
-			background: none repeat scroll 0 0 #F3F3F3;
-	  		border-radius: 5px;
-	  		border-bottom: 1px solid #DCDCDC;
-			width: auto;
-	 		margin-top:30px;">  
-          <h2>Productividad de Investigadores, Seg&uacute;n la Unidad Acad&eacute;mica</h2>
+		<div id="titulo-productividad" id="cuadro">		  
+          <h2 style="text-align:center;
+			  padding-right: 30px;
+			  padding-top: 10px;
+			  font-family: Arial, Helvetica, sans-serif;
+			  font-size: 35px;
+			  color: #122d3e;
+			  font-weight: bold;
+			  margin-right: 30px;
+			  margin-left: 30px;
+			  text-shadow: 1px 1px 1px #AFEEEE;
+			  background: none repeat scroll 0 0 #F3F3F3;
+			  border-radius: 5px;
+			  border-bottom: 1px solid #DCDCDC;
+			  width: auto;">Productividad de los Investigadores Docentes, seg&uacute;n la Unidad Acad&eacute;mica a la que pertenecen.</h2>
     	</div>
 
     <fieldset>
 
     	@for($i=0; $i<$contador;$i++)
-	    	<div style="width:100%">
+	    	<div style="margin-left:30px; margin-top:60px;">
 	    		<label>{{$titulo[$i]}}</label>
 	    		<canvas id="canvas{{$i}}" heigth="600" width="600">
 	    	</div>
 	    @endfor
-   		<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
+   		<div id="tabla-tabulados" style="margin-top:60px;margin-left:88px; margin-right:67px;">
    			<table class="table table-bordered table-hover">
-    			<thead>
+    			<thead  style="border-radius: 5px; background: #1A6D71;
+		                background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
+		                background: -moz-linear-gradient(top,#1A6D71,#122d3e);
+		                background: -o-linear-gradient(top,#1A6D71,#122d3e);  
+		                background: linear-gradient(to bottom,#1A6D71,#122d3e);  
+		                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">
         			<tr>
 			            <th>Grupo</th>
 			            <th>Tipo Grupo</th>
