@@ -115,7 +115,8 @@ switch($mes){
 			    <span class="sr-only">Toggle Dropdown</span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="{{URL::to('listadeproductosdocentes')}}">Actividad de docentes</a></li>
+			    <li><a href="{{URL::to('listadeproductosdocentes')}}">Actividad de docentes </a>
+			    </li>
 			    <li class="divider"></li>
 			    <li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
 			  </ul>
@@ -135,15 +136,11 @@ switch($mes){
 						</div>
 				@endif	
 			@endif	
-	
 	</section><!-- fin de la barra secundaria-->
 
 	
 	<aside id="sidebar" class="column">
 		<hr/>
-			@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
-				<h3><span class="glyphicon glyphicon-home"></span><a href="{{URL::to('administrador')}}"> INICIO</a></h3>
-			@endif
 
 		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
 		<h3><span class="glyphicon glyphicon-list-alt"></span> Reportes</h3>
@@ -230,7 +227,15 @@ switch($mes){
 		@if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
 			<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
 				<ul class="toggle">
-					<li class=""><a href="{{URL::to('listadeproductosdocentes')}}">Lista de productos agregados por el usuario docente</a></li>
+					<li class=""><a href="{{URL::to('listadeproductosdocentes')}}">Lista de productos agregados por el usuario docente</a>					@if(count(InvProductos::where("visto","=","0")->get())>0)
+						<div id="notificaciones" style="color:red">
+						<i  class="glyphicon glyphicon-bell"></i>
+						</div>
+					@else 
+						<div id="notificaciones"  style="color:blue">
+						<i class="glyphicon glyphicon-bell"></i>
+						</div>
+					@endif</li>
 					<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
 				</ul>
 			@else 
