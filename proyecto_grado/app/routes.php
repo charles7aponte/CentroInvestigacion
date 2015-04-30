@@ -313,6 +313,14 @@ Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporte
 Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
 
 
+Route::get('reporte/generar/excel/reportegrupos', 'ControlReportesExcel@GenerarReporteTablas');
+
+Route::get('reporte/generar/excel/reporteproyectos', 'ControlReportesExcel@GenerarReporteTablaProyectos');
+
+Route::get('reporte/generar/excel/reporteproductos', 'ControlReportesExcel@GenerarReporteTablaProductos');
+
+Route::get('reporte/generar/excel/reportedocentes', 'ControlReportesExcel@GenerarReporteTablaDocentes');
+
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
 

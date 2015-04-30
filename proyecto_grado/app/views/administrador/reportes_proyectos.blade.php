@@ -97,8 +97,6 @@
 	
 <div>
 
-	
-
 	@if(count($reporteproyectos)>0)
 
 	<div class="btn-group">
@@ -159,7 +157,9 @@
 				        </tr>
     			</tbody>
 			</table>
-
+	    </div>
+	    <div id="boton-descargar-excel">
+	    	<a type="button" class="btn btn-primary btn-lg active" href="{{URL::to('reporte/generar/excel/reporteproyectos')}}" ><li class="glyphicon glyphicon-download-alt"></li>Descargar</a>
 	    </div>
    		<div id="tabla-tabulados" style="margin-top:79px; margin-left:88px; margin-right:67px;">
    			<table class="table table-bordered table-hover">

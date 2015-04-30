@@ -158,6 +158,10 @@
 			</table>
 
 	    </div>
+
+	    <div id="boton-descargar-excel">
+	    	<a type="button" class="btn btn-primary btn-lg active" href="{{URL::to('reporte/generar/excel/reporteproductos')}}" ><li class="glyphicon glyphicon-download-alt"></li>Descargar</a>
+	    </div>
    		<div id="tabla-tabulados" style="margin-top:79px; margin-left:88px; margin-right:67px;">
    			<table class="table table-bordered table-hover">
     			<thead style="border-radius: 5px; background: #1A6D71;
