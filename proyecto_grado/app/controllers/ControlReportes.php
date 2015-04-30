@@ -337,7 +337,7 @@ class ControlReportes extends Controller {
 
 		$listaProductividadDocente=DB::select(DB::raw("select iua.nombre_unidad,p.cedula,trim(nombre1||' '||nombre2||' '||apellido1||' '||apellido2)as nombre_persona,ip.nombre_producto,itp.nombre_tipo_producto,ip.soporte_producto
 		from inv_unidades_academicas iua, docente d, persona p,inv_tipo_productos itp,inv_subtipo_productos isp,inv_productos ip,inv_participacion_productos ipp
-		where iua.id_unidad=d.unidad_academica 
+		where iua.id_unidad=d.unidad_acad 
 	      and d.cedula=ipp.cedula_persona
 	      and itp.id_tipo_producto=isp.inv_id_tipo_producto
 	      and isp.id_subtipo_producto=ip.inv_subtipo_producto
