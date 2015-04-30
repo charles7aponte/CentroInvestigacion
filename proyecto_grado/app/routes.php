@@ -151,7 +151,7 @@ Route::get('reporte/generar/excel/reportedocentes', 'ControlReportesExcel@Genera
 
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
-=======
+
 //eventos noticias y documentos
 Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');});
 Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@EliminarFormularioEventosNoticias');
@@ -160,7 +160,7 @@ Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearF
 Route::post('edicion/formularioeventosnoticias','ControlEventosNoticias@guardarEdicion');
 Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticias');
 Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
->>>>>>> origin/master
+
 
 //periodos academicos
 Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
