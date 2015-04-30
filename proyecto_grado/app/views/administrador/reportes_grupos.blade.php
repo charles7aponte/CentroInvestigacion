@@ -138,7 +138,15 @@
 	    @endfor
 
 	    <div id="boton-descargar-excel">
-	    	<a type="button" class="btn btn-primary btn-lg active" href="{{URL::to('reporte/generar/excel/reportegrupos/')}}" ><li class="glyphicon glyphicon-download-alt"></li>Descargar</a>
+	    	<a type="button" class="btn btn-primary btn-lg active" href="{{URL::to('reporte/generar/excel/reportegrupos/')}}" style="position: relative;
+			  top: 51px;
+			  left: 851px;
+			  padding: 5px;
+			  color: #1A6D71;
+			  font-weight: bold;
+			  font-size: 15px;
+			  background-color:#DFECF7;
+	    	  border-color: #95A1AB;"><li class="glyphicon glyphicon-download-alt"></li>Descargar</a>
 	    </div>
    		<div id="tabla-tabulados" style="margin-top:60px;margin-left:88px; margin-right:67px;">
    			<table class="table table-bordered table-hover">
