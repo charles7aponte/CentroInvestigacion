@@ -125,6 +125,33 @@ Route::get('listadeconvocatorias/find/{titulo?}','ControlListas@ConstruirListaCo
 Route::get('convocatoria/id/{id_conv}','ControlInfoConvocatorias@CargarInfoPrincipales');
 Route::get('listaproyectos/convocatoria/{idconvocatoria}/estado/{idestado}','ControlInfoListasConvocatorias@ConstruirListaProyectosConvocatorias');
 
+
+//productos
+Route::get('listaintegrantesproductos/producto/{idproducto}/perfil/{idperfil}','ControlInfoListasProductos@ConstruirListaIntegrantesProductos');
+
+
+/***********--------creacion de graficas reportes: productividad por grupos,proyectos,productos,lineas ------------*/
+
+Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
+
+Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteProyectos');
+
+Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
+
+Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
+
+
+Route::get('reporte/generar/excel/reportegrupos', 'ControlReportesExcel@GenerarReporteTablas');
+
+Route::get('reporte/generar/excel/reporteproyectos', 'ControlReportesExcel@GenerarReporteTablaProyectos');
+
+Route::get('reporte/generar/excel/reporteproductos', 'ControlReportesExcel@GenerarReporteTablaProductos');
+
+Route::get('reporte/generar/excel/reportedocentes', 'ControlReportesExcel@GenerarReporteTablaDocentes');
+
+
+/***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
+=======
 //eventos noticias y documentos
 Route::get('formularioeventosnoticias', function() {return View::make('administrador/formulario_eventos_noticias');});
 Route::get('formularioeventosnoticias/eliminar/{id}','ControlEventosNoticias@EliminarFormularioEventosNoticias');
@@ -133,6 +160,7 @@ Route::post('creacion/formularioeventosnoticias', 'ControlEventosNoticias@CrearF
 Route::post('edicion/formularioeventosnoticias','ControlEventosNoticias@guardarEdicion');
 Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticias');
 Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
+>>>>>>> origin/master
 
 //periodos academicos
 Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
