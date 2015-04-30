@@ -161,6 +161,8 @@
 
 	    <div id="boton-descargar-excel">
 	    	<a type="button" class="btn btn-primary btn-lg active" href="{{URL::to('reporte/generar/excel/reporteproductos')}}" style="position: relative;
+			  top: 66px;
+			  left: 851px;
 			  padding: 5px;
 			  color: #1A6D71;
 			  font-weight: bold;

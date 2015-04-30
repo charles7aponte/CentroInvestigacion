@@ -26,7 +26,7 @@ class ControlProductividad extends Controller {
 			where itp.id_tipo_producto=isp.inv_id_tipo_producto 
 				and isp.id_subtipo_producto=ip.inv_subtipo_producto 
 				and iua.id_unidad=$id_unidad
-				and iua.id_unidad=d.unidad_academica 
+				and iua.id_unidad=d.unidad_acad
 				and ip.codigo_producto=ipp.inv_codigo_producto
 				and d.cedula=ipp.cedula_persona
 			) as subconsultaunidad
