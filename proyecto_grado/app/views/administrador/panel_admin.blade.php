@@ -131,7 +131,7 @@ switch($mes){
 						<i  class="glyphicon glyphicon-bell"></i>
 						</div>
 					@else 
-						<div id="notificaciones"  style="color:blue">
+						<div id="notificaciones"  style="color:rgb(26, 109, 113)">
 						<i class="glyphicon glyphicon-bell"></i>
 						</div>
 				@endif	

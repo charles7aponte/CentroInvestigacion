@@ -144,16 +144,12 @@ section#secondary_bar #fecha{
 }
 
 section#secondary_bar #notificaciones{
-	width: 10px;
+	float: right;
+	margin-right: 200px;
+	margin-top: -13px;
+	margin-left: 10px;
 }
 
-section#secondary_bar #notificaciones i{
-  
-  padding: 4px;
-  margin-left: 700px;
-  margin-bottom:5px;
-
-}
 
 
 /**parte del menu del administrador**/
