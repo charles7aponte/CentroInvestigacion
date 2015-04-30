@@ -145,7 +145,16 @@ Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPor
 Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
 Route::get('servicios/estadolistaproductos/{id}/{estado}/','ControlListas@ActivarDesactivarDocente');
 Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
+
+//reportes
+Route::get('listadereportes', function() { return View::make('administrador/inf_reportes'); });
+Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
+Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteProyectos');
+Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
+Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
+
 });
+
 
 //Rutas de sesion
 Route::get('login','ControlLogin@CargarInfoPrincipales');
@@ -155,19 +164,15 @@ Route::get('/', 'ControlPaginaInicio@CrearPagina');
 /********************************************************************************************************************************
 -----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------
 *********************************************************************************************************************************/
+Route::get('administrador', function() { return View::make('administrador/panel_admin'); });
 
-//reportes
-Route::get('listadereportes', function() { return View::make('administrador/inf_reportes'); });
-/***********--------creacion de graficas reportes: productividad por grupos,proyectos,productos,lineas ------------*/
-Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
-Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteProyectos');
-Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
-Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
 
 
 // manejo de login
 Route::post('inicio_sesion', 'ControlLogin@milogin');
 Route::get('logout', 'ControlLogin@logOut'); // Finalizar sesión
+
+
 Route::group(['before' => 'auth'], function()
 {
     //Route::get('/', 'HomeController@showWelcome'); // Vista de inicio
