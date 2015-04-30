@@ -90,11 +90,9 @@ Route::get('formularioperiodosacademicos','ControlPeriodosAcademicos@cargarFormu
 Route::get('formularioperiodosacademicos/eliminar/{id}','ControlPeriodosAcademicos@EliminarFormularioPeriodo');
 
 //productos
-Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
 Route::get('formularioproductos/eliminar/{id}','ControlProductos@EliminarFormularioProducto');
 Route::get('formularioproductos/edit/{id}','ControlProductos@cargarEditar');
 Route::get('formularioproductos/eliminarintegrante/{idproducto}/{idintegrante}','ControlProductos@EliminarIntegrantesProductos');
-Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 Route::post('edicion/formularioproductos','ControlProductos@guardarEdicion');
 Route::get('listadeproductos','ControlListas@ConstruirListaProductos');
 Route::get('listadeproductos/find/{titulo?}','ControlListas@ConstruirListaProductos');
@@ -131,24 +129,14 @@ Route::get('listaintegrantesproductos/producto/{idproducto}/perfil/{idperfil}','
 
 
 /***********--------creacion de graficas reportes: productividad por grupos,proyectos,productos,lineas ------------*/
-
 Route::get('reporte/unidadgrupos/', 'ControlReportes@CrearReporteGrupos'); 
-
 Route::get('reporte/proyectolineas/{idperiodo?}', 'ControlReportes@CrearReporteProyectos');
-
 Route::get('reporte/productoperiodo/{idperiodo?}', 'ControlReportes@CrearReporteProductos');
-
 Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocentes');
-
-
 Route::get('reporte/generar/excel/reportegrupos', 'ControlReportesExcel@GenerarReporteTablas');
-
 Route::get('reporte/generar/excel/reporteproyectos', 'ControlReportesExcel@GenerarReporteTablaProyectos');
-
 Route::get('reporte/generar/excel/reporteproductos', 'ControlReportesExcel@GenerarReporteTablaProductos');
-
 Route::get('reporte/generar/excel/reportedocentes', 'ControlReportesExcel@GenerarReporteTablaDocentes');
-
 
 /***********--------creacion de servicios (modales integrantes, lineas, proyecto, producto)------------*/
 
@@ -188,6 +176,9 @@ Route::get('reporte/productividaddocente/', 'ControlReportes@CrearReporteDocente
 Route::get('login','ControlLogin@CargarInfoPrincipales');
 Route::get('contrasena', function() { return View::make('olvido_clave'); });
 Route::get('/', 'ControlPaginaInicio@CrearPagina');
+
+Route::get('formularioproductos', 'ControlProductos@cargarFormularioProductos');
+Route::post('creacion/formularioproductos', 'ControlProductos@CrearFormulario');
 
 /********************************************************************************************************************************
 -----------------------------------------PAGINAS DEL ADMINISTRADOR----------------------------------

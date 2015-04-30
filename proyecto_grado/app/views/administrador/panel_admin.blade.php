@@ -109,16 +109,23 @@ switch($mes){
 			  		<p id="hola-admin"><span class="glyphicon glyphicon-user"></span> <span>Hola, Administrador</span></p>
 			  		@endif
 			  </button>
-
+		
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 			    <span class="caret"></span>
 			    <span class="sr-only">Toggle Dropdown</span>
 			  </button>
-			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="{{URL::to('listadeproductosdocentes')}}">Actividad de docentes</a></li>
-			    <li class="divider"></li>
-			    <li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
-			  </ul>
+
+			  @if(strnatcasecmp(trim(User::tipoUsuarioSI(Auth::user())),"Admin centro investigaciones")==0)
+				  <ul class="dropdown-menu" role="menu">
+				    <li><a href="{{URL::to('listadeproductosdocentes')}}">Actividad de docentes</a></li>
+				    <li class="divider"></li>
+				    <li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
+				  </ul>
+			  @else 
+			 	<ul class="dropdown-menu" role="menu">
+			    	<li><a href="{{action('ControlLogin@logOut')}}">Salir</a></li>
+			  	</ul>
+			  @endif
 			</div>		
 		</div>
 		<div id="fecha">
