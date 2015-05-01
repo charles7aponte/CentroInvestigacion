@@ -36,11 +36,11 @@
 				$messages = $validator->messages();
 
 				echo "$cedula && $pass";
-
+/*
 				return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
-					->with('mensaje_error',"Verifique por favor los datos del usuario");
+					->with('mensaje_error',"Verifique por favor los datos del usuario");*/
 			
 				}
 				// paso la validacion
