@@ -22,6 +22,10 @@
 				
 		);
 
+
+        echo "$cedula -- $pass";
+
+
 		$messages = array(
 				'required' => 'Este campo es obligatorio.',
 				'integer'=>'Debe ser un número.',
@@ -34,8 +38,8 @@
 		// validando 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
+echo "error de validacion";
 
-				echo "$cedula && $pass";
 /*
 				return Redirect::to('login')
 					->withErrors($validator)
@@ -56,14 +60,19 @@
 										and clavep ='$pass_nu' ")
 												);
 
+                    echo "paso1";
+
 					if($raw && count($raw)>0)	
 					{
 
+                        echo "paso2";
 
 						$persona=User::find($raw[0]->cedula);
 						$perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
 						if(count($perfiles_persona)>0)
 						{
+                            echo "paso3";
+
 							$perfiles_persona=$perfiles_persona[0];
 							$perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
 							$perfiles=$perfiles[0];
@@ -75,6 +84,8 @@
 							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0 
 								|| strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
 							{
+
+                                echo "paso4";
 
 								Auth::login($persona);
 							   return Redirect::to("administrador");
@@ -89,10 +100,10 @@
 
 					}
 
-					return Redirect::to('login')
+				/*	return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
-					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");
+					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");*/
 				
 
 				}		

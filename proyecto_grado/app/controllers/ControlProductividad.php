@@ -19,9 +19,11 @@ class ControlProductividad extends Controller {
 	public function productividad_unidad($id_unidad){
 
 		$listaProductividadUnidades=	DB::select(DB::raw("select  nombre_subtipo_producto,nombre_tipo_producto,id_subtipo_producto,id_tipo_producto,count(*)
-			FROM (select distinct isp.nombre_subtipo_producto,itp.nombre_tipo_producto,isp.id_subtipo_producto,itp.id_tipo_producto,ip.codigo_producto
+			FROM (select distinct isp.nombre_subtipo_producto,itp.nombre_tipo_producto,
+			isp.id_subtipo_producto,itp.id_tipo_producto,ip.codigo_producto
 
-			from inv_productos ip, inv_subtipo_productos isp, inv_tipo_productos itp,inv_unidades_academicas iua,docente d,inv_participacion_productos ipp
+			from inv_productos ip, inv_subtipo_productos isp,
+			   inv_tipo_productos itp,inv_unidades_academicas iua,docente d,inv_participacion_productos ipp
 
 			where itp.id_tipo_producto=isp.inv_id_tipo_producto 
 				and isp.id_subtipo_producto=ip.inv_subtipo_producto 
