@@ -60,7 +60,7 @@ echo "error de validacion";
 										and clavep ='$pass_nu' ")
 												);
 
-                    echo "paso1";
+                    echo "paso1--$sql";
 
 					if($raw && count($raw)>0)	
 					{
