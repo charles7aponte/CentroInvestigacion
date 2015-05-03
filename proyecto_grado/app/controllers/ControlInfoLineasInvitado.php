@@ -65,7 +65,7 @@ class ControlInfoLineasInvitado extends Controller {
 	public function Sublineasporlinea($id_linea){	
 		$listaSublineaLineas=DB::select(DB::raw("select nombre_sublinea, estado, descripcion_sublinea
 				from inv_sublineas 
-				where inv_id_linea=$id_linea and estado1='1';")
+				where inv_id_linea=$id_linea and estado1='1' ")
 			);
 		return $listaSublineaLineas;
 	}
@@ -74,7 +74,7 @@ class ControlInfoLineasInvitado extends Controller {
 		$listaGruposLineas=DB::select(DB::raw("select *
 			from inv_linea_grupos ilg, inv_grupos ig
 			where ilg.inv_codigo_grupo=ig.codigo_grupo
-			 and ilg.inv_id_linea =$id_linea;")
+			 and ilg.inv_id_linea ='$id_linea' ")
 		);
 
 		return $listaGruposLineas;
@@ -85,7 +85,7 @@ class ControlInfoLineasInvitado extends Controller {
 		$listaProductosLineas=	DB::select(DB::raw("select count(*)
 				from inv_productos ip, inv_subtipo_productos isp
 				where isp.id_subtipo_producto=ip.inv_subtipo_producto 
-				 and ip.inv_id_linea=$id_linea and ip.inv_subtipo_producto=$subtipo;")
+				 and ip.inv_id_linea='$id_linea' and ip.inv_subtipo_producto='$subtipo'")
 			);
 
 		if($listaProductosLineas && count($listaProductosLineas)>0){
@@ -113,7 +113,7 @@ class ControlInfoLineasInvitado extends Controller {
 			from inv_productos ip, inv_subtipo_productos isp, inv_tipo_productos itp
 			where ip.inv_subtipo_producto=isp.id_subtipo_producto and isp.inv_id_tipo_producto=itp.id_tipo_producto 
 			and ip.inv_id_linea=$id_linea
-			group by itp.id_tipo_producto, isp.id_subtipo_producto;")
+			group by itp.nombre_tipo_producto, itp.id_tipo_producto, isp.id_subtipo_producto, isp.nombre_subtipo_producto")
 		);
 
 		$total=array();
