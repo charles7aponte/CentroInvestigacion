@@ -1,5 +1,22 @@
 <?php
 
+
+
+
+/***********--------creacion de servicios (modales)------------**********/
+Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre');
+Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
+Route::get('servicios/estadolistagrupos/{id}/{estado}/','ControlListas@ActivarDesactivar');
+Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
+Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
+Route::get('servicios/estadolistaproductos/{id}/{estado}/','ControlListas@ActivarDesactivarDocente');
+Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
+
+
+
+
+
+
 /******************-------------------------
 PAGINAS DEL ADMINISTRADOR--------------------
 ***************/
@@ -150,17 +167,13 @@ Route::get('listadeeventosynoticias','ControlListas@ConstruirListaEventosNoticia
 Route::get('eventosnoticias/id/{id_evento}','ControlInfoEventosNoticias@CargarInfoPrincipales');
 
 
+
+
+
 //periodos academicos
 Route::post('creacion/formularioperiodosacademicos', 'ControlPeriodosAcademicos@CrearFormulario');
 
-/***********--------creacion de servicios (modales)------------**********/
-Route::get('servicios/personas/{nombre}/','ControlPersona@buscarPersonaPorNombre');
-Route::get('servicios/lineas/{nombre}/','ControlLineas@buscarlineaPorNombre');
-Route::get('servicios/estadolistagrupos/{id}/{estado}/','ControlListas@ActivarDesactivar');
-Route::get('servicios/financiados/{nombre}/','ControlProyectos@buscarProyectoPorNombre');
-Route::get('servicios/persona_grupo/{nombre}/','ControlProductos@buscarPersonasPorNombre');
-Route::get('servicios/estadolistaproductos/{id}/{estado}/','ControlListas@ActivarDesactivarDocente');
-Route::get('servicios/financiamientoPorProyecto/{nombre}/','ControlFinanciamiento@financiamientoPorProyecto');
+
 
 //reportes
 Route::get('listadereportes', function() { return View::make('administrador/inf_reportes'); });
