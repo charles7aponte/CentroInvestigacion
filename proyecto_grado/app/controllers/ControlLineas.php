@@ -100,7 +100,7 @@ class ControlLineas extends Controller {
 	
 
 	public function buscarlineaPorNombre($linea){
-				$lineas=InvLineas::where("nombre_linea","LIKE","%$linea%")->where("estado","=","1")->get();
+				$lineas=InvLineas::where("nombre_linea","ILIKE","%$linea%")->where("estado","=","1")->get();
 
 				return Response::json($lineas);
 
