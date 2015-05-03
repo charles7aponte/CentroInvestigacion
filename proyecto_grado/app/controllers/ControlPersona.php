@@ -17,7 +17,7 @@ class ControlPersona extends Controller {
 
 				$listaPersonas=	DB::select(DB::raw("select trim(nombre1||' '||nombre2||' '||trim(apellido1)||' '||trim(apellido2)) as nombre , cedula as cedula
 					FROM \"persona\"
-					where lower(concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ,' ',cedula)) LIKE '%$nombre%'")
+					where lower((nombre1||' '||nombre2||' '||apellido1||' '||apellido2 ||' '||cedula)) LIKE '%$nombre%'")
 									);
 
 		return Response::json($listaPersonas);
@@ -44,7 +44,7 @@ class ControlPersona extends Controller {
 
 				$listaPersonas=	DB::select(DB::raw("select (nombre1||' '||nombre2||' '||apellido1||' '|| apellido2 ) as nombre , cedula as cedula
 					FROM \"persona\", \"estudiante\" 
-					where concat(nombre1,' ',nombre2,' ',apellido1,' ', apellido2 ,' ',cedula) LIKE '%$nombre%'  
+					where (nombre1||' '||nombre2||' '||apellido1||' '||apellido2||' '||cedula) LIKE '%$nombre%'
 								AND estudiante.cedula = persona.cedula")
 									);
 
