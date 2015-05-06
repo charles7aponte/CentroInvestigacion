@@ -1,0 +1,23 @@
+ver modulos por php. info :
+
+CURL Information 
+mcrypt
+
+
+
+comandos  en linux.. 
+revision de mcrypt:: 
+   /usr/bin/env php --ri mcrypt
+
+revisar la version debian:
+   lsb_release -a
+
+
+
+cd /etc/apache2/sites-available/  
+configuracion apache :: 
+<Directory "/var/www/html">
+    ...
+    AllowOverride None // cambiar a All 
+    ...
+</Directory>

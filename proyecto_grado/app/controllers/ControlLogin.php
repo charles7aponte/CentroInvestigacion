@@ -40,11 +40,11 @@
 				$messages = $validator->messages();
 echo "error de validacion";
 
-/*
+
 				return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
-					->with('mensaje_error',"Verifique por favor los datos del usuario");*/
+					->with('mensaje_error',"Verifique por favor los datos del usuario");
 			
 				}
 				// paso la validacion
@@ -101,10 +101,10 @@ echo "error de validacion";
 
 					}
 
-				/*	return Redirect::to('login')
+					return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
-					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");*/
+					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");
 				
 
 				}		
@@ -112,7 +112,7 @@ echo "error de validacion";
 
 
 
-		//return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
+		return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
 
 
 		
