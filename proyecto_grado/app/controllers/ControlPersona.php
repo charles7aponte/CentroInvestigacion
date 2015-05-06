@@ -49,7 +49,7 @@ class ControlPersona extends Controller {
 									);
 
 		return Response::json($listaPersonas);
-z
+
 	
 	}	
 
