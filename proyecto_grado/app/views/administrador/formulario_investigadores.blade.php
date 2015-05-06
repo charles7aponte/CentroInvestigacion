@@ -104,7 +104,7 @@
             @else
 
 
-            @if($accion=="editar")
+            @if(isset($accion) && $accion=="editar")
 
                 <!-- editar  formulario -->
                 <fieldset> 
