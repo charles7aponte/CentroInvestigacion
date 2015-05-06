@@ -54,15 +54,19 @@ echo "error de validacion";
 								'password'=>$pass );
 
 					$pass_nu=md5($pass);
+
 					$raw=	DB::select(DB::raw("select *
 									from persona
 									where cedula = '$cedula'
 										and clavep ='$pass_nu' ")
 												);
 
-                    echo "paso1- ";
+                    echo "paso1- select *
+									from persona
+									where cedula = '$cedula'
+										and clavep ='$pass_nu' ";
 
-
+                    //si existe la cedula y pass en  la tabla persona
 					if($raw && count($raw)>0)	
 					{
 
