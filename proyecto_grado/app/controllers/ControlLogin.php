@@ -64,7 +64,7 @@ echo "error de validacion";
                     echo "paso1- select *
 									from persona
 									where cedula = '$cedula'
-										and clavep ='$pass_nu' ";
+										and clavep ='$pass_nu'";
 
                     //si existe la cedula y pass en  la tabla persona
 					if($raw && count($raw)>0)	

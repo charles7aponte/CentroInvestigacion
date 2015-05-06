@@ -30,7 +30,7 @@ class ControlPeriodosAcademicos extends Controller {
 					
 
 		/*objeto del modelo*/
-		$entidad=new invPeriodos();
+		$entidad=new InvPeriodos();
 		
 		$entidad->periodo=$periodo;
 		$entidad->ano=$ano_periodo;
