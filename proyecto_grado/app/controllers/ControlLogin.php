@@ -41,11 +41,11 @@
 echo "error de validacion";
 
 
-				return Redirect::to('login')
+			/*return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
 					->with('mensaje_error',"Verifique por favor los datos del usuario");
-			
+			*/
 				}
 				// paso la validacion
 				else {
@@ -60,7 +60,7 @@ echo "error de validacion";
 										and clavep ='$pass_nu' ")
 												);
 
-                    echo "paso1--$pass_nu ";
+                    echo "paso1- ";
 
 
 					if($raw && count($raw)>0)	
@@ -101,18 +101,18 @@ echo "error de validacion";
 
 					}
 
-					return Redirect::to('login')
+			/*		return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
 					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");
-				
+			*/
 
 				}		
 
 
 
 
-		return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
+		//return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
 
 
 		
