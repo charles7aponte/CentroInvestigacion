@@ -84,7 +84,7 @@ class ControlPeriodosAcademicos extends Controller {
 		//crear y cargar en la tabla cadaa perido academico .. funcionando
 			public function cargarFormularioPeriodo(){
 
-			$form_periodoacademico= invPeriodos::all(); //de donde necesito
+			$form_periodoacademico= InvPeriodos::all(); //de donde necesito
 
 			$datos=  array(
 
