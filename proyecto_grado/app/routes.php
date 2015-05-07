@@ -100,6 +100,7 @@ Route::get('formulariofinanciamiento', 'ControlFinanciamiento@cargarFormularioFi
 Route::get('formulariofinanciamiento/eliminar/{id}','ControlFinanciamiento@EliminarListaFinanciamiento');
 Route::post('creacion/formulariofinanciamiento', 'ControlFinanciamiento@CrearFormulario');
 Route::post('edicion/formulariofinanciamiento','ControlFinanciamiento@guardarEdicion');
+Route::get('formulariofinanciamiento/edit/{id}','ControlFinanciamiento@cargarEditar');
 Route::get('listafinanciamiento', function() {return View::make('administrador/lista_financiamiento');});
 
 //periodos academicos
