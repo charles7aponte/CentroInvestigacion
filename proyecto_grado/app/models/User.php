@@ -29,10 +29,7 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
      *
      * @return string
      */
-    public function getRememberTokenName()
-    {
-        return 'uno';
-    }
+
 
 
     /**
@@ -69,10 +66,7 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
         // not supported
     }
 
-    public function getRememberTokenName()
-    {
-        return null; // not supported
-    }
+
 
     /**
      * Overrides the method to ignore the remember token.

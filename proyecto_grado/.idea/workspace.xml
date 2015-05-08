@@ -44,7 +44,7 @@
       <file leaf-file-name="User.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="5" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.93971634" vertical-offset="881" max-vertical-offset="3451">
+            <state line="65" column="24" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.48758864" vertical-offset="779" max-vertical-offset="3349">
               <folding />
             </state>
           </provider>
@@ -471,7 +471,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="5" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.93971634" vertical-offset="881" max-vertical-offset="3451">
+        <state line="65" column="24" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.48758864" vertical-offset="779" max-vertical-offset="3349">
           <folding />
         </state>
       </provider>
