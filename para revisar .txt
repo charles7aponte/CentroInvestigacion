@@ -2,8 +2,7 @@ ver modulos por php. info :
 
 CURL Information 
 mcrypt
-
-
+display_errors
 
 comandos  en linux.. 
 revision de mcrypt:: 

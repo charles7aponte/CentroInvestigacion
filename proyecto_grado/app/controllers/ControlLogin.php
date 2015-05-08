@@ -78,25 +78,28 @@ echo "error de validacion";
 						{
                             echo "paso3";
 
-							$perfiles_persona=$perfiles_persona[0];
-							$perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
-							$perfiles=$perfiles[0];
 
-							$persona->nombreperfil=$perfiles['nombreperfil'];
-							$persona["nombreperfil"]=$persona->nombreperfil;
-							 
+                            foreach($perfiles_persona as $fila_perfiles_persona)
+                            {
 
-							if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0 
-								|| strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
-							{
+                                $perfiles=InvPerfiles::where("codperfil","=",$fila_perfiles_persona->codperfil)->get();
+                                $perfiles=$perfiles[0];
 
-                                echo "paso4";
+                                $persona->nombreperfil=$perfiles['nombreperfil'];
+                                $persona["nombreperfil"]=$persona->nombreperfil;
 
-								Auth::login($persona);
-							   return Redirect::to("administrador");
-								
-							}
 
+                                if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0
+                                    || strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
+                                {
+
+                                    echo "paso4";
+
+                                    Auth::login($persona);
+                                   return Redirect::to("administrador");
+
+                                }
+                            }
 							//aca el else?
 
 						}
