@@ -20,7 +20,7 @@
                     <tr>
                         <th style="background:none;">
                             <div id="foto-persona">
-                                <img align="right" src="">
+                                <img align="right" src="{{URL::to('archivos_db/docentes')}}/{{$datos_integrantes['foto']}}">
                             </div>  
                         </th> 
                         <th style="background:none;">

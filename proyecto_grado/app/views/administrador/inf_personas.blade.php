@@ -27,7 +27,7 @@
                                     </div>   
                                 @else
                                     <div id="foto-persona">
-                                        <img align="right" src="http://{{$datos_integrantes['foto']}}">
+                                        <img align="right" src="{{URL::to('archivos_db/estudiantes')}}/{{$datos_integrantes['foto']}}">
                                     </div>
 
                                 @endif     
