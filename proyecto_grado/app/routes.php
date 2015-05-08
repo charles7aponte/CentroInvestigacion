@@ -1,6 +1,9 @@
 <?php
 
+Route::get('prueba',function(){
 
+    dd(new Auth());
+});
 
 
 /***********--------creacion de servicios (modales)------------**********/
