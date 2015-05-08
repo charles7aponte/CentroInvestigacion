@@ -163,6 +163,28 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
         $perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
         if(count($perfiles_persona)>0)
         {
+            //administrador
+            foreach($perfiles_persona as $fila_perfiles_persona)
+            {
+
+                $perfiles=InvPerfiles::where("codperfil","=",$fila_perfiles_persona->codperfil)->get();
+                $perfiles=$perfiles[0];
+
+                $persona->nombreperfil=$perfiles['nombreperfil'];
+                $persona["nombreperfil"]=$persona->nombreperfil;
+
+
+                if(strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
+                {
+
+
+                    return  $persona->nombreperfil;
+
+                }
+            }
+
+
+            //docente
 
             foreach($perfiles_persona as $fila_perfiles_persona)
             {
@@ -174,8 +196,7 @@ class User extends  Eloquent implements UserInterface, RemindableInterface {
                 $persona["nombreperfil"]=$persona->nombreperfil;
 
 
-                if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0
-                    || strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
+                if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0 )
                 {
 
 
