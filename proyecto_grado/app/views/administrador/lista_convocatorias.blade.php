@@ -81,7 +81,7 @@
                         {{$campo['titulo_convocatoria']}}
                       </a>
                     </td>
-                    <td style="text-transform:capitalize;">
+                    <td style="text-transform:capitalize; margin-left:5px;">
                       {{$campo['estado']}}
                     </td>
                     <td style="width:90px;">

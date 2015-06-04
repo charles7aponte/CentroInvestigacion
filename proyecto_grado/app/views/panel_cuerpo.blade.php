@@ -171,10 +171,12 @@
 			    <footer>
 					<div id="pie-pagina">
 						<div id="capa-pie">
-							<p>Centro de Investigaciones, FCBI
-							Universidad de los llanos. Villavicencio, Colombia - Telefono 0000000  
-							Correo electronico contacto@xxxx.com</p>
-							
+							<p>Centro de Investigaciones, Facultad de Ciencias Básicas e Ingenieria
+								</br>Universidad de los Llanos, Barcelona: Km. 12 Vía Puerto López
+								<br>Teléfono:  6616800 ext 135
+								</br>Fax: 6616800 ext 141
+								</br>Villavicencio, Colombia 
+							</p>
 						</div>
 					</div>
 				</footer>
