@@ -154,7 +154,7 @@
                         </div>
 
                         <div id="block2_archivo1" style="@if((isset($linea) &&  $linea['foto_linea']!="")) display:none @endif"> 
-                            <input type="file" id="foto-linea" name="foto-linea" value="{{ Input::old('foto-linea')!=null? Input::old('foto-linea'): (isset($linea['foto_linea'])? $linea['foto_linea']:'')}}" required="required"/>
+                            <input type="file" id="foto-linea" name="foto-linea" value="{{ Input::old('foto-linea')!=null? Input::old('foto-linea'): (isset($linea['foto_linea'])? $linea['foto_linea']:'')}}"/>
                             @if ($errors->has('foto-linea')) <p  style="margin-left: 169px;" class="help-block">{{ $errors->first('foto-linea') }}</p> @endif
                         </div>
                     </li> 

@@ -191,8 +191,6 @@
                     <li class="@if($errors->has('dcto-conv')) has-error @endif">
                         <label for="dcto-conv">Documento: </label>
                         
-
-                        <!-- la maquetacion estilo tu lo aplicas si? SIP ok-->
                          
                         <div id="block1_archivo1" style="@if(!(isset($convocatoria) &&  $convocatoria['archivo_convocatoria']!="")) display:none @endif">
                             <input type="button" value="EliminarFichero" onclick="eliminacionArchivo1('block1_archivo1', 'block2_archivo1', 'id_indicador_cambio_archivo_dct_conv')">

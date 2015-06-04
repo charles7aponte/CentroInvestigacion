@@ -354,8 +354,8 @@ $nombreUser= User::tipoUsuarioSI(Auth::user());
 
 				try
 				{
-					$listaIntegrantes=Input::get("integrantes"); // name del json del jquery
-						$listagrupos=Input::get("idgrupo"); // name del json del jquery
+					$listaIntegrantes=Input::get("integrantes"); 
+						$listagrupos=Input::get("idgrupo"); 
 
 
 						for($i=0;$i<count($listaIntegrantes);$i++)

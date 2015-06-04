@@ -57,12 +57,9 @@ Route::filter('permisosadmin',function(){
 	    if(count($perfiles_persona)>0)
 	    {
 
-	        $perfiles_persona=$perfiles_persona[0];
-	        $perfiles=InvPerfiles::where("codperfil","=",$perfiles_persona->codperfil)->get();
-	        $perfiles=$perfiles[0];
+	        $nombre_perfil = User::tipoUsuarioSI($persona);
 
-	        $persona->nombreperfil=$perfiles['nombreperfil'];
-	        if(!(strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0))
+	        if(!(strnatcasecmp(trim($nombre_perfil),"Admin Centro Investigaciones")==0))
 	         {
 	         	return Redirect::to('/'); 
 	         }

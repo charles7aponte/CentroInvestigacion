@@ -38,7 +38,7 @@
 		// validando 
 			if ($validator->fails()) {
 				$messages = $validator->messages();
-echo "error de validacion";
+
 
 
 			/*return Redirect::to('login')
@@ -61,22 +61,18 @@ echo "error de validacion";
 										and clavep ='$pass_nu' ")
 												);
 
-                    echo "paso1- select *
-									from persona
-									where cedula = '$cedula'
-										and clavep ='$pass_nu'";
 
                     //si existe la cedula y pass en  la tabla persona
 					if($raw && count($raw)>0)	
 					{
 
-                        echo "paso2";
+                        
 
 						$persona=User::find($raw[0]->cedula);
 						$perfiles_persona=InvPersonaPerfil::where("cedula","=",$persona->cedula)->get();
 						if(count($perfiles_persona)>0)
 						{
-                            echo "paso3";
+                            
 
 
                             foreach($perfiles_persona as $fila_perfiles_persona)
@@ -92,7 +88,7 @@ echo "error de validacion";
                                 if(strnatcasecmp(trim($persona->nombreperfil),"Admin Centro Investigaciones")==0  )
                                 {
 
-                                    echo "paso5";
+                                    
 
                                     Auth::login($persona);
                                    return Redirect::to("administrador");
@@ -115,7 +111,7 @@ echo "error de validacion";
                                 if(strnatcasecmp(trim($persona->nombreperfil),"Docente")==0)
                                 {
 
-                                    echo "paso6";
+                                    
 
                                     Auth::login($persona);
                                    return Redirect::to("administrador");
@@ -132,18 +128,18 @@ echo "error de validacion";
 
 					}
 
-			/*		return Redirect::to('login')
+					return Redirect::to('login')
 					->withErrors($validator)
 					->withInput()
 					->with('mensaje_error',"Verifique, Datos de usuario incorrectos.");
-			*/
+			
 
 				}		
 
 
 
 
-		//return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
+		return Redirect::back()->with('mensaje_error', 'Verifique por favor los datos del usuario.<br>Datos incorrectos')->withInput();
 
 
 		

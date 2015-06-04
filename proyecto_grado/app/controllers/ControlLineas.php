@@ -21,7 +21,7 @@ class ControlLineas extends Controller {
 
 		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
 
-		$todosDatos = Input::except('archivo-linea','foto-linea');
+		$todosDatos = Input::except('foto-linea','archivo-linea');
 
 
 		/*objeto del modelo*/
@@ -54,14 +54,16 @@ class ControlLineas extends Controller {
 					->withErrors($validator)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
+
+
 			} 
 			else
 			{
-				$archivo1=$this->guardarArchivos('archivo-linea',$direccion);
-				$entidad->ruta_archivo=$archivo1;
+				$archivo1=$this->guardarArchivos('foto-linea',$direccion);
+				$entidad->foto_linea=$archivo1;
 
-				$archivo2=$this->guardarArchivos('foto-linea',$direccion);
-				$entidad->foto_linea=$archivo2;
+				$archivo2=$this->guardarArchivos('archivo-linea',$direccion);
+				$entidad->ruta_archivo=$archivo2;
 
 				$entidad->save();
 
@@ -82,7 +84,7 @@ class ControlLineas extends Controller {
 				return Redirect::to('formulariolineas')
 
 					->withInput($todosDatos)
-					->with('mensaje_success',"Se ha Guardado");
+					->with('mensaje_success',"La linea ha sido creada");
 				
 			}
 	}
@@ -144,7 +146,7 @@ class ControlLineas extends Controller {
 
 		$direccion = __DIR__."/../../public/archivos_db/lineas/";					
 
-		$todosDatos = Input::except('archivo-linea','foto-linea');
+		$todosDatos = Input::except('foto-linea','archivo-linea');
 
 
 		/*objeto del modelo*/
@@ -190,8 +192,9 @@ class ControlLineas extends Controller {
 				
 				$messages = $validator->messages();
 
+				
 				return Redirect::to('formulariolineas/edit/'.$id."/")
-					->withErrors($validator)
+					->withErrors($messages)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
 			}
@@ -201,18 +204,18 @@ class ControlLineas extends Controller {
 
 				if(Input::get('edicion_foto-linea')=="si")
 				{
-					$archivoF=$this->guardarArchivos('foto-linea',$direccion);
-					$entidad->foto_linea=$archivoF;
+					$archivo1=$this->guardarArchivos('foto-linea',$direccion);
+					$entidad->foto_linea=$archivo1;
 							
 				}	
 			
 				if(Input::get('edicion_dct-linea')=="si")
 				{
-					$archivoF=$this->guardarArchivos('archivo-linea',$direccion);//archivoshtml
-					$entidad->ruta_archivo=$archivoF;
+					$archivo2=$this->guardarArchivos('archivo-linea',$direccion);
+					$entidad->ruta_archivo=$archivo2;
 							
 				}	
-					//echo (Input::get('edicion_dct-linea'));
+					
 					$entidad->save();
 
 				try{
@@ -220,9 +223,7 @@ class ControlLineas extends Controller {
 				}
 
 				catch(PDOException $e)
-					{
-						//return 'existe un error' + $e;
-						
+					{	
 						return Redirect::to('formulariolineas/edit/'.$id)
 						->withInput($todosDatos)
 						->with('mensaje_error',"Error en el servidor.");
