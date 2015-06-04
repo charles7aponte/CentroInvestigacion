@@ -111,6 +111,7 @@
 
 @section('cuerpo') 
 	<div>
+		@if(count($reportegrupo)>0)
 		<div id="titulo-productividad" id="cuadro">		  
           <h2 style="text-align:center;
 			  padding-right: 30px;
@@ -223,6 +224,18 @@
 			</table>
     	</div>
     </fieldset>
-
+    @else
+    <h2 style="font-family: Arial, Helvetica, sans-serif;
+			  font-size: 15px; border-radius: 5px;
+			  border-bottom: 1px solid #F87982;
+			  font-weight: bold;
+			  margin-left: 30px;
+			  margin-right: 640px;
+			  background: none repeat scroll 0 0 #F87982;
+			  padding-top: 5px;
+  			  padding-bottom: 5px;
+  			  padding-left: 10px;
+  			  color: white;">No se encuentran productos Asignados</h2>
+    @endif
 </div>	
 @stop

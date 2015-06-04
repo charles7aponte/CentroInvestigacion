@@ -129,11 +129,12 @@
     </div>
 
     <fieldset>
-    		<div style="width:100%">
+    		@if(count($graficaproyecto)>0)<div style="width:100%">
 	    		<label></label>
 	    		<canvas id="canvas" width="1010px" height="260px" style=" margin-top: 140px;margin-left: 30px;">
 	    	</div>
-	    
+	    	else
+	    	@endif
 	    <div id="colores-graficas">
 	    	<table style="margin-top:14px; margin-left: 49px; border:1px solid #ddd;
 	    		vertical-align: bottom;

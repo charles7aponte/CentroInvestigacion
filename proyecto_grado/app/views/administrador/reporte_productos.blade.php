@@ -95,7 +95,7 @@
 	
 <div>
 
-@if(count($reporteproducto)>0)
+@if(count($reporteproducto)>0 && count($reporteproducto['datos'])>0)
 <div class="btn-group">
     	<button type="button" class="btn btn-default dropdown-toggle"data-toggle="dropdown" style="position: relative;
 		    bottom: -160px;
@@ -233,8 +233,6 @@
 				        			</tr>	
 		        			@endfor
 						@endforeach
-
-        			@endforeach
     			</tbody>
 			</table>
     	</div>

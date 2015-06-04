@@ -4,9 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
 @stop
 
+@section('cuerpo')
 
-@section('cuerpo') 
-	<div>
+<div>
+		@if(count($reportedocente)>0 && count($reportedocente['datos'])>0)
+
 		<div id="titulo-productividad" id="cuadro">  
           <h2 style="text-align:center;
 			  padding-right: 30px;
@@ -105,13 +107,23 @@
 				        			</tr>	
 		        			@endfor
 						@endforeach
-
         			@endforeach
-
     			</tbody>
 			</table>
     	</div>
     </fieldset>
-
+    @else
+    	<h2 style="font-family: Arial, Helvetica, sans-serif;
+			  font-size: 15px; border-radius: 5px;
+			  border-bottom: 1px solid #F87982;
+			  font-weight: bold;
+			  margin-left: 30px;
+			  margin-right: 640px;
+			  background: none repeat scroll 0 0 #F87982;
+			  padding-top: 5px;
+  			  padding-bottom: 5px;
+  			  padding-left: 10px;
+  			  color: white;">No se encuentran Docentes Asignados</h2>
+    @endif
 </div>	
 @stop
