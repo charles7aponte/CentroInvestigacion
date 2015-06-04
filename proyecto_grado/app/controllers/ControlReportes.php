@@ -6,7 +6,7 @@ class ControlReportes extends Controller {
 
 	{
 
-		$lista_tipos_grupo=InvTipoGrupos::all();
+		$lista_tipos_grupo=InvTipoGrupos::where("estado","=","1")->get();
 		$datos_graficas=array();
 
 		foreach ($lista_tipos_grupo as $key => $tipo_grupo) {
@@ -31,25 +31,26 @@ class ControlReportes extends Controller {
 		$generarperiodo=InvPeriodos::all();
 
 
+		if(count($generarperiodo)>0){
+			$periodo=null;
+			if($id_periodo!=null)
+			{
+				$periodo=InvPeriodos::find($id_periodo);
+			}
+			else{
+				$periodo=$generarperiodo[0];
+			}
 
-		$periodo=null;
-		if($id_periodo!=null)
-		{
-			$periodo=InvPeriodos::find($id_periodo);
+			$graficaproyecto=$this->grafica_proyecto_lineas($periodo->codigo_periodo);
+			$proyectolinea = $this->consulta_tablaproyectos($periodo->codigo_periodo);
+						
+			$datos = array('reporteproyectos' =>$proyectolinea,
+							'generarperiodo'=>$generarperiodo,
+							'periodo'=>$periodo,
+							'graficaproyecto'=>$graficaproyecto);
+
+			return View::make("administrador/reportes_proyectos",$datos);
 		}
-		else{
-			$periodo=$generarperiodo[0];
-		}
-
-		$graficaproyecto=$this->grafica_proyecto_lineas($periodo->codigo_periodo);
-		$proyectolinea = $this->consulta_tablaproyectos($periodo->codigo_periodo);
-					
-		$datos = array('reporteproyectos' =>$proyectolinea,
-						'generarperiodo'=>$generarperiodo,
-						'periodo'=>$periodo,
-						'graficaproyecto'=>$graficaproyecto);
-
-		return View::make("administrador/reportes_proyectos",$datos);
 	}
 
 	public function CrearReporteProductos($id_periodo=null)
@@ -106,6 +107,7 @@ class ControlReportes extends Controller {
 				
 					and ig.codigo_grupo=ipg.inv_codigo_grupo 
 					and ig.estado_activacion='1' 
+					and itg.estado='1'
 
 				order by ig.nombre_grupo, itg.tipo_grupo"));
 	
@@ -160,7 +162,8 @@ class ControlReportes extends Controller {
 			and p.cedula=ipg.cedula_persona 	
 			and ig.codigo_grupo=ipg.inv_codigo_grupo
 			and itg.id=$id_tipogrupo
-			and ig.estado_activacion='1' 
+			and itg.estado='1'
+			and ig.estado_activacion='1'
 		group by  itg.tipo_grupo,pf.nombreperfil,iua.nombre_unidad"));
 				
 		$graficagrupos=array();
@@ -209,7 +212,7 @@ class ControlReportes extends Controller {
 				  or(ipa.fecha_inicio>=ip.fecha_proyecto and ipa.fecha_fin<=ip.fecha_finproyecto)
 			      or(ipa.fecha_inicio>=ip.fecha_finproyecto and ip.fecha_finproyecto<=ipa.fecha_fin and ipa.fecha_inicio<=ip.fecha_finproyecto)
 				)
-				and ipa.codigo_periodo=$id_periodo
+				and ipa.codigo_periodo=$id_periodo and il.estado='1'
 
 			group by il.id_lineas,il.nombre_linea,ipa.periodo"));
 				
@@ -236,6 +239,8 @@ class ControlReportes extends Controller {
 
 	public function sql_consulta_tablaproyectos(){
 
+
+
 		$listaProyectoLineas=DB::select(DB::raw("select ip.nombre_proyecto,il.nombre_linea,ipa.periodo,ipa.ano
 			from inv_lineas il, inv_proyectos ip, inv_periodos_academicos ipa
 			where il.id_lineas=ip.inv_id_linea 	
@@ -258,8 +263,8 @@ class ControlReportes extends Controller {
       			and fecha_producto >=fecha_inicio
       			and fecha_producto <=fecha_fin
       			and ip.estado_activacion='1'
-
       			and ipa.codigo_periodo=$id_periodo 
+      			and itp.estado='1'
 
 			order by ipa.ano,ipa.periodo,itp.nombre_tipo_producto,isp.nombre_subtipo_producto,ip.codigo_producto,ip.nombre_producto"));
 		

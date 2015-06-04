@@ -26,8 +26,7 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'creacion_inicio'        => 'required',
 			'creacion_fin'           => 'required',
 			'link-cvlac'			 =>	'required',	
-	);
-
+	);	
 	// reglas validacion edicion...
 	public 	static $reglasValidacionEdicion = array(
 			'profesion' 			 => 'required|max:100|',

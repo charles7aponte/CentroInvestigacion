@@ -190,7 +190,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Excel'			  => 'Maatwebsite\Excel\Facades\Excel',
-		'Excel'			  =>'Maatwebsite\Excel\ExcelServiceProvider'
+		//'Excel'			  =>'Maatwebsite\Excel\ExcelServiceProvider'
 
 	),
 

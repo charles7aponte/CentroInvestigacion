@@ -112,12 +112,11 @@ class ControlInvestigadores extends Controller {
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
-
-				return Redirect::to('formularioinvestigadores')
-					->withErrors($validator)
+			return Redirect::to('formularioinvestigadores')
+					->withErrors($messages)
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
-		} else {
+		} else { 
 					try
 					{
 
@@ -140,7 +139,7 @@ class ControlInvestigadores extends Controller {
 					
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
-								->with('mensaje_success',"El investigador ha sido creado");				
+								->with('mensaje_success',"El investigador ha sido creado");			
 				}
 			
 			}

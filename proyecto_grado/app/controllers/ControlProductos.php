@@ -213,8 +213,8 @@ $nombreUser= User::tipoUsuarioSI(Auth::user());
 			from persona a,inv_grupos b,inv_participacion_grupos as c
 			where 
 				a.cedula=c.cedula_persona and b.codigo_grupo=c.inv_codigo_grupo
-				and ((nombre1||' '||nombre2||' '||apellido1||' '||apellido2) like '%$name%'
-				OR (cedula||'') like '%$name%' )"));  /*esta es la consulta que busca las concidencias con la BD*/
+				and ((trim(nombre1)||' '||trim(nombre2)||' '||trim(apellido1)||' '||trim(apellido2)) ILIKE '%$name%'
+				OR trim(cedula||'') ILIKE '%$name%' )"));  /*esta es la consulta que busca las concidencias con la BD*/
 		
 		return Response::json($listaPersonas);
 	
