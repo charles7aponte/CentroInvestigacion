@@ -233,12 +233,13 @@
 				        			</tr>	
 		        			@endfor
 						@endforeach
+					@endforeach
     			</tbody>
 			</table>
     	</div>
     </fieldset>
-    @else
-    <h2 style="font-family: Arial, Helvetica, sans-serif;
+  	 @else
+    	<h2 style="font-family: Arial, Helvetica, sans-serif;
 			  font-size: 15px; border-radius: 5px;
 			  border-bottom: 1px solid #F87982;
 			  font-weight: bold;
@@ -250,5 +251,6 @@
   			  padding-left: 10px;
   			  color: white;">No se encuentran productos Asignados</h2>
     @endif
+
 </div>		
 @stop
