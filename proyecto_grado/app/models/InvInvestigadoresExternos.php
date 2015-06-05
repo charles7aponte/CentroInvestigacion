@@ -36,6 +36,4 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'creacion_fin'           => 'required',	
 			'link-cvlac'			 =>	'required',	
 	);
-
-
 }

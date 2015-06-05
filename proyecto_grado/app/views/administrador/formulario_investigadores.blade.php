@@ -32,6 +32,7 @@
 
 
 @section('cuerpo')
+
 <div>
     
     <form id="form-investigadores" autocomplete="on" enctype="multipart/form-data"

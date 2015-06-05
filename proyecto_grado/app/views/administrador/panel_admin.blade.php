@@ -235,12 +235,12 @@ switch($mes){
 			<h3><span class="glyphicon glyphicon-user"></span> Administrador</h3>
 				<ul class="toggle">
 					<li class=""><a href="{{URL::to('listadeproductosdocentes')}}">Lista de productos agregados por el usuario docente</a></li>
-					<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
+					<li class=""><a href="{{action('ControlLogin@logOut')}}">Cerrar sesi&oacute;n</a></li>
 				</ul>
 			@else 
 				<h3><span class="glyphicon glyphicon-user"></span> Docente</h3>
 					<ul class="toggle">
-						<li class=""><a href="#">Cerrar sesi&oacute;n</a></li>
+						<li class=""><a href="{{action('ControlLogin@logOut')}}">Cerrar sesi&oacute;n</a></li>
 					</ul>
 		@endif			
 
