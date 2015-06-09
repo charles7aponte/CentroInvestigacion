@@ -97,19 +97,16 @@
   			padding-right: 30px;
   			padding-top: 10px;
   			font-family:Arial, Helvetica, sans-serif;
-  			font-size: 35px;
-  			color: #B40404;
-  			font-weight: bold;
-
+  			color: #122d3e;
   			margin-right: 30px;
   			margin-left: 30px;
-  			text-shadow: 1px 1px 1px #860808;
+  			text-shadow: 1px 1px 1px #AFEEEE;
   			background: none repeat scroll 0 0 #F3F3F3;
   			border-radius: 5px;
   			border-bottom: 1px solid #DCDCDC;
  			width: auto;
  			margin-top:30px;"> 
-          <h2>Productividad Por Unidad Ac&aacute;demica</h2>
+          <h2 style="font-size: 35px;font-weight: bold;">Productividad Por Unidad Ac&aacute;demica</h2>
     	</div>
 
     <fieldset>
@@ -130,11 +127,16 @@
 
    		<div id="tabla-tabulados" style="margin-top:30px;margin-left:130px; margin-right:130px;">
    			<table class="table table-bordered table-hover">
-    			<thead>
-        			<tr style="background:#FE2945">
-			            <th>Tipos</th>
-			            <th>Subtipos</th>
-			            <th>Cantidad</th>
+    			<thead style="border-radius: 5px; background: #1A6D71;
+		                background: -webkit-linear-gradient(top,#1A6D71,#122d3e);
+		                background: -moz-linear-gradient(top,#1A6D71,#122d3e);
+		                background: -o-linear-gradient(top,#1A6D71,#122d3e);  
+		                background: linear-gradient(to bottom,#1A6D71,#122d3e);  
+		                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A6D71, endColorstr=#122d3e); color:white;">
+        			<tr>
+			            <th style="text-align:center;">Tipos</th>
+			            <th style="text-align:center;">Subtipos</th>
+			            <th style="text-align:center;">Cantidad</th>
         			</tr>
     			</thead>
     			<tbody style="background:#FEF6C7">
