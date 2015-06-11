@@ -240,7 +240,7 @@
             <table id="botones-formularios">
                 <thead>
                     <th id="crear">
-                        <button id="agregar-financiamiento" type="button" onclick="eliminarvisualmente()">
+                        <button id="agregar-financiamiento" type="button" onclick="eliminarvisualmente()" style=" height:36px; padding-top:1px;">
                         
                         @if(isset($financiamiento['id_financiacion']))
                             <li class="glyphicon glyphicon-pencil" style="color:rgb(66, 66, 66); font-size: 17px;"></li>
