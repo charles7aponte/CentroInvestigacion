@@ -72,7 +72,7 @@
             @if(isset($campo_lista))
               @foreach ($campo_lista as $campo)
                 @if($campo['estado1']==1 ) 
-                  <tr id="dato_sublinea_{{$campo['numero_convocatoria']}}">
+                  <tr id="dato_convocatoria_{{$campo['numero_convocatoria']}}">
                     <td style="width:100px;">
                       <b>{{$campo['numero_convocatoria']}}</b>
                     </td> 
@@ -88,8 +88,8 @@
                       <a href="formularioconvocatorias/edit/{{$campo['numero_convocatoria']}}" class="button"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
                     </td>
                     <td style="width:93px;">
-                      <b onclick="eliminartipo({{$campo['id_sublinea']}})">
-                      <a href="#" onclick="return fa lse" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                      <b onclick="eliminartipo('{{$campo['numero_convocatoria']}}')">
+                      <a href="#" onclick="return false" class="button"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                     </td>
                   </tr>
                 @endif

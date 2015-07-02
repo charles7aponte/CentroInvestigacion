@@ -30,63 +30,66 @@
 		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
 
+@if(count($reporteproducto)>0 && count($reporteproducto['datos'])>0)
 
-		var listalabel= [
-				
-				@foreach($graficaproducto as $key => $filasubtipos)
-				{
+			var listalabel= [
+					
+					@foreach($graficaproducto as $key => $filasubtipos)
+					{
 
-					label:"{{$filasubtipos->nombre_subtipo_producto}}",
-					fillColor:getColor({{$contadorcolores}}),
-					strokeColor : "rgba(220,220,220,0.8)",
-					highlightFill: getColor({{$contadorcolores}}),
-					highlightStroke:"rgba(220,220,220,1)",
-					data : [{{$filasubtipos->count}}],
+						label:"{{$filasubtipos->nombre_subtipo_producto}}",
+						fillColor:getColor({{$contadorcolores}}),
+						strokeColor : "rgba(220,220,220,0.8)",
+						highlightFill: getColor({{$contadorcolores}}),
+						highlightStroke:"rgba(220,220,220,1)",
+						data : [{{$filasubtipos->count}}],
 
-					<?php 
-					$contadorcolores++;
-					?>
-				},
+						<?php 
+						$contadorcolores++;
+						?>
+					},
 
-				@endforeach
-			];
+					@endforeach
+				];
 
 
 
-		var barChartData = {
-			labels : ["{{$periodo->periodo}}-{{$periodo->ano}}"],
-			datasets :listalabel	
-		
-		}
-				
-		var optiones={
-		responsive : true,
-		   animation: true,
-		   barValueSpacing : 5,
-		   barDatasetSpacing : 1,
-		   tooltipFillColor: "rgba(0,0,0,0.8)",                
-		   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
+			var barChartData = {
+				labels : ["{{$periodo->periodo}}-{{$periodo->ano}}"],
+				datasets :listalabel	
 			
-		};
-		
-		
-		
-			window.onload = function(){
-			var ctx = document.getElementById("canvas").getContext("2d");
-			window.myBar = new Chart(ctx).Bar(barChartData, optiones);
+			}
+					
+			var optiones={
+			responsive : true,
+			   animation: true,
+			   barValueSpacing : 5,
+			   barDatasetSpacing : 1,
+			   tooltipFillColor: "rgba(0,0,0,0.8)",                
+			   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
+				
+			};
+			
+			
+			
+				window.onload = function(){
+				var ctx = document.getElementById("canvas").getContext("2d");
+				window.myBar = new Chart(ctx).Bar(barChartData, optiones);
 
-			var html="";
-			for(var i=0; i< listalabel.length; i++ )
-				{
-					html+="<tr>";
-					html+="<td><div style='width:10px; height:10px;background:"+listalabel[i].fillColor+"'></div></td>";
-					html+="<td>"+listalabel[i].label+"</td>";
-					html+="</tr>";
+				var html="";
+				for(var i=0; i< listalabel.length; i++ )
+					{
+						html+="<tr>";
+						html+="<td><div style='width:10px; height:10px;background:"+listalabel[i].fillColor+"'></div></td>";
+						html+="<td>"+listalabel[i].label+"</td>";
+						html+="</tr>";
 
-				}
+					}
 
-				$("#descripcion-tabla").html(html);
+					$("#descripcion-tabla").html(html);
 		}
+
+	@endif
 	</script>
 	
 @stop
@@ -94,6 +97,7 @@
 @section('cuerpo') 
 	
 <div>
+
 
 @if(count($reporteproducto)>0 && count($reporteproducto['datos'])>0)
 <div class="btn-group">

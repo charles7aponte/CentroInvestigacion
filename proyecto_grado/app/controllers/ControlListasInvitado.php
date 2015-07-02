@@ -81,9 +81,19 @@ class ControlListasInvitado extends Controller {
 		}
 
 		foreach ($paginacion as $key => $lista1) {
-			$nombre_coordinador=Persona::find($lista1->director_grupo);
-			$nombre_coordinador= $nombre_coordinador->nombre1." ".$nombre_coordinador->apellido1." ".$nombre_coordinador->apellido2;
-			$paginacion[$key]->nombre_coordinador_grupo=$nombre_coordinador; 
+
+			//
+			if(is_numeric($lista1->director_grupo))
+			{
+				$nombre_coordinador=Persona::find($lista1->director_grupo);
+				$nombre_coordinador= $nombre_coordinador->nombre1." ".$nombre_coordinador->apellido1." ".$nombre_coordinador->apellido2;
+				$paginacion[$key]->nombre_coordinador_grupo=$nombre_coordinador; 
+			}
+			else{
+				$paginacion[$key]->nombre_coordinador_grupo="";// EN CASO  de existe un error/ el camgpo no existes o esta vacio
+			}
+
+			
 		}
 		
 		$crear_paginacion=$paginacion->links();
