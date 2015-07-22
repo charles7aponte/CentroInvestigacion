@@ -24,8 +24,6 @@ function eliminacionremota(){
     if(data.respuesta)
       {
 
-        alert("-->"+fila_info+ID);
-
         
         $(fila_info+ID).remove();
         if (actualizar_total) {

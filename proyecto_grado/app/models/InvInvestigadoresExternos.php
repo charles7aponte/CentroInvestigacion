@@ -25,9 +25,7 @@ class InvInvestigadoresExternos extends Eloquent  {
 			'numero_contrato'        => 'max:100',
 			'creacion_inicio'        => 'required',
 			'creacion_fin'           => 'required',
-			'link-cvlac'			 =>	'required',
-			'codigo_conv'			=> 'required'
-
+			'link-cvlac'			 =>	'required',	
 	);	
 	// reglas validacion edicion...
 	public 	static $reglasValidacionEdicion = array(

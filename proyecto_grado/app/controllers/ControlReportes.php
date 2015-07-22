@@ -49,48 +49,36 @@ class ControlReportes extends Controller {
 							'periodo'=>$periodo,
 							'graficaproyecto'=>$graficaproyecto);
 
-			
-
-			return View::make("administrador/reportes_proyectos1",$datos);
-
+			return View::make("administrador/reportes_proyectos",$datos);
 		}
-
-		return View::make("administrador/reportes_proyectos1",[]);
-
 	}
 
-
 	public function CrearReporteProductos($id_periodo=null)
+
 	{
 		
 		$generarperiodo=InvPeriodos::all();
-		$tablaproductos=array();
+		$graficaproducto =array();
+
 
 		$periodo=null;
-		if($id_periodo!=null) 
+		if($id_periodo!=null)
 		{
 			$periodo=InvPeriodos::find($id_periodo);
 		}
 		else{
-			if(count($generarperiodo)>0)
-			{
-				$periodo=$generarperiodo[0];
-			}
-			
+			$periodo=$generarperiodo[0];
 		}	
+		
+		$graficaproducto=$this->grafica_producto_subtipo($periodo->codigo_periodo);
+		$tablaproductos = $this->consulta_tablaproductos($periodo->codigo_periodo);
 
-		if($periodo) 
-		{
-			$graficaproducto=$this->grafica_producto_subtipo($periodo->codigo_periodo);
-			$tablaproductos = $this->consulta_tablaproductos($periodo->codigo_periodo);
-	
-		}
-				
 		$datos = array('reporteproducto' =>$tablaproductos,
 						'generarperiodo'=>$generarperiodo,
 						'periodo'=>$periodo,
 						'graficaproducto'=>$graficaproducto);
-
+		
+		//print_r($datos);
 		return View::make("administrador/reporte_productos",$datos);
 	}
 

@@ -109,9 +109,6 @@ class ControlInvestigadores extends Controller {
 
 			$validator = Validator::make(Input::all(), InvInvestigadoresExternos::$reglasValidacion,$messages);
 	
-
-
-	//ok . ayudame por q soy muy tonttio .. por que lado se esta indo . es decir que return? cual es le return resaltalo?
 			if ($validator->fails()) {
 				$messages = $validator->messages();
 
@@ -120,7 +117,7 @@ class ControlInvestigadores extends Controller {
 					->withInput($todosDatos)
 					->with('mensaje_error',"Error al guardar");
 		} else { 
-				//	try
+					try
 					{
 
 						$archivo1=$this-> ArchivosInvestigadores('foto',$direccion);
@@ -131,7 +128,7 @@ class ControlInvestigadores extends Controller {
 						$entidad->save();
 					}
 
-					/*catch(PDOException $e)
+					catch(PDOException $e)
 					{
 						//return 'existe un error' + $e;
 						
@@ -143,7 +140,6 @@ class ControlInvestigadores extends Controller {
 						return Redirect::to('formularioinvestigadores')
 								->withInput($todosDatos)
 								->with('mensaje_success',"El investigador ha sido creado");			
-				*/
 				}
 			
 			}
